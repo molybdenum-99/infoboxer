@@ -1,0 +1,106 @@
+{{Infobox country
+|conventional_long_name = Argentine Republic{{efn-ua|name=altnames|Article 35 of the [[Argentine Constitution]] gives equal recognition to the names "United Provinces of the River Plate", "Argentine Republic" and "Argentine Confederation" and authorizes the use of "Argentine Nation" in the making and enactment of laws.{{sfn|Constitution of Argentina|loc=art. 35}}}}
+|native_name = {{native name|es|República Argentina}}
+|common_name = Argentina
+|image_flag = Flag of Argentina.svg
+|image_coat = Coat of arms of Argentina.svg
+|national_motto = {{unbulleted list
+   |list_style=line-height:125%;
+   | {{native phrase|es|"[[En unión y libertad]]"|nolink=yes|paren=off}}
+   | {{small|("In Unity and Freedom")}}
+ }}
+|national_anthem = {{unbulleted list
+   |item1_style=line-height:125%;
+   |item2_style=line-height:125%;
+   |item3_style=margin-top:4px;
+   | {{native phrase|es|[[Argentine National Anthem|Himno Nacional Argentino]]|nolink=yes|paren=off}}
+   | {{small|("Argentine National Anthem")}}
+   | <center>[[File:Himno Nacional Argentino instrumental.ogg]]</center>
+ }}
+|other_symbol = [[File:Sol de Mayo-Bandera de Argentina.svg|90x90px|alt=Sol de Mayo]]
+|other_symbol_type = {{native name|es|[[Sol de Mayo]]{{sfnm|1a1=Crow|1y=1992|1p=457|1ps=: "In the meantime, while the crowd assembled in the plaza continued to shout its demands at the cabildo, the sun suddenly broke through the overhanging clouds and clothed the scene in brilliant light. The people looked upward with one accord and took it as a favorable omen for their cause. This was the origin of the ″sun of May″ which has appeared in the center of the Argentine flag and on the Argentine coat of arms ever since."|2a1=Kopka|2y=2011|2p=5|2ps=: "The sun's features are those of [[Inti]], the [[Inca]]n sun god. The sun commemorates the appearance of the sun through cloudy skies on May 25, 1810, during the first mass demonstration in favor of independence."}}|nolink=yes|paren=off}}<br>{{small|(Sun of May)}}
+|image_map = Argentina orthographic.svg
+|map_width = 220px
+|map_caption = {{resize|110%|Mainland Argentina shown in dark green, with [[#Foreign relations|territorial claims]] shown in light green}}
+|capital = [[Buenos Aires]]
+|latd=34 |latm=36 |latNS=S |longd=58|longm=23 |longEW=W
+|largest_city = capital
+|official_languages = [[Spanish language|Spanish]]{{ref label|note-lang|a|}}
+|ethnic_groups = {{unbulleted list
+ |
+  | 97% [[Argentines of European descent|European]]
+  | 3% [[Mestizo]], [[Indigenous peoples in Argentina|Amerindian]] and [[Asian Argentine|Asian]]
+ }}
+|
+|demonym = {{unbulleted list
+  |[[Argentine people|Argentine]]
+  |[[Argentine people|Argentinian]]
+  |{{nowrap|[[Argentine people|Argentinean]] {{small|(uncommon)}}}}
+ }}
+|government_type = [[Federal republic|Federal]] [[Presidential system|presidential]] [[constitutional republic]]
+|leader_title1 = [[President of Argentina|President]]
+|leader_name1 = [[Cristina Fernández de Kirchner]]
+|leader_title2 = [[Vice President of Argentina|Vice President]]
+|leader_name2 = [[Amado Boudou]]
+|leader_title3 = [[Supreme Court of Argentina|Supreme Court President]]
+|leader_name3 = [[Ricardo Lorenzetti]]
+|legislature = [[Argentine National Congress|Congress]]
+|upper_house = [[Argentine Senate|Senate]]
+|lower_house = [[Argentine Chamber of Deputies|Chamber of Deputies]]
+|sovereignty_type = [[Argentine War of Independence|Independence]]
+|sovereignty_note = from [[Spanish Empire|Spain]]
+|established_event1 = [[May Revolution]]
+|established_date1 = 25 May 1810
+|established_event2 = [[Argentine Declaration of Independence|Declared]]
+|established_date2 = 9 July 1816
+|established_event3 = {{nowrap|[[Argentine Constitution|Constitution]]}}
+|established_date3 = 1 May 1853
+|established_event4 = {{nowrap|[[Diplomatic recognition|Recognized]]}}
+|established_date4 = 29 April 1857
+|area_rank = 8th
+|area_magnitude = 1_E12
+|area_km2 = 2780400
+|area_footnote = {{efn-ua|name=excl_area|Area does not include territorial claims in [[Argentine Antarctica#Argentine claim|Antarctica]] (965,597 km{{smallsup|2}}, including the [[South Orkney Islands]]), the [[Falkland Islands]] (11,410 km{{smallsup|2}}), the [[South Georgia Island|South Georgia]] (3,560 km{{smallsup|2}}) and the [[South Sandwich Islands]] (307 km{{smallsup|2}}).<ref name=totalpop>{{cite web|url=http://www.indec.mecon.ar/nuevaweb/cuadros/2/f020202.xls|format=XLS|title=Población por sexo e índice de masculinidad. Superficie censada y densidad, según provincia. Total del país. Año 2010|work=Censo Nacional de Población, Hogares y Viviendas 2010|publisher=INDEC – Instituto Nacional de Estadística y Censos|place=Buenos Aires|year=2010|language=Spanish|archiveurl=http://web.archive.org/web/20140608011356/http://www.indec.mecon.ar/nuevaweb/cuadros/2/f020202.xls|archivedate=8 June 2014|deadurl=no}}</ref>}}
+|percent_water = 1.57
+|population_estimate = 42,669,500<ref name=proypop>{{cite web|url=http://www.indec.mecon.ar/nuevaweb/cuadros/2/c1_proyecciones_nac_2010_2040.xls|format=XLS|title=Cuadro 1. Población estimada al 1 de julio de cada año calendario por sexo. Total del país. Años 2010–2040|work=Censo Nacional de Población, Hogares y Viviendas 2010|publisher=INDEC – Instituto Nacional de Estadística y Censos|place=Buenos Aires|year=2010|language=Spanish|archiveurl=http://web.archive.org/web/20140608011629/http://www.indec.mecon.ar/nuevaweb/cuadros/2/c1_proyecciones_nac_2010_2040.xls|archivedate=8 June 2014|deadurl=no}}</ref>
+|population_estimate_rank =
+|population_estimate_year = 2014
+|population_census = 40,117,096<ref name=totalpop/>
+|population_census_year = 2010
+|population_census_rank = 32nd
+|population_density_km2 = 14.4
+|population_density_rank = 212th
+|pop_den_footnote = <ref name=totalpop/>
+|GDP_PPP = $953.029 billion<ref name=imf2>{{cite web|url=http://www.imf.org/external/pubs/ft/weo/2015/01/weodata/weorept.aspx?sy=2013&ey=2020&scsm=1&ssd=1&sort=country&ds=.&br=1&c=213&s=NGDPD%2CNGDPDPC%2CPPPGDP%2CPPPPC&grp=0&a=&pr.x=68&pr.y=6|title=Argentina|work= World Economic Outlook Database |date=April 2015 |publisher=International Monetary Fund |accessdate=30 April 2015}}</ref>
+|GDP_PPP_rank = 25th
+|GDP_PPP_year = 2015
+|GDP_PPP_per_capita = $22,459<ref name=imf2/>
+|GDP_PPP_per_capita_rank = 57th
+|GDP_nominal = $563.138 billion<ref name=imf2/>
+|GDP_nominal_rank = 21st
+|GDP_nominal_year = 2015
+|GDP_nominal_per_capita = $13,271<ref name=imf2/>
+|GDP_nominal_per_capita_rank = 54th
+|Gini_year = 2011 <!-- use the year to which the data refers, not the publication year-->
+|Gini_change = decrease <!--increase/decrease/steady-->
+|Gini = 43.6 <!--number only-->
+|Gini_ref = <ref name=gini>{{cite web |url=http://data.worldbank.org/indicator/SI.POV.GINI |title= GINI index (World Bank estimate) |publisher= World Bank |accessdate= 19 February 2015}}</ref>
+|Gini_rank =
+|HDI_year = 2013 <!-- use the year to which the data refers, not the publication year-->
+|HDI_change = increase <!--increase/decrease/steady-->
+|HDI = 0.808 <!--number only-->
+|HDI_ref = <ref name=hdi>{{cite web|url=http://hdr.undp.org/sites/default/files/hdr14-summary-en.pdf|title=Human Development Report 2014 – Summary|format=PDF|publisher=United Nations Development Programme|place=New York, NY, USA|year=2014|pages=15, 16|archiveurl=http://web.archive.org/web/20140727205555/http://hdr.undp.org/sites/default/files/hdr14-summary-en.pdf|archivedate=27 July 2014|deadurl=no}}</ref>
+|HDI_rank = 49th
+|currency = [[Argentine peso|Peso]] ([[Dollar sign|$]])
+|currency_code = ARS
+|time_zone = [[Time in Argentina|ART]]
+|utc_offset = −3
+|date_format = dd.mm.yyyy ([[Common Era|CE]])
+|drives_on = right{{ref label|note-train|b|}}
+|calling_code = [[+54]]
+|cctld = [[.ar]]
+|footnote_a = {{note|note-lang}}''[[De facto]]'' at all government levels.{{efn-ua|name=es|Though not declared official ''[[de jure]]'', the Spanish language is the only one used in the wording of laws, decrees, resolutions, official documents and public acts.}} In addition, some provinces have official ''[[de jure]]'' languages:
+:{{,}}[[Guaraní language|Guaraní]] in [[Corrientes Province]].<ref name=gn>{{cite Argentine law|jur=CN|l=5598|date=22 de octubre de 2004}}</ref>
+:{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
+|footnote_b = {{note|note-train}}Trains ride on left.
+}}

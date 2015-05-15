@@ -40,7 +40,6 @@ module Infoboxer
           pre(current)
         when '' # blank line = space between paragraphs/lists
           @nodes.last.closed!
-        when false
         else
           para(current)
         end
@@ -96,7 +95,7 @@ module Infoboxer
 
     # Basic internals --------------------------------------------------
     def inline(str)
-      InlineParser.new(str).parse
+      InlineParser.new(str, @lines).parse
     end
     
     def node(klass, *arg)

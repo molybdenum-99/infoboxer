@@ -50,6 +50,9 @@ module Infoboxer
         end
         ensure_text!
         @nodes
+      rescue => e
+        raise e.exception("Error while parsing #{@str}: #{e.message}").
+          tap{|e_| e_.set_backtrace(e.backtrace)}
       end
 
       private
@@ -81,12 +84,13 @@ module Infoboxer
             
             break if level.zero?
           when nil
+            
             # not finished on this line, look at next
             @next_lines.empty? and fail("Can't find #{after} for #{before}, #{res}")
             scanner << "\n" << @next_lines.shift
           end
         end
-        res.sub(/#{after}$/, '')
+        res.sub(/#{after}\Z/, '')
       end
 
       def image(str)

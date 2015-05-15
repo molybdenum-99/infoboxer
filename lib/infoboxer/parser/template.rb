@@ -23,10 +23,19 @@ module Infoboxer
       def parse_variables
         strings = []
         level = 0
+        link_level = 0
         @inside_value = false
+
         loop do
-          s = scanner.scan_until(/{{|}}|\|/)
+          s = scanner.scan_until(/\[\[|\]\]|{{|}}|\|/)
           case scanner.matched
+          when '[['
+            push_string(strings, s)
+            link_level += 1
+            @inside_value = true
+          when ']]'
+            push_string(strings, s)
+            link_level -= 1
           when '{{'
             push_string(strings, s)
             level += 1
@@ -35,7 +44,7 @@ module Infoboxer
             push_string(strings, s)
             level -= 1
           when '|'
-            if level > 0
+            if level > 0 || link_level > 0
               push_string(strings, s)
             else
               push_string(strings, s.sub('|', ''))
@@ -46,11 +55,11 @@ module Infoboxer
             break
           end
         end
-        strings.reject(&:empty?).map{|s| parse_variable(s)}
+        strings.map(&:strip).reject(&:empty?).map{|s| parse_variable(s)}
       end
 
       def parse_variable(s)
-        if s =~ /^\s*(\S+)\s*=\s*(.*)/
+        if s =~ /\A\s*(\S+)\s*=\s*(.*)\Z/m
           name, val = $1, $2
           {name.to_sym => parse_value(val)}
         else
@@ -60,7 +69,9 @@ module Infoboxer
 
       def parse_value(s)
         s = s.strip
-        s.include?("\n") ? Parser.new(s).parse : InlineParser.new(s).parse
+        s.include?("\n") ?
+          Parser.new(s).parse.children :
+          InlineParser.new(s).parse
       end
 
       def push_string(strings, str)

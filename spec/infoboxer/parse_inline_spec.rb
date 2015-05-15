@@ -173,8 +173,21 @@ module Infoboxer
               its(:name){should == 'the name'}
               its(:variables){should == [{lang: []}]}
             end
-          end
 
+            context 'with link in arguments' do
+              let(:source){ '{{the name|[[Argentina|Ar]]}}' }
+
+              it{should be_a(Parser::Template)}
+              its(:name){should == 'the name'}
+              its(:variables){should == [[Parser::Wikilink.new('Argentina', 'Ar')]]}
+            end
+
+            context 'and now for really sick stuff!' do
+              let(:source){ File.read('spec/fixtures/large_infobox.txt') }
+              it{should be_a(Parser::Template)}
+              its(:"variables.count"){should == 87}
+            end
+          end
 
           # TODO: and also it would be URL of image page, NOT image itself
           # image itself will be http://upload.wikimedia.org/wikipedia/commons/f/f4/SantaCruz-CuevaManos-P2210651b.jpg
@@ -225,7 +238,6 @@ module Infoboxer
         its(:path){should == 'Diplomatic missions of Argentina.png'}
         its(:width){should == 250}
         it 'should have a caption ' do
-          p subject.caption
           expect(subject.caption.map(&:class)).to eq \
             [Parser::Text, Parser::HTMLTag]
         end

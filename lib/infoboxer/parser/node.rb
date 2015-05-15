@@ -4,6 +4,8 @@ require 'htmlentities'
 module Infoboxer
   class Parser
     class Node
+      include ProcMe
+      
       def initialize(text = '')
         @text = text
       end
@@ -29,6 +31,10 @@ module Infoboxer
 
       def _eq(other)
         text == other.text
+      end
+
+      def to_tree(level = 0)
+        '  ' * level + "#{text}   <#{clean_class}>\n"
       end
     end
 
@@ -91,7 +97,7 @@ module Infoboxer
       end
 
       def merge!(other)
-        @text += other.text # Temp
+        @children.concat(other.children)
         @closed = other.closed?
       end
 
@@ -101,6 +107,10 @@ module Infoboxer
 
       def closed?
         @closed
+      end
+
+      def to_tree(level = 0)
+        super(level) + children.map(&call(to_tree: level+1)).join
       end
     end
 
@@ -202,6 +212,22 @@ module Infoboxer
 
       def inspect
         "#<#{clean_class}:#{name}#{variables}>"
+      end
+
+      def to_tree(level = 0)
+        '  ' * level + "#{clean_class}:#{name}\n" +
+          variables.map{|v| var_to_tree(v, level+1)}.join
+      end
+
+      def var_to_tree(var, level)
+        case var
+        when Hash
+          '  ' * level + "| #{var.keys.first}\n" +
+            var.values.first.map{|v| v.to_tree(level+1)}.join
+        when Nodes
+          '  ' * level + "|\n" +
+            var.map{|v| v.to_tree(level+1)}.join
+        end
       end
     end
 
