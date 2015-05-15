@@ -3,13 +3,14 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser::InlineParser do
-    def parse_inline(text)
-      described_class.new(text).parse
+    def parse_inline(*arg)
+      described_class.new(*arg).parse
     end
 
     describe 'simple inline markup' do
       describe 'one item' do
-        subject{parse_inline(source).first}
+        let(:node){parse_inline(source).first}
+        subject{node}
 
         context 'when just text' do
           let(:source){'just text'}
@@ -125,7 +126,54 @@ module Infoboxer
           its(:type){should == 'thumb'}
           its(:width){should == 200}
           its(:alt){should == "Stencilled hands on the cave's wall"}
-          its(:caption){should be_a(Parser::Nodes)}
+
+          describe 'caption' do
+            subject{node.caption}
+            it{should be_a(Parser::Nodes)}
+            it 'should preserve all data' do
+              expect(subject.map(&:class)).to eq [Parser::Text, Parser::Wikilink, Parser::Text, Parser::Wikilink, Parser::Text]
+              expect(subject.map(&:text)).to eq [
+                'The ',
+                'Cave of the Hands',
+                ' in ',
+                'Santa Cruz province',
+                ', with indigenous artwork dating from 13,000–9,000 years ago'
+              ]
+            end
+          end
+
+          context 'when template' do
+            context 'simplest' do
+              let(:source){ '{{the name}}' }
+
+              it{should be_a(Parser::Template)}
+              its(:name){should == 'the name'}
+            end
+
+            context 'with unnamed parameter' do
+              let(:source){ '{{the name|en}}' }
+
+              it{should be_a(Parser::Template)}
+              its(:name){should == 'the name'}
+              its(:variables){should == [[Parser::Text.new('en')]]}
+            end
+
+            context 'with named parameter' do
+              let(:source){ '{{the name|lang=en}}' }
+
+              it{should be_a(Parser::Template)}
+              its(:name){should == 'the name'}
+              its(:variables){should == [{lang: [Parser::Text.new('en')]}]}
+            end
+
+            context 'with empty parameter' do
+              let(:source){ '{{the name|lang=}}' }
+
+              it{should be_a(Parser::Template)}
+              its(:name){should == 'the name'}
+              its(:variables){should == [{lang: []}]}
+            end
+          end
 
 
           # TODO: and also it would be URL of image page, NOT image itself
@@ -159,6 +207,29 @@ module Infoboxer
     end
 
     describe 'inline markup spanning for several lines' do
+      describe 'image' do
+        # also real-life example!
+        let(:start){
+          %q{[[File:Diplomatic missions of Argentina.png|thumb|250px|Argentine diplomatic missions:}
+        }
+        let(:next_lines){[
+          '<div style="font-size:90%;">',
+          '{{legend4|#22b14c|Argentina}}',
+          '{{legend4|#2f3699|Nations hosting a resident diplomatic mission}}',
+          '{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}',
+          '</div>]]'
+        ]}
+        subject{parse_inline(start, next_lines).first}
+
+        it{should be_a(Parser::Image)}
+        its(:path){should == 'Diplomatic missions of Argentina.png'}
+        its(:width){should == 250}
+        it 'should have a caption ' do
+          p subject.caption
+          expect(subject.caption.map(&:class)).to eq \
+            [Parser::Text, Parser::HTMLTag]
+        end
+      end
     end
   end
 end

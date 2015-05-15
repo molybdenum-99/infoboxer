@@ -9,6 +9,12 @@ module Infoboxer
       end
 
       attr_reader :children
+
+      def inlinify
+        children.count == 1 && children.first.is_a?(Paragraph) ?
+          children.first.children :
+          children
+      end
     end
 
     class Nodes < Array
@@ -53,18 +59,18 @@ module Infoboxer
 
     # Paragraph-level nodes DSL ----------------------------------------
     def para(str)
-      node(Paragraph, str)
+      node(Paragraph, inline(str))
     end
 
     def heading(str)
       level, text = str.scan(/^(={2,})\s*(.+?)(?:\s*=+)?$/).flatten
-      node(Heading, text, level.length)
+      node(Heading, inline(text), level.length)
     end
 
     # TODO: list type
     def list(str)
       marker, text = str.scan(/^([*\#:]+)\s*(.+?)$/).flatten
-      node(ListItem, text, marker)
+      node(ListItem, inline(text), marker)
     end
 
     def pre(str)
@@ -73,6 +79,8 @@ module Infoboxer
 
     # Post-processing --------------------------------------------------
     def merge_nodes!
+      return if @nodes.count < 2
+      
       merged = [@nodes.first]
 
       @nodes[1..-1].each do |node|
@@ -87,6 +95,10 @@ module Infoboxer
     end
 
     # Basic internals --------------------------------------------------
+    def inline(str)
+      InlineParser.new(str).parse
+    end
+    
     def node(klass, *arg)
       @nodes << klass.new(*arg)
     end

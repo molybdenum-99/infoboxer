@@ -1,5 +1,6 @@
 # encoding: utf-8
 require_relative './image'
+require_relative './template'
 
 # http://www.mediawiki.org/wiki/Help:Formatting
 module Infoboxer
@@ -36,7 +37,7 @@ module Infoboxer
           when '['
             external_link(scan(/\[/, /\]/))
           when '{{'
-            node(Template, scan(/{{/, /}}/))
+            template(scan(/{{/, /}}/))
           when '{|'
             node(Table, scan(/{\|/, /\|}/))
           when '<'
@@ -70,25 +71,30 @@ module Infoboxer
 
         loop do
           str = scanner.scan_until(before_or_after)
-          res << str.sub(scanner.matched, '') if str
+          res << str if str
 
           case scanner.matched
           when before
             level += 1
           when after
             level -= 1
+            
             break if level.zero?
           when nil
             # not finished on this line, look at next
             @next_lines.empty? and fail("Can't find #{after} for #{before}, #{res}")
-            scanner << @nextlines.shift
+            scanner << "\n" << @next_lines.shift
           end
         end
-        res
+        res.sub(/#{after}$/, '')
       end
 
       def image(str)
         node(Image, *ImageParser.new(str).parse)
+      end
+
+      def template(str)
+        node(Template, *TemplateParser.new(str).parse)
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#Wikilinks
@@ -129,7 +135,7 @@ module Infoboxer
           arguments = scanner.scan(/[^>]+/)
           scanner.skip(/>/)
           if (contents = scanner.scan_until(/<\/#{tag}>/))
-            node(HTMLTag, tag, arguments, inline(contents))
+            node(HTMLTag, tag, arguments, inline(contents.sub("</#{tag}>", '')))
           else
             node(HTMLOpeningTag, tag, arguments)
           end

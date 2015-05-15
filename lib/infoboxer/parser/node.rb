@@ -22,6 +22,14 @@ module Infoboxer
       def clean_class
         self.class.name.sub(/^.*::/, '')
       end
+
+      def ==(other)
+        self.class == other.class && _eq(other)
+      end
+
+      def _eq(other)
+        text == other.text
+      end
     end
 
     class HR < Node
@@ -181,6 +189,19 @@ module Infoboxer
 
       def inspect
         "#<#{clean_class}:#{tag}>"
+      end
+    end
+
+    # Templates --------------------------------------------------------
+    class Template < Node
+      def initialize(name, variables)
+        @name, @variables = name, variables
+      end
+
+      attr_reader :name, :variables
+
+      def inspect
+        "#<#{clean_class}:#{name}#{variables}>"
       end
     end
 

@@ -31,14 +31,21 @@ module Infoboxer
         @inside_caption = false
         strings = []
         loop do
-          s = scanner.scan_until(/\||\[\[/)
+          s = scanner.scan_until(/\||\[\[|{{/)
           case scanner.matched
           when '[['
             # start of link inside caption - it CAN contain | symbol
-            link_contents = scn.can_until(']]') or
-              fail("Something went wrong: unbalanced parens inside image #{str}")
+            link_contents = scanner.scan_until(/\]\]/) or
+              fail("Something went wrong: unbalanced parens inside image #{scanner.rest}")
 
-            push_string(strings, s + link_content)
+            push_string(strings, s + link_contents)
+            @inside_caption = true
+          when '{{'
+            # start of template inside caption - it CAN contain | symbol
+            template_contents = scanner.scan_until(/\}\}/) or
+              fail("Something went wrong: unbalanced parens inside image #{scanner.rest}")
+
+            push_string(strings, s + template_contents)
             @inside_caption = true
           when '|'
             push_string(strings, s.sub('|', ''))
