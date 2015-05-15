@@ -1,7 +1,7 @@
 # encoding: utf-8
-#
+require_relative './image'
+
 # http://www.mediawiki.org/wiki/Help:Formatting
-#
 module Infoboxer
   class Parser
     class InlineParser
@@ -27,10 +27,12 @@ module Infoboxer
             node(Bold, inline(scan_simple(/'''/)))
           when "''"
             node(Italic, inline(scan_simple(/''/)))
-          when /\[\[(Image|File):/
-            image(scan(/\[\[/, /\]\]/))
           when '[['
-            wikilink(scan(/\[\[/, /\]\]/))
+            if scanner.check(/(Image|File):/)
+              image(scan(/\[\[/, /\]\]/))
+            else
+              wikilink(scan(/\[\[/, /\]\]/))
+            end
           when '['
             external_link(scan(/\[/, /\]/))
           when '{{'
@@ -86,7 +88,7 @@ module Infoboxer
       end
 
       def image(str)
-        node(Image, parse_image(str))
+        node(Image, *ImageParser.new(str).parse)
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#Wikilinks

@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'procme'
+
 module Infoboxer
   class Parser
     class Document

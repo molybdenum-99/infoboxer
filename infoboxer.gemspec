@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'htmlentities'
+  s.add_dependency 'procme'
 
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rspec-its', '~> 1'

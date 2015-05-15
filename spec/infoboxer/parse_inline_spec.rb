@@ -1,4 +1,4 @@
-# encoding; utf-8
+# encoding: utf-8
 require 'infoboxer/parser'
 
 module Infoboxer
@@ -111,6 +111,28 @@ module Infoboxer
             it{should be_a(Parser::HTMLClosingTag)}
             its(:tag){should == 'strike'}
           end
+        end
+
+        context 'when image' do
+          let(:source){
+            # real example from http://en.wikipedia.org/wiki/Argentina
+            # I love you, Wikipedia!!!!
+            %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px|The [[Cueva de las Manos|Cave of the Hands]] in [[Santa Cruz province, Argentina|Santa Cruz province]], with indigenous artwork dating from 13,000–9,000 years ago|alt=Stencilled hands on the cave's wall]]}
+          }
+
+          it{should be_a(Parser::Image)}
+          its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
+          its(:type){should == 'thumb'}
+          its(:width){should == 200}
+          its(:alt){should == "Stencilled hands on the cave's wall"}
+          its(:caption){should be_a(Parser::Nodes)}
+
+
+          # TODO: and also it would be URL of image page, NOT image itself
+          # image itself will be http://upload.wikimedia.org/wikipedia/commons/f/f4/SantaCruz-CuevaManos-P2210651b.jpg
+          # and thumbnail will be http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/SantaCruz-CuevaManos-P2210651b.jpg/200px-SantaCruz-CuevaManos-P2210651b.jpg
+          # not sure, if it can be guessed somehow
+          #its(:url){should == 'http://en.wikipedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg'
         end
 
         # TODO: check what we do with incorrect markup

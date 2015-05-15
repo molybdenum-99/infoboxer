@@ -106,6 +106,46 @@ module Infoboxer
     class BoldItalic < Compound
     end
 
+    class Image < Node
+      def initialize(path, attrs = {})
+        @path, @attrs = path, attrs
+      end
+
+      attr_reader :path, :attrs
+
+      def type
+        attrs[:type]
+      end
+      def border?
+        !attrs[:border].to_s.empty?
+      end
+      def location
+        attrs[:location]
+      end
+      def alignment
+        attrs[:alignment]
+      end
+      def width
+        attrs[:width].to_i
+      end
+      def height
+        attrs[:height].to_i
+      end
+      def link
+        attrs[:linkd]
+      end
+      def alt
+        attrs[:alt]
+      end
+      def caption
+        attrs[:caption] || Nodes.new
+      end
+
+      def inspect
+        "#<#{clean_class}: #{path} (#{attrs.inspect})>"
+      end
+    end
+
     # HTML -------------------------------------------------------------
     class HTMLTag < Compound
       def initialize(tag, attrs, children = Nodes.new)
