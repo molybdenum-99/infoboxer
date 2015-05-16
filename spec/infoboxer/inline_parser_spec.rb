@@ -142,60 +142,12 @@ module Infoboxer
             end
           end
 
-          context 'when template' do
-            context 'simplest' do
-              let(:source){ '{{the name}}' }
-
-              it{should be_a(Parser::Template)}
-              its(:name){should == 'the name'}
-            end
-
-            context 'with unnamed parameter' do
-              let(:source){ '{{the name|en}}' }
-
-              it{should be_a(Parser::Template)}
-              its(:name){should == 'the name'}
-              its(:variables){should == [[Parser::Text.new('en')]]}
-            end
-
-            context 'with named parameter' do
-              let(:source){ '{{the name|lang=en}}' }
-
-              it{should be_a(Parser::Template)}
-              its(:name){should == 'the name'}
-              its(:variables){should == [{lang: [Parser::Text.new('en')]}]}
-            end
-
-            context 'with empty parameter' do
-              let(:source){ '{{the name|lang=}}' }
-
-              it{should be_a(Parser::Template)}
-              its(:name){should == 'the name'}
-              its(:variables){should == [{lang: []}]}
-            end
-
-            context 'with link in arguments' do
-              let(:source){ '{{the name|[[Argentina|Ar]]}}' }
-
-              it{should be_a(Parser::Template)}
-              its(:name){should == 'the name'}
-              its(:variables){should == [[Parser::Wikilink.new('Argentina', 'Ar')]]}
-            end
-
-            context 'and now for really sick stuff!' do
-              let(:source){ File.read('spec/fixtures/large_infobox.txt') }
-              it{should be_a(Parser::Template)}
-              its(:"variables.count"){should == 87}
-            end
-          end
-
           # TODO: and also it would be URL of image page, NOT image itself
           # image itself will be http://upload.wikimedia.org/wikipedia/commons/f/f4/SantaCruz-CuevaManos-P2210651b.jpg
           # and thumbnail will be http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/SantaCruz-CuevaManos-P2210651b.jpg/200px-SantaCruz-CuevaManos-P2210651b.jpg
           # not sure, if it can be guessed somehow
           #its(:url){should == 'http://en.wikipedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg'
         end
-
         # TODO: check what we do with incorrect markup
       end
 
@@ -241,6 +193,56 @@ module Infoboxer
           expect(subject.caption.map(&:class)).to eq \
             [Parser::Text, Parser::HTMLTag]
         end
+      end
+    end
+
+    context 'when template' do
+      let(:node){parse_inline(source).first}
+      subject{node}
+
+      context 'simplest' do
+        let(:source){ '{{the name}}' }
+
+        it{should be_a(Parser::Template)}
+        its(:name){should == 'the name'}
+      end
+
+      context 'with unnamed parameter' do
+        let(:source){ '{{the name|en}}' }
+
+        it{should be_a(Parser::Template)}
+        its(:name){should == 'the name'}
+        its(:variables){should == [[Parser::Text.new('en')]]}
+      end
+
+      context 'with named parameter' do
+        let(:source){ '{{the name|lang=en}}' }
+
+        it{should be_a(Parser::Template)}
+        its(:name){should == 'the name'}
+        its(:variables){should == [{lang: [Parser::Text.new('en')]}]}
+      end
+
+      context 'with empty parameter' do
+        let(:source){ '{{the name|lang=}}' }
+
+        it{should be_a(Parser::Template)}
+        its(:name){should == 'the name'}
+        its(:variables){should == [{lang: []}]}
+      end
+
+      context 'with link in arguments' do
+        let(:source){ '{{the name|[[Argentina|Ar]]}}' }
+
+        it{should be_a(Parser::Template)}
+        its(:name){should == 'the name'}
+        its(:variables){should == [[Parser::Wikilink.new('Argentina', 'Ar')]]}
+      end
+
+      context 'and now for really sick stuff!' do
+        let(:source){ File.read('spec/fixtures/large_infobox.txt') }
+        it{should be_a(Parser::Template)}
+        its(:"variables.count"){should == 87}
       end
     end
   end
