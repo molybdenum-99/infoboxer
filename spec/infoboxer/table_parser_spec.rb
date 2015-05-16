@@ -70,6 +70,24 @@ module Infoboxer
           end
         end
       end
+
+      context 'multiline with template' do
+        let(:source){%Q{
+          {|
+          |one||two {{template
+          |it's content}}
+          |}
+        }}
+
+        its(:count){should == 2}
+        describe 'last cell' do
+          subject{cells.last}
+          it 'should do bad things with next lines!' do
+            expect(subject.children.map(&:class)).to eq \
+              [Parser::Text, Parser::Template]
+          end
+        end
+      end
     end
 
     describe 'multiple rows' do
@@ -263,6 +281,11 @@ module Infoboxer
     end
 
     describe 'tables, Karl!' do
+      # From
+      # http://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems#General_information
+      let(:source){File.read('spec/fixtures/large_table.txt')}
+      subject{parse_table(source)}
+      its(:"rows.count"){should == 61}
     end
   end
 end

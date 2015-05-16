@@ -76,24 +76,44 @@ module Infoboxer
 
       private
 
+      include Commons
+
+      def push_cell(cells, str, continued)
+        if continued
+          cells.last << str
+        else
+          cells << str
+        end
+      end
+
       def parse_cells(str, cell_class = Parser::TableCell)
         start_row! unless @current_row
         cells = []
         params = []
         param_str = ''
+        continued = false
         
         scan = StringScanner.new(str)
         loop do
-          str = scan.scan_until(/\|\||\|/)
+          str = scan.scan_until(/{{|\[\[|\|\||\|/)
           case scan.matched
+          when '{{'
+            push_cell(cells, str, continued)
+            cells.last << scan_continued(scan, /{{/, /}}/, @lines) << '}}'
+            continued = true
+          when '[['
+            push_cell(cells, str, continued)
+            cells.last << scan_continued(scan, /\[\[/, /\]\]/, @lines) << ']]'
+            continued = true
           when '||'
-            cells << str.sub('||', '')
+            push_cell(cells, str.sub('||', ''), continued)
             params << param_str
             param_str = ''
+            continued = false
           when '|'
             param_str = str.sub('|', '')
           when nil
-            cells << scan.rest
+            push_cell(cells, scan.rest, continued)
             params << param_str
             break
           end
@@ -162,6 +182,33 @@ module Infoboxer
         @current_row = Parser::TableRow.new
         @is_caption = false
         @multiline = ''
+      end
+
+      def scan(before, after)
+        res = ''
+        level = 1
+
+        before_or_after = Regexp.union(before, after)
+
+        loop do
+          str = scanner.scan_until(before_or_after)
+          res << str if str
+
+          case scanner.matched
+          when before
+            level += 1
+          when after
+            level -= 1
+            
+            break if level.zero?
+          when nil
+            
+            # not finished on this line, look at next
+            @next_lines.empty? and fail("Can't find #{after} for #{before}, #{res}")
+            scanner << "\n" << @lines.shift
+          end
+        end
+        res.sub(/#{after}\Z/, '')
       end
     end
   end

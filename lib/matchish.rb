@@ -1,4 +1,8 @@
 # encoding: utf-8
+#
+# Pattern-matching library
+# VERY experimental. SUCH untested. WOW
+#
 module Matchish
   class << self
     attr_accessor :last_match

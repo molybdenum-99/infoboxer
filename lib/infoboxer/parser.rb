@@ -105,6 +105,7 @@ module Infoboxer
   end
 end
 
+require_relative 'parser/commons'
 require_relative 'parser/node'
 require_relative 'parser/inline'
 require_relative 'parser/table'
