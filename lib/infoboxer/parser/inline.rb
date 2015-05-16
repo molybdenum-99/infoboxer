@@ -32,18 +32,14 @@ module Infoboxer
             node(Bold, inline(scan_simple(/'''/)))
           when "''"
             node(Italic, inline(scan_simple(/''/)))
+          when '[['.matchish.guard{ scanner.check(/(Image|File):/) }
+            image(scan(/\[\[/, /\]\]/))
           when '[['
-            if scanner.check(/(Image|File):/)
-              image(scan(/\[\[/, /\]\]/))
-            else
-              wikilink(scan(/\[\[/, /\]\]/))
-            end
+            wikilink(scan(/\[\[/, /\]\]/))
           when '['
             external_link(scan(/\[/, /\]/))
           when '{{'
             template(scan(/{{/, /}}/))
-          when '{|'
-            node(Table, scan(/{\|/, /\|}/))
           when '<'
             try_html ||
               @text << match # it was not HTML, just accidental <

@@ -21,6 +21,10 @@ module Infoboxer
     class Nodes < Array
     end
 
+    def self.parse(text)
+      new(text).parse
+    end
+
     def initialize(text)
       @lines = text.split(/\r?\n/m)
       @nodes = Nodes.new
@@ -33,7 +37,10 @@ module Infoboxer
         case current
         when /^={2,}/
           heading(current)
-        when /^[\*\#:]./
+        when /^\s*{\|/
+          @lines.unshift(current)
+          table # it will parse lines, including current
+        when /^[\*\#:;]./
           list(current)
         when /^-{4,}/
           node(HR)
@@ -74,7 +81,11 @@ module Infoboxer
     end
 
     def pre(str)
-      node(Pre, str.sub(/^ /, ''))
+      node(Pre, [Parser::Text.new(str.sub(/^ /, ''))])
+    end
+
+    def table
+      @nodes << TableParser.parse(@lines)
     end
 
     # Post-processing --------------------------------------------------

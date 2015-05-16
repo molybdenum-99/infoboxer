@@ -4,7 +4,7 @@ require 'infoboxer/parser'
 module Infoboxer
   describe Parser do
     def parse(text)
-      described_class.new(text).parse
+      described_class.parse(text)
     end
     
     describe 'basics' do
@@ -91,39 +91,27 @@ module Infoboxer
       end
     end
 
-    describe 'simple inline markup' do
-      def parse_inline(text)
-        described_class.new(text).parse_inline
+    describe 'parsing inline content' do
+      let(:source){"Paragraph '''with''' [[link]]\n== Heading"}
+      subject{parse(source).children.first}
+
+      it{should be_a(Parser::Paragraph)}
+      it 'should be cool' do
+        expect(subject.children.map(&:class)).to eq \
+          [Parser::Text, Parser::Bold, Parser::Text, Parser::Wikilink]
+        
+        expect(subject.children.map(&:text)).to eq \
+          ['Paragraph ', 'with', ' ', 'link']
       end
-
-      describe 'one item' do
-        subject{parse_inline(source).children.first}
-
-        context 'when just text' do
-          let(:source){'just text'}
-          
-          it{should be_a(Parser::Text)}
-          its(:text){should == 'just text'}
-        end
-      end
-
-      describe 'sequence' do
-      end
-
-      describe 'nesting' do
-      end
-
-      describe 'nesting in para' do
-      end
-
-      describe 'leaving alone the <pre>' do
-      end
-    end
-
-    describe 'templates' do
     end
 
     describe 'tables' do
+      let(:source){"Paragraph, then table:\n{|\n|one||two\n|}"}
+      subject{parse(source).children}
+
+      it 'should work' do
+        expect(subject.map(&:class)).to eq [Parser::Paragraph, Parser::Table]
+      end
     end
 
     describe 'special document nodes' do
