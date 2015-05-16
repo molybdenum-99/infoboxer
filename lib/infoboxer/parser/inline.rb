@@ -6,6 +6,10 @@ require_relative './template'
 module Infoboxer
   class Parser
     class InlineParser
+      def self.parse(*arg)
+        new(*arg).parse
+      end
+      
       def initialize(str, next_lines = [])
         @str, @next_lines = str, next_lines
 

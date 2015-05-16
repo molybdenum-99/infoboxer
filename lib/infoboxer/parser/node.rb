@@ -247,6 +247,9 @@ module Infoboxer
     class TableCell < Compound
     end
 
+    class TableHeading < Compound
+    end
+
     # Paragraph-level nodes --------------------------------------------
 
     class Paragraph < Compound

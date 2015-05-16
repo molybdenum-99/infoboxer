@@ -4,10 +4,10 @@ require 'infoboxer/parser'
 module Infoboxer
   describe Parser::TableParser do
     def parse_table(text)
-      described_class.new(text.strip.split("\n")).parse
+      described_class.new(text.gsub(/\n\s+/m, "\n").strip.split("\n")).parse
     end
 
-    describe 'simplest' do
+    describe 'simplest: one cell, one row' do
       subject{parse_table(%Q{{|
         |one
         |}})
@@ -56,7 +56,7 @@ module Infoboxer
         let(:source){%Q{
           {|
           |one||two
-three: it's a long text, dude!||and four
+          three: it's a long text, dude!||and four
           |}
         }}
         its(:count){should == 2}
@@ -73,12 +73,89 @@ three: it's a long text, dude!||and four
     end
 
     describe 'multiple rows' do
+      subject{parse_table(%Q{{|
+        |one
+        |-
+        |two
+        |}})
+      }
+      its(:"rows.count"){should == 2}
+      it 'should preserve texts' do
+        expect(subject.rows.map(&:text)).to eq ['one', 'two']
+      end
+    end
+
+    describe 'headings' do
+      context 'in first row' do
+        let(:table){parse_table(%Q{
+          {|
+          ! one
+          ! two
+          ! three
+          |}
+        })}
+        subject{table.rows.first.children}
+
+        its(:count){should == 3}
+        it 'should be headers' do
+          expect(subject.map(&:class)).to eq \
+            [Parser::TableHeading, Parser::TableHeading, Parser::TableHeading]
+        end
+      end
+
+      context 'in next row' do
+        let(:table){parse_table(%Q{
+          {|
+          |wtf
+          |-
+          ! one
+          ! two
+          ! three
+          |}
+        })}
+        subject{table.rows[1].children}
+
+        its(:count){should == 3}
+        it 'should be headers' do
+          expect(subject.map(&:class)).to eq \
+            [Parser::TableHeading, Parser::TableHeading, Parser::TableHeading]
+        end
+      end
+
+      context 'several headers in line' do
+        let(:table){parse_table(%Q{
+          {|
+          ! one||two||three
+          |}
+        })}
+        subject{table.rows.first.children}
+
+        its(:count){should == 3}
+        it 'should be headers' do
+          expect(subject.map(&:class)).to eq \
+            [Parser::TableHeading, Parser::TableHeading, Parser::TableHeading]
+        end
+      end
+
+      context 'in the middle of a row' do
+        let(:table){parse_table(%Q{
+          {|
+          | one
+          ! two
+          | three
+          |}
+        })}
+        subject{table.rows.first.children}
+
+        its(:count){should == 3}
+        it 'should be headers' do
+          expect(subject.map(&:class)).to eq \
+            [Parser::TableCell, Parser::TableHeading, Parser::TableCell]
+        end
+      end
     end
 
     describe 'table caption' do
-    end
-
-    describe 'headers' do
     end
 
     describe 'table-level params' do

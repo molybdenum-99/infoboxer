@@ -39,7 +39,7 @@ module Infoboxer
         when /^ /
           pre(current)
         when '' # blank line = space between paragraphs/lists
-          @nodes.last.closed!
+          @nodes.empty? or @nodes.last.closed!
         else
           para(current)
         end

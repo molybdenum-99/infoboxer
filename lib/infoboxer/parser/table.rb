@@ -17,7 +17,6 @@ module Infoboxer
 
       def parse
         started = false
-        @current_row = []
         
         loop do
           current = @lines.shift
@@ -26,26 +25,38 @@ module Infoboxer
             fail("Something went wrong: trying to parse not a table: #{current}")
 
           case current
-          when /^\s*{\|(.*)$/.guard{!started}
-            started = true
-            #parse_table_attrs($1)
+          when /^\s*{\|(.*)$/.guard{!started} # main table start
 
-          when /^\s*{\|/
+            started = true
+
+          when /^\s*{\|/                      # nested table start
+          
             add_to_cell(TableParser.new(@lines).parse)
 
-          when /^\s*\|}(.*)$/
+          when /^\s*\|}(.*)$/                 # table end
+
             rest = $1
             @lines.unshift rest unless rest.empty?
             break
 
-          when /^\s*\|(.*)$/
+          when /^\s*!(.*)$/
+            parse_cells($1, Parser::TableHeading)
+
+          when /^\s*\|-(\s*)$/
+            start_row!
+
+          when /^\s*\|(.*)$/                  # cell in row
+
             parse_cells($1)
+
+          when /.*/.guard{@current_row}     # continuation of prev.cell
+            @multiline << "\n#{current}"
 
           when nil
             fail("End of input before table ended!")
 
           else
-            @current_row.last << "\n#{current}"
+            fail("Not a table: first row is #{current}")
           end
         end
 
@@ -56,40 +67,40 @@ module Infoboxer
 
       private
 
-      def parse_cells(str)
+      def parse_cells(str, cell_class = Parser::TableCell)
+        start_row! unless @current_row
+        cells = []
+        
         scan = StringScanner.new(str)
         loop do
           str = scan.scan_until(/\|\|/)
           case scan.matched
           when '||'
-            @current_row << str.sub('||', '')
+            cells << str.sub('||', '')
           when nil
-            @current_row << scan.rest
+            cells << scan.rest
             break
           end
         end
+        cells = cells.map{|str| cell_class.new(InlineParser.parse(str))}
+        @current_row.concat(cells)
+      end
+
+      def start_row!
+        finalize_row!
+        @current_row = []
+        @multiline = ''
       end
 
       def finalize_row!
-        unless @current_row.empty?
-          cells = @current_row.map{|str| parse_cell(str)}
-          @table.rows << Parser::TableRow.new(cells)
+        return if !@current_row || @current_row.empty?
+        unless @multiline.empty?
+          @current_row.last.children.concat(
+            Parser.new(@multiline).parse.children
+          )
         end
-      end
-
-      # First line is just inline formatting
-      # All next lines (if exist) are full-featured formatting, with
-      #   paragraphs, lists, headings and so on
-      def parse_cell(str)
-        if str.include?("\n")
-          str, r = str.split("\n", 2)
-          rest = Parser.new(r).parse.children
-        else
-          rest = []
-        end
-        nodes = InlineParser.new(str).parse.concat(rest)
-
-        Parser::TableCell.new(nodes)
+        
+        @table.rows << Parser::TableRow.new(@current_row)
       end
     end
   end
