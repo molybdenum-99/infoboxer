@@ -228,6 +228,19 @@ module Infoboxer
     end
 
     describe 'cell-level params' do
+      context 'when first' do
+        let(:table){parse_table(%Q{
+          {|
+          | style="text-align:right;" |test
+          |}
+        })}
+        subject{table.rows.first.cells.first.params}
+        it{should be_kind_of(Hash)}
+      its(:keys){are_expected.to contain_exactly(:style)}
+      its(:values){are_expected.to \
+        contain_exactly('text-align:right;')
+      }
+      end
     end
 
     describe 'nested tables, damn them' do
