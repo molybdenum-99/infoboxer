@@ -237,6 +237,13 @@ module Infoboxer
 
     # Tables -----------------------------------------------------------
     class Table < Compound
+      def initialize(children = Nodes.new, params = {})
+        super(children)
+        @params = params
+      end
+
+      attr_reader :params
+      
       def rows
         children.select(&fltr(itself: TableRow))
       end

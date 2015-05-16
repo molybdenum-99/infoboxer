@@ -198,15 +198,26 @@ module Infoboxer
     end
 
     describe 'table-level params' do
-    end
+      let(:table){parse_table(%Q{
+        {| border="1" style="border-collapse:collapse;"
+        |}
+      })}
+      subject{table.params}
 
-    describe 'cell-level params' do
+      it{should be_kind_of(Hash)}
+      its(:keys){are_expected.to contain_exactly(:border, :style)}
+      its(:values){are_expected.to \
+        contain_exactly('1', 'border-collapse:collapse;')
+      }
     end
 
     describe 'row-level params' do
     end
 
-    describe 'nested tables' do
+    describe 'cell-level params' do
+    end
+
+    describe 'nested tables, damn them' do
     end
 
     describe 'tables, Karl!' do

@@ -1,5 +1,9 @@
 # encoding: utf-8
 module Matchish
+  class << self
+    attr_accessor :last_match
+  end
+  
   class Pattern
     def initialize(pattern)
       @pattern = pattern
@@ -11,7 +15,9 @@ module Matchish
     end
 
     def ===(obj)
-      @pattern === obj && (!@guard || @guard.call)
+      (@pattern === obj && (!@guard || @guard.call)).tap{|res|
+        Matchish.last_match = Regexp.last_match
+      }
     end
   end
 end

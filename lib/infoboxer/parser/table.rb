@@ -10,6 +10,10 @@ module Infoboxer
     # and does many nasty things with them.
     #
     class TableParser
+      def self.parse(*arg)
+        new(*arg).parse
+      end
+      
       def initialize(lines)
         @lines = lines
         @table = Table.new
@@ -28,6 +32,7 @@ module Infoboxer
           when /^\s*{\|(.*)$/.guard{!started} # main table start
 
             started = true
+            parse_table_params(Matchish.last_match[1])
 
           when /^\s*{\|/                      # nested table start
           
@@ -88,6 +93,29 @@ module Infoboxer
         end
         cells = cells.map{|str| cell_class.new(InlineParser.parse(str))}
         @current_row.concat(cells)
+      end
+
+      def parse_table_params(str)
+        scan = StringScanner.new(str)
+        params = {}
+        loop do
+          scan.skip(/\s*/)
+          name = scan.scan(/[^ \t=]+/) or break
+          scan.skip(/\s*/)
+          if scan.peek(1) == '='
+            scan.skip(/=\s*/)
+            q = scan.scan(/['"]/)
+            if q
+              value = scan.scan_until(/#{q}/).sub(q, '')
+            else
+              value = scan.scan_until(/\s/)
+            end
+            params[name.to_sym] = value
+          else
+            params[name.to_sym] = name
+          end
+        end
+        @table.params.update(params)
       end
 
       def start_caption(str)
