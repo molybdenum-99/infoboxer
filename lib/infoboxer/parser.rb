@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'procme'
+require 'infoboxer/core_ext'
 
 module Infoboxer
   class Parser

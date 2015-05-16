@@ -237,7 +237,13 @@ module Infoboxer
 
     # Tables -----------------------------------------------------------
     class Table < Compound
-      alias_method :rows, :children
+      def rows
+        children.select(&fltr(itself: TableRow))
+      end
+
+      def caption
+        children.detect(&fltr(itself: TableCaption))
+      end
     end
 
     class TableRow < Compound
@@ -248,6 +254,9 @@ module Infoboxer
     end
 
     class TableHeading < Compound
+    end
+
+    class TableCaption < Compound
     end
 
     # Paragraph-level nodes --------------------------------------------

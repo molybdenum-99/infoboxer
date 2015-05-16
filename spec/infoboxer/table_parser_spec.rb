@@ -156,6 +156,45 @@ module Infoboxer
     end
 
     describe 'table caption' do
+      let(:table){parse_table(source)}
+      subject{table.caption}
+      
+      context 'simple' do
+        let(:source){%Q{
+          {|
+          |+ test me
+          |}
+        }}
+
+        it{should be_a(Parser::TableCaption)}
+        its(:text){should == 'test me'}
+      end
+
+      context 'with formatting' do
+        let(:source){%Q{
+          {|
+          |+ test me ''please'' [[here]]
+          |}
+        }}
+
+        it{should be_a(Parser::TableCaption)}
+        it 'should be formatted' do
+          expect(subject.children.map(&:class)).to eq \
+            [Parser::Text, Parser::Italic, Parser::Text, Parser::Wikilink]
+        end
+      end
+
+      context 'multiline' do
+        let(:source){%Q{
+          {|
+          |+ test me
+          please
+          |}
+        }}
+
+        it{should be_a(Parser::TableCaption)}
+        its(:text){should == "test me\nplease"}
+      end
     end
 
     describe 'table-level params' do
@@ -165,6 +204,9 @@ module Infoboxer
     end
 
     describe 'row-level params' do
+    end
+
+    describe 'nested tables' do
     end
 
     describe 'tables, Karl!' do

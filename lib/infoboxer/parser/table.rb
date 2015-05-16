@@ -39,17 +39,21 @@ module Infoboxer
             @lines.unshift rest unless rest.empty?
             break
 
-          when /^\s*!(.*)$/
+          when /^\s*!(.*)$/                   # heading (th) in a row
             parse_cells($1, Parser::TableHeading)
 
-          when /^\s*\|-(\s*)$/
+          when /^\s*\|\+(.*)$/               # caption
+            
+            start_caption($1)
+            
+          when /^\s*\|-(\s*)$/                # row start
             start_row!
 
           when /^\s*\|(.*)$/                  # cell in row
 
             parse_cells($1)
 
-          when /.*/.guard{@current_row}     # continuation of prev.cell
+          when /.*/.guard{@current_row}       # continuation of prev.cell
             @multiline << "\n#{current}"
 
           when nil
@@ -86,21 +90,32 @@ module Infoboxer
         @current_row.concat(cells)
       end
 
+      def start_caption(str)
+        finalize_row!
+        @is_caption = true
+        @multiline << str
+      end
+
       def start_row!
         finalize_row!
-        @current_row = []
-        @multiline = ''
       end
 
       def finalize_row!
-        return if !@current_row || @current_row.empty?
-        unless @multiline.empty?
-          @current_row.last.children.concat(
-            Parser.new(@multiline).parse.children
-          )
+        if @current_row && !@current_row.empty?
+          unless @multiline.empty?
+            @current_row.last.children.concat(
+              Parser.new(@multiline).parse.children
+            )
+          end
+          
+          @table.children << Parser::TableRow.new(@current_row)
+        elsif @is_caption
+          @table.children << Parser::TableCaption.new(InlineParser.parse(@multiline.strip))
         end
-        
-        @table.rows << Parser::TableRow.new(@current_row)
+
+        @current_row = []
+        @is_caption = false
+        @multiline = ''
       end
     end
   end
