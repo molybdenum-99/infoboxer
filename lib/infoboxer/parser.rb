@@ -2,20 +2,14 @@
 require 'procme'
 require 'infoboxer/core_ext'
 
+require_relative 'parser/node'
+
 module Infoboxer
   class Parser
-    class Document
-      def initialize(children)
-        @children = children
-      end
-
-      attr_reader :children
-
-      def inlinify
-        children.count == 1 && children.first.is_a?(Paragraph) ?
-          children.first.children :
-          children
-      end
+    class ParseError < Exception
+    end
+    
+    class Document < Compound
     end
 
     class Nodes < Array
@@ -76,7 +70,7 @@ module Infoboxer
 
     # TODO: list type
     def list(str)
-      marker, text = str.scan(/^([*\#:]+)\s*(.+?)$/).flatten
+      marker, text = str.scan(/^([*\#:;]+)\s*(.+?)$/).flatten
       node(ListItem, inline(text), marker)
     end
 
@@ -117,6 +111,5 @@ module Infoboxer
 end
 
 require_relative 'parser/commons'
-require_relative 'parser/node'
 require_relative 'parser/inline'
 require_relative 'parser/table'

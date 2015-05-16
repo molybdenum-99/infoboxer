@@ -9,6 +9,12 @@ module Infoboxer
       def self.parse(*arg)
         new(*arg).parse
       end
+
+      def self.try_parse(str)
+        new(str).parse
+      rescue ParseError => e
+        Nodes.new([Parser::Text.new(str)]) # TODO: Parser::Unparsed.new(str)
+      end
       
       def initialize(str, next_lines = [])
         @str, @next_lines = str, next_lines
@@ -63,7 +69,9 @@ module Infoboxer
 
       # simple scan: just text until pattern
       def scan_simple(after)
-        scanner.scan_until(after).sub(after, '')
+        scanner.scan_until(after).tap{|res|
+          res or fail(ParseError, "#{after} not found in #{scanner.rest}")
+        }.sub(after, '')
       end
 
       include Commons

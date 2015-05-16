@@ -68,10 +68,15 @@ module Infoboxer
       end
 
       def parse_value(s)
+        # NB: using #try_parse instead of #parse:
+        #  template variables CAN have inconsistent markup, like:
+        #  {{name|var=''something}} - here '' is, in fact, CLOSING tag
+        #  for italics, while open tag will be added on template evaluation
+        #
         s = s.strip
         s.include?("\n") ?
-          Parser.new(s).parse.children :
-          InlineParser.new(s).parse
+          Parser.parse(s).children :
+          InlineParser.try_parse(s)
       end
 
       def push_string(strings, str)
