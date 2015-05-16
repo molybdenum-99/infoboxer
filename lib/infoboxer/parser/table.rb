@@ -79,19 +79,32 @@ module Infoboxer
       def parse_cells(str, cell_class = Parser::TableCell)
         start_row! unless @current_row
         cells = []
+        params = []
+        param_str = ''
         
         scan = StringScanner.new(str)
         loop do
-          str = scan.scan_until(/\|\|/)
+          str = scan.scan_until(/\|\||\|/)
           case scan.matched
           when '||'
             cells << str.sub('||', '')
+            params << param_str
+            param_str = ''
+          when '|'
+            param_str = str.sub('|', '')
           when nil
             cells << scan.rest
+            params << param_str
             break
           end
         end
-        cells = cells.map{|str| cell_class.new(InlineParser.parse(str))}
+
+        cells = cells.zip(params).map{|str, pstr|
+          cell_class.new(InlineParser.parse(str)).tap{|cell|
+            cell.params.update(parse_params(pstr))
+          }
+        }
+        
         @current_row.children.concat(cells)
       end
 

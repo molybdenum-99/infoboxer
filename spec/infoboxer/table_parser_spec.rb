@@ -235,11 +235,27 @@ module Infoboxer
           |}
         })}
         subject{table.rows.first.cells.first.params}
+
         it{should be_kind_of(Hash)}
-      its(:keys){are_expected.to contain_exactly(:style)}
-      its(:values){are_expected.to \
-        contain_exactly('text-align:right;')
-      }
+        its(:keys){are_expected.to contain_exactly(:style)}
+        its(:values){are_expected.to \
+          contain_exactly('text-align:right;')
+        }
+      end
+
+      context 'when several' do
+        let(:table){parse_table(%Q{
+          {|
+          | style="text-align:right;" |test||border|one
+          |}
+        })}
+        subject{table.rows.first.cells[1].params}
+
+        it{should be_kind_of(Hash)}
+        its(:keys){are_expected.to contain_exactly(:border)}
+        its(:values){are_expected.to \
+          contain_exactly('border')
+        }
       end
     end
 
