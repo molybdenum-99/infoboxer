@@ -212,6 +212,19 @@ module Infoboxer
     end
 
     describe 'row-level params' do
+      let(:table){parse_table(%Q{
+        {|
+        |- border="1" style="border-collapse:collapse;"
+        |test
+        |}
+      })}
+      subject{table.rows.first.params}
+
+      it{should be_kind_of(Hash)}
+      its(:keys){are_expected.to contain_exactly(:border, :style)}
+      its(:values){are_expected.to \
+        contain_exactly('1', 'border-collapse:collapse;')
+      }
     end
 
     describe 'cell-level params' do

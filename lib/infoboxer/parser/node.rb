@@ -254,13 +254,26 @@ module Infoboxer
     end
 
     class TableRow < Compound
+      def initialize(children = Nodes.new, params = {})
+        super(children)
+        @params = params
+      end
+
+      attr_reader :params
+
       alias_method :cells, :children
     end
 
     class TableCell < Compound
+      def initialize(children = Nodes.new, params = {})
+        super(children)
+        @params = params
+      end
+
+      attr_reader :params
     end
 
-    class TableHeading < Compound
+    class TableHeading < TableCell
     end
 
     class TableCaption < Compound

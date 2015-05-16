@@ -51,8 +51,8 @@ module Infoboxer
             
             start_caption($1)
             
-          when /^\s*\|-(\s*)$/                # row start
-            start_row!
+          when /^\s*\|-(.*)$/                # row start
+            start_row!($1)
 
           when /^\s*\|(.*)$/                  # cell in row
 
@@ -92,10 +92,14 @@ module Infoboxer
           end
         end
         cells = cells.map{|str| cell_class.new(InlineParser.parse(str))}
-        @current_row.concat(cells)
+        @current_row.children.concat(cells)
       end
 
       def parse_table_params(str)
+        @table.params.update(parse_params(str))
+      end
+
+      def parse_params(str)
         scan = StringScanner.new(str)
         params = {}
         loop do
@@ -115,7 +119,7 @@ module Infoboxer
             params[name.to_sym] = name
           end
         end
-        @table.params.update(params)
+        params
       end
 
       def start_caption(str)
@@ -124,24 +128,25 @@ module Infoboxer
         @multiline << str
       end
 
-      def start_row!
+      def start_row!(params_str = '')
         finalize_row!
+        @current_row.params.update(parse_params(params_str))
       end
 
       def finalize_row!
-        if @current_row && !@current_row.empty?
+        if @current_row && !@current_row.children.empty?
           unless @multiline.empty?
-            @current_row.last.children.concat(
+            @current_row.children.last.children.concat(
               Parser.new(@multiline).parse.children
             )
           end
           
-          @table.children << Parser::TableRow.new(@current_row)
+          @table.children << @current_row
         elsif @is_caption
           @table.children << Parser::TableCaption.new(InlineParser.parse(@multiline.strip))
         end
 
-        @current_row = []
+        @current_row = Parser::TableRow.new
         @is_caption = false
         @multiline = ''
       end
