@@ -106,3 +106,4 @@ end
 
 require_relative 'parser/node'
 require_relative 'parser/inline'
+require_relative 'parser/table'

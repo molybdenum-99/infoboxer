@@ -77,7 +77,7 @@ module Infoboxer
     end
 
     class Compound < Node
-      def initialize(children)
+      def initialize(children = Nodes.new)
         @children = children
       end
 
@@ -85,6 +85,10 @@ module Infoboxer
 
       def text
         @children.map(&:text).join
+      end
+
+      def _eq(other)
+        children == other.children
       end
 
       # TODO: compact inspect when long children list
@@ -229,6 +233,18 @@ module Infoboxer
             var.map{|v| v.to_tree(level+1)}.join
         end
       end
+    end
+
+    # Tables -----------------------------------------------------------
+    class Table < Compound
+      alias_method :rows, :children
+    end
+
+    class TableRow < Compound
+      alias_method :cells, :children
+    end
+
+    class TableCell < Compound
     end
 
     # Paragraph-level nodes --------------------------------------------
