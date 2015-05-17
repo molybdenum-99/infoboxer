@@ -78,7 +78,7 @@ module Infoboxer
 
       # TODO: compact inspect when long text
       def inspect
-        "#<#{descr}: #{text}>"
+        "#<#{descr}: #{shorten_text}>"
       end
 
       def to_tree(level = 0)
@@ -86,6 +86,12 @@ module Infoboxer
       end
 
       private
+
+      MAX_CHARS = 30
+
+      def shorten_text
+        text.length > MAX_CHARS ? text[0..MAX_CHARS] + '...' : text
+      end
 
       def _eq(other)
         text == other.text
