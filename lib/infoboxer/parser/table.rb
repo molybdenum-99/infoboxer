@@ -128,31 +128,10 @@ module Infoboxer
         @current_row.children.concat(cells)
       end
 
+      include Commons
+
       def parse_table_params(str)
         @table.params.update(parse_params(str))
-      end
-
-      def parse_params(str)
-        scan = StringScanner.new(str)
-        params = {}
-        loop do
-          scan.skip(/\s*/)
-          name = scan.scan(/[^ \t=]+/) or break
-          scan.skip(/\s*/)
-          if scan.peek(1) == '='
-            scan.skip(/=\s*/)
-            q = scan.scan(/['"]/)
-            if q
-              value = scan.scan_until(/#{q}/).sub(q, '')
-            else
-              value = scan.scan_until(/\s/)
-            end
-            params[name.to_sym] = value
-          else
-            params[name.to_sym] = name
-          end
-        end
-        params
       end
 
       def start_caption(str)

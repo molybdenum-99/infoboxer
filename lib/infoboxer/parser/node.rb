@@ -3,97 +3,106 @@ require 'htmlentities'
 
 module Infoboxer
   class Parser
+    # Base abstract classes
     class Node
       include ProcMe
       
-      def initialize(text = '')
-        @text = text
+      def initialize(params = {})
+        @params = params
       end
 
-      attr_reader :text
+      attr_reader :params
       
       def can_merge?(other)
         false
-      end
-
-      # TODO: compact inspect when long text
-      def inspect
-        "#<#{clean_class}: #{text}>"
-      end
-
-      def clean_class
-        self.class.name.sub(/^.*::/, '')
       end
 
       def ==(other)
         self.class == other.class && _eq(other)
       end
 
-      def _eq(other)
-        text == other.text
-      end
-
       def to_tree(level = 0)
-        '  ' * level + "#{text}   <#{clean_class}>\n"
+        "<#{descr}>\n"
       end
-    end
 
-    class HR < Node
-      def inspect
-        "#<#{clean_class}>"
+      private
+
+      def clean_class
+        self.class.name.sub(/^.*::/, '')
+      end
+
+      def descr
+        if params.empty?
+          "#{clean_class}"
+        else
+          "#{clean_class}(#{params.map{|k, v| "#{k}: #{v}"}.join(', ')})"
+        end
+      end
+
+      def indent(level)
+        '  ' * level
+      end
+
+      def _eq(other)
+        fail(NotImplementedError, "#_eq should be defined in subclasses")
+      end
+
+      def decode(str)
+        Node.coder.decode(str)
+      end
+      
+      class << self
+        def def_accessors(*keys)
+          keys.each do |k|
+            define_method(k){ params[k] }
+          end
+        end
+
+        def coder
+          @coder ||= HTMLEntities.new
+        end
       end
     end
 
     class Text < Node
-      def self.coder
-        @coder ||= HTMLEntities.new
-      end
-      
-      def text
-        self.class.coder.decode(@text)
-      end
-    end
-
-    class Link < Node
-      def initialize(link, label = nil)
-        @link = link
-        @label = label || link
+      def initialize(text, params = {})
+        super(params)
+        @text = decode(text)
       end
 
-      attr_reader :label, :link
-      alias_method :text, :label
+      attr_reader :text
 
+      # TODO: compact inspect when long text
       def inspect
-        label == link ?
-          "#<#{clean_class}: #{link}>" :
-          "#<#{clean_class}(#{label}): #{link}>"
+        "#<#{descr}: #{text}>"
       end
-    end
 
-    class Wikilink < Link
-    end
+      def to_tree(level = 0)
+        "#{indent(level)}#{text} <#{descr}>\n"
+      end
 
-    class ExternalLink < Link
+      private
+
+      def _eq(other)
+        text == other.text
+      end
     end
 
     class Compound < Node
-      def initialize(children = Nodes.new)
+      def initialize(children = Nodes.new, params = {})
+        super(params)
         @children = children
       end
 
       attr_reader :children
 
       def text
-        @children.map(&:text).join
-      end
-
-      def _eq(other)
-        children == other.children
+        children.map(&:text).join
       end
 
       # TODO: compact inspect when long children list
       def inspect
-        "#<#{clean_class}: #{children}>"
+        "#<#{descr}: #{children}>"
       end
 
       def can_merge?(other)
@@ -114,8 +123,15 @@ module Infoboxer
       end
 
       def to_tree(level = 0)
-        super(level) + children.map(&call(to_tree: level+1)).join
+        "#{indent(level)}<#{descr}>\n" +
+          children.map(&call(to_tree: level+1)).join
       end
+
+      private
+
+      def _eq(other)
+        children == other.children
+      end      
     end
 
     # Inline nodes -----------------------------------------------------
@@ -128,57 +144,66 @@ module Infoboxer
     class BoldItalic < Compound
     end
 
+    class Link < Compound
+      def initialize(link, label = nil)
+        super(label || Nodes.new([Text.new(link)]), link: link)
+      end
+
+      def_accessors :link
+    end
+
+    class Wikilink < Link
+    end
+
+    class ExternalLink < Link
+    end
+
     class Image < Node
-      def initialize(path, attrs = {})
-        @path, @attrs = path, attrs
+      def initialize(path, params = {})
+        @caption = params.delete(:caption)
+        super({path: path}.merge(params))
       end
 
-      attr_reader :path, :attrs
+      attr_reader :caption
 
-      def type
-        attrs[:type]
-      end
+      def_accessors :path, :type,
+        :location, :alignment, :link,
+        :alt
+
       def border?
-        !attrs[:border].to_s.empty?
-      end
-      def location
-        attrs[:location]
-      end
-      def alignment
-        attrs[:alignment]
-      end
-      def width
-        attrs[:width].to_i
-      end
-      def height
-        attrs[:height].to_i
-      end
-      def link
-        attrs[:linkd]
-      end
-      def alt
-        attrs[:alt]
-      end
-      def caption
-        attrs[:caption] || Nodes.new
+        !params[:border].to_s.empty?
       end
 
-      def inspect
-        "#<#{clean_class}: #{path} (#{attrs.inspect})>"
+      def width
+        params[:width].to_i
+      end
+
+      def height
+        params[:height].to_i
+      end
+
+      def to_tree(level = 0)
+        super(level) +
+          if caption && !caption.empty?
+            indent(level+1) + "caption:\n" +
+              caption.map(&call(to_tree: level+2)).join
+          else
+            ''
+          end
       end
     end
 
     # HTML -------------------------------------------------------------
     class HTMLTag < Compound
-      def initialize(tag, attrs, children = Nodes.new)
-        @tag, @attrs = tag, attrs
-        super(children)
+      def initialize(tag, params, children = Nodes.new)
+        super(children, params.merge(tag: tag))
+        @tag = tag
       end
 
-      attr_reader :tag, :attrs
+      def_accessors :tag
 
-      def inspect
-        "#<#{clean_class}:#{tag}(#{attrs}) #{children.inspect}>"
+      def attrs
+        params.except(:tag)
       end
     end
 
@@ -280,8 +305,13 @@ module Infoboxer
     end
 
     # Paragraph-level nodes --------------------------------------------
-
     class Paragraph < Compound
+    end
+
+    class HR < Node
+      def inspect
+        "#<#{clean_class}>"
+      end
     end
 
     class Heading < Compound

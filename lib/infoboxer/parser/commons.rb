@@ -2,6 +2,31 @@
 module Infoboxer
   class Parser
     module Commons
+      def parse_params(str)
+        return {} unless str
+        
+        scan = StringScanner.new(str)
+        params = {}
+        loop do
+          scan.skip(/\s*/)
+          name = scan.scan(/[^ \t=]+/) or break
+          scan.skip(/\s*/)
+          if scan.peek(1) == '='
+            scan.skip(/=\s*/)
+            q = scan.scan(/['"]/)
+            if q
+              value = scan.scan_until(/#{q}/).sub(q, '')
+            else
+              value = scan.scan_until(/\s/)
+            end
+            params[name.to_sym] = value
+          else
+            params[name.to_sym] = name
+          end
+        end
+        params
+      end
+
       def scan_continued(scanner, before, after, next_lines = [])
         res = ''
         level = 1

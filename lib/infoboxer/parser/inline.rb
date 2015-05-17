@@ -92,16 +92,19 @@ module Infoboxer
       # [[abc]]
       # [[a|b]]
       def wikilink(str)
-        link, label = str.split('|', 2)
-        node(Wikilink, link || str, label)
+        link(Wikilink, str, '|')
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#External_links
       # [http://www.example.org]
       # [http://www.example.org link name]
       def external_link(str)
-        link, label = str.split(/\s+/, 2)
-        node(ExternalLink, link || str, label)
+        link(ExternalLink, str, /\s+/)
+      end
+
+      def link(klass, str, split_pattern)
+        link, label = str.split(split_pattern, 2)
+        node(klass, link || str, label && inline(label))
       end
 
       def try_html
@@ -116,19 +119,19 @@ module Infoboxer
         when scanner.check(/[a-z]+[^>]+\/>/)
           # auto-closing tag
           tag = scanner.scan(/[a-z]+/)
-          arguments = scanner.scan(/[^>]+/)
+          attrs = scanner.scan(/[^>]+/)
           scanner.skip(/\/>/)
-          node(HTMLTag, tag, arguments)
+          node(HTMLTag, tag, parse_params(attrs))
 
         when scanner.check(/[a-z]+[^>\/]+>/)
           # opening tag
           tag = scanner.scan(/[a-z]+/)
-          arguments = scanner.scan(/[^>]+/)
+          attrs = scanner.scan(/[^>]+/)
           scanner.skip(/>/)
           if (contents = scanner.scan_until(/<\/#{tag}>/))
-            node(HTMLTag, tag, arguments, inline(contents.sub("</#{tag}>", '')))
+            node(HTMLTag, tag, parse_params(attrs), inline(contents.sub("</#{tag}>", '')))
           else
-            node(HTMLOpeningTag, tag, arguments)
+            node(HTMLOpeningTag, tag, parse_params(attrs))
           end
         else
           # not an HTML tag at all!

@@ -52,15 +52,23 @@ module Infoboxer
 
             it{should be_a(Parser::Wikilink)}
             its(:link){should == 'Argentina'}
-            its(:label){should == 'Ar'}
+            its(:children){should == [Parser::Text.new('Ar')]}
           end
 
-          context 'without caption' do
+          context 'with formatted label' do
+            let(:source){"[[Argentina|Argentinian ''Republic'']]"}
+
+            it{should be_a(Parser::Wikilink)}
+            its(:link){should == 'Argentina'}
+            its(:"children.count"){should == 2}
+          end
+
+          context 'without label' do
             let(:source){'[[Argentina]]'}
 
             it{should be_a(Parser::Wikilink)}
             its(:link){should == 'Argentina'}
-            its(:label){should == 'Argentina'}
+            its(:children){should == [Parser::Text.new('Argentina')]}
           end
         end
 
@@ -70,7 +78,7 @@ module Infoboxer
 
             it{should be_a(Parser::ExternalLink)}
             its(:link){should == 'http://google.com'}
-            its(:label){should == 'Google'}
+            its(:children){should == [Parser::Text.new('Google')]}
           end
 
           context 'without caption' do
@@ -78,7 +86,7 @@ module Infoboxer
 
             it{should be_a(Parser::ExternalLink)}
             its(:link){should == 'http://google.com'}
-            its(:label){should == 'http://google.com'}
+            its(:children){should == [Parser::Text.new('http://google.com')]}
           end
         end
 
@@ -88,7 +96,18 @@ module Infoboxer
 
             it{should be_a(Parser::HTMLTag)}
             its(:tag){should == 'strike'}
-            its(:text){should == 'Some text'}
+            its(:children){should == [Parser::Text.new('Some text')]}
+          end
+
+          context 'with attributes' do
+            let(:source){'<strike class="airstrike" style="color: red;">Some text</strike>'}
+
+            it{should be_a(Parser::HTMLTag)}
+            its(:tag){should == 'strike'}
+            its(:children){should == [Parser::Text.new('Some text')]}
+            its(:attrs){should ==
+              {class: 'airstrike', style: 'color: red;'}
+            }
           end
 
           context 'self-closing' do
@@ -96,7 +115,7 @@ module Infoboxer
 
             it{should be_a(Parser::HTMLTag)}
             its(:tag){should == 'br'}
-            its(:text){should == ''}
+            its(:children){should be_empty}
           end
 
           context 'lonely opening' do
@@ -115,9 +134,9 @@ module Infoboxer
         end
 
         context 'when image' do
+          # real example from http://en.wikipedia.org/wiki/Argentina
+          # I love you, Wikipedia!!!!
           let(:source){
-            # real example from http://en.wikipedia.org/wiki/Argentina
-            # I love you, Wikipedia!!!!
             %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px|The [[Cueva de las Manos|Cave of the Hands]] in [[Santa Cruz province, Argentina|Santa Cruz province]], with indigenous artwork dating from 13,000–9,000 years ago|alt=Stencilled hands on the cave's wall]]}
           }
 
@@ -129,9 +148,12 @@ module Infoboxer
 
           describe 'caption' do
             subject{node.caption}
+
             it{should be_a(Parser::Nodes)}
             it 'should preserve all data' do
-              expect(subject.map(&:class)).to eq [Parser::Text, Parser::Wikilink, Parser::Text, Parser::Wikilink, Parser::Text]
+              expect(subject.map(&:class)).to eq \
+                [Parser::Text, Parser::Wikilink, Parser::Text, Parser::Wikilink, Parser::Text]
+
               expect(subject.map(&:text)).to eq [
                 'The ',
                 'Cave of the Hands',
@@ -148,6 +170,7 @@ module Infoboxer
           # not sure, if it can be guessed somehow
           #its(:url){should == 'http://en.wikipedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg'
         end
+        
         # TODO: check what we do with incorrect markup
       end
 
@@ -236,7 +259,11 @@ module Infoboxer
 
         it{should be_a(Parser::Template)}
         its(:name){should == 'the name'}
-        its(:variables){should == [[Parser::Wikilink.new('Argentina', 'Ar')]]}
+        its(:variables){should ==
+          [
+            [Parser::Wikilink.new('Argentina', [Parser::Text.new('Ar')])]
+          ]
+        }
       end
 
       context 'and now for really sick stuff!' do
