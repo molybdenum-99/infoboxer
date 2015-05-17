@@ -34,7 +34,7 @@ class Infoboxer::Parser
         let(:node){Wikilink.new('Argentina', [Text.new('Argentinian Republic')])}
 
         it{should ==
-          "<Wikilink(link: Argentina)>\n  Argentinian Republic <Text>\n"
+          "<Wikilink(link: \"Argentina\")>\n  Argentinian Republic <Text>\n"
         }
       end
 
@@ -43,7 +43,7 @@ class Infoboxer::Parser
           let(:node){Image.new('picture.jpg', width: '5', height: '6')}
 
           it{should ==
-            "<Image(path: picture.jpg, width: 5, height: 6)>\n"
+            "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"
           }
         end
 
@@ -53,16 +53,55 @@ class Infoboxer::Parser
           }
 
           it{should ==
-            "<Image(path: picture.jpg, width: 5, height: 6)>\n"\
+            "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"\
             "  caption:\n"\
             "    Look at me <Text>\n"
           }
         end
       end
 
-      #context Heading do
-        #let(:node){Heading.new([Text.new('one'), Italic.new('two')])}
-      #end
+      context HTMLTag do
+        let(:node){
+          HTMLTag.new('div',
+            {class: 'table_inside', style: 'float:left;'},
+            [Text.new('contents')])
+        }
+
+        it{should ==
+          "<HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"\
+          "  contents <Text>\n"
+        }
+      end
+
+      context HTMLOpeningTag do
+        let(:node){
+          HTMLOpeningTag.new('div', {class: 'table_inside', style: 'float:left;'})
+        }
+
+        it{should ==
+          "<HTMLOpeningTag:div(class: \"table_inside\", style: \"float:left;\")>\n"
+        }
+      end
+
+      context HTMLClosingTag do
+        let(:node){
+          HTMLClosingTag.new('div')
+        }
+
+        it{should == "<HTMLClosingTag:div>\n"}
+      end
+
+      # Paragraph-level nodes ------------------------------------------
+      context Heading do
+        let(:node){
+          Heading.new([Text.new('one')], 3)
+        }
+
+        it{should ==
+          "<Heading(level: 3)>\n"\
+          "  one <Text>\n"
+        }
+      end
     end
 
     describe '#to_text' do

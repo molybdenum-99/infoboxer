@@ -35,8 +35,12 @@ module Infoboxer
         if params.empty?
           "#{clean_class}"
         else
-          "#{clean_class}(#{params.map{|k, v| "#{k}: #{v}"}.join(', ')})"
+          "#{clean_class}(#{show_params})"
         end
+      end
+
+      def show_params(prms = nil)
+        (prms || params).map{|k, v| "#{k}: #{v.inspect}"}.join(', ')
       end
 
       def indent(level)
@@ -52,7 +56,7 @@ module Infoboxer
       end
       
       class << self
-        def def_accessors(*keys)
+        def def_readers(*keys)
           keys.each do |k|
             define_method(k){ params[k] }
           end
@@ -149,7 +153,7 @@ module Infoboxer
         super(label || Nodes.new([Text.new(link)]), link: link)
       end
 
-      def_accessors :link
+      def_readers :link
     end
 
     class Wikilink < Link
@@ -166,7 +170,7 @@ module Infoboxer
 
       attr_reader :caption
 
-      def_accessors :path, :type,
+      def_readers :path, :type,
         :location, :alignment, :link,
         :alt
 
@@ -195,27 +199,34 @@ module Infoboxer
 
     # HTML -------------------------------------------------------------
     class HTMLTag < Compound
-      def initialize(tag, params, children = Nodes.new)
-        super(children, params.merge(tag: tag))
+      def initialize(tag, attrs, children = Nodes.new)
+        super(children, attrs)
         @tag = tag
       end
 
-      def_accessors :tag
+      attr_reader :tag
+      alias_method :attrs, :params
 
-      def attrs
-        params.except(:tag)
+      private
+
+      def descr
+        "#{clean_class}:#{tag}(#{show_params})"
       end
     end
 
     class HTMLOpeningTag < Node
       def initialize(tag, attrs)
-        @tag, @attrs = tag, attrs
+        super(attrs)
+        @tag = tag
       end
+      
+      attr_reader :tag
+      alias_method :attrs, :params
 
-      attr_reader :tag, :attrs
+      private
 
-      def inspect
-        "#<#{clean_class}:#{tag}(#{attrs})>"
+      def descr
+        "#{clean_class}:#{tag}(#{show_params})"
       end
     end
 
@@ -226,9 +237,40 @@ module Infoboxer
 
       attr_reader :tag
 
-      def inspect
-        "#<#{clean_class}:#{tag}>"
+      def descr
+        "#{clean_class}:#{tag}"
       end
+    end
+
+    # Paragraph-level nodes --------------------------------------------
+    class Paragraph < Compound
+    end
+
+    class HR < Node
+    end
+
+    class Heading < Compound
+      def initialize(children, level)
+        super(children, level: level)
+      end
+
+      def_readers :level
+
+      def can_merge?(*)
+        false
+      end
+    end
+
+    class ListItem < Compound
+      def initialize(text, marker)
+        super(text)
+        @marker = marker
+      end
+
+      attr_reader :marker
+    end
+
+    class Pre < Compound
     end
 
     # Templates --------------------------------------------------------
@@ -304,39 +346,5 @@ module Infoboxer
     class TableCaption < Compound
     end
 
-    # Paragraph-level nodes --------------------------------------------
-    class Paragraph < Compound
-    end
-
-    class HR < Node
-      def inspect
-        "#<#{clean_class}>"
-      end
-    end
-
-    class Heading < Compound
-      def initialize(text, level)
-        super(text)
-        @level = level
-      end
-
-      attr_reader :level
-
-      def can_merge?(*)
-        false
-      end
-    end
-
-    class ListItem < Compound
-      def initialize(text, marker)
-        super(text)
-        @marker = marker
-      end
-
-      attr_reader :marker
-    end
-
-    class Pre < Compound
-    end
   end
 end
