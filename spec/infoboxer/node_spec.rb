@@ -25,8 +25,16 @@ class Infoboxer::Parser
         specify{
           expect(plain).to eq "<Compound>\n  one <Text>\n  two <Text>\n"
           expect(indented).to eq \
-            "    <Compound>\n      one <Text>\n      two <Text>\n"
+            "    <Compound>\n"\
+            "      one <Text>\n"\
+            "      two <Text>\n"
         }
+
+        context 'when only one text node' do
+          let(:node){Compound.new([Text.new('one')])}
+
+          it{should == "one <Compound>\n"}
+        end
       end
 
       # Inline nodes ---------------------------------------------------
@@ -34,7 +42,7 @@ class Infoboxer::Parser
         let(:node){Wikilink.new('Argentina', [Text.new('Argentinian Republic')])}
 
         it{should ==
-          "<Wikilink(link: \"Argentina\")>\n  Argentinian Republic <Text>\n"
+          "Argentinian Republic <Wikilink(link: \"Argentina\")>\n"
         }
       end
 
@@ -68,8 +76,7 @@ class Infoboxer::Parser
         }
 
         it{should ==
-          "<HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"\
-          "  contents <Text>\n"
+          "contents <HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"
         }
       end
 
@@ -98,8 +105,7 @@ class Infoboxer::Parser
         }
 
         it{should ==
-          "<Heading(level: 3)>\n"\
-          "  one <Text>\n"
+          "one <Heading(level: 3)>\n"
         }
       end
 

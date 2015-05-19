@@ -13,6 +13,15 @@ module Infoboxer
     end
 
     class Nodes < Array
+      MAX_CHILDREN = 3
+      
+      def inspect
+        if count > MAX_CHILDREN
+          '[' + self[0...MAX_CHILDREN].map(&:inspect).join(', ') + " ...#{count - MAX_CHILDREN} more]"
+        else
+          super
+        end
+      end
     end
 
     def self.parse(text)
