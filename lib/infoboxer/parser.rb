@@ -1,29 +1,11 @@
 # encoding: utf-8
 require 'procme'
-require 'infoboxer/core_ext'
-
-require_relative 'parser/node'
 
 module Infoboxer
   class Parser
     class ParseError < Exception
     end
     
-    class Document < Compound
-    end
-
-    class Nodes < Array
-      MAX_CHILDREN = 3
-      
-      def inspect
-        if count > MAX_CHILDREN
-          '[' + self[0...MAX_CHILDREN].map(&:inspect).join(', ') + " ...#{count - MAX_CHILDREN} more]"
-        else
-          super
-        end
-      end
-    end
-
     def self.parse(text)
       new(text).parse
     end

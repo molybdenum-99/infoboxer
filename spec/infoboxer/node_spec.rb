@@ -1,7 +1,5 @@
 # encoding: utf-8
-require 'infoboxer/parser'
-
-class Infoboxer::Parser
+module Infoboxer
   describe Node do
     describe '#to_tree' do
       let(:plain){node.to_tree}
