@@ -3,7 +3,7 @@ module Infoboxer
   class Compound < Node
     def initialize(children = Nodes.new, params = {})
       super(params)
-      @children = children
+      @children = Nodes[*children]
     end
 
     attr_reader :children
@@ -18,12 +18,7 @@ module Infoboxer
     end
 
     def can_merge?(other)
-      self.class == other.class && !closed?
-    end
-
-    def merge!(other)
-      @children.concat(other.children)
-      @closed = other.closed?
+      false
     end
 
     def closed!

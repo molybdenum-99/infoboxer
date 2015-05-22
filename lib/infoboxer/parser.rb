@@ -62,11 +62,11 @@ module Infoboxer
     # TODO: list type
     def list(str)
       marker, text = str.scan(/^([*\#:;]+)\s*(.+?)$/).flatten
-      node(ListItem, inline(text), marker)
+      @nodes << List.construct(marker.chars.to_a, inline(text))
     end
 
     def pre(str)
-      node(Pre, [Parser::Text.new(str.sub(/^ /, ''))])
+      node(Pre, [Text.new(str.sub(/^ /, ''))])
     end
 
     def table

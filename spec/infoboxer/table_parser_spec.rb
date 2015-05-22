@@ -13,11 +13,11 @@ module Infoboxer
         |}})
       }
 
-      it{should be_a(Parser::Table)}
+      it{should be_a(Table)}
       its(:"rows.count"){should == 1}
       it 'should contain text' do
         expect(subject.rows.first.cells.first.children).to eq \
-          [Parser::Text.new('one')]
+          [Text.new('one')]
       end
     end
 
@@ -64,7 +64,7 @@ module Infoboxer
           subject{cells.last}
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
-              [Parser::Text, Parser::Paragraph]
+              [Text, Paragraph]
             expect(subject.children.map(&:text)).to eq \
               ['two', "three: it's a long text, dude!||and four"]
           end
@@ -84,7 +84,7 @@ module Infoboxer
           subject{cells.last}
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
-              [Parser::Text, Parser::Template]
+              [Text, Template]
           end
         end
       end
@@ -117,7 +117,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [Parser::TableHeading, Parser::TableHeading, Parser::TableHeading]
+            [TableHeading, TableHeading, TableHeading]
         end
       end
 
@@ -136,7 +136,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [Parser::TableHeading, Parser::TableHeading, Parser::TableHeading]
+            [TableHeading, TableHeading, TableHeading]
         end
       end
 
@@ -151,7 +151,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [Parser::TableHeading, Parser::TableHeading, Parser::TableHeading]
+            [TableHeading, TableHeading, TableHeading]
         end
       end
 
@@ -168,7 +168,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [Parser::TableCell, Parser::TableHeading, Parser::TableCell]
+            [TableCell, TableHeading, TableCell]
         end
       end
     end
@@ -184,7 +184,7 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(Parser::TableCaption)}
+        it{should be_a(TableCaption)}
         its(:text){should == 'test me'}
       end
 
@@ -195,10 +195,10 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(Parser::TableCaption)}
+        it{should be_a(TableCaption)}
         it 'should be formatted' do
           expect(subject.children.map(&:class)).to eq \
-            [Parser::Text, Parser::Italic, Parser::Text, Parser::Wikilink]
+            [Text, Italic, Text, Wikilink]
         end
       end
 
@@ -210,7 +210,7 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(Parser::TableCaption)}
+        it{should be_a(TableCaption)}
         its(:text){should == "test me\nplease"}
       end
     end

@@ -1,6 +1,4 @@
 # encoding: utf-8
-require 'infoboxer/parser'
-
 module Infoboxer
   describe Parser do
     def parse(text)
@@ -10,48 +8,81 @@ module Infoboxer
     describe 'basics' do
       subject{parse('just text')}
 
-      it{should be_an(Parser::Document)}
-      its(:children){should be_a(Parser::Nodes)}
+      it{should be_an(Document)}
+      its(:children){should be_a(Nodes)}
     end
 
     describe 'paragraphs' do
       describe 'one item' do
-        subject{parse(source).children.first}
+        let(:one_node){parse(source).children.first}
+        subject{one_node}
 
         context 'just a para' do
           let(:source){'some text'}
           
-          it{should be_a(Parser::Paragraph)}
+          it{should be_a(Paragraph)}
           its(:text){should == 'some text'}
         end
 
         context 'header' do
           let(:source){'== Some text'}
           
-          it{should be_a(Parser::Heading)}
+          it{should be_a(Heading)}
           its(:text){should == 'Some text'}
           its(:level){should == 2}
         end
 
         context 'list item' do
-          let(:source){'*Some text'}
-          
-          it{should be_a(Parser::ListItem)}
-          its(:text){should == 'Some text'}
+          context 'first level' do
+            let(:source){'* Some text'}
+            
+            it{should be_a(UnorderedList)}
+            its(:'children.count'){should == 1}
+            its(:children){should all(be_kind_of(ListItem))}
+          end
 
-          # TODO: different markers and item levels spec!
+          context 'dl/dt' do
+            let(:source){'; Some text'}
+            it{should == DefinitionList.new(DTerm.new(Text.new('Some text')))}
+          end
+
+          context 'dl/dd' do
+            let(:source){': Some text'}
+            it{should == DefinitionList.new(DDefinition.new(Text.new('Some text')))}
+          end
+
+          context 'next levels' do
+            let(:source){'*#; Some text'}
+
+            # Prepare to madness!!!
+            it{should ==
+              UnorderedList.new(
+                ListItem.new(
+                  OrderedList.new(
+                    ListItem.new(
+                      DefinitionList.new(
+                        DTerm.new(
+                          Text.new('Some text')
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            }
+          end
         end
 
         context 'hr' do
           let(:source){'--------------'}
           
-          it{should be_a(Parser::HR)}
+          it{should be_a(HR)}
         end
 
         context 'pre' do
           let(:source){' i += 1'}
           
-          it{should be_a(Parser::Pre)}
+          it{should be_a(Pre)}
           its(:text){should == 'i += 1'}
         end
       end
@@ -63,7 +94,7 @@ module Infoboxer
 
         its(:count){should == 3}
         it 'should be correct items' do
-          expect(subject.map(&:class)).to eq [Parser::Heading, Parser::Paragraph, Parser::ListItem]
+          expect(subject.map(&:class)).to eq [Heading, Paragraph, UnorderedList]
           expect(subject.map(&:text)).to eq ['Heading', 'Paragraph', 'List item']
         end
       end
@@ -76,7 +107,7 @@ module Infoboxer
 
           its(:count){should == 2}
           it 'should be only two of them' do
-            # Fixme: should be "First para Still first"
+            # Fixme: should be "First para Still first"?
             expect(subject.map(&:text)).to eq ["First paraStill first", "Next para"]
           end
         end
@@ -87,7 +118,67 @@ module Infoboxer
           its(:count){should == 2}
         end
         
-        context 'list'
+        context 'list' do
+          let(:source){
+            %Q{
+              * start
+              ** level two
+              ** level two - same list
+              *# level two - other list
+              *; level two - even other, dl
+              *: level two - same dl
+              *:# level three - next level
+              #* orphan list with second level at once
+            }.strip.gsub(/\n\s+/m, "\n")
+          }
+
+          # not the most elegant way of testing trees, but still!
+          it{should ==
+            [
+              UnorderedList.new(
+                ListItem.new([
+                  Text.new('start'),
+                  UnorderedList.new([
+                    ListItem.new(
+                      Text.new('level two')
+                    ),
+                    ListItem.new(
+                      Text.new('level two - same list')
+                    ),
+                  ]),
+                  OrderedList.new([
+                    ListItem.new(
+                      Text.new('level two - other list')
+                    )
+                  ]),
+                  DefinitionList.new([
+                    DTerm.new(
+                      Text.new('level two - even other, dl')
+                    ),
+                    DDefinition.new([
+                      Text.new('level two - same dl'),
+                      OrderedList.new(
+                        ListItem.new(
+                          Text.new('level three - next level')
+                        )
+                      )
+                    ])
+                  ])
+                ])
+              ),
+
+              OrderedList.new(
+                ListItem.new(
+                  UnorderedList.new(
+                    ListItem.new(
+                      Text.new('orphan list with second level at once')
+                    )
+                  )
+                )
+              )
+            ]
+          }
+        end
       end
     end
 
@@ -95,10 +186,10 @@ module Infoboxer
       let(:source){"Paragraph '''with''' [[link]]\n== Heading"}
       subject{parse(source).children.first}
 
-      it{should be_a(Parser::Paragraph)}
+      it{should be_a(Paragraph)}
       it 'should be cool' do
         expect(subject.children.map(&:class)).to eq \
-          [Parser::Text, Parser::Bold, Parser::Text, Parser::Wikilink]
+          [Text, Bold, Text, Wikilink]
         
         expect(subject.children.map(&:text)).to eq \
           ['Paragraph ', 'with', ' ', 'link']
@@ -110,7 +201,7 @@ module Infoboxer
       subject{parse(source).children}
 
       it 'should work' do
-        expect(subject.map(&:class)).to eq [Parser::Paragraph, Parser::Table]
+        expect(subject.map(&:class)).to eq [Paragraph, Table]
       end
     end
 

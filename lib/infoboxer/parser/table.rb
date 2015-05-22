@@ -45,7 +45,7 @@ module Infoboxer
             break
 
           when /^\s*!(.*)$/                   # heading (th) in a row
-            parse_cells($1, Parser::TableHeading)
+            parse_cells($1, TableHeading)
 
           when /^\s*\|\+(.*)$/               # caption
             
@@ -86,7 +86,7 @@ module Infoboxer
         end
       end
 
-      def parse_cells(str, cell_class = Parser::TableCell)
+      def parse_cells(str, cell_class = TableCell)
         start_row! unless @current_row
         cells = []
         params = []
@@ -155,10 +155,10 @@ module Infoboxer
           
           @table.children << @current_row
         elsif @is_caption
-          @table.children << Parser::TableCaption.new(InlineParser.parse(@multiline.strip))
+          @table.children << TableCaption.new(InlineParser.parse(@multiline.strip))
         end
 
-        @current_row = Parser::TableRow.new
+        @current_row = TableRow.new
         @is_caption = false
         @multiline = ''
       end
