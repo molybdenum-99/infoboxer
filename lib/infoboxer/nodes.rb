@@ -2,15 +2,15 @@
 module Infoboxer
   class Nodes < Array
     def select(&block)
-      Nodes[super]
+      Nodes[*super]
     end
 
     def reject(&block)
-      Nodes[super]
+      Nodes[*super]
     end
 
     def sort_by(&block)
-      Nodes[super]
+      Nodes[*super]
     end
 
     MAX_CHILDREN = 3

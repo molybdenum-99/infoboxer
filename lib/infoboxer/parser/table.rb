@@ -70,7 +70,7 @@ module Infoboxer
         end
 
         finalize_row!
-        
+
         @table
       end
 

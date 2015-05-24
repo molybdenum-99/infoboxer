@@ -65,6 +65,17 @@ module Infoboxer
       end
     end
   end
+
+  module Mergeable
+    def can_merge?(other)
+      self.class == other.class && !closed?
+    end
+
+    def merge!(other)
+      @children.concat(other.children)
+      @closed = other.closed?
+    end
+  end
 end
 
 require_relative 'node/text'
@@ -73,5 +84,6 @@ require_relative 'node/inline'
 require_relative 'node/image'
 require_relative 'node/html'
 require_relative 'node/paragraphs'
+require_relative 'node/list'
 require_relative 'node/template'
 require_relative 'node/table'

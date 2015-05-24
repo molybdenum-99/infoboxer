@@ -59,7 +59,7 @@ module Infoboxer
       node(Heading, inline(text), level.length)
     end
 
-    # TODO: list type
+    # http://en.wikipedia.org/wiki/Help:List
     def list(str)
       marker, text = str.scan(/^([*\#:;]+)\s*(.+?)$/).flatten
       @nodes << List.construct(marker.chars.to_a, inline(text))

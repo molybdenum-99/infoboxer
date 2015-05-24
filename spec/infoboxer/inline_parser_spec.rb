@@ -235,7 +235,7 @@ module Infoboxer
 
         it{should be_a(Template)}
         its(:name){should == 'the name'}
-        its(:variables){should == [[Text.new('en')]]}
+        its(:variables){should == {1 => [Text.new('en')]}}
       end
 
       context 'with named parameter' do
@@ -243,7 +243,7 @@ module Infoboxer
 
         it{should be_a(Template)}
         its(:name){should == 'the name'}
-        its(:variables){should == [{lang: [Text.new('en')]}]}
+        its(:variables){should == {lang: [Text.new('en')]}}
       end
 
       context 'with empty parameter' do
@@ -251,7 +251,7 @@ module Infoboxer
 
         it{should be_a(Template)}
         its(:name){should == 'the name'}
-        its(:variables){should == [{lang: []}]}
+        its(:variables){should == {lang: []}}
       end
 
       context 'with link in arguments' do
@@ -260,9 +260,9 @@ module Infoboxer
         it{should be_a(Template)}
         its(:name){should == 'the name'}
         its(:variables){should ==
-          [
+          {1 =>
             [Wikilink.new('Argentina', [Text.new('Ar')])]
-          ]
+          }
         }
       end
 
