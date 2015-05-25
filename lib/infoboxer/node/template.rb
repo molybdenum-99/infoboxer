@@ -24,19 +24,12 @@ module Infoboxer
     end
 
     def to_tree(level = 0)
-      '  ' * level + "#{clean_class}:#{name}\n" +
-        variables.map{|v| var_to_tree(v, level+1)}.join
+      '  ' * level + "<#{clean_class}(#{name})>\n" +
+        variables.map{|k, v| var_to_tree(k, v, level+1)}.join
     end
 
-    def var_to_tree(var, level)
-      case var
-      when Hash
-        '  ' * level + "| #{var.keys.first}\n" +
-          var.values.first.map{|v| v.to_tree(level+1)}.join
-      when Nodes
-        '  ' * level + "|\n" +
-          var.map{|v| v.to_tree(level+1)}.join
-      end
+    def var_to_tree(name, var, level)
+      indent(level) + "#{name}:\n" + var.map{|n| n.to_tree(level+1)}.join
     end
   end
 end

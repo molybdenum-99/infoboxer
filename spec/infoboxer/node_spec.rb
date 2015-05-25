@@ -135,6 +135,23 @@ module Infoboxer
           "          two-2-dd <DDefinition>\n"\
         }
       end
+
+      context Template do
+        let(:node){
+          Parser::InlineParser.parse(%Q{
+          {{name|unnamed value|named=named value ''with markup''}}
+          }.strip.gsub(/\n\s+/m, "\n")).first
+        }
+
+        it{should ==
+          "<Template(name)>\n"\
+          "  1:\n"\
+          "    unnamed value <Text>\n"\
+          "  named:\n"\
+          "    named value  <Text>\n"\
+          "    with markup <Italic>\n"\
+        }
+      end
     end
 
     describe '#to_text' do
