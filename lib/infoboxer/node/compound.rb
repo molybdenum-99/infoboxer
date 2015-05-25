@@ -48,7 +48,8 @@ module Infoboxer
     end
 
     def lookup(*args, &block)
-      Nodes[super(*args, &block), children.map{|c| c.lookup(*args, &block)}].flatten.compact
+      Nodes[super(*args, &block), *children.lookup(*args, &block)].
+        flatten.compact
     end
 
     private
