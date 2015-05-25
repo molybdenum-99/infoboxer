@@ -70,11 +70,13 @@ module Infoboxer
         let(:node){
           HTMLTag.new('div',
             {class: 'table_inside', style: 'float:left;'},
-            [Text.new('contents')])
+            [Text.new('contents'), Italic.new(Text.new('italic'))])
         }
 
         it{should ==
-          "contents <HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"
+          "<HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"\
+          "  contents <Text>\n"\
+          "  italic <Italic>\n"
         }
       end
 

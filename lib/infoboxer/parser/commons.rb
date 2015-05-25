@@ -17,7 +17,7 @@ module Infoboxer
             if q
               value = scan.scan_until(/#{q}/).sub(q, '')
             else
-              value = scan.scan_until(/\s/)
+              value = scan.scan_until(/\s|$/)
             end
             params[name.to_sym] = value
           else

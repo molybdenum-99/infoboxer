@@ -4,3 +4,5 @@ Gemfile.lock
 deprecated
 TODO.txt
 tmp
+examples/output/*.txt
+profile/out/*.html

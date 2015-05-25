@@ -20,7 +20,7 @@ module Infoboxer
     end
 
     def to_tree(level = 0)
-      "<#{descr}>\n"
+      indent(level) + "<#{descr}>\n"
     end
 
     private

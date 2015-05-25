@@ -118,6 +118,13 @@ module Infoboxer
             its(:children){should be_empty}
           end
 
+          context 'self-closing with attrs' do
+            let(:source){'<ref name=totalpop/>'}
+            it{should be_a(HTMLTag)}
+            its(:children){should be_empty}
+            its(:attrs){should == {name: 'totalpop'}}
+          end
+
           context 'lonely opening' do
             let(:source){'<strike>Some text'}
 
@@ -252,6 +259,12 @@ module Infoboxer
         it{should be_a(Template)}
         its(:name){should == 'the name'}
         its(:variables){should == {lang: []}}
+      end
+
+      context 'with "=" symbol in parameter' do
+        let(:source){ '{{the name|formula=1+2=3}}' }
+
+        its(:variables){should == {formula: [Text.new('1+2=3')]}}
       end
 
       context 'with link in arguments' do

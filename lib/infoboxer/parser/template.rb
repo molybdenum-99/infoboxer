@@ -59,7 +59,7 @@ module Infoboxer
       end
 
       def parse_variable(s)
-        if s =~ /\A\s*(\S+)\s*=\s*(.*)\Z/m
+        if s =~ /\A\s*([^ =]+)\s*=\s*(.*)\Z/m
           name, val = $1, $2
           {name.to_sym => parse_value(val)}
         else

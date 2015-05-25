@@ -17,7 +17,7 @@ module Infoboxer
       end
       
       def initialize(str, next_lines = [])
-        @str, @next_lines = str, next_lines
+        @str, @next_lines = str.gsub(/[\r\n]/m, ' '), next_lines
 
         @scanner = StringScanner.new(str)
         @nodes = Nodes.new
@@ -116,11 +116,11 @@ module Infoboxer
           scanner.skip(/>/)
           node(HTMLClosingTag, tag)
 
-        when scanner.check(/[a-z]+[^>]+\/>/)
+        when scanner.check(%r{[a-z]+[^/>]*/>})
           # auto-closing tag
           tag = scanner.scan(/[a-z]+/)
-          attrs = scanner.scan(/[^>]+/)
-          scanner.skip(/\/>/)
+          attrs = scanner.scan(%r{[^/>]*})
+          scanner.skip(%r{/>})
           node(HTMLTag, tag, parse_params(attrs))
 
         when scanner.check(/[a-z]+[^>\/]+>/)
