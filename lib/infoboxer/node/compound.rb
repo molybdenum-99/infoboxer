@@ -4,9 +4,14 @@ module Infoboxer
     def initialize(children = Nodes.new, params = {})
       super(params)
       @children = Nodes[*children]
+      @children.each(&set(parent: self))
     end
 
     attr_reader :children
+
+    def push_children(*nodes)
+      @children.concat(nodes.each(&set(parent: self)))
+    end
 
     def lookup_child(*arg, &block)
       @children.select{|c| c.matches?(*arg, &block)}

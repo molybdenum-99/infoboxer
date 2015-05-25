@@ -7,7 +7,7 @@ module Infoboxer
       {| some=table
       |With
       * cool list
-      * And deep test
+      * ''And'' deep test
       |}
       }.strip.gsub(/\n\s+/m, "\n"))
     }
@@ -29,7 +29,7 @@ module Infoboxer
         it{should be_kind_of(Nodes)}
         it{should == [
           Text.new('Test in first '),
-          Text.new('And deep test') 
+          Text.new(' deep test') 
         ]}
       end
 
@@ -46,18 +46,18 @@ module Infoboxer
         it{should be_kind_of(Nodes)}
         it{should == [
           Text.new('Test in first '),
-          Text.new('And deep test') 
+          Text.new(' deep test') 
         ]}
       end
 
       context 'everything at once' do
         subject{
-          document.lookup(Text, text: /test/i){|n| n.text.length == 13}
+          document.lookup(Text, text: /test/i){|n| n.text.length == 10}
         }
 
         it{should be_kind_of(Nodes)}
         it{should == [
-          Text.new('And deep test') 
+          Text.new(' deep test') 
         ]}
       end
     end
@@ -80,9 +80,28 @@ module Infoboxer
     end
 
     describe 'chain of lookups' do
+      subject{
+        document.
+          lookup(List).
+          lookup(ListItem).
+          lookup_child(text: /test/)
+      }
+      it{should == [Text.new(' deep test')]}
+    end
+
+    describe :parent do
+      subject{document.lookup(TableCell).first}
+      its(:parent){should be_a(TableRow)}
     end
 
     describe :lookup_parent do
+      let(:cell){document.lookup(TableCell).first}
+      context 'parent found' do
+        subject{cell.lookup_parent(Table)}
+        
+        its(:count){should == 1}
+        its(:first){should be_a(Table)}
+      end
     end
   end
 end

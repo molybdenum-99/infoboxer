@@ -10,6 +10,7 @@ module Infoboxer
     end
 
     attr_reader :params
+    attr_accessor :parent
     
     def can_merge?(other)
       false
@@ -23,10 +24,6 @@ module Infoboxer
       indent(level) + "<#{descr}>\n"
     end
 
-    def lookup(*args, &block)
-      matches?(*args, &block) ? self : nil
-    end
-
     def matches?(*args, &block)
       checks = args.last.kind_of?(Hash) ? args.pop : {}
       checks = checks.to_a # now we can have two o more #itself checks
@@ -35,6 +32,21 @@ module Infoboxer
       checks << [:itself, block] if block
 
       checks.all?{|sym, val| val === send(sym)}
+    end
+
+    def lookup(*args, &block)
+      matches?(*args, &block) ? self : nil
+    end
+
+    def lookup_parent(*args, &block)
+      case
+      when !parent
+        Nodes[]
+      when parent.matches?(*args, &block)
+        Nodes[parent, *parent.lookup_parent(*args, &block)]
+      else
+        parent.lookup_parent(*args, &block)
+      end
     end
 
     private

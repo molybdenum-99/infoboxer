@@ -125,7 +125,7 @@ module Infoboxer
           }
         }
         
-        @current_row.children.concat(cells)
+        @current_row.push_children(*cells)
       end
 
       include Commons
@@ -148,14 +148,14 @@ module Infoboxer
       def finalize_row!
         if @current_row && !@current_row.children.empty?
           unless @multiline.empty?
-            @current_row.children.last.children.concat(
-              Parser.new(@multiline).parse.children
+            @current_row.children.last.push_children(
+              *Parser.new(@multiline).parse.children
             )
           end
           
-          @table.children << @current_row
+          @table.push_children(@current_row)
         elsif @is_caption
-          @table.children << TableCaption.new(InlineParser.parse(@multiline.strip))
+          @table.push_children(TableCaption.new(InlineParser.parse(@multiline.strip)))
         end
 
         @current_row = TableRow.new

@@ -11,7 +11,7 @@ module Infoboxer
       if children.last && children.last.can_merge?(ochildren.first)
         children.last.merge!(ochildren.shift)
       end
-      children.concat(ochildren)
+      push_children(*ochildren)
     end
   end
 
@@ -58,7 +58,7 @@ module Infoboxer
         children.last.merge!(ochildren.shift)
       end
 
-      children.concat(ochildren)
+      push_children(*ochildren)
     end
 
     def self.construct(marker, nodes)
