@@ -107,7 +107,34 @@ module Infoboxer
         }
       end
 
-      # TODO: List/ListItem - still not parsed very well
+      context List do
+        let(:node){
+          Parser.parse(%Q{
+          * one
+          * two
+          *# two-1 ''italic''
+          *# two-2
+          *#; two-2-dt
+          *#: two-2-dd
+          }.strip.gsub(/\n\s+/m, "\n")).children.first
+        }
+
+        it{should ==
+          "<UnorderedList>\n"\
+          "  one <ListItem>\n"\
+          "  <ListItem>\n"\
+          "    two <Text>\n"\
+          "    <OrderedList>\n"\
+          "      <ListItem>\n"\
+          "        two-1  <Text>\n"\
+          "        italic <Italic>\n"\
+          "      <ListItem>\n"\
+          "        two-2 <Text>\n"\
+          "        <DefinitionList>\n"\
+          "          two-2-dt <DTerm>\n"\
+          "          two-2-dd <DDefinition>\n"\
+        }
+      end
     end
 
     describe '#to_text' do
