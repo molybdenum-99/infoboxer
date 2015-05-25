@@ -1,16 +1,26 @@
 # encoding: utf-8
 module Infoboxer
   class Nodes < Array
-    def select(&block)
-      Nodes[*super]
-    end
+    #def select(&block)
+      #Nodes[*super]
+    #end
 
-    def reject(&block)
-      Nodes[*super]
-    end
+    #def reject(&block)
+      #Nodes[*super]
+    #end
 
-    def sort_by(&block)
-      Nodes[*super]
+    #def sort_by(&block)
+      #Nodes[*super]
+    #end
+
+    #def flatten(level = nil)
+      #Nodes[*super]
+    #end
+
+    [:select, :reject, :sort_by, :flatten, :compact].each do |sym|
+      define_method(sym){|*args, &block|
+        Nodes[*super(*args, &block)]
+      }
     end
 
     MAX_CHILDREN = 3

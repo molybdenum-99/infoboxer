@@ -23,6 +23,20 @@ module Infoboxer
       indent(level) + "<#{descr}>\n"
     end
 
+    def lookup(*args, &block)
+      matches?(*args, &block) ? self : nil
+    end
+
+    def matches?(*args, &block)
+      checks = args.last.kind_of?(Hash) ? args.pop : {}
+      checks = checks.to_a # now we can have two o more #itself checks
+
+      checks << [:itself, args.first] if args.first.is_a?(Class)
+      checks << [:itself, block] if block
+
+      checks.all?{|sym, val| val === send(sym)}
+    end
+
     private
 
     def clean_class

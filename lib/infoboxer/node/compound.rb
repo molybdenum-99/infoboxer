@@ -8,6 +8,10 @@ module Infoboxer
 
     attr_reader :children
 
+    def lookup_child(*arg, &block)
+      @children.select{|c| c.matches?(*arg, &block)}
+    end
+
     def text
       children.map(&:text).join
     end
@@ -36,6 +40,10 @@ module Infoboxer
         "#{indent(level)}<#{descr}>\n" +
           children.map(&call(to_tree: level+1)).join
       end
+    end
+
+    def lookup(*args, &block)
+      Nodes[super(*args, &block), children.map{|c| c.lookup(*args, &block)}].flatten.compact
     end
 
     private
