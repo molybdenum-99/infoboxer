@@ -25,7 +25,13 @@ module Infoboxer
 
       def parse
         @text = ''
-        formatting_start = /('{2,5}|\[\[|{{|{\||\[|<)/
+        formatting_start = /('{2,5} |
+            \[\[ |
+            {{   |
+            {\| |
+            \[[a-z]+:\/\/
+            |<
+          )/x
         until scanner.eos?
           str = scanner.scan_until(formatting_start)
           @text << str.sub(scanner.matched, '') if str
@@ -42,8 +48,8 @@ module Infoboxer
             image(scan(/\[\[/, /\]\]/))
           when '[['
             wikilink(scan(/\[\[/, /\]\]/))
-          when '['
-            external_link(scan(/\[/, /\]/))
+          when /\[(.+)/
+            external_link($1, scan(/\[/, /\]/))
           when '{{'
             template(scan(/{{/, /}}/))
           when '<'
@@ -98,8 +104,8 @@ module Infoboxer
       # http://en.wikipedia.org/wiki/Help:Link#External_links
       # [http://www.example.org]
       # [http://www.example.org link name]
-      def external_link(str)
-        link(ExternalLink, str, /\s+/)
+      def external_link(protocol, str)
+        link(ExternalLink, protocol + str, /\s+/)
       end
 
       def link(klass, str, split_pattern)

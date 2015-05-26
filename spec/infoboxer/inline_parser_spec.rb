@@ -88,6 +88,13 @@ module Infoboxer
             its(:link){should == 'http://google.com'}
             its(:children){should == [Text.new('http://google.com')]}
           end
+
+          context 'not a link at all' do
+            let(:source){'[just text]'}
+
+            it{should be_a(Text)}
+            its(:text){should == '[just text]'}
+          end
         end
 
         context 'when HTML' do

@@ -1,4 +1,6 @@
 # encoding: utf-8
+require_relative 'semantic_navigation'
+
 module Infoboxer
   class Compound < Node
     def initialize(children = Nodes.new, params = {})
@@ -16,6 +18,8 @@ module Infoboxer
     def lookup_child(*arg, &block)
       @children.select{|c| c.matches?(*arg, &block)}
     end
+
+    include SemanticNavigation
 
     def text
       children.map(&:text).join
