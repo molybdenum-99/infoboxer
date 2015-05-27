@@ -39,6 +39,7 @@ module Infoboxer
       end
 
       merge_nodes!
+      flatten_templates!
 
       Document.new(@nodes)
     end
@@ -88,6 +89,26 @@ module Infoboxer
       end
 
       @nodes.replace(merged)
+    end
+
+    # If we have paragraph, which consists of templates only,
+    # this paragraph should be REPLACED with template.
+    # This way, we get rid of situation, when first 3-5 paragraphs of
+    # document is infoboxes, disambig marks and so on.
+    #
+    # FIXME: not sure, if this method is smart enough.
+    def flatten_templates!
+      flat = @nodes.map do |node|
+        if node.is_a?(Paragraph) &&
+          node.children.all?{|c| c.is_a?(Template)}
+
+          node.children
+        else
+          node
+        end
+      end.flatten(1)
+
+      @nodes.replace(flat)
     end
 
     # Basic internals --------------------------------------------------

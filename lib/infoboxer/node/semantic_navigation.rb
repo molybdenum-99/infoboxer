@@ -29,4 +29,12 @@ module Infoboxer
       lookup(Table)
     end
   end
+
+  module SectionsNavigation
+    def intro
+      children.
+        take_while{|n| !n.is_a?(Heading)}.
+        select{|n| n.is_a?(BaseParagraph)}
+    end
+  end
 end

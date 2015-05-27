@@ -19,6 +19,10 @@ module Infoboxer
       ]
     end
 
+    def _eq(other)
+      other.name == name && other.vars == vars
+    end
+
     def inspect
       "#<#{clean_class}:#{name}#{variables}>"
     end

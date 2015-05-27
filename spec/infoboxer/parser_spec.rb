@@ -179,6 +179,17 @@ module Infoboxer
             ]
           }
         end
+
+        context 'templates-only paragraph' do
+          let(:source){
+            %Q{{{template}}\n\nparagraph}
+          }
+
+          it{should == [
+            Template.new('template', []),
+            Paragraph.new(Text.new('paragraph'))
+          ]}
+        end
       end
     end
 

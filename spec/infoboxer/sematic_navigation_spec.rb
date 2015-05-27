@@ -79,7 +79,7 @@ module Infoboxer
     end
 
     describe 'semantic regrouping' do
-      xdescribe :intro do
+      describe :intro do
         
         subject{document.intro}
 

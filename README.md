@@ -441,3 +441,5 @@ order, as of now):
 * Localizations (need help!);
 * Cover more features of Wikipedia API -- at least search and page list
   [generators](http://www.mediawiki.org/wiki/API:Query#Generators)
+* Part of previous item: more info about current page from Wikipedia API,
+  like real URL's of image files, interwiki links and so on.
