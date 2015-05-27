@@ -6,14 +6,17 @@ module Infoboxer
     }
 
     describe 'simple shortcuts' do
-
-      # FIXME: do we REALLY want to navigate inside templates?..
       describe :wikilinks do
-        subject{document.wikilinks}
+        context 'by default' do
+          subject{document.wikilinks}
 
-        its(:count){should > 100}
-        its(:'first.link'){should == 'Argentine Constitution'}
-        its(:'first.parent'){should be_a(Template)}
+          its(:count){should > 100}
+          its(:'first.link'){should == 'federal republic'}
+          its(:'first.parent'){should be_a(Paragraph)}
+          it 'should have no namespaced link' do
+            expect(subject.map(&:link)).to all(match(/^[^:]+$/))
+          end
+        end
       end
       
       describe :external_links do
@@ -25,27 +28,30 @@ module Infoboxer
       
       describe :links
 
-      # FIXME: in fact, not an image!!!
       describe :images do
         subject{document.images}
 
         its(:count){should > 20}
-        its(:'first.path'){should == 'Himno Nacional Argentino instrumental.ogg'}
+        its(:'first.path'){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
       end
       
       describe :templates do
+        subject{document.templates}
+
+        its(:count){should > 10}
+        its(:'first.name'){should == 'other uses'}
       end
     end
 
-    describe 'semantic regrouping' do
-      describe :sections do
-        let(:sections){document.sections}
+    #describe 'semantic regrouping' do
+      #describe :sections do
+        #let(:sections){document.sections}
 
-        it 'should group document in top-level sections' do
-          expect(sections.count).to eq(12)
-          expect(sections.map(&:heading).map(&:text)
-        end
-      end
-    end
+        #it 'should group document in top-level sections' do
+          #expect(sections.count).to eq(12)
+          #expect(sections.map(&:heading).map(&:text))
+        #end
+      #end
+    #end
   end
 end

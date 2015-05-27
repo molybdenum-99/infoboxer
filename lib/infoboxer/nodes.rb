@@ -8,11 +8,19 @@ module Infoboxer
     end
 
     def lookup(*args, &block)
-      Nodes[*map{|c| c.lookup(*args, &block)}.flatten]
+      _lookup(Node::Selector.new(*args, &block))
     end
 
     def lookup_child(*args, &block)
-      map{|c| c.lookup_child(*args, &block)}.flatten
+      _lookup_child(Node::Selector.new(*args, &block))
+    end
+
+    def _lookup(selector)
+      Nodes[*map{|c| c._lookup(selector)}.flatten]
+    end
+
+    def _lookup_child(selector)
+      map{|c| c._lookup_child(selector)}.flatten
     end
 
     MAX_CHILDREN = 3

@@ -25,30 +25,36 @@ module Infoboxer
     end
 
     def matches?(*args, &block)
-      checks = args.last.kind_of?(Hash) ? args.pop : {}
-      checks = checks.to_a # now we can have two o more #itself checks
-
-      checks << [:itself, args.first] if args.first.is_a?(Class)
-      checks << [:itself, block] if block
-
-      checks.all?{|sym, val| val === send(sym)}
+      _matches?(Selector.new(*args, &block))
     end
 
     def lookup(*args, &block)
-      matches?(*args, &block) ? self : nil
+      _lookup(Selector.new(*args, &block))
     end
 
     def lookup_parent(*args, &block)
+      _lookup_parent(Selector.new(*args, &block))
+    end
+
+    def _lookup_parent(selector)
       case
       when !parent
         Nodes[]
-      when parent.matches?(*args, &block)
-        Nodes[parent, *parent.lookup_parent(*args, &block)]
+      when parent._matches?(selector)
+        Nodes[parent, *parent._lookup_parent(selector)]
       else
-        parent.lookup_parent(*args, &block)
+        parent._lookup_parent(selector)
       end
     end
 
+    def _matches?(selector)
+      selector.matches?(self)
+    end
+
+    def _lookup(selector)
+      _matches?(selector) ? self : nil
+    end
+    
     private
 
     def clean_class
@@ -113,3 +119,5 @@ require_relative 'node/paragraphs'
 require_relative 'node/list'
 require_relative 'node/template'
 require_relative 'node/table'
+
+require_relative 'node/selector'

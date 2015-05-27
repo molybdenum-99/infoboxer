@@ -4,6 +4,7 @@ module Infoboxer
     let(:document){
       Parser.parse(%Q{
       Test in first ''paragraph''
+      === Heading ===
       {| some=table
       |With
       * cool list
@@ -59,6 +60,12 @@ module Infoboxer
         it{should == [
           Text.new(' deep test') 
         ]}
+      end
+
+      context 'by fields which only some subclasses have' do
+        subject{document.lookup(Heading, level: 3)}
+
+        its(:count){should == 1}
       end
     end
 

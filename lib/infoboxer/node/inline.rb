@@ -18,6 +18,20 @@ module Infoboxer
   end
 
   class Wikilink < Link
+    def name
+      @name || ensure_namespace.last
+    end
+
+    def namespace
+      @namespace || ensure_namespace.first
+    end
+
+    private
+
+    def ensure_namespace
+      @name, @namespace = link.split(':', 2).reverse
+      [@namespace ||= '', @name]
+    end
   end
 
   class ExternalLink < Link

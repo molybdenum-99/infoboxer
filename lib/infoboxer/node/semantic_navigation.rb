@@ -2,7 +2,7 @@
 module Infoboxer
   module SemanticNavigation
     def wikilinks
-      lookup(Wikilink)
+      lookup(Wikilink, namespace: '')
     end
 
     def external_links
@@ -11,6 +11,10 @@ module Infoboxer
 
     def images
       lookup(Image)
+    end
+
+    def templates
+      lookup(Template)
     end
   end
 end

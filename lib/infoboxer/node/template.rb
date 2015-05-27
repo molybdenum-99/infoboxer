@@ -3,14 +3,9 @@ module Infoboxer
   class Template < Node
     def initialize(name, vars)
       @name, @vars = name, vars
-      @children = Nodes[*variables.values.flatten(1)].each(&set(parent: self))
     end
 
     attr_reader :name, :vars
-
-    def lookup(*args, &block)
-      @children.lookup(*args, &block)
-    end
 
     def variables
       Hash[*vars.each_with_index.flat_map{|v, i|

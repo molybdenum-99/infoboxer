@@ -11,12 +11,20 @@ module Infoboxer
 
     attr_reader :children
 
+    def empty?
+      children.empty?
+    end
+
     def push_children(*nodes)
       @children.concat(nodes.each(&set(parent: self)))
     end
 
     def lookup_child(*arg, &block)
-      @children.select{|c| c.matches?(*arg, &block)}
+      _lookup_child(Selector.new(*arg, &block))
+    end
+
+    def _lookup_child(selector)
+      @children.select{|c| c._matches?(selector)}
     end
 
     include SemanticNavigation
@@ -51,8 +59,8 @@ module Infoboxer
       end
     end
 
-    def lookup(*args, &block)
-      Nodes[super(*args, &block), *children.lookup(*args, &block)].
+    def _lookup(selector)
+      Nodes[super(selector), *children._lookup(selector)].
         flatten.compact
     end
 
