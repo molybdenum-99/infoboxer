@@ -6,10 +6,6 @@ module Infoboxer
       
       def initialize(*arg, &block)
         @arg = [arg, block].flatten.compact
-        
-        @checks = @arg.map{|a|
-          construct_check(a)
-        }.flatten
       end
 
       def inspect
@@ -17,23 +13,23 @@ module Infoboxer
       end
 
       def matches?(node)
-        @checks.all?(&call(call: node))
+        @arg.all?{|a| arg_matches?(a, node)}
       end
 
       private
 
-      def construct_check(obj)
-        case obj
+      def arg_matches?(check, node)
+        case check
         when Proc
-          obj
+          check.call(node)
         when Hash
-          obj.map{|attr, value|
-            ->(node){node.respond_to?(attr) && value === node.send(attr)}
+          check.all?{|attr, value|
+            node.respond_to?(attr) && value === node.send(attr)
           }
         when Symbol
-          ->(node){node.respond_to?(obj) && node.send(obj)}
+          node.respond_to?(check) && node.send(check)
         else
-          ->(node){obj === node}
+          check === node
         end
       end
     end
