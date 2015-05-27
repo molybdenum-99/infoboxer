@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  class ListItem < Compound
+  class ListItem < BaseParagraph
     def can_merge?(other)
       other.class == self.class &&
         other.children.first.kind_of?(List)

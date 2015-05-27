@@ -1,13 +1,16 @@
 # encoding: utf-8
 module Infoboxer
-  class Paragraph < Compound
+  class BaseParagraph < Compound
+  end
+
+  class Paragraph < BaseParagraph
     include Mergeable
   end
 
   class HR < Node
   end
 
-  class Heading < Compound
+  class Heading < BaseParagraph
     def initialize(children, level)
       super(children, level: level)
     end
@@ -15,7 +18,7 @@ module Infoboxer
     def_readers :level
   end
 
-  class Pre < Compound
+  class Pre < BaseParagraph
     include Mergeable
   end
 end

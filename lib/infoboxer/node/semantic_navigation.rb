@@ -1,8 +1,16 @@
 # encoding: utf-8
 module Infoboxer
   module SemanticNavigation
-    def wikilinks
-      lookup(Wikilink, namespace: '')
+    def wikilinks(namespace = '')
+      if namespace
+        lookup(Wikilink, namespace: namespace)
+      else
+        lookup(Wikilink)
+      end
+    end
+
+    def paragraphs
+      lookup(BaseParagraph)
     end
 
     def external_links
@@ -15,6 +23,10 @@ module Infoboxer
 
     def templates
       lookup(Template)
+    end
+
+    def tables
+      lookup(Table)
     end
   end
 end
