@@ -5,7 +5,7 @@ module Infoboxer
     
     describe :raw do
       context 'when single page', :vcr do
-        subject{client.raw('Argentina')}
+        subject{client.raw('Argentina').first}
 
         it{should be_kind_of(Hash)}
         its([:title]){should == 'Argentina'}
@@ -30,7 +30,7 @@ module Infoboxer
       end
 
       context 'when redirect page', :vcr do
-        subject{client.raw('Einstein')}
+        subject{client.raw('Einstein').first}
         its([:title]){should == 'Albert Einstein'}
         its([:content]){should_not include('#REDIRECT')}
       end
