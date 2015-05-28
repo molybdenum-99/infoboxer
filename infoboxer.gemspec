@@ -23,10 +23,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'htmlentities'
   s.add_dependency 'procme'
+  s.add_dependency 'rest-client'
 
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rspec-its', '~> 1'
-  s.add_development_dependency 'ruby-prof' 
-  #s.add_development_dependency 'rubocop', '~> 0.30'
-  #s.add_development_dependency 'simplecov', '~> 0.9'
+  s.add_development_dependency 'ruby-prof'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 end

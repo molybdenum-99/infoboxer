@@ -9,13 +9,13 @@ It can help you in tasks like:
 * convert some huge "comparison table" to data;
 * and much, much more!
 
-The whole idea is: you can have any Wikipedia page as a parsed tree of
+The whole idea is: you can have any Wikipedia page as a parsed tree with
 obvious structure, you can navigate that tree easily, and you have a
 bunch of hi-level helpers method, so typical information extraction
 tasks should be super-easy, one-liners in best cases.
 
 *(For those already thinkind "Why should you do this, we already have
-DBPedia?" -- please, read "Reasons" section below.)*
+DBPedia?" -- please, read "[Reasons](#reasons)" section below.)*
 
 ## OK, show me some code!
 
@@ -269,6 +269,8 @@ and works, as almost everything about templates, only for English Wikipedia.
 ### Mastering It All
 
 TODO: read source, view tree, navigate document
+
+### Getting Plain Text
 
 ## Reasons
 
