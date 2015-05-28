@@ -36,7 +36,12 @@ module Infoboxer
       end
     end
 
-    describe :get do
+    describe :get, :vcr do
+      subject{client.get('Argentina')}
+
+      it{should be_a(Page)}
+      its(:title){should == 'Argentina'}
+      its(:url){should == 'http://en.wikipedia.org/wiki/Argentina'}
     end
   end
 end

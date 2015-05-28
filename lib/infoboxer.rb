@@ -12,3 +12,4 @@ require_relative 'infoboxer/document'
 require_relative 'infoboxer/parser'
 
 require_relative 'infoboxer/media_wiki'
+require_relative 'infoboxer/page'

@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'htmlentities'
   s.add_dependency 'procme'
   s.add_dependency 'rest-client'
+  s.add_dependency 'addressable'
 
   s.add_development_dependency 'rspec', '~> 3'
   s.add_development_dependency 'rspec-its', '~> 1'
