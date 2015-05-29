@@ -2,11 +2,11 @@
 module Infoboxer
   module SemanticNavigation
     def wikilinks(namespace = '')
-      if namespace
-        lookup(Wikilink, namespace: namespace)
-      else
-        lookup(Wikilink)
-      end
+      lookup(Wikilink, namespace: namespace)
+    end
+
+    def headings(level = nil)
+      lookup(Heading, level: level)
     end
 
     def paragraphs
@@ -35,6 +35,26 @@ module Infoboxer
       children.
         take_while{|n| !n.is_a?(Heading)}.
         select{|n| n.is_a?(BaseParagraph)}
+    end
+
+    def sections
+      first_heading = headings.first
+      sections = []
+
+      children.
+        chunk{|n| n.matches?(Heading, level: first_heading.level)}.
+        drop_while{|is_heading, nodes| !is_heading}.
+        each do |is_heading, nodes|
+          if is_heading
+            nodes.each do |node|
+              sections << Section.new(node)
+            end
+          else
+            sections.last.push_children(*nodes)
+          end
+        end
+
+      sections
     end
   end
 end

@@ -1,7 +1,7 @@
 **Infoboxer** is pure-Ruby Wikipedia client and parser, targeting
 information extraction (hence the name).
 
-It can help you in tasks like:
+It can be useful in tasks like:
 
 * get a plaintext abstract of an article (paragraphs before first heading);
 * get value of some parameter in page's *infobox*;

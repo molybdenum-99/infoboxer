@@ -6,6 +6,9 @@ module Infoboxer
       
       def initialize(*arg, &block)
         @arg = [arg, block].flatten.compact
+        @arg.each do |a|
+          a.reject!{|k, v| v.nil?} if a.is_a?(Hash)
+        end
       end
 
       def inspect

@@ -1,12 +1,12 @@
 # encoding: utf-8
 module Infoboxer
   describe Document do
+    # Document is immutable and is created ~.3 sec each time.
+    # So, fot tens of examples it's wiser to create it only once.
     before(:all){
       @document = Parser.parse(File.read('spec/fixtures/argentina.wiki'))
     }
-    let(:document){
-      @document
-    }
+    let(:document){ @document }
 
     describe 'simple shortcuts' do
       describe :wikilinks do
@@ -76,6 +76,17 @@ module Infoboxer
             contain_exactly(Paragraph, ListItem, Heading, Pre, DTerm, DDefinition)
         end
       end
+
+      describe :headings do
+        subject{document.headings}
+        its(:count){should == 46}
+
+        it 'should select by level' do
+          expect(document.headings(2).count).to eq 12
+          expect(document.headings(3).count).to eq 34
+          expect(document.headings(4).count).to eq 0
+        end
+      end
     end
 
     describe 'semantic regrouping' do
@@ -88,14 +99,45 @@ module Infoboxer
         it{should == document.paragraphs.first(5)}
       end
       
-      #describe :sections do
-        #let(:sections){document.sections}
+      describe :sections do
+        let(:sections){document.sections}
 
-        #it 'should group document in top-level sections' do
-          #expect(sections.count).to eq(12)
-          #expect(sections.map(&:heading).map(&:text))
-        #end
-      #end
+        it 'should group document in top-level sections' do
+          expect(sections.count).to eq(12)
+          expect(sections).to all(be_kind_of(Section))
+          expect(sections.map(&:heading).map(&:text)).to eq \
+            [
+              'Name and etymology',
+              'History',
+              'Geography',
+              'Politics',
+              'Economy',
+              'Demographics',
+              'Culture',
+              'See also',
+              'Notes',
+              'References',
+              'Bibliography',
+              'External links'
+            ]
+        end
+
+        describe Section do
+          subject{sections[1]} # History section
+
+          its(:heading){should == Heading.new(Text.new('History'), 2)}
+
+          its(:paragraphs){should be_kind_of(Nodes)}
+          its(:'paragraphs.count'){should > 20}
+
+          its(:'sections.count'){should == 8}
+
+          its(:intro){should be_empty}
+        end
+      end
+
+      describe :section do
+      end
     end
   end
 end

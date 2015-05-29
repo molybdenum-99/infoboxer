@@ -71,3 +71,5 @@ module Infoboxer
     end      
   end
 end
+
+require_relative 'section'
