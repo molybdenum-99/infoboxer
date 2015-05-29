@@ -49,7 +49,90 @@ module Infoboxer
         end
 
         context 'lists' do
-        
+          context 'unordered' do
+            let(:source){%Q{
+              * its
+              * a
+              * list
+            }}
+
+            it{should ==
+              "* its\n"\
+              "* a\n"\
+              "* list\n\n"
+            }
+          end
+
+          context 'ordered' do
+            let(:source){%Q{
+              # its
+              # a
+              # list
+            }}
+
+            it{should ==
+              "1. its\n"\
+              "2. a\n"\
+              "3. list\n\n"
+            }
+          end
+
+          context 'definitions' do
+            let(:source){%Q{
+              ; its
+              : a
+              ; list
+              : of defs
+            }}
+
+            it{should ==
+              "its:\n"\
+              "  a\n"\
+              "list:\n"\
+              "  of defs\n\n"
+            }
+          end
+
+          context 'nest' do
+            let(:source){%Q{
+              * its
+              ** a
+              ** nested
+              * list
+            }}
+              
+            it{should ==
+              "* its\n"\
+              "  * a\n"\
+              "  * nested\n"\
+              "* list\n\n"\
+            }
+          end
+
+          context 'mixing and nesting' do
+            let(:source){%Q{
+              * list
+              * with
+              *# different
+              *# levels of
+              *#; deep
+              *#: inlining!
+              * is cool
+
+              paragraph
+            }}
+
+            it{should == 
+              "* list\n" \
+              "* with\n" \
+              "  1. different\n" \
+              "  2. levels of\n" \
+              "    deep:\n" \
+              "      inlining!\n" \
+              "* is cool\n\n"\
+              "paragraph\n\n"
+            }
+          end
         end
 
         context 'pre' do

@@ -37,6 +37,10 @@ module Infoboxer
       to_text
     end
 
+    def index
+      parent ? parent.index_of(self) : 0
+    end
+
     def matches?(*args, &block)
       _matches?(Selector.new(*args, &block))
     end

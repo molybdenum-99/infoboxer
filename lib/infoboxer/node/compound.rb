@@ -15,6 +15,10 @@ module Infoboxer
       children.empty?
     end
 
+    def index_of(child)
+      children.index(child)
+    end
+
     def push_children(*nodes)
       @children.concat(nodes.each(&set(parent: self)))
     end
