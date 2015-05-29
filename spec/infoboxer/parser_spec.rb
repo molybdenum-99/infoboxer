@@ -190,6 +190,16 @@ module Infoboxer
             Paragraph.new(Text.new('paragraph'))
           ]}
         end
+
+        context 'comments in document' do
+          let(:source){
+            "== Heading <!-- nasty comment with ''markup and [[things\n\nmany of them{{-->parsed =="
+          }
+
+          it{should == [
+            Heading.new(Text.new('Heading parsed'), 2)
+          ]}
+        end
       end
     end
 

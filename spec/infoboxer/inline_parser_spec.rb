@@ -9,7 +9,8 @@ module Infoboxer
 
     describe 'simple inline markup' do
       describe 'one item' do
-        let(:node){parse_inline(source).first}
+        let(:nodes){parse_inline(source)}
+        let(:node){nodes.first}
         subject{node}
 
         context 'when just text' do
@@ -177,12 +178,6 @@ module Infoboxer
               ]
             end
           end
-
-          # TODO: and also it would be URL of image page, NOT image itself
-          # image itself will be http://upload.wikimedia.org/wikipedia/commons/f/f4/SantaCruz-CuevaManos-P2210651b.jpg
-          # and thumbnail will be http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/SantaCruz-CuevaManos-P2210651b.jpg/200px-SantaCruz-CuevaManos-P2210651b.jpg
-          # not sure, if it can be guessed somehow
-          #its(:url){should == 'http://en.wikipedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg'
         end
         
         # TODO: check what we do with incorrect markup

@@ -11,7 +11,8 @@ module Infoboxer
     end
 
     def initialize(text)
-      @lines = text.split(/\r?\n/m)
+      @text = text.gsub(/<!--.+?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
+      @lines = @text.split(/\r?\n/m)
       @nodes = Nodes.new
     end
 

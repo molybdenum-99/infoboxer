@@ -25,12 +25,11 @@ module Infoboxer
 
       def parse
         @text = ''
-        formatting_start = /('{2,5} |
-            \[\[ |
-            {{   |
-            {\| |
-            \[[a-z]+:\/\/
-            |<
+        formatting_start = /('{2,5} |   # bold, italic
+            \[\[ |                      # link
+            {{   |                      # template
+            \[[a-z]+:\/\/ |             # external link
+            <                           # HTML tag
           )/x
         until scanner.eos?
           str = scanner.scan_until(formatting_start)
