@@ -30,7 +30,7 @@ module Infoboxer
           list(current)
         when /^-{4,}/
           node(HR)
-        when /^\s+$/.guard{@nodes.last.closed? || !@nodes.last.is_a?(Pre)}
+        when /^\s+$/.guard{@nodes.empty? || @nodes.last.closed? || !@nodes.last.is_a?(Pre)}
           # either space between paragraphs/lists, or empty line inside pre
           @nodes.empty? or @nodes.last.closed!
         when /^ /

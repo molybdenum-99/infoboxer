@@ -25,11 +25,13 @@ module Infoboxer
 
       def parse
         @text = ''
-        formatting_start = /('{2,5} |   # bold, italic
-            \[\[ |                      # link
-            {{   |                      # template
-            \[[a-z]+:\/\/ |             # external link
-            <                           # HTML tag
+        formatting_start = /(
+            '{2,5}        |     # bold, italic
+            \[\[          |     # link
+            {{            |     # template
+            \[[a-z]+:\/\/ |     # external link
+            <ref[^>]*>    |     # reference
+            <                   # HTML tag
           )/x
         until scanner.eos?
           str = scanner.scan_until(formatting_start)
@@ -51,6 +53,10 @@ module Infoboxer
             external_link($1, scan(/\[/, /\]/))
           when '{{'
             template(scan(/{{/, /}}/))
+          when /<ref(.*)\/>/
+            reference($1, '')
+          when /<ref(.*)>/
+            reference($1, scan(/<ref>/, /<\/ref>/))
           when '<'
             try_html ||
               @text << match # it was not HTML, just accidental <
@@ -91,6 +97,10 @@ module Infoboxer
 
       def template(str)
         node(Template, *TemplateParser.new(str).parse)
+      end
+
+      def reference(attr, str)
+        node(Ref, Parser.parse(str).children, parse_params(attr)) 
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#Wikilinks

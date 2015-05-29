@@ -73,7 +73,7 @@ module Infoboxer
         its(:count){should > 100}
         it 'should be only paragraph-level nodes' do
           expect(subject.map(&:class).uniq).to \
-            contain_exactly(Paragraph, ListItem, Heading, Pre, DTerm, DDefinition)
+            contain_exactly(Paragraph, ListItem, Heading, DTerm, DDefinition)
         end
       end
 

@@ -127,7 +127,7 @@ module Infoboxer
           end
 
           context 'self-closing with attrs' do
-            let(:source){'<ref name=totalpop/>'}
+            let(:source){'<div name=totalpop/>'}
             it{should be_a(HTMLTag)}
             its(:children){should be_empty}
             its(:attrs){should == {name: 'totalpop'}}
@@ -177,6 +177,36 @@ module Infoboxer
                 ', with indigenous artwork dating from 13,000–9,000 years ago'
               ]
             end
+          end
+        end
+
+        context 'when <ref>' do
+          context 'simple' do
+            let(:source){
+              "<ref>\nThe text\n\nof the reference</ref>"
+            }
+
+            it{should ==
+              Ref.new([
+                Paragraph.new(Text.new('The text')),
+                Paragraph.new(Text.new('of the reference'))
+              ])
+            }
+          end
+
+          context 'with params' do
+            let(:source){
+              "<ref name=gini>\nThe text\n\nof the reference</ref>"
+            }
+
+            it{should be_kind_of(Ref)}
+            its(:params){should == {name: 'gini'}}
+          end
+
+          context 'self-closing' do
+            let(:source){'<ref name=totalpop/>'}
+            it{should be_kind_of(Ref)}
+            its(:params){should == {name: 'totalpop'}}
           end
         end
         

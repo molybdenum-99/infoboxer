@@ -119,5 +119,6 @@ require_relative 'node/paragraphs'
 require_relative 'node/list'
 require_relative 'node/template'
 require_relative 'node/table'
+require_relative 'node/ref'
 
 require_relative 'node/selector'
