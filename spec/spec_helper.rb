@@ -12,3 +12,12 @@ end
 $:.unshift 'lib'
 
 require 'infoboxer'
+
+def unindent(text)
+  lines = text.split("\n")
+  lines.shift until lines.first =~ /^\s*$/
+  lines.pop until lines.last =~ /^\s*$/
+  min_indent = lines.reject{|ln| ln =~ /^\s*$/}.
+    map{|ln| ln.scan(/^\s*/)}.flatten.map(&:length).min
+  lines.map{|ln| ln.sub(/^\s{#{min_indent}}/, '')}.join("\n")
+end

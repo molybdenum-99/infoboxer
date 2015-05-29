@@ -29,8 +29,8 @@ module Infoboxer
 
     include SemanticNavigation
 
-    def text
-      children.map(&:text).join
+    def to_text
+      children.map(&:to_text).join
     end
 
     # TODO: compact inspect when long children list

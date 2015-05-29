@@ -1,10 +1,18 @@
 # encoding: utf-8
 module Infoboxer
   class BaseParagraph < Compound
+    def to_text
+      super + "\n\n"
+    end
   end
 
   class Paragraph < BaseParagraph
     include Mergeable
+
+    # for merging
+    def splitter
+      [Text.new(' ')]
+    end
   end
 
   class HR < Node
@@ -20,5 +28,10 @@ module Infoboxer
 
   class Pre < BaseParagraph
     include Mergeable
+
+    # for merging
+    def splitter
+      [Text.new("\n")]
+    end
   end
 end

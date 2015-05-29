@@ -66,7 +66,7 @@ module Infoboxer
             expect(subject.children.map(&:class)).to eq \
               [Text, Paragraph]
             expect(subject.children.map(&:text)).to eq \
-              ['two', "three: it's a long text, dude!||and four"]
+              ['two', "three: it's a long text, dude!||and four\n\n"]
           end
         end
       end

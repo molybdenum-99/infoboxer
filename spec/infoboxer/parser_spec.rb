@@ -21,14 +21,14 @@ module Infoboxer
           let(:source){'some text'}
           
           it{should be_a(Paragraph)}
-          its(:text){should == 'some text'}
+          its(:text){should == "some text\n\n"}
         end
 
         context 'header' do
           let(:source){'== Some text'}
           
           it{should be_a(Heading)}
-          its(:text){should == 'Some text'}
+          its(:text){should == "Some text\n\n"}
           its(:level){should == 2}
         end
 
@@ -83,7 +83,7 @@ module Infoboxer
           let(:source){' i += 1'}
           
           it{should be_a(Pre)}
-          its(:text){should == 'i += 1'}
+          its(:text){should == "i += 1\n\n"}
         end
       end
 
@@ -95,7 +95,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be correct items' do
           expect(subject.map(&:class)).to eq [Heading, Paragraph, UnorderedList]
-          expect(subject.map(&:text)).to eq ['Heading', 'Paragraph', 'List item']
+          expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "List item\n\n"]
         end
       end
 
@@ -107,8 +107,8 @@ module Infoboxer
 
           its(:count){should == 2}
           it 'should be only two of them' do
-            # Fixme: should be "First para Still first"?
-            expect(subject.map(&:text)).to eq ["First paraStill first", "Next para"]
+            expect(subject.map(&:text)).to eq \
+              ["First para Still first\n\n", "Next para\n\n"]
           end
         end
 
@@ -207,10 +207,13 @@ module Infoboxer
             %Q{ paragraph1\n \n paragraph2} # see the space between them?
           }
 
+          # FIXME: ugly. Should be merged!
           it{should == [
             Pre.new([
               Text.new('paragraph1'),
-              Text.new(''),
+              Text.new("\n"),
+              Text.new(""),
+              Text.new("\n"),
               Text.new('paragraph2')
             ])
           ]}

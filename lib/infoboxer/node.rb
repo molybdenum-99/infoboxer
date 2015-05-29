@@ -24,6 +24,19 @@ module Infoboxer
       indent(level) + "<#{descr}>\n"
     end
 
+    def to_text
+      ''
+    end
+
+    # just aliases will not work when to_text will be redefined in subclasses
+    def text
+      to_text
+    end
+    
+    def to_s
+      to_text
+    end
+
     def matches?(*args, &block)
       _matches?(Selector.new(*args, &block))
     end
@@ -104,8 +117,13 @@ module Infoboxer
     end
 
     def merge!(other)
+      @children.concat(splitter)
       @children.concat(other.children)
       @closed = other.closed?
+    end
+
+    def splitter
+      []
     end
   end
 end

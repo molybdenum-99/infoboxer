@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   describe Node do
-    describe '#to_tree' do
+    describe :to_tree do
       let(:plain){node.to_tree}
       let(:indented){node.to_tree(2)}
 
@@ -155,9 +155,5 @@ module Infoboxer
         }
       end
     end
-
-    describe '#to_text' do
-    end
-
   end
 end

@@ -16,12 +16,14 @@ module Infoboxer
       "#{indent(level)}#{text} <#{descr}>\n"
     end
 
+    alias_method :to_text, :text
+
     private
 
     MAX_CHARS = 30
 
     def shorten_text
-      text.length > MAX_CHARS ? text[0..MAX_CHARS] + '...' : text
+      text.length > MAX_CHARS ? text[0..MAX_CHARS].inspect + '...' : text.inspect
     end
 
     def _eq(other)
