@@ -150,10 +150,38 @@ module Infoboxer
           }
         end
 
-        context 'links and other inline markup' do
+        context 'tables' do
+          let(:source){%Q{
+            {|
+            |+ Caption
+            |-
+            ! first
+            ! row
+            ! headings
+            |-
+            | next
+            | row
+            | cells
+            |-
+            | even
+            | next
+            | row
+            |}
+          }}
+
+          it{should ==
+            "+-------+------+----------+\n"\
+            "|         Caption         |\n"\
+            "+-------+------+----------+\n"\
+            "| first | row  | headings |\n"\
+            "+-------+------+----------+\n"\
+            "| next  | row  | cells    |\n"\
+            "| even  | next | row      |\n"\
+            "+-------+------+----------+\n\n"
+          }
         end
 
-        context 'tables' do
+        context 'links and other inline markup' do
         end
       end
       

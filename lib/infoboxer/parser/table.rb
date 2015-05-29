@@ -120,7 +120,7 @@ module Infoboxer
         end
 
         cells = cells.zip(params).map{|str, pstr|
-          cell_class.new(InlineParser.parse(str)).tap{|cell|
+          cell_class.new(InlineParser.parse(str.strip)).tap{|cell|
             cell.params.update(parse_params(pstr))
           }
         }

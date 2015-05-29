@@ -95,7 +95,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be correct items' do
           expect(subject.map(&:class)).to eq [Heading, Paragraph, UnorderedList]
-          expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "List item\n\n"]
+          expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "* List item\n\n"]
         end
       end
 
