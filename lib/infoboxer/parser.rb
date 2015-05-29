@@ -30,6 +30,9 @@ module Infoboxer
           list(current)
         when /^-{4,}/
           node(HR)
+        when /^\s+$/.guard{@nodes.last.closed? || !@nodes.last.is_a?(Pre)}
+          # either space between paragraphs/lists, or empty line inside pre
+          @nodes.empty? or @nodes.last.closed!
         when /^ /
           pre(current)
         when '' # blank line = space between paragraphs/lists

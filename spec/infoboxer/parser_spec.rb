@@ -191,6 +191,31 @@ module Infoboxer
           ]}
         end
 
+        context 'empty line' do
+          let(:source){
+            %Q{paragraph1\n \nparagraph2} # see the space between them?
+          }
+
+          it{should == [
+            Paragraph.new(Text.new('paragraph1')),
+            Paragraph.new(Text.new('paragraph2'))
+          ]}
+        end
+
+        context 'empty line in pre context' do
+          let(:source){
+            %Q{ paragraph1\n \n paragraph2} # see the space between them?
+          }
+
+          it{should == [
+            Pre.new([
+              Text.new('paragraph1'),
+              Text.new(''),
+              Text.new('paragraph2')
+            ])
+          ]}
+        end
+
         context 'comments in document' do
           let(:source){
             "== Heading <!-- nasty comment with ''markup and [[things\n\nmany of them{{-->parsed =="
