@@ -96,15 +96,16 @@ module Infoboxer
     end
 
     # If we have paragraph, which consists of templates only,
-    # this paragraph should be REPLACED with template.
+    # this paragraph should be REPLACED with templates.
     # This way, we get rid of situation, when first 3-5 paragraphs of
     # document is infoboxes, disambig marks and so on.
     #
     # FIXME: not sure, if this method is smart enough.
     def flatten_templates!
       flat = @nodes.map do |node|
+        
         if node.is_a?(Paragraph) &&
-          node.children.all?{|c| c.is_a?(Template)}
+          node.children.all?{|c| c.is_a?(Template) || c.matches?(Text, text: /^\s*$/)}
 
           node.children
         else

@@ -2,7 +2,7 @@
 module Infoboxer
   class BaseParagraph < Compound
     def to_text
-      super + "\n\n"
+      super.strip + "\n\n"
     end
   end
 

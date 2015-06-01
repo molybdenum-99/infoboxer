@@ -26,15 +26,15 @@ module Infoboxer
     end
 
     def get(*titles)
-      pages = raw(*titles).map{|row|
-        Page.new(self, Parser.parse(row[:content]), row)
+      pages = raw(*titles).map{|raw|
+        Page.new(self, Parser.parse(raw[:content]), raw)
       }
       pages.count == 1 ? pages.first : pages
     end
 
     # FIXME:
-    # * different pathes for different installs, for ex., wikia.com wikis
-    #   have now /wiki/ part in URL
+    # * different pathes for different installs, some wikis
+    #   have no /wiki/ part in URL
     # * is gsub(' ', '_') enough? :)
     def url_for(title)
       @api_base_url.dup.tap{|d|

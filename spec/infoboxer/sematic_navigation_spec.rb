@@ -105,7 +105,7 @@ module Infoboxer
         it 'should group document in top-level sections' do
           expect(sections.count).to eq(12)
           expect(sections).to all(be_kind_of(Section))
-          expect(sections.map(&:heading).map(&:text)).to eq \
+          expect(sections.map(&:heading).map(&:text).map(&:strip)).to eq \
             [
               'Name and etymology',
               'History',

@@ -445,3 +445,4 @@ order, as of now):
   [generators](http://www.mediawiki.org/wiki/API:Query#Generators)
 * Part of previous item: more info about current page from Wikipedia API,
   like real URL's of image files, interwiki links and so on.
+* Caching of content with flexible
