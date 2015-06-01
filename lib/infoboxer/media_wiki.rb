@@ -16,8 +16,9 @@ module Infoboxer
       postprocess(@resource.get(
         params: {
           action: :query,
-          prop: :revisions,
+          prop: 'revisions|info',
           rvprop: :content,
+          inprop: :url,
           format: :json,
           redirects: true,
           titles: titles.join('|')
@@ -32,16 +33,6 @@ module Infoboxer
       pages.count == 1 ? pages.first : pages
     end
 
-    # FIXME:
-    # * different pathes for different installs, some wikis
-    #   have no /wiki/ part in URL
-    # * is gsub(' ', '_') enough? :)
-    def url_for(title)
-      @api_base_url.dup.tap{|d|
-        d.path = "/wiki/#{title.gsub(' ', '_')}"
-      }.to_s
-    end
-
     private
 
     def postprocess(response)
@@ -51,7 +42,8 @@ module Infoboxer
         
         {
           title: data['title'],
-          content: data['revisions'].first['*']
+          content: data['revisions'].first['*'],
+          url: data['fullurl']
         }
       }
     end

@@ -10,6 +10,7 @@ module Infoboxer
         it{should be_kind_of(Hash)}
         its([:title]){should == 'Argentina'}
         its([:content]){should include("'''Argentina'''")}
+        its([:url]){should == 'http://en.wikipedia.org/wiki/Argentina'}
       end
 
       context 'when several pages', :vcr do
@@ -33,6 +34,7 @@ module Infoboxer
         subject{client.raw('Einstein').first}
         its([:title]){should == 'Albert Einstein'}
         its([:content]){should_not include('#REDIRECT')}
+        its([:url]){should == 'http://en.wikipedia.org/wiki/Albert_Einstein'}
       end
     end
 

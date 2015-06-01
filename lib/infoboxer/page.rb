@@ -6,10 +6,6 @@ module Infoboxer
       super(children, raw)
     end
 
-    def_readers :title
-
-    def url
-      @client.url_for(title)
-    end
+    def_readers :title, :url
   end
 end
