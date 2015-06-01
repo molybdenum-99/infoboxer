@@ -1,5 +1,13 @@
 # encoding: utf-8
 module Infoboxer
+  module HTMLTagCommons
+    BLOCK_TAGS = %w[div p br] # FIXME: are some other used in WP?
+
+    def to_text
+      BLOCK_TAGS.include?(tag) ? "\n" : ''
+    end
+  end
+  
   class HTMLTag < Compound
     def initialize(tag, attrs, children = Nodes.new)
       super(children, attrs)
@@ -9,6 +17,8 @@ module Infoboxer
     attr_reader :tag
     alias_method :attrs, :params
 
+    include HTMLTagCommons
+    
     private
 
     def descr
@@ -25,6 +35,8 @@ module Infoboxer
     attr_reader :tag
     alias_method :attrs, :params
 
+    include HTMLTagCommons
+    
     private
 
     def descr

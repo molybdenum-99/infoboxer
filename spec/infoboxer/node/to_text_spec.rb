@@ -182,6 +182,23 @@ module Infoboxer
         end
 
         context 'links and other inline markup' do
+          let(:source){"one ''two'' [[named|link]] [[unnamed link]]"}
+          it{should == "one two link unnamed link\n\n"}
+        end
+
+        context 'br' do
+          let(:source){'one<br/>two'}
+          it{should == "one\ntwo\n\n"}
+        end
+
+        context 'ref' do
+          let(:source){'some text<ref>with ref</ref>'}
+          it{should == "some text\n\n"}
+        end
+
+        context 'templates' do
+          let(:source){"some text{{with|realy=complex ''template''}}"}
+          it{should == "some text\n\n"}
         end
       end
       
