@@ -23,14 +23,6 @@ module Infoboxer
       @children.concat(nodes.each(&set(parent: self)))
     end
 
-    def lookup_child(*arg, &block)
-      _lookup_child(Selector.new(*arg, &block))
-    end
-
-    def _lookup_child(selector)
-      @children.select{|c| c._matches?(selector)}
-    end
-
     include SemanticNavigation
 
     def to_text
@@ -61,6 +53,10 @@ module Infoboxer
         "#{indent(level)}<#{descr}>\n" +
           children.map(&call(to_tree: level+1)).join
       end
+    end
+
+    def _lookup_children(selector)
+      @children._find(selector)
     end
 
     def _lookup(selector)

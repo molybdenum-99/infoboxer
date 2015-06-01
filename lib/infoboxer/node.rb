@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'htmlentities'
+require_relative 'node/tree_navigation'
 
 module Infoboxer
   class Node
@@ -11,13 +12,21 @@ module Infoboxer
 
     attr_reader :params
     attr_accessor :parent
-    
-    def can_merge?(other)
-      false
-    end
 
     def ==(other)
       self.class == other.class && _eq(other)
+    end
+
+    def index
+      parent ? parent.index_of(self) : 0
+    end
+
+    def siblings
+      parent ? parent.children - [self] : Nodes[]
+    end
+    
+    def can_merge?(other)
+      false
     end
 
     def to_tree(level = 0)
@@ -37,41 +46,8 @@ module Infoboxer
       to_text
     end
 
-    def index
-      parent ? parent.index_of(self) : 0
-    end
+    include TreeNavigation
 
-    def matches?(*args, &block)
-      _matches?(Selector.new(*args, &block))
-    end
-
-    def lookup(*args, &block)
-      _lookup(Selector.new(*args, &block))
-    end
-
-    def lookup_parent(*args, &block)
-      _lookup_parent(Selector.new(*args, &block))
-    end
-
-    def _lookup_parent(selector)
-      case
-      when !parent
-        Nodes[]
-      when parent._matches?(selector)
-        Nodes[parent, *parent._lookup_parent(selector)]
-      else
-        parent._lookup_parent(selector)
-      end
-    end
-
-    def _matches?(selector)
-      selector.matches?(self)
-    end
-
-    def _lookup(selector)
-      _matches?(selector) ? self : nil
-    end
-    
     private
 
     def clean_class

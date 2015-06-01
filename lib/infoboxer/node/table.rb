@@ -3,13 +3,6 @@ require 'terminal-table'
 
 module Infoboxer
   class Table < Compound
-    def initialize(children = Nodes.new, params = {})
-      super(children)
-      @params = params
-    end
-
-    attr_reader :params
-    
     def rows
       children.select(&fltr(itself: TableRow))
     end
@@ -18,6 +11,7 @@ module Infoboxer
       children.detect(&fltr(itself: TableCaption))
     end
 
+    # FIXME: it can easily be several table heading rows
     def heading_row
       rows.first.children.all?(&call(matches?: TableHeading)) ?
         rows.first : nil
@@ -49,26 +43,16 @@ module Infoboxer
   end
 
   class TableRow < Compound
-    def initialize(children = Nodes.new, params = {})
-      super(children)
-      @params = params
-    end
-
-    attr_reader :params
-
     alias_method :cells, :children
   end
 
-  class TableCell < Compound
-    def initialize(children = Nodes.new, params = {})
-      super(children)
-      @params = params
-    end
-
-    attr_reader :params
+  class BaseCell < Compound
   end
 
-  class TableHeading < TableCell
+  class TableCell < BaseCell
+  end
+
+  class TableHeading < BaseCell
   end
 
   class TableCaption < Compound

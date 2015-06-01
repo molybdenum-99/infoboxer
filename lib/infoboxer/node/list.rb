@@ -25,7 +25,7 @@ module Infoboxer
 
   class List < Compound
     def list_level
-      lookup_parent(List).count
+      lookup_parents(List).count
     end
 
     def list_text_indent

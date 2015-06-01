@@ -9,6 +9,7 @@ module Infoboxer
       |With
       * cool list
       * ''And'' deep test
+      * some more
       |}
       }.strip.gsub(/\n\s+/m, "\n"))
     }
@@ -69,18 +70,18 @@ module Infoboxer
       end
     end
 
-    describe :lookup_child do
+    describe :lookup_children do
       let(:cell){document.lookup(TableCell).first}
 
       context 'direct child only' do
-        subject{cell.lookup_child(Text)}
+        subject{cell.lookup_children(Text)}
 
         its(:count){should == 1}
         its(:first){should == Text.new('With')}
       end
 
       context 'indirect child' do
-        subject{cell.lookup_child(ListItem)}
+        subject{cell.lookup_children(ListItem)}
         
         it{should be_empty}
       end
@@ -91,7 +92,7 @@ module Infoboxer
         document.
           lookup(List).
           lookup(ListItem).
-          lookup_child(text: /test/)
+          lookup_children(text: /test/)
       }
       it{should == [Text.new(' deep test')]}
     end
@@ -101,14 +102,33 @@ module Infoboxer
       its(:parent){should be_a(TableRow)}
     end
 
-    describe :lookup_parent do
+    describe :lookup_parents do
       let(:cell){document.lookup(TableCell).first}
       context 'parent found' do
-        subject{cell.lookup_parent(Table)}
+        subject{cell.lookup_parents(Table)}
         
         its(:count){should == 1}
         its(:first){should be_a(Table)}
       end
+    end
+
+    describe :index do
+      subject{document.lookup(Heading).first}
+      its(:index){should == 1}
+    end
+
+    describe :siblings do
+      subject{document.lookup(ListItem, text: /cool list/).first}
+      its(:'siblings.count'){should == 2}
+      its(:siblings){should all(be_a(ListItem))}
+    end
+
+    describe :lookup_siblings do
+      let!(:node){document.lookup(ListItem, text: /cool list/).first}
+      subject{node.lookup_siblings(text: /test/)}
+      
+      its(:count){should == 1}
+      it{should all(be_a(ListItem))}
     end
   end
 end
