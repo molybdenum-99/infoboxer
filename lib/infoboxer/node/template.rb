@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   class Template < Node
-    def initialize(name, vars)
+    def initialize(name, vars = [])
       @name, @vars = name, vars
     end
 

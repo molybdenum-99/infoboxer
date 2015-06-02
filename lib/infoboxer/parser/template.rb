@@ -4,7 +4,7 @@ module Infoboxer
     # http://en.wikipedia.org/wiki/Help:A_quick_guide_to_templates
     # Templates are complicated. They can have templates inside templates inside templates!
     #
-    # NB: TemplateParser parses WITHOUT surrounding [[, ]], e.g. tag contents!
+    # NB: TemplateParser parses WITHOUT surrounding {{, }}, e.g. tag contents!
     class TemplateParser
       def initialize(str)
         @scanner = StringScanner.new(str)
