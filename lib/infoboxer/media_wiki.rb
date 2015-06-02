@@ -3,6 +3,8 @@ require 'rest-client'
 require 'json'
 require 'addressable/uri'
 
+require_relative 'media_wiki/context'
+
 module Infoboxer
   class MediaWiki
     PageNotFound = Class.new(RuntimeError)

@@ -11,6 +11,12 @@ module Infoboxer
         end
       end
 
+      attr_reader :arg
+
+      def ==(other)
+        self.class == other.class && arg == other.arg
+      end
+
       def inspect
         "#<Selector(#{@arg.map(&:to_s).join(', ')})>"
       end
