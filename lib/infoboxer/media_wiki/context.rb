@@ -47,7 +47,7 @@ module Infoboxer
         node._lookup(selector(descriptor))
       end
 
-      def substitute(template)
+      def expand(template)
         action = self.class.templates[template.name] or return template
 
         res = action.call(template)

@@ -22,30 +22,30 @@ module Infoboxer
         end
       end
 
-      describe 'substitutions' do
-        context 'when subsitutes with text' do
+      describe 'expand templates' do
+        context 'when expandes to text' do
           before{
             klass.template('!'){'|'}
           }
           let(:template){Template.new('!')}
-          subject{ctx.substitute(template)}
+          subject{ctx.expand(template)}
           it{should == Text.new('|')}
         end
 
-        context 'when substitutes with parsed nodes' do
+        context 'when expandes to some nodes' do
           before{
             klass.template('replaceme'){|t| t.variables[1]}
           }
           let(:template){
             Parser::InlineParser.parse("{{replaceme|some ''text''}}").first
           }
-          subject{ctx.substitute(template)}
+          subject{ctx.expand(template)}
           it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
         end
 
         context 'when undefined template' do
           let(:template){Template.new('test')}
-          subject{ctx.substitute(template)}
+          subject{ctx.expand(template)}
           
           it{should be_a(Template)}
           its(:name){should == 'test'}
@@ -62,7 +62,7 @@ module Infoboxer
 
           context 'text replacements' do
             let(:template){Template.new('!')}
-            subject{ctx.substitute(template)}
+            subject{ctx.expand(template)}
             it{should == Text.new('|')}
           end
 
@@ -70,7 +70,7 @@ module Infoboxer
             let(:template){
               Parser::InlineParser.parse("{{replaceme|some ''text''}}").first
             }
-            subject{ctx.substitute(template)}
+            subject{ctx.expand(template)}
             it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
           end
         end

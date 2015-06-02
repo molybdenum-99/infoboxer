@@ -101,7 +101,7 @@ module Infoboxer
 
         template = Template.new(*TemplateParser.new(str, @context).parse)
         nodes = if @context
-          @context.substitute(template)
+          @context.expand(template)
         else
           template
         end
