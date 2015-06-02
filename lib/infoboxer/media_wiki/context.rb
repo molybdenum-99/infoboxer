@@ -17,6 +17,18 @@ module Infoboxer
           templates[name] = action
         end
 
+        def templates_text(pairs)
+          pairs.each do |from, to|
+            template(from){to}
+          end
+        end
+
+        def templates_unwrap(*names)
+          names.each do |name|
+            template(name){|t| t.variables[1]}
+          end
+        end
+
         def selectors
           @selectors ||= {}
         end

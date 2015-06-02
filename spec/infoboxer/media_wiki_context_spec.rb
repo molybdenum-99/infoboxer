@@ -52,6 +52,27 @@ module Infoboxer
         end
 
         describe 'definition helpers' do
+          before{
+            klass.templates_text(
+              '!' => '|',
+              ',' => '·'
+            )
+            klass.templates_unwrap('replaceme', 'replacehim')
+          }
+
+          context 'text replacements' do
+            let(:template){Template.new('!')}
+            subject{ctx.substitute(template)}
+            it{should == Text.new('|')}
+          end
+
+          context 'unwrap (value of first variable) replacements' do
+            let(:template){
+              Parser::InlineParser.parse("{{replaceme|some ''text''}}").first
+            }
+            subject{ctx.substitute(template)}
+            it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
+          end
         end
       end
 
