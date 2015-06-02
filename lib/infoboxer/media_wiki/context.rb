@@ -51,8 +51,11 @@ module Infoboxer
         action = self.class.templates[template.name] or return template
 
         res = action.call(template)
-        if res.kind_of?(Node) || res.kind_of?(Nodes)
+        case res
+        when Node
           res
+        when Nodes
+          res.flatten
         else
           Text.new(res.to_s)
         end

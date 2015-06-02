@@ -6,11 +6,12 @@ module Infoboxer
     class ParseError < Exception
     end
     
-    def self.parse(text)
-      new(text).parse
+    def self.parse(text, context = nil)
+      new(text, context).parse
     end
 
-    def initialize(text)
+    def initialize(text, context = nil)
+      @context = context
       @text = text.gsub(/<!--.+?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
       @lines = @text.split(/\r?\n/m)
       @nodes = Nodes.new
@@ -49,7 +50,7 @@ module Infoboxer
     end
 
     def parse_inline
-      InlineParser.new(@lines.join("\n")).parse
+      InlineParser.new(@lines.join("\n"), [], @context).parse
     end
 
     private
@@ -118,7 +119,7 @@ module Infoboxer
 
     # Basic internals --------------------------------------------------
     def inline(str)
-      InlineParser.new(str, @lines).parse
+      InlineParser.new(str, @lines, @context).parse
     end
     
     def node(klass, *arg)

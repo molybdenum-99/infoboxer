@@ -10,14 +10,15 @@ module Infoboxer
         new(*arg).parse
       end
 
-      def self.try_parse(str)
-        new(str).parse
+      def self.try_parse(str, *arg)
+        new(str, *arg).parse
       rescue ParseError => e
         Nodes.new([Parser::Text.new(str)]) # TODO: Parser::Unparsed.new(str)
       end
       
-      def initialize(str, next_lines = [])
+      def initialize(str, next_lines = [], context = nil)
         @str, @next_lines = str.gsub(/[\r\n]/m, ' '), next_lines
+        @context = context
 
         @scanner = StringScanner.new(str)
         @nodes = Nodes.new
@@ -75,7 +76,7 @@ module Infoboxer
       private
 
       def inline(str)
-        InlineParser.new(str, @next_lines).parse
+        InlineParser.new(str, @next_lines, @context).parse
       end
 
       # simple scan: just text until pattern
@@ -96,7 +97,15 @@ module Infoboxer
       end
 
       def template(str)
-        node(Template, *TemplateParser.new(str).parse)
+        ensure_text!
+
+        template = Template.new(*TemplateParser.new(str, @context).parse)
+        nodes = if @context
+          @context.substitute(template)
+        else
+          template
+        end
+        @nodes.push(*nodes)
       end
 
       def reference(attr, str)
