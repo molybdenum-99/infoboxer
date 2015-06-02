@@ -93,7 +93,7 @@ module Infoboxer
       end
 
       def image(str)
-        node(Image, *ImageParser.new(str).parse)
+        node(Image, *ImageParser.new(str, @context).parse)
       end
 
       def template(str)

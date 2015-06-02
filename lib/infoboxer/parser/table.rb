@@ -14,8 +14,9 @@ module Infoboxer
         new(*arg).parse
       end
       
-      def initialize(lines)
+      def initialize(lines, context = nil)
         @lines = lines
+        @context = context
         @table = Table.new
       end
 
@@ -120,7 +121,7 @@ module Infoboxer
         end
 
         cells = cells.zip(params).map{|str, pstr|
-          cell_class.new(InlineParser.parse(str.strip)).tap{|cell|
+          cell_class.new(InlineParser.parse(str.strip, [], @context)).tap{|cell|
             cell.params.update(parse_params(pstr))
           }
         }
@@ -149,13 +150,13 @@ module Infoboxer
         if @current_row && !@current_row.children.empty?
           unless @multiline.empty?
             @current_row.children.last.push_children(
-              *Parser.new(@multiline).parse.children
+              *Parser.new(@multiline, @context).parse.children
             )
           end
           
           @table.push_children(@current_row)
         elsif @is_caption
-          @table.push_children(TableCaption.new(InlineParser.parse(@multiline.strip)))
+          @table.push_children(TableCaption.new(InlineParser.parse(@multiline.strip, [], @context)))
         end
 
         @current_row = TableRow.new

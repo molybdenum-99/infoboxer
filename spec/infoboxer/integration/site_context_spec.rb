@@ -47,10 +47,33 @@ module Infoboxer
         ]}
       end
 
-      context 'when templates in image or link captions' do
+      context 'when templates in image caption' do
+        let(:source){
+          "[[File:image.png|This {{!}} that]]"
+        }
+
+        subject{
+          nodes.first.caption
+        }
+
+        it{should == [
+          Text.new('This '),
+          Text.new('|'),
+          Text.new(' that')
+        ]}
       end
 
       context 'when templates in tables' do
+        let(:source){
+          "{|\n|+Its in {{!}} caption!\n|}"
+        }
+        let(:table){Parser.parse(source, ctx).children.first}
+        subject{table.lookup(TableCaption).first}
+        its(:children){should == [
+          Text.new('Its in '),
+          Text.new('|'),
+          Text.new(' caption!')
+        ]}
       end
     end
 

@@ -8,7 +8,8 @@ module Infoboxer
     class ImageParser
       include ProcMe
     
-      def initialize(str)
+      def initialize(str, context=nil)
+        @context = context
         @scanner = StringScanner.new(str)
       end
 
@@ -76,7 +77,7 @@ module Infoboxer
         when /^alt=(.*)$/i
           {alt: $1}
         else # it's caption, and can have inline markup!
-          {caption: InlineParser.new(str).parse}
+          {caption: InlineParser.new(str, [], @context).parse}
         end
       end
 

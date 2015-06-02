@@ -76,7 +76,7 @@ module Infoboxer
     end
 
     def table
-      @nodes << TableParser.parse(@lines)
+      @nodes << TableParser.parse(@lines, @context)
     end
 
     # Post-processing --------------------------------------------------
