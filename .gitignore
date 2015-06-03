@@ -7,3 +7,5 @@ tmp
 examples/output/*.txt
 profile/out/*.html
 spec/fixtures/vcr_cassettes
+.rubocop.yml
+rubocop
