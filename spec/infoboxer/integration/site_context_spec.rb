@@ -19,7 +19,7 @@ module Infoboxer
       }
       let(:ctx){klass.new}
       let(:nodes){
-        Parser::InlineParser.parse(source, [], ctx)
+        Parser::InlineParser.parse(source, Parser::Context.new(site_context: ctx))
       }
 
       context 'when simple nested templates' do
@@ -73,7 +73,7 @@ module Infoboxer
         let(:source){
           "{|\n|+Its in {{!}} caption!\n|}"
         }
-        let(:table){Parser.parse(source, ctx).children.first}
+        let(:table){Parser.parse(source, Parser::Context.new(site_context: ctx)).children.first}
         subject{table.lookup(TableCaption).first}
         its(:children){should == [
           Text.new('Its in '),

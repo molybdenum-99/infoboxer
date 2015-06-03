@@ -11,7 +11,7 @@ module Infoboxer
     end
 
     def initialize(text, context = nil)
-      @context = context
+      @context = context || Context.default
       @text = text.gsub(/<!--.+?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
       @lines = @text.split(/\r?\n/m)
       @nodes = Nodes.new
@@ -119,7 +119,7 @@ module Infoboxer
 
     # Basic internals --------------------------------------------------
     def inline(str)
-      InlineParser.new(str, @lines, @context).parse
+      InlineParser.new(str, @context.merge(next_lines: @lines)).parse
     end
     
     def node(klass, *arg)
@@ -129,5 +129,6 @@ module Infoboxer
 end
 
 require_relative 'parser/commons'
+require_relative 'parser/context'
 require_relative 'parser/inline'
 require_relative 'parser/table'

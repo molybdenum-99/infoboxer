@@ -22,8 +22,8 @@ module Infoboxer
       attr_reader :scanner
 
       def parse_path
-        scanner.skip(/(File|Image):/) or
-          fail("Something went wrong: it's not image: #{str}?")
+        scanner.skip(/#{@context.file_prefix}:/) or
+          fail("Something went wrong: it's not image: #{@scanner.rest}?")
 
         scanner.scan_until(/\||$/).sub('|', '')
       end
@@ -77,7 +77,7 @@ module Infoboxer
         when /^alt=(.*)$/i
           {alt: $1}
         else # it's caption, and can have inline markup!
-          {caption: InlineParser.new(str, [], @context).parse}
+          {caption: InlineParser.new(str, @context).parse}
         end
       end
 

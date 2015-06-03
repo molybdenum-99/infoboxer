@@ -16,9 +16,9 @@ module Infoboxer
         Nodes.new([Parser::Text.new(str)]) # TODO: Parser::Unparsed.new(str)
       end
       
-      def initialize(str, next_lines = [], context = nil)
-        @str, @next_lines = str.gsub(/[\r\n]/m, ' '), next_lines
-        @context = context
+      def initialize(str, context = nil)
+        @str = str.gsub(/[\r\n]/m, ' ')
+        @context = context || Context.default
 
         @scanner = StringScanner.new(str)
         @nodes = Nodes.new
@@ -46,7 +46,7 @@ module Infoboxer
             node(Bold, inline(scan_simple(/'''/)))
           when "''"
             node(Italic, inline(scan_simple(/''/)))
-          when '[['.matchish.guard{ scanner.check(/(Image|File):/) }
+          when '[['.matchish.guard{ scanner.check(/#{@context.file_prefix}:/) }
             image(scan(/\[\[/, /\]\]/))
           when '[['
             wikilink(scan(/\[\[/, /\]\]/))
@@ -76,7 +76,7 @@ module Infoboxer
       private
 
       def inline(str)
-        InlineParser.new(str, @next_lines, @context).parse
+        InlineParser.new(str, @context).parse
       end
 
       # simple scan: just text until pattern
@@ -89,7 +89,7 @@ module Infoboxer
       include Commons
 
       def scan(before, after)
-        scan_continued(scanner, before, after, @next_lines)
+        scan_continued(scanner, before, after, @context.next_lines)
       end
 
       def image(str)
@@ -109,7 +109,7 @@ module Infoboxer
       end
 
       def reference(attr, str)
-        node(Ref, Parser.parse(str).children, parse_params(attr)) 
+        node(Ref, Parser.parse(str, @context).children, parse_params(attr)) 
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#Wikilinks

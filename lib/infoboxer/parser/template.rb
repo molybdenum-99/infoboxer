@@ -77,7 +77,7 @@ module Infoboxer
         s = s.strip
         s.include?("\n") ?
           Parser.parse(s, @context).children :
-          InlineParser.try_parse(s, [], @context)
+          InlineParser.try_parse(s, @context)
       end
 
       def push_string(strings, str)

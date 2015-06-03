@@ -121,7 +121,7 @@ module Infoboxer
         end
 
         cells = cells.zip(params).map{|str, pstr|
-          cell_class.new(InlineParser.parse(str.strip, [], @context)).tap{|cell|
+          cell_class.new(InlineParser.parse(str.strip, @context)).tap{|cell|
             cell.params.update(parse_params(pstr))
           }
         }
@@ -156,7 +156,7 @@ module Infoboxer
           
           @table.push_children(@current_row)
         elsif @is_caption
-          @table.push_children(TableCaption.new(InlineParser.parse(@multiline.strip, [], @context)))
+          @table.push_children(TableCaption.new(InlineParser.parse(@multiline.strip, @context)))
         end
 
         @current_row = TableRow.new

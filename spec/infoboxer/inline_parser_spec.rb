@@ -178,6 +178,23 @@ module Infoboxer
               ]
             end
           end
+
+          context 'when image in another language wiki' do
+            let(:source){
+              %Q{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
+            }
+            let(:ctx){Parser::Context.new(file_prefix: 'Fichier')}
+            let(:nodes){parse_inline(source, ctx)}
+
+            it{should be_a(Image)}
+            its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
+
+            it 'should not parse File: prefix' do
+              expect(
+                parse_inline(%Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}, ctx).first
+              ).to be_a(Wikilink)
+            end
+          end
         end
 
         context 'when <ref>' do
@@ -246,7 +263,7 @@ module Infoboxer
           '{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}',
           '</div>]]'
         ]}
-        subject{parse_inline(start, next_lines).first}
+        subject{parse_inline(start, Parser::Context.new(next_lines: next_lines)).first}
 
         it{should be_a(Image)}
         its(:path){should == 'Diplomatic missions of Argentina.png'}
