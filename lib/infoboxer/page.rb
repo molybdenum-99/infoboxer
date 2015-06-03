@@ -6,6 +6,8 @@ module Infoboxer
       super(children, raw)
     end
 
+    attr_reader :client
+
     def_readers :title, :url
   end
 end

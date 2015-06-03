@@ -1,6 +1,12 @@
 # encoding: utf-8
 module Infoboxer
   describe 'Integration of MediaWiki::Context into data' do
+    before do
+      MediaWiki::Context.selectors.clear
+      MediaWiki::Context.templates.clear
+      MediaWiki::Context.domains.clear
+    end
+    
     describe 'template expansion on-the-fly' do
       let(:klass){
         Class.new(MediaWiki::Context) do
@@ -77,10 +83,59 @@ module Infoboxer
       end
     end
 
-    describe 'context-dependent navigation' do
+    describe 'context selection by client' do
+      context 'when defined' do
+        let!(:klass){
+          Class.new(MediaWiki::Context) do
+            domain 'en.wikipedia.org'
+            
+            templates_text(
+              '!' => '|',
+              ',' => '·'
+            )
+            template('join'){|t| Nodes[*t.variables.values]}
+          end
+        }
+        let(:client){MediaWiki.new('http://en.wikipedia.org/w/api.php')}
+        subject{client}
+        its(:context){should be_a(klass)}
+      end
+
+      context 'when not defined' do
+      end
     end
 
-    describe 'context selection by client' do
+    describe 'context-dependent navigation' do
+        let!(:klass){
+          Class.new(MediaWiki::Context) do
+            domain 'en.wikipedia.org'
+
+            selector :infoboxes, Template, name: /^Infobox /
+            selector :categories, Wikilink, namespace: 'Category'
+          end
+        }
+      let(:source){
+        "{{Infobox country|some info}} [[Category:First]]\n\n[[Category:Second]]"
+      }
+      let(:client){MediaWiki.new('http://en.wikipedia.org/w/api.php')}
+      let(:page){
+        Page.new(client, Parser.parse(source).children, {})
+      }
+      let(:para){
+        page.children.first
+      }
+      it 'should navigate context-relative' do
+        expect(page.infoboxes.count).to eq 1
+        expect(page.categories.count).to eq 2
+        expect(page.infoboxes.first.name).to eq 'Infobox country'
+        expect(page.categories.map(&:name)).to eq %w[First Second]
+      end
+
+      it 'should navigate for nodes tooo' do
+        expect(para.categories.count).to eq 1
+        expect(para.categories.map(&:name)).to eq %w[First]
+      end
     end
+
   end
 end

@@ -1,5 +1,6 @@
 # encoding: utf-8
 require_relative 'semantic_navigation'
+require_relative 'contextual_navigation'
 
 module Infoboxer
   class Compound < Node
@@ -24,6 +25,7 @@ module Infoboxer
     end
 
     include SemanticNavigation
+    include ContextualNavigation
 
     def to_text
       children.map(&:to_text).join

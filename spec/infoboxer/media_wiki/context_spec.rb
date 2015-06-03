@@ -1,6 +1,12 @@
 # encoding: utf-8
 module Infoboxer
   describe MediaWiki::Context do
+    before do
+      described_class.selectors.clear
+      described_class.templates.clear
+      described_class.domains.clear
+    end
+    
     describe 'definition' do
       let(:klass){Class.new(MediaWiki::Context)}
       let(:ctx){klass.new}
@@ -76,7 +82,17 @@ module Infoboxer
         end
       end
 
-      describe 'binding' do
+      describe 'binding to domain' do
+        before{
+          klass.domain 'en.wikipedia.org'
+        }
+        subject{MediaWiki::Context.get('en.wikipedia.org')}
+        it{should be_a(klass)}
+
+        context 'when non-bound domain' do
+          subject{MediaWiki::Context.get('fr.wikipedia.org')}
+          it{should be_nil}
+        end
       end
     end
   end

@@ -36,6 +36,23 @@ module Infoboxer
         def templates
           @templates ||= {}
         end
+
+        # NB: explicitly store all domains in base Context class
+        def domain(d)
+          Context.domains.key?(d) and
+            fail(ArgumentError, "Domain binding redefinition: #{Context.domains[d]}")
+
+          Context.domains[d] = self
+        end
+
+        def get(domain)
+          cls = Context.domains[domain]
+          cls && cls.new
+        end
+
+        def domains
+          @domains ||= {}
+        end
       end
 
       def selector(descriptor)

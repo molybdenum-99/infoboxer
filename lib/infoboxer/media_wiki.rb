@@ -12,7 +12,10 @@ module Infoboxer
     def initialize(api_base_url)
       @api_base_url = Addressable::URI.parse(api_base_url)
       @resource = RestClient::Resource.new(api_base_url)
+      @context = Context.get(@api_base_url.host)
     end
+
+    attr_reader :context
 
     def raw(*titles)
       postprocess(@resource.get(
