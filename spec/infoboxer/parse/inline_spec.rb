@@ -177,16 +177,19 @@ module Infoboxer
             let(:source){
               %Q{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
             }
-            let(:nodes){Parse.inline(source, file_prefix: 'Fichier')}
+            let(:ctx){
+              {traits: MediaWiki::Traits.new(file_prefix: 'Fichier')}
+            }
+            let(:nodes){Parse.inline(source, ctx)}
 
-            it{should be_a(Image)}
+            it{should be_an(Image)}
             its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
 
-            #it 'should not parse File: prefix' do
-              #expect(
-                #parse_inline(%Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}, ctx).first
-              #).to be_a(Wikilink)
-            #end
+            it 'should parse File: prefix' do
+              expect(
+                Parse.inline(%Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}, ctx).first
+              ).to be_an(Image)
+            end
           end
         end
 

@@ -2,17 +2,17 @@
 module Infoboxer
   module ContextualNavigation
     def infoboxes
-      ensure_context.lookup(:infoboxes, self)
+      ensure_traits.lookup(:infoboxes, self)
     end
 
     def categories
-      ensure_context.lookup(:categories, self)
+      lookup(Wikilink, namespace: /^#{ensure_traits.category_prefix.join('|')}$/)
     end
 
     private
 
-    def ensure_context
-      ensure_page.client.context or fail("No domain-related context found")
+    def ensure_traits
+      ensure_page.traits or fail("No site traits found")
     end
 
     def ensure_page

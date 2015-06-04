@@ -8,6 +8,6 @@ module Infoboxer
 
     attr_reader :client
 
-    def_readers :title, :url
+    def_readers :title, :url, :traits
   end
 end

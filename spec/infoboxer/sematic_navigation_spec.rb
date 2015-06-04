@@ -1,10 +1,10 @@
 # encoding: utf-8
 module Infoboxer
   describe Document do
-    # Document is immutable and is created ~.3 sec each time.
+    # Document is immutable and is created ~0.3 sec each time.
     # So, fot tens of examples it's wiser to create it only once.
     before(:all){
-      @document = Parser.parse(File.read('spec/fixtures/argentina.wiki'))
+      @document = Parse.document(File.read('spec/fixtures/argentina.wiki'))
     }
     let(:document){ @document }
 

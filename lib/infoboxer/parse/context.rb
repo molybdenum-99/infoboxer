@@ -3,8 +3,8 @@ module Infoboxer
   module Parse
     class Context
       DEFAULT_OPTIONS = {
-        file_prefix: 'File',
-        next_lines: []
+        next_lines: [],
+        traits: MediaWiki::Traits.new
       }
       def self.default
         new
@@ -12,15 +12,13 @@ module Infoboxer
       
       def initialize(options = {})
         @options = DEFAULT_OPTIONS.merge(options)
+        @file_prefix = make_file_prefix
       end
+
+      attr_reader :file_prefix
 
       def merge(opts)
         Context.new(@options.merge(opts))
-      end
-
-      def file_prefix
-        @options[:external] && @options[:external][:file_prefix] ||
-          @options[:file_prefix]
       end
 
       def next_lines
@@ -28,7 +26,17 @@ module Infoboxer
       end
 
       def expand(tmpl)
-        @options[:external] ? @options[:external].expand(tmpl) : tmpl
+        traits.expand(tmpl)
+      end
+
+      private
+
+      def traits
+        @options[:traits]
+      end
+
+      def make_file_prefix
+        '(' + traits.file_prefix.join('|') + ')'
       end
     end
   end

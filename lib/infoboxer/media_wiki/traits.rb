@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   class MediaWiki
-    class Context
+    class Traits
       class << self
         def selector(descriptor, *args, &block)
           selectors.key?(descriptor) and
@@ -37,23 +37,38 @@ module Infoboxer
           @templates ||= {}
         end
 
-        # NB: explicitly store all domains in base Context class
+        # NB: explicitly store all domains in base Traits class
         def domain(d)
-          Context.domains.key?(d) and
-            fail(ArgumentError, "Domain binding redefinition: #{Context.domains[d]}")
+          Traits.domains.key?(d) and
+            fail(ArgumentError, "Domain binding redefinition: #{Traits.domains[d]}")
 
-          Context.domains[d] = self
+          Traits.domains[d] = self
         end
 
-        def get(domain)
-          cls = Context.domains[domain]
-          cls && cls.new
+        def get(domain, options = {})
+          cls = Traits.domains[domain]
+          cls ? cls.new(options) : Traits.new(options)
         end
 
         def domains
           @domains ||= {}
         end
       end
+
+      DEFAULTS = {
+        file_prefix: 'File',
+        category_prefix: 'Category'
+      }
+
+      def initialize(options = {})
+        @options = options
+        @file_prefix = [DEFAULTS[:file_prefix], options.delete(:file_prefix)].
+          flatten.compact.uniq
+        @category_prefix = [DEFAULTS[:category_prefix], options.delete(:category_prefix)].
+          flatten.compact.uniq
+      end
+
+      attr_reader :file_prefix, :category_prefix
 
       def selector(descriptor)
         self.class.selectors[descriptor] or

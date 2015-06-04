@@ -111,14 +111,14 @@ module Infoboxer
 
       context List do
         let(:node){
-          Parser.parse(%Q{
+          Parse.paragraphs(%Q{
           * one
           * two
           *# two-1 ''italic''
           *# two-2
           *#; two-2-dt
           *#: two-2-dd
-          }.strip.gsub(/\n\s+/m, "\n")).children.first
+          }.strip.gsub(/\n\s+/m, "\n")).first
         }
 
         it{should ==
@@ -140,7 +140,7 @@ module Infoboxer
 
       context Template do
         let(:node){
-          Parser::InlineParser.parse(%Q{
+          Parse.inline(%Q{
           {{name|unnamed value|named=named value ''with markup''}}
           }.strip.gsub(/\n\s+/m, "\n")).first
         }

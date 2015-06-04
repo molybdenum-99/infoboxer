@@ -3,7 +3,7 @@ require 'rest-client'
 require 'json'
 require 'addressable/uri'
 
-require_relative 'media_wiki/context'
+require_relative 'media_wiki/traits'
 
 module Infoboxer
   class MediaWiki
@@ -12,10 +12,7 @@ module Infoboxer
     def initialize(api_base_url)
       @api_base_url = Addressable::URI.parse(api_base_url)
       @resource = RestClient::Resource.new(api_base_url)
-      @context = Context.get(@api_base_url.host)
     end
-
-    attr_reader :context
 
     def raw(*titles)
       postprocess(@resource.get(
@@ -37,12 +34,23 @@ module Infoboxer
 
     def get(*titles)
       pages = raw(*titles).map{|raw|
-        Page.new(self, Parser.parse(raw[:content]), raw)
+        traits = Traits.get(@api_base_url.host, guess_traits(raw))
+        
+        Page.new(self,
+          Parse.paragraphs(raw[:content], {traits: traits}),
+          raw.merge(traits: traits))
       }
       pages.count == 1 ? pages.first : pages
     end
 
     private
+
+    def guess_traits(raw)
+      {
+        file_prefix: raw[:images].map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
+        category_prefix: raw[:categories].map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
+      }
+    end
 
     def postprocess(response)
       JSON.parse(response)['query']['pages'].map{|id, data|
@@ -52,7 +60,9 @@ module Infoboxer
         {
           title: data['title'],
           content: data['revisions'].first['*'],
-          url: data['fullurl']
+          url: data['fullurl'],
+          categories: data['categories'],
+          images: data['images']
         }
       }
     end

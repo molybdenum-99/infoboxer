@@ -28,7 +28,7 @@ module Infoboxer
         when nil
           Context.default
         when Hash
-          Context.new(external: context)
+          Context.new(context)
         when Context
           context
         else

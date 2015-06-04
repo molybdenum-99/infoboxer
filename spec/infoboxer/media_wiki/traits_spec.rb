@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  describe MediaWiki::Context do
+  describe MediaWiki::Traits do
     before do
       described_class.selectors.clear
       described_class.templates.clear
@@ -8,21 +8,21 @@ module Infoboxer
     end
     
     describe 'definition' do
-      let(:klass){Class.new(MediaWiki::Context)}
-      let(:ctx){klass.new}
+      let(:klass){Class.new(MediaWiki::Traits)}
+      let(:traits){klass.new}
       
       describe 'selectors' do
         before{
           klass.selector :categories, Wikilink, namespace: 'Category'
         }
         it 'should return selectors' do
-          expect(ctx.selector(:categories)).to eq \
+          expect(traits.selector(:categories)).to eq \
             Node::Selector.new(Wikilink, namespace: 'Category')
         end
 
         describe 'select from node' do
-          let(:doc){Parser.parse('Some text with [[Link]] and [[Category:Test]]')}
-          subject{ctx.lookup(:categories, doc)}
+          let(:doc){Parse.paragraphs('Some text with [[Link]] and [[Category:Test]]')}
+          subject{traits.lookup(:categories, doc)}
 
           it{should == [Wikilink.new('Category:Test')]}
         end
@@ -34,7 +34,7 @@ module Infoboxer
             klass.template('!'){'|'}
           }
           let(:template){Template.new('!')}
-          subject{ctx.expand(template)}
+          subject{traits.expand(template)}
           it{should == Text.new('|')}
         end
 
@@ -43,15 +43,15 @@ module Infoboxer
             klass.template('replaceme'){|t| t.variables[1]}
           }
           let(:template){
-            Parser::InlineParser.parse("{{replaceme|some ''text''}}").first
+            Parse.inline("{{replaceme|some ''text''}}").first
           }
-          subject{ctx.expand(template)}
+          subject{traits.expand(template)}
           it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
         end
 
         context 'when undefined template' do
           let(:template){Template.new('test')}
-          subject{ctx.expand(template)}
+          subject{traits.expand(template)}
           
           it{should be_a(Template)}
           its(:name){should == 'test'}
@@ -68,15 +68,15 @@ module Infoboxer
 
           context 'text replacements' do
             let(:template){Template.new('!')}
-            subject{ctx.expand(template)}
+            subject{traits.expand(template)}
             it{should == Text.new('|')}
           end
 
           context 'unwrap (value of first variable) replacements' do
             let(:template){
-              Parser::InlineParser.parse("{{replaceme|some ''text''}}").first
+              Parse.inline("{{replaceme|some ''text''}}").first
             }
-            subject{ctx.expand(template)}
+            subject{traits.expand(template)}
             it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
           end
         end
@@ -86,13 +86,21 @@ module Infoboxer
         before{
           klass.domain 'en.wikipedia.org'
         }
-        subject{MediaWiki::Context.get('en.wikipedia.org')}
+        subject{MediaWiki::Traits.get('en.wikipedia.org')}
         it{should be_a(klass)}
 
         context 'when non-bound domain' do
-          subject{MediaWiki::Context.get('fr.wikipedia.org')}
-          it{should be_nil}
+          subject{MediaWiki::Traits.get('fr.wikipedia.org')}
+          it{should be_a(MediaWiki::Traits)}
         end
+      end
+
+      describe 'on-the-fly enrichment' do
+        before{
+          klass.domain 'en.wikipedia.org'
+        }
+        subject{MediaWiki::Traits.get('en.wikipedia.org', file_prefix: 'File')}
+        its(:file_prefix){should == ['File']}
       end
     end
   end
