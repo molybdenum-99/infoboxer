@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  class Parser
+  module Parse
     module Commons
       def parse_params(str)
         return {} unless str

@@ -21,7 +21,11 @@ module Infoboxer
       postprocess(@resource.get(
         params: {
           action: :query,
-          prop: 'revisions|info',
+          
+          # revisions for content
+          # info for url
+          # categories and images to know their prefixes in this wiki
+          prop: 'revisions|info|categories|images',
           rvprop: :content,
           inprop: :url,
           format: :json,

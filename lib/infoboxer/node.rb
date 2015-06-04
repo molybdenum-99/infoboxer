@@ -37,6 +37,10 @@ module Infoboxer
       ''
     end
 
+    def inspect
+      "#<#{clean_class}#{params.inspect}>"
+    end
+
     # just aliases will not work when to_text will be redefined in subclasses
     def text
       to_text

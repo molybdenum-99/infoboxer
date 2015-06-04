@@ -1,11 +1,11 @@
 # encoding: utf-8
 module Infoboxer
-  class Parser
+  module Parse
     # http://en.wikipedia.org/wiki/Help:A_quick_guide_to_templates
     # Templates are complicated. They can have templates inside templates inside templates!
     #
-    # NB: TemplateParser parses WITHOUT surrounding {{, }}, e.g. tag contents!
-    class TemplateParser
+    # NB: TemplateContentsParser parses WITHOUT surrounding {{, }}, e.g. tag contents!
+    class TemplateContentsParser
       def initialize(str, context = nil)
         @context = context
         @scanner = StringScanner.new(str)
@@ -76,8 +76,10 @@ module Infoboxer
         #
         s = s.strip
         s.include?("\n") ?
-          Parser.parse(s, @context).children :
-          InlineParser.try_parse(s, @context)
+          Parse.paragraphs(s, @context) :
+          Parse.inline(s, @context)
+      rescue Parse::ParsingError
+        [Text.new(s)]
       end
 
       def push_string(strings, str)

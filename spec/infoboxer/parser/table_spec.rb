@@ -1,8 +1,6 @@
 # encoding: utf-8
-require 'infoboxer/parser'
-
 module Infoboxer
-  describe Parser::TableParser do
+  describe Parse::TableParser do
     def parse_table(text)
       described_class.new(text.gsub(/\n\s+/m, "\n").strip.split("\n")).parse
     end

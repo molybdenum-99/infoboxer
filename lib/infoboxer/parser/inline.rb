@@ -1,24 +1,14 @@
 # encoding: utf-8
-require_relative './image'
-require_relative './template'
+require_relative 'image'
+require_relative 'template'
 
 # http://www.mediawiki.org/wiki/Help:Formatting
 module Infoboxer
-  class Parser
+  module Parse
     class InlineParser
-      def self.parse(*arg)
-        new(*arg).parse
-      end
-
-      def self.try_parse(str, *arg)
-        new(str, *arg).parse
-      rescue ParseError => e
-        Nodes.new([Parser::Text.new(str)]) # TODO: Parser::Unparsed.new(str)
-      end
-      
-      def initialize(str, context = nil)
+      def initialize(str, context)
+        @context = context
         @str = str.gsub(/[\r\n]/m, ' ')
-        @context = context || Context.default
 
         @scanner = StringScanner.new(str)
         @nodes = Nodes.new
@@ -82,7 +72,7 @@ module Infoboxer
       # simple scan: just text until pattern
       def scan_simple(after)
         scanner.scan_until(after).tap{|res|
-          res or fail(ParseError, "#{after} not found in #{scanner.rest}")
+          res or fail(ParsingError, "#{after} not found in #{scanner.rest}")
         }.sub(after, '')
       end
 
@@ -93,13 +83,13 @@ module Infoboxer
       end
 
       def image(str)
-        node(Image, *ImageParser.new(str, @context).parse)
+        node(Image, *ImageContentsParser.new(str, @context).parse)
       end
 
       def template(str)
         ensure_text!
 
-        template = Template.new(*TemplateParser.new(str, @context).parse)
+        template = Template.new(*TemplateContentsParser.new(str, @context).parse)
         nodes = if @context
           @context.expand(template)
         else
@@ -108,8 +98,20 @@ module Infoboxer
         @nodes.push(*nodes)
       end
 
+      # Seems ref's can contain incomplete markup.
+      # Or it may be rathe systematic problem (any "inline markup"
+      # can be auto-closed at paragraph level?).
+      # At least, http://fr.wikipedia.org/wiki/Argentine has <ref>,
+      # inside which there's only one opening '' (italic), without closing.
+      # And everything works.
       def reference(attr, str)
-        node(Ref, Parser.parse(str, @context).children, parse_params(attr)) 
+        nodes = begin
+          Parse.paragraphs(str, @context)
+        rescue ParsingError
+          Text.new(str)
+        end
+        
+        node(Ref, nodes, parse_params(attr)) 
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#Wikilinks

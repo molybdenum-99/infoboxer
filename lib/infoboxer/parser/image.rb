@@ -1,11 +1,11 @@
 # encoding: utf-8
 module Infoboxer
-  class Parser
+  module Parse
     # http://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax
     # [[File:Name|Type|Border|Location|Alignment|Size|link=Link|alt=Alt|Caption]]
     #
-    # NB: ImageParser parses WITHOUT surrounding [[, ]], e.g. tag contents!
-    class ImageParser
+    # NB: ImageContentsParser parses WITHOUT surrounding [[, ]], e.g. tag contents!
+    class ImageContentsParser
       include ProcMe
     
       def initialize(str, context=nil)

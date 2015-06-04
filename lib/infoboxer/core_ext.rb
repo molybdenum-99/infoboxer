@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Object
-  if RUBY_VERSION < '2.0.0'
+  if RUBY_VERSION < '2.2.0'
     def itself
       self
     end

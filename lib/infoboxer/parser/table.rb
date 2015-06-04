@@ -2,7 +2,7 @@
 require 'matchish'
 
 module Infoboxer
-  class Parser
+  module Parse
     # http://en.wikipedia.org/wiki/Help:Table
     #
     # Tables in Wikipedia are line-level formatting
@@ -121,7 +121,7 @@ module Infoboxer
         end
 
         cells = cells.zip(params).map{|str, pstr|
-          cell_class.new(InlineParser.parse(str.strip, @context)).tap{|cell|
+          cell_class.new(Parse.inline(str.strip, @context)).tap{|cell|
             cell.params.update(parse_params(pstr))
           }
         }
@@ -150,13 +150,13 @@ module Infoboxer
         if @current_row && !@current_row.children.empty?
           unless @multiline.empty?
             @current_row.children.last.push_children(
-              *Parser.new(@multiline, @context).parse.children
+              *Parse.paragraphs(@multiline, @context)
             )
           end
           
           @table.push_children(@current_row)
         elsif @is_caption
-          @table.push_children(TableCaption.new(InlineParser.parse(@multiline.strip, @context)))
+          @table.push_children(TableCaption.new(Parse.inline(@multiline.strip, @context)))
         end
 
         @current_row = TableRow.new
