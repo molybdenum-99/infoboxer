@@ -36,15 +36,10 @@ module Infoboxer
         end
       end
     end
-
-    #def parse_inline
-      #InlineParser.new(@lines.join("\n"), [], @context).parse
-    #end
-
   end
 end
 
-require_relative 'parser/commons'
-require_relative 'parser/context'
-require_relative 'parser/paragraphs'
-require_relative 'parser/inline'
+require_relative 'parse/commons'
+require_relative 'parse/context'
+require_relative 'parse/paragraphs'
+require_relative 'parse/inline'

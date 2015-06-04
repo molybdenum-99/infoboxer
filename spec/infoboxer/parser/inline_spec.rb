@@ -1,6 +1,4 @@
 # encoding: utf-8
-require 'infoboxer/parser'
-
 module Infoboxer
   describe Parse, :inline do
     describe 'simple inline markup' do
