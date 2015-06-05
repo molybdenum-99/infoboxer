@@ -8,8 +8,8 @@ module Infoboxer
 
     attr_reader :text
 
-    def inspect
-      "#<#{descr}: #{shorten_text}>"
+    def inspect(depth = 0)
+      depth < 2 ? "#<#{descr}: #{shorten_text}>" : super
     end
 
     def to_tree(level = 0)

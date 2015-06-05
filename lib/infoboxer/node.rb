@@ -37,8 +37,8 @@ module Infoboxer
       ''
     end
 
-    def inspect
-      "#<#{clean_class}#{params.inspect}>"
+    def inspect(depth = 0)
+      depth < 2 ? "#<#{descr}>" : "#<#{clean_class}>"
     end
 
     # just aliases will not work when to_text will be redefined in subclasses

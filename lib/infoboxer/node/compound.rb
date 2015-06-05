@@ -31,9 +31,8 @@ module Infoboxer
       children.map(&:to_text).join
     end
 
-    # TODO: compact inspect when long children list
-    def inspect
-      "#<#{descr}: #{children}>"
+    def inspect(depth = 0)
+      "#<#{descr}: #{children.inspect_no_p(depth)}>"
     end
 
     def can_merge?(other)

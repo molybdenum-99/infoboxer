@@ -23,8 +23,12 @@ module Infoboxer
       other.name == name && other.vars == vars
     end
 
-    def inspect
-      "#<#{clean_class}:#{name}#{variables}>"
+    def inspect(depth = 0)
+      if depth.zero?
+        "#<#{clean_class}:#{name}(#{inspect_variables(depth)})>"
+      else
+        "#<#{clean_class}:#{name}>"
+      end
     end
 
     def to_tree(level = 0)
@@ -32,8 +36,19 @@ module Infoboxer
         variables.map{|k, v| var_to_tree(k, v, level+1)}.join
     end
 
-    def var_to_tree(name, var, level)
-      indent(level) + "#{name}:\n" + var.map{|n| n.to_tree(level+1)}.join
-    end
+    private
+
+      def var_to_tree(name, var, level)
+        indent(level) + "#{name}:\n" + var.map{|n| n.to_tree(level+1)}.join
+      end
+
+      def inspect_variables(depth)
+        variables.to_a[0..1].map{|name, var| "#{name}: [#{inspect_var(var)}]"}.join(', ') +
+          (variables.count > 2 ? ', ...' : '')
+      end
+
+      def inspect_var(nodes)
+        nodes.first.inspect(1) + (nodes.count > 1 ? ', ...' : '')
+      end
   end
 end

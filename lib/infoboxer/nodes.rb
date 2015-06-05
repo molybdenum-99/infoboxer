@@ -31,11 +31,18 @@ module Infoboxer
 
     MAX_CHILDREN = 3
     
-    def inspect
-      if count > MAX_CHILDREN
-        '[' + self[0...MAX_CHILDREN].map(&:inspect).join(', ') + " ...#{self.count - MAX_CHILDREN} more]"
+    def inspect(depth = 0)
+      "[#{inspect_no_p(depth)}]"
+    end
+
+    def inspect_no_p(depth = 0)
+      case
+      when depth > 1
+        "#{count} items"
+      when count > MAX_CHILDREN
+        self[0...MAX_CHILDREN].map{|c| c.inspect(depth+1)}.join(', ') + " ...#{count - MAX_CHILDREN} more"
       else
-        super
+        map{|c| c.inspect(depth+1)}.join(', ')
       end
     end
 

@@ -16,6 +16,14 @@ module Infoboxer
         
         it{should == '[#<Text: "some text">, #<Text: "some text">, #<Text: "some text"> ...17 more]'}
       end
+
+      context 'nested inside other' do
+        let(:children){20.times.map{Text.new('some text')}}
+        let(:nodes){Nodes[*children]}
+        subject{nodes.inspect(2)}
+        
+        it{should == '[20 items]'}
+      end
     end
 
     describe 'as Enumerable' do
