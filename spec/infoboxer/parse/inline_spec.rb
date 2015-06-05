@@ -34,6 +34,13 @@ module Infoboxer
             it{should be_a(Italic)}
             its(:text){should == 'italic'}
           end
+
+          context 'auto-closing of markup' do
+            let(:source){"''italic"}
+            
+            it{should be_a(Italic)}
+            its(:text){should == 'italic'}
+          end
         end
 
         context 'when bold' do
@@ -237,7 +244,7 @@ module Infoboxer
             }
 
             it{should be_kind_of(Ref)}
-            its(:children){should == [Text.new("''bad markup!")]}
+            its(:children){should == [Paragraph.new(Italic.new(Text.new("bad markup!")))]}
           end
         end
         

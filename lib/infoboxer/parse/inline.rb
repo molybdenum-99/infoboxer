@@ -71,7 +71,7 @@ module Infoboxer
 
       # simple scan: just text until pattern
       def scan_simple(after)
-        scan_until(scanner, after, @context.next_lines)
+        scan_until(scanner, after)
       end
 
       include Commons

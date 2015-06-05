@@ -27,24 +27,26 @@ module Infoboxer
         params
       end
 
-      def scan_until(scanner, after, next_lines = [])
+      def scan_until(scanner, after)
         res = ''
         loop do
           str = scanner.scan_until(/{{|\[\[|#{after}/)
           case scanner.matched
           when '{{'
             res << str
-            res << scan_continued(scanner, /{{/, /}}/, next_lines) << '}}'
+            res << scan_continued(scanner, /{{/, /}}/) << '}}'
           when '[['
             res << str
-            res << scan_continued(scanner, /\[\[/, /\]\]/, @lines) << ']]'
+            res << scan_continued(scanner, /\[\[/, /\]\]/) << ']]'
           when after
             res << str
             break
           when nil
-            # not finished on this line, look at next
-            next_lines.empty? and fail(ParsingError, "Can't find #{after}, #{res}")
-            scanner << "\n" << next_lines.shift
+            # simple markup is auto-closed: '''something is implicitly
+            # closed at the end of paragraph
+            res << scanner.rest
+            scanner.terminate
+            break
           end
         end
         res.sub(/#{after}\Z/, '')
