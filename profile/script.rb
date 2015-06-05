@@ -7,7 +7,7 @@ require 'ruby-prof'
 
 RubyProf.start
 
-Infoboxer::Parser.parse(File.read('profile/pages/argentina.txt'))
+Infoboxer::Parse.document(File.read('profile/pages/argentina.txt'))
 
 res = RubyProf.stop
 printer = RubyProf::GraphHtmlPrinter.new(res)

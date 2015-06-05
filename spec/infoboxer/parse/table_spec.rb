@@ -276,6 +276,44 @@ module Infoboxer
     end
 
     describe 'nested tables, damn them' do
+      context 'when in empty cell' do
+        let(:table){parse_table(%Q{
+          {| style="width:98%; background:none;"
+          |-
+          |
+          {| style="width:98%; background:none;"
+          |-
+          |test me
+          |}
+          |}
+        })}
+        subject{table.rows.first.cells.first.children.first}
+
+        it{should be_kind_of(Table)}
+      end
+
+      context 'when in multiline cell' do
+        let(:table){parse_table(%Q{
+          {| style="width:98%; background:none;"
+          |-
+          | some
+          things
+          complicated
+          {| style="width:98%; background:none;"
+          |-
+          |test me
+          |}
+          |}
+        })}
+
+        it 'should still be reasonable!' do
+          expect(table.rows.first.cells.count).to eq 1
+          expect(table.rows.first.cells.first.children.last).to \
+            be_a(Table)
+          expect(table.rows.first.cells.first.children.map(&:class)).to \
+            include(Paragraph)
+        end
+      end
     end
 
     describe 'tables, Karl!' do

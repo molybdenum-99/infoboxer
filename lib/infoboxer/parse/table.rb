@@ -27,7 +27,7 @@ module Infoboxer
           current = @lines.shift
 
           !started && current !~ /^\s*{\|/ and
-            fail("Something went wrong: trying to parse not a table: #{current}")
+            fail(ParsingError, "Something went wrong: trying to parse not a table: #{current}")
 
           case current
           when /^\s*{\|(.*)$/.guard{!started} # main table start
@@ -36,7 +36,7 @@ module Infoboxer
             parse_table_params(Matchish.last_match[1])
 
           when /^\s*{\|/                      # nested table start
-          
+            @lines.unshift current
             add_to_cell(TableParser.new(@lines).parse)
 
           when /^\s*\|}(.*)$/                 # table end
@@ -76,6 +76,17 @@ module Infoboxer
       end
 
       private
+
+      def add_to_cell(node)
+        @current_row or fail(ParsingError, "Somethig bad in this table happens!")
+        unless @multiline.empty?
+          @current_row.children.last.push_children(
+            *Parse.paragraphs(@multiline, @context)
+          )
+          @multiline = ''
+        end
+        @current_row.children.last.push_children(node)
+      end
 
       include Commons
 

@@ -21,10 +21,19 @@ module Infoboxer
         end
 
         context 'when italic' do
-          let(:source){"''italic''"}
-          
-          it{should be_a(Italic)}
-          its(:text){should == 'italic'}
+          context 'simple' do
+            let(:source){"''italic''"}
+            
+            it{should be_a(Italic)}
+            its(:text){should == 'italic'}
+          end
+
+          context 'when cross-sected inside template' do
+            let(:source){"''italic{{tmpl|its ''italic'' too}}''"}
+            
+            it{should be_a(Italic)}
+            its(:text){should == 'italic'}
+          end
         end
 
         context 'when bold' do

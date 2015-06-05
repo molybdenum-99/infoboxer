@@ -14,6 +14,8 @@ module Infoboxer
       @resource = RestClient::Resource.new(api_base_url)
     end
 
+    attr_reader :api_base_url
+
     def raw(*titles)
       postprocess(@resource.get(
         params: {

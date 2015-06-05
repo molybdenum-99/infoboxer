@@ -71,9 +71,7 @@ module Infoboxer
 
       # simple scan: just text until pattern
       def scan_simple(after)
-        scanner.scan_until(after).tap{|res|
-          res or fail(ParsingError, "#{after} not found in #{scanner.rest}")
-        }.sub(after, '')
+        scan_until(scanner, after, @context.next_lines)
       end
 
       include Commons
