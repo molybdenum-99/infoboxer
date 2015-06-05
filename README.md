@@ -217,14 +217,13 @@ For links in document (or inside any other node, containing links), you
 have:
 * `#wikilinks` -- return array (`Nodes`-wrapped one) of `Wikilink`, but
   only those **without any namespace**;
-* `#wikilinks('Namespace')` or `#wikilinks('Namespace:')` will give you
-  all links within namespace, and `#wikilinks(nil)` -- all links in all
-  the namespaces;
+* `#wikilinks('Namespace')` will give you all links within namespace, and
+  `#wikilinks(nil)` -- all links in all the namespaces;
 * `#categories` -- is list of categories document belongs to. In fact,
   it just a shortcut for `#wikilinks('Category')`.
 
 **NB**: the latter works ONLY for English-language wikis, see "Localization"
-section for details.
+section for details. FIXME
 
 #### Infoboxes, Finally!
 
