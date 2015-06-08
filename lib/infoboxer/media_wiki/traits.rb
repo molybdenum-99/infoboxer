@@ -53,6 +53,8 @@ module Infoboxer
         def domains
           @domains ||= {}
         end
+
+        alias_method :default, :new
       end
 
       DEFAULTS = {

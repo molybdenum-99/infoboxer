@@ -20,7 +20,7 @@ module Infoboxer
         end
 
         context 'header' do
-          let(:source){'== Some text'}
+          let(:source){'== Some text =='}
           
           it{should be_a(Heading)}
           its(:text){should == "Some text\n\n"}
@@ -85,7 +85,7 @@ module Infoboxer
       describe 'sequence' do
         subject{Parse.paragraphs(source)}
 
-        let(:source){ "== Heading\nParagraph\n*List item"}
+        let(:source){ "== Heading ==\nParagraph\n*List item"}
 
         its(:count){should == 3}
         it 'should be correct items' do
@@ -108,7 +108,7 @@ module Infoboxer
         end
 
         context 'not mergeable' do
-          let(:source){"== First heading\n== Other heading"}
+          let(:source){"== First heading ==\n== Other heading =="}
 
           its(:count){should == 2}
         end
@@ -227,7 +227,7 @@ module Infoboxer
     end
 
     describe 'parsing inline content' do
-      let(:source){"Paragraph '''with''' [[link]]\n== Heading"}
+      let(:source){"Paragraph '''with''' [[link]]\n== Heading =="}
       subject{Parse.paragraphs(source).first}
 
       it{should be_a(Paragraph)}

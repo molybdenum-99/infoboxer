@@ -4,37 +4,16 @@ require_relative 'table'
 module Infoboxer
   module Parse
     class ParagraphsParser
-      def initialize(text, context)
+      def initialize(context)
         @context = context
-        @text = text.gsub(/<!--.+?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
-        @lines = @text.split(/\r?\n/m)
         @nodes = Nodes.new
       end
 
       def parse
-        until @lines.empty?
-          current = @lines.shift
+        until @context.eof?
+          process_current
 
-          case current
-          when /^={2,}/
-            heading(current)
-          when /^\s*{\|/
-            @lines.unshift(current)
-            table # it will parse lines, including current
-          when /^[\*\#:;]./
-            list(current)
-          when /^-{4,}/
-            node(HR)
-          when /^\s+$/.guard{@nodes.empty? || @nodes.last.closed? || !@nodes.last.is_a?(Pre)}
-            # either space between paragraphs/lists, or empty line inside pre
-            @nodes.empty? or @nodes.last.closed!
-          when /^ /
-            pre(current)
-          when '' # blank line = space between paragraphs/lists
-            @nodes.empty? or @nodes.last.closed!
-          else
-            para(current)
-          end
+          @context.next!
         end
 
         merge_nodes!
@@ -44,29 +23,52 @@ module Infoboxer
       end
 
       private
-
-        # Paragraph-level nodes DSL --------------------------------------
-        def para(str)
-          node(Paragraph, inline(str))
+        # Main paragraph type dispetcher -------------------------------
+        def process_current
+          case @context.current
+          when /^(?<level>={2,})\s*(?<text>.+?)\s*\k<level>$/
+            heading(Regexp.last_match[:text], Regexp.last_match[:level])
+          when /^\s*{\|/
+            table # it will parse lines, including current
+          when /^[\*\#:;]./
+            list
+          when /^-{4,}/
+            node(HR)
+          when /^\s+$/.guard{@nodes.empty? || @nodes.last.closed? || !@nodes.last.is_a?(Pre)}
+            # either space between paragraphs/lists, or empty line inside pre
+            @nodes.empty? or @nodes.last.closed!
+          when /^ /
+            pre
+          when '' # blank line = space between paragraphs/lists
+            @nodes.empty? or @nodes.last.closed!
+          else
+            para
+          end
         end
 
-        def heading(str)
-          level, text = str.scan(/^(={2,})\s*(.+?)(?:\s*=+)?$/).flatten
-          node(Heading, inline(text), level.length)
+        # Paragraph-level nodes DSL ------------------------------------
+        def para
+          node(Paragraph, inline)
+        end
+
+        def heading(text, level)
+          node(Heading, simple_inline(text), level.length)
         end
 
         # http://en.wikipedia.org/wiki/Help:List
-        def list(str)
-          marker, text = str.scan(/^([*\#:;]+)\s*(.+?)$/).flatten
-          @nodes << List.construct(marker.chars.to_a, inline(text))
+        def list
+          marker = @context.scan(/^([*\#:;]+)\s*/).strip
+          @nodes << List.construct(marker.chars.to_a, inline)
         end
 
-        def pre(str)
-          node(Pre, [Text.new(str.sub(/^ /, ''))])
+        # FIXME: in fact, there's some formatting, that should work inside pre
+        def pre
+          @context.skip(/^ /)
+          node(Pre, [Text.new(@context.current)])
         end
 
         def table
-          @nodes << TableParser.parse(@lines, @context)
+          @nodes << TableParser.new(@context).parse
         end
 
         # Post-processing --------------------------------------------------
@@ -108,8 +110,12 @@ module Infoboxer
         end
 
         # Basic internals --------------------------------------------------
-        def inline(str)
-          Parse.inline(str, @context.merge(next_lines: @lines))
+        def inline
+          InlineParser.new(@context).parse
+        end
+
+        def simple_inline(str)
+          Parse.inline(str, @context.traits)
         end
         
         def node(klass, *arg)

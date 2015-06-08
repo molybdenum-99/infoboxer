@@ -189,21 +189,21 @@ module Infoboxer
             end
           end
 
-          context 'with non-default context provided' do
+          context 'with non-default site traits provided' do
             let(:source){
               %Q{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
             }
-            let(:ctx){
-              {traits: MediaWiki::Traits.new(file_prefix: 'Fichier')}
+            let(:traits){
+              MediaWiki::Traits.new(file_prefix: 'Fichier')
             }
-            let(:nodes){Parse.inline(source, ctx)}
+            let(:nodes){Parse.inline(source, traits)}
 
             it{should be_an(Image)}
             its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
 
             it 'should parse File: prefix' do
               expect(
-                Parse.inline(%Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}, ctx).first
+                Parse.inline(%Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}, traits).first
               ).to be_an(Image)
             end
           end
@@ -274,17 +274,15 @@ module Infoboxer
     describe 'inline markup spanning for several lines' do
       describe 'image' do
         # also real-life example!
-        let(:start){
-          %q{[[File:Diplomatic missions of Argentina.png|thumb|250px|Argentine diplomatic missions:}
-        }
-        let(:next_lines){[
-          '<div style="font-size:90%;">',
-          '{{legend4|#22b14c|Argentina}}',
-          '{{legend4|#2f3699|Nations hosting a resident diplomatic mission}}',
-          '{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}',
+        let(:source){
+          '[[File:Diplomatic missions of Argentina.png|thumb|250px|Argentine diplomatic missions:}\n'\
+          '<div style="font-size:90%;">\n'\
+          '{{legend4|#22b14c|Argentina}}\n'\
+          '{{legend4|#2f3699|Nations hosting a resident diplomatic mission}}\n'\
+          '{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}\n'\
           '</div>]]'
-        ]}
-        subject{Parse.inline(start, Parse::Context.new(next_lines: next_lines)).first}
+        }
+        subject{Parse.inline(source).first}
 
         it{should be_a(Image)}
         its(:path){should == 'Diplomatic missions of Argentina.png'}

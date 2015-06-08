@@ -7,32 +7,37 @@ module Infoboxer
     end
 
     class << self
-      def paragraphs(text, context = nil)
-        ParagraphsParser.new(text, coerce_context(context)).parse
+      def paragraphs(text, traits = nil)
+        ParagraphsParser.new(Context.new(text, coerce_traits(traits))).parse
       end
 
-      alias_method :fragment, :paragraphs
-      
-      def inline(text, context = nil)
-        InlineParser.new(text, coerce_context(context)).parse
+      def inline(text, traits = nil)
+        #InlineParser.new(Context.new(text.gsub(/[\r\n]/m, ' ').strip, coerce_traits(traits))).parse
+        InlineParser.new(Context.new(text, coerce_traits(traits))).parse(true)
       end
 
-      def document(text, context = nil)
-        Document.new(paragraphs(text, context))
+      def inline_or_paragraphs(text, traits = nil)
+        text.include?("\n") ? paragraphs(text, traits) : inline(text, traits)
+      end
+
+      alias_method :fragment, :inline_or_paragraphs
+
+      def document(text, traits = nil)
+        Document.new(paragraphs(text, traits))
       end
 
       private
 
-      def coerce_context(context)
-        case context
+      def coerce_traits(traits)
+        case traits
         when nil
-          Context.default
+          MediaWiki::Traits.default
         when Hash
-          Context.new(context)
-        when Context
-          context
+          MediaWiki::Traits.new(traits)
+        when MediaWiki::Traits
+          traits
         else
-          fail(ArgumentError, "Can't coerce context from #{contex.inspect}")
+          fail(ArgumentError, "Can't coerce site traits from #{traits.inspect}")
         end
       end
     end

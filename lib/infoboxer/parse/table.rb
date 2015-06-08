@@ -10,64 +10,23 @@ module Infoboxer
     # and does many nasty things with them.
     #
     class TableParser
-      def self.parse(*arg)
-        new(*arg).parse
-      end
-      
-      def initialize(lines, context = nil)
-        @lines = lines
+      def initialize(context)
         @context = context
         @table = Table.new
       end
 
       def parse
-        started = false
+        @started = false
+
+        !@started && @context.current !~ /^\s*{\|/ and
+          @context.fail!('Something went wrong: trying to parse not a table')
+
+        table_params
         
         loop do
-          current = @lines.shift
-
-          !started && current !~ /^\s*{\|/ and
-            fail(ParsingError, "Something went wrong: trying to parse not a table: #{current}")
-
-          case current
-          when /^\s*{\|(.*)$/.guard{!started} # main table start
-
-            started = true
-            parse_table_params(Matchish.last_match[1])
-
-          when /^\s*{\|/                      # nested table start
-            @lines.unshift current
-            add_to_cell(TableParser.new(@lines).parse)
-
-          when /^\s*\|}(.*)$/                 # table end
-
-            rest = $1
-            @lines.unshift rest unless rest.empty?
-            break
-
-          when /^\s*!(.*)$/                   # heading (th) in a row
-            parse_cells($1, TableHeading)
-
-          when /^\s*\|\+(.*)$/               # caption
-            
-            start_caption($1)
-            
-          when /^\s*\|-(.*)$/                # row start
-            start_row!($1)
-
-          when /^\s*\|(.*)$/                  # cell in row
-
-            parse_cells($1)
-
-          when /.*/.guard{@current_row}       # continuation of prev.cell
-            @multiline << "\n#{current}"
-
-          when nil
-            fail("End of input before table ended!")
-
-          else
-            fail("Not a table: first row is #{current}")
-          end
+          break if process_current
+          
+          @context.next!
         end
 
         finalize_row!
@@ -77,79 +36,105 @@ module Infoboxer
 
       private
 
-      def add_to_cell(node)
-        @current_row or fail(ParsingError, "Somethig bad in this table happens!")
-        unless @multiline.empty?
-          @current_row.children.last.push_children(
-            *Parse.paragraphs(@multiline, @context)
-          )
-          @multiline = ''
+      def process_current
+        case @context.current
+        when /^\s*{\|/                      # nested table start
+          add_to_cell(TableParser.new(@context).parse)
+
+        when /^\s*\|}(.*)$/                 # table end
+          @context.scan(/^\s*\|}/)
+          return true
+
+        when /^\s*!/                        # heading (th) in a row
+          cells(TableHeading)
+
+        when /^\s*\|\+/                     # caption
+          caption
+          
+        when /^\s*\|-(.*)$/                 # row start
+          start_row!($1)
+
+        when /^\s*\|/                       # cell in row
+          cells
+
+        when nil
+          @context.fail!("End of input before table ended!")
+
+        else
+          @context.fail!("Unparseable table line \"#{@context.current}\"")
         end
+        false
+      end
+
+      def add_to_cell(node)
+        @current_row or
+          @context.fail!(ParsingError, "Somethig bad in this table happens!")
+
         @current_row.children.last.push_children(node)
       end
 
       include Commons
 
-      def push_cell(cells, str, continued)
-        if continued
-          cells.last << str
-        else
-          cells << str
-        end
-      end
-
-      def parse_cells(str, cell_class = TableCell)
+      def cells(cell_class = TableCell)
         start_row! unless @current_row
-        cells = []
+
+        @context.skip(/\s*[!|]/)
+        cls = []
         params = []
         param_str = ''
-        continued = false
         
-        scan = StringScanner.new(str)
         loop do
-          str = scan.scan_until(/{{|\[\[|\|\||\|/)
-          case scan.matched
-          when '{{'
-            push_cell(cells, str, continued)
-            cells.last << scan_continued(scan, /{{/, /}}/, @lines) << '}}'
-            continued = true
-          when '[['
-            push_cell(cells, str, continued)
-            cells.last << scan_continued(scan, /\[\[/, /\]\]/, @lines) << ']]'
-            continued = true
-          when '||'
-            push_cell(cells, str.sub('||', ''), continued)
+          str = @context.scan_through_until(/\|{1,2}|$/)
+          case @context.matched
+          when '||',
+                '' # end of line
+            cls << str
             params << param_str
             param_str = ''
-            continued = false
           when '|'
-            param_str = str.sub('|', '')
-          when nil
-            push_cell(cells, scan.rest, continued)
-            params << param_str
-            break
+            param_str = str
           end
+          
+          break if @context.matched.empty?
         end
 
-        cells = cells.zip(params).map{|str, pstr|
-          cell_class.new(Parse.inline(str.strip, @context)).tap{|cell|
+        cls = cls.zip(params).map{|str, pstr|
+          cell_class.new(Parse.inline(str.strip, @context.traits)).tap{|cell|
             cell.params.update(parse_params(pstr))
           }
         }
         
-        @current_row.push_children(*cells)
+        unless (last = grab_multiline).empty?
+          cls.last.push_children(*Parse.paragraphs(last.join("\n"), @context.traits))
+        end
+        
+        @current_row.push_children(*cls)
       end
 
-      include Commons
-
-      def parse_table_params(str)
-        @table.params.update(parse_params(str))
+      def soft_strip(str)
+        str.sub(/^ +/, '')
       end
 
-      def start_caption(str)
+      def grab_multiline
+        res = []
+        until @context.next_lines.first =~ /^\s*([|!]|{\|)/
+          res << @context.next_lines.first
+          @context.next!
+        end
+        res
+      end
+
+      def table_params
+        @context.skip(/\s*{\|/)
+        @table.params.update(parse_params(@context.rest))
+        @context.next!
+      end
+
+      def caption
         finalize_row!
-        @is_caption = true
-        @multiline << str
+        @context.skip(/^\s*\|\+/)
+        lines = [@context.rest, grab_multiline].join("\n")
+        @table.push_children(TableCaption.new(Parse.inline(lines.strip, @context.traits)))
       end
 
       def start_row!(params_str = '')
@@ -159,47 +144,10 @@ module Infoboxer
 
       def finalize_row!
         if @current_row && !@current_row.children.empty?
-          unless @multiline.empty?
-            @current_row.children.last.push_children(
-              *Parse.paragraphs(@multiline, @context)
-            )
-          end
-          
           @table.push_children(@current_row)
-        elsif @is_caption
-          @table.push_children(TableCaption.new(Parse.inline(@multiline.strip, @context)))
         end
 
         @current_row = TableRow.new
-        @is_caption = false
-        @multiline = ''
-      end
-
-      def scan(before, after)
-        res = ''
-        level = 1
-
-        before_or_after = Regexp.union(before, after)
-
-        loop do
-          str = scanner.scan_until(before_or_after)
-          res << str if str
-
-          case scanner.matched
-          when before
-            level += 1
-          when after
-            level -= 1
-            
-            break if level.zero?
-          when nil
-            
-            # not finished on this line, look at next
-            @next_lines.empty? and fail("Can't find #{after} for #{before}, #{res}")
-            scanner << "\n" << @lines.shift
-          end
-        end
-        res.sub(/#{after}\Z/, '')
       end
     end
   end

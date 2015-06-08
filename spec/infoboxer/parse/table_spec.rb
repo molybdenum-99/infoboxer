@@ -2,7 +2,8 @@
 module Infoboxer
   describe Parse::TableParser do
     def parse_table(text)
-      described_class.new(text.gsub(/\n\s+/m, "\n").strip.split("\n")).parse
+      ctx = Parse::Context.new(text.gsub(/\n\s+/m, "\n").strip)
+      described_class.new(ctx).parse
     end
 
     describe 'simplest: one cell, one row' do
@@ -209,7 +210,7 @@ module Infoboxer
         }}
 
         it{should be_a(TableCaption)}
-        its(:text){should == "test me\nplease"}
+        its(:text){should == "test me please"}
       end
     end
 

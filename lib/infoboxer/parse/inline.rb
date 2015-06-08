@@ -6,93 +6,78 @@ require_relative 'template'
 module Infoboxer
   module Parse
     class InlineParser
-      def initialize(str, context)
+      def initialize(context)
         @context = context
-        @str = str.gsub(/[\r\n]/m, ' ')
+        #@str = str.gsub(/[\r\n]/m, ' ') - hmm?
 
-        @scanner = StringScanner.new(str)
         @nodes = Nodes.new
       end
 
-      def parse
+      def parse(full = false)
         @text = ''
-        formatting_start = /(
-            '{2,5}        |     # bold, italic
-            \[\[          |     # link
-            {{            |     # template
-            \[[a-z]+:\/\/ |     # external link
-            <ref[^>]*>    |     # reference
-            <                   # HTML tag
-          )/x
-        until scanner.eos?
-          str = scanner.scan_until(formatting_start)
-          @text << str.sub(scanner.matched, '') if str
+        until @context.eof?
+          str = @context.scan_until(@context.re[:formatting])
+          @text << str.to_s
 
-          match = scanner.matched
-          case match
-          when "'''''"
-            node(BoldItalic, inline(scan_simple(/'''''/)))
-          when "'''"
-            node(Bold, inline(scan_simple(/'''/)))
-          when "''"
-            node(Italic, inline(scan_simple(/''/)))
-          when '[['.matchish.guard{ scanner.check(/#{@context.file_prefix}:/) }
-            image(scan(/\[\[/, /\]\]/))
-          when '[['
-            wikilink(scan(/\[\[/, /\]\]/))
-          when /\[(.+)/
-            external_link($1, scan(/\[/, /\]/))
-          when '{{'
-            template(scan(/{{/, /}}/))
-          when /<ref(.*)\/>/
-            reference($1, '')
-          when /<ref(.*)>/
-            reference($1, scan(/<ref>/, /<\/ref>/))
-          when '<'
-            try_html ||
-              @text << match # it was not HTML, just accidental <
-          when nil
-            @text << scanner.rest
-            break
-          end        
+          if @context.matched.nil?
+            @text << @context.rest
+            if full
+              @context.next!
+              @text << ' ' unless @context.eof?
+            else
+              break
+            end
+          else
+            process_formatting(@context.matched)
+          end
         end
         ensure_text!
         @nodes
-      rescue => e
-        raise e.exception("Error while parsing #{@str}: #{e.message}").
-          tap{|e_| e_.set_backtrace(e.backtrace)}
       end
 
       private
 
-      def inline(str)
-        InlineParser.new(str, @context).parse
+      def process_formatting(match)
+        case match
+        when "'''''"
+          node(BoldItalic, simple_inline(@context.scan_through_until(/('''''|$)/)))
+        when "'''"
+          node(Bold, simple_inline(@context.scan_through_until(/('''|$)/)))
+        when "''"
+          node(Italic, simple_inline(@context.scan_through_until(/(''|$)/)))
+        when '[['.matchish.guard{ @context.check(@context.re[:file_prefix]) }
+          image(@context.scan_through_until(/\]\]/))
+        when '[['
+          wikilink(@context.scan_through_until(/\]\]/))
+        when /\[(.+)/
+          external_link($1, @context.scan_through_until(/\]/))
+        when '{{'
+          template(@context.scan_through_until(/}}/))
+        when /<ref(.*)\/>/
+          reference($1, '')
+        when /<ref(.*)>/
+          reference($1, @context.scan_through_until(/<\/ref>/))
+        when '<'
+          try_html ||
+            @text << match # it was not HTML, just accidental <
+        end
       end
 
-      # simple scan: just text until pattern
-      def scan_simple(after)
-        scan_until(scanner, after)
+      def simple_inline(str)
+        Parse.inline(str, @context.traits)
       end
 
       include Commons
 
-      def scan(before, after)
-        scan_continued(scanner, before, after, @context.next_lines)
-      end
-
       def image(str)
-        node(Image, *ImageContentsParser.new(str, @context).parse)
+        node(Image, *ImageContentsParser.new(str, @context.traits).parse)
       end
 
       def template(str)
         ensure_text!
 
-        template = Template.new(*TemplateContentsParser.new(str, @context).parse)
-        nodes = if @context
-          @context.expand(template)
-        else
-          template
-        end
+        template = Template.new(*TemplateContentsParser.new(str, @context.traits).parse)
+        nodes = @context.traits.expand(template)
         @nodes.push(*nodes)
       end
 
@@ -104,7 +89,7 @@ module Infoboxer
       # And everything works.
       def reference(attr, str)
         nodes = begin
-          Parse.paragraphs(str, @context)
+          Parse.paragraphs(str, @context.traits)
         rescue ParsingError
           Text.new(str)
         end
@@ -128,32 +113,32 @@ module Infoboxer
 
       def link(klass, str, split_pattern)
         link, label = str.split(split_pattern, 2)
-        node(klass, link || str, label && inline(label))
+        node(klass, link || str, label && simple_inline(label))
       end
 
       def try_html
         case
-        when scanner.check(/\/[a-z]+>/)
+        when @context.check(/\/[a-z]+>/)
           # lonely closing tag
-          scanner.skip(/\//)
-          tag = scanner.scan(/[a-z]+/)
-          scanner.skip(/>/)
+          @context.skip(/\//)
+          tag = @context.scan(/[a-z]+/)
+          @context.skip(/>/)
           node(HTMLClosingTag, tag)
 
-        when scanner.check(%r{[a-z]+[^/>]*/>})
+        when @context.check(%r{[a-z]+[^/>]*/>})
           # auto-closing tag
-          tag = scanner.scan(/[a-z]+/)
-          attrs = scanner.scan(%r{[^/>]*})
-          scanner.skip(%r{/>})
+          tag = @context.scan(/[a-z]+/)
+          attrs = @context.scan(%r{[^/>]*})
+          @context.skip(%r{/>})
           node(HTMLTag, tag, parse_params(attrs))
 
-        when scanner.check(/[a-z]+[^>\/]+>/)
+        when @context.check(/[a-z]+[^>\/]+>/)
           # opening tag
-          tag = scanner.scan(/[a-z]+/)
-          attrs = scanner.scan(/[^>]+/)
-          scanner.skip(/>/)
-          if (contents = scanner.scan_until(/<\/#{tag}>/))
-            node(HTMLTag, tag, parse_params(attrs), inline(contents.sub("</#{tag}>", '')))
+          tag = @context.scan(/[a-z]+/)
+          attrs = @context.scan(/[^>]+/)
+          @context.skip(/>/)
+          if (contents = @context.scan_until(/<\/#{tag}>/))
+            node(HTMLTag, tag, parse_params(attrs), simple_inline(contents.sub("</#{tag}>", '')))
           else
             node(HTMLOpeningTag, tag, parse_params(attrs))
           end
@@ -164,8 +149,6 @@ module Infoboxer
 
         true
       end
-
-      attr_reader :scanner
 
       def node(klass, *arg)
         ensure_text!

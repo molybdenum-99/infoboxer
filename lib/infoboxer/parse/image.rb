@@ -8,9 +8,8 @@ module Infoboxer
     class ImageContentsParser
       include ProcMe
     
-      def initialize(str, context=nil)
-        @context = context
-        @scanner = StringScanner.new(str)
+      def initialize(str, traits)
+        @context = Context.new(str, traits)
       end
 
       def parse
@@ -22,40 +21,20 @@ module Infoboxer
       attr_reader :scanner
 
       def parse_path
-        scanner.skip(/#{@context.file_prefix}:/) or
-          fail("Something went wrong: it's not image: #{@scanner.rest}?")
+        @context.skip(@context.re[:file_prefix]) or
+          @context.fail!("Something went wrong: it's not image?")
 
-        scanner.scan_until(/\||$/).sub('|', '')
+        @context.scan_until(/\||$/)
       end
 
       def parse_attrs
-        @inside_caption = false
         strings = []
+
         loop do
-          s = scanner.scan_until(/\||\[\[|{{/)
-          case scanner.matched
-          when '[['
-            # start of link inside caption - it CAN contain | symbol
-            link_contents = scanner.scan_until(/\]\]/) or
-              fail("Something went wrong: unbalanced parens inside image #{scanner.rest}")
-
-            push_string(strings, s + link_contents)
-            @inside_caption = true
-          when '{{'
-            # start of template inside caption - it CAN contain | symbol
-            template_contents = scanner.scan_until(/\}\}/) or
-              fail("Something went wrong: unbalanced parens inside image #{scanner.rest}")
-
-            push_string(strings, s + template_contents)
-            @inside_caption = true
-          when '|'
-            push_string(strings, s.sub('|', ''))
-            @inside_caption = false
-          when nil
-            push_string(strings, scanner.rest)
-            break
-          end
+          strings << @context.scan_through_until(/\||$/)
+          break if @context.rest.empty?
         end
+        
         strings.map{|s| parse_attr(s)}.
           inject(&:merge).reject{|k, v| v.nil? || v.empty?}
       end
@@ -77,15 +56,7 @@ module Infoboxer
         when /^alt=(.*)$/i
           {alt: $1}
         else # it's caption, and can have inline markup!
-          {caption: InlineParser.new(str, @context).parse}
-        end
-      end
-
-      def push_string(strings, str)
-        if @inside_caption
-          strings.last << str
-        else
-          strings << str
+          {caption: Parse.inline(str, @context.traits)}
         end
       end
     end
