@@ -8,7 +8,6 @@ module Infoboxer
     class InlineParser
       def initialize(context)
         @context = context
-        #@str = str.gsub(/[\r\n]/m, ' ') - hmm?
 
         @nodes = Nodes.new
       end

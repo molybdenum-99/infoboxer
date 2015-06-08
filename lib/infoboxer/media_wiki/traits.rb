@@ -72,6 +72,8 @@ module Infoboxer
 
       attr_reader :file_prefix, :category_prefix
 
+      attr_accessor :re
+
       def selector(descriptor)
         self.class.selectors[descriptor] or
           fail(ArgumentError, "Descriptor #{descriptor} not defined for #{self}")

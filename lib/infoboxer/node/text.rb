@@ -3,10 +3,12 @@ module Infoboxer
   class Text < Node
     def initialize(text, params = {})
       super(params)
-      @text = decode(text)
+      @raw_text = text
     end
 
-    attr_reader :text
+    def text
+      @text ||= decode(@raw_text)
+    end
 
     def inspect(depth = 0)
       depth < 2 ? "#<#{descr}: #{shorten_text}>" : super

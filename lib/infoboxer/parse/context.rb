@@ -3,7 +3,7 @@ module Infoboxer
   module Parse
     class Context
       attr_reader :lineno
-      attr_reader :traits, :re
+      attr_reader :traits
 
       def initialize(text, traits = nil)
         @lines = text.
@@ -11,8 +11,13 @@ module Infoboxer
           split(/[\r\n]/)
         @lineno = -1
         @traits = traits || MediaWiki::Traits.default
-        @re = make_regexps.freeze
+        @traits.re ||= make_regexps.freeze
+        @scanner = StringScanner.new('')
         next!
+      end
+
+      def re
+        @traits.re
       end
 
       # lines navigation
@@ -117,10 +122,10 @@ module Infoboxer
       def shift(amount)
         @lineno += amount
         current = @lines[lineno]
-        @scanner = if current
-          StringScanner.new(current)
+        if current
+          @scanner.string = current
         else
-          nil
+          @scanner = nil
         end
       end
     end
