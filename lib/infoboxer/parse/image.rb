@@ -31,7 +31,7 @@ module Infoboxer
         nodes = []
 
         loop do
-          nodes << InlineParser.new(@context).parse_until(/\||\]\]/, allow_paragraphs: true)
+          nodes << InlineParser.new(@context).parse_until_with_p(/\||\]\]/)
           break if @context.matched == ']]'
         end
 

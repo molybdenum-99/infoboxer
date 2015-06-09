@@ -13,7 +13,7 @@ module Infoboxer
 
       context 'when allow paragraphs' do
         let(:source){"thumb\n* nail|200px|The [[Cueva de las Manos|Cave of the Hands]] in ]]"}
-        let(:nodes){parser.parse_until(/\||\]\]/, allow_paragraphs: true)}
+        let(:nodes){parser.parse_until_with_p(/\||\]\]/)}
 
         it 'should be smart' do
           expect(nodes.map(&:class)).to eq [Text, UnorderedList]
@@ -30,7 +30,7 @@ module Infoboxer
           "{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}\n"\
           "</div>]]"
         }
-        let(:nodes){parser.parse_until(/\||\]\]/, allow_paragraphs: true)}
+        let(:nodes){parser.parse_until_with_p(/\||\]\]/)}
         it 'should grab templates and other stuff' do
           expect(nodes.map(&:class)).to eq [Text, Paragraph]
           expect(nodes.last.children.map(&:class)).to eq [HTMLOpeningTag, Text, Template, Text, Template, Text, Template, Text, HTMLClosingTag]

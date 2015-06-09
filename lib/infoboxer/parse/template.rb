@@ -32,7 +32,7 @@ module Infoboxer
             name = num
           end
 
-          value = InlineParser.new(@context).parse_until(/\||}}/, allow_paragraphs: true)
+          value = InlineParser.new(@context).parse_until_with_p(/\||}}/)
           res[name] = value unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
 
           break if @context.matched == '}}'

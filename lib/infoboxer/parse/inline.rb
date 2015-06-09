@@ -24,44 +24,80 @@ module Infoboxer
             process_formatting(@context.matched)
           end
         end
-        @nodes.pop while @nodes.last.is_a?(Text) && @nodes.last.raw_text.strip.empty?
-        @nodes.last.raw_text.strip! if @nodes.last.is_a?(Text)
+        strip_nodes!
         @nodes
       end
 
-      def parse_until(re, options = {})
+      def parse_until(re)
         start = @context.lineno
         until @context.eof?
           str = @context.scan_until(@context.re[:until_cache][re])
           text(str.to_s)
 
-          break if @context.matched =~ re || options[:inline_eol] && inline_eol?
+          break if @context.matched =~ re
+
+          process_formatting(@context.matched)
+
+          if @context.current.empty?
+            @context.next!
+            text(' ')
+          end
+          
+          @context.eof? and
+            @context.fail!("Unfinished formatting: #{re} not found (started on #{start})")
+        end
+        strip_nodes!
+        @nodes
+      end
+
+      def parse_until_with_p(re)
+        start = @context.lineno
+        until @context.eof?
+          str = @context.scan_until(@context.re[:until_cache][re])
+          text(str.to_s)
+
+          break if @context.matched =~ re
 
           process_formatting(@context.matched)
           if @context.current.empty?
             @context.next!
-            if options[:allow_paragraphs]
-              @nodes.concat(ParagraphsParser.new(@context, re).parse)
-              break
-            else
-              text(' ')
-            end
+            @nodes.concat(ParagraphsParser.new(@context, re).parse)
+            break
           end
           
-          if @context.eof?
-            if options[:inline_eol]
-              break
-            else
-              @context.fail!("Unfinished formatting: #{re} not found (started on #{start})")
-            end
-          end
+          @context.eof? and
+            @context.fail!("Unfinished formatting: #{re} not found (started on #{start})")
         end
-        @nodes.pop while @nodes.last.is_a?(Text) && @nodes.last.raw_text.strip.empty?
-        @nodes.last.raw_text.strip! if @nodes.last.is_a?(Text)
+        strip_nodes!
+        @nodes
+      end
+
+      def parse_until_eol(re)
+        start = @context.lineno
+        until @context.eof?
+          str = @context.scan_until(@context.re[:until_cache][re])
+          text(str.to_s)
+
+          break if @context.matched =~ re || inline_eol?
+
+          process_formatting(@context.matched)
+          if @context.current.empty?
+            @context.next!
+            text(' ')
+          end
+          
+          break if @context.eof?
+        end
+        strip_nodes!
         @nodes
       end
 
       private
+
+      def strip_nodes!
+        @nodes.pop while @nodes.last.is_a?(Text) && @nodes.last.raw_text.strip.empty?
+        @nodes.last.raw_text.strip! if @nodes.last.is_a?(Text)
+      end
 
       def text(txt)
         return if txt.empty?
@@ -76,18 +112,26 @@ module Infoboxer
         @context.current =~ /^($|<\/ref>|}})/
       end
 
-      def scan_and_inline(pattern, options = {})
-        InlineParser.new(@context).parse_until(pattern, options)
+      def scan_and_inline(pattern)
+        InlineParser.new(@context).parse_until(pattern)
+      end
+
+      def scan_and_inline_with_p(pattern)
+        InlineParser.new(@context).parse_until_with_p(pattern)
+      end
+
+      def scan_and_inline_eol(pattern)
+        InlineParser.new(@context).parse_until_eol(pattern)
       end
 
       def process_formatting(match)
         case match
         when "'''''"
-          node(BoldItalic, scan_and_inline(/(''''')/, inline_eol: true))
+          node(BoldItalic, scan_and_inline_eol(/('''''|(?=<\/ref>|}}))/))
         when "'''"
-          node(Bold, scan_and_inline(/(''')/, inline_eol: true))
+          node(Bold, scan_and_inline_eol(/('''|(?=<\/ref>|}}))/))
         when "''"
-          node(Italic, scan_and_inline(/(''|(?=<\/ref>|}}))/, inline_eol: true))
+          node(Italic, scan_and_inline_eol(/(''|(?=<\/ref>|}}))/))
         when '[['.matchish.guard{ @context.check(@context.re[:file_prefix]) }
           image
         when '[['
@@ -124,14 +168,8 @@ module Infoboxer
         @nodes.push(*nodes)
       end
 
-      # Seems ref's can contain incomplete markup.
-      # Or it may be rathe systematic problem (any "inline markup"
-      # can be auto-closed at paragraph level?).
-      # At least, http://fr.wikipedia.org/wiki/Argentine has <ref>,
-      # inside which there's only one opening '' (italic), without closing.
-      # And everything works.
       def reference(attr, closed = false)
-        children = closed ? Nodes[] : scan_and_inline(/<\/ref>/, allow_paragraphs: true)
+        children = closed ? Nodes[] : scan_and_inline_with_p(/<\/ref>/)
         node(Ref, children, parse_params(attr))
       end
 
@@ -185,7 +223,7 @@ module Infoboxer
           tag = @context.scan(/[a-z]+/)
           attrs = @context.scan(/[^>]+/)
           @context.skip(/>/)
-          contents = scan_and_inline(/<\/#{tag}>|(?=}}|<\/ref>)/, inline_eol: true)
+          contents = scan_and_inline_eol(/<\/#{tag}>|(?=}}|<\/ref>)/)
           if @context.matched =~ /<\/#{tag}>/
             node(HTMLTag, tag, parse_params(attrs), contents)
           else
