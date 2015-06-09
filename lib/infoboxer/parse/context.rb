@@ -59,9 +59,9 @@ module Infoboxer
       end
 
       def scan_until(re, leave_pattern = false)
-        @scanner.scan_until(re).tap{|res|
-          res.sub!(@scanner.matched, '') if res && !leave_pattern
-        }
+        res = @scanner.scan_until(re)
+        res[@scanner.matched] = '' if res && !leave_pattern
+        res
       end
 
       def matched
@@ -93,11 +93,8 @@ module Infoboxer
           end
         end
         
-        if leave_pattern 
-          res
-        else
-          res.sub(/#{re}\Z/, '')
-        end
+        res[/#{re}\Z/] = '' unless leave_pattern
+        res
       end
 
       def scan_continued_until(re, leave_pattern = false)
@@ -116,11 +113,8 @@ module Infoboxer
           end
         end
         
-        if leave_pattern 
-          res
-        else
-          res.sub(/#{re}\Z/, '')
-        end
+        res[/#{re}\Z/] = '' unless leave_pattern
+        res
       end
 
       def fail!(text)

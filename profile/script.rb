@@ -5,11 +5,18 @@ $:.unshift 'lib'
 require 'infoboxer'
 require 'ruby-prof'
 
-RubyProf.start
+Dir[File.expand_path('pages/*.wiki', File.dirname(__FILE__))].each do |f|
+  name = File.basename(f).sub('.wiki', '')
+  out = "profile/out/#{name}.html"
 
-Infoboxer::Parse.document(File.read('profile/pages/argentina.txt'))
+  RubyProf.start
 
-res = RubyProf.stop
-printer = RubyProf::GraphHtmlPrinter.new(res)
+  Infoboxer::Parse.document(File.read(f))
 
-printer.print(File.open('profile/out/profile-argentina.html', 'w'))
+  res = RubyProf.stop
+  printer = RubyProf::GraphHtmlPrinter.new(res)
+
+  printer.print(File.open(out, 'w'))
+
+  puts '%s successfully parsed, see res: %s' % [File.basename(f), out]
+end
