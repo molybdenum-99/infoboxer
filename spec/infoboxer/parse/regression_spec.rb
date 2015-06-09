@@ -17,7 +17,7 @@ module Infoboxer
           %q{<ref>one<br></ref><ref>other</ref>}
         }
         it{should be_a(Ref)}
-        its(:text){should == 'one'}
+        its(:children){should == [Text.new('one'), HTMLTag.new('br', {}, [])]}
       end
 
       describe 'USA - template with HTML inside' do

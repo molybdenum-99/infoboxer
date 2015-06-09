@@ -285,7 +285,7 @@ module Infoboxer
           let(:source){'<br>{{small|(Sun of May)}}'}
           it 'should be parsed!' do
             expect(subject.count).to eq 2
-            expect(subject.map(&:class)).to eq [HTMLOpeningTag, Template]
+            expect(subject.map(&:class)).to eq [HTMLTag, Template]
           end
         end
       end

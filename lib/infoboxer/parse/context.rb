@@ -142,7 +142,10 @@ module Infoboxer
       def make_regexps
         {
           file_prefix: /(#{traits.file_prefix.join('|')}):/,
-          formatting: FORMATTING
+          formatting: FORMATTING,
+          until_cache: Hash.new{|h, r|
+            h[r] = Regexp.union(r, FORMATTING, /$/)
+          }
         }
       end
 

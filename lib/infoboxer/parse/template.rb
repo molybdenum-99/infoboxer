@@ -33,7 +33,7 @@ module Infoboxer
           end
 
           value = InlineParser.new(@context).parse_until(/\||}}/, allow_paragraphs: true)
-          res[name] = value
+          res[name] = value unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
 
           break if @context.matched == '}}'
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")

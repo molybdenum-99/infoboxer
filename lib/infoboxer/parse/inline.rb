@@ -15,27 +15,25 @@ module Infoboxer
       def parse
         until @context.eof?
           str = @context.scan_until(@context.re[:formatting])
-          @nodes << Text.new(str.to_s)
+          text(str.to_s)
 
           if @context.matched.nil?
-            @nodes << Text.new(@context.rest)
+            text(@context.rest)
             break
           else
             process_formatting(@context.matched)
           end
         end
-        merge(@nodes)
-      end
-
-      def inline_eol?
-        @context.current =~ /^($|<\/ref>|}})/
+        @nodes.pop while @nodes.last.is_a?(Text) && @nodes.last.raw_text.strip.empty?
+        @nodes.last.raw_text.strip! if @nodes.last.is_a?(Text)
+        @nodes
       end
 
       def parse_until(re, options = {})
         start = @context.lineno
         until @context.eof?
-          str = @context.scan_until(Regexp.union(re, @context.re[:formatting], /$/))
-          @nodes << Text.new(str.to_s)
+          str = @context.scan_until(@context.re[:until_cache][re])
+          text(str.to_s)
 
           break if @context.matched =~ re || options[:inline_eol] && inline_eol?
 
@@ -46,7 +44,7 @@ module Infoboxer
               @nodes.concat(ParagraphsParser.new(@context, re).parse)
               break
             else
-              @nodes << Text.new(' ')
+              text(' ')
             end
           end
           
@@ -58,24 +56,24 @@ module Infoboxer
             end
           end
         end
-        merge(@nodes)
+        @nodes.pop while @nodes.last.is_a?(Text) && @nodes.last.raw_text.strip.empty?
+        @nodes.last.raw_text.strip! if @nodes.last.is_a?(Text)
+        @nodes
       end
 
       private
 
-      def merge(nodes)
-        res = Nodes[]
-        nodes.pop while nodes.last.is_a?(Text) && nodes.last.text.strip.empty?
-        nodes.each do |n|
-          if n.is_a?(Text) && n.raw_text.empty?
-            # do nothing
-          elsif n.is_a?(Text) && res.last.is_a?(Text)
-            res.last.raw_text << n.raw_text
-          else
-            res << n
-          end
+      def text(txt)
+        return if txt.empty?
+        if @nodes.last.is_a?(Text)
+          @nodes.last.raw_text << txt
+        else
+          @nodes << Text.new(txt)
         end
-        res
+      end
+
+      def inline_eol?
+        @context.current =~ /^($|<\/ref>|}})/
       end
 
       def scan_and_inline(pattern, options = {})
