@@ -1,6 +1,8 @@
 # encoding: utf-8
 module Infoboxer
   class Text < Node
+    attr_reader :raw_text
+    
     def initialize(text, params = {})
       super(params)
       @raw_text = text

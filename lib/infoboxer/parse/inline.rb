@@ -12,53 +12,101 @@ module Infoboxer
         @nodes = Nodes.new
       end
 
-      def parse(full = false)
-        @text = ''
+      def parse
         until @context.eof?
           str = @context.scan_until(@context.re[:formatting])
-          @text << str.to_s
+          @nodes << Text.new(str.to_s)
 
           if @context.matched.nil?
-            @text << @context.rest
-            if full
-              @context.next!
-              @text << ' ' unless @context.eof?
-            else
-              break
-            end
+            @nodes << Text.new(@context.rest)
+            break
           else
             process_formatting(@context.matched)
           end
         end
-        ensure_text!
-        @nodes
+        merge(@nodes)
+      end
+
+      def inline_eol?
+        @context.current =~ /^($|<\/ref>|}})/
+      end
+
+      def parse_until(re, options = {})
+        start = @context.lineno
+        until @context.eof?
+          str = @context.scan_until(Regexp.union(re, @context.re[:formatting], /$/))
+          @nodes << Text.new(str.to_s)
+
+          break if @context.matched =~ re || options[:inline_eol] && inline_eol?
+
+          process_formatting(@context.matched)
+          if @context.current.empty?
+            @context.next!
+            if options[:allow_paragraphs]
+              @nodes.concat(ParagraphsParser.new(@context, re).parse)
+              break
+            else
+              @nodes << Text.new(' ')
+            end
+          end
+          
+          if @context.eof?
+            if options[:inline_eol]
+              break
+            else
+              @context.fail!("Unfinished formatting: #{re} not found (started on #{start})")
+            end
+          end
+        end
+        merge(@nodes)
       end
 
       private
 
+      def merge(nodes)
+        res = Nodes[]
+        nodes.pop while nodes.last.is_a?(Text) && nodes.last.text.strip.empty?
+        nodes.each do |n|
+          if n.is_a?(Text) && n.raw_text.empty?
+            # do nothing
+          elsif n.is_a?(Text) && res.last.is_a?(Text)
+            res.last.raw_text << n.raw_text
+          else
+            res << n
+          end
+        end
+        res
+      end
+
+      def scan_and_inline(pattern, options = {})
+        InlineParser.new(@context).parse_until(pattern, options)
+      end
+
       def process_formatting(match)
         case match
         when "'''''"
-          node(BoldItalic, simple_inline(@context.scan_through_until(/('''''|$)/)))
+          node(BoldItalic, scan_and_inline(/(''''')/, inline_eol: true))
         when "'''"
-          node(Bold, simple_inline(@context.scan_through_until(/('''|$)/)))
+          node(Bold, scan_and_inline(/(''')/, inline_eol: true))
         when "''"
-          node(Italic, simple_inline(@context.scan_through_until(/(''|$)/)))
+          node(Italic, scan_and_inline(/(''|(?=<\/ref>|}}))/, inline_eol: true))
         when '[['.matchish.guard{ @context.check(@context.re[:file_prefix]) }
-          image(@context.scan_through_until(/\]\]/))
+          image
         when '[['
-          wikilink(@context.scan_through_until(/\]\]/))
+          wikilink
         when /\[(.+)/
-          external_link($1, @context.scan_through_until(/\]/))
+          external_link($1)
         when '{{'
-          template(@context.scan_through_until(/}}/))
+          template
         when /<ref(.*)\/>/
           reference($1, '')
         when /<ref(.*)>/
-          reference($1, @context.scan_through_until(/<\/ref>/))
+          reference($1)
         when '<'
           try_html ||
-            @text << match # it was not HTML, just accidental <
+            @nodes << Text.new(match) # it was not HTML, just accidental <
+        when nil
+          @context.next!
         end
       end
 
@@ -68,14 +116,12 @@ module Infoboxer
 
       include Commons
 
-      def image(str)
-        node(Image, *ImageContentsParser.new(str, @context.traits).parse)
+      def image
+        node(Image, *ImageContentsParser.new(@context).parse)
       end
 
-      def template(str)
-        ensure_text!
-
-        template = Template.new(*TemplateContentsParser.new(str, @context.traits).parse)
+      def template
+        template = Template.new(*TemplateContentsParser.new(@context).parse)
         nodes = @context.traits.expand(template)
         @nodes.push(*nodes)
       end
@@ -86,33 +132,35 @@ module Infoboxer
       # At least, http://fr.wikipedia.org/wiki/Argentine has <ref>,
       # inside which there's only one opening '' (italic), without closing.
       # And everything works.
-      def reference(attr, str)
-        nodes = begin
-          Parse.paragraphs(str, @context.traits)
-        rescue ParsingError
-          Text.new(str)
-        end
-        
-        node(Ref, nodes, parse_params(attr)) 
+      def reference(attr, closed = false)
+        children = closed ? Nodes[] : scan_and_inline(/<\/ref>/, allow_paragraphs: true)
+        node(Ref, children, parse_params(attr))
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#Wikilinks
       # [[abc]]
       # [[a|b]]
-      def wikilink(str)
-        link(Wikilink, str, '|')
+      def wikilink
+        link = @context.scan_continued_until(/\||\]\]/)
+        if @context.matched == '|'
+          caption = scan_and_inline(/\]\]/)
+        end
+        link(Wikilink, link, caption)
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#External_links
       # [http://www.example.org]
       # [http://www.example.org link name]
-      def external_link(protocol, str)
-        link(ExternalLink, protocol + str, /\s+/)
+      def external_link(protocol)
+        link = @context.scan_continued_until(/\s+|\]/)
+        if @context.matched =~ /\s+/
+          caption = scan_and_inline(/\]/)
+        end
+        link(ExternalLink, protocol + link, caption)
       end
 
-      def link(klass, str, split_pattern)
-        link, label = str.split(split_pattern, 2)
-        node(klass, link || str, label && simple_inline(label))
+      def link(klass, link, caption)
+        node(klass, link, caption)
       end
 
       def try_html
@@ -123,6 +171,9 @@ module Infoboxer
           tag = @context.scan(/[a-z]+/)
           @context.skip(/>/)
           node(HTMLClosingTag, tag)
+        when @context.check(/br\s*>/)
+          @context.skip(/br\s*>/)
+          node(HTMLTag, 'br', {}, Nodes[])
 
         when @context.check(%r{[a-z]+[^/>]*/>})
           # auto-closing tag
@@ -136,10 +187,12 @@ module Infoboxer
           tag = @context.scan(/[a-z]+/)
           attrs = @context.scan(/[^>]+/)
           @context.skip(/>/)
-          if (contents = @context.scan_until(/<\/#{tag}>/))
-            node(HTMLTag, tag, parse_params(attrs), simple_inline(contents.sub("</#{tag}>", '')))
+          contents = scan_and_inline(/<\/#{tag}>|(?=}}|<\/ref>)/, inline_eol: true)
+          if @context.matched =~ /<\/#{tag}>/
+            node(HTMLTag, tag, parse_params(attrs), contents)
           else
             node(HTMLOpeningTag, tag, parse_params(attrs))
+            @nodes.concat(contents)
           end
         else
           # not an HTML tag at all!
@@ -150,15 +203,7 @@ module Infoboxer
       end
 
       def node(klass, *arg)
-        ensure_text!
         @nodes.push(klass.new(*arg))
-      end
-
-      def ensure_text!
-        unless @text.empty?
-          @nodes.push(Text.new(@text))
-          @text = ''
-        end
       end
     end
   end

@@ -1,26 +1,14 @@
 # encoding: utf-8
 module Infoboxer
   class Template < Node
-    def initialize(name, vars = [])
-      @name, @vars = name, vars
+    def initialize(name, variables = {})
+      @name, @variables = name, variables
     end
 
-    attr_reader :name, :vars
-
-    def variables
-      Hash[*vars.each_with_index.flat_map{|v, i|
-        case v
-        when Hash
-          [v.keys.first, v.values.first]
-        else
-          [i+1, v]
-        end
-        }
-      ]
-    end
+    attr_reader :name, :variables
 
     def _eq(other)
-      other.name == name && other.vars == vars
+      other.name == name && other.variables == variables
     end
 
     def inspect(depth = 0)

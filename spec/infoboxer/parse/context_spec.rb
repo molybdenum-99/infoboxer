@@ -84,9 +84,9 @@ module Infoboxer
       let(:traits){MediaWiki::Traits.new(file_prefix: 'Файл')}
       let(:source){''}
       let(:ctx){Parse::Context.new(source, traits)}
-      subject{ctx}
+      subject{ctx.re[:file_prefix]}
 
-      its(:'re.file_prefix'){should == /(File|Файл):/}
+      it{should == /(File|Файл):/}
     end
   end
 end

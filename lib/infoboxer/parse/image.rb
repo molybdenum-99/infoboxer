@@ -8,39 +8,39 @@ module Infoboxer
     class ImageContentsParser
       include ProcMe
     
-      def initialize(str, traits)
-        @context = Context.new(str, traits)
+      def initialize(context)
+        @context = context
       end
 
       def parse
-        [parse_path, parse_attrs]
+        @context.skip(@context.re[:file_prefix]) or
+          @context.fail!("Something went wrong: it's not image?")
+
+        path = @context.scan_until(/\||\]\]/)
+        attrs = if @context.matched == '|'
+          attributes
+        else
+          {}
+        end
+        [path, attrs]
       end
 
       private
 
-      attr_reader :scanner
-
-      def parse_path
-        @context.skip(@context.re[:file_prefix]) or
-          @context.fail!("Something went wrong: it's not image?")
-
-        @context.scan_until(/\||$/)
-      end
-
-      def parse_attrs
-        strings = []
+      def attributes
+        nodes = []
 
         loop do
-          strings << @context.scan_through_until(/\||$/)
-          break if @context.rest.empty?
+          nodes << InlineParser.new(@context).parse_until(/\||\]\]/, allow_paragraphs: true)
+          break if @context.matched == ']]'
         end
-        
-        strings.map{|s| parse_attr(s)}.
+
+        nodes.map{|ns| parse_attr(ns)}.
           inject(&:merge).reject{|k, v| v.nil? || v.empty?}
       end
 
-      def parse_attr(str)
-        case str
+      def parse_attr(nodes)
+        case (str = nodes.text)
         when /^(thumb)(?:nail)?$/, /^(frame)(?:d)?$/
           {type: $1}
         when 'frameless'
@@ -56,7 +56,7 @@ module Infoboxer
         when /^alt=(.*)$/i
           {alt: $1}
         else # it's caption, and can have inline markup!
-          {caption: Parse.inline(str, @context.traits)}
+          {caption: nodes}
         end
       end
     end

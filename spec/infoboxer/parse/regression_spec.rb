@@ -12,6 +12,21 @@ module Infoboxer
         it{should be_an(Image)}
       end
 
+      describe 'Ukraine - complex ref' do
+        let(:source){
+          %q{<ref>one<br></ref><ref>other</ref>}
+        }
+        it{should be_a(Ref)}
+        its(:text){should == 'one'}
+      end
+
+      describe 'USA - template with HTML inside' do
+        let(:source){
+          %q{{{triple image|right|Capitol Building Full View.jpg|202|WhiteHouseSouthFacade.JPG|120|USSupremeCourtWestFacade.JPG|125|<center>The [[United States Capitol]],<br /> where [[United States Congress|Congress]] meets:<br />the [[United States Senate|Senate]], left; the [[United States House of Representatives|House]], right|<center>The [[White House]], home of the [[President of the United States|U.S. President]]|<center>[[United States Supreme Court Building|Supreme Court Building]], where the [[Supreme Court of the United States|nation's highest court]] sits</center>}}}
+        }
+        it{should be_a(Template)}
+        its(:'variables.count'){should == 8}
+      end
     end
   end
 end

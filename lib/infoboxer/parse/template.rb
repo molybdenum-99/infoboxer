@@ -6,91 +6,42 @@ module Infoboxer
     #
     # NB: TemplateContentsParser parses WITHOUT surrounding {{, }}, e.g. tag contents!
     class TemplateContentsParser
-      def initialize(str, context = nil)
+      def initialize(context)
         @context = context
-        @scanner = StringScanner.new(str)
       end
 
       def parse
-        [parse_name, parse_variables]
+        name = @context.scan_continued_until(/\||}}/) or
+          @context.fail!("Template name not found")
+        name.strip!
+        vars = @context.matched == '}}' ? {} : variables
+        [name, vars]
       end
 
       private
 
-      def parse_name
-        @scanner.scan_until(/\||$/).sub('|', '')
-      end
-
-      def parse_variables
-        strings = []
-        level = 0
-        link_level = 0
-        @inside_value = false
-
+      def variables
+        num = 1
+        res = {}
+        
         loop do
-          s = scanner.scan_until(/\[\[|\]\]|{{|}}|\|/)
-          case scanner.matched
-          when '[['
-            push_string(strings, s)
-            link_level += 1
-            @inside_value = true
-          when ']]'
-            push_string(strings, s)
-            link_level -= 1
-          when '{{'
-            push_string(strings, s)
-            level += 1
-            @inside_value = true
-          when '}}'
-            push_string(strings, s)
-            level -= 1
-          when '|'
-            if level > 0 || link_level > 0
-              push_string(strings, s)
-            else
-              push_string(strings, s.sub('|', ''))
-              @inside_value = false
-            end
-          when nil
-            push_string(strings, scanner.rest)
-            break
+          if @context.check(/\s*([^ =]+)\s*=\s*/)
+            name = @context.scan(/\s*([^ =]+)/).strip.to_sym
+            @context.skip(/\s*=\s*/)
+          else
+            name = num
           end
+
+          value = InlineParser.new(@context).parse_until(/\||}}/, allow_paragraphs: true)
+          res[name] = value
+
+          break if @context.matched == '}}'
+          @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")
+
+          num += 1
         end
-        strings.map(&:strip).reject(&:empty?).map{|s| parse_variable(s)}
+        res
       end
-
-      def parse_variable(s)
-        if s =~ /\A\s*([^ =]+)\s*=\s*(.*)\Z/m
-          name, val = $1, $2
-          {name.to_sym => parse_value(val)}
-        else
-          parse_value(s)
-        end
-      end
-
-      def parse_value(s)
-        # NB: using InlineParser#try_parse instead of #parse:
-        #  template variables CAN have inconsistent markup, like:
-        #  {{name|var=''something}} - here '' is, in fact, CLOSING tag
-        #  for italics, while open tag will be added on template evaluation
-        #
-        s = s.strip
-        s.include?("\n") ?
-          Parse.paragraphs(s, @context) :
-          Parse.inline(s, @context)
-      rescue Parse::ParsingError
-        [Text.new(s)]
-      end
-
-      def push_string(strings, str)
-        if @inside_value
-          strings.last << str
-        else
-          strings << str
-        end
-      end
-
-      attr_reader :scanner
     end
   end
 end

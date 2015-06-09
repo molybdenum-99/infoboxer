@@ -80,7 +80,7 @@ module Infoboxer
 
       describe Template do
         context 'default' do
-          let(:node){Template.new('test', [Nodes[Text.new('var')]])}
+          let(:node){Template.new('test', {1 => Nodes[Text.new('var')]})}
 
           it{should == '#<Template:test(1: [#<Text: "var">])>'}
         end

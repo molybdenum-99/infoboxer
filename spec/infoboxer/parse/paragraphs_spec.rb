@@ -181,7 +181,7 @@ module Infoboxer
           }
 
           it{should == [
-            Template.new('template', []),
+            Template.new('template'),
             Paragraph.new(Text.new('paragraph'))
           ]}
         end

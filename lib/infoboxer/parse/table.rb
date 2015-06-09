@@ -132,9 +132,11 @@ module Infoboxer
 
       def caption
         finalize_row!
-        @context.skip(/^\s*\|\+/)
-        lines = [@context.rest, grab_multiline].join("\n")
-        @table.push_children(TableCaption.new(Parse.inline(lines.strip, @context.traits)))
+        @context.skip(/^\s*\|\+\s*/)
+
+        children = InlineParser.new(@context).parse_until(/^\s*([|!]|{\|)/)
+        @context.prev!
+        @table.push_children(TableCaption.new(children))
       end
 
       def start_row!(params_str = '')

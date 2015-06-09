@@ -4,14 +4,17 @@ require_relative 'table'
 module Infoboxer
   module Parse
     class ParagraphsParser
-      def initialize(context)
+      def initialize(context, until_re = nil)
         @context = context
+        @until_re = until_re
         @nodes = Nodes.new
       end
 
       def parse
         until @context.eof?
           process_current
+
+          break if @until_re && @context.matched =~ @until_re
 
           @context.next!
         end
@@ -64,7 +67,8 @@ module Infoboxer
         # FIXME: in fact, there's some formatting, that should work inside pre
         def pre
           @context.skip(/^ /)
-          node(Pre, [Text.new(@context.current)])
+          str = @context.scan_until(/(#{@until_re || '@NOTEXISTINGDEFINITELY@'}|$)/)
+          node(Pre, [Text.new(str)])
         end
 
         def table
@@ -111,7 +115,11 @@ module Infoboxer
 
         # Basic internals --------------------------------------------------
         def inline
-          InlineParser.new(@context).parse
+          if @until_re
+            InlineParser.new(@context).parse_until(@until_re)
+          else
+            InlineParser.new(@context).parse
+          end
         end
 
         def simple_inline(str)

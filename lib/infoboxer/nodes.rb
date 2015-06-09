@@ -46,6 +46,10 @@ module Infoboxer
       end
     end
 
+    def text
+      map(&:text).join
+    end
+
     private
 
     def make_nodes(arr)

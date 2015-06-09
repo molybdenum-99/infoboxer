@@ -22,7 +22,7 @@ module Infoboxer
 
       # lines navigation
       def current
-        @scanner.rest
+        @scanner ? @scanner.rest : ''
       end
       
       def next_lines
@@ -65,7 +65,11 @@ module Infoboxer
       end
 
       def matched
-        @scanner.matched
+        @scanner && @scanner.matched
+      end
+
+      def rewind(count)
+        @scanner.pos -= count
       end
 
       def scan_through_until(re, leave_pattern = false)
@@ -79,6 +83,29 @@ module Infoboxer
             res << chunk << scan_through_until(/}}/, true)
           when '[['
             res << chunk << scan_through_until(/\]\]/, true)
+          when re
+            res << chunk
+            break
+          when nil
+            res << @scanner.rest << "\n"
+            next!
+            eof? && fail!("Unfinished scan: #{re} not found")
+          end
+        end
+        
+        if leave_pattern 
+          res
+        else
+          res.sub(/#{re}\Z/, '')
+        end
+      end
+
+      def scan_continued_until(re, leave_pattern = false)
+        res = ''
+        
+        loop do
+          chunk = @scanner.scan_until(re)
+          case @scanner.matched
           when re
             res << chunk
             break
@@ -127,6 +154,17 @@ module Infoboxer
         else
           @scanner = nil
         end
+      end
+    end
+
+    class SimpleContext < Context
+      def initialize(text, traits)
+        @lines = [text.gsub(/<!--.+?-->/m, '')]
+        @lineno = -1
+        @traits = traits || MediaWiki::Traits.default
+        @traits.re ||= make_regexps.freeze
+        @scanner = StringScanner.new('')
+        next!
       end
     end
   end

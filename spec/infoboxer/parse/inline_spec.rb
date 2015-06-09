@@ -156,36 +156,54 @@ module Infoboxer
             it{should be_a(HTMLClosingTag)}
             its(:tag){should == 'strike'}
           end
+
+          context 'br' do
+            let(:source){'<br> test'}
+
+            it{should be_a(HTMLTag)}
+            its(:children){should be_empty}
+          end
         end
 
         context 'when image' do
-          # real example from http://en.wikipedia.org/wiki/Argentina
-          # I love you, Wikipedia!!!!
-          let(:source){
-            %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px|The [[Cueva de las Manos|Cave of the Hands]] in [[Santa Cruz province, Argentina|Santa Cruz province]], with indigenous artwork dating from 13,000–9,000 years ago|alt=Stencilled hands on the cave's wall]]}
-          }
+          context 'when simplest' do
+            let(:source){
+              %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg]]}
+            }
 
-          it{should be_a(Image)}
-          its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
-          its(:type){should == 'thumb'}
-          its(:width){should == 200}
-          its(:alt){should == "Stencilled hands on the cave's wall"}
+            it{should be_a(Image)}
+            its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
+          end
 
-          describe 'caption' do
-            subject{node.caption}
+          context 'when complex' do
+            # real example from http://en.wikipedia.org/wiki/Argentina
+            # I love you, Wikipedia!!!!
+            let(:source){
+              %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px|The [[Cueva de las Manos|Cave of the Hands]] in [[Santa Cruz province, Argentina|Santa Cruz province]], with indigenous artwork dating from 13,000–9,000 years ago|alt=Stencilled hands on the cave's wall]]}
+            }
 
-            it{should be_a(Nodes)}
-            it 'should preserve all data' do
-              expect(subject.map(&:class)).to eq \
-                [Text, Wikilink, Text, Wikilink, Text]
+            it{should be_a(Image)}
+            its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
+            its(:type){should == 'thumb'}
+            its(:width){should == 200}
+            its(:alt){should == "Stencilled hands on the cave's wall"}
 
-              expect(subject.map(&:text)).to eq [
-                'The ',
-                'Cave of the Hands',
-                ' in ',
-                'Santa Cruz province',
-                ', with indigenous artwork dating from 13,000–9,000 years ago'
-              ]
+            describe 'caption' do
+              subject{node.caption}
+
+              it{should be_a(Nodes)}
+              it 'should preserve all data' do
+                expect(subject.map(&:class)).to eq \
+                  [Text, Wikilink, Text, Wikilink, Text]
+
+                expect(subject.map(&:text)).to eq [
+                  'The ',
+                  'Cave of the Hands',
+                  ' in ',
+                  'Santa Cruz province',
+                  ', with indigenous artwork dating from 13,000–9,000 years ago'
+                ]
+              end
             end
           end
 
@@ -212,12 +230,12 @@ module Infoboxer
         context 'when <ref>' do
           context 'simple' do
             let(:source){
-              "<ref>\nThe text\n\nof the reference</ref>"
+              "<ref>The text\nof the reference</ref>"
             }
 
             it{should ==
               Ref.new([
-                Paragraph.new(Text.new('The text')),
+                Text.new('The text'),
                 Paragraph.new(Text.new('of the reference'))
               ])
             }
@@ -244,7 +262,7 @@ module Infoboxer
             }
 
             it{should be_kind_of(Ref)}
-            its(:children){should == [Paragraph.new(Italic.new(Text.new("bad markup!")))]}
+            its(:children){should == [Italic.new(Text.new("bad markup!"))]}
           end
         end
         
@@ -252,13 +270,23 @@ module Infoboxer
       end
 
       describe 'sequence' do
-        let(:source){"This is '''bold''' text with [[Some link|Link]]"}
         subject{Parse.inline(source)}
+        context 'plain' do
+          let(:source){"This is '''bold''' text with [[Some link|Link]]"}
 
-        it 'should be parsed!' do
-          expect(subject.count).to eq 4
-          expect(subject.map(&:class)).to eq [Text, Bold, Text, Wikilink]
-          expect(subject.map(&:text)).to eq ['This is ', 'bold', ' text with ', 'Link']
+          it 'should be parsed!' do
+            expect(subject.count).to eq 4
+            expect(subject.map(&:class)).to eq [Text, Bold, Text, Wikilink]
+            expect(subject.map(&:text)).to eq ['This is ', 'bold', ' text with ', 'Link']
+          end
+        end
+
+        context 'html + template' do
+          let(:source){'<br>{{small|(Sun of May)}}'}
+          it 'should be parsed!' do
+            expect(subject.count).to eq 2
+            expect(subject.map(&:class)).to eq [HTMLOpeningTag, Template]
+          end
         end
       end
 
@@ -275,12 +303,12 @@ module Infoboxer
       describe 'image' do
         # also real-life example!
         let(:source){
-          '[[File:Diplomatic missions of Argentina.png|thumb|250px|Argentine diplomatic missions:}\n'\
-          '<div style="font-size:90%;">\n'\
-          '{{legend4|#22b14c|Argentina}}\n'\
-          '{{legend4|#2f3699|Nations hosting a resident diplomatic mission}}\n'\
-          '{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}\n'\
-          '</div>]]'
+          "[[File:Diplomatic missions of Argentina.png|thumb|250px|Argentine diplomatic missions:\n"\
+          "<div style=\"font-size:90%;\">\n"\
+          "{{legend4|#22b14c|Argentina}}\n"\
+          "{{legend4|#2f3699|Nations hosting a resident diplomatic mission}}\n"\
+          "{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}\n"\
+          "</div>]]"
         }
         subject{Parse.inline(source).first}
 
@@ -289,7 +317,7 @@ module Infoboxer
         its(:width){should == 250}
         it 'should have a caption ' do
           expect(subject.caption.map(&:class)).to eq \
-            [Text, HTMLTag]
+            [Text, Paragraph]
         end
       end
     end
@@ -305,7 +333,7 @@ module Infoboxer
         its(:name){should == 'the name'}
       end
 
-      context 'with unnamed parameter' do
+      context 'with unnamed variable' do
         let(:source){ '{{the name|en}}' }
 
         it{should be_a(Template)}
@@ -313,7 +341,7 @@ module Infoboxer
         its(:variables){should == {1 => [Text.new('en')]}}
       end
 
-      context 'with named parameter' do
+      context 'with named variable' do
         let(:source){ '{{the name|lang=en}}' }
 
         it{should be_a(Template)}
@@ -321,7 +349,7 @@ module Infoboxer
         its(:variables){should == {lang: [Text.new('en')]}}
       end
 
-      context 'with empty parameter' do
+      context 'with empty variable' do
         let(:source){ '{{the name|lang=}}' }
 
         it{should be_a(Template)}
@@ -329,13 +357,13 @@ module Infoboxer
         its(:variables){should == {lang: []}}
       end
 
-      context 'with "=" symbol in parameter' do
+      context 'with "=" symbol in variable' do
         let(:source){ '{{the name|formula=1+2=3}}' }
 
         its(:variables){should == {formula: [Text.new('1+2=3')]}}
       end
 
-      context 'with link in arguments' do
+      context 'with link in variable' do
         let(:source){ '{{the name|[[Argentina|Ar]]}}' }
 
         it{should be_a(Template)}
@@ -345,6 +373,11 @@ module Infoboxer
             [Wikilink.new('Argentina', [Text.new('Ar')])]
           }
         }
+      end
+
+      context 'with <ref> and other template in variable' do
+        let(:source){ "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}}}" }
+        it{should be_a(Template)}
       end
 
       context 'and now for really sick stuff!' do

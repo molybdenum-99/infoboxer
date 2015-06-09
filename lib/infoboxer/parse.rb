@@ -12,8 +12,8 @@ module Infoboxer
       end
 
       def inline(text, traits = nil)
-        #InlineParser.new(Context.new(text.gsub(/[\r\n]/m, ' ').strip, coerce_traits(traits))).parse
-        InlineParser.new(Context.new(text, coerce_traits(traits))).parse(true)
+        #InlineParser.new(SimpleContext.new(text, coerce_traits(traits))).parse
+        InlineParser.new(Context.new(text, coerce_traits(traits))).parse
       end
 
       def inline_or_paragraphs(text, traits = nil)
