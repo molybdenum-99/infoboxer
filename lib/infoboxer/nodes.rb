@@ -55,6 +55,7 @@ module Infoboxer
         last.merge!(node)
       else
         return if !node || node.empty?
+        node = Text.new(node) if node.is_a?(String)
         super
       end
     end

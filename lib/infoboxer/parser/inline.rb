@@ -8,7 +8,7 @@ module Infoboxer
           chunk = @context.scan_until(re.inline_until_cache[until_pattern])
           nodes << chunk
 
-          break if @context.matched?(until_pattern)
+          break if @context.matched_inline?(until_pattern)
 
           nodes << inline_formatting(@context.matched) unless @context.eol?
 
@@ -32,9 +32,36 @@ module Infoboxer
           chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
           nodes << chunk
 
-          break if @context.matched?(until_pattern) || @context.inline_eol?
+          break if @context.matched_inline?(until_pattern) || @context.inline_eol?
 
           nodes << inline_formatting(@context.matched)
+        end
+        
+        nodes
+      end
+
+      def long_inline(until_pattern = nil)
+        nodes = Nodes[]
+        loop do
+          chunk = @context.scan_until(re.inline_until_cache[until_pattern])
+          nodes << chunk
+
+          break if @context.matched?(until_pattern)
+
+          nodes << inline_formatting(@context.matched) unless @context.eol?
+
+          if @context.eof?
+            break unless until_pattern
+            @context.fail!("#{until_pattern} not found")
+          end
+          
+          if @context.eol?
+            @context.next!
+            paragraphs(until_pattern).each do |p|
+              nodes << p
+            end
+            break
+          end
         end
         
         nodes

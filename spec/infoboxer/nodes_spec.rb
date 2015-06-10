@@ -54,6 +54,14 @@ module Infoboxer
             }
             it{should == [Italic.new(Text.new('test')), Text.new(' me')]}
           end
+
+          context 'when its first text' do
+            subject{Nodes[]}
+            before{
+              subject << 'test'
+            }
+            it{should == [Text.new('test')]}
+          end
         end
 
         context 'paragraphs' do

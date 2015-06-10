@@ -8,7 +8,39 @@ module Infoboxer
       @re = OpenStruct.new(make_regexps)
     end
 
+    def paragraphs(until_pattern = nil)
+      nodes = Nodes[]
+      until @context.eof?
+        nodes << paragraph(until_pattern)
+
+        #break if @until_re && @context.matched =~ @until_re
+
+        @context.next!
+      end
+      nodes
+    end
+
     private
+
+      def paragraph(until_pattern)
+        case @context.current
+        #when /^(?<level>={2,})\s*(?<text>.+?)\s*\k<level>$/
+          #heading(Regexp.last_match[:text], Regexp.last_match[:level])
+        #when /^\s*{\|/
+          #table # it will parse lines, including current
+        #when /^[\*\#:;]./
+          #list
+        #when /^-{4,}/
+          #node(HR)
+        when /^\s*$/
+          # will, when merged, close previous paragraph or add spaces to <pre>
+          EmptyParagraph.new(@context.current)
+        #when /^ /
+          #pre
+        else
+          Paragraph.new(short_inline(until_pattern))
+        end
+      end
       
       attr_reader :re
 

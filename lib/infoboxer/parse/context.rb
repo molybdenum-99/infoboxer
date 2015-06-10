@@ -75,8 +75,12 @@ module Infoboxer
         @scanner && @scanner.matched
       end
 
-      def matched?(re)
+      def matched_inline?(re)
         re.nil? ? eol? : matched =~ re
+      end
+
+      def matched?(re)
+        re && matched =~ re
       end
 
       def eol?
