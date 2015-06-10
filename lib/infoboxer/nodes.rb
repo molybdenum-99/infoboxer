@@ -50,6 +50,29 @@ module Infoboxer
       map(&:text).join
     end
 
+    def <<(node)
+      case node
+      when String
+        return if node.empty?
+        if last.is_a?(Text)
+          last.raw_text << node
+        else
+          super(Text.new(node))
+        end
+      when Text
+        return if node.raw_text.empty?
+        if last.is_a?(Text)
+          last.raw_text << node.raw_text
+        else
+          super
+        end
+      when Array
+        node.each{|n| self << n}
+      else
+        super
+      end
+    end
+
     private
 
     def make_nodes(arr)

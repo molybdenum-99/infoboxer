@@ -38,7 +38,12 @@ module Infoboxer
       end
 
       def eof?
-        lineno >= @lines.count
+        lineno >= @lines.count ||
+          next_lines.empty? && eol?
+      end
+
+      def inspect
+        "#<Context(line #{lineno} of #{@lines.count}: #{current})>"
       end
 
       # scanning
@@ -59,6 +64,8 @@ module Infoboxer
       end
 
       def scan_until(re, leave_pattern = false)
+        guard_eof!
+        
         res = @scanner.scan_until(re)
         res[@scanner.matched] = '' if res && !leave_pattern
         res
@@ -66,6 +73,20 @@ module Infoboxer
 
       def matched
         @scanner && @scanner.matched
+      end
+
+      def matched?(re)
+        re.nil? ? eol? : matched =~ re
+      end
+
+      def eol?
+        !current || current.empty?
+      end
+
+      def inline_eol?
+        # not using StringScanner#check, as it will change #matched value
+        eol? ||
+          current =~ %r[^(</ref>|}})] 
       end
 
       def rewind(count)
@@ -122,6 +143,10 @@ module Infoboxer
       end
 
       private
+
+      def guard_eof!
+        eof? and fail!("End of input reached")
+      end
 
       FORMATTING = /(
         '{2,5}        |     # bold, italic
