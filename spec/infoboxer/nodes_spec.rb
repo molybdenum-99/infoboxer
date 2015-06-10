@@ -112,6 +112,14 @@ module Infoboxer
         end
       end
 
+      describe 'implicit flatten' do
+        subject{Nodes[Text.new('test')]}
+        before{
+          subject << [Text.new(' me')]
+        }
+        it{should == [Text.new('test me')]}
+      end
+
       describe 'ignoring of empty nodes' do
         context 'text' do
           subject{Nodes[Italic.new(Text.new('test'))]}

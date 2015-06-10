@@ -76,7 +76,7 @@ module Infoboxer
       end
 
       def matched_inline?(re)
-        re.nil? ? eol? : matched =~ re
+        re.nil? ? (matched.empty? && eol?) : matched =~ re
       end
 
       def matched?(re)

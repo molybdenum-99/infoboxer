@@ -2,7 +2,7 @@
 require 'infoboxer/parser'
 
 module Infoboxer
-  xdescribe Parser, '<ref>' do
+  describe Parser, '<ref>' do
     let(:ctx){Parse::Context.new(source)}
     let(:parser){Parser.new(ctx)}
 

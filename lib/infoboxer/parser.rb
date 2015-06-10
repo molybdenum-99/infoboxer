@@ -13,7 +13,7 @@ module Infoboxer
       until @context.eof?
         nodes << paragraph(until_pattern)
 
-        #break if @until_re && @context.matched =~ @until_re
+        break if until_pattern && @context.matched?(until_pattern)
 
         @context.next!
       end

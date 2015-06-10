@@ -51,7 +51,9 @@ module Infoboxer
     end
 
     def <<(node)
-      if last && last.can_merge?(node)
+      if node.kind_of?(Array)
+        node.each{|n| self << n}
+      elsif last && last.can_merge?(node)
         last.merge!(node)
       else
         return if !node || node.empty?

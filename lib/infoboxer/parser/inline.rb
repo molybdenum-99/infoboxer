@@ -3,6 +3,7 @@ module Infoboxer
   class Parser
     module Inline
       def inline(until_pattern = nil)
+        start = @context.lineno
         nodes = Nodes[]
         loop do
           chunk = @context.scan_until(re.inline_until_cache[until_pattern])
@@ -10,11 +11,11 @@ module Infoboxer
 
           break if @context.matched_inline?(until_pattern)
 
-          nodes << inline_formatting(@context.matched) unless @context.eol?
+          nodes << inline_formatting(@context.matched) unless @context.matched.empty?
 
           if @context.eof?
             break unless until_pattern
-            @context.fail!("#{until_pattern} not found")
+            @context.fail!("#{until_pattern} not found, starting from #{start}")
           end
           
           if @context.eol?
@@ -48,7 +49,7 @@ module Infoboxer
 
           break if @context.matched?(until_pattern)
 
-          nodes << inline_formatting(@context.matched) unless @context.eol?
+          nodes << inline_formatting(@context.matched) unless @context.matched.empty?
 
           if @context.eof?
             break unless until_pattern
@@ -84,10 +85,10 @@ module Infoboxer
             external_link($1)
           when '{{'
             template
-          #when /<ref(.*)\/>/
-            #reference($1, '')
-          #when /<ref(.*)>/
-            #reference($1)
+          when /<ref([^>]*)\/>/
+            reference($1, true)
+          when /<ref([^>]*)>/
+            reference($1)
           when '<'
             html || Text.new(match) # it was not HTML, just accidental <
           else
@@ -111,6 +112,11 @@ module Infoboxer
           link = @context.scan_continued_until(/\s+|\]/)
           caption = inline(/\]/) if @context.matched =~ /\s+/
           ExternalLink.new(protocol + link, caption)
+        end
+
+        def reference(param_str, closed = false)
+          children = closed ? Nodes[] : long_inline(/<\/ref>/)
+          Ref.new(children, parse_params(param_str))
         end
       end
 

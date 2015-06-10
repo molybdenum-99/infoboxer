@@ -23,7 +23,7 @@ module Infoboxer
             name = num
           end
 
-          value = inline(/\||}}/)
+          value = long_inline(/\||}}/)
           res[name] = value unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
 
           break if @context.matched == '}}'

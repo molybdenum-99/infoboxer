@@ -66,15 +66,20 @@ module Infoboxer
       }
     end
 
-    xcontext 'with paragraphs in variable' do
+    context 'with paragraphs in variable' do
+      let(:source){ "{{the name|var=some\nmultiline\ntext}}" }
+      it{should be_a(Template)}
+      it 'should preserve all content' do
+        expect(subject.variables[:var].map(&:class)).to eq [Text, Paragraph]
+      end
     end
 
-    xcontext 'with <ref> and other template in variable' do
+    context 'with <ref> and other template in variable' do
       let(:source){ "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}}}" }
       it{should be_a(Template)}
     end
 
-    xcontext 'and now for really sick stuff!' do
+    context 'and now for really sick stuff!' do
       let(:source){ File.read('spec/fixtures/large_infobox.txt') }
       it{should be_a(Template)}
       its(:"variables.count"){should == 87}
