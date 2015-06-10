@@ -3,7 +3,7 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'inline markup' do
-    let(:ctx){Parse::Context.new(source)}
+    let(:ctx){Parser::Context.new(source)}
     let(:parser){Parser.new(ctx)}
 
     let(:nodes){parser.inline}
@@ -203,7 +203,7 @@ module Infoboxer
     describe 'nesting' do
       context 'simple' do
         let(:source){"'''[[Bold link|Link]]'''"}
-        subject{Parse.inline(source).first}
+        subject{Parser.inline(source).first}
 
         it{should be_kind_of(Bold)}
         its(:"children.first"){should be_kind_of(Wikilink)}

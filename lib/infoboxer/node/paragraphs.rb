@@ -50,6 +50,14 @@ module Infoboxer
     def splitter
       Text.new(' ')
     end
+
+    def templates_only?
+      children.all?{|c| c.is_a?(Template) || c.is_a?(Text) && c.raw_text.strip.empty?}
+    end
+
+    def to_templates
+      children.select(&filter(itself: Tempalte))
+    end
   end
 
   class HR < Node

@@ -3,7 +3,7 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'images and media' do
-    let(:ctx){Parse::Context.new(source)}
+    let(:ctx){Parser::Context.new(source)}
     let(:parser){Parser.new(ctx)}
 
     let(:nodes){parser.inline}
@@ -57,7 +57,7 @@ module Infoboxer
       let(:traits){
         MediaWiki::Traits.new(file_prefix: 'Fichier')
       }
-      let(:ctx){Parse::Context.new(source, traits)}
+      let(:ctx){Parser::Context.new(source, traits)}
 
       it{should be_an(Image)}
       its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}

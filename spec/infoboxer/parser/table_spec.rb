@@ -3,7 +3,7 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'tables' do
-    let(:ctx){Parse::Context.new(unindent(source))}
+    let(:ctx){Parser::Context.new(unindent(source))}
     let(:parser){Parser.new(ctx)}
 
     let(:nodes){parser.paragraphs}

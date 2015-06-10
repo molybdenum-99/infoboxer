@@ -3,7 +3,7 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, '<ref>' do
-    let(:ctx){Parse::Context.new(source)}
+    let(:ctx){Parser::Context.new(source)}
     let(:parser){Parser.new(ctx)}
 
     let(:nodes){parser.inline}

@@ -3,7 +3,7 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'parse flow' do
-    let(:ctx){Parse::Context.new(source)}
+    let(:ctx){Parser::Context.new(source)}
     let(:parser){Parser.new(ctx)}
 
     describe :inline do
@@ -35,7 +35,7 @@ module Infoboxer
       context 'when multiline with end regexp not found' do
         let(:source){"some text\nor some other text"}
         it 'should fail' do
-          expect{parser.inline(/}}/)}.to raise_error(Parse::ParsingError)
+          expect{parser.inline(/}}/)}.to raise_error(Parser::ParsingError)
         end
       end
     end

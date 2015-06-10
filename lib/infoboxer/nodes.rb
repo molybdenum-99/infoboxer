@@ -69,6 +69,10 @@ module Infoboxer
       res
     end
 
+    def flow_templates
+      make_nodes(map{|n| n.is_a?(Paragraph) && n.templates_only? ? n.templates : n})
+    end
+
     private
 
     def make_nodes(arr)

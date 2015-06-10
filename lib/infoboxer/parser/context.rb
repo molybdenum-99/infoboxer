@@ -15,15 +15,19 @@ module Infoboxer
         next!
       end
 
-      # lines navigation
-      def current
-        @scanner ? @scanner.rest : ''
-      end
-      
-      def next_lines
-        @lines[(lineno+1)..-1]
+      attr_reader :next_lines
+
+      def matched
+        @matched ||= @scanner && @scanner.matched
       end
 
+      def rest
+        @rest ||= @scanner && @scanner.rest
+      end
+
+      alias_method :current, :rest
+
+      # lines navigation
       def next!
         shift(+1)
       end
@@ -33,7 +37,7 @@ module Infoboxer
       end
 
       def eof?
-        lineno >= @lines.count ||
+        !next_lines || # we are after the file end
           next_lines.empty? && eol?
       end
 
@@ -43,33 +47,61 @@ module Infoboxer
 
       # scanning
       def scan(re)
-        @scanner.scan(re)
+        res = @scanner.scan(re)
+        @matched = nil
+        @rest = nil
+        res
       end
 
       def check(re)
-        @scanner.check(re)
-      end
-
-      def rest
-        @scanner.rest
+        res = @scanner.check(re)
+        @matched = nil
+        @rest = nil
+        res
       end
 
       def skip(re)
-        @scanner.skip(re)
+        res = @scanner.skip(re)
+        @matched = nil
+        @rest = nil
+        res
       end
 
       def scan_until(re, leave_pattern = false)
         guard_eof!
         
-        res = @scanner.scan_until(re)
-        res[@scanner.matched] = '' if res && !leave_pattern
+        res = _scan_until(re)
+        res[matched] = '' if res && !leave_pattern
         res
       end
 
-      def matched
-        @scanner && @scanner.matched
+      def inline_eol?
+        # not using StringScanner#check, as it will change #matched value
+        eol? ||
+          current =~ %r[^(</ref>|}})] 
       end
 
+      def scan_continued_until(re, leave_pattern = false)
+        res = ''
+        
+        loop do
+          chunk = _scan_until(re)
+          case matched
+          when re
+            res << chunk
+            break
+          when nil
+            res << rest << "\n"
+            next!
+            eof? && fail!("Unfinished scan: #{re} not found")
+          end
+        end
+        
+        res[/#{re}\Z/] = '' unless leave_pattern
+        res
+      end
+
+      # state inspection
       def matched_inline?(re)
         re.nil? ? (matched.empty? && eol?) : matched =~ re
       end
@@ -82,53 +114,38 @@ module Infoboxer
         !current || current.empty?
       end
 
-      def inline_eol?
-        # not using StringScanner#check, as it will change #matched value
-        eol? ||
-          current =~ %r[^(</ref>|}})] 
-      end
-
-      def rewind(count)
-        @scanner.pos -= count
-      end
-
-      def scan_continued_until(re, leave_pattern = false)
-        res = ''
-        
-        loop do
-          chunk = @scanner.scan_until(re)
-          case @scanner.matched
-          when re
-            res << chunk
-            break
-          when nil
-            res << @scanner.rest << "\n"
-            next!
-            eof? && fail!("Unfinished scan: #{re} not found")
-          end
-        end
-        
-        res[/#{re}\Z/] = '' unless leave_pattern
-        res
-      end
-
+      # basic services
       def fail!(text)
         fail(ParsingError, "#{text} at line #{@lineno}:\n\t#{current}")
       end
 
       private
 
+      # we do hard use of #matched and #rest, its wiser to memoize them
+      def _scan_until(re)
+        res = @scanner.scan_until(re)
+        @matched = nil
+        @rest = nil
+        res
+      end
+
       def guard_eof!
-        eof? and fail!("End of input reached")
+        #eof? and fail!("End of input reached")
+        @scanner or fail!("End of input reached")
       end
 
       def shift(amount)
         @lineno += amount
         current = @lines[lineno]
+        @next_lines = @lines[(lineno+1)..-1]
         if current
           @scanner.string = current
+          @rest = current
+          @matched = nil
         else
           @scanner = nil
+          @rest = nil
+          @matched = nil
         end
       end
     end

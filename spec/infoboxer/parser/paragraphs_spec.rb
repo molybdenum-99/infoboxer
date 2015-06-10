@@ -3,7 +3,7 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'paragraphs' do
-    let(:ctx){Parse::Context.new(source)}
+    let(:ctx){Parser::Context.new(source)}
     let(:parser){Parser.new(ctx)}
 
     let(:nodes){parser.paragraphs}
@@ -94,7 +94,7 @@ module Infoboxer
     end
 
     describe 'merging subsequent' do
-      subject{Parse.paragraphs(source)}
+      subject{Parser.paragraphs(source)}
 
       context 'paragraphs' do
         let(:source){"First para\nStill first\n\nNext para"}
@@ -183,7 +183,7 @@ module Infoboxer
         its(:first){should be_a(DefinitionList)}
       end
 
-      xcontext 'templates-only paragraph' do
+      context 'templates-only paragraph' do
         let(:source){
           %Q{{{template}}\n\nparagraph}
         }

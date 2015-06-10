@@ -79,10 +79,12 @@ module Infoboxer
             Bold.new(short_inline(/'''/))
           when "''"
             Italic.new(short_inline(/''/))
-          when '[['.matchish.guard{ @context.check(re.file_prefix) }
-            image
           when '[['
-            wikilink
+            if @context.check(re.file_prefix)
+              image
+            else
+              wikilink
+            end
           when /\[(.+)/
             external_link($1)
           when '{{'

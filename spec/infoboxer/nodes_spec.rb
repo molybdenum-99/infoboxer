@@ -132,6 +132,19 @@ module Infoboxer
         it{should == [Text.new('test me')]}
       end
 
+      describe 'flowing-in templates' do
+        let(:nodes){Nodes[Paragraph.new(
+            [Text.new(' '),
+            Template.new('one'),
+            Text.new("\n"),
+            Template.new('two')]),
+          ]
+        }
+        subject{nodes.flow_templates}
+        its(:count){should == 2}
+        it{should all(be_a(Template))}
+      end
+
       describe 'ignoring of empty nodes' do
         context 'text' do
           subject{Nodes[Italic.new(Text.new('test'))]}

@@ -2,8 +2,6 @@
 require 'ostruct'
 require_relative 'parser/context'
 require 'procme'
-require_relative '../matchish'
-
 
 module Infoboxer
   class Parser
