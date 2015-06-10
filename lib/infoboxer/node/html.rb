@@ -18,6 +18,11 @@ module Infoboxer
     alias_method :attrs, :params
 
     include HTMLTagCommons
+
+    # even empty tag, for ex., <br>, should not be dropped!
+    def empty?
+      false
+    end
     
     private
 

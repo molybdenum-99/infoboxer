@@ -22,6 +22,24 @@ module Infoboxer
 
     alias_method :to_text, :text
 
+    def can_merge?(other)
+      other.is_a?(String) || other.is_a?(Text)
+    end
+
+    def merge!(other)
+      if other.is_a?(String)
+        @raw_text << other
+      elsif other.is_a?(Text)
+        @raw_text << other.raw_text
+      else
+        fail("Not mergeable into text: #{other.inspect}")
+      end
+    end
+
+    def empty?
+      raw_text.empty?
+    end
+
     private
 
     MAX_CHARS = 30

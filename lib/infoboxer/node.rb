@@ -29,6 +29,10 @@ module Infoboxer
       false
     end
 
+    def empty?
+      false
+    end
+
     def to_tree(level = 0)
       indent(level) + "<#{descr}>\n"
     end
@@ -59,7 +63,7 @@ module Infoboxer
     end
 
     def descr
-      if params.empty?
+      if !params || params.empty?
         "#{clean_class}"
       else
         "#{clean_class}(#{show_params})"
@@ -92,22 +96,6 @@ module Infoboxer
       def coder
         @coder ||= HTMLEntities.new
       end
-    end
-  end
-
-  module Mergeable
-    def can_merge?(other)
-      self.class == other.class && !closed?
-    end
-
-    def merge!(other)
-      @children.concat(splitter)
-      @children.concat(other.children)
-      @closed = other.closed?
-    end
-
-    def splitter
-      []
     end
   end
 end

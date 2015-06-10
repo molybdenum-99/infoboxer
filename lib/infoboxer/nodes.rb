@@ -51,24 +51,10 @@ module Infoboxer
     end
 
     def <<(node)
-      case node
-      when String
-        return if node.empty?
-        if last.is_a?(Text)
-          last.raw_text << node
-        else
-          super(Text.new(node))
-        end
-      when Text
-        return if node.raw_text.empty?
-        if last.is_a?(Text)
-          last.raw_text << node.raw_text
-        else
-          super
-        end
-      when Array
-        node.each{|n| self << n}
+      if last && last.can_merge?(node)
+        last.merge!(node)
       else
+        return if !node || node.empty?
         super
       end
     end
