@@ -2,7 +2,7 @@
 module Infoboxer
   describe Node do
     let(:document){
-      Parse.document(%Q{
+      Parser.document(%Q{
       Test in first ''paragraph''
       === Heading ===
       {| some=table

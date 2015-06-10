@@ -39,7 +39,7 @@ module Infoboxer
         traits = Traits.get(@api_base_url.host, guess_traits(raw))
         
         Page.new(self,
-          Parse.paragraphs(raw[:content], traits),
+          Parser.paragraphs(raw[:content], traits),
           raw.merge(traits: traits))
       }
       pages.count == 1 ? pages.first : pages

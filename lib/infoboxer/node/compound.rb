@@ -21,7 +21,9 @@ module Infoboxer
     end
 
     def push_children(*nodes)
-      @children.concat(nodes.each(&set(parent: self)))
+      nodes.each(&set(parent: self)).each do |n|
+        @children << n
+      end
     end
 
     include SemanticNavigation

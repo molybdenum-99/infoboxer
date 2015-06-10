@@ -56,7 +56,7 @@ module Infoboxer
       end
 
       def table_row(table, param_str)
-        table.children << TableRow.new(Nodes[], parse_params(param_str))
+        table.push_children(TableRow.new(Nodes[], parse_params(param_str)))
       end
 
       def table_caption(table)
@@ -64,14 +64,14 @@ module Infoboxer
 
         children = inline(/^\s*([|!]|{\|)/)
         @context.prev! # compensate next! which will be done in table()
-        table.children << TableCaption.new(children.strip)
+        table.push_children(TableCaption.new(children.strip))
       end
 
       def table_cells(table, cell_class = TableCell)
-        table.children << TableRow.new() unless table.children.last.is_a?(TableRow)
+        table.push_children(TableRow.new()) unless table.children.last.is_a?(TableRow)
         row = table.children.last
 
-        @context.skip(/\s*[!|]/)
+        @context.skip(/\s*[!|]\s*/)
         loop do
           if @context.check(/[^|{|\[]+\|([^\|]|$)/)
             params = parse_params(@context.scan_until(/\|/))
@@ -79,7 +79,7 @@ module Infoboxer
             params = {}
           end
           content = short_inline(/\|\|/)
-          row.children << cell_class.new(content, params)
+          row.push_children(cell_class.new(content, params))
           break if @context.eol?
         end
       end
@@ -93,7 +93,7 @@ module Infoboxer
           @context.fail!('Multiline cell without a cell?')
         cell = row.children.last
 
-        cell.children << paragraph(/^\s*([|!]|{\|)/)
+        cell.push_children(paragraph(/^\s*([|!]|{\|)/))
       end
     end
   end

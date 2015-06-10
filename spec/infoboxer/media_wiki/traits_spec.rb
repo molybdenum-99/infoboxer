@@ -21,7 +21,7 @@ module Infoboxer
         end
 
         describe 'select from node' do
-          let(:doc){Parse.paragraphs('Some text with [[Link]] and [[Category:Test]]')}
+          let(:doc){Parser.paragraphs('Some text with [[Link]] and [[Category:Test]]')}
           subject{traits.lookup(:categories, doc)}
 
           it{should == [Wikilink.new('Category:Test')]}
@@ -43,7 +43,7 @@ module Infoboxer
             klass.template('replaceme'){|t| t.variables[1]}
           }
           let(:template){
-            Parse.inline("{{replaceme|some ''text''}}").first
+            Parser.inline("{{replaceme|some ''text''}}").first
           }
           subject{traits.expand(template)}
           it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
@@ -74,7 +74,7 @@ module Infoboxer
 
           context 'unwrap (value of first variable) replacements' do
             let(:template){
-              Parse.inline("{{replaceme|some ''text''}}").first
+              Parser.inline("{{replaceme|some ''text''}}").first
             }
             subject{traits.expand(template)}
             it{should == [Text.new('some '), Italic.new(Text.new('text'))]}

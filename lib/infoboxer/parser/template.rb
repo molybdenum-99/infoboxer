@@ -8,7 +8,7 @@ module Infoboxer
           
         name.strip!
         vars = @context.matched == '}}' ? {} : template_vars
-        Infoboxer::Template.new(name, vars)
+        @context.traits.expand(Infoboxer::Template.new(name, vars))
       end
 
       def template_vars

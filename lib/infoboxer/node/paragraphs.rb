@@ -21,8 +21,7 @@ module Infoboxer
 
   module Mergeable
     def can_merge?(other)
-      !closed? &&
-        (self.class == other.class || other.is_a?(EmptyParagraph))
+      !closed? && self.class == other.class
     end
 
     def merge!(other)
@@ -39,6 +38,11 @@ module Infoboxer
   
   class MergeableParagraph < BaseParagraph
     include Mergeable
+
+    def can_merge?(other)
+      !closed? &&
+        (self.class == other.class || other.is_a?(EmptyParagraph))
+    end
   end
 
   class Paragraph < MergeableParagraph

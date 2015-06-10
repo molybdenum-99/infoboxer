@@ -19,7 +19,7 @@ module Infoboxer
       }
       let(:traits){klass.new}
       let(:nodes){
-        Parse.inline(source, traits)
+        Parser.inline(source, traits)
       }
 
       context 'when simple nested templates' do
@@ -32,10 +32,7 @@ module Infoboxer
         }
 
         it{should == [
-          Text.new('before '),
-          Text.new('|'),
-          Text.new(' text'),
-          Text.new('and '),
+          Text.new('before | textand '),
           Italic.new(Text.new('italics')),
           Text.new(' after')
         ]}
@@ -47,7 +44,7 @@ module Infoboxer
         }
         subject{nodes.first.variables[1]}
         it{should == [
-          Paragraph.new(Text.new('|')),
+          Text.new('|'),
           Paragraph.new(Text.new('text')),
           Paragraph.new(Text.new('·')),
         ]}
@@ -63,9 +60,7 @@ module Infoboxer
         }
 
         it{should == [
-          Text.new('This '),
-          Text.new('|'),
-          Text.new(' that')
+          Text.new('This | that')
         ]}
       end
 
@@ -73,12 +68,10 @@ module Infoboxer
         let(:source){
           "{|\n|+Its in {{!}} caption!\n|}"
         }
-        let(:table){Parse.paragraphs(source, traits).first}
+        let(:table){Parser.paragraphs(source, traits).first}
         subject{table.lookup(TableCaption).first}
         its(:children){should == [
-          Text.new('Its in '),
-          Text.new('|'),
-          Text.new(' caption!')
+          Text.new('Its in | caption!')
         ]}
       end
     end
@@ -119,7 +112,7 @@ module Infoboxer
       }
       let(:client){MediaWiki.new('http://en.wikipedia.org/w/api.php')}
       let(:page){
-        Page.new(client, Parse.paragraphs(source), traits: traits)
+        Page.new(client, Parser.paragraphs(source), traits: traits)
       }
       let(:para){
         page.children.first

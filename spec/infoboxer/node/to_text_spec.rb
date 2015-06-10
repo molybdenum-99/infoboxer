@@ -26,7 +26,7 @@ module Infoboxer
       end
 
       context 'from source' do
-        let(:document){Parse.document(unindent(source))}
+        let(:document){Parser.document(unindent(source))}
         let(:text){document.to_text}
         subject{text}
 

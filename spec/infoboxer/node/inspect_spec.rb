@@ -87,7 +87,7 @@ module Infoboxer
 
         context 'many variables' do
           let(:source){ File.read('spec/fixtures/large_infobox.txt') }
-          let(:node){Parse.inline(source).first}
+          let(:node){Parser.inline(source).first}
 
           it{should == '#<Template:Infobox country(conventional_long_name: [#<Text: "Argentine Republic">, ...], native_name: [#<Template:native name>], ...)>'}
         end

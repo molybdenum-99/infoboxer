@@ -111,7 +111,7 @@ module Infoboxer
 
       context List do
         let(:node){
-          Parse.paragraphs(%Q{
+          Parser.paragraphs(%Q{
           * one
           * two
           *# two-1 ''italic''
@@ -140,7 +140,7 @@ module Infoboxer
 
       context Template do
         let(:node){
-          Parse.inline(%Q{
+          Parser.inline(%Q{
           {{name|unnamed value|named=named value ''with markup''}}
           }.strip.gsub(/\n\s+/m, "\n")).first
         }
