@@ -33,9 +33,11 @@ module Infoboxer
           chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
           nodes << chunk
 
-          break if @context.matched_inline?(until_pattern) || @context.inline_eol?
+          break if @context.matched_inline?(until_pattern)
 
           nodes << inline_formatting(@context.matched)
+
+          break if @context.inline_eol?
         end
         
         nodes

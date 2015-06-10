@@ -79,6 +79,20 @@ module Infoboxer
       it{should be_a(Template)}
     end
 
+    context 'with complex lists inside' do
+      let(:source){unindent(%Q{
+        {{Infobox country
+        |footnote_a = {{note|note-lang}}''[[De facto]]'' at all government levels.{{efn-ua|name=es|Though not declared official ''[[de jure]]'', the Spanish language is the only one used in the wording of laws, decrees, resolutions, official documents and public acts.}} In addition, some provinces have official ''[[de jure]]'' languages:
+        :{{,}}[[Guaraní language|Guaraní]] in [[Corrientes Province]].<ref name=gn>{{cite Argentine law|jur=CN|l=5598|date=22 de octubre de 2004}}</ref>
+        :{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
+        |footnote_b = {{note|note-train}}Trains ride on left.
+        }}
+      })}
+
+      it{should be_a(Template)}
+      its(:'variables.count'){should == 2}
+    end
+
     context 'and now for really sick stuff!' do
       let(:source){ File.read('spec/fixtures/large_infobox.txt') }
       it{should be_a(Template)}

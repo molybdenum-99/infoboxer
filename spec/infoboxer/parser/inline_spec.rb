@@ -162,12 +162,60 @@ module Infoboxer
       end
     end
 
+    describe 'sequence' do
+      subject{nodes}
+      context 'plain' do
+        let(:source){"This is '''bold''' text with [[Some link|Link]]"}
+
+        it 'should be parsed!' do
+          expect(subject.count).to eq 4
+          expect(subject.map(&:class)).to eq [Text, Bold, Text, Wikilink]
+          expect(subject.map(&:text)).to eq ['This is ', 'bold', ' text with ', 'Link']
+        end
+      end
+
+      context 'html + template' do
+        let(:source){'<br>{{small|(Sun of May)}}'}
+        it 'should be parsed!' do
+          expect(subject.count).to eq 2
+          expect(subject.map(&:class)).to eq [HTMLTag, Template]
+        end
+      end
+
+      context 'text, ref, template' do
+        let(:source){'4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>'}
+        it 'should be parsed!' do
+          expect(subject.count).to eq 2
+          expect(subject.map(&:class)).to eq [Text, Ref]
+        end
+
+        context 'even in "short" sense' do
+          let(:source){'4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>'}
+          subject{parser.short_inline}
+          it 'should be parsed!' do
+            expect(subject.count).to eq 2
+            expect(subject.map(&:class)).to eq [Text, Ref]
+          end
+        end
+      end
+    end
+
+    describe 'nesting' do
+      context 'simple' do
+        let(:source){"'''[[Bold link|Link]]'''"}
+        subject{Parse.inline(source).first}
+
+        it{should be_kind_of(Bold)}
+        its(:"children.first"){should be_kind_of(Wikilink)}
+      end
+
+      context 'when cross-sected inside template' do
+        let(:source){"''italic{{tmpl|its ''italic'' too}}''"}
+        
+        its(:count){should == 1}
+        its(:'first.text'){should == 'italic'}
+        its(:'first.children.count'){should == 2}
+      end
+    end
   end
 end
-
-      #context 'when cross-sected inside template' do
-        #let(:source){"''italic{{tmpl|its ''italic'' too}}''"}
-        
-        #it{should be_a(Italic)}
-        #its(:text){should == 'italic'}
-      #end

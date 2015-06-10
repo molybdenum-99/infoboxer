@@ -19,7 +19,7 @@ module Infoboxer
         nodes = []
 
         loop do
-          nodes << inline(/\||\]\]/)
+          nodes << long_inline(/\||\]\]/)
           break if @context.matched == ']]'
         end
 

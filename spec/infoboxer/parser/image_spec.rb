@@ -68,7 +68,7 @@ module Infoboxer
       end
     end
 
-    xcontext 'multiline' do
+    context 'multiline' do
       let(:source){
         "[[File:Diplomatic missions of Argentina.png|thumb|250px|Argentine diplomatic missions:\n"\
         "<div style=\"font-size:90%;\">\n"\

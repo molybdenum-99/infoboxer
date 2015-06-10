@@ -3,6 +3,10 @@ require 'terminal-table'
 
 module Infoboxer
   class Table < Compound
+    def empty?
+      false
+    end
+
     def rows
       children.select(&fltr(itself: TableRow))
     end
@@ -44,9 +48,16 @@ module Infoboxer
 
   class TableRow < Compound
     alias_method :cells, :children
+
+    def empty?
+      false
+    end
   end
 
   class BaseCell < Compound
+    def empty?
+      false
+    end
   end
 
   class TableCell < BaseCell

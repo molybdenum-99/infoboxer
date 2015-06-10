@@ -62,6 +62,13 @@ module Infoboxer
       end
     end
 
+    def strip
+      res = dup
+      res.pop while res.last.is_a?(Text) && res.last.raw_text =~ /^\s*$/
+      res.last.raw_text.sub!(/\s+$/, '') if res.last.is_a?(Text)
+      res
+    end
+
     private
 
     def make_nodes(arr)

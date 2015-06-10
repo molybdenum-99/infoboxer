@@ -36,6 +36,18 @@ module Infoboxer
       end
     end
 
+    describe :strip do
+      context 'last empty texts' do
+        subject{Nodes[Text.new('test'), Text.new(' ')]}
+        its(:strip){should == Nodes[Text.new('test')]}
+      end
+
+      context 'spaces in last text' do
+        subject{Nodes[Text.new('test ')]}
+        its(:strip){should == Nodes[Text.new('test')]}
+      end
+    end
+
     describe :<< do
       describe 'merging' do
         context 'text' do
