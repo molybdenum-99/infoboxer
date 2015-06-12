@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rest-client'
   s.add_dependency 'addressable'
   s.add_dependency 'terminal-table'
+  s.add_dependency 'backports'
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 3'

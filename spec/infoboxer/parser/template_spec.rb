@@ -93,6 +93,12 @@ module Infoboxer
       its(:'variables.count'){should == 2}
     end
 
+    context 'with simple variable inside' do
+      let(:source){%Q{{{some template|lang=en|wtf|text=not a ''parameter''}}}}
+
+      its(:'variables.count'){should == 3}
+    end
+
     context 'and now for really sick stuff!' do
       let(:source){ File.read('spec/fixtures/large_infobox.txt') }
       it{should be_a(Template)}

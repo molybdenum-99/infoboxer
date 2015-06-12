@@ -16,7 +16,7 @@ module Infoboxer
         res = {}
         
         loop do
-          if @context.check(/\s*([^ =]+)\s*=\s*/)
+          if @context.check(/\s*([^ =}|]+)\s*=\s*/)
             name = @context.scan(/\s*([^ =]+)/).strip.to_sym
             @context.skip(/\s*=\s*/)
           else

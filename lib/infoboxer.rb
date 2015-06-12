@@ -1,5 +1,7 @@
 # encoding: utf-8
 require 'procme'
+require 'backports/2.1.0/array/to_h'
+#require 'backports/2.2.0/object/itself' Y U NO???
 
 module Infoboxer
   WIKIPEDIA_API_URL = 'http://%s.wikipedia.org/w/api.php'

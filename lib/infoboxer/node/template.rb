@@ -5,6 +5,7 @@ module Infoboxer
   
   class Template < Node
     def initialize(name, variables = {})
+      super(extract_params(variables))
       @name, @variables = name, variables
     end
 
@@ -27,7 +28,16 @@ module Infoboxer
         variables.map{|k, v| var_to_tree(k, v, level+1)}.join
     end
 
+    def fetch(var)
+      Nodes[*variables.select{|k, v| var === k.to_s}.values]
+    end
+
     private
+      def extract_params(hash)
+        hash.
+          select{|k, v| v.children.count == 1 && v.children.first.is_a?(Text)}.
+          map{|k, v| [k, v.to_s]}.to_h
+      end
 
       def var_to_tree(name, var, level)
         indent(level) + "#{name}:\n" + var.to_tree(level+1)
