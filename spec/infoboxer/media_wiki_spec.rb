@@ -39,11 +39,19 @@ module Infoboxer
     end
 
     describe :get, :vcr do
-      subject{client.get('Argentina')}
+      context 'when single page', :vcr do
+        subject{client.get('Argentina')}
 
-      it{should be_a(Page)}
-      its(:title){should == 'Argentina'}
-      its(:url){should == 'http://en.wikipedia.org/wiki/Argentina'}
+        it{should be_a(Page)}
+        its(:title){should == 'Argentina'}
+        its(:url){should == 'https://en.wikipedia.org/wiki/Argentina'}
+      end
+
+      context 'when several pages', :vcr do
+        subject{client.get('Argentina', 'Ukraine')}
+
+        it{should all(be_a(Page))}
+      end
     end
   end
 end

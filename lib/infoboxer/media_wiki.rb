@@ -36,7 +36,7 @@ module Infoboxer
 
     def get(*titles)
       pages = raw(*titles).map{|raw|
-        traits = Traits.get(@api_base_url.host, guess_traits(raw))
+        traits = Traits.get(@api_base_url.host, extract_traits(raw))
         
         Page.new(self,
           Parser.paragraphs(raw[:content], traits),
@@ -47,15 +47,24 @@ module Infoboxer
 
     private
 
-    def guess_traits(raw)
+    def extract_traits(raw)
+      raw.select{|k, v| [:file_prefix, :category_prefix].include?(k)}
+    end
+
+    def guess_traits(pages)
+      categories = pages.map{|p| p['categories']}.compact.flatten
+      images = pages.map{|p| p['images']}.compact.flatten
       {
-        file_prefix: raw[:images].map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
-        category_prefix: raw[:categories].map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
+        file_prefix: images.map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
+        category_prefix: categories.map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
       }
     end
 
     def postprocess(response)
-      JSON.parse(response)['query']['pages'].map{|id, data|
+      pages = JSON.parse(response)['query']['pages']
+      traits = guess_traits(pages.values)
+      
+      pages.map{|id, data|
         id == '-1' and
           fail(PageNotFound, "Page with title #{data['title']} not found")
         
@@ -63,9 +72,7 @@ module Infoboxer
           title: data['title'],
           content: data['revisions'].first['*'],
           url: data['fullurl'],
-          categories: data['categories'],
-          images: data['images']
-        }
+        }.merge(traits)
       }
     end
   end
