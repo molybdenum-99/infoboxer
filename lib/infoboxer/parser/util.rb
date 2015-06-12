@@ -9,7 +9,8 @@ module Infoboxer
         \[\[          |     # link
         {{            |     # template
         \[[a-z]+:\/\/ |     # external link
-        <ref[^>]*>    |     # reference
+        <nowiki[^>]*> |     # reference
+        <ref[^>]*>    |     # nowiki
         <                   # HTML tag
       )/x
 

@@ -102,7 +102,6 @@ module Infoboxer
       end
     end
 
-
     context 'when HTML' do
       subject{nodes.first}
       
@@ -160,6 +159,13 @@ module Infoboxer
         it{should be_a(HTMLTag)}
         its(:children){should be_empty}
       end
+    end
+
+    context 'when nowiki' do
+      subject{nodes.first}
+      let(:source){"<nowiki> all kinds <ref> of {{highly}} irrelevant '' markup </nowiki>"}
+
+      it{should == Text.new(" all kinds <ref> of {{highly}} irrelevant '' markup ")}
     end
 
     describe 'sequence' do

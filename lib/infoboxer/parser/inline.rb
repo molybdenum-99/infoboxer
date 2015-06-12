@@ -89,6 +89,8 @@ module Infoboxer
             external_link($1)
           when '{{'
             template
+          when /<nowiki([^>]*)>/
+            nowiki
           when /<ref([^>]*)\/>/
             reference($1, true)
           when /<ref([^>]*)>/
@@ -121,6 +123,10 @@ module Infoboxer
         def reference(param_str, closed = false)
           children = closed ? Nodes[] : long_inline(/<\/ref>/)
           Ref.new(children, parse_params(param_str))
+        end
+
+        def nowiki
+          Text.new(@context.scan_continued_until(/<\/nowiki>/))
         end
       end
 
