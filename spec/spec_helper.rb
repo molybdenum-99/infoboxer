@@ -21,3 +21,19 @@ def unindent(text)
     map{|ln| ln.scan(/^\s*/)}.flatten.map(&:length).min
   lines.map{|ln| ln.sub(/^\s{#{min_indent}}/, '')}.join("\n")
 end
+
+module WebMock
+  class Util::HashCounter
+    def ordered_keys
+      @order.to_a.sort_by(&:last).map(&:first)
+    end
+  end
+
+  def WebMock.requests
+    RequestRegistry.instance.requested_signatures.ordered_keys
+  end
+
+  def WebMock.last_request
+    requests.last
+  end
+end

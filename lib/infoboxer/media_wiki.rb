@@ -8,10 +8,16 @@ require_relative 'media_wiki/traits'
 module Infoboxer
   class MediaWiki
     PageNotFound = Class.new(RuntimeError)
+
+    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum99/infoboxer; zverok.offline@gmail.com)"
+
+    class << self
+      attr_accessor :user_agent
+    end
     
-    def initialize(api_base_url)
+    def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
-      @resource = RestClient::Resource.new(api_base_url)
+      @resource = RestClient::Resource.new(api_base_url, headers: headers(options))
     end
 
     attr_reader :api_base_url
@@ -46,6 +52,10 @@ module Infoboxer
     end
 
     private
+
+    def headers(options)
+      {'User-Agent' => options[:user_agent] || options[:ua] || self.class.user_agent || UA}
+    end
 
     def extract_traits(raw)
       raw.select{|k, v| [:file_prefix, :category_prefix].include?(k)}

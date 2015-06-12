@@ -6,21 +6,28 @@ module Infoboxer
   WIKIA_API_URL = 'http://%s.wikia.com/api.php'
 
   class << self
-    def wiki(api_url)
-      MediaWiki.new(api_url)
+    def wiki(api_url, options = {})
+      MediaWiki.new(api_url, options = {})
     end
     
-    def wikipedia(lang = 'en')
-      wiki(WIKIPEDIA_API_URL % lang)
+    def wikipedia(lang = 'en', options = {})
+      wiki(WIKIPEDIA_API_URL % lang, options)
     end
 
     alias_method :wp, :wikipedia
 
     def wikia(*domains)
-      wiki(WIKIA_API_URL % domains.reverse.join('.'))
+      options = domains.last.is_a?(Hash) ? domains.pop : {}
+      wiki(WIKIA_API_URL % domains.reverse.join('.'), options)
+    end
+
+    def user_agent=(ua)
+      MediaWiki.user_agent = ua
     end
   end
 end
+
+require_relative 'infoboxer/version'
 
 require_relative 'infoboxer/core_ext'
 

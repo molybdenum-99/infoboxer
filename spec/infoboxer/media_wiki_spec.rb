@@ -36,6 +36,35 @@ module Infoboxer
         its([:content]){should_not include('#REDIRECT')}
         its([:url]){should == 'http://en.wikipedia.org/wiki/Albert_Einstein'}
       end
+
+      context 'user-agent', :vcr do
+        context 'default' do
+          before{client.raw('Argentina')}
+          subject{WebMock.last_request}
+          its(:headers){should include('User-Agent' => MediaWiki::UA)}
+        end
+
+        context 'globally set' do
+          before{
+            Infoboxer.user_agent = 'My Cool UA'
+            client.raw('Argentina')
+          }
+          subject{WebMock.last_request}
+          its(:headers){should include('User-Agent' => 'My Cool UA')}
+        end
+
+        context 'locally set' do
+          before{
+            Infoboxer.user_agent = 'My Cool UA'
+            client_with_ua = MediaWiki.new(
+              'http://en.wikipedia.org/w/api.php',
+              user_agent: 'Something else')
+            client_with_ua.raw('Argentina')
+          }
+          subject{WebMock.last_request}
+          its(:headers){should include('User-Agent' => 'Something else')}
+        end
+      end
     end
 
     describe :get, :vcr do
