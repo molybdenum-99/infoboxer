@@ -80,16 +80,20 @@ module Infoboxer
 
       describe Template do
         context 'default' do
-          let(:node){Template.new('test', {1 => Nodes[Text.new('var')]})}
+          let(:node){Template.new('test', {1 => TemplateVariable.new(Text.new('var'))})}
 
-          it{should == '#<Template:test(1: [#<Text: "var">])>'}
+          it{should == '#<Template:test(1: #<TemplateVariable: #<Text>>)>'}
         end
 
         context 'many variables' do
           let(:source){ File.read('spec/fixtures/large_infobox.txt') }
           let(:node){Parser.inline(source).first}
 
-          it{should == '#<Template:Infobox country(conventional_long_name: [#<Text: "Argentine Republic">, ...], native_name: [#<Template:native name>], ...)>'}
+          it{should ==
+            '#<Template:Infobox country('\
+              'conventional_long_name: #<TemplateVariable: #<Text>, #<Template:efn-ua>>, '\
+              'native_name: #<TemplateVariable: #<Template:native name>>, ...)>'
+          }
         end
 
         context 'long variables' do

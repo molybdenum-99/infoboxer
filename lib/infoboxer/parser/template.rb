@@ -24,7 +24,9 @@ module Infoboxer
           end
 
           value = long_inline(/\||}}/)
-          res[name] = value unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
+          unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
+            res[name] = TemplateVariable.new(value)
+          end
 
           break if @context.matched == '}}'
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")

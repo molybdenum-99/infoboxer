@@ -1,5 +1,8 @@
 # encoding: utf-8
 module Infoboxer
+  class TemplateVariable < Compound
+  end
+  
   class Template < Node
     def initialize(name, variables = {})
       @name, @variables = name, variables
@@ -27,16 +30,12 @@ module Infoboxer
     private
 
       def var_to_tree(name, var, level)
-        indent(level) + "#{name}:\n" + var.map{|n| n.to_tree(level+1)}.join
+        indent(level) + "#{name}:\n" + var.to_tree(level+1)
       end
 
       def inspect_variables(depth)
-        variables.to_a[0..1].map{|name, var| "#{name}: [#{inspect_var(var)}]"}.join(', ') +
+        variables.to_a[0..1].map{|name, var| "#{name}: #{var.inspect(depth+1)}"}.join(', ') +
           (variables.count > 2 ? ', ...' : '')
-      end
-
-      def inspect_var(nodes)
-        nodes.first.inspect(1) + (nodes.count > 1 ? ', ...' : '')
       end
   end
 end

@@ -14,7 +14,7 @@ module Infoboxer
             '!' => '|',
             ',' => '·'
           )
-          template('join'){|t| Nodes[*t.variables.values]}
+          template('join'){|t| Nodes[*t.variables.values.map(&:children)]}
         end
       }
       let(:traits){klass.new}
@@ -42,7 +42,7 @@ module Infoboxer
         let(:source){
           "{{unknown|{{!}}\n\ntext\n\n{{,}}}}r"
         }
-        subject{nodes.first.variables[1]}
+        subject{nodes.first.variables[1].children}
         it{should == [
           Text.new('|'),
           Paragraph.new(Text.new('text')),

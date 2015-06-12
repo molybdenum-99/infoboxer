@@ -40,7 +40,7 @@ module Infoboxer
 
         context 'when expandes to some nodes' do
           before{
-            klass.template('replaceme'){|t| t.variables[1]}
+            klass.template('replaceme'){|t| t.variables[1].children}
           }
           let(:template){
             Parser.inline("{{replaceme|some ''text''}}").first
