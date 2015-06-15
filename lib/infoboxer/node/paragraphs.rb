@@ -56,7 +56,11 @@ module Infoboxer
     end
 
     def to_templates
-      children.select(&filter(itself: Tempalte))
+      children.select(&filter(itself: Template))
+    end
+
+    def to_templates?
+      templates_only? ? to_templates : self
     end
   end
 

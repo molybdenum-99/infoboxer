@@ -365,13 +365,17 @@ variable contents as a single `Text` node.
 It is nor fascinating neither awful. On my small notebook, really large
 and full-featured Wikipedia page (like aforementioned
 [Argentina](http://en.wikipedia.org/wiki/Argentina)) is parsed in some
-0.2-0.4 sec. It's 10k nodes tree, for the record.
+0.1-0.4 sec. It's 10k nodes tree, for the record.
 
 It seems enough for hacking/extracting information from several pages,
 yet definitely not very good especially if you want something like
 "extract data of pages from entire category". Speedup of parser is target
 of future releases (even if we should be ready to rewrite crucial parts as
 C extension).
+
+(JFYI, for [WikiCloth](https://github.com/nricciar/wikicloth) gem it takes
+5 to 7 sec to parse the same pages. So, Infoboxer at least 10-20 times
+faster.)
 
 ## Localization
 

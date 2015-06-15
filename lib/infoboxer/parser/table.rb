@@ -46,6 +46,9 @@ module Infoboxer
         when /^\s*\|/                       # cell in row
           table_cells(table)
 
+        when /^\s*{{/                       # template can be at row level
+          table_template(table)
+
         when nil
           @context.fail!("End of input before table ended!")
 
@@ -84,6 +87,20 @@ module Infoboxer
         end
       end
 
+      def table_template(table)
+        contents = paragraph(/^\s*([|!]|{\|)/).to_templates?
+        
+        if (row = table.children.last).is_a?(TableRow)
+          if (cell = row.children.last).is_a?(BaseCell)
+            cell.push_children(*contents)
+          else
+            row.push_children(*contents)
+          end
+        else
+          table.push_children(*contents)
+        end
+      end
+
       def table_cell_cont(table)
         table.children.last.is_a?(TableRow) or
           @context.fail!('Multiline cell without a row?')
@@ -91,6 +108,7 @@ module Infoboxer
 
         row.children.last.is_a?(BaseCell) or
           @context.fail!('Multiline cell without a cell?')
+
         cell = row.children.last
 
         cell.push_children(paragraph(/^\s*([|!]|{\|)/))

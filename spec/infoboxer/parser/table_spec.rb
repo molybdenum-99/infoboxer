@@ -94,15 +94,28 @@ module Infoboxer
     end
 
     describe 'multiple rows' do
-      let(:source){%Q{{|
+      let(:source){%Q{
+        {|
         |one
         |-
         |two
-        |}}
-      }
+        |}
+      }}
       its(:"rows.count"){should == 2}
       it 'should preserve texts' do
         expect(subject.rows.map(&:text)).to eq ['one', 'two']
+      end
+
+      context 'row-level template' do
+        let(:source){%Q{
+          {|
+          |one
+          |-
+          {{!}}
+          |}
+        }}
+        subject{table.rows.last.children.first}
+        it{should be_a(Template)}
       end
     end
 
