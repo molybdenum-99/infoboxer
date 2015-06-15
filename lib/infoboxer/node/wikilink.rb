@@ -28,6 +28,10 @@ module Infoboxer
         else
           [@name, '']
         end
+
+      if children.count == 1 && children.first.is_a?(Text) && children.first.raw_text.empty?
+        children.first.raw_text = @topic
+      end
     end
   end
 end

@@ -22,20 +22,25 @@ module Infoboxer
 
     attr_reader :api_base_url
 
+    PROP = [
+      'revisions',    # to extract content of the page
+      'info',         # to extract page canonical url
+      'categories',   # to extract default category prefix
+      'images'        # to extract default media prefix
+    ].join('|')
+
     def raw(*titles)
       postprocess(@resource.get(
         params: {
-          action: :query,
+          titles:    titles.join('|'),
           
-          # revisions for content
-          # info for url
-          # categories and images to know their prefixes in this wiki
-          prop: 'revisions|info|categories|images',
-          rvprop: :content,
-          inprop: :url,
-          format: :json,
+          action:    :query,
+          format:    :json,
           redirects: true,
-          titles: titles.join('|')
+
+          prop:      PROP,
+          rvprop:    :content,
+          inprop:    :url,
         }
       ))
     end

@@ -100,10 +100,13 @@ module Infoboxer
         end
 
         context 'nested' do
-          let(:node){Template.new('test', [Text.new('var')])}
+          let(:node){Template.new('test', {1 => TemplateVariable.new(Text.new('var'))})}
           subject{node.inspect(2)}
           it{should == '#<Template:test>'}
         end
+      end
+
+      describe Page do
       end
     end
   end

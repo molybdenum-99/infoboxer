@@ -60,5 +60,10 @@ module Infoboxer
       its(:topic){should == 'Me, myself and Irene'}
       its(:refinement){should == 'film, bad'}
     end
+
+    describe 'pipe trick' do
+      subject{Wikilink.new('Phoenix, Arizona', Text.new(''))}
+      its(:children){should == [Text.new('Phoenix')]}
+    end
   end
 end
