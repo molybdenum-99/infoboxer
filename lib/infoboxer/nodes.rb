@@ -38,9 +38,9 @@ module Infoboxer
     def inspect_no_p(depth = 0)
       case
       when depth > 1
-        "#{count} items"
+        "#{count} nodes"
       when count > MAX_CHILDREN
-        self[0...MAX_CHILDREN].map{|c| c.inspect(depth+1)}.join(', ') + " ...#{count - MAX_CHILDREN} more"
+        self[0...MAX_CHILDREN].map{|c| c.inspect(depth+1)}.join(', ') + " ...#{count - MAX_CHILDREN} more nodes"
       else
         map{|c| c.inspect(depth+1)}.join(', ')
       end

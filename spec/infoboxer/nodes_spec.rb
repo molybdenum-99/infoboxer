@@ -14,7 +14,7 @@ module Infoboxer
         let(:children){20.times.map{Text.new('some text')}}
         let(:nodes){Nodes[*children]}
         
-        it{should == '[#<Text: "some text">, #<Text: "some text">, #<Text: "some text"> ...17 more]'}
+        it{should == '[#<Text: "some text">, #<Text: "some text">, #<Text: "some text"> ...17 more nodes]'}
       end
 
       context 'nested inside other' do
@@ -22,7 +22,7 @@ module Infoboxer
         let(:nodes){Nodes[*children]}
         subject{nodes.inspect(2)}
         
-        it{should == '[20 items]'}
+        it{should == '[20 nodes]'}
       end
     end
 

@@ -57,14 +57,14 @@ module Infoboxer
             Text.new('four'),
             Text.new('five')])}
 
-          it{should == '#<Compound: #<Text: "one">, #<Text: "two">, #<Text: "three"> ...2 more>'}
+          it{should == '#<Compound: #<Text: "one">, #<Text: "two">, #<Text: "three"> ...2 more nodes>'}
         end
 
         context 'complex children' do
           let(:node){Compound.new([Italic.new(Text.new('one')), Italic.new(Bold.new(Text.new('two')))])}
 
           it{should ==
-            '#<Compound: #<Italic: #<Text>>, #<Italic: #<Bold: 1 items>>>'
+            '#<Compound: #<Italic: #<Text>>, #<Italic: #<Bold: 1 nodes>>>'
           }
         end
 
@@ -73,7 +73,7 @@ module Infoboxer
           subject{node.inspect(2)}
 
           it{should ==
-            '#<Compound: 2 items>'
+            '#<Compound: 2 nodes>'
           }
         end
       end
@@ -106,7 +106,11 @@ module Infoboxer
         end
       end
 
-      describe Page do
+      describe Page, :vcr do
+        let(:node){Infoboxer.wikipedia.get('Argentina')}
+        it{should match \
+          %r{^\#<Page\(title: "Argentina", url: "https://en.wikipedia.org/wiki/Argentina"\): \d+ nodes>$}
+        }
       end
     end
   end
