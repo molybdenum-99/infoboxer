@@ -67,16 +67,31 @@ module Infoboxer
     end
 
     context 'with paragraphs in variable' do
-      let(:source){ "{{the name|var=some\nmultiline\ntext}}" }
+      let(:source){ "{{the name|var=some\nmultiline\n''text''}}" }
       it{should be_a(Template)}
       it 'should preserve all content' do
         expect(subject.variables[:var].children.map(&:class)).to eq [Text, Paragraph]
       end
     end
 
-    context 'with <ref> and other template in variable' do
-      let(:source){ "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}}}" }
+    context 'with newlines before nested template' do
+      let(:source){ "{{the name|var=\n {{nested}}}}" }
       it{should be_a(Template)}
+      it 'should preserve all content' do
+        expect(subject.variables[:var].children.map(&:class)).to eq [Template]
+      end
+    end
+
+    context 'with <ref> and other template in variable' do
+      let(:source){ "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}|othervar}}" }
+      it{should be_a(Template)}
+      its(:'variables.count'){should == 2}
+    end
+
+    context 'with other template in variable - newlines' do
+      let(:source){ "{{the name|first=\n {{\nother-template\n }}\n| othervar}}" }
+      it{should be_a(Template)}
+      its(:'variables.count'){should == 2}
     end
 
     context 'with complex lists inside' do

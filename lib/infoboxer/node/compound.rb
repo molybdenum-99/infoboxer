@@ -7,7 +7,7 @@ module Infoboxer
     def initialize(children = Nodes.new, params = {})
       super(params)
       @children = Nodes[*children]
-      @children.each(&set(parent: self))
+      @children.each{|c| c.parent = self}
     end
 
     attr_reader :children
@@ -21,7 +21,7 @@ module Infoboxer
     end
 
     def push_children(*nodes)
-      nodes.each(&set(parent: self)).each do |n|
+      nodes.each{|c| c.parent = self}.each do |n|
         @children << n
       end
     end

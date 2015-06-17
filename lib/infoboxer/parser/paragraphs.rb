@@ -29,7 +29,7 @@ module Infoboxer
           when /^\s*$/
             # will, when merged, close previous paragraph or add spaces to <pre>
             EmptyParagraph.new(@context.current)
-          when /^ /
+          when /^ (?!\s*{{)/ # Lookahead, because spaces before template are ignored
             pre(until_pattern)
           else
             Paragraph.new(short_inline(until_pattern))

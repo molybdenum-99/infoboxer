@@ -37,7 +37,7 @@ module Infoboxer
 
           nodes << inline_formatting(@context.matched)
 
-          break if @context.inline_eol?
+          break if @context.inline_eol?(until_pattern)
         end
         
         nodes

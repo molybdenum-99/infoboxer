@@ -7,7 +7,7 @@ module Infoboxer
           @context.fail!("Template name not found")
           
         name.strip!
-        vars = @context.matched == '}}' ? {} : template_vars
+        vars = @context.eat_matched?('}}') ? {} : template_vars
         @context.traits.expand(Infoboxer::Template.new(name, vars))
       end
 
@@ -28,7 +28,7 @@ module Infoboxer
             res[name] = TemplateVariable.new(value)
           end
 
-          break if @context.matched == '}}'
+          break if @context.eat_matched?('}}')
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")
 
           num += 1

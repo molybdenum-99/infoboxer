@@ -21,6 +21,13 @@ module Infoboxer
         @matched ||= @scanner && @scanner.matched
       end
 
+      # check which works only once
+      def eat_matched?(str)
+        return false unless matched == str
+        @matched = 'DUMMY'
+        true
+      end
+
       def rest
         @rest ||= @scanner && @scanner.rest
       end
@@ -75,10 +82,11 @@ module Infoboxer
         res
       end
 
-      def inline_eol?
+      def inline_eol?(exclude = nil)
         # not using StringScanner#check, as it will change #matched value
         eol? ||
-          current =~ %r[^(</ref>|}})] 
+          (current =~ %r[^(</ref>|}})] &&
+            (!exclude || $1 !~ exclude)) # FIXME: ugly, but no idea of prettier solution
       end
 
       def scan_continued_until(re, leave_pattern = false)

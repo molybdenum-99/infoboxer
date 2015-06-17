@@ -34,9 +34,9 @@ module Infoboxer
 
     private
       def extract_params(hash)
-        hash.
+        Hash[*hash.
           select{|k, v| v.children.count == 1 && v.children.first.is_a?(Text)}.
-          map{|k, v| [k, v.to_s]}.to_h
+          map{|k, v| [k, v.children.first.raw_text]}.flatten(1)]
       end
 
       def var_to_tree(name, var, level)
