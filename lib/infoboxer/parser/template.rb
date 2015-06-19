@@ -7,17 +7,17 @@ module Infoboxer
           @context.fail!("Template name not found")
           
         name.strip!
-        vars = @context.eat_matched?('}}') ? {} : template_vars
+        vars = @context.eat_matched?('}}') ? Nodes[] : template_vars
         @context.traits.expand(Infoboxer::Template.new(name, vars))
       end
 
       def template_vars
         num = 1
-        res = {}
+        res = Nodes[]
         
         loop do
           if @context.check(/\s*([^ =}|]+)\s*=\s*/)
-            name = @context.scan(/\s*([^ =]+)/).strip.to_sym
+            name = @context.scan(/\s*([^ =]+)/).strip
             @context.skip(/\s*=\s*/)
           else
             name = num
@@ -25,7 +25,7 @@ module Infoboxer
 
           value = long_inline(/\||}}/)
           unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
-            res[name] = TemplateVariable.new(value)
+            res << TemplateVariable.new(name, value)
           end
 
           break if @context.eat_matched?('}}')

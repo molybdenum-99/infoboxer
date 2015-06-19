@@ -27,6 +27,10 @@ module Infoboxer
       select{|n| n._matches?(selector)}
     end
 
+    def find(*args, &block)
+      _find(Node::Selector.new(*args, &block))
+    end
+
     include Node::TreeNavigation
 
     MAX_CHILDREN = 3

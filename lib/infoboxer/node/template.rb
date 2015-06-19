@@ -1,15 +1,33 @@
 # encoding: utf-8
 module Infoboxer
   class TemplateVariable < Compound
+    attr_reader :name
+
+    def initialize(name, children = Nodes[])
+      super(children)
+      @name = name
+    end
+
+    def empty?
+      false
+    end
+
+    def descr
+      "#{clean_class}(#{name})"
+    end
+
+    def _eq(other)
+      other.name == name && other.children == children
+    end
   end
   
   class Template < Node
-    def initialize(name, variables = {})
+    attr_reader :name, :variables
+
+    def initialize(name, variables = Nodes[])
       super(extract_params(variables))
       @name, @variables = name, variables
     end
-
-    attr_reader :name, :variables
 
     def _eq(other)
       other.name == name && other.variables == variables
@@ -17,30 +35,31 @@ module Infoboxer
 
     def inspect(depth = 0)
       if depth.zero?
-        "#<#{clean_class}:#{name}(#{inspect_variables(depth)})>"
+        "#<#{descr}: #{variables.inspect_no_p(depth)}>"
       else
-        "#<#{clean_class}:#{name}>"
+        "#<#{descr}>"
       end
     end
 
     def to_tree(level = 0)
       '  ' * level + "<#{clean_class}(#{name})>\n" +
-        variables.map{|k, v| var_to_tree(k, v, level+1)}.join
+        variables.map{|var| var.to_tree(level+1)}.join
     end
 
     def fetch(var)
-      Nodes[*variables.select{|k, v| var === k.to_s}.values]
+      variables.find(name: var)
     end
 
     private
-      def extract_params(hash)
-        Hash[*hash.
-          select{|k, v| v.children.count == 1 && v.children.first.is_a?(Text)}.
-          map{|k, v| [k, v.children.first.raw_text]}.flatten(1)]
+      def descr
+        "#{clean_class}(#{name})"
       end
-
-      def var_to_tree(name, var, level)
-        indent(level) + "#{name}:\n" + var.to_tree(level+1)
+      
+      def extract_params(vars)
+        # NB: backports' to_h is cleaner but has performance penalty :(
+        Hash[*vars.
+          select{|v| v.children.count == 1 && v.children.first.is_a?(Text)}.
+          map{|v| [v.name, v.children.first.raw_text]}.flatten(1)]
       end
 
       def inspect_variables(depth)

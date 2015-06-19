@@ -50,14 +50,14 @@ page = Infoboxer.wp.get('Argentina')
 page = Infoboxer.wikipedia('fr').get('Argentina')
 
 # From any wiki with the same engine:
-page = Infoboxer.wiki('http://companywiki.com/w/api.php').get('Our Product')
+page = Infoboxer.wiki('http://companywiki.com').get('Our Product')
 ```
 
 See more examples and options at [Retrieving pages](https://github.com/molybdenum-99/infoboxer/wiki/Retrieving%20pages)
 
 ### Play with page
 
-Basically, page is a tree of nodes, you can think of it as some kind of
+Basically, page is a tree of [Nodes], you can think of it as some kind of
 [DOM](https://en.wikipedia.org/wiki/Document_Object_Model).
 
 So, you can navigate it:
@@ -86,11 +86,11 @@ See [Semantic navigation]
 Infoboxer also provides helper methods to some types of the nodes -- most
 useful ones from information extraction perspective. See
 
-* [Wikilinks tricks]
-* [Templates tricks]
-* _Tables tricks_ -- work in progress
+* [Wikilinks]
+* [Templates]
+* _Tables_ -- work in progress
 
-To put it all in one piece, also take a look at [Information extraction tips and tricks].
+To put it all in one piece, also take a look at [Data extraction tips and tricks].
 
 ## Advanced topics
 
@@ -99,7 +99,7 @@ To put it all in one piece, also take a look at [Information extraction tips and
 * [Performance] (TL;DR: 0.1-0.4 sec for parsing hugest pages)
 * [Localization] (TL;DR: For now, you'll need some work to use Infoboxer's
   most advanced features with non-English or non-WikiMedia wikis; basic
-  features work always)
+  and mid-level features work always)
 * If you plan to use Wikipedia or sister projects data in production,
   please consider [Wikipedia terms and conditions]
 
@@ -112,6 +112,11 @@ To put it all in one piece, also take a look at [Information extraction tips and
 ## Roadmap
 
 ## Contributing & Development
+
+* If you want to fix some bug or implement some feature, please just
+  follow the standard process for github opensource: fork, fix, push,
+  make pull request
+* 
 
 ## License
 

@@ -80,9 +80,9 @@ module Infoboxer
 
       describe Template do
         context 'default' do
-          let(:node){Template.new('test', {1 => TemplateVariable.new(Text.new('var'))})}
+          let(:node){Template.new('test', Nodes[TemplateVariable.new(1, Text.new('var'))])}
 
-          it{should == '#<Template:test(1: #<TemplateVariable: #<Text>>)>'}
+          it{should == '#<Template(test): #<TemplateVariable(1): #<Text>>>'}
         end
 
         context 'many variables' do
@@ -90,9 +90,10 @@ module Infoboxer
           let(:node){Parser.inline(source).first}
 
           it{should ==
-            '#<Template:Infobox country('\
-              'conventional_long_name: #<TemplateVariable: #<Text>, #<Template:efn-ua>>, '\
-              'native_name: #<TemplateVariable: #<Template:native name>>, ...)>'
+            "#<Template(Infobox country): "\
+              "#<TemplateVariable(conventional_long_name): #<Text>, #<Template(efn-ua)>>, "\
+              "#<TemplateVariable(native_name): #<Template(native name)>>, "\
+              "#<TemplateVariable(common_name): #<Text>> ...84 more nodes>"
           }
         end
 
@@ -100,9 +101,9 @@ module Infoboxer
         end
 
         context 'nested' do
-          let(:node){Template.new('test', {1 => TemplateVariable.new(Text.new('var'))})}
+          let(:node){Template.new('test', Nodes[TemplateVariable.new(1, Text.new('var'))])}
           subject{node.inspect(2)}
-          it{should == '#<Template:test>'}
+          it{should == '#<Template(test)>'}
         end
       end
 

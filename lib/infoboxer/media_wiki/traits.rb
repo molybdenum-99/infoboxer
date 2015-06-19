@@ -25,7 +25,7 @@ module Infoboxer
 
         def templates_unwrap(*names)
           names.each do |name|
-            template(name){|t| t.variables[1].children}
+            template(name){|t| t.variables.first.children}
           end
         end
 

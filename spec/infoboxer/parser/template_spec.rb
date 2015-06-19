@@ -21,7 +21,7 @@ module Infoboxer
 
       it{should be_a(Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == {1 => TemplateVariable.new(Text.new('en'))}}
+      its(:variables){should == [TemplateVariable.new(1, Text.new('en'))]}
     end
 
     context 'with named variable' do
@@ -29,7 +29,7 @@ module Infoboxer
 
       it{should be_a(Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == {lang: TemplateVariable.new(Text.new('en'))}}
+      its(:variables){should == [TemplateVariable.new('lang', Text.new('en'))]}
     end
 
     context 'with empty variable' do
@@ -37,7 +37,7 @@ module Infoboxer
 
       it{should be_a(Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == {lang: TemplateVariable.new([])}}
+      its(:variables){should == [TemplateVariable.new('lang')]}
     end
 
     context 'with empty line' do
@@ -45,13 +45,13 @@ module Infoboxer
 
       it{should be_a(Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == {}}
+      its(:variables){should == []}
     end
 
     context 'with "=" symbol in variable' do
       let(:source){ '{{the name|formula=1+2=3}}' }
 
-      its(:variables){should == {formula: TemplateVariable.new(Text.new('1+2=3'))}}
+      its(:variables){should == [TemplateVariable.new('formula', Text.new('1+2=3'))]}
     end
 
     context 'with link in variable' do
@@ -60,9 +60,9 @@ module Infoboxer
       it{should be_a(Template)}
       its(:name){should == 'the name'}
       its(:variables){should ==
-        {1 =>
-          TemplateVariable.new([Wikilink.new('Argentina', Text.new('Ar'))])
-        }
+        [
+          TemplateVariable.new(1, [Wikilink.new('Argentina', Text.new('Ar'))])
+        ]
       }
     end
 
@@ -70,7 +70,7 @@ module Infoboxer
       let(:source){ "{{the name|var=some\nmultiline\n''text''}}" }
       it{should be_a(Template)}
       it 'should preserve all content' do
-        expect(subject.variables[:var].children.map(&:class)).to eq [Text, Paragraph]
+        expect(subject.variables.first.children.map(&:class)).to eq [Text, Paragraph]
       end
     end
 
@@ -78,7 +78,7 @@ module Infoboxer
       let(:source){ "{{the name|var=\n {{nested}}}}" }
       it{should be_a(Template)}
       it 'should preserve all content' do
-        expect(subject.variables[:var].children.map(&:class)).to eq [Template]
+        expect(subject.variables.first.children.map(&:class)).to eq [Template]
       end
     end
 

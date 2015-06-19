@@ -147,12 +147,10 @@ module Infoboxer
 
         it{should ==
           "<Template(name)>\n"\
-          "  1:\n"\
-          "    unnamed value <TemplateVariable>\n"\
-          "  named:\n"\
-          "    <TemplateVariable>\n"\
-          "      named value  <Text>\n"\
-          "      with markup <Italic>\n"\
+          "  unnamed value <TemplateVariable(1)>\n"\
+          "  <TemplateVariable(named)>\n"\
+          "    named value  <Text>\n"\
+          "    with markup <Italic>\n"\
         }
       end
     end
