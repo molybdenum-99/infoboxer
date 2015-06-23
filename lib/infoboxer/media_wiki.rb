@@ -89,6 +89,8 @@ module Infoboxer
           url: data['fullurl'],
         }.merge(traits)
       }
+    rescue JSON::ParserError
+      fail RuntimeError, "Not a JSON response, seems there's not a MediaWiki API: #{@api_base_url}"
     end
   end
 end

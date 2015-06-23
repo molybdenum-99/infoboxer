@@ -34,4 +34,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'ruby-prof'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
+  #s.add_development_dependency 'dokaz'
 end

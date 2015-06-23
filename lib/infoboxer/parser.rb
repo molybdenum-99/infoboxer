@@ -17,6 +17,10 @@ module Infoboxer
         new(context(text, traits)).paragraphs
       end
 
+      def paragraph(text, traits = nil)
+        paragraphs(text, traits).first
+      end
+
       def document(text, traits = nil)
         Document.new(paragraphs(text, traits))
       end
