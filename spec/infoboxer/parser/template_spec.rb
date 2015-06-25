@@ -21,7 +21,7 @@ module Infoboxer
 
       it{should be_a(Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == [TemplateVariable.new(1, Text.new('en'))]}
+      its(:variables){should == [TemplateVariable.new('1', Text.new('en'))]}
     end
 
     context 'with named variable' do
@@ -61,7 +61,7 @@ module Infoboxer
       its(:name){should == 'the name'}
       its(:variables){should ==
         [
-          TemplateVariable.new(1, [Wikilink.new('Argentina', Text.new('Ar'))])
+          TemplateVariable.new('1', [Wikilink.new('Argentina', Text.new('Ar'))])
         ]
       }
     end

@@ -25,7 +25,7 @@ module Infoboxer
 
           value = long_inline(/\||}}/)
           unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
-            res << TemplateVariable.new(name, value)
+            res << TemplateVariable.new(name.to_s, value)
           end
 
           break if @context.eat_matched?('}}')
