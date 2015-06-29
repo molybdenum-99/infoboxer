@@ -40,4 +40,6 @@ require_relative 'infoboxer/nodes'
 require_relative 'infoboxer/document'
 require_relative 'infoboxer/parser'
 
+require_relative 'infoboxer/template_set'
+
 require_relative 'infoboxer/page'
