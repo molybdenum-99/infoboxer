@@ -2,7 +2,6 @@
 module Infoboxer
   describe 'Integration of MediaWiki::Traits into data' do
     before do
-      MediaWiki::Traits.selectors.clear
       MediaWiki::Traits.templates.clear
       MediaWiki::Traits.domains.clear
     end
@@ -14,7 +13,9 @@ module Infoboxer
             '!' => '|',
             ',' => '·'
           )
-          template('join'){|t| Nodes[*t.variables.map(&:children)]}
+          templates do
+            inflow_template 'join'
+          end
         end
       }
       let(:traits){klass.new}
@@ -31,11 +32,7 @@ module Infoboxer
           nodes
         }
 
-        it{should == [
-          Text.new('before | textand '),
-          Italic.new(Text.new('italics')),
-          Text.new(' after')
-        ]}
+        its(:text){should == 'before | text and italics after'}
       end
       
       context 'when multiline templates' do
@@ -44,10 +41,11 @@ module Infoboxer
         }
         subject{nodes.first.variables.first.children}
         it{should == [
-          Text.new('|'),
+          traits.templates.find('!').new('!'),
           Paragraph.new(Text.new('text')),
-          Paragraph.new(Text.new('·')),
+          Paragraph.new(traits.templates.find(',').new(',')),
         ]}
+        its(:text){should == "|text\n\n·\n\n"}
       end
 
       context 'when templates in image caption' do
@@ -59,9 +57,7 @@ module Infoboxer
           nodes.first.caption
         }
 
-        it{should == [
-          Text.new('This | that')
-        ]}
+        its(:text){should == 'This | that'}
       end
 
       context 'when templates in tables' do
@@ -70,9 +66,7 @@ module Infoboxer
         }
         let(:table){Parser.paragraphs(source, traits).first}
         subject{table.lookup(TableCaption).first}
-        its(:children){should == [
-          Text.new('Its in | caption!')
-        ]}
+        its(:text){should == 'Its in | caption!'}
       end
     end
 
@@ -97,38 +91,5 @@ module Infoboxer
       #context 'when not defined' do
       #end
     #end
-
-    describe 'context-dependent navigation' do
-      let!(:klass){
-        Class.new(MediaWiki::Traits) do
-          domain 'en.wikipedia.org'
-
-          selector :infoboxes, Template, name: /^Infobox /
-        end
-      }
-      let(:traits){klass.new}
-      let(:source){
-        "{{Infobox country|some info}} [[Category:First]]\n\n[[Category:Second]]"
-      }
-      let(:client){MediaWiki.new('http://en.wikipedia.org/w/api.php')}
-      let(:page){
-        Page.new(client, Parser.paragraphs(source), traits: traits)
-      }
-      let(:para){
-        page.children.first
-      }
-      it 'should navigate context-relative' do
-        expect(page.infoboxes.count).to eq 1
-        expect(page.categories.count).to eq 2
-        expect(page.infoboxes.first.name).to eq 'Infobox country'
-        expect(page.categories.map(&:name)).to eq %w[First Second]
-      end
-
-      it 'should navigate for nodes tooo' do
-        expect(para.categories.count).to eq 1
-        expect(para.categories.map(&:name)).to eq %w[First]
-      end
-    end
-
   end
 end

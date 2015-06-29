@@ -1,16 +1,22 @@
 # encoding: utf-8
 module Infoboxer
   class TemplateSet
-    def initialize(mod = nil, &block)
-      @mod = mod
+    def initialize(&definitions)
       @templates = []
-      
-      instance_eval(&block)
+      define(&definitions) if definitions
     end
     
     def find(name)
       _, template = @templates.detect{|m, t| m === name}
       template || Template
+    end
+
+    def define(&definitions)
+      instance_eval(&definitions)
+    end
+
+    def clear
+      @templates.clear
     end
 
     private

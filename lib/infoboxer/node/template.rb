@@ -28,12 +28,16 @@ module Infoboxer
       attr_accessor :template_name, :template_options
 
       def inspect
-        "#<#{pretty_name}>"
+        "#<#{clean_name}>"
       end
 
-      def pretty_name
-        name ? name : "Template[#{template_name}]"
+      def clean_name
+        name ? name.sub(/^.*::/, '') : "InFlowTemplate[#{template_name}]"
       end
+    end
+
+    def clean_class
+      self.class.clean_name
     end
 
     def initialize(name, variables = Nodes[])
@@ -85,12 +89,16 @@ module Infoboxer
       attr_accessor :template_name, :template_options
 
       def inspect
-        "#<#{pretty_name}>"
+        "#<#{clean_name}>"
       end
 
-      def pretty_name
-        name ? name : "InFlowTemplate[#{template_name}]"
+      def clean_name
+        name ? name.sub(/^.*::/, '') : "InFlowTemplate[#{template_name}]"
       end
+    end
+
+    def clean_class
+      self.class.clean_name
     end
 
     attr_reader :name, :variables
@@ -98,6 +106,10 @@ module Infoboxer
     def initialize(name, variables = Nodes.new)
       @name, @variables = name, variables
       super(unnamed_variables, extract_params(variables))
+    end
+
+    def empty?
+      false
     end
 
     def _eq(other)

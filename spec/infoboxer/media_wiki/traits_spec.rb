@@ -2,82 +2,42 @@
 module Infoboxer
   describe MediaWiki::Traits do
     before do
-      described_class.selectors.clear
       described_class.templates.clear
       described_class.domains.clear
     end
     
-    describe 'definition' do
-      let(:klass){Class.new(MediaWiki::Traits)}
+    context 'definition' do
+      let(:klass){Class.new(described_class)}
       let(:traits){klass.new}
-      
-      describe 'selectors' do
-        before{
-          klass.selector :categories, Wikilink, namespace: 'Category'
-        }
-        it 'should return selectors' do
-          expect(traits.selector(:categories)).to eq \
-            Node::Selector.new(Wikilink, namespace: 'Category')
-        end
 
-        describe 'select from node' do
-          let(:doc){Parser.paragraphs('Some text with [[Link]] and [[Category:Test]]')}
-          subject{traits.lookup(:categories, doc)}
-
-          it{should == [Wikilink.new('Category:Test')]}
-        end
-      end
-
-      describe 'expand templates' do
-        context 'when expandes to text' do
-          before{
-            klass.template('!'){'|'}
+      context 'templates' do
+        before do
+          klass.templates{
+            inflow_template '!' do
+              def to_text
+                '!'
+              end
+            end
           }
-          let(:template){Template.new('!')}
-          subject{traits.expand(template)}
-          it{should == Text.new('|')}
         end
 
-        context 'when expandes to some nodes' do
-          before{
-            klass.template('replaceme'){|t| t.variables.first.children}
-          }
-          let(:template){
-            Parser.inline("{{replaceme|some ''text''}}").first
-          }
-          subject{traits.expand(template)}
-          it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
-        end
+        subject{traits.templates.find('!')}
+        it{should be_a(Class)}
+        it{should < InFlowTemplate}
+        its(:inspect){should == '#<InFlowTemplate[!]>'}
 
-        context 'when undefined template' do
-          let(:template){Template.new('test')}
-          subject{traits.expand(template)}
-          
-          it{should be_a(Template)}
-          its(:name){should == 'test'}
-        end
-
-        describe 'definition helpers' do
+        context 'definition helpers' do
           before{
             klass.templates_text(
               '!' => '|',
               ',' => '·'
             )
-            klass.templates_unwrap('replaceme', 'replacehim')
           }
 
           context 'text replacements' do
-            let(:template){Template.new('!')}
-            subject{traits.expand(template)}
-            it{should == Text.new('|')}
-          end
-
-          context 'unwrap (value of first variable) replacements' do
-            let(:template){
-              Parser.inline("{{replaceme|some ''text''}}").first
-            }
-            subject{traits.expand(template)}
-            it{should == [Text.new('some '), Italic.new(Text.new('text'))]}
+            let(:template){traits.templates.find('!')}
+            subject{template.new('!')}
+            its(:text){should == '|'}
           end
         end
       end

@@ -3,38 +3,22 @@ module Infoboxer
   class MediaWiki
     class Traits
       class << self
-        def selector(descriptor, *args, &block)
-          selectors.key?(descriptor) and
-            fail(ArgumentError, "Descriptor redefinition: #{selectors[descriptor]}")
+        def templates(&definition)
+          @templates ||= TemplateSet.new
 
-          selectors[descriptor] = Node::Selector.new(*args, &block)
-        end
-
-        def template(name, &action)
-          templates.key?(name) and
-            fail(ArgumentError, "Template redefinition: #{templates[name]}")
-
-          templates[name] = action
+          return @templates unless definition
+          
+          @templates.define(&definition)
         end
 
         def templates_text(pairs)
-          pairs.each do |from, to|
-            template(from){to}
+          templates do
+            pairs.each do |from, to|
+              inflow_template(from){
+                define_method(:to_text){to}
+              }
+            end
           end
-        end
-
-        def templates_unwrap(*names)
-          names.each do |name|
-            template(name){|t| t.variables.first.children}
-          end
-        end
-
-        def selectors
-          @selectors ||= {}
-        end
-
-        def templates
-          @templates ||= {}
         end
 
         # NB: explicitly store all domains in base Traits class
@@ -72,29 +56,10 @@ module Infoboxer
 
       attr_reader :file_prefix, :category_prefix
 
-      attr_accessor :re
+      #attr_accessor :re
 
-      def selector(descriptor)
-        self.class.selectors[descriptor] or
-          fail(ArgumentError, "Descriptor #{descriptor} not defined for #{self}")
-      end
-
-      def lookup(descriptor, node)
-        node._lookup(selector(descriptor))
-      end
-
-      def expand(template)
-        action = self.class.templates[template.name] or return template
-
-        res = action.call(template)
-        case res
-        when Node
-          res
-        when Nodes
-          res.flatten
-        else
-          Text.new(res.to_s)
-        end
+      def templates
+        self.class.templates
       end
     end
   end
