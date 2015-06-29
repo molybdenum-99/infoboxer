@@ -9,12 +9,10 @@ module Infoboxer
     describe 'template expansion on-the-fly' do
       let(:klass){
         Class.new(MediaWiki::Traits) do
-          templates_text(
-            '!' => '|',
-            ',' => '·'
-          )
           templates do
             inflow_template 'join'
+
+            text('!' => '|', ',' => '·')
           end
         end
       }
@@ -37,15 +35,15 @@ module Infoboxer
       
       context 'when multiline templates' do
         let(:source){
-          "{{unknown|{{!}}\n\ntext\n\n{{,}}}}r"
+          "{{unknown|{{!}}\n\ntext\n\nfoo {{,}}}}r"
         }
         subject{nodes.first.variables.first.children}
         it{should == [
           traits.templates.find('!').new('!'),
           Paragraph.new(Text.new('text')),
-          Paragraph.new(traits.templates.find(',').new(',')),
+          Paragraph.new([Text.new('foo '), traits.templates.find(',').new(',')]),
         ]}
-        its(:text){should == "|text\n\n·\n\n"}
+        its(:text){should == "|text\n\nfoo ·\n\n"}
       end
 
       context 'when templates in image caption' do

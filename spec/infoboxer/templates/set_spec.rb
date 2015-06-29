@@ -36,6 +36,9 @@ module Infoboxer
               fetch('1').text
             end
           end
+
+          text '!' => '|',
+            ',' => '·'
         end
       }
 
@@ -79,11 +82,14 @@ module Infoboxer
         it{should == Template}
       end
 
+      context 'helpers' do
+        subject{set.find('!').new('!')}
+        it{should be_kind_of(InFlowTemplate)}
+        its(:text){should == '|'}
+      end
+
       context 'redefinition' do
       end
-    end
-
-    context 'instantiation' do
     end
   end
 end

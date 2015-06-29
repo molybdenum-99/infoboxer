@@ -11,16 +11,6 @@ module Infoboxer
           @templates.define(&definition)
         end
 
-        def templates_text(pairs)
-          templates do
-            pairs.each do |from, to|
-              inflow_template(from){
-                define_method(:to_text){to}
-              }
-            end
-          end
-        end
-
         # NB: explicitly store all domains in base Traits class
         def domain(d)
           Traits.domains.key?(d) and

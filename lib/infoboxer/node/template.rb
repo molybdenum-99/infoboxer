@@ -21,7 +21,7 @@ module Infoboxer
     end
   end
   
-  class Template < Node
+  class Template < Compound
     attr_reader :name, :variables
 
     class << self
@@ -41,8 +41,8 @@ module Infoboxer
     end
 
     def initialize(name, variables = Nodes[])
-      super(extract_params(variables))
-      @name, @variables = name, variables
+      super(Nodes[], extract_params(variables))
+      @name, @variables = name, Nodes[*variables]
     end
 
     def _eq(other)
@@ -66,9 +66,13 @@ module Infoboxer
       variables.find(name: var)
     end
 
-    private
+    def empty?
+      false
+    end
+
+    protected
       def descr
-        "#{clean_class}(#{name})"
+        self.class.template_name == name ? clean_class : "#{clean_class}(#{name})"
       end
       
       def extract_params(vars)
@@ -84,36 +88,16 @@ module Infoboxer
       end
   end
 
-  class InFlowTemplate < Compound
+  class InFlowTemplate < Template
     class << self
-      attr_accessor :template_name, :template_options
-
-      def inspect
-        "#<#{clean_name}>"
-      end
-
       def clean_name
         name ? name.sub(/^.*::/, '') : "InFlowTemplate[#{template_name}]"
       end
     end
-
-    def clean_class
-      self.class.clean_name
-    end
-
-    attr_reader :name, :variables
     
     def initialize(name, variables = Nodes.new)
-      @name, @variables = name, variables
-      super(unnamed_variables, extract_params(variables))
-    end
-
-    def empty?
-      false
-    end
-
-    def _eq(other)
-      name == other.name && super(other)
+      super
+      @children = unnamed_variables
     end
 
     def to_text
@@ -123,17 +107,5 @@ module Infoboxer
     def unnamed_variables
       variables.select{|v| v.name =~ /^\d+$/}
     end
-
-    private
-      def descr
-        "#{clean_class}(#{name})"
-      end
-      
-      def extract_params(vars)
-        # NB: backports' to_h is cleaner but has performance penalty :(
-        Hash[*vars.
-          select{|v| v.children.count == 1 && v.children.first.is_a?(Text)}.
-          map{|v| [v.name, v.children.first.raw_text]}.flatten(1)]
-      end
   end
 end

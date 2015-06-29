@@ -29,6 +29,16 @@ module Infoboxer
         setup_class(name, InFlowTemplate, options, &definition)
       end
 
+      alias_method :inflow, :inflow_template
+
+      def text(pairs)
+        pairs.each do |from, to|
+          inflow_template(from){
+            define_method(:to_text){to}
+          }
+        end
+      end
+
       def setup_class(name, base_class, options, &definition)
         match = options.fetch(:match, /^#{name.downcase}$/i)
         base = options.fetch(:base, base_class)

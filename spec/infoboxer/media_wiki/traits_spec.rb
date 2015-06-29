@@ -28,10 +28,9 @@ module Infoboxer
 
         context 'definition helpers' do
           before{
-            klass.templates_text(
-              '!' => '|',
-              ',' => '·'
-            )
+            klass.templates{
+              text '!' => '|', ',' => '·'
+            }
           }
 
           context 'text replacements' do
