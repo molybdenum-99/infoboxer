@@ -32,7 +32,7 @@ module Infoboxer
       end
 
       def clean_name
-        name ? name.sub(/^.*::/, '') : "InFlowTemplate[#{template_name}]"
+        name ? name.sub(/^.*::/, '') : "Template[#{template_name}]"
       end
     end
 
@@ -50,7 +50,7 @@ module Infoboxer
     end
 
     def inspect(depth = 0)
-      if depth.zero?
+      if depth.zero? && !variables.empty?
         "#<#{descr}: #{variables.inspect_no_p(depth)}>"
       else
         "#<#{descr}>"
@@ -58,7 +58,7 @@ module Infoboxer
     end
 
     def to_tree(level = 0)
-      '  ' * level + "<#{clean_class}(#{name})>\n" +
+      '  ' * level + "<#{descr}>\n" +
         variables.map{|var| var.to_tree(level+1)}.join
     end
 
