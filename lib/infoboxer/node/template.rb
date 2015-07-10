@@ -101,7 +101,11 @@ module Infoboxer
     end
 
     def to_text
-      children.map(&:to_text).join(' ')
+      children.map(&:to_text).join(separator)
+    end
+
+    def separator
+      ' '
     end
 
     def unnamed_variables

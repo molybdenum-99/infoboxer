@@ -29,6 +29,10 @@ module Infoboxer
         setup_class(name, InFlowTemplate, options, &definition)
       end
 
+      def inflow_tempates(*names)
+        names.each{|n| inflow_template(n)}
+      end
+
       alias_method :inflow, :inflow_template
 
       def text(pairs)
@@ -37,6 +41,10 @@ module Infoboxer
             define_method(:to_text){to}
           }
         end
+      end
+
+      def literal(*names)
+        text names.map{|n| [n,n]}.to_h
       end
 
       def setup_class(name, base_class, options, &definition)
