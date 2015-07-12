@@ -54,6 +54,10 @@ module Infoboxer
       map(&:text).join
     end
 
+    def sections(*args)
+      make_nodes map{|n| n.sections(*args)}
+    end
+
     def <<(node)
       if node.kind_of?(Array)
         node.each{|n| self << n}

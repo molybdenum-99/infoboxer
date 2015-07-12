@@ -9,6 +9,10 @@ module Infoboxer
 
     attr_reader :heading
 
+    def empty?
+      false
+    end
+
     include SectionsNavigation
   end
 end

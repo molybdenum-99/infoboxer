@@ -49,7 +49,7 @@ module Infoboxer
       end
     end
 
-    context :fetch_coord do
+    context :fetch_latlng do
     end
   end
 end

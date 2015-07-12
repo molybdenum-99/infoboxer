@@ -105,7 +105,7 @@ module Infoboxer
         it 'should group document in top-level sections' do
           expect(sections.count).to eq(12)
           expect(sections).to all(be_kind_of(Section))
-          expect(sections.map(&:heading).map(&:text).map(&:strip)).to eq \
+          expect(sections.map(&:heading).map(&:text_)).to eq \
             [
               'Name and etymology',
               'History',
@@ -136,7 +136,30 @@ module Infoboxer
         end
       end
 
-      describe :section do
+      describe :sections, 'selected sections' do
+        context 'one level' do
+          subject{document.sections('History')}
+
+          it{should be_a(Nodes)}
+          its(:count){should == 1}
+          its(:'first.heading.text_'){should == 'History'}
+        end
+
+        context 'several levels' do
+          subject{document.sections('History', 'Colonial era')}
+
+          it{should be_a(Nodes)}
+          its(:count){should == 1}
+          its(:'first.heading.text_'){should == 'Colonial era'}
+        end
+
+        context 'two levels: hash' do
+          subject{document.sections('History' => 'Colonial era')}
+
+          it{should be_a(Nodes)}
+          its(:count){should == 1}
+          its(:'first.heading.text_'){should == 'Colonial era'}
+        end
       end
     end
   end

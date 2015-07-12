@@ -41,6 +41,10 @@ module Infoboxer
       ''
     end
 
+    def text_
+      text.strip
+    end
+
     def inspect(depth = 0)
       depth < 2 ? "#<#{descr}>" : "#<#{clean_class}>"
     end
