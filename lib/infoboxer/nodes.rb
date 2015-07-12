@@ -7,6 +7,12 @@ module Infoboxer
       }
     end
 
+    [:sections, :templates, :tables, :lists, :wikilinks].each do |sym|
+      define_method(sym){|*args|
+        make_nodes map{|n| n.send(sym, *args)}
+      }
+    end
+
     def _lookup(selector)
       make_nodes map{|c| c._lookup(selector)}
     end
@@ -52,10 +58,6 @@ module Infoboxer
 
     def text
       map(&:text).join
-    end
-
-    def sections(*args)
-      make_nodes map{|n| n.sections(*args)}
     end
 
     def <<(node)
