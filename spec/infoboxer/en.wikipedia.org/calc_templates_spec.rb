@@ -42,11 +42,20 @@ module Infoboxer
       let(:name){'Age'}
       
       context 'one date' do
+        # FIXME: use timecomp here
         let(:variables){%w[1985 07 01]}
 
         it{should be_kind_of(InFlowTemplate)}
         
         its(:text){should == '30 years'}
+      end
+
+      context 'two dates' do
+        let(:variables){%w[1985 07 01 1995 08 15]}
+
+        it{should be_kind_of(InFlowTemplate)}
+        
+        its(:text){should == '10 years'}
       end
     end
 

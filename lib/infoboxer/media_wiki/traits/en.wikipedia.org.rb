@@ -273,7 +273,7 @@ module Infoboxer
         end
 
         def value
-          (from - to) / 365
+          (to - from).to_i / 365 # FIXME: obviously
         end
 
         def to_text

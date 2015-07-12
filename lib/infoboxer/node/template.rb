@@ -71,7 +71,14 @@ module Infoboxer
     end
 
     def fetch_date(*patterns)
-      Date.new(*fetch(*patterns).map{|v| v.to_s.to_i})
+      components = fetch(*patterns)
+      components.pop while components.last.nil? && !components.empty?
+      
+      if components.empty?
+        nil
+      else
+        Date.new(*components.map{|v| v.to_s.to_i})
+      end
     end
 
     def empty?

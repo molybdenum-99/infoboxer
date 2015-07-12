@@ -42,6 +42,11 @@ module Infoboxer
       let(:src){'{{birth date and age|1953|2|19|df=y}}'}
       subject{template.fetch_date('1', '2', '3')}
       it{should == Date.new(1953, 2, 19)}
+
+      context 'when no date' do
+        subject{template.fetch_date('4', '5', '6')}
+        it{should be_nil}
+      end
     end
 
     context :fetch_coord do
