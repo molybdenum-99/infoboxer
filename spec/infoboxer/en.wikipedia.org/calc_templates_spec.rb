@@ -9,7 +9,7 @@ module Infoboxer
     }
     subject{traits.templates.find(name).new(name, Nodes[*template_vars])}
     
-    describe 'Convert' do
+    describe '{{Convert}}' do
       let(:name){'Convert'}
       
       context 'simplest case' do
@@ -39,6 +39,15 @@ module Infoboxer
     end
 
     describe '{{Age}}' do
+      let(:name){'Age'}
+      
+      context 'one date' do
+        let(:variables){%w[1985 07 01]}
+
+        it{should be_kind_of(InFlowTemplate)}
+        
+        its(:text){should == '30 years'}
+      end
     end
 
     describe '{{Birth date and age}}' do

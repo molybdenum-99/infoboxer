@@ -263,23 +263,23 @@ module Infoboxer
         end
       end
 
-      #inflow_template 'Age' do
-        #def from
-          #fetch_date('1', '2', '3')
-        #end
+      inflow_template 'Age' do
+        def from
+          fetch_date('1', '2', '3')
+        end
 
-        #def to
-          #fetch_date('4', '5', '6') || Date.today
-        #end
+        def to
+          fetch_date('4', '5', '6') || Date.today
+        end
 
-        #def value
-          #(from - to) / 365
-        #end
+        def value
+          (from - to) / 365
+        end
 
-        #def to_text
-          #value.to_s
-        #end
-      #end
+        def to_text
+          "#{value} years"
+        end
+      end
 
       #inflow_template 'Birth date and age' do
         #def date

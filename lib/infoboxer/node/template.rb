@@ -36,10 +36,6 @@ module Infoboxer
       end
     end
 
-    def clean_class
-      self.class.clean_name
-    end
-
     def initialize(name, variables = Nodes[])
       super(Nodes[], extract_params(variables))
       @name, @variables = name, Nodes[*variables]
@@ -47,6 +43,10 @@ module Infoboxer
 
     def _eq(other)
       other.name == name && other.variables == variables
+    end
+
+    def clean_class
+      self.class.clean_name
     end
 
     def inspect(depth = 0)
@@ -62,8 +62,8 @@ module Infoboxer
         variables.map{|var| var.to_tree(level+1)}.join
     end
 
-    def fetch(var)
-      variables.find(name: var)
+    def fetch(*patterns)
+      Nodes[*patterns.map{|p| variables.find(name: p)}.flatten]
     end
 
     def empty?
