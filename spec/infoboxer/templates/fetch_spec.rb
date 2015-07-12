@@ -32,9 +32,16 @@ module Infoboxer
     end
 
     context :fetch_hash do
+      subject{template.fetch_hash('leader_title1', 'leader_name1')}
+      it{should be_a(Hash)}
+      its(:keys){should == ['leader_title1', 'leader_name1']}
+      its(:values){should all(be_a(TemplateVariable))}
     end
 
     context :fetch_date do
+      let(:src){'{{birth date and age|1953|2|19|df=y}}'}
+      subject{template.fetch_date('1', '2', '3')}
+      it{should == Date.new(1953, 2, 19)}
     end
 
     context :fetch_coord do

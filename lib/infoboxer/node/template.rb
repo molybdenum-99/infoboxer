@@ -66,6 +66,14 @@ module Infoboxer
       Nodes[*patterns.map{|p| variables.find(name: p)}.flatten]
     end
 
+    def fetch_hash(*patterns)
+      fetch(*patterns).map{|v| [v.name, v]}.to_h
+    end
+
+    def fetch_date(*patterns)
+      Date.new(*fetch(*patterns).map{|v| v.to_s.to_i})
+    end
+
     def empty?
       false
     end
