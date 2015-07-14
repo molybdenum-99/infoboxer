@@ -24,6 +24,10 @@ module Infoboxer
       def _lookup(selector)
         _matches?(selector) ? self : nil
       end
+
+      def has_parent?(*args, &block)
+        !lookup_parents(*args, &block).empty?
+      end
       
       [:matches?,
         :lookup, :lookup_children, :lookup_parents,

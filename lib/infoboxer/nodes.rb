@@ -7,10 +7,21 @@ module Infoboxer
       }
     end
 
-    [:sections, :templates, :tables, :lists, :wikilinks].each do |sym|
+    [:sections,
+      :templates, :tables, :lists, :wikilinks, :images, :paragraphs, :external_links,
+      :fetch
+    ].each do |sym|
       define_method(sym){|*args|
         make_nodes map{|n| n.send(sym, *args)}
       }
+    end
+
+    def fetch_hashes(*args)
+      map{|t| t.fetch_hash(*args)}
+    end
+
+    def to_tree
+      map(&:to_tree).join("\n")
     end
 
     def _lookup(selector)

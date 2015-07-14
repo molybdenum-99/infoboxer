@@ -160,6 +160,13 @@ module Infoboxer
           its(:count){should == 1}
           its(:'first.heading.text_'){should == 'Colonial era'}
         end
+
+        context 'two levels: when second is not existing' do
+          subject{document.sections.first.sections}
+
+          it{should be_a(Nodes)}
+          it{should be_empty}
+        end
       end
     end
   end

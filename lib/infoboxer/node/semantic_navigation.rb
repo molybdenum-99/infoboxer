@@ -9,25 +9,48 @@ module Infoboxer
       lookup(Heading, level: level)
     end
 
-    def paragraphs
-      lookup(BaseParagraph)
+    def paragraphs(*args, &block)
+      lookup(BaseParagraph, *args, &block)
     end
 
-    def external_links
-      lookup(ExternalLink)
+    def external_links(*args, &block)
+      lookup(ExternalLink, *args, &block)
     end
 
-    def images
-      lookup(Image)
+    def images(*args, &block)
+      lookup(Image, *args, &block)
     end
 
-    def templates
-      lookup(Template)
+    def templates(*args, &block)
+      lookup(Template, *args, &block)
     end
 
-    def tables
-      lookup(Table)
+    def tables(*args, &block)
+      lookup(Table, *args, &block)
     end
+
+    def lists(*args, &block)
+      lookup(List, *args, &block)
+    end
+
+    def bold?
+      has_parent?(Bold)
+    end
+
+    def italic?
+      has_parent?(Italic)
+    end
+
+    def heading?(level = nil)
+      has_parent?(Heading, level: level)
+    end
+
+    def infoboxes(*args, &block)
+      lookup(Template, :infobox?, *args, &block)
+    end
+
+    # As users accustomed to have only one infobox on a page
+    alias_method :infobox, :infoboxes
   end
 
   module SectionsNavigation
@@ -59,8 +82,9 @@ module Infoboxer
     private
 
     def make_sections
-      level = headings.first.level
       res = Nodes[]
+      return res if headings.empty?
+      level = headings.first.level
 
       children.
         chunk{|n| n.matches?(Heading, level: level)}.
