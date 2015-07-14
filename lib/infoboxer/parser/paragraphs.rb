@@ -23,7 +23,7 @@ module Infoboxer
           when /^\s*{\|/
             table
           when /^[\*\#:;]./
-            list
+            list(until_pattern)
           when /^-{4,}/
             HR.new
           when /^\s*$/
@@ -41,9 +41,9 @@ module Infoboxer
         end
 
         # http://en.wikipedia.org/wiki/Help:List
-        def list
+        def list(until_pattern)
           marker = @context.scan(/^([*\#:;]+)\s*/).strip
-          List.construct(marker.chars.to_a, short_inline)
+          List.construct(marker.chars.to_a, short_inline(until_pattern))
         end
 
         # FIXME: in fact, there's some formatting, that should work inside pre

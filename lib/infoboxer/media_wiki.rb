@@ -53,7 +53,7 @@ module Infoboxer
           Parser.paragraphs(raw[:content], traits),
           raw.merge(traits: traits))
       }
-      pages.count == 1 ? pages.first : pages
+      pages.count == 1 ? pages.first : Nodes[*pages]
     end
 
     private

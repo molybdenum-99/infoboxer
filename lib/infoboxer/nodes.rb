@@ -9,6 +9,7 @@ module Infoboxer
 
     [:sections,
       :templates, :tables, :lists, :wikilinks, :images, :paragraphs, :external_links,
+      :infoboxes, :infobox,
       :fetch
     ].each do |sym|
       define_method(sym){|*args|
