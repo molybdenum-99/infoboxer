@@ -105,12 +105,14 @@ module Infoboxer
 
   module InSectionsNavigation
     def in_sections
-      heading = if is_a?(Heading)
-        lookup_prev_siblings(Heading, level: level - 1).last
+      main_node = parent.is_a?(Document) ? self : lookup_parents[-2]
+      
+      heading = if main_node.is_a?(Heading)
+        main_node.lookup_prev_siblings(Heading, level: main_node.level - 1).last
       else
-        lookup_prev_siblings(Heading).last
+        main_node.lookup_prev_siblings(Heading).last
       end
-      return [] unless heading
+      return Nodes[] unless heading
       
       section = Section.new(heading,
         heading.next_siblings.take_while{|n| !n.is_a?(Heading) || n.level < heading.level}

@@ -189,6 +189,16 @@ module Infoboxer
           expect(para.lookup_parents(Section)).to be_empty
         end
 
+        context 'deeply nested nodes' do
+          let(:link){document.lookup(ListItem).lookup(Wikilink, text: 'Northwest').first}
+          subject{link.in_sections}
+
+          its(:count){should == 2}
+          it 'should be in order' do
+            expect(subject.map(&:heading).map(&:text_)).to eq ['Regions', 'Geography']
+          end
+        end
+
         context 'concrete level' do
         end
         
