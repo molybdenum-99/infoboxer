@@ -7,6 +7,14 @@ module Infoboxer
       }
     end
 
+    def first(n = nil)
+      if n.nil?
+        super()
+      else
+        Nodes[*super(n)]
+      end
+    end
+
     [
       :prev_siblings, :next_siblings, :siblings,
       :sections, :in_sections,
@@ -58,6 +66,14 @@ module Infoboxer
 
     def text
       map(&:text).join
+    end
+
+    def follow
+      links = select{|n| n.respond_to?(:link)}.map(&:link)
+      return Nodes[] if links.empty?
+      page = first.lookup_parents(Page).first or fail("Not in a page from real source")
+      page.client or fail("MediaWiki client not set")
+      page.client.get(*links)
     end
 
     def <<(node)
