@@ -1,7 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  #MediaWiki::Traits.for('en.wikipedia.org') do
-  class WikipediaEn < MediaWiki::Traits
+  MediaWiki::Traits.for('en.wikipedia.org') do
     templates do
       # https://en.wikipedia.org/wiki/Category:Wikipedia_character-substitution_templates
       # ---------------------------------------------------------------------------------
@@ -68,7 +67,7 @@ module Infoboxer
         'Crlf2' => "\n",
         
       )
-      inflow_tempates(
+      inflow_templates(
         'Allow wrap',
         'Nowrap',
           'j', 'nobr', 'nobreak', # aliases for Nowrap
@@ -80,7 +79,7 @@ module Infoboxer
       # -----------------------------------------------------------------------------
       # NB: it's enough for most cases to have all list-representing templates
       # just navigable inside and rendered as space-separated list of entries
-      inflow_tempates(
+      inflow_templates(
         'Br separated entries',
         'Bulleted list',
         'Collapsible list',
@@ -98,7 +97,7 @@ module Infoboxer
       # https://en.wikipedia.org/wiki/Category:Wikipedia_XHTML_tag-replacing_templates
       # ------------------------------------------------------------------------------
 
-      inflow_tempates(
+      inflow_templates(
         # Font size
         'Small',
         'Smaller',
@@ -183,7 +182,7 @@ module Infoboxer
         end
       end
 
-      template 'Infobox', match: /^Infobox/ do
+      template 'Infobox', match: /^Infobox/i do
         def infobox?
           true
         end

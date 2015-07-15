@@ -7,7 +7,7 @@ module Infoboxer
     end
     
     def find(name)
-      _, template = @templates.detect{|m, t| m === name}
+      _, template = @templates.detect{|m, t| m === name.downcase}
       template || Template
     end
 
@@ -29,7 +29,7 @@ module Infoboxer
         setup_class(name, InFlowTemplate, options, &definition)
       end
 
-      def inflow_tempates(*names)
+      def inflow_templates(*names)
         names.each{|n| inflow_template(n)}
       end
 
@@ -48,7 +48,7 @@ module Infoboxer
       end
 
       def setup_class(name, base_class, options, &definition)
-        match = options.fetch(:match, /^#{name.downcase}$/i)
+        match = options.fetch(:match, name.downcase)
         base = options.fetch(:base, base_class)
         base = self.find(base) if base.is_a?(String)
         

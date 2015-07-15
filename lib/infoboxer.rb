@@ -72,3 +72,5 @@ require_relative 'infoboxer/parser'
 require_relative 'infoboxer/template_set'
 
 require_relative 'infoboxer/page'
+
+require_relative 'infoboxer/media_wiki/traits/en.wikipedia.org'

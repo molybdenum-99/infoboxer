@@ -1,9 +1,7 @@
 # encoding: utf-8
-require 'infoboxer/media_wiki/traits/en.wikipedia.org'
-
 module Infoboxer
   describe 'calculated templates' do
-    let(:traits){WikipediaEn.new}
+    let(:traits){MediaWiki::Traits.get('en.wikipedia.org')}
     let(:template_vars){
       variables.each_with_index.map{|v, i| TemplateVariable.new((i+1).to_s, Text.new(v))}
     }

@@ -19,7 +19,7 @@ module Infoboxer
             end
           end
 
-          template 'Infobox', match: /^Infobox/ do
+          template 'Infobox', match: /^Infobox/i do
             def infobox?
               true
             end
