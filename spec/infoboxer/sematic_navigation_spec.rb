@@ -133,6 +133,11 @@ module Infoboxer
           its(:'sections.count'){should == 8}
 
           its(:intro){should be_empty}
+
+          it 'should not rewrite nodes parents' do
+            expect(subject.children.first.lookup_parents(Document)).not_to be_empty
+            expect(subject.children.first.lookup_parents(Section)).to be_empty
+          end
         end
       end
 
@@ -166,6 +171,28 @@ module Infoboxer
 
           it{should be_a(Nodes)}
           it{should be_empty}
+        end
+      end
+
+      describe :in_sections do
+        let(:para){document.lookup(Paragraph, text: /Declassified documents of the Chilean secret police/)}
+        subject{para.in_sections}
+
+        its(:count){should == 2}
+
+        it 'should be in order' do
+          expect(subject.map(&:heading).map(&:text_)).to eq ['Dirty War', 'History']
+        end
+
+        it 'should not rewrite nodes parents' do
+          expect(para.lookup_parents(Document)).not_to be_empty
+          expect(para.lookup_parents(Section)).to be_empty
+        end
+
+        context 'concrete level' do
+        end
+        
+        context 'if there\'s no' do
         end
       end
     end

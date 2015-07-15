@@ -17,6 +17,14 @@ module Infoboxer
         siblings._find(selector)
       end
 
+      def _lookup_prev_siblings(selector)
+        prev_siblings._find(selector)
+      end
+
+      def _lookup_next_siblings(selector)
+        next_siblings._find(selector)
+      end
+
       def _matches?(selector)
         selector.matches?(self)
       end
@@ -32,7 +40,7 @@ module Infoboxer
       [:matches?,
         :lookup, :lookup_children, :lookup_parents,
         :lookup_siblings,
-        #:lookup_next_siblings, :lookup_prev_siblings # TODO
+        :lookup_next_siblings, :lookup_prev_siblings
         ].
         map{|sym| [sym, :"_#{sym}"]}.each do |sym, underscored|
 

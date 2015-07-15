@@ -1,5 +1,4 @@
 # encoding: utf-8
-require_relative 'semantic_navigation'
 require_relative 'contextual_navigation'
 
 module Infoboxer

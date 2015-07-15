@@ -7,10 +7,14 @@ module Infoboxer
       }
     end
 
-    [:sections,
+    [
+      :prev_siblings, :next_siblings, :siblings,
+      :sections, :in_sections,
       :templates, :tables, :lists, :wikilinks, :images, :paragraphs, :external_links,
       :infoboxes, :infobox,
-      :fetch
+      :fetch,
+      :_lookup, :_lookup_children, :_lookup_parents,
+      :_lookup_siblings, :_lookup_prev_siblings, :_lookup_next_siblings
     ].each do |sym|
       define_method(sym){|*args|
         make_nodes map{|n| n.send(sym, *args)}
@@ -23,22 +27,6 @@ module Infoboxer
 
     def to_tree
       map(&:to_tree).join("\n")
-    end
-
-    def _lookup(selector)
-      make_nodes map{|c| c._lookup(selector)}
-    end
-
-    def _lookup_children(selector)
-      make_nodes map{|c| c._lookup_children(selector)}
-    end
-
-    def _lookup_parents(selector)
-      make_nodes map{|c| c._lookup_parents(selector)}
-    end
-
-    def _lookup_siblings(selector)
-      make_nodes map{|c| c._lookup_siblings(selector)}
     end
 
     def _find(selector)

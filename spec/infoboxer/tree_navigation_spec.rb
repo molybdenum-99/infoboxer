@@ -130,5 +130,33 @@ module Infoboxer
       its(:count){should == 1}
       it{should all(be_a(ListItem))}
     end
+
+    describe :prev_siblings do
+      subject{document.lookup(ListItem, text: /deep test/).first}
+      its(:'prev_siblings.count'){should == 1}
+      its(:'prev_siblings.text'){should include('cool list')}
+    end
+
+    describe :next_siblings do
+      subject{document.lookup(ListItem, text: /deep test/).first}
+      its(:'next_siblings.count'){should == 1}
+      its(:'next_siblings.text'){should include('some more')}
+    end
+
+    describe :lookup_prev_siblings do
+      let!(:node){document.lookup(ListItem, text: /deep test/).first}
+      it 'works' do
+        expect(node.lookup_prev_siblings(text: /cool/).count).to eq 1
+        expect(node.lookup_prev_siblings(text: /more/).count).to eq 0
+      end
+    end
+
+    describe :lookup_next_siblings do
+      let!(:node){document.lookup(ListItem, text: /deep test/).first}
+      it 'works' do
+        expect(node.lookup_next_siblings(text: /cool/).count).to eq 0
+        expect(node.lookup_next_siblings(text: /more/).count).to eq 1
+      end
+    end
   end
 end

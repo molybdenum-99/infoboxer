@@ -1,6 +1,8 @@
 # encoding: utf-8
 require 'htmlentities'
 require_relative 'node/tree_navigation'
+require_relative 'node/semantic_navigation'
+
 
 module Infoboxer
   class Node
@@ -23,6 +25,14 @@ module Infoboxer
 
     def siblings
       parent ? parent.children - [self] : Nodes[]
+    end
+
+    def prev_siblings
+      siblings.select{|n| n.index < index}
+    end
+
+    def next_siblings
+      siblings.select{|n| n.index > index}
     end
     
     def can_merge?(other)
@@ -59,6 +69,7 @@ module Infoboxer
     end
 
     include TreeNavigation
+    include InSectionsNavigation
 
     private
 
