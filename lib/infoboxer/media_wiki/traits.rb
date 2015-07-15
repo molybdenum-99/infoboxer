@@ -28,6 +28,10 @@ module Infoboxer
           @domains ||= {}
         end
 
+        def for(domain, &block)
+          Class.new(self, &block).domain(domain)
+        end
+
         alias_method :default, :new
       end
 

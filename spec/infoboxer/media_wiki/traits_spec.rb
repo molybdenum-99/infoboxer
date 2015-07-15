@@ -54,6 +54,23 @@ module Infoboxer
         end
       end
 
+      describe 'definition-and-binding' do
+        let!(:klass){
+          MediaWiki::Traits.for('in.wikipedia.org'){
+            templates{
+              inflow_template 'foo'
+            }
+          }
+        }
+        let(:traits){MediaWiki::Traits.get('in.wikipedia.org')}
+        it 'should be defined' do
+          expect(traits).to be_kind_of(klass)
+        end
+        subject{traits.templates.find('foo')}
+        it{should be_a(Class)}
+        it{should < InFlowTemplate}
+      end
+
       describe 'on-the-fly enrichment' do
         before{
           klass.domain 'en.wikipedia.org'
