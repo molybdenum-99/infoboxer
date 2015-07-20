@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   describe MediaWiki do
-    let(:client){MediaWiki.new('http://en.wikipedia.org/w/api.php')}
+    let(:client){MediaWiki.new('https://en.wikipedia.org/w/api.php')}
     
     describe :raw do
       context 'when single page', :vcr do
@@ -10,7 +10,7 @@ module Infoboxer
         it{should be_kind_of(Hash)}
         its([:title]){should == 'Argentina'}
         its([:content]){should include("'''Argentina'''")}
-        its([:url]){should == 'http://en.wikipedia.org/wiki/Argentina'}
+        its([:url]){should == 'https://en.wikipedia.org/wiki/Argentina'}
       end
 
       context 'when several pages', :vcr do
@@ -34,7 +34,7 @@ module Infoboxer
         subject{client.raw('Einstein').first}
         its([:title]){should == 'Albert Einstein'}
         its([:content]){should_not include('#REDIRECT')}
-        its([:url]){should == 'http://en.wikipedia.org/wiki/Albert_Einstein'}
+        its([:url]){should == 'https://en.wikipedia.org/wiki/Albert_Einstein'}
       end
 
       context 'user-agent', :vcr do
@@ -57,7 +57,7 @@ module Infoboxer
           before{
             Infoboxer.user_agent = 'My Cool UA'
             client_with_ua = MediaWiki.new(
-              'http://en.wikipedia.org/w/api.php',
+              'https://en.wikipedia.org/w/api.php',
               user_agent: 'Something else')
             client_with_ua.raw('Argentina')
           }

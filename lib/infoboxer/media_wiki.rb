@@ -46,7 +46,6 @@ module Infoboxer
     end
 
     def get(*titles)
-      p titles
       pages = raw(*titles).map{|raw|
         traits = Traits.get(@api_base_url.host, extract_traits(raw))
         

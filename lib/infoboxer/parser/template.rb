@@ -2,8 +2,13 @@
 module Infoboxer
   class Parser
     module Template
+      # NB: here we are not distingish templates like {{Infobox|variable}}
+      # and "magic words" like {{formatnum:123}}
+      # Just calling all of them "templates". This behaviour will change
+      # in future, I presume
+      # More about magic words: https://www.mediawiki.org/wiki/Help:Magic_words
       def template
-        name = @context.scan_continued_until(/\||}}/) or
+        name = @context.scan_continued_until(/\||:|}}/) or
           @context.fail!("Template name not found")
           
         name.strip!

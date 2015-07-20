@@ -7,7 +7,8 @@ module Infoboxer
     let(:parser){Parser.new(ctx)}
 
     let(:nodes){parser.inline}
-    subject{nodes.first}
+    let(:template){nodes.first}
+    subject{template}
 
     context 'simplest' do
       let(:source){ '{{the name}}' }
@@ -112,6 +113,20 @@ module Infoboxer
       let(:source){%Q{{{some template|lang=en|wtf|text=not a ''parameter''}}}}
 
       its(:'variables.count'){should == 3}
+    end
+
+    context 'magic words' do
+      let(:source){%Q{{{formatnum:{{#expr: 14.3 * 2.589988110336 round 1}} }}}}
+
+      it{should be_a(Template)}
+      its(:name){should == 'formatnum'}
+      its(:'variables.count'){should == 1}
+      its(:'variables.first.name'){should == '1'}
+      context 'magic inside magic' do
+        subject{template.variables.first.children.first}
+        it{should be_a(Template)}
+        its(:name){should == '#expr'}
+      end
     end
 
     context 'and now for really sick stuff!' do
