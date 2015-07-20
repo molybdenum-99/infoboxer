@@ -10,7 +10,7 @@ module Infoboxer
           html_br
         when @context.check(%r{[a-z]+[^/>]*/>})
           html_auto_closing_tag
-        when @context.check(/[a-z]+[^>\/]+>/)
+        when @context.check(/[a-z]+[^>\/]*>/)
           html_opening_tag
         else
           # not an HTML tag at all!

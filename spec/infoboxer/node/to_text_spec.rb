@@ -200,6 +200,11 @@ module Infoboxer
           let(:source){"some text{{with|realy=complex ''template''}}"}
           it{should == "some text\n\n"}
         end
+
+        context 'html tags' do
+          let(:source){'some text <b>with bold</b> text'}
+          it{should == "some text with bold text\n\n"}
+        end
       end
       
     end

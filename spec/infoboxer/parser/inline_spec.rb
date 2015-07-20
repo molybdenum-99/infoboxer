@@ -188,6 +188,14 @@ module Infoboxer
         end
       end
 
+      context 'text + html' do
+        let(:source){'test <b>me</b>'}
+        it 'should be parsed!' do
+          expect(subject.count).to eq 2
+          expect(subject.map(&:class)).to eq [Text, HTMLTag]
+        end
+      end
+
       context 'text, ref, template' do
         let(:source){'4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>'}
         it 'should be parsed!' do

@@ -101,17 +101,29 @@ module Infoboxer
         end
       end
 
+      # On-the-fly TableCaption creation handles (real life) case, when
+      # table has "HTML caption":
+      #   {|
+      #   <caption>....</caption>
+      #
+      # Solution is NOT elegant or semantically "right", yet it works.
+      # Somehow.
+      #
       def table_cell_cont(table)
-        table.children.last.is_a?(TableRow) or
-          @context.fail!('Multiline cell without a row?')
-        row = table.children.last
+        container = case (last = table.children.last)
+        when TableRow
+          cell = last.children.last
+          cell.is_a?(BaseCell) ? cell : TableCaption.new
+        when TableCaption
+          last
+        when nil
+          TableCaption.new
+        else
+          @context.fail!("Multiline cell inside #{last}")
+        end
 
-        row.children.last.is_a?(BaseCell) or
-          @context.fail!('Multiline cell without a cell?')
-
-        cell = row.children.last
-
-        cell.push_children(paragraph(/^\s*([|!]|{\|)/))
+        container.push_children(paragraph(/^\s*([|!]|{\|)/))
+        table.push_children(container) unless container.parent
       end
     end
   end

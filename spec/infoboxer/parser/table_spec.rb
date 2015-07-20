@@ -229,6 +229,17 @@ module Infoboxer
         it{should be_a(TableCaption)}
         its(:text){should == "test me\nplease"}
       end
+
+      context 'with tag' do
+        let(:source){%Q{
+          {|
+          <caption>test me please</caption>
+          |}
+        }}
+
+        it{should be_a(TableCaption)}
+        its(:text){should == "test me please\n\n"}
+      end
     end
 
     describe 'table-level params' do
