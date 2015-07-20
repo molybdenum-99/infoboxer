@@ -15,7 +15,7 @@ module Infoboxer
         num = 1
         res = Nodes[]
         
-        loop do
+        guarded_loop do
           if @context.check(/\s*([^ =}|]+)\s*=\s*/)
             name = @context.scan(/\s*([^ =]+)/).strip
             @context.skip(/\s*=\s*/)

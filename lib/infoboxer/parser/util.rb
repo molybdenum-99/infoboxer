@@ -57,6 +57,17 @@ module Infoboxer
         end
         params
       end
+
+      def guarded_loop
+        loop do
+          pos_before = @context.lineno, @context.colno
+          yield
+          pos_after = @context.lineno, @context.colno
+          pos_after == pos_before and
+            @context.fail!("Infinite loop on position #{pos_after.last}")
+        end
+      end
+
     end
   end
 end

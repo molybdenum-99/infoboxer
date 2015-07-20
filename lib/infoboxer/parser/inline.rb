@@ -5,7 +5,7 @@ module Infoboxer
       def inline(until_pattern = nil)
         start = @context.lineno
         nodes = Nodes[]
-        loop do
+        guarded_loop do
           chunk = @context.scan_until(re.inline_until_cache[until_pattern])
           nodes << chunk
 
@@ -29,7 +29,7 @@ module Infoboxer
 
       def short_inline(until_pattern = nil)
         nodes = Nodes[]
-        loop do
+        guarded_loop do
           chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
           nodes << chunk
 
@@ -45,7 +45,7 @@ module Infoboxer
 
       def long_inline(until_pattern = nil)
         nodes = Nodes[]
-        loop do
+        guarded_loop do
           chunk = @context.scan_until(re.inline_until_cache[until_pattern])
           nodes << chunk
 

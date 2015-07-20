@@ -17,6 +17,10 @@ module Infoboxer
 
       attr_reader :next_lines
 
+      def colno
+        @scanner && @scanner.pos || 0
+      end
+
       def matched
         @matched ||= @scanner && @scanner.matched
       end

@@ -75,7 +75,7 @@ module Infoboxer
         row = table.children.last
 
         @context.skip(/\s*[!|]\s*/)
-        loop do
+        guarded_loop do
           if @context.check(/[^|{|\[]+\|([^\|]|$)/)
             params = parse_params(@context.scan_until(/\|/))
           else
