@@ -172,6 +172,21 @@ module Infoboxer
         end
       end
 
+      context 'several headers in line -header separator' do
+        let(:source){%Q{
+          {|
+          ! one!!two!!three
+          |}
+        }}
+        subject{table.rows.first.children}
+
+        its(:count){should == 3}
+        it 'should be headers' do
+          expect(subject.map(&:class)).to eq \
+            [TableHeading, TableHeading, TableHeading]
+        end
+      end
+
       context 'in the middle of a row' do
         let(:source){%Q{
           {|

@@ -81,7 +81,7 @@ module Infoboxer
           else
             params = {}
           end
-          content = short_inline(/\|\|/)
+          content = short_inline(/(\|\||!!)/)
           row.push_children(cell_class.new(content, params))
           break if @context.eol?
         end
