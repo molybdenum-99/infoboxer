@@ -70,6 +70,8 @@ require_relative 'infoboxer/document'
 require_relative 'infoboxer/parser'
 
 require_relative 'infoboxer/navigation/lookup'
+require_relative 'infoboxer/navigation/sugar'
+require_relative 'infoboxer/navigation/sections'
 
 require_relative 'infoboxer/template_set'
 

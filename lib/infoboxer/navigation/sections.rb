@@ -1,56 +1,24 @@
 # encoding: utf-8
 module Infoboxer
-  module SemanticNavigation
-    def wikilinks(namespace = '')
-      lookup(Wikilink, namespace: namespace)
+  class Section < Compound
+    def initialize(heading, children = Nodes[])
+      # no super: we don't wont to rewriter children's parent
+      @children = Nodes[*children]
+      @heading = heading
     end
 
-    def headings(level = nil)
-      lookup(Heading, level: level)
+    attr_reader :heading
+
+    # no rewriting of parent, again
+    def push_children(*nodes)
+      nodes.each do |n|
+        @children << n
+      end
     end
 
-    def paragraphs(*args, &block)
-      lookup(BaseParagraph, *args, &block)
+    def empty?
+      false
     end
-
-    def external_links(*args, &block)
-      lookup(ExternalLink, *args, &block)
-    end
-
-    def images(*args, &block)
-      lookup(Image, *args, &block)
-    end
-
-    def templates(*args, &block)
-      lookup(Template, *args, &block)
-    end
-
-    def tables(*args, &block)
-      lookup(Table, *args, &block)
-    end
-
-    def lists(*args, &block)
-      lookup(List, *args, &block)
-    end
-
-    def bold?
-      has_parent?(Bold)
-    end
-
-    def italic?
-      has_parent?(Italic)
-    end
-
-    def heading?(level = nil)
-      has_parent?(Heading, level: level)
-    end
-
-    def infoboxes(*args, &block)
-      lookup(Template, :infobox?, *args, &block)
-    end
-
-    # As users accustomed to have only one infobox on a page
-    alias_method :infobox, :infoboxes
   end
 
   module SectionsNavigation
@@ -120,4 +88,9 @@ module Infoboxer
       Nodes[section, *heading.in_sections]
     end
   end
+
+  Document.send(:include, SectionsNavigation)
+  Section.send(:include, SectionsNavigation)
+  
+  Node.send(:include, InSectionsNavigation)
 end
