@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  describe Node do
+  describe NodeLookup do
     let(:document){
       Parser.document(%Q{
       Test in first ''paragraph''
@@ -50,6 +50,27 @@ module Infoboxer
           Text.new('Test in first '),
           Text.new(' deep test') 
         ]}
+      end
+
+      context 'by accessor' do
+        before{
+          ListItem.module_eval{
+            def first?
+              index.zero?
+            end
+          }
+        }
+        subject{
+          document.lookup(:first?)
+        }
+        its(:count){should == 1}
+        its(:text){should == "* cool list\n"}
+      end
+
+      context 'by class-ish symbol' do
+        subject{document.lookup(:Table)}
+        its(:count){should == 1}
+        its(:first){should be_a(Table)}
       end
 
       context 'everything at once' do

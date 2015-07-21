@@ -25,8 +25,8 @@ module Infoboxer
       end
     end
 
-    include SemanticNavigation
-    include ContextualNavigation
+    #include SemanticNavigation
+    #include ContextualNavigation
 
     def to_text
       children.map(&:to_text).join
@@ -55,15 +55,6 @@ module Infoboxer
         "#{indent(level)}<#{descr}>\n" +
           children.map(&call(to_tree: level+1)).join
       end
-    end
-
-    def _lookup_children(selector)
-      @children._find(selector)
-    end
-
-    def _lookup(selector)
-      Nodes[super(selector), *children._lookup(selector)].
-        flatten.compact
     end
 
     private

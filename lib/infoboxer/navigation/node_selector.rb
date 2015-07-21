@@ -1,11 +1,11 @@
 # encoding: utf-8
 module Infoboxer
-  class Node
+  module NodeLookup
     class Selector
       include ProcMe
       
       def initialize(*arg, &block)
-        @arg = [arg, block].flatten.compact
+        @arg = [arg, block].flatten.compact.map(&method(:sym_to_class))
         @arg.each do |a|
           a.reject!{|k, v| v.nil?} if a.is_a?(Hash)
         end
@@ -26,6 +26,14 @@ module Infoboxer
       end
 
       private
+
+      def sym_to_class(a)
+        if a.is_a?(Symbol) && a =~ /^[A-Z][a-zA-Z]+$/ && Infoboxer.const_defined?(a)
+          Infoboxer.const_get(a)
+        else
+          a
+        end
+      end
 
       def arg_matches?(check, node)
         case check

@@ -20,9 +20,7 @@ module Infoboxer
       :sections, :in_sections,
       :templates, :tables, :lists, :wikilinks, :images, :paragraphs, :external_links,
       :infoboxes, :infobox,
-      :fetch,
-      :_lookup, :_lookup_children, :_lookup_parents,
-      :_lookup_siblings, :_lookup_prev_siblings, :_lookup_next_siblings
+      :fetch
     ].each do |sym|
       define_method(sym){|*args|
         make_nodes map{|n| n.send(sym, *args)}
@@ -44,8 +42,6 @@ module Infoboxer
     def find(*args, &block)
       _find(Node::Selector.new(*args, &block))
     end
-
-    include Node::TreeNavigation
 
     MAX_CHILDREN = 3
     

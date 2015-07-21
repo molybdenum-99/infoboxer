@@ -18,7 +18,5 @@ module Infoboxer
     def empty?
       false
     end
-
-    include SectionsNavigation
   end
 end

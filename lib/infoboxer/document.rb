@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
   class Document < Compound
-    include SectionsNavigation
+    #include SectionsNavigation
   end
 end
