@@ -23,8 +23,8 @@ module Infoboxer
       end
     end
 
-    def to_text
-      children.map(&:to_text).join
+    def text
+      children.map(&:text).join
     end
 
     def inspect(depth = 0)

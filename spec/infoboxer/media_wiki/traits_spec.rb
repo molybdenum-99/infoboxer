@@ -14,7 +14,7 @@ module Infoboxer
         before do
           klass.templates{
             inflow_template '!' do
-              def to_text
+              def text
                 '!'
               end
             end

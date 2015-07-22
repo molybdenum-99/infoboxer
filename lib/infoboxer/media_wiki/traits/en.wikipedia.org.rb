@@ -276,7 +276,7 @@ module Infoboxer
           (to - from).to_i / 365 # FIXME: obviously
         end
 
-        def to_text
+        def text
           "#{value} years"
         end
       end
@@ -286,7 +286,7 @@ module Infoboxer
           fetch_date('1', '2', '3')
         end
 
-        def to_text
+        def text
           date.to_s
         end
       end
@@ -297,14 +297,14 @@ module Infoboxer
           fetch_date('1', '2', '3')
         end
 
-        def to_text
+        def text
           date.to_s
         end
       end
       # TODO: aliased as dob
 
       inflow_template 'Time ago' do
-        def to_text
+        def text
           str = fetch('1').text
           begin
             date = Date.parse(str)

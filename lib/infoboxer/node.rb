@@ -48,7 +48,11 @@ module Infoboxer
       indent(level) + "<#{descr}>\n"
     end
 
-    def to_text
+    def inspect(depth = 0)
+      depth < 2 ? "#<#{descr}>" : "#<#{clean_class}>"
+    end
+
+    def text
       ''
     end
 
@@ -56,17 +60,9 @@ module Infoboxer
       text.strip
     end
 
-    def inspect(depth = 0)
-      depth < 2 ? "#<#{descr}>" : "#<#{clean_class}>"
-    end
-
-    # just aliases will not work when to_text will be redefined in subclasses
-    def text
-      to_text
-    end
-    
+    # just aliases will not work when #text will be redefined in subclasses
     def to_s
-      to_text
+      text
     end
 
     private

@@ -14,11 +14,11 @@ module Infoboxer
       push_children(*ochildren)
     end
 
-    def to_text
+    def text
       parent.make_marker(self) + if children.last.is_a?(List)
-        children[0..-2].map(&:to_text).join + "\n" + children.last.to_text
+        children[0..-2].map(&:text).join + "\n" + children.last.text
       else
-        children.map(&:to_text).join + "\n"
+        children.map(&:text).join + "\n"
       end
     end
   end
@@ -32,7 +32,7 @@ module Infoboxer
       '  ' * list_level
     end
 
-    def to_text
+    def text
       if list_level.zero?
         super.sub(/\n+\Z/, "\n\n")
       else
@@ -65,7 +65,7 @@ module Infoboxer
   end
 
   class DTerm < ListItem
-    def to_text
+    def text
       super.sub("\n", ":\n")
     end
   end

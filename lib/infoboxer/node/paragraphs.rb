@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   class BaseParagraph < Compound
-    def to_text
+    def text
       super.strip + "\n\n"
     end
   end

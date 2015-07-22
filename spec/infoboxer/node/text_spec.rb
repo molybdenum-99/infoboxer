@@ -1,9 +1,9 @@
 # encoding: utf-8
 module Infoboxer
   describe Node do
-    describe :to_text do
+    describe :text do
       context 'from node' do
-        let(:text){node.to_text}
+        let(:text){node.text}
         subject{text}
 
         context Text do
@@ -27,7 +27,7 @@ module Infoboxer
 
       context 'from source' do
         let(:document){Parser.document(unindent(source))}
-        let(:text){document.to_text}
+        let(:text){document.text}
         subject{text}
 
         context 'simple headings and paragraphs' do

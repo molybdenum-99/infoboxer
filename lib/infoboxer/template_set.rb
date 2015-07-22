@@ -38,7 +38,7 @@ module Infoboxer
       def text(pairs)
         pairs.each do |from, to|
           inflow_template(from){
-            define_method(:to_text){to}
+            define_method(:text){to}
           }
         end
       end

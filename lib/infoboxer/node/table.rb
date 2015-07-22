@@ -27,19 +27,19 @@ module Infoboxer
         rows
     end
 
-    def to_text
+    def text
       table = Terminal::Table.new
       if caption
-        table.title = caption.to_text.sub(/\n+\Z/, '')
+        table.title = caption.text.sub(/\n+\Z/, '')
       end
       
       if heading_row
-        table.headings = heading_row.children.map(&:to_text).
+        table.headings = heading_row.children.map(&:text).
           map(&call(sub: [/\n+\Z/, '']))
       end
 
       table.rows = body_rows.map{|r|
-        r.children.map(&:to_text).
+        r.children.map(&:text).
           map(&call(sub: [/\n+\Z/, '']))
       }
       table.to_s + "\n\n"

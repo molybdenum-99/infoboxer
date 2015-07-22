@@ -10,7 +10,7 @@ module Infoboxer
     
     # because we want "clean" text,
     # without references & footnotes messed up in it
-    def to_text
+    def text
       '' 
     end
   end

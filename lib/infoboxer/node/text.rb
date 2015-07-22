@@ -20,8 +20,6 @@ module Infoboxer
       "#{indent(level)}#{text} <#{descr}>\n"
     end
 
-    alias_method :to_text, :text
-
     def can_merge?(other)
       other.is_a?(String) || other.is_a?(Text)
     end

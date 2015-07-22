@@ -3,7 +3,7 @@ module Infoboxer
   module HTMLTagCommons
     BLOCK_TAGS = %w[div p br] # FIXME: are some other used in WP?
 
-    def to_text
+    def text
       super + (BLOCK_TAGS.include?(tag) ? "\n" : '')
     end
   end
