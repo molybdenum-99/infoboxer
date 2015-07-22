@@ -48,8 +48,8 @@ module Infoboxer
       indent(level) + "<#{descr}>\n"
     end
 
-    def inspect(depth = 0)
-      depth < 2 ? "#<#{descr}>" : "#<#{clean_class}>"
+    def inspect
+      text.empty? ? "#<#{descr}>" : "#<#{descr}: #{shorten_text}>"
     end
 
     def text
@@ -66,6 +66,12 @@ module Infoboxer
     end
 
     private
+
+    MAX_CHARS = 30
+
+    def shorten_text
+      text.length > MAX_CHARS ? text[0..MAX_CHARS] + '...' : text
+    end
 
     def clean_class
       self.class.name.sub(/^.*::/, '')

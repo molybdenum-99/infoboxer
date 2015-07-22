@@ -27,10 +27,6 @@ module Infoboxer
       children.map(&:text).join
     end
 
-    def inspect(depth = 0)
-      "#<#{descr}: #{children.inspect_no_p(depth)}>"
-    end
-
     def can_merge?(other)
       false
     end

@@ -10,10 +10,9 @@ module Infoboxer
 
     def_readers :title, :url, :traits
 
-
-    def inspect(depth = 0)
-      "#<#{descr}: #{children.inspect_no_p(depth+2)}>"
-    end
+    #def inspect(depth = 0)
+      #"#<#{descr}: #{children.inspect_no_p(depth+2)}>"
+    #end
 
     private
 

@@ -45,18 +45,6 @@ module Infoboxer
       other.name == name && other.variables == variables
     end
 
-    def clean_class
-      self.class.clean_name
-    end
-
-    def inspect(depth = 0)
-      if depth.zero? && !variables.empty?
-        "#<#{descr}: #{variables.inspect_no_p(depth)}>"
-      else
-        "#<#{descr}>"
-      end
-    end
-
     def to_tree(level = 0)
       '  ' * level + "<#{descr}>\n" +
         variables.map{|var| var.to_tree(level+1)}.join
@@ -86,8 +74,12 @@ module Infoboxer
     end
 
     protected
-      def descr
-        self.class.template_name == name ? clean_class : "#{clean_class}(#{name})"
+      def clean_class
+        if self.class.template_name == name
+          self.class.clean_name
+        else
+          "#{self.class.clean_name}[#{name}]"
+        end
       end
       
       def extract_params(vars)

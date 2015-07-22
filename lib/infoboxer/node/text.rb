@@ -12,10 +12,6 @@ module Infoboxer
       @text ||= decode(@raw_text)
     end
 
-    def inspect(depth = 0)
-      depth < 2 ? "#<#{descr}: #{shorten_text}>" : super
-    end
-
     def to_tree(level = 0)
       "#{indent(level)}#{text} <#{descr}>\n"
     end
@@ -39,12 +35,6 @@ module Infoboxer
     end
 
     private
-
-    MAX_CHARS = 30
-
-    def shorten_text
-      text.length > MAX_CHARS ? text[0..MAX_CHARS].inspect + '...' : text.inspect
-    end
 
     def _eq(other)
       text == other.text

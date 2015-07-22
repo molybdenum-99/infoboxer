@@ -43,21 +43,16 @@ module Infoboxer
       _find(Node::Selector.new(*args, &block))
     end
 
-    MAX_CHILDREN = 3
+    MAX_CHILDREN = 5
     
-    def inspect(depth = 0)
-      "[#{inspect_no_p(depth)}]"
-    end
-
-    def inspect_no_p(depth = 0)
-      case
-      when depth > 1
-        "#{count} nodes"
-      when count > MAX_CHILDREN
-        self[0...MAX_CHILDREN].map{|c| c.inspect(depth+1)}.join(', ') + " ...#{count - MAX_CHILDREN} more nodes"
-      else
-        map{|c| c.inspect(depth+1)}.join(', ')
-      end
+    def inspect
+      '[' + 
+        case
+        when count > MAX_CHILDREN
+          self[0...MAX_CHILDREN].map(&:inspect).join(', ') + ", ...#{count - MAX_CHILDREN} more nodes"
+        else
+          map(&:inspect).join(', ')
+        end + ']'
     end
 
     def text
