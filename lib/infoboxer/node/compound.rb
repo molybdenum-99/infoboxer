@@ -1,6 +1,4 @@
 # encoding: utf-8
-require_relative 'contextual_navigation'
-
 module Infoboxer
   class Compound < Node
     def initialize(children = Nodes.new, params = {})
@@ -24,9 +22,6 @@ module Infoboxer
         @children << n
       end
     end
-
-    #include SemanticNavigation
-    #include ContextualNavigation
 
     def to_text
       children.map(&:to_text).join

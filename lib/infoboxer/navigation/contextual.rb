@@ -1,10 +1,6 @@
 # encoding: utf-8
 module Infoboxer
   module ContextualNavigation
-    def infoboxes
-      ensure_traits.lookup(:infoboxes, self)
-    end
-
     def categories
       lookup(Wikilink, namespace: /^#{ensure_traits.category_prefix.join('|')}$/)
     end
@@ -20,4 +16,6 @@ module Infoboxer
         fail("Node is not inside Page, maybe parsed from text?")
     end
   end
+
+  Node.send :include, ContextualNavigation
 end
