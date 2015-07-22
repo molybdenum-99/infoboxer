@@ -1,8 +1,15 @@
 # encoding: utf-8
 module Infoboxer
-  describe Node::Selector do
+  describe NodeLookup::Selector do
     context 'when class' do
       subject{described_class.new(ListItem)}
+
+      it{should be_matches(ListItem.new(Text.new('test')))}
+      it{should_not be_matches(Text.new('test'))}
+    end
+
+    context 'when class-ish symbol' do
+      subject{described_class.new(:ListItem)}
 
       it{should be_matches(ListItem.new(Text.new('test')))}
       it{should_not be_matches(Text.new('test'))}
