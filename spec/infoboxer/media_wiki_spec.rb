@@ -24,14 +24,14 @@ module Infoboxer
       end
 
       context 'when non-existing page', :vcr do
-        it 'should throw' do
-          expect{client.raw('it is non-existing definitely')}.to \
-            raise_error(MediaWiki::PageNotFound)
-        end
+        subject{client.raw('it is non-existing definitely').first}
+        its([:content]){should be_nil}
+        its([:not_found]){should be_truthy}
       end
 
       context 'when redirect page', :vcr do
         subject{client.raw('Einstein').first}
+
         its([:title]){should == 'Albert Einstein'}
         its([:content]){should_not include('#REDIRECT')}
         its([:url]){should == 'https://en.wikipedia.org/wiki/Albert_Einstein'}
@@ -80,6 +80,18 @@ module Infoboxer
         subject{client.get('Argentina', 'Ukraine')}
 
         it{should all(be_a(Page))}
+      end
+
+      context 'when signle non-existing page' do
+        subject{client.get('Why I am still trying this kind of stuff, huh?')}
+
+        it{should be_nil}
+      end
+
+      context 'when several pages, including non-existent' do
+        subject{client.get('Argentina', 'Ukraine', 'WTF I just read? Make me unsee it')}
+
+        its(:count){should == 2}
       end
     end
   end

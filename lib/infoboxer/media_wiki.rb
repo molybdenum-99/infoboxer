@@ -46,14 +46,15 @@ module Infoboxer
     end
 
     def get(*titles)
-      pages = raw(*titles).map{|raw|
-        traits = Traits.get(@api_base_url.host, extract_traits(raw))
-        
-        Page.new(self,
-          Parser.paragraphs(raw[:content], traits),
-          raw.merge(traits: traits))
-      }
-      pages.count == 1 ? pages.first : Nodes[*pages]
+      pages = raw(*titles).reject{|raw| raw[:content].nil?}.
+        map{|raw|
+          traits = Traits.get(@api_base_url.host, extract_traits(raw))
+          
+          Page.new(self,
+            Parser.paragraphs(raw[:content], traits),
+            raw.merge(traits: traits))
+        }
+      titles.count == 1 ? pages.first : Nodes[*pages]
     end
 
     private
@@ -80,14 +81,19 @@ module Infoboxer
       traits = guess_traits(pages.values)
       
       pages.map{|id, data|
-        id == '-1' and
-          fail(PageNotFound, "Page with title #{data['title']} not found")
-        
-        {
-          title: data['title'],
-          content: data['revisions'].first['*'],
-          url: data['fullurl'],
-        }.merge(traits)
+        if id == '-1'
+          {
+            title: data['title'],
+            content: nil,
+            not_found: true
+          }
+        else
+          {
+            title: data['title'],
+            content: data['revisions'].first['*'],
+            url: data['fullurl'],
+          }.merge(traits)
+        end
       }
     rescue JSON::ParserError
       fail RuntimeError, "Not a JSON response, seems there's not a MediaWiki API: #{@api_base_url}"
