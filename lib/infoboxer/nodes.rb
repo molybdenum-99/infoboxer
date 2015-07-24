@@ -15,6 +15,23 @@ module Infoboxer
       end
     end
 
+    def last(n = nil)
+      if n.nil?
+        super()
+      else
+        Nodes[*super(n)]
+      end
+    end
+
+    def map
+      res = super
+      if res.all?{|n| n.is_a?(Node) || n.is_a?(Nodes)}
+        Nodes[*res]
+      else
+        res
+      end
+    end
+
     [
       :prev_siblings, :next_siblings, :siblings,
       :sections, :in_sections,

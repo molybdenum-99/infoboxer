@@ -26,6 +26,11 @@ module Infoboxer
         expect(nodes.reject{|n| n.text == 'one'}).to be_a(Nodes)
         expect(nodes.sort_by(&:text)).to be_a(Nodes)
       end
+
+      it 'is smart when mapping' do
+        expect(nodes.map{|n| n}).to be_a(Nodes)
+        expect(nodes.map(&:text)).to be_an(Array)
+      end
     end
 
     describe :strip do
