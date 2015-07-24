@@ -81,7 +81,7 @@ module Infoboxer
       traits = guess_traits(pages.values)
       
       pages.map{|id, data|
-        if id == '-1'
+        if id.to_i < 0
           {
             title: data['title'],
             content: nil,
