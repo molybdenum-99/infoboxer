@@ -2,7 +2,9 @@
 require 'htmlentities'
 
 module Infoboxer
-  # This is the base class for 
+  # This is the base class for all parse tree nodes. Basically, you'll
+  # never create instances of this class or it descendants by yourself,
+  # you will receive it from tree and use for navigations.
   class Node
     include ProcMe
     
@@ -17,26 +19,31 @@ module Infoboxer
       self.class == other.class && _eq(other)
     end
 
+    # Position in parent's children array (zero-based)
     def index
       parent ? parent.index_of(self) : 0
     end
 
+    # List of all sibling nodes (children of same parent)
     def siblings
       parent ? parent.children - [self] : Nodes[]
     end
 
-    def children
-      Nodes[]
-    end
-
+    # List of siblings before this one
     def prev_siblings
       siblings.select{|n| n.index < index}
     end
 
+    # List of siblings after this one
     def next_siblings
       siblings.select{|n| n.index > index}
     end
-    
+
+    # Node children list
+    def children
+      Nodes[]
+    end
+
     def can_merge?(other)
       false
     end
@@ -45,6 +52,22 @@ module Infoboxer
       false
     end
 
+    # Textual representation of this node and its children, ready for
+    # pretty-printing. Use it like this:
+    #
+    # ```ruby
+    # puts page.lookup(:Paragraph).first.to_tree
+    # # Prints something like
+    # # <Paragraph>
+    # #   This <Italic>
+    # #   is <Text>
+    # #   <Wikilink(link: "Argentina")>
+    # #     pretty <Italic>
+    # #     complicated <Text>
+    # ```
+    # 
+    # Useful for understanding page structure, and Infoboxer's representation
+    # of this structure
     def to_tree(level = 0)
       indent(level) + "<#{descr}>\n"
     end
@@ -53,16 +76,18 @@ module Infoboxer
       text.empty? ? "#<#{descr}>" : "#<#{descr}: #{shorten_text}>"
     end
 
+    # Node text representation
     def text
       ''
     end
 
+    # Stripped version of node text
     def text_
       text.strip
     end
 
-    # just aliases will not work when #text will be redefined in subclasses
     def to_s
+      # just aliases will not work when #text will be redefined in subclasses
       text
     end
 
