@@ -2,6 +2,8 @@
 module Infoboxer
   class Parser
     module HTML
+      include Tree
+      
       def html
         case
         when @context.check(/\/[a-z]+>/)

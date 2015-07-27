@@ -53,5 +53,5 @@ module Infoboxer
     alias_method :infobox, :infoboxes
   end
 
-  Node.send :include, NavigationSugar
+  Tree::Node.send :include, NavigationSugar
 end

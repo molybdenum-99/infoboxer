@@ -1,13 +1,12 @@
 # encoding: utf-8
 require 'ostruct'
-require_relative 'parser/context'
 require 'procme'
 
 module Infoboxer
   class Parser
     class ParsingError < RuntimeError
     end
-    
+
     class << self
       def inline(text, traits = nil)
         new(context(text, traits)).inline
@@ -49,6 +48,8 @@ module Infoboxer
       end
     end
     
+    include Tree
+
     def initialize(context)
       @context = context
       @re = OpenStruct.new(make_regexps)
@@ -66,3 +67,5 @@ module Infoboxer
     include Parser::Util
   end
 end
+
+require_relative 'parser/context'

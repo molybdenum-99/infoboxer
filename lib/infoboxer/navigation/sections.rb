@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
-  class Section < Compound
-    def initialize(heading, children = Nodes[])
+  class Section < Tree::Compound
+    def initialize(heading, children = Tree::Nodes[])
       # no super: we don't wont to rewriter children's parent
       @children = Nodes[*children]
       @heading = heading
@@ -92,5 +92,5 @@ module Infoboxer
   Document.send(:include, SectionsNavigation)
   Section.send(:include, SectionsNavigation)
   
-  Node.send(:include, InSectionsNavigation)
+  Tree::Node.send(:include, InSectionsNavigation)
 end

@@ -3,12 +3,14 @@ module Infoboxer
   class Parser
     # http://en.wikipedia.org/wiki/Help:Table
     module Table
+      include Tree
+      
       def table
          @context.current =~ /^\s*{\|/ or
           @context.fail!('Something went wrong: trying to parse not a table')
 
         prms = table_params
-        table = Infoboxer::Table.new(Nodes[], prms)
+        table = Tree::Table.new(Nodes[], prms)
 
         @context.next!
 

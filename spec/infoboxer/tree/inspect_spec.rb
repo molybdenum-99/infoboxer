@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
-  describe Node do
-    describe '#inspect' do
+  module Tree
+    describe Node, :inspect do
       subject{node.inspect}
 
       describe Node do

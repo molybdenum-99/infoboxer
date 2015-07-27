@@ -15,9 +15,9 @@ module Infoboxer
       }
 
       it{should ==
-        Ref.new([
-          Text.new('The text'),
-          Paragraph.new(Text.new('of the reference'))
+        Tree::Ref.new([
+          Tree::Text.new('The text'),
+          Tree::Paragraph.new(Tree::Text.new('of the reference'))
         ])
       }
     end
@@ -27,13 +27,13 @@ module Infoboxer
         "<ref name=gini>\nThe text\n\nof the reference</ref>"
       }
 
-      it{should be_kind_of(Ref)}
+      it{should be_kind_of(Tree::Ref)}
       its(:params){should == {name: 'gini'}}
     end
 
     context 'self-closing' do
       let(:source){'<ref name=totalpop/>'}
-      it{should be_kind_of(Ref)}
+      it{should be_kind_of(Tree::Ref)}
       its(:params){should == {name: 'totalpop'}}
     end
 
@@ -42,8 +42,8 @@ module Infoboxer
         "<ref>''bad markup!</ref>"
       }
 
-      it{should be_kind_of(Ref)}
-      its(:children){should == [Italic.new(Text.new("bad markup!"))]}
+      it{should be_kind_of(Tree::Ref)}
+      its(:children){should == [Tree::Italic.new(Tree::Text.new("bad markup!"))]}
     end
   end
 end

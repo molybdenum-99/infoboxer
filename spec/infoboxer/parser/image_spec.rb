@@ -14,7 +14,7 @@ module Infoboxer
         %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg]]}
       }
 
-      it{should be_a(Image)}
+      it{should be_a(Tree::Image)}
       its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
     end
 
@@ -25,7 +25,7 @@ module Infoboxer
         %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px|The [[Cueva de las Manos|Cave of the Hands]] in [[Santa Cruz province, Argentina|Santa Cruz province]], with indigenous artwork dating from 13,000–9,000 years ago|alt=Stencilled hands on the cave's wall]]}
       }
 
-      it{should be_a(Image)}
+      it{should be_a(Tree::Image)}
       its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
       its(:type){should == 'thumb'}
       its(:width){should == 200}
@@ -34,10 +34,10 @@ module Infoboxer
       describe 'caption' do
         subject{nodes.first.caption}
 
-        it{should be_a(Nodes)}
+        it{should be_a(Tree::Nodes)}
         it 'should preserve all data' do
           expect(subject.map(&:class)).to eq \
-            [Text, Wikilink, Text, Wikilink, Text]
+            [Tree::Text, Tree::Wikilink, Tree::Text, Tree::Wikilink, Tree::Text]
 
           expect(subject.map(&:text)).to eq [
             'The ',
@@ -59,12 +59,12 @@ module Infoboxer
       }
       let(:ctx){Parser::Context.new(source, traits)}
 
-      it{should be_an(Image)}
+      it{should be_an(Tree::Image)}
       its(:path){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
 
       context 'should parse File: prefix' do
         let(:source){%Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}}
-        it{should be_an(Image)}
+        it{should be_an(Tree::Image)}
       end
     end
 
@@ -78,12 +78,12 @@ module Infoboxer
         "</div>]]"
       }
 
-      it{should be_a(Image)}
+      it{should be_a(Tree::Image)}
       its(:path){should == 'Diplomatic missions of Argentina.png'}
       its(:width){should == 250}
       it 'should have a caption ' do
         expect(subject.caption.map(&:class)).to eq \
-          [Text, Paragraph]
+          [Tree::Text, Tree::Paragraph]
       end
     end
   end

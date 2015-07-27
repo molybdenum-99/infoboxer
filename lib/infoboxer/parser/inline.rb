@@ -2,6 +2,8 @@
 module Infoboxer
   class Parser
     module Inline
+      include Tree
+      
       def inline(until_pattern = nil)
         start = @context.lineno
         nodes = Nodes[]

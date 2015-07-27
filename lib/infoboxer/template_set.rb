@@ -8,7 +8,7 @@ module Infoboxer
     
     def find(name)
       _, template = @templates.detect{|m, t| m === name.downcase}
-      template || Template
+      template || Tree::Template
     end
 
     def define(&definitions)
@@ -22,11 +22,11 @@ module Infoboxer
     private
 
       def template(name, options = {}, &definition)
-        setup_class(name, Template, options, &definition)
+        setup_class(name, Tree::Template, options, &definition)
       end
 
       def inflow_template(name, options = {}, &definition)
-        setup_class(name, InFlowTemplate, options, &definition)
+        setup_class(name, Tree::InFlowTemplate, options, &definition)
       end
 
       def inflow_templates(*names)

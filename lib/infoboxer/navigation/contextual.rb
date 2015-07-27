@@ -17,5 +17,5 @@ module Infoboxer
     end
   end
 
-  Node.send :include, ContextualNavigation
+  Tree::Node.send :include, ContextualNavigation
 end

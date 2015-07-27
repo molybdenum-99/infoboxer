@@ -45,7 +45,7 @@ module Infoboxer
       context 'standalone template' do
         subject{set.find('Largest cities')}
         it{should be_a(Class)}
-        it{should < Template}
+        it{should < Tree::Template}
         its(:inspect){should == '#<Template[Largest cities]>'}
         its(:instance_methods){should include(:city_names)}
 
@@ -57,7 +57,7 @@ module Infoboxer
       context 'explicit match option' do
         subject{set.find('Infobox country')}
         it{should be_a(Class)}
-        it{should < Template}
+        it{should < Tree::Template}
         its(:inspect){should == '#<Template[Infobox]>'}
       end
 
@@ -72,19 +72,19 @@ module Infoboxer
       context 'inflow template' do
         subject{set.find('convert')}
         it{should be_a(Class)}
-        it{should < InFlowTemplate}
+        it{should < Tree::InFlowTemplate}
         its(:inspect){should == '#<InFlowTemplate[convert]>'}
       end
 
       context 'defaults' do
         subject{set.find('undefined')}
         it{should be_a(Class)}
-        it{should == Template}
+        it{should == Tree::Template}
       end
 
       context 'helpers' do
         subject{set.find('!').new('!')}
-        it{should be_kind_of(InFlowTemplate)}
+        it{should be_kind_of(Tree::InFlowTemplate)}
         its(:text){should == '|'}
       end
 

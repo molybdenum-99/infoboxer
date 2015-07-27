@@ -16,11 +16,11 @@ module Infoboxer
         |}}
       }
 
-      it{should be_a(Table)}
+      it{should be_a(Tree::Table)}
       its(:'rows.count'){should == 1}
       it 'should contain text' do
         expect(subject.rows.first.cells.first.children).to eq \
-          [Text.new('one')]
+          [Tree::Text.new('one')]
       end
     end
 
@@ -67,7 +67,7 @@ module Infoboxer
           subject{cells.last}
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
-              [Text, Paragraph]
+              [Tree::Text, Tree::Paragraph]
             expect(subject.children.map(&:text)).to eq \
               ['two', "three: it's a long text, dude!||and four\n\n"]
           end
@@ -87,7 +87,7 @@ module Infoboxer
           subject{cells.last}
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
-              [Text, Template]
+              [Tree::Text, Tree::Template]
           end
         end
       end
@@ -115,7 +115,7 @@ module Infoboxer
           |}
         }}
         subject{table.rows.last.children.first}
-        it{should be_a(Template)}
+        it{should be_a(Tree::Template)}
       end
     end
 
@@ -134,7 +134,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [TableHeading, TableHeading, TableHeading]
+            [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
         end
       end
 
@@ -153,7 +153,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [TableHeading, TableHeading, TableHeading]
+            [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
         end
       end
 
@@ -168,7 +168,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [TableHeading, TableHeading, TableHeading]
+            [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
         end
       end
 
@@ -183,7 +183,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [TableHeading, TableHeading, TableHeading]
+            [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
         end
       end
 
@@ -200,7 +200,7 @@ module Infoboxer
         its(:count){should == 3}
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
-            [TableCell, TableHeading, TableCell]
+            [Tree::TableCell, Tree::TableHeading, Tree::TableCell]
         end
       end
     end
@@ -215,7 +215,7 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(TableCaption)}
+        it{should be_a(Tree::TableCaption)}
         its(:text){should == "test me"}
       end
 
@@ -226,10 +226,10 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(TableCaption)}
+        it{should be_a(Tree::TableCaption)}
         it 'should be formatted' do
           expect(subject.children.map(&:class)).to eq \
-            [Text, Italic, Text, Wikilink]
+            [Tree::Text, Tree::Italic, Tree::Text, Tree::Wikilink]
         end
       end
 
@@ -241,7 +241,7 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(TableCaption)}
+        it{should be_a(Tree::TableCaption)}
         its(:text){should == "test me\nplease"}
       end
 
@@ -252,7 +252,7 @@ module Infoboxer
           |}
         }}
 
-        it{should be_a(TableCaption)}
+        it{should be_a(Tree::TableCaption)}
         its(:text){should == "test me please\n\n"}
       end
     end
@@ -333,7 +333,7 @@ module Infoboxer
         }}
         subject{table.rows.first.cells.first.children.first}
 
-        it{should be_kind_of(Table)}
+        it{should be_kind_of(Tree::Table)}
       end
 
       context 'when in multiline cell' do
@@ -353,9 +353,9 @@ module Infoboxer
         it 'should still be reasonable!' do
           expect(table.rows.first.cells.count).to eq 1
           expect(table.rows.first.cells.first.children.last).to \
-            be_a(Table)
+            be_a(Tree::Table)
           expect(table.rows.first.cells.first.children.map(&:class)).to \
-            include(Paragraph)
+            include(Tree::Paragraph)
         end
       end
     end

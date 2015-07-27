@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  describe Template, 'fetch*' do
+  describe Tree::Template, 'fetch*' do
     let(:src){File.read('spec/fixtures/large_infobox.txt')}
     let(:template){Parser.inline(src).first}
     

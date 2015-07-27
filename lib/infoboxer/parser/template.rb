@@ -2,6 +2,8 @@
 module Infoboxer
   class Parser
     module Template
+      include Tree
+      
       # NB: here we are not distingish templates like {{Infobox|variable}}
       # and "magic words" like {{formatnum:123}}
       # Just calling all of them "templates". This behaviour will change
@@ -30,7 +32,7 @@ module Infoboxer
 
           value = long_inline(/\||}}/)
           unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
-            res << TemplateVariable.new(name.to_s, value)
+            res << Var.new(name.to_s, value)
           end
 
           break if @context.eat_matched?('}}')

@@ -8,7 +8,7 @@ module Infoboxer
     end
 
     def _lookup(selector)
-      Nodes[_matches?(selector) ? self : nil, *children._lookup(selector)].
+      Tree::Nodes[_matches?(selector) ? self : nil, *children._lookup(selector)].
         flatten.compact
     end
 
@@ -19,9 +19,9 @@ module Infoboxer
     def _lookup_parents(selector)
       case
       when !parent
-        Nodes[]
+        Tree::Nodes[]
       when parent._matches?(selector)
-        Nodes[parent, *parent._lookup_parents(selector)]
+        Tree::Nodes[parent, *parent._lookup_parents(selector)]
       else
         parent._lookup_parents(selector)
       end
@@ -78,6 +78,6 @@ module Infoboxer
     end
   end
 
-  Node.send(:include, NodeLookup)
-  Nodes.send(:include, NodesLookup)
+  Tree::Node.send(:include, NodeLookup)
+  Tree::Nodes.send(:include, NodesLookup)
 end

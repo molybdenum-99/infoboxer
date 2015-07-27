@@ -2,6 +2,8 @@
 module Infoboxer
   class Parser
     module Image
+      include Tree
+      
       def image
         @context.skip(re.file_prefix) or
           @context.fail!("Something went wrong: it's not image?")
@@ -12,7 +14,7 @@ module Infoboxer
         else
           {}
         end
-        Infoboxer::Image.new(path, attrs)
+        Tree::Image.new(path, attrs)
       end
 
       def image_attrs

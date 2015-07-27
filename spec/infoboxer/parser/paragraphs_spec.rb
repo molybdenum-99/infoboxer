@@ -14,14 +14,14 @@ module Infoboxer
       context 'just a para' do
         let(:source){'some text'}
         
-        it{should be_a(Paragraph)}
+        it{should be_a(Tree::Paragraph)}
         its(:text){should == "some text\n\n"}
       end
 
       context 'heading' do
         let(:source){'== Some text =='}
         
-        it{should be_a(Heading)}
+        it{should be_a(Tree::Heading)}
         its(:text){should == "Some text\n\n"}
         its(:level){should == 2}
       end
@@ -30,19 +30,19 @@ module Infoboxer
         context 'first level' do
           let(:source){'* Some text'}
           
-          it{should be_a(UnorderedList)}
+          it{should be_a(Tree::UnorderedList)}
           its(:'children.count'){should == 1}
-          its(:children){should all(be_kind_of(ListItem))}
+          its(:children){should all(be_kind_of(Tree::ListItem))}
         end
 
         context 'dl/dt' do
           let(:source){'; Some text'}
-          it{should == DefinitionList.new(DTerm.new(Text.new('Some text')))}
+          it{should == Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text')))}
         end
 
         context 'dl/dd' do
           let(:source){': Some text'}
-          it{should == DefinitionList.new(DDefinition.new(Text.new('Some text')))}
+          it{should == Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text')))}
         end
 
         context 'next levels' do
@@ -50,13 +50,13 @@ module Infoboxer
 
           # Prepare to madness!!!
           it{should ==
-            UnorderedList.new(
-              ListItem.new(
-                OrderedList.new(
-                  ListItem.new(
-                    DefinitionList.new(
-                      DTerm.new(
-                        Text.new('Some text')
+            Tree::UnorderedList.new(
+              Tree::ListItem.new(
+                Tree::OrderedList.new(
+                  Tree::ListItem.new(
+                    Tree::DefinitionList.new(
+                      Tree::DTerm.new(
+                        Tree::Text.new('Some text')
                       )
                     )
                   )
@@ -70,13 +70,13 @@ module Infoboxer
       context 'hr' do
         let(:source){'--------------'}
         
-        it{should be_a(HR)}
+        it{should be_a(Tree::HR)}
       end
 
       context 'pre' do
         let(:source){' i += 1'}
         
-        it{should be_a(Pre)}
+        it{should be_a(Tree::Pre)}
         its(:text){should == "i += 1\n\n"}
       end
     end
@@ -88,7 +88,7 @@ module Infoboxer
 
       its(:count){should == 3}
       it 'should be correct items' do
-        expect(subject.map(&:class)).to eq [Heading, Paragraph, UnorderedList]
+        expect(subject.map(&:class)).to eq [Tree::Heading, Tree::Paragraph, Tree::UnorderedList]
         expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "* List item\n\n"]
       end
     end
@@ -129,31 +129,31 @@ module Infoboxer
         # not the most elegant way of testing trees, but still!
         it{should ==
           [
-            UnorderedList.new(
-              ListItem.new([
-                Text.new('start'),
-                UnorderedList.new([
-                  ListItem.new(
-                    Text.new('level two')
+            Tree::UnorderedList.new(
+              Tree::ListItem.new([
+                Tree::Text.new('start'),
+                Tree::UnorderedList.new([
+                  Tree::ListItem.new(
+                    Tree::Text.new('level two')
                   ),
-                  ListItem.new(
-                    Text.new('level two - same list')
+                  Tree::ListItem.new(
+                    Tree::Text.new('level two - same list')
                   ),
                 ]),
-                OrderedList.new([
-                  ListItem.new(
-                    Text.new('level two - other list')
+                Tree::OrderedList.new([
+                  Tree::ListItem.new(
+                    Tree::Text.new('level two - other list')
                   )
                 ]),
-                DefinitionList.new([
-                  DTerm.new(
-                    Text.new('level two - even other, dl')
+                Tree::DefinitionList.new([
+                  Tree::DTerm.new(
+                    Tree::Text.new('level two - even other, dl')
                   ),
-                  DDefinition.new([
-                    Text.new('level two - same dl'),
-                    OrderedList.new(
-                      ListItem.new(
-                        Text.new('level three - next level')
+                  Tree::DDefinition.new([
+                    Tree::Text.new('level two - same dl'),
+                    Tree::OrderedList.new(
+                      Tree::ListItem.new(
+                        Tree::Text.new('level three - next level')
                       )
                     )
                   ])
@@ -161,11 +161,11 @@ module Infoboxer
               ])
             ),
 
-            OrderedList.new(
-              ListItem.new(
-                UnorderedList.new(
-                  ListItem.new(
-                    Text.new('orphan list with second level at once')
+            Tree::OrderedList.new(
+              Tree::ListItem.new(
+                Tree::UnorderedList.new(
+                  Tree::ListItem.new(
+                    Tree::Text.new('orphan list with second level at once')
                   )
                 )
               )
@@ -180,7 +180,7 @@ module Infoboxer
           :{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
         })}
 
-        its(:first){should be_a(DefinitionList)}
+        its(:first){should be_a(Tree::DefinitionList)}
       end
 
       context 'templates-only paragraph' do
@@ -189,8 +189,8 @@ module Infoboxer
         }
 
         it{should == [
-          Template.new('template'),
-          Paragraph.new(Text.new('paragraph'))
+          Tree::Template.new('template'),
+          Tree::Paragraph.new(Tree::Text.new('paragraph'))
         ]}
       end
 
@@ -200,8 +200,8 @@ module Infoboxer
         }
 
         it{should == [
-          Paragraph.new(Text.new('paragraph1')),
-          Paragraph.new(Text.new('paragraph2'))
+          Tree::Paragraph.new(Tree::Text.new('paragraph1')),
+          Tree::Paragraph.new(Tree::Text.new('paragraph2'))
         ]}
       end
 
@@ -211,7 +211,7 @@ module Infoboxer
         }
 
         it{should == [
-          Pre.new(Text.new("paragraph1\n\nparagraph2"))
+          Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
         ]}
       end
 
@@ -221,7 +221,7 @@ module Infoboxer
         }
 
         it{should == [
-          Heading.new(Text.new('Heading parsed'), 2)
+          Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
         ]}
       end
     end

@@ -1,5 +1,5 @@
 # encoding: utf-8
 module Infoboxer
-  class Document < Compound
+  class Document < Tree::Compound
   end
 end

@@ -13,38 +13,38 @@ module Infoboxer
     context 'simplest' do
       let(:source){ '{{the name}}' }
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'the name'}
     end
 
     context 'with unnamed variable' do
       let(:source){ '{{the name|en}}' }
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == [TemplateVariable.new('1', Text.new('en'))]}
+      its(:variables){should == [Tree::Var.new('1', Tree::Text.new('en'))]}
     end
 
     context 'with named variable' do
       let(:source){ '{{the name|lang=en}}' }
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == [TemplateVariable.new('lang', Text.new('en'))]}
+      its(:variables){should == [Tree::Var.new('lang', Tree::Text.new('en'))]}
     end
 
     context 'with empty variable' do
       let(:source){ '{{the name|lang=}}' }
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'the name'}
-      its(:variables){should == [TemplateVariable.new('lang')]}
+      its(:variables){should == [Tree::Var.new('lang')]}
     end
 
     context 'with empty line' do
       let(:source){ '{{the name|}}' }
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'the name'}
       its(:variables){should == []}
     end
@@ -52,46 +52,46 @@ module Infoboxer
     context 'with "=" symbol in variable' do
       let(:source){ '{{the name|formula=1+2=3}}' }
 
-      its(:variables){should == [TemplateVariable.new('formula', Text.new('1+2=3'))]}
+      its(:variables){should == [Tree::Var.new('formula', Tree::Text.new('1+2=3'))]}
     end
 
     context 'with link in variable' do
       let(:source){ '{{the name|[[Argentina|Ar]]}}' }
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'the name'}
       its(:variables){should ==
         [
-          TemplateVariable.new('1', [Wikilink.new('Argentina', Text.new('Ar'))])
+          Tree::Var.new('1', [Tree::Wikilink.new('Argentina', Tree::Text.new('Ar'))])
         ]
       }
     end
 
     context 'with paragraphs in variable' do
       let(:source){ "{{the name|var=some\nmultiline\n''text''}}" }
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       it 'should preserve all content' do
-        expect(subject.variables.first.children.map(&:class)).to eq [Text, Paragraph]
+        expect(subject.variables.first.children.map(&:class)).to eq [Tree::Text, Tree::Paragraph]
       end
     end
 
     context 'with newlines before nested template' do
       let(:source){ "{{the name|var=\n {{nested}}}}" }
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       it 'should preserve all content' do
-        expect(subject.variables.first.children.map(&:class)).to eq [Template]
+        expect(subject.variables.first.children.map(&:class)).to eq [Tree::Template]
       end
     end
 
     context 'with <ref> and other template in variable' do
       let(:source){ "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}|othervar}}" }
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:'variables.count'){should == 2}
     end
 
     context 'with other template in variable - newlines' do
       let(:source){ "{{the name|first=\n {{\nother-template\n }}\n| othervar}}" }
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:'variables.count'){should == 2}
     end
 
@@ -105,7 +105,7 @@ module Infoboxer
         }}
       })}
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:'variables.count'){should == 2}
     end
 
@@ -118,20 +118,20 @@ module Infoboxer
     context 'magic words' do
       let(:source){%Q{{{formatnum:{{#expr: 14.3 * 2.589988110336 round 1}} }}}}
 
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:name){should == 'formatnum'}
       its(:'variables.count'){should == 1}
       its(:'variables.first.name'){should == '1'}
       context 'magic inside magic' do
         subject{template.variables.first.children.first}
-        it{should be_a(Template)}
+        it{should be_a(Tree::Template)}
         its(:name){should == '#expr'}
       end
     end
 
     context 'and now for really sick stuff!' do
       let(:source){ File.read('spec/fixtures/large_infobox.txt') }
-      it{should be_a(Template)}
+      it{should be_a(Tree::Template)}
       its(:"variables.count"){should == 87}
     end
   end

@@ -2,6 +2,8 @@
 module Infoboxer
   class Parser
     module Paragraphs
+      include Tree
+      
       def paragraphs(until_pattern = nil)
         nodes = Nodes[]
         until @context.eof?
