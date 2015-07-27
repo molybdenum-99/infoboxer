@@ -5,6 +5,23 @@ module Infoboxer
   # This is the base class for all parse tree nodes. Basically, you'll
   # never create instances of this class or it descendants by yourself,
   # you will receive it from tree and use for navigations.
+  #
+  # ## Inspecting and understanding single node
+  #
+  #
+  # ## Tree navigation
+  #
+  #
+  # ### Navigation "sugar"
+  #
+  #
+  #
+  #
+  # ## Complex data extraction
+  #
+  #
+  #
+  #
   class Node
     include ProcMe
     
@@ -41,13 +58,16 @@ module Infoboxer
 
     # Node children list
     def children
-      Nodes[]
+      Nodes[] # redefined in descendants
     end
 
+    # @private Used only during tree construction in Parser
     def can_merge?(other)
       false
     end
 
+    # Whether node is empty (definition of "empty" varies for different
+    # kinds of nodes). Used mainly in Parser.
     def empty?
       false
     end
@@ -91,7 +111,7 @@ module Infoboxer
     # "formatting" quircks), you can use {Node#text_} method.
     #
     def text
-      ''
+      '' # redefined in descendants
     end
 
     # "Clean" version of node text: without trailing linefeeds, list
@@ -154,16 +174,9 @@ module Infoboxer
         @coder ||= HTMLEntities.new
       end
     end
+
+    %[text compound inline image html paragraphs list template table ref].each do |type|
+      require_relative "node/#{type}"
+    end
   end
 end
-
-require_relative 'node/text'
-require_relative 'node/compound'
-require_relative 'node/inline'
-require_relative 'node/image'
-require_relative 'node/html'
-require_relative 'node/paragraphs'
-require_relative 'node/list'
-require_relative 'node/template'
-require_relative 'node/table'
-require_relative 'node/ref'

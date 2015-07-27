@@ -7,27 +7,30 @@ require_relative 'media_wiki/traits'
 
 module Infoboxer
   class MediaWiki
-    PageNotFound = Class.new(RuntimeError)
-
     UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)"
 
     class << self
+      # User agent getter/setter.
+      #
+      # Default value is {UA}.
+      #
+      # You can also use per-instance option, see {#initialize}
       attr_accessor :user_agent
     end
-    
+
+    # Creating new MediaWiki client. {Infoboxer.wiki} provides shortcut
+    # for it, as well as shortcuts for some well-known wikis, like
+    # {Infoboxer.wikipedia}.
+    #
+    # @param api_base_url URL of `api.php` file in your MediaWiki
+    #   installation. Typically, its `<domain>/w/api.php`, but can vary
+    #   in different wikis.
+    # @param options Only one option is currently supported:
+    #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
     def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
       @resource = RestClient::Resource.new(api_base_url, headers: headers(options))
     end
-
-    attr_reader :api_base_url
-
-    PROP = [
-      'revisions',    # to extract content of the page
-      'info',         # to extract page canonical url
-      'categories',   # to extract default category prefix
-      'images'        # to extract default media prefix
-    ].join('|')
 
     def raw(*titles)
       postprocess(@resource.get(
@@ -45,6 +48,30 @@ module Infoboxer
       ))
     end
 
+    # Receive list of parsed wikipedia pages for list of titles provided.
+    # All pages are received with single query to MediaWiki API.
+    #
+    # **NB**: currently, if you are requesting more than 50 titles at
+    # once (MediaWiki limitation for single request), Infoboxer will
+    # **not** try to get other pages with subsequent queries. This will
+    # be fixed in future.
+    #
+    # @return [Array<Page>] array of parsed pages. Notes:
+    #   * if you call `get` with only one title, one page will be
+    #     returned instead of an array
+    #   * if some of pages are not in wiki, they will not be returned,
+    #     therefore resulting array can be shorter than titles array;
+    #     you can always check `pages.map(&:title)` to see what you've
+    #     really received; this approach allows you to write absent-minded
+    #     code like this:
+    #
+    #     ```ruby
+    #     Infoboxer.wp.get('Argentina', 'Chile', 'Something non-existing').
+    #        infobox.fetch(.....)
+    #     ```
+    #     and obtain meaningful results instead of NoMethodError or some
+    #     NotFound.
+    #
     def get(*titles)
       pages = raw(*titles).reject{|raw| raw[:content].nil?}.
         map{|raw|
@@ -58,6 +85,14 @@ module Infoboxer
     end
 
     private
+
+    # @private
+    PROP = [
+      'revisions',    # to extract content of the page
+      'info',         # to extract page canonical url
+      'categories',   # to extract default category prefix
+      'images'        # to extract default media prefix
+    ].join('|')
 
     def headers(options)
       {'User-Agent' => options[:user_agent] || options[:ua] || self.class.user_agent || UA}

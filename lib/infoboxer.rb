@@ -28,7 +28,7 @@ module Infoboxer
     # @param options list of options.
     #   The only recognized option for now, though, is
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
-    # @returns [MediaWiki] an instance of API client, which you can
+    # @return [MediaWiki] an instance of API client, which you can
     #   further use like this:
     #
     #   ```ruby
