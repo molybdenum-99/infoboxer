@@ -2,6 +2,7 @@
 require 'htmlentities'
 
 module Infoboxer
+  # This is the base class for 
   class Node
     include ProcMe
     
