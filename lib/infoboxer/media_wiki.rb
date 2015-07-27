@@ -32,6 +32,10 @@ module Infoboxer
       @resource = RestClient::Resource.new(api_base_url, headers: headers(options))
     end
 
+    # Receive "raw" data from Wikipedia (without parsing or wrapping in
+    # classes).
+    #
+    # @return [Array<Hash>]
     def raw(*titles)
       postprocess(@resource.get(
         params: {
