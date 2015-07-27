@@ -9,3 +9,4 @@ profile/out/*.html
 spec/fixtures/vcr_cassettes
 .rubocop.yml
 rubocop
+.yardoc

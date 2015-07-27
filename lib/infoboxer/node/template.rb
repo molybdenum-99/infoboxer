@@ -38,7 +38,8 @@ module Infoboxer
 
     def initialize(name, variables = Nodes[])
       super(Nodes[], extract_params(variables))
-      @name, @variables = name, Nodes[*variables]
+      @name  = name 
+      @variables = Nodes[*variables].each{|v| v.parent = self}
     end
 
     def _eq(other)

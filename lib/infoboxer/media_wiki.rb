@@ -9,7 +9,7 @@ module Infoboxer
   class MediaWiki
     PageNotFound = Class.new(RuntimeError)
 
-    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum99/infoboxer; zverok.offline@gmail.com)"
+    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)"
 
     class << self
       attr_accessor :user_agent

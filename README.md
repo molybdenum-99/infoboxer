@@ -23,6 +23,7 @@ page in our wiki.)_
 ## Showcase
 
 ```ruby
+# TODO
 ```
 
 Do you _feel_ it now?
