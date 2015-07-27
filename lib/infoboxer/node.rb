@@ -76,19 +76,35 @@ module Infoboxer
       text.empty? ? "#<#{descr}>" : "#<#{descr}: #{shorten_text}>"
     end
 
-    # Node text representation
+    # Node text representation. It is defined for all nodes so, that
+    # entire `Document#text` produce readable text-only representation
+    # of Wiki page. Therefore, rules are those:
+    # * inline-formatting nodes (text, bold, italics) just return the
+    #   text;
+    # * paragraph-level nodes (headings, paragraphs, lists) add `"\n\n"`
+    #   after text;
+    # * list items add marker before text;
+    # * nodes, not belonging to "main" text flow (references, templates)
+    #   produce empty text.
+    #
+    # If you want just the text of some heading or list item (without
+    # "formatting" quircks), you can use {Node#text_} method.
+    #
     def text
       ''
     end
 
-    # Stripped version of node text
+    # "Clean" version of node text: without trailing linefeeds, list
+    # markers and other things added for formatting.
+    #
     def text_
       text.strip
     end
 
+    # See {Node#text_}
     def to_s
       # just aliases will not work when #text will be redefined in subclasses
-      text
+      text_
     end
 
     private
