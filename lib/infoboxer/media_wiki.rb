@@ -18,6 +18,8 @@ module Infoboxer
       attr_accessor :user_agent
     end
 
+    attr_reader :api_base_url
+
     # Creating new MediaWiki client. {Infoboxer.wiki} provides shortcut
     # for it, as well as shortcuts for some well-known wikis, like
     # {Infoboxer.wikipedia}.

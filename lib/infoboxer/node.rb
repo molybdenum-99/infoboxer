@@ -175,7 +175,7 @@ module Infoboxer
       end
     end
 
-    %[text compound inline image html paragraphs list template table ref].each do |type|
+    %w[text compound inline image html paragraphs list template table ref].each do |type|
       require_relative "node/#{type}"
     end
   end
