@@ -16,7 +16,7 @@ module Infoboxer
       include Sections::Nodes
     end
 
-    class ::Infoboxer::Document
+    class Tree::Document
       include Sections::Container
     end
   end

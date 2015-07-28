@@ -54,7 +54,7 @@ module Infoboxer
 
       module Node
         def in_sections
-          main_node = parent.is_a?(Document) ? self : lookup_parents[-2]
+          main_node = parent.is_a?(Tree::Document) ? self : lookup_parents[-2]
           
           heading = if main_node.is_a?(Tree::Heading)
             main_node.lookup_prev_siblings(Tree::Heading, level: main_node.level - 1).last

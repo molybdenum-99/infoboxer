@@ -166,13 +166,11 @@ module Infoboxer
 end
 
 require_relative 'infoboxer/version'
-
 require_relative 'infoboxer/core_ext'
 
 require_relative 'infoboxer/media_wiki'
 
 require_relative 'infoboxer/tree'
-require_relative 'infoboxer/document'
 
 require_relative 'infoboxer/parser'
 

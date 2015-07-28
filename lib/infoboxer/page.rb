@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  class Page < Document
+  class Page < Tree::Document
     def initialize(client, children, raw)
       @client = client
       super(children, raw)

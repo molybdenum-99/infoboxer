@@ -21,7 +21,7 @@ module Infoboxer
       end
 
       def document(text, traits = nil)
-        Document.new(paragraphs(text, traits))
+        Tree::Document.new(paragraphs(text, traits))
       end
 
       def fragment(text, traits = nil)

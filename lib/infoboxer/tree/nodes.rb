@@ -50,14 +50,6 @@ module Infoboxer
         map(&:to_tree).join("\n")
       end
 
-      def _find(selector)
-        select{|n| n._matches?(selector)}
-      end
-
-      def find(*args, &block)
-        _find(Node::Selector.new(*args, &block))
-      end
-
       MAX_CHILDREN = 5
       
       def inspect

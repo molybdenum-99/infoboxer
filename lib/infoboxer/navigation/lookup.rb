@@ -58,6 +58,14 @@ module Infoboxer
       end
 
       module Nodes
+        def _find(selector)
+          select{|n| n._matches?(selector)}
+        end
+
+        def find(*args, &block)
+          _find(Selector.new(*args, &block))
+        end
+
         [
           :_lookup, :_lookup_children, :_lookup_parents,
           :_lookup_siblings, :_lookup_prev_siblings, :_lookup_next_siblings

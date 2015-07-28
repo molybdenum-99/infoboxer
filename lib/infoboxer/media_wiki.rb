@@ -87,7 +87,7 @@ module Infoboxer
             Parser.paragraphs(raw[:content], traits),
             raw.merge(traits: traits))
         }
-      titles.count == 1 ? pages.first : Nodes[*pages]
+      titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
     private
