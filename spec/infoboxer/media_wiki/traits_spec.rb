@@ -23,7 +23,7 @@ module Infoboxer
 
         subject{traits.templates.find('!')}
         it{should be_a(Class)}
-        it{should < InFlowTemplate}
+        it{should < Tree::InFlowTemplate}
         its(:inspect){should == '#<InFlowTemplate[!]>'}
 
         context 'definition helpers' do
@@ -68,7 +68,7 @@ module Infoboxer
         end
         subject{traits.templates.find('foo')}
         it{should be_a(Class)}
-        it{should < InFlowTemplate}
+        it{should < Tree::InFlowTemplate}
       end
 
       describe 'on-the-fly enrichment' do

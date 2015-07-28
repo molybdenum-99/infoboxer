@@ -7,9 +7,9 @@ module Infoboxer
           [
             Text.new('one '),
             InFlowTemplate.new('tpl', [
-              TemplateVariable.new('1', Italic.new(Text.new('two'))),
-              TemplateVariable.new('2', Bold.new(Text.new('three'))),
-              TemplateVariable.new('df', Text.new('foo'))
+              Var.new('1', Italic.new(Text.new('two'))),
+              Var.new('2', Bold.new(Text.new('three'))),
+              Var.new('df', Text.new('foo'))
             ])
           ]
         )

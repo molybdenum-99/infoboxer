@@ -3,9 +3,9 @@ module Infoboxer
   describe 'calculated templates' do
     let(:traits){MediaWiki::Traits.get('en.wikipedia.org')}
     let(:template_vars){
-      variables.each_with_index.map{|v, i| TemplateVariable.new((i+1).to_s, Text.new(v))}
+      variables.each_with_index.map{|v, i| Tree::Var.new((i+1).to_s, Tree::Text.new(v))}
     }
-    subject{traits.templates.find(name).new(name, Nodes[*template_vars])}
+    subject{traits.templates.find(name).new(name, Tree::Nodes[*template_vars])}
     
     describe '{{Convert}}' do
       let(:name){'Convert'}
@@ -13,7 +13,7 @@ module Infoboxer
       context 'simplest case' do
         let(:variables){%w[120 km mi]}
 
-        it{should be_kind_of(InFlowTemplate)}
+        it{should be_kind_of(Tree::InFlowTemplate)}
         
         its(:text){should == '120 km'}
         its(:value1){should == '120'}
@@ -43,7 +43,7 @@ module Infoboxer
         # FIXME: use timecomp here
         let(:variables){%w[1985 07 01]}
 
-        it{should be_kind_of(InFlowTemplate)}
+        it{should be_kind_of(Tree::InFlowTemplate)}
         
         its(:text){should == '30 years'}
       end
@@ -51,7 +51,7 @@ module Infoboxer
       context 'two dates' do
         let(:variables){%w[1985 07 01 1995 08 15]}
 
-        it{should be_kind_of(InFlowTemplate)}
+        it{should be_kind_of(Tree::InFlowTemplate)}
         
         its(:text){should == '10 years'}
       end

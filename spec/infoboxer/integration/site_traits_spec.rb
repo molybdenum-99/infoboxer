@@ -40,8 +40,8 @@ module Infoboxer
         subject{nodes.first.variables.first.children}
         it{should == [
           traits.templates.find('!').new('!'),
-          Paragraph.new(Text.new('text')),
-          Paragraph.new([Text.new('foo '), traits.templates.find(',').new(',')]),
+          Tree::Paragraph.new(Tree::Text.new('text')),
+          Tree::Paragraph.new([Tree::Text.new('foo '), traits.templates.find(',').new(',')]),
         ]}
         its(:text){should == "|text\n\nfoo ·\n\n"}
       end
@@ -63,7 +63,7 @@ module Infoboxer
           "{|\n|+Its in {{!}} caption!\n|}"
         }
         let(:table){Parser.paragraphs(source, traits).first}
-        subject{table.lookup(TableCaption).first}
+        subject{table.lookup(:TableCaption).first}
         its(:text){should == 'Its in | caption!'}
       end
     end

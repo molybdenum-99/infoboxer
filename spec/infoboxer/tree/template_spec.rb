@@ -21,7 +21,7 @@ module Infoboxer
           subject{template.fetch('text')}
           it{should be_a(Nodes)}
           its(:count){should == 1}
-          its(:first){should be_a(TemplateVariable)}
+          its(:first){should be_a(Var)}
           its(:'first.text'){should == 'something complex'}
         end
 
@@ -36,7 +36,7 @@ module Infoboxer
           subject{template.fetch(/city_\d+/)}
           it{should be_a(Nodes)}
           its(:count){should == 3}
-          it{should all(be_a(TemplateVariable))}
+          it{should all(be_a(Var))}
           its(:'first.text'){should == 'buenos aires'}
         end
 

@@ -62,7 +62,7 @@ module Infoboxer
         end
 
         context 'with param-ish variables' do
-          let(:node){Template.new('test', Nodes[TemplateVariable.new('foo', Text.new('var'))])}
+          let(:node){Template.new('test', Nodes[Var.new('foo', Text.new('var'))])}
 
           it{should == '#<Template[test](foo: "var")>'}
         end

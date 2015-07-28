@@ -23,7 +23,7 @@ module Infoboxer
       end
 
       it 'should be inside-navigable' do
-        expect(parse('{{nowrap|[[Chile]]}}').lookup(Wikilink).first.link).to eq 'Chile'
+        expect(parse('{{nowrap|[[Chile]]}}').lookup(:Wikilink).first.link).to eq 'Chile'
       end
     end
 

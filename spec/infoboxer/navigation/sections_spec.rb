@@ -54,7 +54,7 @@ module Infoboxer
         its(:intro){should be_empty}
 
         it 'should not rewrite nodes parents' do
-          expect(subject.children.first.lookup_parents(Document)).not_to be_empty
+          expect(subject.children.first.lookup_parents(Tree::Document)).not_to be_empty
           expect(subject.children.first.lookup_parents(Navigation::Sections::Section)).to be_empty
         end
       end
@@ -104,7 +104,7 @@ module Infoboxer
       end
 
       it 'should not rewrite nodes parents' do
-        expect(para.lookup_parents(Document)).not_to be_empty
+        expect(para.lookup_parents(:Document)).not_to be_empty
         expect(para.lookup_parents(:Section)).to be_empty
       end
 

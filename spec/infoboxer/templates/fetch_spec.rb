@@ -7,7 +7,7 @@ module Infoboxer
     context :fetch do
       context 'one value by string' do
         subject{template.fetch('conventional_long_name')}
-        it{should be_a(Nodes)}
+        it{should be_a(Tree::Nodes)}
         its(:count){should == 1}
         its(:text){should == 'Argentine Republic'}
       end
@@ -16,7 +16,7 @@ module Infoboxer
         subject{template.fetch(/leader_title\d+/)}
 
         its(:count){should == 3}
-        it{should all(be_a(TemplateVariable))}
+        it{should all(be_a(Tree::Var))}
         it 'should be all variables queried' do
           expect(subject.map(&:name)).to eq ['leader_title1', 'leader_title2', 'leader_title3']
         end
@@ -35,7 +35,7 @@ module Infoboxer
       subject{template.fetch_hash('leader_title1', 'leader_name1')}
       it{should be_a(Hash)}
       its(:keys){should == ['leader_title1', 'leader_name1']}
-      its(:values){should all(be_a(TemplateVariable))}
+      its(:values){should all(be_a(Tree::Var))}
     end
 
     context :fetch_date do

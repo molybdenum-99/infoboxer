@@ -4,7 +4,8 @@ module Infoboxer
     let(:page){Infoboxer.wp.get('Chile')}
     subject{
       page.infobox.
-        fetch('leader_name1').lookup(Wikilink).first.link
+        fetch('leader_name1').
+        lookup(:Wikilink).first.link
     }
     it{should == 'Michelle Bachelet'}
   end
