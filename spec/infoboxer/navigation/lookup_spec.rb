@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  describe NodeLookup do
+  describe Navigation::Lookup do
     let(:document){
       Parser.document(%Q{
       Test in first ''paragraph''
@@ -19,42 +19,42 @@ module Infoboxer
         subject{
           document.lookup
         }
-        it{should be_kind_of(Nodes)}
+        it{should be_kind_of(Tree::Nodes)}
         its(:count){should > 10}
       end
       
       context 'with block' do
         subject{
-          document.lookup{|n| n.is_a?(Text) && n.text =~ /test/i}
+          document.lookup{|n| n.is_a?(Tree::Text) && n.text =~ /test/i}
         }
 
-        it{should be_kind_of(Nodes)}
+        it{should be_kind_of(Tree::Nodes)}
         it{should == [
-          Text.new('Test in first '),
-          Text.new(' deep test') 
+          Tree::Text.new('Test in first '),
+          Tree::Text.new(' deep test') 
         ]}
       end
 
       context 'by class' do
-        subject{document.lookup(Table)}
+        subject{document.lookup(Tree::Table)}
         its(:count){should == 1}
       end
 
       context 'by class & fields' do
         subject{
-          document.lookup(Text, text: /test/i)
+          document.lookup(Tree::Text, text: /test/i)
         }
 
-        it{should be_kind_of(Nodes)}
+        it{should be_kind_of(Tree::Nodes)}
         it{should == [
-          Text.new('Test in first '),
-          Text.new(' deep test') 
+          Tree::Text.new('Test in first '),
+          Tree::Text.new(' deep test') 
         ]}
       end
 
       context 'by accessor' do
         before{
-          ListItem.module_eval{
+          Tree::ListItem.module_eval{
             def first?
               index.zero?
             end
@@ -70,39 +70,39 @@ module Infoboxer
       context 'by class-ish symbol' do
         subject{document.lookup(:Table)}
         its(:count){should == 1}
-        its(:first){should be_a(Table)}
+        its(:first){should be_a(Tree::Table)}
       end
 
       context 'everything at once' do
         subject{
-          document.lookup(Text, text: /test/i){|n| n.text.length == 10}
+          document.lookup(Tree::Text, text: /test/i){|n| n.text.length == 10}
         }
 
-        it{should be_kind_of(Nodes)}
+        it{should be_kind_of(Tree::Nodes)}
         it{should == [
-          Text.new(' deep test') 
+          Tree::Text.new(' deep test') 
         ]}
       end
 
       context 'by fields which only some subclasses have' do
-        subject{document.lookup(Heading, level: 3)}
+        subject{document.lookup(Tree::Heading, level: 3)}
 
         its(:count){should == 1}
       end
     end
 
     describe :lookup_children do
-      let(:cell){document.lookup(TableCell).first}
+      let(:cell){document.lookup(Tree::TableCell).first}
 
       context 'direct child only' do
-        subject{cell.lookup_children(Text)}
+        subject{cell.lookup_children(Tree::Text)}
 
         its(:count){should == 1}
-        its(:first){should == Text.new('With')}
+        its(:first){should == Tree::Text.new('With')}
       end
 
       context 'indirect child' do
-        subject{cell.lookup_children(ListItem)}
+        subject{cell.lookup_children(Tree::ListItem)}
         
         it{should be_empty}
       end
@@ -111,61 +111,61 @@ module Infoboxer
     describe 'chain of lookups' do
       subject{
         document.
-          lookup(List).
-          lookup(ListItem).
+          lookup(Tree::List).
+          lookup(Tree::ListItem).
           lookup_children(text: /test/)
       }
-      it{should == [Text.new(' deep test')]}
+      it{should == [Tree::Text.new(' deep test')]}
     end
 
     describe :parent do
-      subject{document.lookup(TableCell).first}
-      its(:parent){should be_a(TableRow)}
+      subject{document.lookup(Tree::TableCell).first}
+      its(:parent){should be_a(Tree::TableRow)}
     end
 
     describe :lookup_parents do
-      let(:cell){document.lookup(TableCell).first}
+      let(:cell){document.lookup(Tree::TableCell).first}
       context 'parent found' do
-        subject{cell.lookup_parents(Table)}
+        subject{cell.lookup_parents(Tree::Table)}
         
         its(:count){should == 1}
-        its(:first){should be_a(Table)}
+        its(:first){should be_a(Tree::Table)}
       end
     end
 
     describe :index do
-      subject{document.lookup(Heading).first}
+      subject{document.lookup(Tree::Heading).first}
       its(:index){should == 1}
     end
 
     describe :siblings do
-      subject{document.lookup(ListItem, text: /cool list/).first}
+      subject{document.lookup(Tree::ListItem, text: /cool list/).first}
       its(:'siblings.count'){should == 2}
-      its(:siblings){should all(be_a(ListItem))}
+      its(:siblings){should all(be_a(Tree::ListItem))}
     end
 
     describe :lookup_siblings do
-      let!(:node){document.lookup(ListItem, text: /cool list/).first}
+      let!(:node){document.lookup(Tree::ListItem, text: /cool list/).first}
       subject{node.lookup_siblings(text: /test/)}
       
       its(:count){should == 1}
-      it{should all(be_a(ListItem))}
+      it{should all(be_a(Tree::ListItem))}
     end
 
     describe :prev_siblings do
-      subject{document.lookup(ListItem, text: /deep test/).first}
+      subject{document.lookup(Tree::ListItem, text: /deep test/).first}
       its(:'prev_siblings.count'){should == 1}
       its(:'prev_siblings.text'){should include('cool list')}
     end
 
     describe :next_siblings do
-      subject{document.lookup(ListItem, text: /deep test/).first}
+      subject{document.lookup(Tree::ListItem, text: /deep test/).first}
       its(:'next_siblings.count'){should == 1}
       its(:'next_siblings.text'){should include('some more')}
     end
 
     describe :lookup_prev_siblings do
-      let!(:node){document.lookup(ListItem, text: /deep test/).first}
+      let!(:node){document.lookup(Tree::ListItem, text: /deep test/).first}
       it 'works' do
         expect(node.lookup_prev_siblings(text: /cool/).count).to eq 1
         expect(node.lookup_prev_siblings(text: /more/).count).to eq 0
@@ -173,7 +173,7 @@ module Infoboxer
     end
 
     describe :lookup_next_siblings do
-      let!(:node){document.lookup(ListItem, text: /deep test/).first}
+      let!(:node){document.lookup(Tree::ListItem, text: /deep test/).first}
       it 'works' do
         expect(node.lookup_next_siblings(text: /cool/).count).to eq 0
         expect(node.lookup_next_siblings(text: /more/).count).to eq 1

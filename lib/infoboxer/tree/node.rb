@@ -133,7 +133,7 @@ module Infoboxer
       MAX_CHARS = 30
 
       def shorten_text
-        text.length > MAX_CHARS ? text[0..MAX_CHARS] + '...' : text
+        text_.length > MAX_CHARS ? text_[0..MAX_CHARS] + '...' : text_
       end
 
       def clean_class

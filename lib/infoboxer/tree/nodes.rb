@@ -36,8 +36,6 @@ module Infoboxer
       [
         :prev_siblings, :next_siblings, :siblings,
         :sections, :in_sections,
-        :templates, :tables, :lists, :wikilinks, :images, :paragraphs, :external_links,
-        :infoboxes, :infobox,
         :fetch
       ].each do |sym|
         define_method(sym){|*args|

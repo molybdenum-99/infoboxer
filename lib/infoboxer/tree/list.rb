@@ -16,11 +16,17 @@ module Infoboxer
       end
 
       def text
-        parent.make_marker(self) + if children.last.is_a?(List)
+        make_marker + if children.last.is_a?(List)
           children[0..-2].map(&:text).join + "\n" + children.last.text
         else
           children.map(&:text).join + "\n"
         end
+      end
+
+      private
+
+      def make_marker
+        parent ? parent.make_marker(self) : '* '
       end
     end
 

@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  describe NavigationSugar do
+  describe Navigation::Shortcuts do
     # Document is immutable and is created ~0.3 sec each time.
     # So, fot tens of examples it's wiser to create it only once.
     before(:all){
@@ -14,7 +14,7 @@ module Infoboxer
 
         its(:count){should > 100}
         its(:'first.link'){should == 'federal republic'}
-        its(:'first.parent'){should be_a(Paragraph)}
+        its(:'first.parent'){should be_a(Tree::Paragraph)}
         it 'should have no namespaced link' do
           expect(subject.map(&:link)).not_to include(match(/:$/))
         end
@@ -64,7 +64,7 @@ module Infoboxer
       subject{document.tables}
 
       its(:count){should > 0}
-      its(:first){should be_a(Table)}
+      its(:first){should be_a(Tree::Table)}
     end
 
     describe :paragraphs do
@@ -72,7 +72,7 @@ module Infoboxer
       its(:count){should > 100}
       it 'should be only paragraph-level nodes' do
         expect(subject.map(&:class).uniq).to \
-          contain_exactly(Paragraph, ListItem, Heading, DTerm, DDefinition)
+          contain_exactly(Tree::Paragraph, Tree::ListItem, Tree::Heading, Tree::DTerm, Tree::DDefinition)
       end
     end
 

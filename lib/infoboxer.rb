@@ -18,7 +18,25 @@ require 'backports/2.1.0/array/to_h'
 # for extensive showcases and usage examples
 #
 module Infoboxer
+  private # hiding constants from YARD
+
   WIKIA_API_URL = 'http://%s.wikia.com/api.php'
+
+  WIKIMEDIA_PROJECTS = {
+    wikipedia: 'wikipedia.org',
+    wikivoyage: 'wikivoyage.org',
+    wikiquote: 'wikiquote.org',
+    wiktionary: 'wiktionary.org',
+    wikibooks: 'wikibooks.org',
+    wikinews: 'wikinews.org',
+    wikiversity: 'wikiversity.org',
+    wikisource: 'wikisource.org'
+  }
+
+  WIKIMEDIA_COMMONS = {
+    commons: 'commons.wikimedia.org',
+    species: 'species.wikimedia.org',
+  }
 
   class << self
 
@@ -38,65 +56,59 @@ module Infoboxer
       MediaWiki.new(api_url, options || {})
     end
 
-    WIKIMEDIA_PROJECTS = {
-      wikipedia: 'wikipedia.org',
-      wikivoyage: 'wikivoyage.org',
-      wikiquote: 'wikiquote.org',
-      wiktionary: 'wiktionary.org',
-      wikibooks: 'wikibooks.org',
-      wikinews: 'wikinews.org',
-      wikiversity: 'wikiversity.org',
-      wikisource: 'wikisource.org'
-    }
-
-    WIKIMEDIA_COMMONS = {
-      commons: 'commons.wikimedia.org',
-      species: 'species.wikimedia.org',
-    }
-
     # @!method wikipedia(lang = 'en', options = {})
     # Shortcut for creating Wikipedia client.
     #
     # @param lang two-character code for language version
     # @param options (see #wiki for list of options)
+    # @return [MediaWiki]
     
     # @!method commons(options = {})
     # Shortcut for creating [WikiMedia Commons](https://commons.wikimedia.org/) client.
     #
     # @param options (see #wiki for list of options)
+    # @return [MediaWiki]
     
     # @!method wikibooks(lang = 'en', options = {})
     # Shortcut for creating [Wikibooks](https://en.wikibooks.org/) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     # @!method wikiquote(lang = 'en', options = {})
     # Shortcut for creating [Wikiquote](https://en.wikiquote.org/) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     # @!method wikiversity(lang = 'en', options = {})
     # Shortcut for creating [Wikiversity](https://en.wikiversity.org/) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     # @!method wikisource(lang = 'en', options = {})
     # Shortcut for creating [Wikisource](https://en.wikisource.org/) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     # @!method wikivoyage(lang = 'en', options = {})
     # Shortcut for creating [Wikivoyage](http://wikivoyage.org) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     # @!method wikinews(lang = 'en', options = {})
     # Shortcut for creating [Wikinews](https://en.wikinews.org/) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     # @!method species(options = {})
     # Shortcut for creating [Wikispecies](https://species.wikimedia.org/) client.
     #
     # @param options (see #wiki for list of options)
+    # @return [MediaWiki]
     
     # @!method wiktionary(lang = 'en', options = {})
     # Shortcut for creating [Wiktionary](https://en.wiktionary.org/) client.
     # See {wikipedia} for params explanation.
+    # @return [MediaWiki]
 
     WIKIMEDIA_PROJECTS.each do |name, domain|
       define_method name do |lang = 'en', options = {}|
@@ -134,6 +146,7 @@ module Infoboxer
     #   @param options just last of params, if it is hash
     #     (see {wiki} for list of options)
     #
+    # @return [MediaWiki]
     def wikia(*domains)
       options = domains.last.is_a?(Hash) ? domains.pop : {}
       wiki(WIKIA_API_URL % domains.reverse.join('.'), options)
