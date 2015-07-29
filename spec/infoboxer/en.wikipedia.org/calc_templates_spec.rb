@@ -13,7 +13,7 @@ module Infoboxer
       context 'simplest case' do
         let(:variables){%w[120 km mi]}
 
-        it{should be_kind_of(Tree::InFlowTemplate)}
+        it{should be_kind_of(Templates::Base)}
         
         its(:text){should == '120 km'}
         its(:value1){should == '120'}
@@ -43,15 +43,13 @@ module Infoboxer
         # FIXME: use timecomp here
         let(:variables){%w[1985 07 01]}
 
-        it{should be_kind_of(Tree::InFlowTemplate)}
+        it{should be_kind_of(Templates::Base)}
         
         its(:text){should == '30 years'}
       end
 
       context 'two dates' do
         let(:variables){%w[1985 07 01 1995 08 15]}
-
-        it{should be_kind_of(Tree::InFlowTemplate)}
         
         its(:text){should == '10 years'}
       end

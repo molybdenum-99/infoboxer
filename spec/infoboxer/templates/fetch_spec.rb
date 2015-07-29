@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  describe Tree::Template, 'fetch*' do
+  describe Templates::Base, 'fetch_*' do
     let(:src){File.read('spec/fixtures/large_infobox.txt')}
     let(:template){Parser.inline(src).first}
     
@@ -28,6 +28,12 @@ module Infoboxer
         it 'should be all variables queried' do
           expect(subject.map(&:name)).to eq ['leader_title1', 'leader_name1']
         end
+      end
+
+      context 'when non-existing' do
+        subject{template.fetch('something strange')}
+        it{should be_a(Tree::Nodes)}
+        it{should be_empty}
       end
     end
 

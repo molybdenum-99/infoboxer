@@ -1,15 +1,6 @@
 # encoding: utf-8
 module Infoboxer
-  module Aux
-  end
-  
-  describe TemplateSet do
-    before do
-      Aux.constants.each do |c|
-        Aux.send(:remove_const, c)
-      end
-    end
-    
+  describe Templates::Set do
     context 'definition' do
       let(:set){
         described_class.new do
@@ -27,7 +18,7 @@ module Infoboxer
 
           template 'Infobox cheese', base: 'Infobox'
 
-          inflow_template 'convert' do
+          template 'convert' do
             def children
               fetch('1', '3', '5')
             end
@@ -37,15 +28,15 @@ module Infoboxer
             end
           end
 
-          text '!' => '|',
-            ',' => '·'
+          replace '!' => '|',
+                  ',' => '·'
         end
       }
 
       context 'standalone template' do
         subject{set.find('Largest cities')}
         it{should be_a(Class)}
-        it{should < Tree::Template}
+        it{should < Templates::Base}
         its(:inspect){should == '#<Template[Largest cities]>'}
         its(:instance_methods){should include(:city_names)}
 
@@ -69,22 +60,15 @@ module Infoboxer
         its(:instance_methods){should include(:infobox?)}
       end
 
-      context 'inflow template' do
-        subject{set.find('convert')}
-        it{should be_a(Class)}
-        it{should < Tree::InFlowTemplate}
-        its(:inspect){should == '#<InFlowTemplate[convert]>'}
-      end
-
       context 'defaults' do
         subject{set.find('undefined')}
         it{should be_a(Class)}
-        it{should == Tree::Template}
+        it{should == Templates::Base}
       end
 
       context 'helpers' do
         subject{set.find('!').new('!')}
-        it{should be_kind_of(Tree::InFlowTemplate)}
+        it{should be_kind_of(Templates::Replace)}
         its(:text){should == '|'}
       end
 

@@ -18,7 +18,7 @@ module Infoboxer
         '2/3',
         '3/4',
       )
-      text(
+      replace(
         '!!' => '||',
         '!(' => '[',
         '!((' => '[[',
@@ -60,14 +60,14 @@ module Infoboxer
 
       # https://en.wikipedia.org/wiki/Category:Line-handling_templates
       # ------------------------------------------------------------------
-      text(
+      replace(
         '-' => "\n",
         'Break' => "\n", # FIXME: in fact, break has optional parameter "how many breaks"
         'Crlf' => "\n",  # FIXME: in fact, alias for break, should have DSL syntax for it!
         'Crlf2' => "\n",
         
       )
-      inflow_templates(
+      show(
         'Allow wrap',
         'Nowrap',
           'j', 'nobr', 'nobreak', # aliases for Nowrap
@@ -79,7 +79,7 @@ module Infoboxer
       # -----------------------------------------------------------------------------
       # NB: it's enough for most cases to have all list-representing templates
       # just navigable inside and rendered as space-separated list of entries
-      inflow_templates(
+      show(
         'Br separated entries',
         'Bulleted list',
         'Collapsible list',
@@ -97,7 +97,7 @@ module Infoboxer
       # https://en.wikipedia.org/wiki/Category:Wikipedia_XHTML_tag-replacing_templates
       # ------------------------------------------------------------------------------
 
-      inflow_templates(
+      show(
         # Font size
         'Small',
         'Smaller',
@@ -130,32 +130,32 @@ module Infoboxer
         'Code'
       )
 
-      inflow_template 'Abbr' do
+      template 'Abbr' do
         def children
           fetch('1')
         end
       end
       # TODO: has aliases: {{Define}}, {{Explain}}, {{Tooltip}}
 
-      inflow_template 'Align' do
+      template 'Align' do
         def children
           fetch('2')
         end
       end
 
-      inflow_template 'Dfn' do
+      template 'Dfn' do
         def children
           fetch('1')
         end
       end
 
-      inflow_template 'Resize' do
+      template 'Resize' do
         def children
           unnamed_variables.count < 2 ? fetch('1') : fetch('2')
         end
       end
 
-      inflow_template 'Font' do
+      template 'Font' do
         def children
           res = fetch('text')
           res.empty? ? fetch('1') : res
@@ -163,7 +163,7 @@ module Infoboxer
       end
 
       # https://en.wikipedia.org/wiki/Category:Text_color_templates
-      inflow_templates(
+      show(
         'white', 'silver (color)', 'gray', 'black', 'pink', 'red', 'darkred',
         'maroon', 'brown', 'orange (color)', 'gold (color)', 'yellow', 'olive',
         'lime', 'green', 'aqua (color)', 'cyan', 'teal', 'blue', 'navy (color)',
@@ -188,7 +188,7 @@ module Infoboxer
         end
       end
 
-      inflow_template 'Coord' do
+      template 'Coord' do
         def model
           @model ||= begin
             npos = lookup_children(text: /^N|S$/).first.index rescue nil
@@ -204,6 +204,7 @@ module Infoboxer
             end
           end
         end
+
         def lat
           case model
           when :decimal
@@ -229,7 +230,7 @@ module Infoboxer
         end
       end
 
-      inflow_template 'Convert' do
+      template 'Convert' do
         def value1
           fetch('1').text
         end
@@ -263,7 +264,7 @@ module Infoboxer
         end
       end
 
-      inflow_template 'Age' do
+      template 'Age' do
         def from
           fetch_date('1', '2', '3')
         end
@@ -281,7 +282,7 @@ module Infoboxer
         end
       end
 
-      inflow_template 'Birth date and age' do
+      template 'Birth date and age' do
         def date
           fetch_date('1', '2', '3')
         end
@@ -292,7 +293,7 @@ module Infoboxer
       end
       # TODO: aliased as bda
 
-      inflow_template 'Birth date' do
+      template 'Birth date' do
         def date
           fetch_date('1', '2', '3')
         end
@@ -303,7 +304,7 @@ module Infoboxer
       end
       # TODO: aliased as dob
 
-      inflow_template 'Time ago' do
+      template 'Time ago' do
         def text
           str = fetch('1').text
           begin
@@ -315,21 +316,21 @@ module Infoboxer
         end
       end
 
-      inflow_template 'Flagcountry' do # very popular instead of country name
+      template 'Flagcountry' do # very popular instead of country name
         def children
           fetch('1')
         end
       end
 
-      inflow_template 'Flag' do # very popular instead of country name
+      template 'Flag' do # very popular instead of country name
         def children
           fetch('1')
         end
       end
 
-      inflow_template 'Plural'
+      show 'Plural'
 
-      inflow_template 'URL' do
+      template 'URL' do
         def children
           unnamed_variables.count > 1 ? fetch('2') : fetch('1')
         end

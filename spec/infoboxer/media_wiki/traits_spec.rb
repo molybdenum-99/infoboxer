@@ -13,7 +13,7 @@ module Infoboxer
       context 'templates' do
         before do
           klass.templates{
-            inflow_template '!' do
+            template '!' do
               def text
                 '!'
               end
@@ -23,13 +23,13 @@ module Infoboxer
 
         subject{traits.templates.find('!')}
         it{should be_a(Class)}
-        it{should < Tree::InFlowTemplate}
-        its(:inspect){should == '#<InFlowTemplate[!]>'}
+        it{should < Templates::Base}
+        its(:inspect){should == '#<Template[!]>'}
 
         context 'definition helpers' do
           before{
             klass.templates{
-              text '!' => '|', ',' => '·'
+              replace '!' => '|', ',' => '·'
             }
           }
 
@@ -58,7 +58,7 @@ module Infoboxer
         let!(:klass){
           MediaWiki::Traits.for('in.wikipedia.org'){
             templates{
-              inflow_template 'foo'
+              show 'foo'
             }
           }
         }
@@ -68,7 +68,7 @@ module Infoboxer
         end
         subject{traits.templates.find('foo')}
         it{should be_a(Class)}
-        it{should < Tree::InFlowTemplate}
+        it{should < Templates::Show}
       end
 
       describe 'on-the-fly enrichment' do

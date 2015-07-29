@@ -168,16 +168,12 @@ end
 require_relative 'infoboxer/version'
 require_relative 'infoboxer/core_ext'
 
-require_relative 'infoboxer/media_wiki'
-
 require_relative 'infoboxer/tree'
-
 require_relative 'infoboxer/parser'
-
 require_relative 'infoboxer/navigation'
-
-require_relative 'infoboxer/template_set'
+require_relative 'infoboxer/templates'
 
 require_relative 'infoboxer/page'
+require_relative 'infoboxer/media_wiki'
 
 require_relative 'infoboxer/media_wiki/traits/en.wikipedia.org'

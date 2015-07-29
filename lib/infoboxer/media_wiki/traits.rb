@@ -4,7 +4,7 @@ module Infoboxer
     class Traits
       class << self
         def templates(&definition)
-          @templates ||= TemplateSet.new
+          @templates ||= Templates::Set.new
 
           return @templates unless definition
           

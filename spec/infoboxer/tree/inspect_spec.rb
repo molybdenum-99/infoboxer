@@ -75,9 +75,6 @@ module Infoboxer
         end
       end
 
-      describe InFlowTemplate do
-      end
-
       describe Page, :vcr do
         let(:node){Infoboxer.wikipedia.get('Argentina')}
         it{should match \

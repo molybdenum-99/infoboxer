@@ -25,7 +25,7 @@ module Infoboxer
       end
 
       def text
-        children.map(&:text).join
+        children.map(&:text).join(children_separator)
       end
 
       def can_merge?(other)
@@ -47,6 +47,12 @@ module Infoboxer
           "#{indent(level)}<#{descr}>\n" +
             children.map(&call(to_tree: level+1)).join
         end
+      end
+
+      protected
+
+      def children_separator
+        ''
       end
 
       private
