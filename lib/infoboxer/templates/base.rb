@@ -7,7 +7,7 @@ module Infoboxer
         attr_accessor :template_name, :template_options
 
         def inspect
-          "#<#{clean_name}>"
+          template_name ? "Infoboxer::Templates::#{clean_name}" : super
         end
 
         def clean_name
@@ -36,6 +36,10 @@ module Infoboxer
         else
           Date.new(*components.map{|v| v.to_s.to_i})
         end
+      end
+
+      def ==(other)
+        other.kind_of?(Tree::Template) && _eq(other)
       end
 
       protected

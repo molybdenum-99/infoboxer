@@ -87,7 +87,7 @@ module Infoboxer
           subject{cells.last}
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
-              [Tree::Text, Tree::Template]
+              [Tree::Text, Templates::Base]
           end
         end
       end

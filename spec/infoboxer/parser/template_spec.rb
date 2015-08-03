@@ -79,7 +79,7 @@ module Infoboxer
       let(:source){ "{{the name|var=\n {{nested}}}}" }
       it{should be_a(Tree::Template)}
       it 'should preserve all content' do
-        expect(subject.variables.first.children.map(&:class)).to eq [Tree::Template]
+        expect(subject.variables.first.children).to all(be_a(Tree::Template))
       end
     end
 
