@@ -7,7 +7,24 @@ require_relative 'media_wiki/traits'
 require_relative 'media_wiki/page'
 
 module Infoboxer
+  # MediaWiki client class.
+  #
+  # Usage:
+  #
+  # ```ruby
+  # client = Infoboxer::MediaWiki.new('http://en.wikipedia.org/w/api.php', user_agent: 'My Own Project')
+  # page = client.get('Argentina')
+  # ```
+  #
+  # Consider using shortcuts like {Infoboxer.wiki}, {Infoboxer.wikipedia},
+  # {Infoboxer.wp} and so on instead of direct instation of this class
+  # (although you can if you want to!)
+  #
   class MediaWiki
+    # Default Infoboxer User-Agent header.
+    #
+    # You can set yours as an option to {Infoboxer.wiki} and its shortcuts,
+    # or to {#initialize}
     UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)"
 
     class << self
@@ -40,19 +57,9 @@ module Infoboxer
     #
     # @return [Array<Hash>]
     def raw(*titles)
-      postprocess(@resource.get(
-        params: {
-          titles:    titles.join('|'),
-          
-          action:    :query,
-          format:    :json,
-          redirects: true,
-
-          prop:      PROP,
-          rvprop:    :content,
-          inprop:    :url,
-        }
-      ))
+      postprocess @resource.get(
+        params: DEFAULT_PARAMS.merge(titles: titles.join('|'))
+      )
     end
 
     # Receive list of parsed wikipedia pages for list of titles provided.
@@ -100,6 +107,17 @@ module Infoboxer
       'categories',   # to extract default category prefix
       'images'        # to extract default media prefix
     ].join('|')
+
+    # @private
+    DEFAULT_PARAMS = {
+      action:    :query,
+      format:    :json,
+      redirects: true,
+
+      prop:      PROP,
+      rvprop:    :content,
+      inprop:    :url,
+    }
 
     def headers(options)
       {'User-Agent' => options[:user_agent] || options[:ua] || self.class.user_agent || UA}

@@ -15,7 +15,24 @@ require 'backports/2.1.0/array/to_h'
 # ...and have fully navigable Wiki information.
 #
 # Please read [wiki](http://github.com/molybdenum-99/infoboxer/wiki)
-# for extensive showcases and usage examples
+# for extensive showcases and usage examples.
+#
+# Here's main components list (which also can serve as a TOC for
+# Infoboxer's functionality): we suggest to read their docs in this order:
+#
+# * {Tree} -- nodes, of which Wikipedia AST is consisting; you'll be
+#   interested in basic {Tree::Node} functionality, as well as node
+#   classes list (which is useful for navigation);
+# * {Navigation} -- how to navigate the tree you have, basic way
+#   (children, parents, siblings) and hi-level shortcuts way (like
+#   all unnumbered list items in second level-3 section);
+# * {Templates} -- the most advanced data extraction from wikipedia definitely
+#   needs your undestanding of this (rather complicated) topic.
+#
+# You also may be interested in (though may be never use them directly):
+#
+# * {MediaWiki} client class;
+# * {Parser} -- which, you know, parses.
 #
 module Infoboxer
   private # hiding constants from YARD
