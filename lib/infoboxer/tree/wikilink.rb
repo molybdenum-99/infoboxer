@@ -1,13 +1,50 @@
 # encoding: utf-8
 module Infoboxer
   module Tree
+    # Internal MediaWiki link class.
+    #
+    # See [Wikipedia docs](https://en.wikipedia.org/wiki/Help:Link#Wikilinks)
+    # for extensive explanation of Wikilink concept.
+    #
     class Wikilink < Link
       def initialize(*)
         super
         parse_link!
       end
-      attr_reader :name, :namespace, :anchor, :topic, :refinement
 
+      # "Clean" wikilink name, for ex., `Cities` for `[Category:Cities]`
+      attr_reader :name
+
+      # Wikilink namespace, `Category` for `[Category:Cities]`, empty
+      # string (not `nil`!) for just `[Cities]`
+      attr_reader :namespace
+
+      # Anchor part of hyperlink, like `History` for `[Argentina#History]`
+      attr_reader :anchor
+
+      # Topic part of link name.
+      #
+      # There's so-called ["Pipe trick"](https://en.wikipedia.org/wiki/Help:Pipe_trick)
+      # in wikilink markup, which defines that `[Phoenix, Arizona]` link
+      # has main part ("Phoenix") and refinement part ("Arizona"). So,
+      # we are splitting it here in `topic` and {#refinement}.
+      # The same way, `[Pipe (programming)]` has `topic == 'Pipe'` and
+      # `refinement == 'programming'`
+      attr_reader :topic
+      
+      # Refinement part of link name.
+      #
+      # See {#topic} for explanation.
+      attr_reader :refinement
+
+      # Extracts wiki page by this link and returns it parsed (or nil,
+      # if page not found).
+      #
+      # @return {MediaWiki::Page}
+      #
+      # **See also**:
+      # * {Tree::Nodes#follow} for extracting multiple links at once;
+      # * {MediaWiki#get} for basic information on page extraction.
       def follow
         page = lookup_parents(MediaWiki::Page).first or
           fail("Not in a page from real source")
