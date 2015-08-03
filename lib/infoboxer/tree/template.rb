@@ -47,11 +47,7 @@ module Infoboxer
       protected
 
       def clean_class
-        if self.class.template_name == name
-          self.class.clean_name
-        else
-          "#{self.class.clean_name}[#{name}]"
-        end
+        "Template[#{name}]"
       end
       
       def extract_params(vars)

@@ -11,7 +11,7 @@ module Infoboxer
         end
 
         def clean_name
-          name ? name.sub(/^.*::/, '') : "Template[#{template_name}]"
+          template_name ? "Template[#{template_name}]" : 'Template'
         end
       end
 
@@ -35,6 +35,16 @@ module Infoboxer
           nil
         else
           Date.new(*components.map{|v| v.to_s.to_i})
+        end
+      end
+
+      protected
+
+      def clean_class
+        if self.class.template_name == name
+          self.class.clean_name
+        else
+          super
         end
       end
     end
