@@ -15,10 +15,11 @@ require 'backports/2.1.0/array/to_h'
 # ...and have fully navigable Wiki information.
 #
 # Please read [wiki](http://github.com/molybdenum-99/infoboxer/wiki)
-# for extensive showcases and usage examples.
+# for extensive [showcases](https://github.com/molybdenum-99/infoboxer/wiki/Showcase)
+# and usage recommendations.
 #
-# Here's main components list (which also can serve as a TOC for
-# Infoboxer's functionality): we suggest to read their docs in this order:
+# Here's main components list, which also can serve as a TOC for
+# Infoboxer's functionality (we suggest to read their docs in this order):
 #
 # * {Tree} -- nodes, of which Wikipedia AST is consisting; you'll be
 #   interested in basic {Tree::Node} functionality, as well as node
@@ -29,7 +30,7 @@ require 'backports/2.1.0/array/to_h'
 # * {Templates} -- the most advanced data extraction from wikipedia definitely
 #   needs your undestanding of this (rather complicated) topic.
 #
-# You also may be interested in (though may be never use them directly):
+# You also may be interested in (though may be never need to use them directly):
 #
 # * {MediaWiki} client class;
 # * {Parser} -- which, you know, parses.

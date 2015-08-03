@@ -7,22 +7,6 @@ module Infoboxer
     # never create instances of this class or it descendants by yourself,
     # you will receive it from tree and use for navigations.
     #
-    # ## Inspecting and understanding single node
-    #
-    #
-    # ## Tree navigation
-    #
-    #
-    # ### Navigation "sugar"
-    #
-    #
-    #
-    #
-    # ## Complex data extraction
-    #
-    #
-    #
-    #
     class Node
       include ProcMe
       
