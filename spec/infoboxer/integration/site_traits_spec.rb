@@ -10,9 +10,9 @@ module Infoboxer
       let(:klass){
         Class.new(MediaWiki::Traits) do
           templates do
-            inflow_template 'join'
+            show 'join'
 
-            text('!' => '|', ',' => '·')
+            replace('!' => '|', ',' => '·')
           end
         end
       }
@@ -26,9 +26,7 @@ module Infoboxer
           "before {{join|{{!}} text|and ''italics''}} after"
         }
 
-        subject{
-          nodes
-        }
+        subject{nodes}
 
         its(:text){should == 'before | text and italics after'}
       end

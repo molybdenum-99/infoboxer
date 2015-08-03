@@ -65,7 +65,7 @@ module Infoboxer
         end
 
         def ensure_page
-          (is_a?(Page) ? self : lookup_parents(Page).first) or
+          (is_a?(MediaWiki::Page) ? self : lookup_parents(MediaWiki::Page).first) or
             fail("Node is not inside Page, maybe parsed from text?")
         end
       end

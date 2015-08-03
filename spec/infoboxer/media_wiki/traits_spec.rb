@@ -24,7 +24,7 @@ module Infoboxer
         subject{traits.templates.find('!')}
         it{should be_a(Class)}
         it{should < Templates::Base}
-        its(:inspect){should == '#<Template[!]>'}
+        its(:inspect){should == 'Infoboxer::Templates::Template[!]'}
 
         context 'definition helpers' do
           before{

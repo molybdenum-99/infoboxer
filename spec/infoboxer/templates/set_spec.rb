@@ -37,7 +37,7 @@ module Infoboxer
         subject{set.find('Largest cities')}
         it{should be_a(Class)}
         it{should < Templates::Base}
-        its(:inspect){should == '#<Template[Largest cities]>'}
+        its(:inspect){should == 'Infoboxer::Templates::Template[Largest cities]'}
         its(:instance_methods){should include(:city_names)}
 
         it 'should be case-insensitive' do
@@ -49,14 +49,14 @@ module Infoboxer
         subject{set.find('Infobox country')}
         it{should be_a(Class)}
         it{should < Tree::Template}
-        its(:inspect){should == '#<Template[Infobox]>'}
+        its(:inspect){should == 'Infoboxer::Templates::Template[Infobox]'}
       end
 
       context 'explicit base option' do
         subject{set.find('Infobox cheese')}
         it{should be_a(Class)}
         it{should < set.find('Infobox')}
-        its(:inspect){should == '#<Template[Infobox cheese]>'}
+        its(:inspect){should == 'Infoboxer::Templates::Template[Infobox cheese]'}
         its(:instance_methods){should include(:infobox?)}
       end
 

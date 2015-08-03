@@ -71,7 +71,7 @@ module Infoboxer
       context 'when single page', :vcr do
         subject{client.get('Argentina')}
 
-        it{should be_a(Page)}
+        it{should be_a(MediaWiki::Page)}
         its(:title){should == 'Argentina'}
         its(:url){should == 'https://en.wikipedia.org/wiki/Argentina'}
       end
@@ -79,7 +79,7 @@ module Infoboxer
       context 'when several pages', :vcr do
         subject{client.get('Argentina', 'Ukraine')}
 
-        it{should all(be_a(Page))}
+        it{should all(be_a(MediaWiki::Page))}
       end
 
       context 'when signle non-existing page' do

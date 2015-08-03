@@ -173,7 +173,6 @@ require_relative 'infoboxer/parser'
 require_relative 'infoboxer/navigation'
 require_relative 'infoboxer/templates'
 
-require_relative 'infoboxer/page'
 require_relative 'infoboxer/media_wiki'
 
 require_relative 'infoboxer/media_wiki/traits/en.wikipedia.org'

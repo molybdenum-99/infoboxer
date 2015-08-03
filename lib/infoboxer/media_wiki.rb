@@ -4,6 +4,7 @@ require 'json'
 require 'addressable/uri'
 
 require_relative 'media_wiki/traits'
+require_relative 'media_wiki/page'
 
 module Infoboxer
   class MediaWiki

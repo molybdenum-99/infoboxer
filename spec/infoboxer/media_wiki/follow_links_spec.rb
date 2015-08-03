@@ -7,7 +7,7 @@ module Infoboxer
     let(:link){source.lookup(:Wikilink, link: 'Chile').first}
     
     subject{VCR.use_cassette("follow-chile"){link.follow}}
-    it{should be_a(Page)}
+    it{should be_a(MediaWiki::Page)}
     its(:title){should == 'Chile'}
     its(:text){should include('The arid Atacama Desert in northern Chile contains great mineral wealth, principally copper.')}
   end
@@ -20,6 +20,6 @@ module Infoboxer
     
     subject{VCR.use_cassette("follow-several"){links.follow}}
     it{should be_a(Tree::Nodes)}
-    it{should all(be_a(Page))}
+    it{should all(be_a(MediaWiki::Page))}
   end
 end

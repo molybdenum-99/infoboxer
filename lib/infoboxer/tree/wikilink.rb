@@ -9,7 +9,8 @@ module Infoboxer
       attr_reader :name, :namespace, :anchor, :topic, :refinement
 
       def follow
-        page = lookup_parents(Page).first or fail("Not in a page from real source")
+        page = lookup_parents(MediaWiki::Page).first or
+          fail("Not in a page from real source")
         page.client or fail("MediaWiki client not set")
         page.client.get(link)
       end

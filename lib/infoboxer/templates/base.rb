@@ -60,7 +60,7 @@ module Infoboxer
 
       protected
 
-      def separator
+      def children_separator
         ' '
       end
     end
