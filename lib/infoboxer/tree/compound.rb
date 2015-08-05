@@ -1,6 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   module Tree
+    # Base class for all nodes with children.
     class Compound < Node
       def initialize(children = Nodes.new, params = {})
         super(params)
@@ -8,38 +9,31 @@ module Infoboxer
         @children.each{|c| c.parent = self}
       end
 
+      # List of children
+      #
+      # @return {Nodes}
       attr_reader :children
 
-      def empty?
-        children.empty?
-      end
-
+      # Index of provided node in children list
+      #
+      # @return [Fixnum] or `nil` if not a child
       def index_of(child)
         children.index(child)
       end
 
+      # Internal, used by {Parser}
       def push_children(*nodes)
         nodes.each{|c| c.parent = self}.each do |n|
           @children << n
         end
       end
 
+      # See {Node#text}
       def text
         children.map(&:text).join(children_separator)
       end
 
-      def can_merge?(other)
-        false
-      end
-
-      def closed!
-        @closed = true
-      end
-
-      def closed?
-        @closed
-      end
-
+      # See {Node#to_tree}
       def to_tree(level = 0)
         if children.count == 1 && children.first.is_a?(Text)
           "#{indent(level)}#{children.first.text} <#{descr}>\n"
@@ -47,6 +41,28 @@ module Infoboxer
           "#{indent(level)}<#{descr}>\n" +
             children.map(&call(to_tree: level+1)).join
         end
+      end
+
+      # Kinda "private" methods, used by Parser only -------------------
+      
+      # Internal, used by {Parser}
+      def can_merge?(other)
+        false
+      end
+
+      # Internal, used by {Parser}
+      def closed!
+        @closed = true
+      end
+
+      # Internal, used by {Parser}
+      def closed?
+        @closed
+      end
+
+      # Internal, used by {Parser}
+      def empty?
+        children.empty?
       end
 
       protected
