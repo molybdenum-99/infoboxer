@@ -4,7 +4,7 @@ module Infoboxer
     # List of nodes, which tries to be useful both as array, and as proxy
     # to its contents.
     #
-    # Many of Infoboxer's methods (especially # {Navigation}'s) return
+    # Many of Infoboxer's methods (especially {Navigation}'s) return
     # `Nodes`, and in most cases you don't have to think about it. Same
     # approach can be seen in jQuery or Nokogiri. You just do things
     # like those:

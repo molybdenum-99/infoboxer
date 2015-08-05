@@ -41,6 +41,9 @@ module Infoboxer
   # {Navigation} module contains more advanced navigational functionality,
   # like XPath-like selectors, friendly shortcuts, breakup of document
   # into logical "sections" and so on.
+  #
+  # Most of navigational and other Node's methods return {Nodes} type,
+  # which is an `Array` descendant with additional functionality.
   # 
   # ## Complex data extraction
   #
