@@ -1,12 +1,21 @@
 # encoding: utf-8
 module Infoboxer
   module Tree
+    # Base class for all "paragraph-level" nodes: {Paragraph}, {ListItem},
+    # {Heading}. It should be convenient to use it in {Navigation::Lookup::Node#_lookup Node#lookup}
+    # and similar methods like this:
+    #
+    # ```ruby
+    # page.lookup(:BaseParagraph) # => flat list of paragraph-levels
+    # ```
     class BaseParagraph < Compound
       def text
         super.strip + "\n\n"
       end
     end
 
+    # @private
+    # Internal! Nothing to see here! Just YARD `@private` tag not working at class level
     class EmptyParagraph < Node
       def initialize(text)
         @text = text
@@ -20,6 +29,8 @@ module Infoboxer
       attr_reader :text
     end
 
+    # @private
+    # Internal! Nothing to see here! Just YARD `@private` tag not working at class level
     module Mergeable
       def can_merge?(other)
         !closed? && self.class == other.class
@@ -37,6 +48,8 @@ module Infoboxer
       end
     end
     
+    # @private
+    # Internal! Nothing to see here! Just YARD `@private` tag not working at class level
     class MergeableParagraph < BaseParagraph
       include Mergeable
 
@@ -46,37 +59,52 @@ module Infoboxer
       end
     end
 
+    # Represents plain text paragraph.
     class Paragraph < MergeableParagraph
-      # for merging
+      # Internal, used by {Parser} for merging
       def splitter
         Text.new(' ')
       end
 
+      # Internal, used by {Parser}
       def templates_only?
         children.all?{|c| c.is_a?(Template) || c.is_a?(Text) && c.raw_text.strip.empty?}
       end
 
+      # Internal, used by {Parser}
       def to_templates
         children.select(&filter(itself: Template))
       end
 
+      # Internal, used by {Parser}
       def to_templates?
         templates_only? ? to_templates : self
       end
     end
 
+    # Represents horisontal ruler splitter. Rarely seen in modern wikis.
     class HR < Node
     end
 
+    # Represents heading.
+    #
+    # NB: min heading level in MediaWiki is 2, Heading level 1 (page
+    # title) is not seen in page flaw.
     class Heading < BaseParagraph
       def initialize(children, level)
         super(children, level: level)
       end
 
+      # @!attribute [r] level
+      #   @return [Fixnum] lesser numbers is more important heading
       def_readers :level
     end
 
+    # Represents preformatted text chunk.
+    #
+    # Paragraph-level thing, can contain many lines of text.
     class Pre < MergeableParagraph
+      # Internal, used by {Parser}
       def merge!(other)
         if other.is_a?(EmptyParagraph) && !other.text.empty?
           @children.last.raw_text << "\n" << other.text.sub(/^ /, '')
@@ -85,7 +113,7 @@ module Infoboxer
         end
       end
 
-      # for merging
+      # Internal, used by {Parser} for merging
       def splitter
         Text.new("\n")
       end

@@ -3,8 +3,10 @@ require 'htmlentities'
 
 module Infoboxer
   module Tree
-    # This is the base class for all parse tree nodes. Basically, you'll
-    # never create instances of this class or it descendants by yourself,
+    # This is the base class for all parse tree nodes.
+    #
+    # Basically, you'll
+    # never create instances of this class or its descendants by yourself,
     # you will receive it from tree and use for navigations.
     #
     class Node
@@ -14,7 +16,20 @@ module Infoboxer
         @params = params
       end
 
+      # Hash of node "params".
+      #
+      # Params notin is roughly the same as tag attributes in HTML. This
+      # is actual for complex nodes like images, tables, raw HTML tags and
+      # so on.
+      #
+      # The most actual params are typically exposed by node as instance
+      # methods (like {Heading#level}).
+      #
+      # @return [Hash]
       attr_reader :params
+
+      # Node's parent in tree
+      # @return {Node}
       attr_accessor :parent
 
       def ==(other)
@@ -149,12 +164,14 @@ module Infoboxer
       end
       
       class << self
+        # Internal: descendandts DSL
         def def_readers(*keys)
           keys.each do |k|
             define_method(k){ params[k] }
           end
         end
 
+        # Internal: HTML entities decoder.
         def coder
           @coder ||= HTMLEntities.new
         end

@@ -1,12 +1,15 @@
 # encoding: utf-8
 module Infoboxer
   module Tree
+    # Represents item of ordered or unordered list. 
     class ListItem < BaseParagraph
+      # Internal, used by {Parser}
       def can_merge?(other)
         other.class == self.class &&
           other.children.first.kind_of?(List)
       end
 
+      # Internal, used by {Parser}
       def merge!(other)
         ochildren = other.children.dup
         if children.last && children.last.can_merge?(ochildren.first)
@@ -30,6 +33,22 @@ module Infoboxer
       end
     end
 
+    # "Imaginary" node, grouping {ListItem}s of same level and type.
+    #
+    # Base for concrete {OrderedList}, {UnorderedList} and {DefinitionList}.
+    #
+    # NB: Nested lists are represented by structures like:
+    #
+    # ```
+    # <OrderedList>
+    #  <ListItem>
+    #  <ListItem>
+    #    <Text>
+    #    <UnorderedList>
+    #      <ListItem>
+    #      <ListItem>
+    # ...and so on
+    # ```
     class List < Compound
       def list_level
         lookup_parents(List).count
@@ -48,18 +67,25 @@ module Infoboxer
       end
     end
 
+    # Represents unordered list (list with markers).
     class UnorderedList < List
       def make_marker(item)
         list_text_indent + '* '
       end
     end
 
+    # Represents ordered list (list with numbers).
     class OrderedList < List
       def make_marker(item)
         list_text_indent + "#{(item.index + 1)}. "
       end
     end
 
+    # Represents definitions list (`term: definition`  structure),
+    # consists of {DTerm}s and {DDefinition}s.
+    #
+    # NB: In fact, at least in English Wikipedia, orphan "definition terms"
+    # are used as a low-level headers, especially in lists of links/references. 
     class DefinitionList < List
       def make_marker(item)
         case item
@@ -71,32 +97,21 @@ module Infoboxer
       end
     end
 
+    # Term in {DefinitionList}
     class DTerm < ListItem
       def text
         super.sub("\n", ":\n")
       end
     end
 
+    # Term definition in {DefinitionList}
     class DDefinition < ListItem
     end
 
     class List < Compound
-      LISTS = {
-        ';' => DefinitionList,
-        ':' => DefinitionList,
-        '*' => UnorderedList,
-        '#' => OrderedList
-      }
-
-      ITEMS = {
-        ';' => DTerm,
-        ':' => DDefinition,
-        '*' => ListItem,
-        '#' => ListItem
-      }
-
       include Mergeable
 
+      # Internal, used by {Parser}
       def merge!(other)
         ochildren = other.children.dup
         if children.last && ochildren.first &&
@@ -108,6 +123,7 @@ module Infoboxer
         push_children(*ochildren)
       end
 
+      # Internal, used by {Parser}
       def self.construct(marker, nodes)
         m = marker.shift
         klass = LISTS[m] or
@@ -120,6 +136,25 @@ module Infoboxer
           klass.new(item_klass.new(construct(marker, nodes)))
         end
       end
+
+      private
+
+      # @private
+      LISTS = {
+        ';' => DefinitionList,
+        ':' => DefinitionList,
+        '*' => UnorderedList,
+        '#' => OrderedList
+      }
+
+      # @private
+      ITEMS = {
+        ';' => DTerm,
+        ':' => DDefinition,
+        '*' => ListItem,
+        '#' => ListItem
+      }
+      
     end
   end
 end

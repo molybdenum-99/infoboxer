@@ -1,6 +1,10 @@
 # encoding: utf-8
 module Infoboxer
   module Tree
+    # Template variable.
+    #
+    # It's basically the thing with name and ANY nodes inside, can be
+    # seen only as a direct child of {Template}.
     class Var < Compound
       attr_reader :name
 
@@ -9,9 +13,12 @@ module Infoboxer
         @name = name
       end
 
+      # Internal, used by {Parser}
       def empty?
         false
       end
+
+      protected
 
       def descr
         "#{clean_class}(#{name})"
@@ -21,7 +28,14 @@ module Infoboxer
         other.name == name && other.children == children
       end
     end
-    
+
+    # Wikipedia template.
+    #
+    # Templates are complicated! Also, they are useful.
+    #
+    # You'd need to understand them from [Wikipedia docs](https://en.wikipedia.org/wiki/Wikipedia:Templates)
+    # and then use much of Infoboxer's goodness provided with {Templates}
+    # separate module.
     class Template < Compound
       attr_reader :name, :variables
 
@@ -31,20 +45,22 @@ module Infoboxer
         @variables = Nodes[*variables].each{|v| v.parent = self}
       end
 
-      def _eq(other)
-        other.name == name && other.variables == variables
-      end
-
+      # See {Node#to_tree}
       def to_tree(level = 0)
         '  ' * level + "<#{descr}>\n" +
           variables.map{|var| var.to_tree(level+1)}.join
       end
 
+      # Internal, used by {Parser}.
       def empty?
         false
       end
 
       protected
+
+      def _eq(other)
+        other.name == name && other.variables == variables
+      end
 
       def clean_class
         "Template[#{name}]"

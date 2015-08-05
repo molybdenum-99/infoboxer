@@ -8,7 +8,8 @@ module Infoboxer
         super + (BLOCK_TAGS.include?(tag) ? "\n" : '')
       end
     end
-    
+
+    # Represents HTML tag, surrounding some contents.
     class HTMLTag < Compound
       def initialize(tag, attrs, children = Nodes.new)
         super(children, attrs)
@@ -20,8 +21,9 @@ module Infoboxer
 
       include HTMLTagCommons
 
-      # even empty tag, for ex., <br>, should not be dropped!
+      # Internal, used by {Parser}.
       def empty?
+        # even empty tag, for ex., <br>, should not be dropped!
         false
       end
       
@@ -32,6 +34,13 @@ module Infoboxer
       end
     end
 
+    # Represents orphan opening HTML tag.
+    #
+    # NB: Infoboxer not tries to parse entire structure of HTML-heavy
+    # MediaWiki articles. So, if you have `<div>` at line 150 and closing
+    # `</div>` at line 875, there would be orphane `HTMLOpeningTag` and
+    # {HTMLClosingTag}. It is not always convenient, but reasonable enough.
+    #
     class HTMLOpeningTag < Node
       def initialize(tag, attrs)
         super(attrs)
@@ -50,6 +59,8 @@ module Infoboxer
       end
     end
 
+    # Represents orphan closing HTML tag. See {HTMLOpeningTag} for
+    # explanation.
     class HTMLClosingTag < Node
       def initialize(tag)
         @tag = tag
