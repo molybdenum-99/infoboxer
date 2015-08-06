@@ -2,6 +2,9 @@
 module Infoboxer
   module Navigation
     module Lookup
+      # Incapsulates storage of selectors, used in {Lookup::Node node lookup}
+      #
+      # See {Lookup::Node Lookup::Node} for detailed explanation of available selectors.
       class Selector
         include ProcMe
         
