@@ -193,4 +193,4 @@ require_relative 'infoboxer/templates'
 
 require_relative 'infoboxer/media_wiki'
 
-require_relative 'infoboxer/media_wiki/traits/en.wikipedia.org'
+require_relative 'infoboxer/definitions/en.wikipedia.org'

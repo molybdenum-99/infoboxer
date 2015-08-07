@@ -1,11 +1,17 @@
+require './lib/infoboxer/version'
+
 Gem::Specification.new do |s|
   s.name     = 'infoboxer'
-  s.version  = '0.1.0'
+  s.version  = Infoboxer::VERSION
   s.authors  = ['Victor Shepelev']
   s.email    = 'zverok.offline@gmail.com'
   s.homepage = 'https://github.com/zverok/infoboxer'
 
-  s.summary = 'Full wikipedia markup parser'
+  s.summary = 'MediaWiki client and parser, targeting information extraction.'
+  s.description = <<-EOF
+    Infoboxer is library targeting use of Wikipedia (or any other
+    MediaWiki-based wiki) as a rich powerful data source.
+  EOF
   s.licenses = ['MIT']
 
   s.files = `git ls-files`.split($RS).reject do |file|

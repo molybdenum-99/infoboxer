@@ -4,7 +4,7 @@ Gemfile.lock
 deprecated
 TODO.txt
 tmp
-examples/output/*.txt
+examples
 profile/out/*.html
 spec/fixtures/vcr_cassettes
 .rubocop.yml
