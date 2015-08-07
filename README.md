@@ -23,13 +23,19 @@ page in our wiki.)_
 ## Showcase
 
 ```ruby
-# TODO
+Infoboxer.wikipedia.
+  get('Breaking Bad (season 1)').
+  sections('Episodes').templates(name: 'Episode table').
+  fetch('episodes').templates(name: /^Episode list/).
+  fetch_hashes('EpisodeNumber', 'EpisodeNumber2', 'Title', 'ShortSummary')
+# => [{"EpisodeNumber"=>#<Var(EpisodeNumber): 1>, "EpisodeNumber2"=>#<Var(EpisodeNumber2): 1>, "Title"=>#<Var(Title): Pilot>, "ShortSummary"=>#<Var(ShortSummary): Walter White, a 50-year old che...>},
+#     {"EpisodeNumber"=>#<Var(EpisodeNumber): 2>, "EpisodeNumber2"=>#<Var(EpisodeNumber2): 2>, "Title"=>#<Var(Title): Cat's in the Bag...>, "ShortSummary"=>#<Var(ShortSummary): Walt and Jesse try to dispose o...>},
+#     ...and so on
 ```
 
 Do you _feel_ it now?
 
-You also can take a look at [Showcase](https://github.com/molybdenum-99/infoboxer/wiki/Showcase)
-and inspect [examples](https://github.com/molybdenum-99/infoboxer/tree/master/examples) folder.
+You also can take a look at [Showcase](https://github.com/molybdenum-99/infoboxer/wiki/Showcase).
 
 ## Usage
 
