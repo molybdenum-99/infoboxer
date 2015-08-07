@@ -187,7 +187,7 @@ module Infoboxer
         # Selects nodes of current list (and only it, no children checks),
         # which are matching selectors.
         def find(*selectors, &block)
-          _find(Selector.new(*args, &block))
+          _find(Selector.new(*selectors, &block))
         end
 
         [
