@@ -58,7 +58,7 @@ See more examples and options at [Retrieving pages](https://github.com/molybdenu
 
 ### Play with page
 
-Basically, page is a tree of [Nodes], you can think of it as some kind of
+Basically, page is a tree of [Nodes](https://github.com/molybdenum-99/infoboxer/wiki/Nodes), you can think of it as some kind of
 [DOM](https://en.wikipedia.org/wiki/Document_Object_Model).
 
 So, you can navigate it:
@@ -70,54 +70,39 @@ node.to_tree
 node.to_text
 
 # Various lookups
-page.lookup(Template, name: /^Infobox/)
+page.lookup(:Template, name: /^Infobox/)
 ```
 
-See [Tree navigation basics].
+See [Tree navigation basics](https://github.com/molybdenum-99/infoboxer/wiki/Tree-navigation-basics).
 
-On the top of the basic navigation Infoboxer adds socalled "semantic"
-navigation, which allows things like this:
+On the top of the basic navigation Infoboxer adds some useful shortcuts
+for convenience and brevity, which allows things like this:
 
 ```ruby
 page.section('Episodes').tables.first
 ```
 
-See [Semantic navigation]
+See [Navigation shortcuts](https://github.com/molybdenum-99/infoboxer/wiki/Navigation-shortcuts)
 
-Infoboxer also provides helper methods to some types of the nodes -- most
-useful ones from information extraction perspective. See
-
-* [Wikilinks]
-* [Templates]
-* _Tables_ -- work in progress
-
-To put it all in one piece, also take a look at [Data extraction tips and tricks].
+To put it all in one piece, also take a look at [Data extraction tips and tricks](https://github.com/molybdenum-99/infoboxer/wiki/Tips-and-tricks).
 
 ## Advanced topics
 
-* [Reasons] for Infoboxer creation
-* [Parsing quality] (TL;DR: very good, but not ideal)
-* [Performance] (TL;DR: 0.1-0.4 sec for parsing hugest pages)
-* [Localization] (TL;DR: For now, you'll need some work to use Infoboxer's
+* [Reasons](https://github.com/molybdenum-99/infoboxer/wiki/Reasons) for Infoboxer creation;
+* [Parsing quality](https://github.com/molybdenum-99/infoboxer/wiki/Parsing-quality) (TL;DR: very good, but not ideal);
+* [Performance](https://github.com/molybdenum-99/infoboxer/wiki/Performance) (TL;DR: 0.1-0.4 sec for parsing hugest pages);
+* [Localization](https://github.com/molybdenum-99/infoboxer/wiki/Localization) (TL;DR: For now, you'll need some work to use Infoboxer's
   most advanced features with non-English or non-WikiMedia wikis; basic
-  and mid-level features work always)
+  and mid-level features work always);
 * If you plan to use Wikipedia or sister projects data in production,
-  please consider [Wikipedia terms and conditions]
+  please consider [Wikipedia terms and conditions](https://github.com/molybdenum-99/infoboxer/wiki/Wikipedia-terms-and-conditions).
 
 ## Links
 
-* [Wiki]
-* [API Docs]
-* [Gitter]
-
-## Roadmap
-
-## Contributing & Development
-
-* If you want to fix some bug or implement some feature, please just
-  follow the standard process for github opensource: fork, fix, push,
-  make pull request
-* 
+* [Wiki](https://github.com/molybdenum-99/infoboxer/wiki)
+* [API Docs](http://www.rubydoc.info/gems/infoboxer)
+* [Contributing](https://github.com/molybdenum-99/infoboxer/wiki/Contributing)
+* [Roadmap](https://github.com/molybdenum-99/infoboxer/wiki/Roadmap)
 
 ## License
 
