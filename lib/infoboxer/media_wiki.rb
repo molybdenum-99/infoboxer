@@ -70,7 +70,7 @@ module Infoboxer
     # **not** try to get other pages with subsequent queries. This will
     # be fixed in future.
     #
-    # @return [Array<Page>] array of parsed pages. Notes:
+    # @return [Tree::Nodes<Page>] array of parsed pages. Notes:
     #   * if you call `get` with only one title, one page will be
     #     returned instead of an array
     #   * if some of pages are not in wiki, they will not be returned,
@@ -81,7 +81,7 @@ module Infoboxer
     #
     #     ```ruby
     #     Infoboxer.wp.get('Argentina', 'Chile', 'Something non-existing').
-    #        infobox.fetch(.....)
+    #        infobox.fetch('some value')
     #     ```
     #     and obtain meaningful results instead of NoMethodError or some
     #     NotFound.

@@ -1,14 +1,66 @@
 # encoding: utf-8
 module Infoboxer
   module Navigation
+    # `Sections` module provides logical view on document strcture.
+    #
+    # From this module's point of view, each {Tree::Document Document} is a
+    # {Sections::Container Sections::Container}, which consists of
+    # {Sections::Container#intro} (before first heading) and a set of
+    # nested {Sections::Container#sections}.
+    #
+    # Each document node, in turn, provides method {Sections::Node#in_sections},
+    # allowing you to receive list of sections, which contains current
+    # node.
+    #
+    # **NB**: Sections are "virtual" nodes, they are not, in fact, in
+    # documents tree. So, you can be surprised with:
+    #
+    # ```ruby
+    # document.sections         # => list of Section instances
+    # document.lookup(:Section) # => []
+    #
+    # paragraph.in_sections     # => list of sections
+    # paragraph.
+    #  lookup_parents(:Section) # => []
+    # ```
     module Sections
+      # This module is included in {Tree::Document Document}, allowing 
+      # you to navigate through document's logical sections (and also
+      # included in each {Sections::Section} instance, allowing to navigate
+      # recursively).
+      #
+      # See also {Sections parent module} docs.
       module Container
+        # All container's paragraph-level nodes before first heading.
+        #
+        # @return {Tree::Nodes}
         def intro
           children.
             take_while{|n| !n.is_a?(Tree::Heading)}.
             select{|n| n.is_a?(Tree::BaseParagraph)}
         end
 
+        # List of sections inside current container.
+        #
+        # Examples of usage:
+        #
+        # ```ruby
+        # document.sections                 # all top-level sections
+        # document.sections('Culture')      # only "Culture" section
+        # document.sections(/^List of/)     # all sections with heading matching pattern
+        #   
+        # document.   
+        #   sections('Culture').            # long way of recieve nested section
+        #     sections('Music')             # (Culture / Music)
+        # 
+        # document. 
+        #   sections('Culture', 'Music')    # the same as above
+        #
+        # document.
+        #   sections('Culture' => 'Music')  # pretty-looking version for 2 levels of nesting
+        # ```
+        #
+        # @return {Tree::Nodes<Section>}
         def sections(*names)
           @sections ||= make_sections
 
@@ -52,7 +104,15 @@ module Infoboxer
         end
       end
 
+      # Part of {Sections} navigation, allowing each node to know exact
+      # list of sections it contained in.
+      #
+      # See also {Sections parent module} documentation.
       module Node
+        # List of sections current node contained in (bottom-to-top:
+        # smallest section first).
+        #
+        # @return {Tree::Nodes<Section>}
         def in_sections
           main_node = parent.is_a?(Tree::Document) ? self : lookup_parents[-2]
           
@@ -71,7 +131,13 @@ module Infoboxer
         end
       end
 
+      # Part of {Sections} navigation, allowing chains of section search.
+      #
+      # See {Sections parent module} documentation.
       module Nodes
+        # @!method sections(*names)
+        # @!method in_sections
+        
         [:sections, :in_sections].each do |sym|
           define_method(sym){|*args|
             make_nodes map{|n| n.send(sym, *args)}
@@ -79,6 +145,10 @@ module Infoboxer
         end
       end
 
+      # Virtual node, representing logical section of the document.
+      # Is not, in fact, in the tree.
+      #
+      # See {Sections parent module} documentation for details.
       class Section < Tree::Compound
         def initialize(heading, children = Tree::Nodes[])
           # no super: we don't wont to rewriter children's parent
@@ -86,6 +156,9 @@ module Infoboxer
           @heading = heading
         end
 
+        # Section's heading.
+        #
+        # @return {Tree::Heading}
         attr_reader :heading
 
         # no rewriting of parent, again
