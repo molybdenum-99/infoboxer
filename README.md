@@ -16,7 +16,7 @@ obvious structure, you can navigate that tree easily, and you have a
 bunch of hi-level helpers method, so typical information extraction
 tasks should be super-easy, one-liners in best cases.
 
-_(For those already thinkind "Why should you do this, we already have
+_(For those already thinking "Why should you do this, we already have
 DBPedia?" -- please, read "[Reasons](https://github.com/molybdenum-99/infoboxer/wiki/Reasons)"
 page in our wiki.)_
 
