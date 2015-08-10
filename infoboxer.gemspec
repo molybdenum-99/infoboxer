@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version  = Infoboxer::VERSION
   s.authors  = ['Victor Shepelev']
   s.email    = 'zverok.offline@gmail.com'
-  s.homepage = 'https://github.com/zverok/infoboxer'
+  s.homepage = 'https://github.com/molybdenum-99/infoboxer'
 
   s.summary = 'MediaWiki client and parser, targeting information extraction.'
   s.description = <<-EOF

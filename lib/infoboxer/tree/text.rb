@@ -29,11 +29,13 @@ module Infoboxer
         "#{indent(level)}#{text} <#{descr}>\n"
       end
 
+      # @private
       # Internal, used by {Parser}
       def can_merge?(other)
         other.is_a?(String) || other.is_a?(Text)
       end
 
+      # @private
       # Internal, used by {Parser}
       def merge!(other)
         if other.is_a?(String)
@@ -45,6 +47,7 @@ module Infoboxer
         end
       end
 
+      # @private
       # Internal, used by {Parser}
       def empty?
         raw_text.empty?

@@ -21,6 +21,7 @@ module Infoboxer
 
       include HTMLTagCommons
 
+      # @private
       # Internal, used by {Parser}.
       def empty?
         # even empty tag, for ex., <br>, should not be dropped!

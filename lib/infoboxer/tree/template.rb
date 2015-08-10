@@ -172,6 +172,7 @@ module Infoboxer
         end
       end
 
+      # @private
       # Internal, used by {Parser}.
       def empty?
         false

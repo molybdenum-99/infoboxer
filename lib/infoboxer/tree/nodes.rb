@@ -146,6 +146,7 @@ module Infoboxer
         page.client.get(*links)
       end
 
+      # @private
       # Internal, used by {Parser}
       def <<(node)
         if node.kind_of?(Array)
@@ -159,6 +160,7 @@ module Infoboxer
         end
       end
 
+      # @private
       # Internal, used by {Parser}
       def strip
         res = dup
@@ -167,6 +169,7 @@ module Infoboxer
         res
       end
 
+      # @private
       # Internal, used by {Parser}
       def flow_templates
         make_nodes map{|n| n.is_a?(Paragraph) ? n.to_templates? : n}

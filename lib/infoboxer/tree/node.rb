@@ -61,11 +61,13 @@ module Infoboxer
         Nodes[] # redefined in descendants
       end
 
+      # @private
       # Used only during tree construction in {Parser}.
       def can_merge?(other)
         false
       end
 
+      # @private
       # Whether node is empty (definition of "empty" varies for different
       # kinds of nodes). Used mainly in {Parser}.
       def empty?

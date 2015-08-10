@@ -18,6 +18,7 @@ module Infoboxer
       # @!attribute [r] name
       def_readers :name
 
+      # @private
       # Internal, used by {Parser}
       def empty?
         # even empty tag should not be dropped!

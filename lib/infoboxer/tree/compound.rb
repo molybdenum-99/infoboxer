@@ -21,6 +21,7 @@ module Infoboxer
         children.index(child)
       end
 
+      # @private
       # Internal, used by {Parser}
       def push_children(*nodes)
         nodes.each{|c| c.parent = self}.each do |n|
@@ -45,21 +46,25 @@ module Infoboxer
 
       # Kinda "private" methods, used by Parser only -------------------
       
+      # @private
       # Internal, used by {Parser}
       def can_merge?(other)
         false
       end
 
+      # @private
       # Internal, used by {Parser}
       def closed!
         @closed = true
       end
 
+      # @private
       # Internal, used by {Parser}
       def closed?
         @closed
       end
 
+      # @private
       # Internal, used by {Parser}
       def empty?
         children.empty?

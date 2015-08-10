@@ -3,12 +3,14 @@ module Infoboxer
   module Tree
     # Represents item of ordered or unordered list. 
     class ListItem < BaseParagraph
+      # @private
       # Internal, used by {Parser}
       def can_merge?(other)
         other.class == self.class &&
           other.children.first.kind_of?(List)
       end
 
+      # @private
       # Internal, used by {Parser}
       def merge!(other)
         ochildren = other.children.dup
@@ -111,6 +113,7 @@ module Infoboxer
     class List < Compound
       include Mergeable
 
+      # @private
       # Internal, used by {Parser}
       def merge!(other)
         ochildren = other.children.dup
@@ -123,6 +126,7 @@ module Infoboxer
         push_children(*ochildren)
       end
 
+      # @private
       # Internal, used by {Parser}
       def self.construct(marker, nodes)
         m = marker.shift

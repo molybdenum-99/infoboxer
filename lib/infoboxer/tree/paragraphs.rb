@@ -15,7 +15,6 @@ module Infoboxer
     end
 
     # @private
-    # Internal! Nothing to see here! Just YARD `@private` tag not working at class level
     class EmptyParagraph < Node
       def initialize(text)
         @text = text
@@ -30,7 +29,6 @@ module Infoboxer
     end
 
     # @private
-    # Internal! Nothing to see here! Just YARD `@private` tag not working at class level
     module Mergeable
       def can_merge?(other)
         !closed? && self.class == other.class
@@ -49,7 +47,6 @@ module Infoboxer
     end
     
     # @private
-    # Internal! Nothing to see here! Just YARD `@private` tag not working at class level
     class MergeableParagraph < BaseParagraph
       include Mergeable
 
@@ -61,21 +58,25 @@ module Infoboxer
 
     # Represents plain text paragraph.
     class Paragraph < MergeableParagraph
+      # @private
       # Internal, used by {Parser} for merging
       def splitter
         Text.new(' ')
       end
 
+      # @private
       # Internal, used by {Parser}
       def templates_only?
         children.all?{|c| c.is_a?(Template) || c.is_a?(Text) && c.raw_text.strip.empty?}
       end
 
+      # @private
       # Internal, used by {Parser}
       def to_templates
         children.select(&filter(itself: Template))
       end
 
+      # @private
       # Internal, used by {Parser}
       def to_templates?
         templates_only? ? to_templates : self
@@ -104,6 +105,7 @@ module Infoboxer
     #
     # Paragraph-level thing, can contain many lines of text.
     class Pre < MergeableParagraph
+      # @private
       # Internal, used by {Parser}
       def merge!(other)
         if other.is_a?(EmptyParagraph) && !other.text.empty?
@@ -113,6 +115,7 @@ module Infoboxer
         end
       end
 
+      # @private
       # Internal, used by {Parser} for merging
       def splitter
         Text.new("\n")
