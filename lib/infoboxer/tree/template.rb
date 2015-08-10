@@ -1,4 +1,6 @@
 # encoding: utf-8
+require_relative 'linkable'
+
 module Infoboxer
   module Tree
     # Template variable.
@@ -29,7 +31,7 @@ module Infoboxer
       end
     end
 
-    # Represnents MediaWiki **template**.
+    # Represents MediaWiki **template**.
     #
     # [**Template**](https://en.wikipedia.org/wiki/Wikipedia:Templates)
     # is basically a thing with name, some variables and their
@@ -89,7 +91,7 @@ module Infoboxer
     class Template < Compound
       # Template name, designating its contents structure.
       #
-      # See also {Template#url}, which you can navigate to read template's
+      # See also {Linkable#url #url}, which you can navigate to read template's
       # definition (and, in Wikipedia and many other projects, its
       # documentation).
       #
@@ -170,6 +172,39 @@ module Infoboxer
         else
           Date.new(*components.map{|v| v.to_s.to_i})
         end
+      end
+
+      include Linkable
+
+      # @!method follow
+      # Extracts template source and returns it parsed (or nil,
+      # if template not found).
+      #
+      # **NB**: Infoboxer does NO variable substitution or other template
+      # evaluation actions. Moreover, it will almost certainly NOT parse
+      # template definitions correctly. You should use this method ONLY
+      # for "transclusion" templates (parts of content, which are
+      # included into other pages "as is").
+      #
+      # Look for example at [this page's](https://en.wikipedia.org/wiki/Tropical_and_subtropical_coniferous_forests)
+      # [source](https://en.wikipedia.org/w/index.php?title=Tropical_and_subtropical_coniferous_forests&action=edit):
+      # each subtable about some region is just a transclusion of
+      # template. This can be processed like:
+      #
+      # ```ruby
+      # Infoboxer.wp.get('Tropical and subtropical coniferous forests').
+      #   templates(name: /forests^/).
+      #   follow.tables #.and_so_on
+      # ```
+      #
+      # @return {MediaWiki::Page}
+      #
+      # **See also** {Linkable#follow} for general notes on the following links.
+
+      # Wikilink name of this template's source.
+      def link
+        # FIXME: super-naive for now, doesn't thinks about subpages and stuff.
+        "Template:#{name}"
       end
 
       # @private

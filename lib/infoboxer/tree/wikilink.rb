@@ -1,4 +1,6 @@
 # encoding: utf-8
+require_relative 'linkable'
+
 module Infoboxer
   module Tree
     # Internal MediaWiki link class.
@@ -6,6 +8,8 @@ module Infoboxer
     # See [Wikipedia docs](https://en.wikipedia.org/wiki/Help:Link#Wikilinks)
     # for extensive explanation of Wikilink concept.
     #
+    # Note, that Wikilink is {Linkable}, so you can {Linkable#follow #follow}
+    # it to obtain linked pages.
     class Wikilink < Link
       def initialize(*)
         super
@@ -37,20 +41,7 @@ module Infoboxer
       # See {#topic} for explanation.
       attr_reader :refinement
 
-      # Extracts wiki page by this link and returns it parsed (or nil,
-      # if page not found).
-      #
-      # @return {MediaWiki::Page}
-      #
-      # **See also**:
-      # * {Tree::Nodes#follow} for extracting multiple links at once;
-      # * {MediaWiki#get} for basic information on page extraction.
-      def follow
-        page = lookup_parents(MediaWiki::Page).first or
-          fail("Not in a page from real source")
-        page.client or fail("MediaWiki client not set")
-        page.client.get(link)
-      end
+      include Linkable
 
       private
 
