@@ -10,3 +10,4 @@ spec/fixtures/vcr_cassettes
 .rubocop.yml
 rubocop
 .yardoc
+*.gem

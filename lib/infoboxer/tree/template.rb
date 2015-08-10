@@ -51,6 +51,25 @@ module Infoboxer
           variables.map{|var| var.to_tree(level+1)}.join
       end
 
+      def fetch(*patterns)
+        Nodes[*patterns.map{|p| variables.find(name: p)}.flatten]
+      end
+
+      def fetch_hash(*patterns)
+        fetch(*patterns).map{|v| [v.name, v]}.to_h
+      end
+
+      def fetch_date(*patterns)
+        components = fetch(*patterns)
+        components.pop while components.last.nil? && !components.empty?
+        
+        if components.empty?
+          nil
+        else
+          Date.new(*components.map{|v| v.to_s.to_i})
+        end
+      end
+
       # Internal, used by {Parser}.
       def empty?
         false
