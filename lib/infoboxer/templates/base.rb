@@ -15,10 +15,6 @@ module Infoboxer
         end
       end
 
-      def unnamed_variables
-        variables.select{|v| v.name =~ /^\d+$/}
-      end
-
       def ==(other)
         other.kind_of?(Tree::Template) && _eq(other)
       end

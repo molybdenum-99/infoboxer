@@ -29,15 +29,79 @@ module Infoboxer
       end
     end
 
-    # Wikipedia template.
+    # Represnents MediaWiki **template**.
     #
-    # Templates are complicated! Also, they are useful.
+    # [**Template**](https://en.wikipedia.org/wiki/Wikipedia:Templates)
+    # is basically a thing with name, some variables and their
+    # values. When pages are displayed in browser, templates are rendered in
+    # something different by wiki engine; yet, when extracting information
+    # with Infoboxer, you are working with original templates.
     #
-    # You'd need to understand them from [Wikipedia docs](https://en.wikipedia.org/wiki/Wikipedia:Templates)
-    # and then use much of Infoboxer's goodness provided with {Templates}
-    # separate module.
+    # It requires some mastering and understanding, yet allows to do
+    # very poweful things. There are many kinds of them, from pure 
+    # formatting-related (which are typically not more than small bells
+    # and whistles for page outlook, and should be rendered as a text)
+    # to very information-heavy ones, like
+    # [**infoboxes**](https://en.wikipedia.org/wiki/Help:Infobox), from
+    # which Infoboxer borrows its name!
+    #
+    # Basically, for information extraction from template you'll list
+    # its {#variables}, and then use {#fetch} method
+    # (and its variants: {#fetch_hash}/#{fetch_date}) to extract their
+    # values.
+    #
+    # ### On variables naming
+    # MediaWiki templates can contain _named_ and _unnamed_ variables.
+    # Example:
+    #
+    # ```
+    # {{birth date and age|1953|2|19|df=y}}
+    # ```
+    #
+    # This is template with name "birth date and age", three unnamed
+    # variables with values "1953", "2" and "19", and one named variable
+    # with name "df" and value "y".
+    #
+    # For consistency, Infoboxer treats unnamed variables _exactly_ the
+    # same way MediaWiki does: they considered to have numeric names,
+    # which are _started from 1_ and _stored as a strings_. So, for
+    # template shown above, the following is correct:
+    #
+    # ```ruby
+    # template.fetch('1').text == '1953'
+    # template.fetch('2').text == '2'
+    # template.fetch('3').text == '19'
+    # template.fetch('df').text == 'y'
+    # ```
+    #
+    # Note also, that _named variables with simple text values_ are
+    # duplicated as a template node {Node#params}, so, the following is
+    # correct also:
+    #
+    # ```ruby
+    # template.params['df'] == 'y'
+    # template.params.has_key?('1') == false
+    # ```
+    #
+    # For more advanced topics, like subclassing templates by names and
+    # converting them to inline text, please read {Templates} module's
+    # documentation.
     class Template < Compound
-      attr_reader :name, :variables
+      # Template name, designating its contents structure.
+      #
+      # See also {Template#url}, which you can navigate to read template's
+      # definition (and, in Wikipedia and many other projects, its
+      # documentation).
+      #
+      # @return [String]
+      attr_reader :name
+
+      # Template variables list.
+      #
+      # See {Var} class to understand what you can do with them.
+      #
+      # @return [Nodes<Var>]
+      attr_reader :variables
 
       def initialize(name, variables = Nodes[])
         super(Nodes[], extract_params(variables))
@@ -51,14 +115,52 @@ module Infoboxer
           variables.map{|var| var.to_tree(level+1)}.join
       end
 
+      # Returns list of template variables with numeric names (which
+      # are treated as "unnamed" variables by MediaWiki templates, see
+      # {Template class docs} for explanation).
+      #
+      # @return [Nodes<Var>]
+      def unnamed_variables
+        variables.find(name: /^\d+$/)
+      end
+
+      # Fetches template variable(s) by name(s) or patterns.
+      #
+      # Usage:
+      #
+      # ```ruby
+      # argentina.infobox.fetch('leader_title_1')   # => one Var node
+      # argentina.infobox.fetch('leader_title_1',
+      #                         'leader_name_1')    # => two Var nodes
+      # argentina.infobox.fetch(/leader_title_\d+/) # => several Var nodes
+      # ```
+      #
+      # @return [Nodes<Var>]
       def fetch(*patterns)
         Nodes[*patterns.map{|p| variables.find(name: p)}.flatten]
       end
 
+      # Fetches hash `{name => variable}`, by same patterns as {#fetch}.
+      #
+      # @return [Hash<String => Var>]
       def fetch_hash(*patterns)
         fetch(*patterns).map{|v| [v.name, v]}.to_h
       end
 
+      # Fetches date by list of variable names containing date components.
+      #
+      # _(Experimental, subject to change or enchance.)_
+      #
+      # Explanation: if you have template like
+      # ```
+      # {{birth date and age|1953|2|19|df=y}}
+      # ```
+      # ...there is a short way to obtain date from it:
+      # ```ruby
+      # template.fetch_date('1', '2', '3') # => Date.new(1953,2,19)
+      # ```
+      #
+      # @return [Date]
       def fetch_date(*patterns)
         components = fetch(*patterns)
         components.pop while components.last.nil? && !components.empty?
