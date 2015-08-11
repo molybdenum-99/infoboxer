@@ -9,6 +9,6 @@ rvm:
   - jruby-19mode
   - rbx-2
 install:
-  - bundle install --retry=3 --without docs
+  - bundle install --retry=3 --without dev,docs
 script:
   - bundle exec rspec
