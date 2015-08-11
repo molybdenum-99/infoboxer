@@ -31,7 +31,9 @@ module Infoboxer
     end
 
     # Renders all of its unnamed variables as space-separated text
-    # Also allows in-template navigation
+    # Also allows in-template navigation.
+    #
+    # Used for {Set} definitions.
     class Show < Base
       alias_method :children, :unnamed_variables
 
@@ -42,6 +44,9 @@ module Infoboxer
       end
     end
 
+    # Replaces template with replacement, while rendering.
+    #
+    # Used for {Set} definitions.
     class Replace < Base
       def replace
         fail(NotImplementedError, "Descendants should define :replace")
@@ -52,6 +57,9 @@ module Infoboxer
       end
     end
 
+    # Replaces template with its name, while rendering.
+    #
+    # Used for {Set} definitions.
     class Literal < Base
       alias_method :text, :name
     end
