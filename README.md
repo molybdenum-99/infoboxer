@@ -1,5 +1,7 @@
 # Infoboxer
 
+[![Gem Version](https://badge.fury.io/rb/infoboxer.svg)](http://badge.fury.io/rb/infoboxer)
+
 **Infoboxer** is pure-Ruby Wikipedia (and generic MediaWiki) client and
 parser, targeting information extraction (hence the name).
 
