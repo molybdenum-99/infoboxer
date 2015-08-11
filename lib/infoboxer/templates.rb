@@ -14,7 +14,7 @@ module Infoboxer
   #   is not most reasonable behavior for many formatting templates;
   # * allow you to define additional functionality for arbitrary templates;
   #   many of them containing pretty complicated logic (see, for ex.,
-  #   [Template:Convert](https://en.wikipedia.org/wiki/Template:Convert),
+  #   [Template:Convert](https://en.wikipedia.org/wiki/Template:Convert)),
   #   and it seems reasonable to extend instances of such a template.
   #
   # Infoboxer allows you to define {Templates::Set} of template-specific
