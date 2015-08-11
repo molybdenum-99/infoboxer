@@ -9,7 +9,7 @@ group :docs do
   gem 'inch'
 end
 
-group :dev do
+group :development do
   gem 'rake'
   gem 'ruby-prof'
 end
