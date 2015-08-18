@@ -1,11 +1,20 @@
 # Infoboxer's change log
 
+## 0.1.2 (2015-08-18)
+
+Aaaaand, rrrrrelease it into the wilde!
+
+* `ImageCaption` class added;
+* Smallest refactorings;
+* More documentation fixes.
+
+
 ## 0.1.1 (2015-08-11)
 
 Basically, preparing for wider release!
 
 * Small refactorings;
-* Documentation fixes;
+* Documentation fixes.
 
 ## 0.1.0 (2015-08-07)
 
