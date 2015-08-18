@@ -96,14 +96,28 @@ To put it all in one piece, also take a look at [Data extraction tips and tricks
 
 ## Advanced topics
 
-* [Reasons](https://github.com/molybdenum-99/infoboxer/wiki/Reasons) for Infoboxer creation;
-* [Parsing quality](https://github.com/molybdenum-99/infoboxer/wiki/Parsing-quality) (TL;DR: very good, but not ideal);
-* [Performance](https://github.com/molybdenum-99/infoboxer/wiki/Performance) (TL;DR: 0.1-0.4 sec for parsing hugest pages);
-* [Localization](https://github.com/molybdenum-99/infoboxer/wiki/Localization) (TL;DR: For now, you'll need some work to use Infoboxer's
+* [Reasons](https://github.com/molybdenum-99/infoboxer/wiki/Reasons) for
+  Infoboxer creation;
+* [Parsing quality](https://github.com/molybdenum-99/infoboxer/wiki/Parsing-quality)
+  (TL;DR: very good, but not ideal);
+* [Performance](https://github.com/molybdenum-99/infoboxer/wiki/Performance)
+  (TL;DR: 0.1-0.4 sec for parsing hugest pages);
+* [Localization](https://github.com/molybdenum-99/infoboxer/wiki/Localization)
+  (TL;DR: For now, you'll need some work to use Infoboxer's
   most advanced features with non-English or non-WikiMedia wikis; basic
   and mid-level features work always);
 * If you plan to use Wikipedia or sister projects data in production,
   please consider [Wikipedia terms and conditions](https://github.com/molybdenum-99/infoboxer/wiki/Wikipedia-terms-and-conditions).
+
+## Compatibility
+
+As of now, Infoboxer reported to be compatible with any MRI Ruby since 1.9.3.
+In Travis-CI tests, JRuby is failing due to bug in old Java 7/Java 8 SSL
+certificate support ([see here](https://github.com/jruby/jruby/issues/2599)),
+and Rubinius failing 3 specs of 500 by mystery, which is uninvestigated yet.
+
+Therefore, those Ruby versions are excluded from Travis config, though,
+they may still work for you.
 
 ## Links
 
