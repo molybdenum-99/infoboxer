@@ -11,3 +11,5 @@ spec/fixtures/vcr_cassettes
 rubocop
 .yardoc
 *.gem
+.coveralls.yml
+coverage

@@ -9,6 +9,9 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
 end
 
+require 'coveralls'
+Coveralls.wear!
+
 $:.unshift 'lib'
 
 require 'infoboxer'

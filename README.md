@@ -2,6 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/infoboxer.svg)](http://badge.fury.io/rb/infoboxer)
 [![Build Status](https://travis-ci.org/molybdenum-99/infoboxer.svg?branch=master)](https://travis-ci.org/molybdenum-99/infoboxer)
+[![Coverage Status](https://coveralls.io/repos/molybdenum-99/infoboxer/badge.svg?branch=master&service=github)](https://coveralls.io/github/molybdenum-99/infoboxer?branch=master)
 
 **Infoboxer** is pure-Ruby Wikipedia (and generic MediaWiki) client and
 parser, targeting information extraction (hence the name).

@@ -19,4 +19,5 @@ group :test do
   gem 'rspec-its', '~> 1'
   gem 'vcr'
   gem 'webmock'
+  gem 'coveralls', require: false
 end
