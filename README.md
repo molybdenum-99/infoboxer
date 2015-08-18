@@ -126,6 +126,10 @@ they may still work for you.
 
 * [Wiki](https://github.com/molybdenum-99/infoboxer/wiki)
 * [API Docs](http://www.rubydoc.info/gems/infoboxer)
+  * **NB**: ↑ this is "current version" link, but RubyDoc.info unfortunately
+    sometimes fails to update it to really _current_; in case you feel
+    something seriously underdocumented, please-please look at
+    [0.1.2 docs](http://www.rubydoc.info/gems/infoboxer/0.1.2).
 * [Contributing](https://github.com/molybdenum-99/infoboxer/wiki/Contributing)
 * [Roadmap](https://github.com/molybdenum-99/infoboxer/wiki/Roadmap)
 
