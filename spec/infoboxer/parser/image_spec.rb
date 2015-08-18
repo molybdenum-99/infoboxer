@@ -34,18 +34,19 @@ module Infoboxer
       describe 'caption' do
         subject{nodes.first.caption}
 
-        it{should be_a(Tree::Nodes)}
+        it{should be_a(Tree::ImageCaption)}
         it 'should preserve all data' do
-          expect(subject.map(&:class)).to eq \
+          expect(subject.children.map(&:class)).to eq \
             [Tree::Text, Tree::Wikilink, Tree::Text, Tree::Wikilink, Tree::Text]
 
-          expect(subject.map(&:text)).to eq [
+          expect(subject.children.map(&:text)).to eq [
             'The ',
             'Cave of the Hands',
             ' in ',
             'Santa Cruz province',
             ', with indigenous artwork dating from 13,000–9,000 years ago'
           ]
+          expect(subject.text).to eq 'The Cave of the Hands in Santa Cruz province, with indigenous artwork dating from 13,000–9,000 years ago'
         end
       end
     end
@@ -82,7 +83,7 @@ module Infoboxer
       its(:path){should == 'Diplomatic missions of Argentina.png'}
       its(:width){should == 250}
       it 'should have a caption ' do
-        expect(subject.caption.map(&:class)).to eq \
+        expect(subject.caption.children.map(&:class)).to eq \
           [Tree::Text, Tree::Paragraph]
       end
     end

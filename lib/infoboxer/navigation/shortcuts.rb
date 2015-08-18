@@ -122,7 +122,9 @@ module Infoboxer
         end
 
         # As users accustomed to have only one infobox on a page
-        alias_method :infobox, :infoboxes
+        def infobox
+          infoboxes.first
+        end
 
         private
 

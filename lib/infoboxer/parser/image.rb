@@ -48,10 +48,10 @@ module Infoboxer
           when /^alt=(.*)$/i
             {alt: $1}
           else # text-only caption
-            {caption: nodes}
+            {caption: ImageCaption.new(nodes)}
           end
         else # it's caption, and can have inline markup!
-          {caption: nodes}
+          {caption: ImageCaption.new(nodes)}
         end
       end
     end

@@ -49,5 +49,9 @@ module Infoboxer
           end
       end
     end
+
+    # Represents image caption.
+    class ImageCaption < Compound
+    end
   end
 end
