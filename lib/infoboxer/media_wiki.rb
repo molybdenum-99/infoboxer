@@ -1,6 +1,7 @@
 # encoding: utf-8
-require 'rest-client'
-require 'json'
+#require 'rest-client'
+#require 'json'
+require 'mediawiktory'
 require 'addressable/uri'
 
 require_relative 'media_wiki/traits'
@@ -49,7 +50,8 @@ module Infoboxer
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
     def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
-      @resource = RestClient::Resource.new(api_base_url, headers: headers(options))
+      #@resource = RestClient::Resource.new(api_base_url, headers: headers(options))
+      @client = MediaWiktory::Client.new(api_base_url) # TODO: user agen header
     end
 
     # Receive "raw" data from Wikipedia (without parsing or wrapping in
@@ -57,9 +59,13 @@ module Infoboxer
     #
     # @return [Array<Hash>]
     def raw(*titles)
-      postprocess @resource.get(
-        params: DEFAULT_PARAMS.merge(titles: titles.join('|'))
-      )
+      #postprocess @resource.get(
+        #params: DEFAULT_PARAMS.merge(titles: titles.join('|'))
+      #)
+      @client.query.
+        titles(*titles).
+        prop(revisions: {prop: ['content']}, info: {prop: ['url']}).
+        perform.pages
     end
 
     # Receive list of parsed wikipedia pages for list of titles provided.
