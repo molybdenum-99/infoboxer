@@ -1,5 +1,9 @@
 # Infoboxer's change log
 
+## 0.1.2.1 (2015-12-04)
+
+* Small bug with newlines in templates fixed.
+
 ## 0.1.2 (2015-08-18)
 
 Aaaaand, rrrrrelease it into the wilde!
