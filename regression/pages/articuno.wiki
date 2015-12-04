@@ -1,0 +1,102 @@
+{{PokémoncardInfobox |
+cardname=Articuno |
+jname=フリーザー |
+jtrans=Freezer |
+image=ArticunoFossil17.jpg |
+caption={{TCG|Fossil}} print<br>Illus. [[Mitsuhiro Arita]] |
+reprints=3 |
+reprint1=ArticunoSnapBestPhotoContest.jpg |
+recaption1=[[Pokémon Snap]] Best Photo Contest print<br>Photo. [[Yui Tanaka]] |
+reprint2=ArticunoPhoneCard.jpg |
+recaption2=Phone card print<br>Illus. [[Ken Sugimori]] |
+species=Articuno |
+evostage=Basic |
+type=Water |
+level=35 |
+hp=70 |
+resistance=Fighting |
+retreatcost=2 |
+}}
+{{PokémoncardInfobox/Expansion|type=Water|expansion={{TCG|Fossil}}|rarity={{rar|Rare Holo}}|cardno=2/62|jpexpansion={{TCG|Mystery of the Fossils}}|jprarity={{rar|Rare Holo}}}}
+{{PokémoncardInfobox/Expansion|type=Water|expansion={{TCG|Fossil}}|rarity={{rar|Rare}}|cardno=17/62}}
+{{PokémoncardInfobox/Expansion|type=Water|jpexpansion={{TCG|Unnumbered Promotional cards}}}}
+{{PokémoncardInfobox/Expansion|type=Water|jpexpansion={{TCG|Unnumbered Promotional cards}}}}
+{{PokémoncardInfobox/Expansion|type=Water|gbset={{GB|1|Mystery}}|gbid=C21|gb2set={{GB|2|Island of Fossil}}|gb2id=C29}}
+{{PokémoncardInfobox/Expansion|type=Water|expansion={{TCG|Legendary Collection}}|rarity={{rar|Rare Holo}}|cardno=2/110}}
+{{PokémoncardInfobox/Footer|type=Water|species=Articuno}}
+
+'''Articuno''' (Japanese: '''フリーザー''' ''Freezer'') is a {{ct|Water}} Basic Pokémon card. It is part of the {{TCG|Fossil}} expansion.
+
+==Card text==
+{{TCGAttack |
+type=Water |
+position=Top |
+cost={{e|Water}}{{e|Water}}{{e|Water}} |
+name=Freeze Dry |
+jname=フリーズドライ |
+jtrans=Freeze-Dry |
+damage=30 |
+effect=Flip a coin. If heads, the Defending Pokémon is now {{TCG|Paralyzed}}. |
+}}
+{{TCGAttack |
+type=Water |
+position=Bottom |
+cost={{e|Water}}{{e|Water}}{{e|Water}}{{e|Water}} |
+name=Blizzard |
+jname=ふぶき |
+jtrans=Snow Storm |
+damage=50 |
+effect=Flip a coin. If heads, this attack does 10 damage to each of your opponent's Benched Pokémon. If tails, this attack does 10 damage to each of your own Benched Pokémon. ''(Don't apply Weakness and Resistance for Benched Pokémon.)'' |
+}}
+
+===Pokédex data===
+{{Carddex |
+type=Water|
+name=Articuno |
+species=Freeze |
+ndex=144 |
+height=5'7" |
+jheight=1.7 |
+weight=122 |
+jweight=55.4 |
+dex=A legendary bird Pokémon that is said to appear to doomed people who are lost in icy mountains. |
+jdex=伝説の鳥ポケモンの一匹。長い尻尾がたなびいて飛んでいく姿はすばらしい。 |
+transdex=One of the legendary bird Pokémon. With its long tail trailing behind, its flying form is magnificent. |
+}}
+
+==Release information==
+This card was released in the English {{TCG|Fossil}} expansion as both a Holofoil and Non Holofoil card, originating from the Japanese {{TCG|Mystery of the Fossils}} as only a Holofoil card. In Japan, this card was reprinted with artwork by [[Yui Tanaka]], one of five winning entries of the [[Illustration contests#64 Mario Stadium Best Photo Contest|64 Mario Stadium Pokémon Snap Best Photo Contest]] held in Spring 1999. This version is extremely rare and the exact number in existence is unknown. It was later reprinted with different artwork by [[Ken Sugimori]], available as a prize at the 1999 Tropical Mega Battle tournament. Those who were not in the main event could still battle each other, earning stamps for every battle they participated in. Those who completed their stamp booklet were awarded either an Articuno, {{TCG ID|Fossil|Moltres|12}} or {{TCG ID|Fossil|Zapdos|15}} phone card at random in a sealed envelope. The Holofoil print of this card was later reprinted in the English {{TCG|Legendary Collection}} expansion.
+===Gallery===
+{{TCGGallery |
+type=Water |
+image1=ArticunoFossil17.jpg |
+set1=Fossil |
+illus1=Mitsuhiro Arita |
+image2=ArticunoSnapBestPhotoContest.jpg |
+caption2=Pokémon Snap Best Photo Contest print<br>Photo. [[Yui Tanaka]] |
+image3=ArticunoPhoneCard.jpg |
+caption3=Phone card print<br>Illus. [[Ken Sugimori]] |
+}}
+
+==Trivia==
+*The Japanese "Snap" print has a camera graphic where an expansion symbol would usually be.
+*Unlike the majority of the cards released through the Spring 1999 Pokémon Snap contests, the "Snap" print does feature the additional text on the bottom right.
+*The phone card promo is slightly longer than a normal trading card, as the print had to adopt the same dimensions as a regular Japanese phone card. That print utilizes the same stock Sugimori artwork of Articuno that was later used on the {{TCG ID|GB|Articuno|1}} Legendary Card from {{ga|Pokémon Trading Card Game}}.
+===Origin===
+{{m|Freeze-Dry}} is a [[move]] later introduced in the [[Generation VI]] [[Pokémon games]] that {{p|Articuno}} can learn. {{m|Blizzard}} is a [[move]] in the [[Pokémon games]] that {{p|Articuno}} can learn. This card's English [[Pokédex]] entry comes from {{game|Red and Blue|s}}, though it is slightly reworded. The Japanese entry comes from {{game|Red and Green|s}}.
+
+{{Project TCG notice}}
+
+[[Category:Fossil cards]]
+[[Category:Mystery of the Fossils cards]]
+[[Category:Promotional cards]]
+[[Category:Legendary Collection cards]]
+[[Category:Illus. by Mitsuhiro Arita]]
+[[Category:Photo. by Yui Tanaka]]
+[[Category:Illus. by Ken Sugimori]]
+[[Category:Holographic cards]]
+
+[[de:Arktos (Fossil 2)]]
+[[fr:Artikodin (Fossile 2)]]
+[[it:Articuno (Fossil 2)]]
+[[ja:フリーザー (化石の秘密)]]
