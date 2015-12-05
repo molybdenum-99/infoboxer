@@ -68,14 +68,14 @@ module Infoboxer
 
       def initialize(options = {})
         @options = options
-        @file_prefix = [DEFAULTS[:file_prefix], options.delete(:file_prefix)].
+        @file_namespace = [DEFAULTS[:file_namespace], namespace_aliases(options, 'File')].
           flatten.compact.uniq
-        @category_prefix = [DEFAULTS[:category_prefix], options.delete(:category_prefix)].
+        @category_namespace = [DEFAULTS[:category_namespace], namespace_aliases(options, 'Category')].
           flatten.compact.uniq
       end
 
       # @private
-      attr_reader :file_prefix, :category_prefix
+      attr_reader :file_namespace, :category_namespace
 
       # @private
       def templates
@@ -84,9 +84,15 @@ module Infoboxer
 
       private
 
+      def namespace_aliases(options, canonical)
+        namespace = (options[:namespaces] || []).detect{|v| v.canonical == canonical}
+        return nil unless namespace
+        [namespace['*'], *namespace.aliases]
+      end
+
       DEFAULTS = {
-        file_prefix: 'File',
-        category_prefix: 'Category'
+        file_namespace: 'File',
+        category_namespace: 'Category'
       }
 
     end

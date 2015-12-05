@@ -37,7 +37,7 @@ module Infoboxer
       attr_accessor :user_agent
     end
 
-    attr_reader :api_base_url
+    attr_reader :api_base_url, :traits
 
     # Creating new MediaWiki client. {Infoboxer.wiki} provides shortcut
     # for it, as well as shortcuts for some well-known wikis, like
@@ -50,8 +50,8 @@ module Infoboxer
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
     def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
-      #@resource = RestClient::Resource.new(api_base_url, headers: headers(options))
-      @client = MediaWiktory::Client.new(api_base_url) # TODO: user agen header
+      @client = MediaWiktory::Client.new(api_base_url, user_agent: user_agent(options))
+      @traits = Traits.get(@api_base_url.host, namespaces: extract_namespaces)
     end
 
     # Receive "raw" data from Wikipedia (without parsing or wrapping in
@@ -59,12 +59,10 @@ module Infoboxer
     #
     # @return [Array<Hash>]
     def raw(*titles)
-      #postprocess @resource.get(
-        #params: DEFAULT_PARAMS.merge(titles: titles.join('|'))
-      #)
       @client.query.
         titles(*titles).
-        prop(revisions: {prop: ['content']}, info: {prop: ['url']}).
+        prop(revisions: {prop: :content}, info: {prop: :url}).
+        redirects(true). # FIXME: should be done transparently by MediaWiktory?
         perform.pages
     end
 
@@ -93,10 +91,8 @@ module Infoboxer
     #     NotFound.
     #
     def get(*titles)
-      pages = raw(*titles).reject{|raw| raw[:content].nil?}.
+      pages = raw(*titles).select(&:exists?).
         map{|raw|
-          traits = Traits.get(@api_base_url.host, extract_traits(raw))
-          
           Page.new(self,
             Parser.paragraphs(raw[:content], traits),
             raw.merge(traits: traits))
@@ -106,63 +102,16 @@ module Infoboxer
 
     private
 
-    # @private
-    PROP = [
-      'revisions',    # to extract content of the page
-      'info',         # to extract page canonical url
-      'categories',   # to extract default category prefix
-      'images'        # to extract default media prefix
-    ].join('|')
-
-    # @private
-    DEFAULT_PARAMS = {
-      action:    :query,
-      format:    :json,
-      redirects: true,
-
-      prop:      PROP,
-      rvprop:    :content,
-      inprop:    :url,
-    }
-
-    def headers(options)
-      {'User-Agent' => options[:user_agent] || options[:ua] || self.class.user_agent || UA}
+    def user_agent(options)
+      options[:user_agent] || options[:ua] || self.class.user_agent || UA
     end
 
-    def extract_traits(raw)
-      raw.select{|k, v| [:file_prefix, :category_prefix].include?(k)}
-    end
-
-    def guess_traits(pages)
-      categories = pages.map{|p| p['categories']}.compact.flatten
-      images = pages.map{|p| p['images']}.compact.flatten
-      {
-        file_prefix: images.map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
-        category_prefix: categories.map{|i| i['title'].scan(/^([^:]+):/)}.flatten.uniq,
+    def extract_namespaces
+      siteinfo = @client.query.meta(siteinfo: {prop: [:namespaces, :namespacealiases]}).perform
+      siteinfo.raw.query.namespaces.map{|_, namespace|
+        aliases = siteinfo.raw.query.namespacealiases.select{|a| a.id == namespace.id}.map{|a| a['*']}
+        namespace.merge(aliases: aliases)
       }
-    end
-
-    def postprocess(response)
-      pages = JSON.parse(response)['query']['pages']
-      traits = guess_traits(pages.values)
-      
-      pages.map{|id, data|
-        if id.to_i < 0
-          {
-            title: data['title'],
-            content: nil,
-            not_found: true
-          }
-        else
-          {
-            title: data['title'],
-            content: data['revisions'].first['*'],
-            url: data['fullurl'],
-          }.merge(traits)
-        end
-      }
-    rescue JSON::ParserError
-      fail RuntimeError, "Not a JSON response, seems there's not a MediaWiki API: #{@api_base_url}"
     end
   end
 end
