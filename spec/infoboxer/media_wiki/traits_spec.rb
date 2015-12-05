@@ -5,6 +5,13 @@ module Infoboxer
       described_class.templates.clear
       described_class.domains.clear
     end
+
+    after(:all){
+      # restoring after cleanup
+      verbose, $VERBOSE = $VERBOSE, nil # suppressing "constant redefined" warning
+      load 'lib/infoboxer/definitions/en.wikipedia.org.rb'
+      $VERBOSE = verbose
+    }
     
     context 'definition' do
       let(:klass){Class.new(described_class)}
@@ -43,9 +50,9 @@ module Infoboxer
 
       describe 'binding to domain' do
         before{
-          klass.domain 'en.wikipedia.org'
+          klass.domain 'in.wikipedia.org'
         }
-        subject{MediaWiki::Traits.get('en.wikipedia.org')}
+        subject{MediaWiki::Traits.get('in.wikipedia.org')}
         it{should be_a(klass)}
 
         context 'when non-bound domain' do
@@ -73,10 +80,10 @@ module Infoboxer
 
       describe 'on-the-fly enrichment' do
         before{
-          klass.domain 'en.wikipedia.org'
+          klass.domain 'in.wikipedia.org'
         }
-        subject{MediaWiki::Traits.get('en.wikipedia.org', file_prefix: 'File')}
-        its(:file_prefix){should == ['File']}
+        subject{MediaWiki::Traits.get('in.wikipedia.org', Hashie::Mash.new(namespaces: [{canonical: 'File', '*' => 'Fichier'}]))}
+        its(:file_namespace){should == ['File', 'Fichier']}
       end
     end
   end

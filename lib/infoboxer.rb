@@ -134,7 +134,7 @@ module Infoboxer
           lang, options = 'en', lang
         end
 
-        wiki("http://#{lang}.#{domain}/w/api.php", options)
+        wiki("https://#{lang}.#{domain}/w/api.php", options)
       end
     end
 
@@ -142,7 +142,7 @@ module Infoboxer
 
     WIKIMEDIA_COMMONS.each do |name, domain|
       define_method name do |options = {}|
-        wiki("http://#{domain}/w/api.php", options)
+        wiki("https://#{domain}/w/api.php", options)
       end
     end
 

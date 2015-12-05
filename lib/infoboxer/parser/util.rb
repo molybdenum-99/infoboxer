@@ -22,7 +22,7 @@ module Infoboxer
 
       def make_regexps
         {
-          file_prefix: /(#{@context.traits.file_prefix.join('|')}):/,
+          file_namespace: /(#{@context.traits.file_namespace.join('|')}):/,
           formatting: FORMATTING,
           inline_until_cache: Hash.new{|h, r|
             h[r] = Regexp.union(*[r, FORMATTING, /$/].compact.uniq)

@@ -56,7 +56,8 @@ module Infoboxer
         %Q{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
       }
       let(:traits){
-        MediaWiki::Traits.new(file_prefix: 'Fichier')
+        # FIXME: works well in real life, but too complex for test
+        MediaWiki::Traits.new(Hashie::Mash.new(namespaces: [{canonical: 'File', '*' => 'Fichier'}]))
       }
       let(:ctx){Parser::Context.new(source, traits)}
 

@@ -94,8 +94,8 @@ module Infoboxer
       pages = raw(*titles).select(&:exists?).
         map{|raw|
           Page.new(self,
-            Parser.paragraphs(raw[:content], traits),
-            raw.merge(traits: traits))
+            Parser.paragraphs(raw.content, traits),
+            raw)
         }
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end

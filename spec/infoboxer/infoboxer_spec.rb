@@ -1,24 +1,24 @@
 # encoding: utf-8
 describe Infoboxer do
-  describe 'common MediaWiki shortcuts' do
+  describe 'common MediaWiki shortcuts', :vcr do
     context 'Wikipedia' do
       describe 'default' do
         subject{Infoboxer.wikipedia}
 
         it{should be_a(Infoboxer::MediaWiki)}
-        its(:'api_base_url.to_s'){should == 'http://en.wikipedia.org/w/api.php'}
+        its(:'api_base_url.to_s'){should == 'https://en.wikipedia.org/w/api.php'}
       end
 
       describe 'language' do
         subject{Infoboxer.wikipedia('fr')}
 
-        its(:'api_base_url.to_s'){should == 'http://fr.wikipedia.org/w/api.php'}
+        its(:'api_base_url.to_s'){should == 'https://fr.wikipedia.org/w/api.php'}
       end
 
       describe 'shortcut' do
         subject{Infoboxer.wp('fr')}
 
-        its(:'api_base_url.to_s'){should == 'http://fr.wikipedia.org/w/api.php'}
+        its(:'api_base_url.to_s'){should == 'https://fr.wikipedia.org/w/api.php'}
       end
     end
 

@@ -118,7 +118,7 @@ module Infoboxer
         #
         # @return {Tree::Nodes}
         def categories
-          lookup(Tree::Wikilink, namespace: /^#{ensure_traits.category_prefix.join('|')}$/)
+          lookup(Tree::Wikilink, namespace: /^#{ensure_traits.category_namespace.join('|')}$/)
         end
 
         # As users accustomed to have only one infobox on a page

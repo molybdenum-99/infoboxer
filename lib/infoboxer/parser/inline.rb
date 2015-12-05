@@ -82,7 +82,7 @@ module Infoboxer
           when "''"
             Italic.new(short_inline(/''/))
           when '[['
-            if @context.check(re.file_prefix)
+            if @context.check(re.file_namespace)
               image
             else
               wikilink

@@ -5,7 +5,7 @@ module Infoboxer
       include Tree
       
       def image
-        @context.skip(re.file_prefix) or
+        @context.skip(re.file_namespace) or
           @context.fail!("Something went wrong: it's not image?")
 
         path = @context.scan_until(/\||\]\]/)

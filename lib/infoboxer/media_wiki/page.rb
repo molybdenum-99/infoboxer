@@ -7,14 +7,18 @@ module Infoboxer
     # Alongside with document tree structure, knows document's title as
     # represented by MediaWiki and human (non-API) URL.
     class Page < Tree::Document
-      def initialize(client, children, raw)
-        @client = client
-        super(children, raw)
+      def initialize(client, children, source)
+        @client, @source = client, source
+        super(children, title: source.title, url: source.fullurl)
       end
 
       # Instance of {MediaWiki} which this page was received from
       # @return {MediaWiki}
       attr_reader :client
+
+      # Instance of MediaWiktory::Page class with source data
+      # @return {MediaWiktory::Page}
+      attr_reader :source
 
       # @!attribute [r] title
       #   Page title.
@@ -24,11 +28,15 @@ module Infoboxer
       #   Page friendly URL.
       #   @return [String]
 
-      def_readers :title, :url, :traits
+      def_readers :title, :url
+
+      def traits
+        client.traits
+      end
 
       private
 
-      PARAMS_TO_INSPECT = [:url, :title, :domain]
+      PARAMS_TO_INSPECT = [:url, :title] #, :domain]
 
       def show_params
         super(params.select{|k, v| PARAMS_TO_INSPECT.include?(k)})
