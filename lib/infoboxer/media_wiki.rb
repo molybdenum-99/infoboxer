@@ -119,8 +119,32 @@ module Infoboxer
     def category(title)
       title = normalize_category_title(title)
       
+      list(categorymembers: {title: title, limit: 50})
+    end
+
+    # Receive list of parsed MediaWiki pages for provided search query.
+    #
+    # **NB**: currently, this API **always** fetches all pages from
+    # category, there is no option to "take first 20 pages". Pages are
+    # fetched in 50-page batches, then parsed. So, for large category
+    # it can really take a while to fetch all pages.
+    #
+    # @param query Search query. For old installations, look at
+    #     https://www.mediawiki.org/wiki/Help:Searching
+    #     for search syntax. For new ones (including Wikipedia), see at
+    #     https://www.mediawiki.org/wiki/Help:CirrusSearch.
+    #
+    # @return [Tree::Nodes<Page>] array of parsed pages.
+    #
+    def search(query)
+      list(search: {search: query, limit: 50})
+    end
+
+    private
+
+    def list(query)
       response = @client.query.
-        generator(categorymembers: {title: title, limit: 50}).
+        generator(query).
         prop(revisions: {prop: :content}, info: {prop: :url}).
         redirects(true). # FIXME: should be done transparently by MediaWiktory?
         perform
@@ -136,8 +160,6 @@ module Infoboxer
 
       Tree::Nodes[*pages]
     end
-
-    private
 
     def normalize_category_title(title)
       # FIXME: shouldn't it go to MediaWiktory?..

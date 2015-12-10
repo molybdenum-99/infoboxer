@@ -173,5 +173,23 @@ module Infoboxer
 
       end
     end
+
+    describe :search, :vcr do
+      context 'when found' do
+        subject{client.search('intitle:"town tramway systems in Chile"')}
+        it{should be_a(Tree::Nodes)}
+        its(:count){should == 1}
+        
+        it 'should have correct content' do
+          expect(subject.map(&:title)).to include('List of town tramway systems in Chile')
+        end
+      end
+
+      xcontext 'when not found' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
+        subject{client.search('intitle:"town tramway systems in Vunuatu"')}
+        it{should be_a(Tree::Nodes)}
+        it{should be_empty}
+      end
+    end
   end
 end
