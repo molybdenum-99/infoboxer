@@ -101,6 +101,8 @@ module Infoboxer
     end
 
     def category(title)
+      title = normalize_category_title(title)
+      
       response = @client.query.
         generator(categorymembers: {title: title, limit: 50}).
         prop(revisions: {prop: :content}, info: {prop: :url}).
@@ -120,6 +122,15 @@ module Infoboxer
     end
 
     private
+
+    def normalize_category_title(title)
+      # FIXME: shouldn't it go to MediaWiktory?..
+      namespace, titl = title.include?(':') ? title.split(':', 2) : [nil, title]
+      namespace, titl = nil, title unless traits.category_namespace.include?(namespace)
+      
+      namespace ||= traits.category_namespace.first
+      [namespace, titl].join(':')
+    end
 
     def user_agent(options)
       options[:user_agent] || options[:ua] || self.class.user_agent || UA

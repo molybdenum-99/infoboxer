@@ -126,18 +126,40 @@ module Infoboxer
         end
       end
 
-      context 'when category is not' do
+      xcontext 'when category is not' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
+        subject{client.category('Category:krainian rock music groups')}
+        it{should be_a(Tree::Nodes)}
+        it{should be_empty}
       end
 
-      describe 'category name transformation' do
-        context 'when default namespace' do
-        end
-
-        context 'when localized namespace' do
-        end
+      describe 'category name transformation', :vcr do
+        subject{WebMock.last_request}
 
         context 'when no namespace' do
+          before{client.category('Ukrainian rock music groups')}
+          
+          its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian rock music groups')}
         end
+
+        context 'default namespace' do
+          before{client.category('Category:Ukrainian rock music groups')}
+          
+          its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian rock music groups')}
+        end
+
+        context 'localized namespace' do
+          let(:client){MediaWiki.new('https://es.wikipedia.org/w/api.php')}
+          before{client.category('Categoría:Grupos de rock de Ucrania')}
+          
+          its(:'uri.query_values'){should include('gcmtitle' => 'Categoría:Grupos de rock de Ucrania')}
+        end
+
+        xcontext 'not a namespace' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
+          before{client.category('Ukrainian: rock music groups')}
+          
+          its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian: rock music groups')}
+        end
+
       end
     end
   end
