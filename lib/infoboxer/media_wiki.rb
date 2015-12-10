@@ -59,20 +59,22 @@ module Infoboxer
     #
     # @return [Array<Hash>]
     def raw(*titles)
-      @client.query.
-        titles(*titles).
-        prop(revisions: {prop: :content}, info: {prop: :url}).
-        redirects(true). # FIXME: should be done transparently by MediaWiktory?
-        perform.pages
+      titles.each_slice(50).map{|part|
+        @client.query.
+          titles(*part).
+          prop(revisions: {prop: :content}, info: {prop: :url}).
+          redirects(true). # FIXME: should be done transparently by MediaWiktory?
+          perform.pages
+      }.inject(:concat) # somehow flatten(1) fails!
     end
 
     # Receive list of parsed MediaWiki pages for list of titles provided.
     # All pages are received with single query to MediaWiki API.
     #
-    # **NB**: currently, if you are requesting more than 50 titles at
-    # once (MediaWiki limitation for single request), Infoboxer will
-    # **not** try to get other pages with subsequent queries. This will
-    # be fixed in future.
+    # **NB**: if you are requesting more than 50 titles at once
+    # (MediaWiki limitation for single request), Infoboxer will do as
+    # many queries as necessary to extract them all (it will be like
+    # `(titles.count / 50.0).ceil` requests)
     #
     # @return [Tree::Nodes<Page>] array of parsed pages. Notes:
     #   * if you call `get` with only one title, one page will be

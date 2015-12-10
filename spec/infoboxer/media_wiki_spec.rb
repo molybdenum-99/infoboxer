@@ -23,6 +23,17 @@ module Infoboxer
         end
       end
 
+      context 'when > 50 pages', :vcr do
+        let(:titles){(1920..1975).map(&:to_s)}
+        subject{client.raw(*titles)}
+
+        it{should be_kind_of(Array)}
+        its(:count){should == titles.count}
+        it 'should extract all pages' do
+          expect(subject.map(&:title)).to eq titles
+        end
+      end
+
       context 'when non-existing page', :vcr do
         subject{client.raw('it is non-existing definitely').first}
         its(:title){should == 'It is non-existing definitely'}
