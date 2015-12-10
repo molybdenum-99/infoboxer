@@ -191,5 +191,23 @@ module Infoboxer
         it{should be_empty}
       end
     end
+
+    describe :prefixsearch, :vcr do
+      context 'when found' do
+        subject{client.prefixsearch('Ukrainian hr')}
+        it{should be_a(Tree::Nodes)}
+        its(:count){should > 1}
+        
+        it 'should have correct content' do
+          expect(subject.map(&:title)).to include('Ukrainian hryvnia')
+        end
+      end
+
+      xcontext 'when not found' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
+        subject{client.prefixsearch('Ukrainian foooo')}
+        it{should be_a(Tree::Nodes)}
+        it{should be_empty}
+      end
+    end
   end
 end

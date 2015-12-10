@@ -123,6 +123,8 @@ module Infoboxer
     end
 
     # Receive list of parsed MediaWiki pages for provided search query.
+    # See [MediaWiki API docs](https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bsearch)
+    # for details.
     #
     # **NB**: currently, this API **always** fetches all pages from
     # category, there is no option to "take first 20 pages". Pages are
@@ -138,6 +140,23 @@ module Infoboxer
     #
     def search(query)
       list(search: {search: query, limit: 50})
+    end
+
+    # Receive list of parsed MediaWiki pages with titles startin from prefix.
+    # See [MediaWiki API docs](https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bprefixsearch)
+    # for details.
+    #
+    # **NB**: currently, this API **always** fetches all pages from
+    # category, there is no option to "take first 20 pages". Pages are
+    # fetched in 50-page batches, then parsed. So, for large category
+    # it can really take a while to fetch all pages.
+    #
+    # @param prefix page title prefix.
+    #
+    # @return [Tree::Nodes<Page>] array of parsed pages.
+    #
+    def prefixsearch(prefix)
+      list(prefixsearch: {search: prefix, limit: 100})
     end
 
     private
