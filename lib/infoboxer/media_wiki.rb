@@ -66,7 +66,7 @@ module Infoboxer
         perform.pages
     end
 
-    # Receive list of parsed wikipedia pages for list of titles provided.
+    # Receive list of parsed MediaWiki pages for list of titles provided.
     # All pages are received with single query to MediaWiki API.
     #
     # **NB**: currently, if you are requesting more than 50 titles at
@@ -100,6 +100,20 @@ module Infoboxer
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
+    # Receive list of parsed MediaWiki pages from specified category.
+    #
+    # **NB**: currently, this API **always** fetches all pages from
+    # category, there is no option to "take first 20 pages". Pages are
+    # fetched in 50-page batches, then parsed. So, for large category
+    # it can really take a while to fetch all pages.
+    #
+    # @param title Category title. You can use namespaceless title (like
+    #     `"Countries in South America"`), title with namespace (like 
+    #     `"Category:Countries in South America"`) or title with local
+    #     namespace (like `"Catégorie:Argentine"` for French Wikipedia)
+    #
+    # @return [Tree::Nodes<Page>] array of parsed pages.
+    #
     def category(title)
       title = normalize_category_title(title)
       
