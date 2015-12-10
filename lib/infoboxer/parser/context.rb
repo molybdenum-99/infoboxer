@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'strscan'
+
 module Infoboxer
   class Parser
     class Context
