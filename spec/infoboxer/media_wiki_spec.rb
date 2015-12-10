@@ -114,5 +114,31 @@ module Infoboxer
         its(:count){should == 2}
       end
     end
+
+    describe :category, :vcr do
+      context 'when category exists' do
+        subject{client.category('Category:Ukrainian rock music groups')}
+        it{should be_a(Tree::Nodes)}
+        its(:count){should > 40}
+        
+        it 'should have correct content' do
+          expect(subject.map(&:title)).to include('Dymna Sumish', 'Okean Elzy', 'Vopli Vidopliasova')
+        end
+      end
+
+      context 'when category is not' do
+      end
+
+      describe 'category name transformation' do
+        context 'when default namespace' do
+        end
+
+        context 'when localized namespace' do
+        end
+
+        context 'when no namespace' do
+        end
+      end
+    end
   end
 end

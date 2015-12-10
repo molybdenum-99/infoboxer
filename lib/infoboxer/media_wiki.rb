@@ -100,6 +100,25 @@ module Infoboxer
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
+    def category(title)
+      response = @client.query.
+        generator(categorymembers: {title: title, limit: 50}).
+        prop(revisions: {prop: :content}, info: {prop: :url}).
+        redirects(true). # FIXME: should be done transparently by MediaWiktory?
+        perform
+
+      response.continue! while response.continue?
+
+      pages = response.pages.select(&:exists?).
+        map{|raw|
+          Page.new(self,
+            Parser.paragraphs(raw.content, traits),
+            raw)
+        }
+
+      Tree::Nodes[*pages]
+    end
+
     private
 
     def user_agent(options)
