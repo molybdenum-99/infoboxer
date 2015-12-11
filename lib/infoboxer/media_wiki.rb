@@ -159,6 +159,10 @@ module Infoboxer
       list(prefixsearch: {search: prefix, limit: 100})
     end
 
+    def inspect
+      "#<#{self.class}(#{@api_base_url.host})>"
+    end
+
     private
 
     def list(query)

@@ -2,6 +2,11 @@
 module Infoboxer
   describe MediaWiki do
     let(:client){MediaWiki.new('https://en.wikipedia.org/w/api.php')}
+
+    describe :inspect, :vcr do
+      subject{client}
+      its(:inspect){should == '#<Infoboxer::MediaWiki(en.wikipedia.org)>'}
+    end
     
     describe :raw do
       context 'when single page', :vcr do
