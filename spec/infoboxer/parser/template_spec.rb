@@ -41,6 +41,14 @@ module Infoboxer
       its(:variables){should == [Tree::Var.new('lang')]}
     end
 
+    context 'with named and unnamed mixed' do
+      let(:source){ '{{the name|test1|foo=bar|test2}}' }
+
+      it 'should have variables named consistently' do
+        expect(subject.variables.map(&:name)).to eq ['1', 'foo', '2']
+      end
+    end
+
     context 'with empty line' do
       let(:source){ '{{the name|}}' }
 

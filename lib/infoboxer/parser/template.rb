@@ -29,6 +29,7 @@ module Infoboxer
             @context.skip(/\s*=\s*/)
           else
             name = num
+            num += 1
           end
 
           value = long_inline(/\||}}/)
@@ -38,8 +39,6 @@ module Infoboxer
 
           break if @context.eat_matched?('}}')
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")
-
-          num += 1
         end
         res
       end
