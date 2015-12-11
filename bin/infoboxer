@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+require 'infoboxer'
+
+include Infoboxer
+
+require 'optparse'
+
+wiki_url = nil
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: bin/infoboxer [-w wiki_api_url]"
+
+  opts.on("-w", "--wiki WIKI_API_URL",
+              "Make wiki by WIKI_API_URL a default wiki") do |w|
+    wiki_url = w
+  end
+end.parse!
+
+if wiki_url
+  DEFAULT_WIKI = Infoboxer.wiki(wiki_url)
+  [:raw, :get, :category, :search, :prefixsearch].each do |m|
+    define_method(m){|*arg|
+      DEFAULT_WIKI.send(m, *arg)
+    }
+  end
+end
+
+require 'irb'
+ARGV.shift until ARGV.empty?
+IRB.start
+
