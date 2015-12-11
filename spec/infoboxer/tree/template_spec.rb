@@ -10,7 +10,7 @@ module Infoboxer
         }}
 
         subject{template.params}
-        it{should == {'lang' => 'en', '2' => 'wtf'}}
+        it{should == {'lang' => 'en', '1' => 'wtf'}}
       end
 
       describe :fetch do
