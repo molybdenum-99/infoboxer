@@ -97,6 +97,22 @@ See [Navigation shortcuts](https://github.com/molybdenum-99/infoboxer/wiki/Navig
 
 To put it all in one piece, also take a look at [Data extraction tips and tricks](https://github.com/molybdenum-99/infoboxer/wiki/Tips-and-tricks).
 
+### infoboxer executable
+
+Just try `infoboxer` command.
+
+Without any options, it starts IRB session with infoboxer required and
+included into main namespace.
+
+With `-w` option, it provides a shortcut to MediaWiki instance you want.
+Like this:
+
+```
+$ infoboxer -w https://en.wikipedia.org/w/api.php
+> get('Argentina')
+ => #<Page(title: "Argentina", url: "https://en.wikipedia.org/wiki/Argentina"): ....
+```
+
 ## Advanced topics
 
 * [Reasons](https://github.com/molybdenum-99/infoboxer/wiki/Reasons) for
