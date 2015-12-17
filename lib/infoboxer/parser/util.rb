@@ -16,7 +16,14 @@ module Infoboxer
 
       INLINE_EOL = %r[(?=   # if we have ahead... (not scanned, just checked
         </ref>        |     # <ref> closed
-        }}                  # or template closed
+        }}            
+      )]x
+
+      INLINE_EOL_BR = %r[(?=   # if we have ahead... (not scanned, just checked
+        </ref>        |     # <ref> closed
+        }}            |     # or template closed
+        (?<!\])\](?!\])     # or ext.link closed,
+                            # the madness with look-ahead/behind means "match single bracket but not double"
       )]x
 
 
@@ -29,7 +36,11 @@ module Infoboxer
           },
           short_inline_until_cache: Hash.new{|h, r|
             h[r] = Regexp.union(*[r, INLINE_EOL, FORMATTING, /$/].compact.uniq)
+          },
+          short_inline_until_cache_brackets: Hash.new{|h, r|
+            h[r] = Regexp.union(*[r, INLINE_EOL_BR, FORMATTING, /$/].compact.uniq)
           }
+          
         }
       end
 

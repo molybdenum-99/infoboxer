@@ -88,11 +88,23 @@ module Infoboxer
         res
       end
 
+      def push_eol_sign(re)
+        @inline_eol_sign = re
+      end
+
+      def pop_eol_sign
+        @inline_eol_sign = nil
+      end
+
+      attr_reader :inline_eol_sign
+
       def inline_eol?(exclude = nil)
         # not using StringScanner#check, as it will change #matched value
         eol? ||
-          (current =~ %r[^(</ref>|}})] &&
-            (!exclude || $1 !~ exclude)) # FIXME: ugly, but no idea of prettier solution
+          (
+            (current =~ %r[^(</ref>|}})] || @inline_eol_sign && current =~ @inline_eol_sign) && 
+            (!exclude || $1 !~ exclude)
+          ) # FIXME: ugly, but no idea of prettier solution
       end
 
       def scan_continued_until(re, leave_pattern = false)

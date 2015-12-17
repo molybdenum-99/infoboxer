@@ -1,0 +1,1493 @@
+{{Redirect2|List of nations|List of countries|other country lists|Lists of countries and territories|non-sovereign dependencies|Dependent territory}}
+
+This '''list of sovereign states''' provides an overview of [[sovereign state]]s around the [[world]], with information on their status and recognition of their [[sovereignty]].
+
+Membership within the [[United Nations]] system divides the 206 listed states into three categories: 193 [[Member states of the United Nations|member states]],<ref name="unms">{{cite web|title=United Nations Member States|url=http://www.un.org/en/members/index.shtml|publisher=United Nations|author=Press Release ORG/1469|accessdate=28 February 2011|date=3 July 2006}}</ref> two [[United Nations General Assembly observers|observer states]], and 11 other states.  The ''sovereignty dispute'' column indicates states whose sovereignty is undisputed (190 states) and states whose sovereignty is disputed (16 states).
+
+Compiling a list such as this can be a difficult and controversial process, as there is no definition that is binding on all the members of the community of nations concerning the criteria for [[sovereign state|statehood]]. For more information on the criteria used to determine the contents of this list, please see the ''[[#Criteria for inclusion|criteria for inclusion]]'' section below. The list is intended to include entities that have been recognized to have ''de facto'' status as sovereign states, and inclusion should not be seen as an endorsement of any specific claim to statehood in legal terms.
+
+==List of states==
+{| class="sortable wikitable" style="background:white; text-align:left;"
+|-
+! style="width:35%" |Short and formal names
+! style="width:12.5%;" |Membership within the [[United Nations System|UN System]] {{refn|This column indicates whether or not a state is a member of the [[United Nations]].<ref name="unms"/> It also indicates which non-member states participate in the [[United Nations System]] through membership in the [[International Atomic Energy Agency]] or one of the [[List of specialized agencies of the United Nations|specialized agencies of the United Nations]]. All United Nations members belong to at least one specialized agency and are parties to the statute of the [[International Court of Justice]].|group = "Note"}}
+! style="width:12.5%;" |Sovereignty dispute {{refn|This column indicates whether or not a state is the subject of a major sovereignty dispute. Only states whose entire sovereignty is disputed by another state are listed.|group = "Note"}}
+! class="unsortable" |Further information on status and recognition of sovereignty {{refn|Information is included on:
+* The extent to which a state's sovereignty is recognised internationally. More information can be found at [[List of states with limited recognition]],
+* Membership in the [[European Union]],<ref name=EU group=lower-alpha/> where applicable,
+* Any [[Dependent territory#Summary by country|overseas dependencies]], if applicable, which are generally not part of the territory of the sovereign state,
+* [[Federation|federal structure]] of the state, where applicable. More information can be found at [[Federated state]],
+* Any [[List of autonomous areas by country|autonomous areas]] inside the territory of the sovereign state,
+* Any situations where one person is the Head of State of more than one state,
+* Any [[Government in exile|governments in exile]] recognised by at least one state.|group = "Note"}}
+|- style="background:Darkgrey;"
+|style="text-align:center;"|<span style="display:none">A AAA</span>
+|<span style="display:none">A AAA</span>
+|<span style="display:none">A AAA</span>
+|
+|- style="background:Lightgrey;"
+|style="text-align:center;"|<span style="display:none">ZZZ</span>↓ [[Member states of the United Nations|UN member states]] or [[United Nations General Assembly observers|observer states]] ↓
+|<span style="display:none">A AAA</span>
+|<span style="display:none">ZZZ</span>
+|
+|-
+<!--This is not Abkhazia's entry, but just a link to the "non-UN members" part below. The "UN member state" text keeps this link in place when sorting; it is not visible.-->
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Abkhazia → [[#Abkhazia|Abkhazia]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Afghanistan"></span>'''{{flag|Afghanistan}}'''&nbsp;– Islamic Republic of Afghanistan
+|<span style="display:none">A</span> [[Member states of the United Nations|UN member state]]
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Albania"></span>'''{{flag|Albania}}'''&nbsp;– Republic of Albania
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Algeria"></span>'''{{flag|Algeria}}'''&nbsp;– People's Democratic Republic of Algeria
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Andorra"></span>'''{{flag|Andorra}}'''&nbsp;– Principality of Andorra
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Andorra is a [[Diarchy|co-principality]] in which the office of head of state is jointly held ''ex officio'' by the [[President of France|French president]] and the bishop of the Roman Catholic [[Roman Catholic Diocese of Urgell|diocese of Urgell]],<ref>{{cite news|url=http://news.bbc.co.uk/1/hi/world/europe/country_profiles/992562.stm#leaders |title=Andorra country profile |publisher=BBC News |accessdate=8 November 2011}}</ref> who himself is appointed by the [[Holy See]].
+|-
+|style="vertical-align:top;"|<span id="Angola"></span>'''{{flag|Angola}}'''&nbsp;– Republic of Angola
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Antigua and Barbuda"></span>'''{{flag|Antigua and Barbuda}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Antigua and Barbuda is a [[Commonwealth realm]]<ref name=realm group="Note">Commonwealth realms are members of the [[Commonwealth of Nations]] in which the head of state is Queen [[Elizabeth II]]. The realms are sovereign states; see [[Commonwealth realm#Relationship of the realms|Relationship of the realms]].</ref> with 1 autonomous region, [[Barbuda]].<ref name=autonomous group="Note">For more information on divisions with a high degree of autonomy, see the [[List of autonomous areas by country]].</ref><ref>{{cite web
+ | author = Government of Antigua and Barbuda
+ | title = Chapter 44: The Barbuda Local Government Act
+ | work = Laws of Antigua and Barbuda
+ | url = http://www.laws.gov.ag/acts/chapters/cap-44.pdf
+ | accessdate = 2010-11-10}}</ref>
+|-
+|style="vertical-align:top;"|<span id="Argentina"></span>'''{{flag|Argentina}}'''&nbsp;– Argentine Republic<ref group="Note">The Argentine Constitution (Art. 35) recognises the following denominations for Argentina: "United Provinces of the Río de la Plata", "Argentine Republic" and "Argentine Confederation"; furthermore, it establishes the usage of "Argentine Nation" for purposes of legislation.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Argentina is a [[federation]] of [[Provinces of Argentina|23 provinces and 1 autonomous city]].
+|-
+|style="vertical-align:top;"|<span id="Armenia"></span>'''{{flag|Armenia}}'''&nbsp;– Republic of Armenia
+|<span style="display:none">A</span> UN member state
+| style="background:LightCoral;" |Not recognized by [[#Pakistan|Pakistan]]<ref>{{cite web|format=PDF|url=http://www.foreignaffairscommittee.org/includes/content_files/Report%2021%20-%20Visit%20to%20Azerbaijan.pdf|title=Pakistan Worldview, Report 21, Visit to Azerbaijan|publisher=Senate of Pakistan Foreign Relations Committee|date=2008|dead-url=y|archive-url=https://web.archive.org/web/20090219074354/http://foreignaffairscommittee.org/includes/content_files/Report%2021%20-%20Visit%20to%20Azerbaijan.pdf|archive-date=19 February 2009}}</ref><ref>[http://www.today.az/news/politics/30102.html Nilufer Bakhtiyar: "For Azerbaijan Pakistan does not recognise Armenia as a country"] 13 September 2006 [14:03] – Today.Az</ref><ref>{{Cite news|url=http://news.az/articles/armenia/86325|title=Pakistan the only country not recognizing Armenia – envoy|publisher=News.Az|date=February 5, 2014|accessdate=February 17, 2014|quote=We are the only country not recognizing Armenia as a state.}}</ref>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Australia"></span>'''{{flag|Australia}}'''&nbsp;– Commonwealth of Australia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Australia is a [[Commonwealth realm]]<ref name=realm group="Note"/> and a [[federation]] of [[States and territories of Australia|six states and 10 territories]]. The external territories of Australia are:
+* {{noflag|[[Ashmore and Cartier Islands]]}}
+* {{noflag|[[Australian Antarctic Territory]]}}
+* {{flag|Christmas Island}}
+* {{flag|Cocos (Keeling) Islands}}
+* {{noflag|[[Coral Sea Islands Territory]]}}
+* {{noflag|[[Heard Island and McDonald Islands]]}}
+* {{flag|Norfolk Island}}
+|-
+|style="vertical-align:top;"|<span id="Austria"></span>'''{{flag|Austria}}'''&nbsp;– Republic of Austria
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the European Union.{{refn|The member states of the [[European Union]] have transferred part of their sovereignty in the form of legislative, executive, and judicial powers to the institutions of the EU, which is an example of [[supranational union]]. The EU has 28 member states.<ref>[http://europa.eu/abc/european_countries/eu_members/index_en.htm Europa], retrieved 28 February 2011</ref>|name=EU|group=lower-alpha}} Austria is a [[federation]] of [[States of Austria|nine states]] (Bundesländer).
+|-
+|style="vertical-align:top;"|<span id="Azerbaijan"></span>'''{{flag|Azerbaijan}}'''&nbsp;– Republic of Azerbaijan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Azerbaijan contains two autonomous regions, [[Nakhchivan Autonomous Republic|Nakhchivan]] and [[Nagorno-Karabakh]] (''Dağlıq Qarabağ'').<ref name=autonomous group="Note"/> In [[#Nagorno-Karabakh|Nagorno-Karabakh]], [[List of states with limited recognition|a de facto state]] has been established.
+|-
+|style="vertical-align:top;"|<span id="Bahamas"></span>'''{{flag|Bahamas, The}}'''&nbsp;– Commonwealth of the Bahamas
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}The Bahamas is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Bahrain"></span>'''{{flag|Bahrain}}'''&nbsp;– Kingdom of Bahrain
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Bangladesh"></span>'''{{flag|Bangladesh}}'''&nbsp;– People's Republic of Bangladesh
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Barbados"></span>'''{{flag|Barbados}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Barbados is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Belarus"></span>'''{{flag|Belarus}}'''&nbsp;– Republic of Belarus
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Belgium"></span>'''{{flag|Belgium}}'''&nbsp;– Kingdom of Belgium
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> Belgium is a [[federation]] divided into [[Communities, regions and language areas of Belgium|linguistic communities and regions]].
+|-
+|style="vertical-align:top;"|<span id="Belize"></span>'''{{flag|Belize}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Belize is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Benin"></span>'''{{flag|Benin}}'''&nbsp;– Republic of Benin<ref group="Note">Formerly referred to as [[Republic of Dahomey|Dahomey]], its official name until 1975.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Bhutan"></span>'''{{flag|Bhutan}}'''&nbsp;– Kingdom of Bhutan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Bolivia"></span>'''{{flag|Bolivia}}'''&nbsp;– Plurinational State of Bolivia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Bosnia and Herzegovina"></span>'''{{flag|Bosnia and Herzegovina}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Bosnia and Herzegovina is a federation of two constituent units:
+* {{flag|Federation of Bosnia and Herzegovina}}
+* {{flag|Republika Srpska}}
+and [[Brčko District]], a self-governing administrative unit.<ref group="Note">For more information about the division of Bosnia and Herzegovina, see [[Dayton Agreement]] and the text of [http://www.ohr.int/dpa/default.asp?content_id=380 The General Framework Agreement for Peace in Bosnia and Herzegovina] (14 December 1995). Office of the High Representative. Retrieved 28 February 2011.</ref>
+|-
+|style="vertical-align:top;"|<span id="Botswana"></span>'''{{flag|Botswana}}'''&nbsp;– Republic of Botswana
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Brazil"></span>'''{{flag|Brazil}}'''&nbsp;– Federative Republic of Brazil
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Brazil is a [[federation]] of [[States of Brazil|26 states and 1 federal district]].
+|-
+|style="vertical-align:top;"|<span id="Brunei"></span>'''{{flag|Brunei}}'''&nbsp;– Nation of Brunei, Abode of Peace
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Bulgaria"></span>'''{{flag|Bulgaria}}'''&nbsp;– Republic of Bulgaria
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Burkina Faso"></span>'''{{flag|Burkina Faso}}'''<ref group="Note">Also known as Burkina; formerly referred to as Upper Volta, its official name until 1984.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|Burma → [[#Myanmar|Myanmar]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Burundi"></span>'''{{flag|Burundi}}'''&nbsp;– Republic of Burundi
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Cambodia"></span>'''{{flag|Cambodia}}'''&nbsp;– Kingdom of Cambodia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Cameroon"></span>'''{{flag|Cameroon}}'''&nbsp;– Republic of Cameroon
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Canada"></span>'''{{flag|Canada}}'''<ref group="Note">The legal name for Canada is the sole word; an officially sanctioned, though disused, name is Dominion of Canada (which includes its legal title); see: [[Name of Canada]], [[Dominion]].</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Canada is a [[Commonwealth realm]]<ref name=realm group="Note"/> and a [[Canadian federalism|federation]] of [[Provinces and territories of Canada|10 provinces and three territories]].
+|-
+|style="vertical-align:top;"|<span id="Cape Verde"></span>'''{{flag|Cape Verde}}'''&nbsp;– Republic of Cabo Verde
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Central African Republic"></span>'''{{flag|Central African Republic}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Chad"></span>'''{{flag|Chad}}'''&nbsp;– Republic of Chad
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Chile"></span>'''{{flag|Chile}}'''&nbsp;– Republic of Chile
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}[[Easter Island]] and the [[Juan Fernández Islands]] are "special territories" of Chile in the [[Valparaíso Region]].
+|-
+|style="vertical-align:top;"|<span id="China"></span>'''{{flag|China}}'''&nbsp;– People's Republic of China<ref group="Note" name="ChinaTaiwan">The [[People's Republic of China]] (PRC) is commonly referred to as "China", while the [[Republic of China]] (ROC) is commonly referred to as "Taiwan". The ROC is also occasionally known diplomatically as [[Chinese Taipei]], along with [[Chinese Taipei#Other references to the Republic of China|other names]].</ref>
+|<span style="display:none">A</span> UN member state
+| style="background:LightCoral;" |[[Foreign relations of China#Countries not recognizing the People.27s Republic of China|Partially unrecognized]]. {{claimedby|ROC}}
+{{extent}}The People's Republic of China (PRC) contains five autonomous regions, [[Guangxi]], [[Inner Mongolia]], [[Ningxia]], [[Xinjiang]] and [[Tibet Autonomous Region|Tibet]].<ref name=autonomous group="Note"/> Additionally, it has sovereignty over the [[Special Administrative Region of the People's Republic of China|Special Administrative Regions]] of:
+* {{flag|Hong Kong}}
+* {{flag|Macau}}
+China is not recognised by [[Foreign relations of the Republic of China|21]] UN member states and the [[Holy See]], which instead recognise [[#Taiwan|Taiwan]] (the Republic of China).<ref group="Note">See also [[Dates of establishment of diplomatic relations with the People's Republic of China]] and [[Foreign relations of the People's Republic of China]].</ref>
+
+China claims, but does not control, [[#Taiwan|Taiwan]] which is governed by a rival administration.<ref name="TAI2" group="Note"/>
+|-
+|style="vertical-align:top;"|China, Republic of → [[#Taiwan|Taiwan]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Colombia"></span>'''{{flag|Colombia}}'''&nbsp;– Republic of Colombia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Comoros"></span>'''{{flag|Comoros}}'''&nbsp;– Union of the Comoros
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Comoros is a [[federation]] of [[Politics of Comoros#Autonomous islands|3 islands]].<ref name=federal group="Note">More information on more or less [[federation|federal]] structures can be found at a [[Federation#Modern 'federations'|List of federations]].</ref><ref>Constitution of Comoros, Art. 1.</ref>
+|-
+|style="vertical-align:top;"|<span id="Congo, Democratic Republic of the"></span>'''{{flag|Congo, Democratic Republic of the}}'''<ref group="Note">Also known as Congo-Kinshasa. Formerly referred to as [[Zaire]], its official name from 1971 to 1997.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Congo, Republic of the"></span>'''{{flag|Congo, Republic of the}}'''<ref group="Note">Also known as Congo-Brazzaville.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Cook Islands → [[#Cook Islands|Cook Islands]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Costa Rica"></span>'''{{flag|Costa Rica}}'''&nbsp;– Republic of Costa Rica
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|Côte d'Ivoire → [[#Ivory Coast|Ivory Coast]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Croatia"></span>'''{{flag|Croatia}}'''&nbsp;– Republic of Croatia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Cuba"></span>'''{{flag|Cuba}}'''&nbsp;– Republic of Cuba
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Cyprus"></span>'''{{flag|Cyprus}}'''&nbsp;– Republic of Cyprus
+|<span style="display:none">A</span> UN member state
+| style="background:LightCoral;" |Not recognized by [[#Turkey|Turkey]]<ref>{{Cite news|url=http://www.cnn.com/2010/OPINION/07/07/kakouris.cyprus/|publisher=CNN|title=Cyprus is not at peace with Turkey|author=Andreas S. Kakouris|date=July 9, 2010|accessdate=May 17, 2014|quote=Turkey stands alone in violation of the will of the international community. It is the only country to recognize the "TRNC" and is the only country that does not recognize the Republic of Cyprus and its government.}}</ref><!-- and [[#Northern Cyprus|Northern Cyprus]]{{cn|date=May 17, 2014}} -->
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> The northeastern part of the island is the de facto state of [[#Northern Cyprus|Northern Cyprus]]. See [[Foreign relations of Cyprus]] and [[Cyprus dispute]]. [[Turkey]] refers to the Republic of Cyprus government as "The Greek Cypriot Administration of Southern Cyprus".<ref>See [http://www.abgs.gov.tr/index.php?p=255&l=2 Republic of Turkey Ministry for European Union Affairs] Retrieved June 12, 2012''.</ref>
+|-
+|style="vertical-align:top;"|<span id="Czech Republic"></span>'''{{flag|Czech Republic}}'''<ref group="Note">A simpler official short-form name has been encouraged by the Czech government: the English variant '''Czechia''' remains uncommon, but variants in Czech (''Česko'') and some other languages are more popular. See [[Name of the Czech Republic]]</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|Democratic People's Republic of Korea → [[#Korea North|Korea, North]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|Democratic Republic of the Congo → [[#Congo, Democratic Republic of the|Congo, Democratic Republic of the]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Denmark"></span>'''{{flag|Denmark}}'''&nbsp;– Kingdom of Denmark
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+The [[Danish Realm]] includes two self-governing territories:
+* {{flag|Faroe Islands}} ''(Føroyar/Færøerne)''
+* {{flag|Greenland}} ''(Kalaallit Nunaat/Grønland)''
+|-
+|style="vertical-align:top;"|<span id="Djibouti"></span>'''{{flag|Djibouti}}'''&nbsp;– Republic of Djibouti
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Dominica"></span>'''{{flag|Dominica}}'''&nbsp;– Commonwealth of Dominica
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Dominican Republic"></span>'''{{flag|Dominican Republic}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="East Timor"></span>'''{{flag|East Timor}}'''&nbsp;– Democratic Republic of Timor-Leste<ref group="Note">The government of East Timor uses "Timor-Leste" as the English translation.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Ecuador"></span>'''{{flag|Ecuador}}'''&nbsp;– Republic of Ecuador
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Egypt"></span>'''{{flag|Egypt}}'''&nbsp;– Arab Republic of Egypt
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="El Salvador"></span>'''{{flag|El Salvador}}'''&nbsp;– Republic of El Salvador
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Equatorial Guinea"></span>'''{{flag|Equatorial Guinea}}'''&nbsp;– Republic of Equatorial Guinea
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Eritrea"></span>'''{{flag|Eritrea}}'''&nbsp;– State of Eritrea
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Estonia"></span>'''{{flag|Estonia}}'''&nbsp;– Republic of Estonia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Ethiopia"></span>'''{{flag|Ethiopia}}'''&nbsp;– Federal Democratic Republic of Ethiopia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Ethiopia is a [[federation]] of [[Regions of Ethiopia|nine regions and two chartered cities]].
+<!--The European Union is not a sovereign state and should not be included-->
+|-
+|style="vertical-align:top;"|<span id="Federated States of Micronesia"></span>'''{{flag|Federated States of Micronesia}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Under [[Compact of Free Association]] with the [[#United States|United States]]. The Federated States of Micronesia is a [[federation]] of four states.
+|-
+|style="vertical-align:top;"|<span id="Fiji"></span>'''{{flag|Fiji}}'''&nbsp;– Republic of Fiji
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Fiji contains 1 autonomous region, [[Rotuma]].<ref name=autonomous group="Note"/><ref>{{Cite book
+ | title = Laws of Fiji
+ | place = Suva, Fiji
+ | publisher = Government of Fiji
+ | year = 1927
+ | volume =
+ | edition = 1978
+ | chapter = Rotuma Act
+ | chapterurl = http://www.itc.gov.fj/lawnet/fiji_act/cap122.html
+ | accessdate = 2010-07-10}}{{dead link|date=May 2011}}</ref><ref>{{cite web
+ | author = Government of Fiji, Office of the Prime Minister
+ | title = Chapter 122: Rotuma Act
+ | work = Laws of Fiji
+ | publisher = University of the South Pacific
+ | year = 1978
+ | url = http://www.paclii.org/fj/legis/consol_act/ra103/
+ | accessdate = 2010-11-10}}</ref>
+|-
+|style="vertical-align:top;"|<span id="Finland"></span>'''{{flag|Finland}}'''&nbsp;– Republic of Finland
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+* {{flag|Åland}} is a neutral and demilitarised autonomous region of Finland.<ref name=autonomous group="Note"/><ref group="Note">[[Åland Islands|Åland]] was demilitarised by the [[Treaty of Paris (1856)|Treaty of Paris]] in 1856, which was later affirmed by the [[League of Nations]] in 1921, and in a somewhat different context reaffirmed in the treaty on Finland's admission to the European Union in 1995.</ref>
+|-
+|style="vertical-align:top;"|<span id="France"></span>'''{{flag|France}}'''&nbsp;– French Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> France contains five overseas regions/departments: [[French Guiana]], [[Guadeloupe]], [[Martinique]], [[Mayotte]], and [[Réunion]]. France also includes the overseas territories of:
+* {{noflag|[[Clipperton Island]]}}
+* {{flag|French Polynesia}}
+* {{flag|New Caledonia}}
+* {{flag|Saint Barthélemy|local}}
+* {{noflag|[[Collectivity of Saint Martin|Saint Martin]]}}
+* {{flag|Saint Pierre and Miquelon|local}}
+* {{flag|Wallis and Futuna|local}}
+* {{flag|French Southern and Antarctic Lands}}
+|-
+|style="vertical-align:top;"|<span id="Gabon"></span>'''{{flag|Gabon}}'''&nbsp;– Gabonese Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Gambia"></span><span style="display:none">Gambia</span> '''{{flag|Gambia, The}}'''&nbsp;– Republic of the Gambia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Georgia"></span>'''{{flag|Georgia}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Georgia contains two autonomous republics, [[Adjara]] and [[Abkhazia]].<ref name=autonomous group="Note"/> In [[#Abkhazia|Abkhazia]] and [[#South Ossetia|South Ossetia]], de facto states have been formed.
+|-
+|style="vertical-align:top;"|<span id="Germany"></span>'''{{flag|Germany}}'''&nbsp;– Federal Republic of Germany
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> Germany is a [[federation]] of [[States of Germany|16 federated states]] (Länder).
+|-
+|style="vertical-align:top;"|<span id="Ghana"></span>'''{{flag|Ghana}}'''&nbsp;– Republic of Ghana
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Greece"></span>'''{{flag|Greece}}'''&nbsp;– Hellenic Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> [[Mount Athos]] is an autonomous part of Greece that is jointly governed by the multinational "Holy Community" on the mountain and a civil governor appointed by the Greek government.<ref>Constitution of Greece, Art. 105.</ref>
+|-
+|style="vertical-align:top;"|<span id="Grenada"></span>'''{{flag|Grenada}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Grenada is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Guatemala"></span>'''{{flag|Guatemala}}'''&nbsp;– Republic of Guatemala
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Guinea"></span>'''{{flag|Guinea}}'''&nbsp;– Republic of Guinea<ref group="Note">Also known as Guinea-Conakry.</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Guinea-Bissau"></span>'''{{flag|Guinea-Bissau}}'''&nbsp;– Republic of Guinea-Bissau
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Guyana"></span>'''{{flag|Guyana}}'''&nbsp;– Co-operative Republic of Guyana
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Haiti"></span>'''{{flag|Haiti}}'''&nbsp;– Republic of Haiti
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|Holy See → [[#Vatican City|Vatican City]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Honduras"></span>'''{{flag|Honduras}}'''&nbsp;– Republic of Honduras
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Hungary"></span>'''{{flag|Hungary}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Iceland"></span>'''{{flag|Iceland}}'''&nbsp;– Republic of Iceland
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="India"></span>'''{{flag|India}}'''&nbsp;– Republic of India
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}India is a [[federation]] of [[States and territories of India|29 states and seven union territories]].
+|-
+|style="vertical-align:top;"|<span id="Indonesia"></span>'''{{flag|Indonesia}}'''&nbsp;– Republic of Indonesia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Indonesia has [[Provinces of Indonesia|five provinces]] with official special autonomy status: [[Aceh]], [[Jakarta|Jakarta SCR]], [[Yogyakarta Special Region|Yogyakarta SR]], [[Papua (province)|Papua]], and [[West Papua (province)|West Papua]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Iran"></span>'''{{flag|Iran}}'''&nbsp;– Islamic Republic of Iran
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Iraq"></span>'''{{flag|Iraq}}'''&nbsp;– Republic of Iraq
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Iraq is a [[federation]]<ref name=federal group="Note" /><ref>Source: [http://portal.unesco.org/ci/en/files/20704/11332732681iraqi_constitution_en.pdf/iraqi_constitution_en.pdf Iraqi constitution]</ref> of [[Governorates of Iraq|18 governorates]], three of which make up the autonomous [[Iraqi Kurdistan]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Ireland"></span>'''{{flag|Ireland}}'''{{#tag:ref|"Ireland" is the official ''name'' in English. "Republic of Ireland" (the official ''description'' in English) and "Éire" (the official name in Irish) have sometimes been used unofficially to distinguish the state from the larger [[Ireland|island of Ireland]]; this is officially deprecated.<ref>{{cite journal |journal=Journal of British Studies |volume=46 |number=1 |date=January 2007 |publisher=Cambridge University Press on behalf of The North American Conference on British Studies |doi=10.1086/508399 |url=http://www.jstor.org/stable/10.1086/508399 |title=The Irish Free State/Éire/Republic of Ireland/Ireland: "A Country by Any Other Name"? |last=Daly |first=Mary E. |subscription=Y }}</ref> See [[names of the Irish state]].|group="Note"}}
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Israel"></span>'''{{flag|Israel}}'''&nbsp;– State of Israel
+|<span style="display:none">A</span> UN member state
+| style="background:LightCoral;" |[[Recognition of Israel|Partially unrecognized]]
+{{extent}}Israel exerts strong control over the territory claimed by [[#Palestine|Palestine]]. Israel annexed [[Jerusalem Law|East Jerusalem]],<ref>Knesset website, [https://www.knesset.gov.il/laws/special/eng/basic10_eng.htm ''Basic Law: Jerusalem, Capital of Israel'']</ref> an annexation not recognised by the international community.<ref name=dis>{{cite web|url=https://www.cia.gov/library/publications/the-world-factbook/fields/2070.html |title=Disputes – International |publisher=CIA World Factbook |accessdate=8 November 2011}}</ref> Israel maintains [[West Bank Areas in the Oslo II Accord|varying levels of control]] over the rest of the [[West Bank]], and although Israel no longer has a permanent civilian or military presence in the [[Gaza Strip]], following its [[Israel's unilateral disengagement plan|unilateral disengagement]], it is still considered by some to be the occupying power under international law.<ref>{{cite web
+ | last = Gold
+ | first = Dore
+ |author2=Institute for Contemporary Affairs
+ | title = Legal Acrobatics: The Palestinian Claim that Gaza is Still "Occupied" Even After Israel Withdraws
+ | work = Jerusalem Issue Brief, Vol. 5, No. 3
+ | publisher = Jerusalem Center for Public Affairs
+ | date = 26 August 2005
+ | url = http://www.jcpa.org/brief/brief005-3.htm
+ | accessdate = 2010-07-16}}</ref><ref>{{cite web
+ | last = Bell
+ | first = Abraham
+ | title = International Law and Gaza: The Assault on Israel's Right to Self-Defense
+ | work = Jerusalem Issue Brief, Vol. 7, No. 29
+ | publisher = Jerusalem Center for Public Affairs
+ | date = 28 January 2008
+ | url = http://www.jcpa.org/brief/brief005-3.htm
+ | accessdate = 2010-07-16}}</ref><ref>{{Cite press release
+ | title = Address by Foreign Minister Livni to the 8th Herzliya Conference
+ | publisher = Ministry of Foreign Affairs of Israel
+ | date = 22 January 2008
+ | url = http://www.mfa.gov.il/MFA/Government/Speeches+by+Israeli+leaders/2008/Address+by+FM+Livni+to+the+8th+Herzliya+Conference+22-Jan-2008.htm?DisplayMode=print
+ | accessdate = 2010-07-16}}</ref><ref>{{cite web
+ | last = Salih
+ | first = Zak M.
+ | title = Panelists Disagree Over Gaza's Occupation Status
+ | publisher = University of Virginia School of Law
+ | date = 17 November 2005
+ | url = http://www.law.virginia.edu/html/news/2005_fall/gaza.htm
+ | accessdate = 2010-07-16}}</ref><ref>{{cite web
+ | title = Israel: 'Disengagement' Will Not End Gaza Occupation
+ | publisher = Human Rights Watch
+ | date = 29 October 2004
+ | url = http://www.hrw.org/english/docs/2004/10/29/isrlpa9577.htm
+ | accessdate = 2010-07-16}}</ref> Israel is not recognised as a state by [[International recognition of Israel|32 UN members]] (including most Arab states) and by the [[Sahrawi Arab Democratic Republic|SADR]]. 
+|-
+|style="vertical-align:top;"|<span id="Italy"></span>'''{{flag|Italy}}'''&nbsp;– Italian Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> Italy has five autonomous regions, [[Aosta Valley]], [[Friuli-Venezia Giulia]], [[Sardinia]], [[Sicily]] and [[Trentino-Alto Adige/Südtirol]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Ivory Coast"></span>'''{{flag|Ivory Coast}}'''&nbsp;– Republic of Côte d'Ivoire
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Jamaica"></span>'''{{flag|Jamaica}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Jamaica is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Japan"></span>'''{{flag|Japan}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Jordan"></span>'''{{flag|Jordan}}'''&nbsp;– Hashemite Kingdom of Jordan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Kazakhstan"></span>'''{{flag|Kazakhstan}}'''&nbsp;– Republic of Kazakhstan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Kenya"></span>'''{{flag|Kenya}}'''&nbsp;– Republic of Kenya
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Kiribati"></span>'''{{flag|Kiribati}}'''&nbsp;– Republic of Kiribati
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Korea North"></span>'''{{flag|Korea, North}}'''&nbsp;– Democratic People's Republic of Korea
+|<span style="display:none">A</span> UN member state
+| style="background:LightCoral;" |{{claimedby|SKOREA}}
+{{extent}}North Korea is not recognised by two UN members: [[#Japan|Japan]] and South Korea.<ref name="koreas" group="Note">Both North Korea and South Korea claim to be the sole legitimate government of [[Korea]]. See also [[Foreign relations of North Korea]] and [[Foreign relations of South Korea]].</ref><ref>{{cite web
+ | url = http://www.ioc.u-tokyo.ac.jp/~worldjpn/documents/texts/docs/19650622.T1E.html
+ | title = Treaty on Basic Relations between Japan and the Republic of Korea
+ | accessdate = 2008-10-27
+}}</ref>
+|-
+|style="vertical-align:top;"|<span id="Korea South"></span>'''{{flag|Korea, South}}'''&nbsp;– Republic of Korea
+|<span style="display:none">A</span> UN member state
+| style="background:LightCoral;" |{{claimedby|NKOREA}}
+{{extent}}South Korea contains 1 autonomous region, [[Jeju-do]].<ref name=autonomous group="Note"/><ref>{{cite web|author=Keun Min|title=Greetings|publisher=Jeju Special Self-Governing Province|url=http://english.jeju.go.kr/contents/index.php?mid=02|accessdate = 2010-11-10}}</ref> South Korea is not recognised by one UN member: North Korea.<ref name="koreas" group="Note"/>
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Kosovo → [[#Kosovo|Kosovo]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Kuwait"></span>'''{{flag|Kuwait}}'''&nbsp;– State of Kuwait
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Kyrgyzstan"></span>'''{{flag|Kyrgyzstan}}'''&nbsp;– Kyrgyz Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Laos"></span>'''{{flag|Laos}}'''&nbsp;– Lao People's Democratic Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Latvia"></span>'''{{flag|Latvia}}'''&nbsp;– Republic of Latvia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Lebanon"></span>'''{{flag|Lebanon}}'''&nbsp;– Lebanese Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Lesotho"></span>'''{{flag|Lesotho}}'''&nbsp;– Kingdom of Lesotho
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Liberia"></span>'''{{flag|Liberia}}'''&nbsp;– Republic of Liberia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Libya"></span>'''{{flag|Libya}}'''&nbsp;– State of Libya
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Libya has one self-declared autonomous region:<ref>{{Cite news|url=http://www.aljazeera.com/news/africa/2013/11/east-libya-declares-self-government-2013113195259621122.html|title=East Libya declares self-government|publisher=[[Al Jazeera]]|date=November 3, 2013|accessdate=November 5, 2013}}</ref>
+* {{flagicon image|Flag of Cyrenaica.svg}} [[Cyrenaica]]
+|-
+|style="vertical-align:top;"|<span id="Liechtenstein"></span>'''{{flag|Liechtenstein}}'''&nbsp;– Principality of Liechtenstein
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Lithuania"></span>'''{{flag|Lithuania}}'''&nbsp;– Republic of Lithuania
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Luxembourg"></span>'''{{flag|Luxembourg}}'''&nbsp;– Grand Duchy of Luxembourg
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Macedonia"></span>'''{{flag|Macedonia}}'''&nbsp;– Republic of Macedonia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Because of the [[Macedonia naming dispute]], the country is referred to by the UN and a number of states and international organizations as "the former Yugoslav Republic of Macedonia".
+|-
+|style="vertical-align:top;"|<span id="Madagascar"></span>'''{{flag|Madagascar}}'''&nbsp;– Republic of Madagascar
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Malawi"></span>'''{{flag|Malawi}}'''&nbsp;– Republic of Malawi
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Malaysia"></span>'''{{flag|Malaysia}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Malaysia is a [[federation]] of [[States of Malaysia|13 states and three federal territories]].
+|-
+|style="vertical-align:top;"|<span id="Maldives"></span>'''{{flag|Maldives}}'''&nbsp;– Republic of Maldives
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Mali"></span>'''{{flag|Mali}}'''&nbsp;– Republic of Mali
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Malta"></span>'''{{flag|Malta}}'''&nbsp;– Republic of Malta
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Marshall Islands"></span>'''{{flag|Marshall Islands}}'''&nbsp;– Republic of the Marshall Islands
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Under [[Compact of Free Association]] with the [[#United States|United States]].
+|-
+|style="vertical-align:top;"|<span id="Mauritania"></span>'''{{flag|Mauritania}}'''&nbsp;– Islamic Republic of Mauritania
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Mauritius"></span>'''{{flag|Mauritius}}'''&nbsp;– Republic of Mauritius
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Mauritius has an autonomous island, [[Rodrigues]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Mexico"></span>'''{{flag|Mexico}}'''&nbsp;– United Mexican States
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Mexico is a [[federation]] of [[Political divisions of Mexico|31 states and 1 federal district]].
+|-
+|style="vertical-align:top;"|<span id="Moldova"></span>'''{{flag|Moldova}}'''&nbsp;– Republic of Moldova
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Moldova has the autonomous regions of [[Gagauzia]] and [[#Transnistria|Transnistria]], the latter of which has established a de facto state.
+|-
+|style="vertical-align:top;"|<span id="Monaco"></span>'''{{flag|Monaco}}'''&nbsp;– Principality of Monaco
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Mongolia"></span>'''{{flag|Mongolia}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Montenegro"></span>'''{{flag|Montenegro}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Morocco"></span>'''{{flag|Morocco}}'''&nbsp;– Kingdom of Morocco
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Morocco claims sovereignty over [[Western Sahara]] and controls most of it, which is disputed by the [[#SADR|Sahrawi Arab Democratic Republic]].
+|-
+|style="vertical-align:top;"|<span id="Mozambique"></span>'''{{flag|Mozambique}}'''&nbsp;– Republic of Mozambique
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Myanmar"></span>'''{{flag|Myanmar}}'''&nbsp;– Republic of the Union of Myanmar<ref group="Note">The government changed the state's official name in English from "Union of Myanmar" to "Republic of the Union of Myanmar" in October 2010.</ref><ref>{{Cite news|title=Myanmar gets new flag, official name, anthem|url=http://ca.reuters.com/article/topNews/idCATRE69K2HM20101021|publisher=Reuters|date=21 October 2010|accessdate=22 October 2010}}</ref>
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Nagorno-Karabakh → [[#Nagorno-Karabakh|Nagorno-Karabakh]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Namibia"></span>'''{{flag|Namibia}}'''&nbsp;– Republic of Namibia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Nauru"></span>'''{{flag|Nauru}}'''&nbsp;– Republic of Nauru
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Nepal"></span>'''{{flag|Nepal}}'''&nbsp;– Federal Democratic Republic of Nepal
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Nepal is a [[federation]] composed of [[Zones of Nepal|14 zones]].
+|-
+|style="vertical-align:top;"|<span id="Netherlands"></span>'''{{flagcountry|Kingdom of the Netherlands}}'''<!--Link to state instead of country-->&nbsp;– Kingdom of the Netherlands <!-- Note that the Netherlands is not the sovereign state, the Kingdom is—see [[Kingdom of the Netherlands#The distinction between the Netherlands and "the Kingdom"]]. -->
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> The Kingdom of the Netherlands consists of four constituent countries:
+* {{flag|Netherlands}}
+* {{flag|Aruba}}
+* {{flag|Curaçao}}
+* {{flag|Sint Maarten}}
+The monarch and his ministers form the government of the kingdom as well as the government of its constituent country, the Netherlands. Following the dissolution of the [[Netherlands Antilles]] in 2010, Curaçao and Sint Maarten have become constituent countries, which, alongside Aruba, enjoy considerable autonomy. The other three islands ([[Bonaire]], [[Saba]], [[Sint Eustatius]]) became [[Caribbean Netherlands|special municipalities]] of the Netherlands.
+
+The designation "Netherlands" can refer either to one of the Kingdom's constituent countries or to the short name for the Kingdom (e.g. in international organizations). The Kingdom of the Netherlands as a whole is a member of the EU, but EU law applies only to parts within Europe.
+|-
+|style="vertical-align:top;"|<span id="New Zealand"></span>'''{{flag|New Zealand}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}New Zealand is a [[Commonwealth realm]],<ref name=realm group="Note"/> and has the dependent territories of:
+* {{noflag|[[Ross Dependency]]}}
+* {{flag|Tokelau}}
+
+New Zealand has responsibilities for (but no rights of control over) two freely [[associated state]]s:
+* {{flag|Cook Islands}}
+* {{flag|Niue}}
+The Cook Islands and Niue have diplomatic relations with 39 and 11 UN members respectively.<ref>{{cite web
+ | author = Federal Foreign Office of Germany
+ | title = Beziehungen zu Deutschland
+ | publisher = Government of Germany
+ | date = November 2009
+ | url = http://www.auswaertiges-amt.de/diplo/de/Laenderinformationen/Cookinseln/Bilateral.html
+ | accessdate = 2010-07-16}} For more information, see [[Foreign relations of the Cook Islands]].</ref><ref>{{cite web
+ | author = China Internet Information Centre
+ | title = Full text of joint communique on the establishment of diplomatic relations between China and Niue
+ | publisher = Xinhua News Agency
+ | date = 13 December 2007
+ | url = http://www.china.org.cn/english/international/235447.htm
+ | accessdate = 2010-07-16}}</ref><ref>{{cite web
+ | author = Republic of Nauru Permanent Mission to the United Nations
+ | title = Foreign Affairs
+ | publisher = United Nations
+ | url = http://www.un.int/nauru/foreignaffairs.html
+ | accessdate = 2010-07-16}}</ref> They have full treaty-making capacity in the UN,<ref name="untreaty1">http://untreaty.un.org/cod/repertory/art102/english/rep_supp8_vol6-art102_e_advance.pdf</ref> and are members of some [[List of specialized agencies of the United Nations|UN specialized agencies]].
+
+|-
+|style="vertical-align:top;"|<span id="Nicaragua"></span>'''{{flag|Nicaragua}}'''&nbsp;– Republic of Nicaragua
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Nicaragua contains two autonomous regions, [[Región Autónoma del Atlántico Sur|Atlántico Sur]] and [[Región Autónoma del Atlántico Norte|Atlántico Norte]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Niger"></span>'''{{flag|Niger}}'''&nbsp;– Republic of Niger
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Nigeria"></span>'''{{flag|Nigeria}}'''&nbsp;– Federal Republic of Nigeria
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Nigeria is a [[federation]] of [[States of Nigeria|36 states and 1 federal territory]].
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Niue → [[#Niue|Niue]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+{{extent}}
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Northern Cyprus → [[#Northern Cyprus|Northern Cyprus]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|North Korea → [[#Korea North|Korea, North]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Norway"></span>'''{{flag|Norway}}'''&nbsp;– Kingdom of Norway
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+* [[Svalbard]] is an integral part of Norway, but has a special status due to the [[Svalbard Treaty]].
+* [[Jan Mayen]] is an island that is an integral part of Norway, although [[Unincorporated area|unincorporated]].
+Norway has the dependent territories of:
+* [[Bouvet Island]]
+* [[Peter I Island]]
+* [[Queen Maud Land]]
+|-
+|style="vertical-align:top;"|<span id="Oman"></span>'''{{flag|Oman}}'''&nbsp;– Sultanate of Oman
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Pakistan"></span>'''{{flag|Pakistan}}'''&nbsp;– Islamic Republic of Pakistan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Pakistan is a [[federation]] of [[Subdivisions of Pakistan|four provinces, 1 capital territory, and tribal regions]]. Pakistan disputes [[#India|Indian]] sovereignty over [[Kashmir]]. It exercises control over [[Pakistan-administered Kashmir|some areas]], but does not explicitly claim any part of it,<ref>Constitution of Pakistan, Art. 1.</ref><ref>{{Cite news
+ | author = Aslam, Tasnim
+ | title = 'Pakistan Does Not Claim Kashmir As An Integral Part...'
+ | url = http://www.outlookindia.com/article.aspx?233374
+ | newspaper = Outlook India
+ | publisher = The Outlook Group
+ | date = 11 December 2006
+ | accessdate = }}</ref> instead regarding it as a disputed territory.<ref>{{Cite book
+ | last = Williams
+ | first = Kristen P.
+ | title = Despite nationalist conflicts: theory and practice of maintaining world peace
+ | publisher = Greenwood Publishing Group
+ | year = 2001
+ | pages = 154–155
+ | url = https://books.google.com/?id=OYmurpH3ahsC
+ | isbn = 978-0-275-96934-9}}</ref><ref>{{Cite book
+ | last = Pruthi
+ | first = R.K.
+ | title = An Encyclopaedic Survey Of Global Terrorism In 21St Century
+ | publisher = Anmol Publications Pvt. Ltd.
+ | year = 2001
+ | pages = 120–121
+ | url = https://books.google.com/?id=C3yDkKDbZ3YC
+ | isbn = 978-81-261-1091-9}}</ref> The portions that it controls are divided into two territories, administered separately from Pakistan proper:<ref name=Kashmir group="Note">Sovereignty over [[Kashmir]] is disputed between [[#India|India]] and [[#Pakistan|Pakistan]]; smaller parts are disputed by the [[#China|People's Republic of China]] and the [[#Taiwan|Republic of China]]. Kashmir is divided between India, Pakistan and the PRC. See the [[List of territorial disputes]].</ref>
+* {{flag|Azad Kashmir}}
+* {{noflag|[[Gilgit–Baltistan]]}}
+
+Azad Kashmir describes itself as a "self-governing state under Pakistani control", while Gilgit-Baltistan is described in its governance order as a group of "areas" with self-government.<ref>http://home.ajk.gov.pk/index.php?option=com_content&view=article&id=72&catid=14</ref><ref name="gbtribune.files.wordpress.com">http://gbtribune.files.wordpress.com/2012/09/self-governance-order-2009.pdf</ref> These territories are not usually regarded as sovereign,  as they do not fulfill the criteria set out by the declarative theory of statehood (for example, their current laws do not allow them to engage independently in relations with other states). Several state functions of these territories (such as foreign affairs and defence) are performed by Pakistan on their behalf.<ref name="gbtribune.files.wordpress.com"/><ref>{{cite book|url=https://books.google.com/books?id=z-aRAwAAQBAJ&pg=PA1100&dq=azad+kashmir+gilgit+baltistan&hl=en&sa=X&ei=rbnWU6-bMcqayATQz4HoDg&ved=0CDUQ6AEwBA#v=onepage&q=azad%20kashmir%20gilgit%20baltistan&f=false|title=Political Handbook of the World 2014|publisher=|accessdate=5 October 2014}}</ref><ref>http://www.ajkassembly.gok.pk/AJK_Interim_Constitution_Act_1974.pdf</ref>
+|-
+|style="vertical-align:top;"|<span id="Palau"></span>'''{{flag|Palau}}'''&nbsp;– Republic of Palau
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Under [[Compact of Free Association]] with the [[#United States|United States]].
+|-
+|style="vertical-align:top;"|<span id="Palestine"></span>'''{{flagcountry|State of Palestine}}'''&nbsp;– State of Palestine
+| style="background:LightSkyBlue;" |<span style="display:none">A</span> [[United Nations General Assembly observers|UN observer state]]; member of one [[List of specialized agencies of the United Nations|UN specialized agency]]
+| style="background:LightCoral;" | [[International recognition of the State of Palestine|Partially unrecognized]]. {{claimedby|ISRAEL}}
+{{extent}}The declared State of Palestine has received diplomatic recognition from {{Numrec|Pal}} states.<ref>{{cite web|author=Palestine Liberation Organization|title=Road For Palestinian Statehood: Recognition and Admission|url=http://www.nad-plo.org/etemplate.php?id=5|publisher=Negotiations Affairs Department|accessdate=2011-07-28}}</ref> The proclaimed state has no agreed territorial borders, or effective control on much of the territory that it proclaimed.<ref>See the following on statehood criteria:
+* {{Cite journal|author=Mendes, Errol|title=Statehood and Palestine for the purposes of Article 12 (3) of the ICC Statute|url=http://uclalawforum.com/media/background/gaza/2010-03-30_Mendes-Memo.pdf|pages=28, 33|date=30 March 2010|publisher=30 March 2010|accessdate=2011-04-17|postscript=:}} "...the Palestinian State also meets the traditional criteria under the Montevideo Convention..."; "...the fact that a majority of states have recognised Palestine as a State should easily fulfill the requisite state practice".
+* {{Cite journal|author=McKinney, Kathryn M.|title=The Legal Effects of the Israeli-PLO Declaration ofPrinciples: Steps Toward Statehood for Palestine|url=http://lawpublications.seattleu.edu/cgi/viewcontent.cgi?article=1438&context=sulr&sei-redir=1#search=%22palestine+%22constitutive+theory%22+statehood%22|journal=Seattle University Law Review|volume=18|issue=93|year=1994|page=97|publisher=Seattle University|accessdate=2011-04-17|postscript=:}} "It is possible, however, to argue for Palestinian statehood based on the constitutive theory".
+* {{Cite journal|author=McDonald, Avril|title=Operation Cast Lead: Drawing the Battle Lines of the Legal Dispute|url=https://litigation-essentials.lexisnexis.com/webcd/app?action=DocumentDisplay&crawlid=1&doctype=cite&docid=16+Hum.+Rts.+Br.+25&srctype=smi&srcid=3B15&key=74ccae52ba220673512e7784449388f0|journal=Human Rights Brief|volume=25|date=Spring 2009|publisher=Washington College of Law, Center for Human Rights and Humanitarian Law|accessdate=2011-04-17|postscript=:}} "Whether one applies the criteria of statehood set out in the Montevideo Convention or the more widely accepted constitutive theory of statehood, Palestine might be considered a state."</ref> The [[Palestinian National Authority]] is an interim administrative body formed as a result of the [[Oslo Accords]] that exercises limited autonomous jurisdiction within the [[Palestinian territories]]. In foreign relations, Palestine is represented by the [[Palestine Liberation Organization]].<ref name="unnms"/> The State of Palestine is a member state of UNESCO,<ref>{{cite web|author=United Nations Educational, Scientific and Cultural Organization|title=Arab States: Palestine|url=http://www.unesco.org/new/en/unesco/worldwide/arab-states/palestine/|publisher=United Nations|accessdate=3 December 2011}}</ref> and an observer state in the UN.
+|-
+|style="vertical-align:top;"|<span id="Panama"></span>'''{{flag|Panama}}'''&nbsp;– Republic of Panama
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Papua New Guinea"></span>'''{{flag|Papua New Guinea}}'''&nbsp;– Independent State of Papua New Guinea
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Papua New Guinea is a [[Commonwealth realm]]<ref name=realm group="Note"/> with 1 autonomous region, [[Autonomous Region of Bougainville|Bougainville]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Paraguay"></span>'''{{flag|Paraguay}}'''&nbsp;– Republic of Paraguay
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Peru"></span>'''{{flag|Peru|state}}'''&nbsp;– Republic of Peru
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Philippines"></span>'''{{flag|Philippines}}'''&nbsp;– Republic of the Philippines
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}The Philippines contains one autonomous region, [[Autonomous Region in Muslim Mindanao]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Poland"></span>'''{{flag|Poland}}'''&nbsp;– Republic of Poland
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Portugal"></span>'''{{flag|Portugal}}'''&nbsp;– Portuguese Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> Portugal contains two autonomous regions, [[Azores]] and [[Madeira]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|Pridnestrovie → [[#Transnistria|Transnistria]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Qatar"></span>'''{{flag|Qatar}}'''&nbsp;– State of Qatar
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|Republic of Korea → [[#Korea South|Korea, South]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|Republic of the Congo → [[#Congo, Republic of the|Congo, Republic of the]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Romania"></span>'''{{flag|Romania}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Russia"></span>'''{{flag|Russia}}'''&nbsp;– Russian Federation
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Russia is officially a [[federation]] of 85&nbsp;[[federal subjects of Russia|federal subjects]] (republics, oblasts, krais, autonomous okrugs, federal cities, and an autonomous oblast). Several of the federal subjects are ethnic republics.<ref name=autonomous group="Note" />
+|-
+|style="vertical-align:top;"|<span id="Rwanda"></span>'''{{flag|Rwanda}}'''&nbsp;– Republic of Rwanda
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Sahrawi Arab Democratic Republic → [[#SADR|Sahrawi Arab Democratic Republic]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Saint Kitts and Nevis"></span>'''{{flag|Saint Kitts and Nevis}}'''&nbsp;– Federation of Saint Christopher and Nevis
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Saint Kitts and Nevis is a [[Commonwealth realm]]<ref name=realm group="Note"/> and is a [[federation]]<ref name=federal group="Note"/> of [[Parishes of Saint Kitts and Nevis|14 parishes]].
+|-
+|style="vertical-align:top;"|<span id="Saint Lucia"></span>'''{{flag|Saint Lucia}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Saint Lucia is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Saint Vincent and the Grenadines"></span>'''{{flag|Saint Vincent and the Grenadines}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Saint Vincent and the Grenadines is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Samoa"></span>'''{{flag|Samoa}}'''&nbsp;– Independent State of Samoa
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="San Marino"></span>'''{{flag|San Marino}}'''&nbsp;– Republic of San Marino
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="São Tomé and Príncipe"></span>'''{{flag|São Tomé and Príncipe}}'''&nbsp;– Democratic Republic of São Tomé and Príncipe
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}São Tomé and Príncipe contains 1 autonomous province, [[Príncipe]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Saudi Arabia"></span>'''{{flag|Saudi Arabia}}'''&nbsp;– Kingdom of Saudi Arabia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+<!--Sealand is not a sovereign state according to the definition in the introduction of this article and should not be included-->
+<!--Scotland is not a sovereign state according to the definition in the introduction of this article and should not be included-->
+|-
+|style="vertical-align:top;"|<span id="Senegal"></span>'''{{flag|Senegal}}'''&nbsp;– Republic of Senegal
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Serbia"></span>'''{{flag|Serbia}}'''&nbsp;– Republic of Serbia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Serbia contains two autonomous regions, [[Vojvodina]] and [[Kosovo and Metohija]].<ref name=autonomous group="Note"/> The latter is under the de facto control of the [[#Kosovo|Republic of Kosovo]].
+|-
+|style="vertical-align:top;"|<span id="Seychelles"></span>'''{{flag|Seychelles}}'''&nbsp;– Republic of Seychelles
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Sierra Leone"></span>'''{{flag|Sierra Leone}}'''&nbsp;– Republic of Sierra Leone
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Singapore"></span>'''{{flag|Singapore}}'''&nbsp;– Republic of Singapore
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Slovakia"></span>'''{{flag|Slovakia}}'''&nbsp;– Slovak Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Slovenia"></span>'''{{flag|Slovenia}}'''&nbsp;– Republic of Slovenia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Solomon Islands"></span>'''{{flag|Solomon Islands}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}The Solomon Islands is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Somalia"></span>'''{{flag|Somalia}}'''&nbsp;– Federal Republic of Somalia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Somalia is presently divided with the official [[Federal Government of Somalia]] (FGS) controlling only part of the country. [[Puntland]] and [[Galmudug]] have declared themselves as autonomous regions of Somalia (a claim that the FGS does not recognise),<ref>{{Cite book | last = Weller | first = Marc |author2=Nobbs, Katherine  | title = Asymmetric Autonomy and the Settlement of Ethnic Conflicts | publisher = University of Pennsylvania Press | year = 2010 | location = Philadelphia, United States | page = | url = https://books.google.com/?id=ru-DIWuuObEC | isbn = 978-0-8122-4230-0}}</ref>{{Request quotation|date=March 2011}} while [[#Somaliland|Somaliland]] has formed an unrecognised de facto state.
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Somaliland → [[#Somaliland|Somaliland]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="South Africa"></span>'''{{flag|South Africa}}'''&nbsp;– Republic of South Africa
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|South Korea → [[#Korea South|Korea, South]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>South Ossetia → [[#South Ossetia|South Ossetia]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="South Sudan"></span>'''{{flag|South Sudan}}'''&nbsp;– Republic of South Sudan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}South Sudan is a [[federation]] of [[States of South Sudan|10 states]].
+|-
+|style="vertical-align:top;"|<span id="Spain"></span>'''{{flag|Spain}}'''&nbsp;– Kingdom of Spain
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> Spain is divided into [[Autonomous communities of Spain|17 autonomous communities and 2 special autonomous cities]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Sri Lanka"></span>'''{{flag|Sri Lanka}}'''&nbsp;– Democratic Socialist Republic of Sri Lanka
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Formerly known as [[Dominion of Ceylon|Ceylon]].
+|-
+|style="vertical-align:top;"|<span id="Sudan"></span>'''{{flag|Sudan}}'''&nbsp;– Republic of the Sudan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Sudan is a [[federation]] of [[States of Sudan|17 states]]. Disputes [[Abyei]] and [[Kafia Kingi]] with [[#South Sudan|South Sudan]].
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Sudan, South → [[#South Sudan|South Sudan]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Suriname"></span>'''{{flag|Suriname}}'''&nbsp;– Republic of Suriname
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Swaziland"></span>'''{{flag|Swaziland}}'''&nbsp;– Kingdom of Swaziland
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Sweden"></span>'''{{flag|Sweden}}'''&nbsp;– Kingdom of Sweden
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha />
+|-
+|style="vertical-align:top;"|<span id="Switzerland"></span>'''{{flag|Switzerland}}'''&nbsp;– Swiss Confederation
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Switzerland is a [[federation]] of [[Cantons of Switzerland|26 cantons]].
+|-
+|style="vertical-align:top;"|<span id="Syria"></span>'''{{flag|Syria}}'''&nbsp;– Syrian Arab Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}The [[National Coalition for Syrian Revolutionary and Opposition Forces|Syrian National Coalition]], which is [[International recognition of the Syrian National Coalition|recognized]] as the legitimate representative of the Syrian people by 20 UN members, has established an [[Syrian Interim Government|interim government]] to rule rebel controlled territory during the [[Syrian civil war]].
+Syria has one self-declared autonomous region:
+* {{flag|Syrian Kurdistan}}
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Taiwan (Republic of China) → [[#Taiwan|Taiwan]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Tajikistan"></span>'''{{flag|Tajikistan}}'''&nbsp;– Republic of Tajikistan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Tajikistan contains 1 autonomous region, [[Gorno-Badakhshan Autonomous Province]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Tanzania"></span>'''{{flag|Tanzania}}'''&nbsp;– United Republic of Tanzania
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Tanzania contains 1 autonomous region, [[Zanzibar]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Thailand"></span>'''{{flag|Thailand}}'''&nbsp;– Kingdom of Thailand
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|Timor-Leste → [[#East Timor|East Timor]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Togo"></span>'''{{flag|Togo}}'''&nbsp;– Togolese Republic
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Tonga"></span>'''{{flag|Tonga}}'''&nbsp;– Kingdom of Tonga
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span style="display:none">ZZZ</span>Transnistria → [[#Transnistria|Transnistria]]
+|<span style="display:none">A UN member state</span>
+|<span style="display:none">A None</span>
+|
+|-
+|style="vertical-align:top;"|<span id="Trinidad and Tobago"></span>'''{{flag|Trinidad and Tobago}}'''&nbsp;– Republic of Trinidad and Tobago
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Trinidad and Tobago contains 1 autonomous region, [[Tobago]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Tunisia"></span>'''{{flag|Tunisia}}'''&nbsp;– Republic of Tunisia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Turkey"></span>'''{{flag|Turkey}}'''&nbsp;– Republic of Turkey
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Turkmenistan"></span>'''{{flag|Turkmenistan}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Tuvalu"></span>'''{{flag|Tuvalu}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Tuvalu is a [[Commonwealth realm]].<ref name=realm group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Uganda"></span>'''{{flag|Uganda}}'''&nbsp;– Republic of Uganda
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Ukraine"></span>'''{{flag|Ukraine}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="United Arab Emirates"></span>'''{{flag|United Arab Emirates}}'''
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}The United Arab Emirates is a [[federation]] of [[Emirates of the United Arab Emirates|seven emirates]].
+|-
+|style="vertical-align:top;"|<span id="United Kingdom"></span>'''{{flag|United Kingdom}}'''&nbsp;– United Kingdom of Great Britain and Northern Ireland
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Member of the EU.<ref name=EU group=lower-alpha /> The United Kingdom is a [[Commonwealth realm]]<ref name=realm group="Note"/> consisting of [[Countries of the United Kingdom|four constituent countries]]: [[England]], [[Northern Ireland]], [[Scotland]], and [[Wales]]. The United Kingdom has the following overseas territories:
+* {{flag|Akrotiri and Dhekelia}}
+* {{flag|Anguilla}}
+* {{flag|Bermuda}}
+* {{flag|British Indian Ocean Territory}}
+* {{flag|British Virgin Islands}}
+* {{flag|Cayman Islands}}
+* {{flag|Falkland Islands}}
+* {{flag|Gibraltar}}
+* {{flag|Montserrat}}
+* {{flag|Pitcairn Islands}}
+* {{flag|Saint Helena, Ascension and Tristan da Cunha}}
+* {{flag|South Georgia and the South Sandwich Islands}}
+* {{flag|Turks and Caicos Islands}}
+* {{flag|British Antarctic Territory}}
+The British monarch has direct sovereignty over three self-governing Crown dependencies:
+* {{flag|Guernsey}}, with three dependencies:
+** {{flag|Alderney}}
+** {{flag|Herm}}
+** {{flag|Sark}}
+* {{flag|Isle of Man}}
+* {{flag|Jersey}}
+|-
+|style="vertical-align:top;"|<span id="United States"></span>'''{{flag|United States}}'''&nbsp;– United States of America
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}The United States is a [[federation]] of [[Political divisions of the United States|50 states, 1 federal district]], and the incorporated territory of [[Palmyra Atoll]]. The United States has sovereignty over the following inhabited possessions and commonwealths:
+* {{flag|American Samoa}}
+* {{flag|Guam}}
+* {{flag|Northern Mariana Islands}}
+* {{flag|Puerto Rico}}
+* {{flag|U.S. Virgin Islands}}
+It also has sovereignty over several uninhabited territories:
+* [[Baker Island]]
+* [[Howland Island]]
+* [[Jarvis Island]]
+* [[Johnston Atoll]]
+* [[Kingman Reef]]
+* [[Midway Atoll]]
+* [[Navassa Island]]
+* [[Wake Island]]
+
+Three sovereign states have become [[associated state]]s of the United States under the [[Compact of Free Association]]:
+* {{flag|Marshall Islands}}&nbsp;– Republic of the Marshall Islands
+* {{flag|Micronesia}}&nbsp;– Federated States of Micronesia
+* {{flag|Palau}}&nbsp;– Republic of Palau
+
+It also disputes sovereignty over the following territories:
+* [[Bajo Nuevo Bank]]
+* [[Serranilla Bank]]
+|-
+|style="vertical-align:top;"|<span id="Uruguay"></span>'''{{flag|Uruguay}}'''&nbsp;– Oriental Republic of Uruguay
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Uzbekistan"></span>'''{{flag|Uzbekistan}}'''&nbsp;– Republic of Uzbekistan
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Uzbekistan contains 1 autonomous region, [[Karakalpakstan]].<ref name=autonomous group="Note"/>
+|-
+|style="vertical-align:top;"|<span id="Vanuatu"></span>'''{{flag|Vanuatu}}'''&nbsp;– Republic of Vanuatu
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Vatican City"></span>'''{{flag|Vatican City}}'''&nbsp;–  Vatican City State
+| style="background:LightSkyBlue;" |<span style="display:none">A</span> [[United Nations General Assembly observers|UN observer state]] under the designation of "Holy See"; member of three [[List of specialized agencies of the United Nations|UN specialized agencies]] and the [[International Atomic Energy Agency|IAEA]]
+|<span style="display:none">A</span> None
+{{extent}}Administered by the [[Holy See]], a sovereign entity with diplomatic ties to {{Numrec|Holy See|N=1||states}}.<ref>{{cite web|url=http://www.vatican.va/roman_curia/secretariat_state/documents/rc_seg-st_20010123_holy-see-relations_en.html|title=Bilateral relations of the Holy See|publisher=Holy See website|accessdate=2012-06-05}}</ref> The Holy See is a member of the [[IAEA]], [[ITU]], [[UPU]], and [[WIPO]] and a permanent observer of the UN (in the category of "Non-member State")<ref name="unnms">{{cite web|title=Non-member States and Entities |url=http://www.un.org/en/members/nonmembers.shtml|publisher=United Nations|accessdate=30 August 2010|date=29 February 2008}}</ref> and [[Foreign relations of the Holy See#Participation in international organizations|multiple other UN System organizations]]. The Vatican City is governed by officials appointed by the [[Pope]], who is the Bishop of the Diocese of Rome and ''ex officio'' sovereign of Vatican City.
+|-
+|style="vertical-align:top;"|<span id="Venezuela"></span>'''{{flag|Venezuela}}'''&nbsp;– Bolivarian Republic of Venezuela
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}Venezuela is a [[federation]] of [[States of Venezuela|23 states, 1 capital district, and federal dependencies]].
+|-
+|style="vertical-align:top;"|<span id="Vietnam"></span>'''{{flag|Vietnam}}'''&nbsp;– Socialist Republic of Vietnam
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Yemen"></span>'''{{flag|Yemen}}'''&nbsp;– Republic of Yemen
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Zambia"></span>'''{{flag|Zambia}}'''&nbsp;– Republic of Zambia
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|-
+|style="vertical-align:top;"|<span id="Zimbabwe"></span>'''{{flag|Zimbabwe}}'''&nbsp;– Republic of Zimbabwe
+|<span style="display:none">A</span> UN member state
+|<span style="display:none">A</span> None
+{{extent}}
+|- style="background:Lightgrey;"
+|style="text-align:center;"|<span style="display:none">ZZZ</span>↑ [[Member states of the United Nations|UN member states]] and [[United Nations General Assembly observers|observer states]] ↑
+|<span style="display:none">A ZZZ</span>
+|<span style="display:none">ZZZ</span>
+|
+|- style="background:Darkgrey;"
+|style="text-align:center;"|<span style="display:none">ZZZ</span>
+|<span style="display:none">AB</span>
+|<span style="display:none">B</span>
+|
+|- style="background:Lightgrey;"
+|style="text-align:center;"|<span style="display:none">ZZZ</span>↓ Other states ↓
+|<span style="display:none">D AAA</span>
+|<span style="display:none">ZZZ</span>
+|{{Anchor|Other states}}
+|-
+
+|style="vertical-align:top;"|<span id="Abkhazia"></span>'''{{flag|Abkhazia}}'''&nbsp;– Republic of Abkhazia
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" |{{claimedby|GEORGIA}}
+{{extent}}[[International recognition of Abkhazia and South Ossetia|Recognised by]] Russia, Nauru, Nicaragua, Venezuela,<ref name="STPETTIMES">{{cite news|title=Chavez Backs Abkhazia, South Ossetia|url=http://www.times.spb.ru/index.php?action_id=2&story_id=32067|newspaper=St. Petersburg Times| date=27 July 2010|accessdate=5 June 2011|agency=Associated Press}}</ref> Nagorno-Karabakh, South Ossetia and Transnistria.<ref name=ASOTREC>{{cite web|url=http://www.newsru.com/russia/17nov2006/aup.html|date=2006-11-17|accessdate=2011-06-05|script-title=ru:Абхазия, Южная Осетия и Приднестровье признали независимость друг друга и призвали всех к этому же|publisher=newsru.com|language=Russian}}</ref> Claimed in whole by [[#Georgia|Georgia]] as the [[Government of the Autonomous Republic of Abkhazia|Autonomous Republic of Abkhazia]].
+|-
+|style="vertical-align:top;"|<span id="Cook Islands"></span>'''{{flag|Cook Islands}}'''
+| style="background:lightgreen;" |<span style="display:none">D</span> Member of eight [[List of specialized agencies of the United Nations|UN specialized agencies]]
+|<span style="display:none">A</span> None<br/><small>(See [[Political status of the Cook Islands and Niue|political status]])</small>
+
+{{extent}}A state in [[Associated state|free association]] with [[#N|New Zealand]], the Cook Islands has relations with [[Foreign relations of the Cook Islands|41 other states]]. The Cook Islands is a member of [[List of specialized agencies of the United Nations|multiple UN agencies]] with full treaty making capacity.<ref name="untreaty1"/> It shares a [[Monarchy of New Zealand|head of state]] with New Zealand as well as having [[New Zealand nationality law|shared citizenship]].
+|-
+|style="vertical-align:top;"|<span id="Kosovo"></span>'''{{flag|Kosovo}}'''&nbsp;– Republic of Kosovo
+| style="background:lightgreen;" |<span style="display:none">D</span> Member of two [[List of specialized agencies of the United Nations|UN specialized agencies]]
+| style="background:LightCoral;" |{{claimedby|SERBIA}}
+{{extent}}Pursuant to [[United Nations Security Council Resolution 1244]], Kosovo was placed under the administration of the [[United Nations Interim Administration Mission in Kosovo]] in 1999.<ref>{{cite web|title=United Nations Interim Administration Mission in Kosovo|url=http://www.un.org/en/peacekeeping/missions/unmik/|website=UN|accessdate=8 January 2015}}</ref> Kosovo [[2008 Kosovo declaration of independence|declared independence in 2008]], and it has {{Numrec|Kos|received diplomatic recognition from|UN member states}} and the [[Republic of China]]. Serbia continues to maintain its sovereignty claim over Kosovo. Other UN member states and non UN member states continue to recognise Serbian sovereignty or have taken no position on the question. Kosovo is a member of the [[International Monetary Fund]] and the [[World Bank Group]]. The Republic of Kosovo has de facto control over most of the territory, with limited control in [[North Kosovo]].
+|-
+|style="vertical-align:top;"|<span id="Nagorno-Karabakh"></span>'''{{flag|Nagorno-Karabakh}}'''&nbsp;– Nagorno-Karabakh Republic<ref group="Note">The Constitution of the Nagorno-Karabakh Republic (Art. 1.2) recognizes "Artsakh Republic" as an alternative denomination.</ref>
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" |{{claimedby|AZERBAIJAN}}
+{{extent}}A de facto independent state,<ref name=montevideo/><ref>{{Cite book|author=Krüger, Heiko|title=The Nagorno-Karabakh Conflict: A Legal Analysis|url=https://books.google.com/books?id=7JDCQu-Us8sC&lpg=PP1&pg=PA55#v=onepage&q&f=false|page=55|publisher=Springer|year=2010|isbn=978-3-642-11787-9}}</ref><ref>{{Cite news|author=Nikoghosyan, Hovhannes|title=Kosovo ruling implications for Armenia and Azerbaijan|url=http://www.huliq.com/1/803-kosovo-ruling-implications-armenia-and-azerbaijan|newspaper=HULIQ.com|publisher=Hareyan Publishing, LLC|date=August 2010|accessdate=2011-04-17}}</ref> [[Foreign relations of Nagorno-Karabakh|recognised only by]] [[Abkhazia]],<ref name="NKRrecognition">[http://ararat-online.ru/news/984-2025-vice-spiker-parlamenta-abxazii-vybory-v-nkr-sootvetstvuyut-vsem-mezhdunarodnym-standartam.html Вице-спикер парламента Абхазии: Выборы в НКР соответствуют всем международным стандартам]: "Абхазия, Южная Осетия, НКР и Приднестровье уже давно признали независимость друг друга и очень тесно сотрудничают между собой", – сказал вице-спикер парламента Абхазии. ... "...Абхазия признала независимость Нагорно-Карабахской Республики..." – сказал он."</ref> [[South Ossetia]]<ref name="NKRrecognition"/> and [[Transnistria]].<ref name="NKRrecognition"/><ref name="transgovt">{{cite web|url=http://pridnestrovie.net/foreignpolicy_full.html|title=In detail: The foreign policy of Pridnestrovie|publisher=[[Pridnestrovie]]|date=2010-05-26|accessdate=2010-06-29}}</ref> Claimed in whole by [[#Azerbaijan|Azerbaijan]].<ref>See [http://news.bbc.co.uk/1/hi/world/europe/country_profiles/3658938.stm Regions and territories'': Nagorno-Karabakh] (17 January 2006). BBC News. Retrieved January 17, 2006.</ref>
+|-
+|style="vertical-align:top;"|<span id="Niue"></span>'''{{flag|Niue}}'''
+| style="background-color:lightgreen" |<span style="display:none">D</span> Member of five [[List of specialized agencies of the United Nations|UN specialized agencies]]
+|<span style="display:none">A</span> None<br/><small>(See [[Political status of the Cook Islands and Niue|political status]])</small>
+
+{{extent}}A state in [[Associated state|free association]] with [[#N|New Zealand]], Niue has relations with [[Foreign relations of Niue|12 other states]]. Niue is a member of [[List of specialized agencies of the United Nations|multiple UN agencies]] with full treaty making capacity.<ref name="untreaty1"/> It shares a [[Monarchy of New Zealand|head of state]] with New Zealand as well as having [[New Zealand nationality law|shared citizenship]].
+|-
+|style="vertical-align:top;"|<span id="Northern Cyprus"></span>'''{{flag|Northern Cyprus}}'''&nbsp;– Turkish Republic of Northern Cyprus
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" | Claimed by [[Cyprus]]
+{{extent}} [[Foreign relations of Northern Cyprus|Recognised only by]] [[#Turkey|Turkey]]. Under the name "Turkish Cypriot State", it is an observer state of the [[Organisation of Islamic Cooperation]] and the [[Economic Cooperation Organization]]. Northern Cyprus is claimed in whole by the [[#Cyprus|Republic of Cyprus]].<ref>See [https://www.cia.gov/library/publications/the-world-factbook/geos/cy.html The World Factbook|Cyprus] (10 January 2006). Central Intelligence Agency. Retrieved January 17, 2006''.</ref>
+|-
+|style="vertical-align:top;"|<span id="SADR"></span>'''{{flag|Sahrawi Arab Democratic Republic}}'''
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" |{{claimedby|MOROCCO}}
+{{extent}}Recognised at some stage by {{Numrec|SADR||UN member states}}, {{Numrec|SADR|W=Y|link=N}} of which have since withdrawn or frozen their recognition. It is a founding member of the [[African Union]] and the Asian-African Strategic Partnership formed at the 2005 [[Asian-African Conference]]. The territories under its control, the so-called [[Free Zone (region)|Free Zone]], are claimed in whole by [[#Morocco|Morocco]] as part of its [[Southern Provinces]]. In turn, the Sahrawi Arab Democratic Republic claims the part of [[Western Sahara]] to the west of the [[Wall (Western Sahara)|Moroccan Wall]] controlled by Morocco. Its government resides in exile in [[Tindouf]], [[#Algeria|Algeria]].
+|-
+|style="vertical-align:top;"|<span id="Somaliland"></span>'''{{flag|Somaliland}}'''&nbsp;– Republic of Somaliland
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" |{{claimedby|SOMALIA}}
+{{extent}}A de facto independent state,<ref name=montevideo>{{cite book|url=https://books.google.com/books?id=4PwmeRG9QsUC|title=The Foreign Policy of Counter Secession: Preventing the Recognition of Contested States|last=Ker-Lindsay|first=James|publisher=[[Oxford University Press]]|year=2012|quote=...there are three other territories that have unilaterally declared independence and are generally regarded as having met the Montevideo criteria for statehood but have not been recognized by any states: Transnistria, Nagorny Karabakh, and Somaliland.|pages=53}}</ref><ref>{{cite journal|url=http://minnjil.org/wp-content/uploads/2010/04/kreuterweb-pdf.pdf|title=Self-Determination, Sovereignty, and the Failure of States: Somaliland and the Case for Justified Secession|journal=[[Minnesota Journal of International Law]]|volume=19:2|year=2010|quote=Considering each of these factors, Somaliland has a colorable argument that it meets the theoretical requirements of statehood. ... On these bases, Somaliland appears to have a strong claim to statehood.|pages=380–381}}</ref><ref>{{Cite journal|author=International Crisis Group|title=Somaliland: Time for African Union leadership|journal=Africa Report|issue=110|pages=10–13|date=23 May 2006|url=http://www.operationspaix.net/IMG/pdf/ICG_Somaliland_AU_Leadership_2006-05-23_.pdf|accessdate=2011-04-19|postscript=<!-- Bot inserted parameter. Either remove it; or change its value to "." for the cite to end in a ".", as necessary. -->{{inconsistent citations}}}}</ref><ref>{{Cite journal|author=Mesfin, Berouk|title=The political development of Somaliland and its conflict with Puntland|journal=ISS Paper|issue=200|page=8|publisher=Institute for Security Studies|date=September 2009|url=http://www.somalilandtimes.net/sl/2009/403/P200.pdf|accessdate=2011-04-19|postscript=<!-- Bot inserted parameter. Either remove it; or change its value to "." for the cite to end in a ".", as necessary. -->{{inconsistent citations}}}}</ref><ref>{{Cite journal|author=Arieff, Alexis|title=De Facto Statehood? The Strange Case of Somaliland|url=http://yalejournal.org/wp-content/uploads/2011/01/083206arieff.pdf|journal=Yale Journal of International Affairs|issue=Spring/Summer 2008|accessdate=2011-04-17|postscript=<!-- Bot inserted parameter. Either remove it; or change its value to "." for the cite to end in a ".", as necessary. -->{{inconsistent citations}}}}</ref> [[Foreign relations of Somaliland|not diplomatically recognised by]] any other state, claimed in whole by the [[#Somalia|Federal Republic of Somalia]].<ref>See [http://news.bbc.co.uk/1/hi/world/africa/country_profiles/3794847.stm Regions and territories'': Somaliland] (30 December 2005). BBC News. Retrieved January 17, 2006.</ref>
+|-
+|style="vertical-align:top;"|<span id="South Ossetia"></span>'''{{flag|South Ossetia}}'''&nbsp;– Republic of South Ossetia
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" |{{claimedby|GEORGIA}}
+{{extent}}A de facto independent state,<ref>{{Cite journal|author=Jansen, Dinah|title=The Conflict between Self-Determination and Territorial Integrity: the South Ossetian Paradigm|url=http://centreforforeignpolicystudies.dal.ca/pdf/gradsymp09/Jansen.pdf|journal=Geopolitics vs. Global Governance: Reinterpreting International Security|pages=222–242|year=2009|publisher=Centre for Foreign Policy Studies, University of Dalhousie|isbn=978-1-896440-61-3|postscript=<!-- Bot inserted parameter. Either remove it; or change its value to "." for the cite to end in a ".", as necessary. -->{{inconsistent citations}}}}</ref> [[International recognition of Abkhazia and South Ossetia|recognised by]] Russia, Nicaragua, Nauru, Venezuela,<ref name="STPETTIMES" /> Abkhazia, Nagorno-Karabakh, and Transnistria.<ref name=ASOTREC /> Claimed in whole by [[#Georgia|Georgia]] as the [[Provisional Administrative Entity of South Ossetia]].<ref name="cnnAbSO">{{Cite news|title=Russia condemned for recognizing rebel regions|url=http://www.cnn.com/2008/WORLD/europe/08/26/russia.vote.georgia/index.html|newspaper=CNN.com|publisher=Cable News Network|date=2008-08-26|accessdate=2008-08-26}}</ref>
+|-
+|style="vertical-align:top;"|<span id="Taiwan"></span>'''{{flag|Republic of China|name=Taiwan}}'''&nbsp;– Republic of China<ref group="Note" name="ChinaTaiwan" />
+| style="background:Orchid;" |<span style="display:none">D</span>[[China and the United Nations|Former UN member]] (as Republic of China, 1945-1971) Observer in one [[List of specialized agencies of the United Nations|UN specialized agency]] under the name "[[Chinese Taipei]]"
+| style="background:LightCoral;" |{{claimedby|PRC}}
+{{extent}}A state competing for recognition with the [[People's Republic of China]] as the government of China since 1949. The Republic of China controls the island of [[Taiwan]] and associated islands, Quemoy, Matsu, the Pratas and parts of the [[Spratly Islands]],<ref name=Spratly group="Note">The sovereignty over the [[Spratly Islands]] is disputed by [[China]], [[Taiwan]], [[Vietnam]], and in part by Brunei, [[#Malaysia|Malaysia]], and the [[#Philippines|Philippines]]. Except for Brunei, each of these countries occupies part of the islands (see [[List of territorial disputes]]).</ref> and has not renounced claims over its annexed territories on the [[Mainland China|mainland]].<ref>{{Cite news |title=Ma refers to China as ROC territory in magazine interview |work=[[Taipei Times]] |date=2008-10-08 |url=http://www.taipeitimes.com/News/taiwan/archives/2008/10/08/2003425320}}</ref> The Republic of China is recognised by {{Numrec|ROC|asof=E|alt=UN member states and the Holy See as of}}. The territory of the Republic of China is claimed in whole by the People's Republic of China.<ref name="TAI2" group="Note">In 1949, the Republic of China government led by the [[Kuomintang]] (KMT) lost the [[Chinese Civil War]] to the [[Communist Party of China]] (CPC) and set up a provisional capital in [[Taipei]]. The CPC established the PRC. As such, the [[Political status of Taiwan|political status]] of the ROC and the [[legal status of Taiwan]] (alongside the [[Free Area of the Republic of China|territories]] under ROC jurisdiction) are in dispute. In 1971, the United Nations gave the [[China and the United Nations|China seat]] to the PRC and the ROC withdrew from the UN. Most states recognise the PRC to be the [[One-China policy|sole legitimate representative]] of all China, and the UN classifies Taiwan as "[[Taiwan Province, People's Republic of China|Taiwan, Province of China]]". The ROC has de facto relations with most sovereign states. A significant political movement within Taiwan advocates [[Taiwan independence]].</ref> The Republic of China [[Foreign relations of Taiwan#Relation with International organizations|participates in international organizations]] under a variety of pseudonyms, most commonly "[[Chinese Taipei]]" and in the [[World Trade Organization|WTO]] it has full membership. The Republic of China was a founding member of the UN and enjoyed membership from 1945 to 1971, with veto power in the [[United Nations Security Council|security council]]. See [[China and the United Nations]].
+|-
+|style="vertical-align:top;"|<span id="Transnistria"></span>'''{{flag|Transnistria|state}}'''&nbsp;– Pridnestrovian Moldavian Republic
+| style="background:LemonChiffon;" |<span style="display:none">D</span> No membership
+| style="background:LightCoral;" |{{claimedby|MOLDOVA}}
+{{extent}}A de facto independent state,<ref name=montevideo/> [[Foreign relations of Transnistria|recognised only by]] Abkhazia, Nagorno-Karabakh, and South Ossetia.<ref name=ASOTREC /> Claimed in whole by [[#Moldova|Moldova]] as the ''[[Transnistria autonomous territorial unit with special legal status|Transnistria autonomous territorial unit]]''.<ref>'See [http://news.bbc.co.uk/1/hi/world/europe/country_profiles/3641826.stm Regions and territories'': Trans-Dniester] (13 December 2005). BBC News. Retrieved January 17, 2006.</ref>
+|- style="background:Lightgrey;"
+|style="text-align:center;"|<span style="display:none">ZZZ</span>↑ Other states ↑
+|<span style="display:none">D ZZZ</span>
+|<span style="display:none">ZZZ</span>
+|
+|- style="background:Darkgrey;"
+|style="text-align:center;"|<span style="display:none">ZZZZ</span>
+|<span style="display:none">ZZZZ</span>
+|<span style="display:none">ZZZZ</span>
+|
+|}
+{|
+|style="vertical-align:top;width:350px;"|'''Legend "Membership within the UN system" column'''
+{{legend|White|UN Member states}}
+{{legend|LightSkyBlue|UN Observer states}}
+{{legend|lightgreen|Member of a UN Specialized Agency}}
+{{legend|orchid|Observer in a UN Specialized Agency}}
+{{legend|LemonChiffon|No membership in the UN system}}
+|style="vertical-align:top;width:350px;"|'''Legend "Sovereignty dispute" column'''
+{{legend|White|Undisputed sovereignty}}
+{{legend|LightCoral|Sovereignty disputed}}
+|}
+
+==Criteria for inclusion==
+The dominant [[customary international law]] standard of statehood is the [[Sovereign state#Declarative theory|declarative theory of statehood]], which was codified by the [[Montevideo Convention]] of 1933.  The Convention defines the state as a [[Legal personality|person]] of international law if it ''"possess[es] the following qualifications: (a) a permanent population; (b) a defined territory; (c) government; and (d) a capacity to enter into relations with the other states"'' so long as it was not ''"obtained by force whether this consists in the employment of arms, in threatening diplomatic representations, or in any other effective coercive measure"''.<ref>{{cite book|author=Hersch Lauterpacht|title=Recognition in International Law|url=https://books.google.com/books?id=EWgEv1Qq2TwC&pg=PA419|year=2012|publisher=Cambridge University Press|page=419}}</ref>
+
+Debate exists on the degree to which [[Diplomatic recognition|recognition]] should be included as a criterion of statehood. The declarative theory of statehood argues that statehood is purely objective and recognition of a state by other states is irrelevant. On the other end of the spectrum, the [[Sovereign state#Constitutive theory|constitutive theory of statehood]] defines a state as a person under international law only if it is recognised as [[Sovereignty|sovereign]] by other states. For the purposes of this list, included are all states that either:
+* (a) consider themselves sovereign (through a [[declaration of independence]] or some other means) and are often regarded as satisfying the declarative theory of statehood, ''or''
+* (b) are recognised as a sovereign state by at least one [[UN member state]]
+
+Note that in some cases, there is a divergence of opinion over the interpretation of the first point, and whether an entity satisfies it is disputed.
+
+On the basis of the above criteria, this list includes the following 206 entities:<ref>The following bullets are grouped according to the availability of sources for the two criteria ((a) and/or (b)). This arrangement is not intended to reflect the relative importance of the two theories. Additional details are discussed in the state's individual entries.</ref><ref name="micros" group="Note">The [[Sovereign Military Order of Malta]] is not included, as despite being a sovereign entity it lacks territory and doesn't claim statehood. Entities considered to be [[micronation]]s are not included. It is often up to debate whether a micronation truly controls its claimed territory. Also omitted from this list are all [[uncontacted people]]s, either who live in [[Stateless society|societies that cannot be defined as states]] or whose statuses as such are not definitively known.</ref>
+* 203 states recognised by at least one [[Member states of the United Nations|UN member state]]
+* Two states that satisfy the declarative theory of statehood and are recognised only by non-UN member states: [[Nagorno-Karabakh Republic]], [[Transnistria]]
+* One state that satisfies the declarative theory of statehood and is not recognised by any other state: [[Somaliland]]
+
+==See also==
+{{Div col|2}}
+* [[ISO 3166-1]]
+* [[Adjectivals and demonyms for countries and nations]]
+* [[Sovereign state]]
+** [[List of sovereign states and dependent territories by continent]]
+** [[List of shortest lived sovereign states]]
+** [[List of sovereign states by date of formation]]
+*** [[Lists of sovereign states by year]]
+* [[List of countries and capitals in native languages]]
+* [[List of national capitals in alphabetical order]]
+* [[Gallery of country coats of arms]]
+* [[Gallery of sovereign state flags]]
+* [[List of country-name etymologies]]
+* [[List of international rankings]]
+* [[List of micronations]]
+* [[List of states with limited recognition]]
+* [[List of dependent territories]]
+* [[List of territorial disputes]]
+* [[Table of administrative divisions by country]]
+* [[Template:Clickable world map]]
+* [[Terra nullius]]
+* [[List of rebel groups that control territory]]
+{{Div col end}}
+
+==Notes==
+{{Reflist|group="Note"|colwidth=30em}}
+{{Reflist|group=lower-alpha}}
+
+==References==
+{{Reflist|colwidth=30em}}
+
+==Bibliography==
+* {{cite web|author = Federal Foreign Office of Germany|title = Amtliche Bezeichnungen ausländischer Staaten in den Landessprachen|publisher = Government of Germany|date = 22 April 2009|url = http://www.auswaertiges-amt.de/cae/servlet/contentblob/373536/publicationFile/3858/StaatennamenLandessprache.pdf|format = PDF|accessdate = 2010-07-14}}
+* {{Cite book |title=The World: A Third World Guide: 1995/96 |editor1-last=Bissio |editor1-first=Roberto Remo |publisher=Instituto del Tercer Mundo |year=1995 |location=Montevideo |isbn=978-0-85598-291-1 |oclc=476299738}}
+* {{cite web|title=Countries or areas, codes and abbreviations|url=http://unstats.un.org/unsd/methods/m49/m49alpha.htm|publisher=Statistics Division, United Nations|date=1 April 2010}}
+* {{cite web|last=Davis|first=Tim|title=World Countries and States List |url=http://www.timdavis.com.au/data/|work=Timdavis.com.au|date=19 February 2009}}
+* {{cite web|title=Geographic Names|url=http://www.un.org/Depts/Cartographic/english/geoinfo/geoname.pdf|publisher=Department of Public Information, Cartographic Section, United Nations|date=7 September 2000}}
+* {{cite web|title=ISO 3166-1 Country names and code elements|url=http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm|publisher=International Organization for Standardization|year=2010}}
+* {{cite web|title=List of countries, territories and currencies|url=http://publications.europa.eu/code/en/en-5000500.htm|publisher=Publications Office of the European Union|date=4 May 2010}}
+* {{cite web|last=Madore|first=David|title=How many countries are there in the world?|url=http://www.madore.org/~david/misc/countries.html|work=Madore.org|date=3 August 2003}}
+* {{cite web|title=The World Factbook|url=https://www.cia.gov/library/publications/the-world-factbook/index.html|publisher=Central Intelligence Agency|location=United States|year=2010}}
+* {{Cite book |url=https://books.google.com/?id=NYszJtC66FAC&pg=PA161&dq=%22official+name%22+palestine&q=%22official%20name%22%20palestine |page=161 |title=Middle East Review 2003/04: The Economic and Business Report |author=World of Information (Firm), and International Chamber of Commerce |edition=27th |location=London |publisher=Kogan Page |year=2003 |isbn=978-0-7494-4066-4 |oclc=51992589}}
+
+{{portalbar|Geography|Lists}}
+{{Lists of countries and territories by continent}}
+{{Lists of sovereign states by year}}
+{{States with limited recognition}}
+
+{{DEFAULTSORT:sovereign states}}
+[[Category:Lists of countries|*Sovereign states]]

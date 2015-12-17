@@ -100,6 +100,22 @@ module Infoboxer
         it{should be_a(Tree::Text)}
         its(:text){should == '[just text]'}
       end
+
+      context 'not a link: complex inline' do
+        let(:source){"This ''is [just text], trust'' me"}
+        subject{nodes.find(Tree::Italic).first}
+
+        its(:text){should == 'is [just text], trust'}
+      end
+
+      context 'unclosed formatting inside' do
+        # found at https://en.wikipedia.org/wiki/List_of_sovereign_states#Transnistria
+        let(:source){"[http://google.com ''Google]"}
+
+        it{should be_a(Tree::ExternalLink)}
+        its(:link){should == 'http://google.com'}
+        its(:children){should == [Tree::Italic.new(Tree::Text.new('Google'))]}
+      end
     end
 
     context 'when HTML' do

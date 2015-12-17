@@ -32,7 +32,12 @@ module Infoboxer
       def short_inline(until_pattern = nil)
         nodes = Nodes[]
         guarded_loop do
-          chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
+          # FIXME: quick and UGLY IS HELL JUST TRYING TO MAKE THE SHIT WORK
+          if @context.inline_eol_sign
+            chunk = @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
+          else
+            chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
+          end
           nodes << chunk
 
           break if @context.matched_inline?(until_pattern)
@@ -118,7 +123,11 @@ module Infoboxer
         # [http://www.example.org link name]
         def external_link(protocol)
           link = @context.scan_continued_until(/\s+|\]/)
-          caption = inline(/\]/) if @context.matched =~ /\s+/
+          if @context.matched =~ /\s+/
+            @context.push_eol_sign(/^\]/)
+            caption = short_inline(/\]/) 
+            @context.pop_eol_sign
+          end
           ExternalLink.new(protocol + link, caption)
         end
 

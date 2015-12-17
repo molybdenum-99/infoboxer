@@ -56,7 +56,7 @@ module Infoboxer
 
           context 'with caption' do
             let(:node){
-              Image.new('picture.jpg', width: '5', height: '6', caption: [Text.new('Look at me')])
+              Image.new('picture.jpg', width: '5', height: '6', caption: ImageCaption.new(Text.new('Look at me')))
             }
 
             it{should ==
