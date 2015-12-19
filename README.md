@@ -113,6 +113,9 @@ $ infoboxer -w https://en.wikipedia.org/w/api.php
  => #<Page(title: "Argentina", url: "https://en.wikipedia.org/wiki/Argentina"): ....
 ```
 
+You can also use shortcuts like `infoboxer -w wikipedia` for common
+wikies (and, just for fun, `infoboxer -wikipedia` also).
+
 ## Advanced topics
 
 * [Reasons](https://github.com/molybdenum-99/infoboxer/wiki/Reasons) for

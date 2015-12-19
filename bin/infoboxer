@@ -19,7 +19,19 @@ OptionParser.new do |opts|
 end.parse!
 
 if wiki_url
+  if wiki_url =~ /^[a-z]+$/
+    wiki_url = case
+    when domain = Infoboxer::WIKIMEDIA_PROJECTS[wiki_url.to_sym]
+      "https://en.#{domain}/w/api.php"
+    when domain = Infoboxer::WIKIMEDIA_PROJECTS[('w' + wiki_url).to_sym]
+      "https://en.#{domain}/w/api.php"
+    else
+      fail("Unidentified wiki: #{wiki_url}")
+    end
+  end
+  
   DEFAULT_WIKI = Infoboxer.wiki(wiki_url)
+  puts "Default Wiki selected: #{wiki_url}.\nUse get('Pagename'), category('Categoryname') and so on to use it.\n\n"
   [:raw, :get, :category, :search, :prefixsearch].each do |m|
     define_method(m){|*arg|
       DEFAULT_WIKI.send(m, *arg)
