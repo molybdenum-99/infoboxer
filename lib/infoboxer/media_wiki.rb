@@ -93,7 +93,9 @@ module Infoboxer
     #     NotFound.
     #
     def get(*titles)
-      pages = raw(*titles).select(&:exists?).
+      pages = raw(*titles).
+        tap{|pages| pages.detect(&:invalid?).tap{|i| i && fail(i.raw.invalidreason)}}.
+        select(&:exists?).
         map{|raw|
           Page.new(self,
             Parser.paragraphs(raw.content, traits),

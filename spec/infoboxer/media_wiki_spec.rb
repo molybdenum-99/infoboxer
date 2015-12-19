@@ -129,6 +129,12 @@ module Infoboxer
 
         its(:count){should == 2}
       end
+
+      context 'when invalida title requested', :vcr do
+        it 'should raise' do
+          expect{client.get('It%27s not')}.to raise_error(/contains invalid characters/)
+        end
+      end
     end
 
     describe :category, :vcr do
