@@ -22,6 +22,6 @@ Basically, preparing for wider release!
 
 ## 0.1.0 (2015-08-07)
 
-Initial (ok, I know it's typically called 0.1.1, but here's work of
+Initial (ok, I know it's typically called 0.0.1, but here's work of
 three monthes, numerous documentations and examples and so on... so, let
 it be 0.1.0).
