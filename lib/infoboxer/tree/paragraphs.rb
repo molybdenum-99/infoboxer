@@ -39,6 +39,7 @@ module Infoboxer
           @closed = true
         else
           [splitter, *other.children].each do |c|
+            c.parent = self
             @children << c
           end
           @closed = other.closed?

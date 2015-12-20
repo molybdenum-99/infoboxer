@@ -90,6 +90,15 @@ module Infoboxer
               }
               it{should == [Paragraph.new(Text.new('test')), Pre.new(Text.new('me'))]}
             end
+
+            context 'children\'s #parent rewriting' do
+              let(:para){Nodes[Paragraph.new(Text.new('test'))]}
+              before{
+                para << Paragraph.new([Text.new('me, '), Italic.new(Text.new('please'))])
+              }
+              subject{para.lookup(:Italic).first}
+              its(:parent){should == para.first}
+            end
           end
         end
 
