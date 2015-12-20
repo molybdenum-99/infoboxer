@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/molybdenum-99/infoboxer.svg?branch=master)](https://travis-ci.org/molybdenum-99/infoboxer)
 [![Coverage Status](https://coveralls.io/repos/molybdenum-99/infoboxer/badge.svg?branch=master&service=github)](https://coveralls.io/github/molybdenum-99/infoboxer?branch=master)
 [![Code Climate](https://codeclimate.com/github/molybdenum-99/infoboxer/badges/gpa.svg)](https://codeclimate.com/github/molybdenum-99/infoboxer)
+[![Molybdenum-99 Gitter](https://badges.gitter.im/molybdenum-99.png)](https://gitter.im/molybdenum-99)
 
 **Infoboxer** is pure-Ruby Wikipedia (and generic MediaWiki) client and
 parser, targeting information extraction (hence the name).
