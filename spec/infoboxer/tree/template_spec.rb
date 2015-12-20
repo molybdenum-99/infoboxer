@@ -71,6 +71,18 @@ module Infoboxer
 
       context :fetch_latlng do
       end
+
+      describe :to_h do
+        let(:source){File.read('spec/fixtures/large_infobox.txt')}
+        subject{template.to_h}
+
+        it{should include(
+          'conventional_long_name' => 'Argentine Republic',
+          'capital' => 'Buenos Aires',
+          'government_type' => 'Federal presidential constitutional republic'
+          # ...and so on
+        )}
+      end
     end
   end
 end

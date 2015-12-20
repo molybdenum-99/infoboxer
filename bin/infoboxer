@@ -31,7 +31,7 @@ if wiki_url
   end
   
   DEFAULT_WIKI = Infoboxer.wiki(wiki_url)
-  puts "Default Wiki selected: #{wiki_url}.\nUse get('Pagename'), category('Categoryname') and so on to use it.\n\n"
+  puts "Default Wiki selected: #{wiki_url}.\nNow you can use `get('Pagename')`, `category('Categoryname')` and so on.\n\n"
   [:raw, :get, :category, :search, :prefixsearch].each do |m|
     define_method(m){|*arg|
       DEFAULT_WIKI.send(m, *arg)

@@ -117,6 +117,15 @@ module Infoboxer
           variables.map{|var| var.to_tree(level+1)}.join
       end
 
+      # Represents entire template as hash of `String => String`,
+      # where keys are variable names and values are text representation
+      # of variables contents.
+      #
+      # @return [Hash{String => String}]
+      def to_h
+        variables.map{|var| [var.name, var.text]}.to_h
+      end
+
       # Returns list of template variables with numeric names (which
       # are treated as "unnamed" variables by MediaWiki templates, see
       # {Template class docs} for explanation).
