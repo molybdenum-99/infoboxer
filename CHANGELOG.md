@@ -1,5 +1,17 @@
 # Infoboxer's change log
 
+## 0.2.0 (2015-12-21)
+
+* MediaWiki backend changed to (our own handcrafted)
+  [mediawiktory](https://github.com/molybdenum-99/mediawiktory);
+* Added page lists fetching like `MediaWiki#category(categoryname)`,
+  `MediaWiki#search(search_phrase)`;
+* `MediaWiki#get` now can fetch any number of pages at once (it was only
+  50 in previous versions);
+* `bin/infoboxer` console added for quick experimenting;
+* `Template#to_h` added for quick information extraction;
+* many small bugfixes and echancements. 
+
 ## 0.1.2.1 (2015-12-04)
 
 * Small bug with newlines in templates fixed.

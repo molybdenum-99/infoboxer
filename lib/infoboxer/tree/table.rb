@@ -29,7 +29,7 @@ module Infoboxer
           rows.first : nil
       end
 
-      # For now, returns all table rows except {heading_row}
+      # For now, returns all table rows except {#heading_row}
       def body_rows
         rows.first.children.all?(&call(matches?: TableHeading)) ?
           rows[1..-1] :

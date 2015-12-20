@@ -35,6 +35,19 @@ require 'backports/2.1.0/array/to_h'
 # * {MediaWiki} client class;
 # * {Parser} -- which, you know, parses.
 #
+# **NB** `Infoboxer` module can also be included in other classes, like
+# this:
+#
+# ```ruby
+# class MyDataGrabber
+#   include Infoboxer
+#
+#   def initialize
+#     wikipedia.get('Argentina')
+#   end
+# end
+# ```
+#
 module Infoboxer
   private # hiding constants from YARD
 
@@ -56,8 +69,15 @@ module Infoboxer
     species: 'species.wikimedia.org',
   }
 
-  class << self
+  public
+  
+  # Includeable version of {Infoboxer.wiki}
+  def wiki(api_url, options = {})
+    MediaWiki.new(api_url, options || {})
+  end
 
+  class << self
+    # @!method wiki(api_url, options = {})
     # Default method for creating MediaWiki API client.
     #
     # @param api_url should be URL of api.php for your MediaWiki
@@ -70,10 +90,7 @@ module Infoboxer
     #   ```ruby
     #   Infoboxer.wiki('some_url').get('Some page title')
     #   ```
-    def wiki(api_url, options = {})
-      MediaWiki.new(api_url, options || {})
-    end
-
+    
     # @!method wikipedia(lang = 'en', options = {})
     # Shortcut for creating Wikipedia client.
     #
@@ -128,24 +145,7 @@ module Infoboxer
     # See {wikipedia} for params explanation.
     # @return [MediaWiki]
 
-    WIKIMEDIA_PROJECTS.each do |name, domain|
-      define_method name do |lang = 'en', options = {}|
-        if lang.is_a?(Hash)
-          lang, options = 'en', lang
-        end
-
-        wiki("https://#{lang}.#{domain}/w/api.php", options)
-      end
-    end
-
-    alias_method :wp, :wikipedia
-
-    WIKIMEDIA_COMMONS.each do |name, domain|
-      define_method name do |options = {}|
-        wiki("https://#{domain}/w/api.php", options)
-      end
-    end
-
+    # @!method wikia(*domains)
     # Performs request to wikia.com wikis.
     #
     # @overload wikia(*domains)
@@ -165,22 +165,74 @@ module Infoboxer
     #     (see {wiki} for list of options)
     #
     # @return [MediaWiki]
-    def wikia(*domains)
-      options = domains.last.is_a?(Hash) ? domains.pop : {}
-      wiki(WIKIA_API_URL % domains.reverse.join('.'), options)
-    end
+  end
 
-    # Sets user agent string globally. Default user agent is 
-    # {MediaWiki::UA}.
-    #
-    # User agent can also be rewriten as an option to {wiki} method (and
-    # its shortcuts like {wikipedia}), or by using {MediaWiki#initialize}
-    # explicitly.
-    #
-    def user_agent=(ua)
-      MediaWiki.user_agent = ua
+  WIKIMEDIA_PROJECTS.each do |name, domain|
+    define_method name do |lang = 'en', options = {}|
+      if lang.is_a?(Hash)
+        lang, options = 'en', lang
+      end
+
+      wiki("https://#{lang}.#{domain}/w/api.php", options)
     end
   end
+
+  alias_method :wp, :wikipedia
+
+  WIKIMEDIA_COMMONS.each do |name, domain|
+    define_method name do |options = {}|
+      wiki("https://#{domain}/w/api.php", options)
+    end
+  end
+
+  # @!method wikipedia(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikipedia}
+  
+  # @!method commons(options = {})
+  # Includeable version of {Infoboxer.commons}
+  
+  # @!method wikibooks(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikibooks}
+
+  # @!method wikiquote(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikiquote}
+
+  # @!method wikiversity(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikiversity}
+
+  # @!method wikisource(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikisource}
+
+  # @!method wikivoyage(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikivoyage}
+
+  # @!method wikinews(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wikinews}
+
+  # @!method species(options = {})
+  # Includeable version of {Infoboxer.species}
+  
+  # @!method wiktionary(lang = 'en', options = {})
+  # Includeable version of {Infoboxer.wiktionary}
+
+  # Includeable version of {Infoboxer.wikia}
+  def wikia(*domains)
+    options = domains.last.is_a?(Hash) ? domains.pop : {}
+    wiki(WIKIA_API_URL % domains.reverse.join('.'), options)
+  end
+
+  # Sets user agent string globally. Default user agent is 
+  # {MediaWiki::UA}.
+  #
+  # User agent can also be rewriten as an option to {wiki} method (and
+  # its shortcuts like {wikipedia}), or by using {MediaWiki#initialize}
+  # explicitly.
+  #
+  def Infoboxer.user_agent=(ua)
+    MediaWiki.user_agent = ua
+  end
+
+  extend self
 end
 
 require_relative 'infoboxer/version'

@@ -87,7 +87,7 @@ module Infoboxer
       # @!method fetch
       #   Fetches by name(s) variables for all templates inside.
       #
-      #   See {Templates::Base#fetch} for explanation.
+      #   See {Tree::Template#fetch} for explanation.
       
       [
         :prev_siblings, :next_siblings, :siblings,
@@ -101,7 +101,7 @@ module Infoboxer
       # By list of variable names, fetches hashes of `{name => value}`
       # from all templates inside.
       #
-      # See {Templates::Base#fetch_hash} for explanation.
+      # See {Tree::Template#fetch_hash} for explanation.
       #
       # @return [Array<Hash>]
       def fetch_hashes(*args)

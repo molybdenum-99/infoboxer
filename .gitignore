@@ -13,3 +13,4 @@ rubocop
 *.gem
 .coveralls.yml
 coverage
+doc

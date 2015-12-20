@@ -133,9 +133,10 @@ wikies (and, just for fun, `infoboxer -wikipedia` also).
 
 ## Compatibility
 
-As of now, Infoboxer reported to be compatible with any MRI Ruby since 1.9.3.
-In Travis-CI tests, JRuby is failing due to bug in old Java 7/Java 8 SSL
-certificate support ([see here](https://github.com/jruby/jruby/issues/2599)),
+As of now, Infoboxer reported to be compatible with any MRI Ruby since 2.0.0
+(1.9.3 previously, dropped since Infoboxer 0.2.0). In Travis-CI tests,
+JRuby is failing due to bug in old Java 7/Java 8 SSL certificate support
+([see here](https://github.com/jruby/jruby/issues/2599)),
 and Rubinius failing 3 specs of 500 by mystery, which is uninvestigated yet.
 
 Therefore, those Ruby versions are excluded from Travis config, though,
@@ -148,10 +149,10 @@ they may still work for you.
   * **NB**: ↑ this is "current version" link, but RubyDoc.info unfortunately
     sometimes fails to update it to really _current_; in case you feel
     something seriously underdocumented, please-please look at
-    [0.1.2 docs](http://www.rubydoc.info/gems/infoboxer/0.1.2).
+    [0.2.0 docs](http://www.rubydoc.info/gems/infoboxer/0.2.0).
 * [Contributing](https://github.com/molybdenum-99/infoboxer/wiki/Contributing)
 * [Roadmap](https://github.com/molybdenum-99/infoboxer/wiki/Roadmap)
 
 ## License
 
-MIT.
+[MIT](https://github.com/molybdenum-99/infoboxer/blob/master/LICENSE.txt).
