@@ -1,6 +1,8 @@
 # coding: utf-8
 require 'bundler/setup'
 require 'infoboxer'
+require 'rubygems/tasks'
+Gem::Tasks.new
 
 namespace :dev do
   desc "Run regression check (just parsed/error) on set of large and dirty pages"
