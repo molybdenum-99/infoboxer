@@ -317,6 +317,22 @@ module Infoboxer
           contain_exactly('border')
         }
       end
+
+      context 'when uneven quotes' do
+        # Example like this can be found at https://en.wikipedia.org/wiki/Chevrolet_Volt_(second_generation)
+        let(:source){%Q{
+          {|
+          | style="text-align:right; |test||border|one
+          |}
+        }}
+        subject{table.rows.first.cells[1].params}
+
+        it{should be_kind_of(Hash)}
+        its(:keys){are_expected.to contain_exactly(:border)}
+        its(:values){are_expected.to \
+          contain_exactly('border')
+        }
+      end
     end
 
     describe 'nested tables, damn them' do

@@ -57,7 +57,7 @@ module Infoboxer
             scan.skip(/=\s*/)
             q = scan.scan(/['"]/)
             if q
-              value = scan.scan_until(/#{q}/).sub(q, '')
+              value = scan.scan_until(/#{q}|$/).sub(q, '')
             else
               value = scan.scan_until(/\s|$/)
             end
