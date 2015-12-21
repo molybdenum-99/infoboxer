@@ -1,5 +1,9 @@
 # Infoboxer's change log
 
+## 0.2.1 (2015-12-21)
+
+* `infoboxer` binary properly registered.
+
 ## 0.2.0 (2015-12-21)
 
 * MediaWiki backend changed to (our own handcrafted)

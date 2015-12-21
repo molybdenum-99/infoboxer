@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
     )$/x
   end
   s.require_paths = ["lib"]
+  s.bindir = 'bin'
+  s.executables << 'infoboxer'
 
   s.add_dependency 'htmlentities'
   s.add_dependency 'procme'
