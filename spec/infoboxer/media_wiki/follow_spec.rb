@@ -24,7 +24,7 @@ module Infoboxer
       Infoboxer.wp.get('Argentina')
     }}
     let(:links){source.lookup(:Wikilink).first(3)}
-    
+
     subject{VCR.use_cassette("follow-several"){links.follow}}
     it{should be_a(Tree::Nodes)}
     it{should all(be_a(MediaWiki::Page))}
