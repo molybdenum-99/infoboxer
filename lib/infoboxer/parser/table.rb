@@ -52,10 +52,10 @@ module Infoboxer
           table_template(table)
 
         when nil
-          @context.fail!("End of input before table ended!")
+          return false
 
         else
-          table_cell_cont(table)
+          return table_cell_cont(table)
         end
         true # should continue parsing
       end
@@ -103,29 +103,33 @@ module Infoboxer
         end
       end
 
-      # On-the-fly TableCaption creation handles (real life) case, when
-      # table has "HTML caption":
-      #   {|
-      #   <caption>....</caption>
+      # Good news, everyone! Table can be IMPLICITLY closed when it's
+      # not "cell" context.
       #
-      # Solution is NOT elegant or semantically "right", yet it works.
-      # Somehow.
-      #
+      # Unless it's empty row, which is just skipped.
       def table_cell_cont(table)
         container = case (last = table.children.last)
-        when TableRow
-          cell = last.children.last
-          cell.is_a?(BaseCell) ? cell : TableCaption.new
-        when TableCaption
-          last
-        when nil
-          TableCaption.new
-        else
-          @context.fail!("Multiline cell inside #{last}")
-        end
+                    when TableRow
+                      last.children.last
+                    when TableCaption
+                      last
+                    else
+                      nil
+                    end
 
+        if !container
+          # return "table not continued" unless row is empty
+          if @context.current.empty?
+            return true
+          else
+            @context.prev!
+            return false
+          end
+        end
+        
         container.push_children(paragraph(/^\s*([|!]|{\|)/))
         table.push_children(container) unless container.parent
+        true
       end
     end
   end

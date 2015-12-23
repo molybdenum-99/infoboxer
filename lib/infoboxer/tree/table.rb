@@ -25,13 +25,13 @@ module Infoboxer
       #
       # FIXME: it can easily be several table heading rows
       def heading_row
-        rows.first.children.all?(&call(matches?: TableHeading)) ?
+        rows.first && rows.first.children.all?(&call(matches?: TableHeading)) ?
           rows.first : nil
       end
 
       # For now, returns all table rows except {#heading_row}
       def body_rows
-        rows.first.children.all?(&call(matches?: TableHeading)) ?
+        rows.first && rows.first.children.all?(&call(matches?: TableHeading)) ?
           rows[1..-1] :
           rows
       end

@@ -91,6 +91,7 @@ module Infoboxer
           end
         end
       end
+
     end
 
     describe 'multiple rows' do
@@ -118,7 +119,6 @@ module Infoboxer
         it{should be_a(Tree::Template)}
       end
     end
-
 
     describe 'headings' do
       context 'in first row' do
@@ -245,7 +245,9 @@ module Infoboxer
         its(:text){should == "test me\nplease"}
       end
 
-      context 'with tag' do
+      # seems to be pretty exotic one, in fact.
+      # neglect it (implementation anyways was dumb)
+      xcontext 'with tag' do
         let(:source){%Q{
           {|
           <caption>test me please</caption>
@@ -373,6 +375,29 @@ module Infoboxer
           expect(table.rows.first.cells.first.children.map(&:class)).to \
             include(Tree::Paragraph)
         end
+      end
+    end
+
+    describe 'implicitly closed table' do
+      let(:source){%Q[
+        {|
+        
+        That's paragraph!
+        
+      ]}
+      it 'works' do
+        expect(table.rows).to be_empty
+        expect(nodes.last).to eq Tree::Paragraph.new(Tree::Text.new("That's paragraph!"))
+      end
+
+      context 'not closed on empty lines' do
+        let(:source){%Q[
+          {|
+          
+          |Still a cell!
+        ]}
+        subject{table.rows.first.cells.first}
+        its(:text){should == 'Still a cell!'}
       end
     end
 
