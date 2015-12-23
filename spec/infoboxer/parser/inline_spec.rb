@@ -178,10 +178,22 @@ module Infoboxer
     end
 
     context 'when nowiki' do
-      subject{nodes.first}
-      let(:source){"<nowiki> all kinds <ref> of {{highly}} irrelevant '' markup </nowiki>"}
+      context 'when non-empty' do
+        let(:source){"<nowiki> all kinds <ref> of {{highly}} irrelevant '' markup </nowiki>"}
+        subject{nodes.first}
 
-      it{should == Tree::Text.new(" all kinds <ref> of {{highly}} irrelevant '' markup ")}
+        it{should == Tree::Text.new(" all kinds <ref> of {{highly}} irrelevant '' markup ")}
+      end
+
+      context 'when empty' do
+        let(:source){"The country is also a producer of [[industrial mineral]]<nowiki/>s."}
+        subject{nodes}
+        it{should == [
+          Tree::Text.new('The country is also a producer of '),
+          Tree::Wikilink.new('industrial mineral'),
+          Tree::Text.new('s.')
+          ]}
+      end
     end
 
     describe 'sequence' do

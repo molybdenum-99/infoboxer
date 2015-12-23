@@ -97,7 +97,7 @@ module Infoboxer
           when '{{'
             template
           when /<nowiki([^>]*)>/
-            nowiki
+            nowiki($1)
           when /<ref([^>]*)\/>/
             reference($1, true)
           when /<ref([^>]*)>/
@@ -136,8 +136,12 @@ module Infoboxer
           Ref.new(children, parse_params(param_str))
         end
 
-        def nowiki
-          Text.new(@context.scan_continued_until(/<\/nowiki>/))
+        def nowiki(tag_rest)
+          if tag_rest.end_with?('/')
+            Text.new('')
+          else
+            Text.new(@context.scan_continued_until(/<\/nowiki>/))
+          end
         end
       end
 
