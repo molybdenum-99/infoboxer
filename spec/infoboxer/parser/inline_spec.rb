@@ -73,6 +73,14 @@ module Infoboxer
         its(:link){should == 'Argentina'}
         its(:children){should == [Tree::Text.new('Argentina')]}
       end
+
+      context 'with spans in label' do
+        let(:source){"[[Argentina|Argentinian <span>Republic]]"}
+
+        it{should be_a(Tree::Wikilink)}
+        its(:link){should == 'Argentina'}
+        its(:"children.count"){should == 3} # opening tag as separate thing
+      end
     end
 
     context 'when external link' do

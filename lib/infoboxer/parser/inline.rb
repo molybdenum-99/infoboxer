@@ -33,8 +33,10 @@ module Infoboxer
         nodes = Nodes[]
         guarded_loop do
           # FIXME: quick and UGLY IS HELL JUST TRYING TO MAKE THE SHIT WORK
-          if @context.inline_eol_sign
+          if @context.inline_eol_sign == /^\]/
             chunk = @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
+          elsif @context.inline_eol_sign == /^\]\]/
+            chunk = @context.scan_until(re.short_inline_until_cache_brackets2[until_pattern])
           else
             chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
           end
@@ -114,7 +116,12 @@ module Infoboxer
         # [[a|b]]
         def wikilink
           link = @context.scan_continued_until(/\||\]\]/)
-          caption = inline(/\]\]/) if @context.matched == '|'
+          if @context.matched == '|'
+            @context.push_eol_sign(/^\]\]/)
+            caption = inline(/\]\]/)
+            @context.pop_eol_sign
+          end
+
           Wikilink.new(link, caption)
         end
 

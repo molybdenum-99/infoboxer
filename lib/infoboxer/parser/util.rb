@@ -19,11 +19,18 @@ module Infoboxer
         }}            
       )]x
 
-      INLINE_EOL_BR = %r[(?=   # if we have ahead... (not scanned, just checked
+      INLINE_EOL_BRACK = %r[(?=   # if we have ahead... (not scanned, just checked
         </ref>        |     # <ref> closed
         }}            |     # or template closed
         (?<!\])\](?!\])     # or ext.link closed,
                             # the madness with look-ahead/behind means "match single bracket but not double"
+      )]x
+
+      # FIXME: ok, NOW it's officially ridiculous
+      INLINE_EOL_BRACK2 = %r[(?=   # if we have ahead... (not scanned, just checked
+        </ref>        |     # <ref> closed
+        }}            |     # or template closed
+        \]\]                # or int.link closed
       )]x
 
 
@@ -38,7 +45,10 @@ module Infoboxer
             h[r] = Regexp.union(*[r, INLINE_EOL, FORMATTING, /$/].compact.uniq)
           },
           short_inline_until_cache_brackets: Hash.new{|h, r|
-            h[r] = Regexp.union(*[r, INLINE_EOL_BR, FORMATTING, /$/].compact.uniq)
+            h[r] = Regexp.union(*[r, INLINE_EOL_BRACK, FORMATTING, /$/].compact.uniq)
+          },
+          short_inline_until_cache_brackets2: Hash.new{|h, r|
+            h[r] = Regexp.union(*[r, INLINE_EOL_BRACK2, FORMATTING, /$/].compact.uniq)
           }
           
         }
