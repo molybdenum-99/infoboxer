@@ -59,7 +59,8 @@ module Infoboxer
         # [English Wikipedia traits](https://github.com/molybdenum-99/infoboxer/blob/master/lib/infoboxer/definitions/en.wikipedia.org.rb)
         # for example implementation.
         def for(domain, &block)
-          Class.new(self, &block).domain(domain)
+          Traits.domains[domain].tap{|c| c && c.instance_eval(&block)} ||
+            Class.new(self, &block).domain(domain)
         end
 
         # @private

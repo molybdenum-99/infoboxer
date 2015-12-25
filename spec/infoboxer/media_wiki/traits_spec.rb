@@ -76,6 +76,16 @@ module Infoboxer
         subject{traits.templates.find('foo')}
         it{should be_a(Class)}
         it{should < Templates::Show}
+
+        it 'should continue definition' do
+          MediaWiki::Traits.for('in.wikipedia.org'){
+            templates{
+              show 'bar'
+            }
+          }
+          expect(traits.templates.find('foo')).to be < Templates::Show
+          expect(traits.templates.find('bar')).to be < Templates::Show
+        end
       end
 
       describe 'on-the-fly enrichment' do
