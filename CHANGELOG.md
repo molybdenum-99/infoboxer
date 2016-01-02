@@ -1,5 +1,13 @@
 # Infoboxer's change log
 
+## 0.2.2 (2016-01-03)
+
+Fixes:
+* more sophisticated table parsing;
+* empty `<nowiki/>` is parsed properly;
+* inline unclosed markup inside wikilinks works;
+* `MediaWiki::Traits` can now be continued in several places.
+
 ## 0.2.1 (2015-12-21)
 
 * `infoboxer` binary properly registered.
