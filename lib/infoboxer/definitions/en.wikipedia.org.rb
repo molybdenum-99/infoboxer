@@ -335,6 +335,26 @@ module Infoboxer
         end
       end
 
+      # Prononciation/lang templates - are frequent in article abstracts
+      # Doint it dirty, but useful, for now:
+      template 'Lang', match: /^lang-(\w{2,3})$/i do
+        def children
+          fetch('1')
+        end
+      end
+
+      template 'IPAc', match: /^IPAc[12]?-(\w{2,3})$/i do
+        def text
+          unnamed_variables.text
+        end
+      end
+
+      template 'IPA', match: /^IPA-(\w{2,3})$/i do
+        def text
+          fetch('1').text
+        end
+      end
+
       # TODO: extremely popular:
       # Str left - https://en.wikipedia.org/wiki/Category:String_manipulation_templates
       # Rnd - https://en.wikipedia.org/wiki/Category:Mathematical_function_templates
