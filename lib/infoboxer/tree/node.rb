@@ -158,7 +158,7 @@ module Infoboxer
       end
 
       def _eq(other)
-        fail(NotImplementedError, "#_eq should be defined in subclasses")
+        fail(NotImplementedError, "#_eq should be defined in subclasses (called for #{self.class})")
       end
 
       def decode(str)

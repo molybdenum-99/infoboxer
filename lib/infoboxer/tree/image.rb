@@ -48,6 +48,12 @@ module Infoboxer
             ''
           end
       end
+
+      private
+
+      def _eq(other)
+        path == other.path
+      end
     end
 
     # Represents image caption.
