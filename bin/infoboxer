@@ -9,7 +9,7 @@ require 'optparse'
 wiki_url = nil
 
 OptionParser.new do |opts|
-  opts.banner = "Usage: bin/infoboxer [-w wiki_api_url]"
+  opts.banner = "Usage: infoboxer [-w wiki_api_url]"
 
   opts.on("-w", "--wiki WIKI_API_URL",
               "Make wiki by WIKI_API_URL a default wiki, and use it with just get('Pagename')") do |w|
