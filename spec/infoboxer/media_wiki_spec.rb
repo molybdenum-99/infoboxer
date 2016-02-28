@@ -53,6 +53,14 @@ module Infoboxer
         its(:fullurl){should == 'https://en.wikipedia.org/wiki/Albert_Einstein'}
       end
 
+      context 'preserve order', :vcr do
+        subject(:list){client.raw('Oster', 'Einstein', 'Bolhrad')}
+
+        it 'should have exactly the same order as requested' do
+          expect(list.map(&:title)).to eq ['Oster', 'Albert Einstein', 'Bolhrad']
+        end
+      end
+
       context 'user-agent', :vcr do
         context 'default' do
           before{client.raw('Argentina')}
@@ -134,6 +142,16 @@ module Infoboxer
         it 'should raise' do
           expect{client.get('It%27s not')}.to raise_error(/contains invalid characters/)
         end
+      end
+    end
+
+    describe :get_h do
+      context 'when several pages, including non-existent', :vcr do
+        subject{client.get_h('Argentina', 'Ukraine', 'WTF I just read? Make me unsee it')}
+
+        it{should be_a(Hash)}
+        its(:keys){should == ['Argentina', 'Ukraine', 'WTF I just read? Make me unsee it']}
+        its(['WTF I just read? Make me unsee it']){should be_nil}
       end
     end
 

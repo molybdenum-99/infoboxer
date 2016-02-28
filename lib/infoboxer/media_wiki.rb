@@ -4,6 +4,7 @@
 require 'mediawiktory'
 require 'addressable/uri'
 
+require_relative 'media_wiki/mediawiktory_patch'
 require_relative 'media_wiki/traits'
 require_relative 'media_wiki/page'
 
@@ -65,7 +66,8 @@ module Infoboxer
           prop(revisions: {prop: :content}, info: {prop: :url}).
           redirects(true). # FIXME: should be done transparently by MediaWiktory?
           perform.pages
-      }.inject(:concat) # somehow flatten(1) fails!
+      }.inject(:concat). # somehow flatten(1) fails!
+      sort_by{|page| titles.index(page.queried_title) || 1_000}
     end
 
     # Receive list of parsed MediaWiki pages for list of titles provided.
@@ -102,6 +104,27 @@ module Infoboxer
             raw)
         }
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
+    end
+
+    # Same as {#get}, but returns hash of {requested title => page}.
+    #
+    # Useful quirks:
+    # * when requested page not existing, key will be still present in
+    #   resulting hash (value will be `nil`);
+    # * when requested page redirects to another, key will still be the
+    #   requested title. For ex., `get_h('Einstein')` will return hash
+    #   with key 'Einstein' and page titled 'Albert Einstein'.
+    #
+    # This allows you to be in full control of what pages of large list
+    # you've received.
+    #
+    # @return [Hash<String, Page>]
+    #
+    def get_h(*titles)
+      pages = [*get(*titles)]
+      titles.map{|t|
+        [t, pages.detect{|p| p.source.queried_title == t}]
+      }.to_h
     end
 
     # Receive list of parsed MediaWiki pages from specified category.
