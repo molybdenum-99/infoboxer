@@ -9,6 +9,14 @@ describe Infoboxer do
         its(:'api_base_url.to_s'){should == 'https://en.wikipedia.org/w/api.php'}
       end
 
+      describe 'caching' do
+        it 'constructs object only once' do
+          w1 = Infoboxer.wikipedia
+          w2 = Infoboxer.wikipedia
+          expect(w1.object_id).to eq w2.object_id
+        end
+      end
+
       describe 'language' do
         subject{Infoboxer.wikipedia('fr')}
 

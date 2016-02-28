@@ -69,11 +69,13 @@ module Infoboxer
     species: 'species.wikimedia.org',
   }
 
+  WIKIS = {}
+
   public
   
   # Includeable version of {Infoboxer.wiki}
   def wiki(api_url, options = {})
-    MediaWiki.new(api_url, options || {})
+    WIKIS[api_url] ||= MediaWiki.new(api_url, options || {})
   end
 
   class << self
