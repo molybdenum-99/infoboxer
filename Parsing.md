@@ -19,7 +19,7 @@ Here's what I've came with:
   * Long formatting like templates can span several lines, so we continue
     scan through next lines, till template end (it means we are still in
     same paragraph!), it's "normal inline scan", or just "inline scan"
-  * Some __inline__ formatting (like <ref>'s) and special formatting,
+  * Some __inline__ formatting (like `<ref>`'s) and special formatting,
     like table cells, can have other paragraphs inside! (But it's still
     "inline" formatting, because when <ref> is ended, the same paragraph
     is continued -- while showing it in Wikipedia, ref will leave a small
