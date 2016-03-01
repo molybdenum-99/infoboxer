@@ -45,6 +45,7 @@ module Infoboxer
         subject{sections[1]} # History section
 
         its(:heading){should == Tree::Heading.new(Tree::Text.new('History'), 2)}
+        its(:inspect){should be_start_with '#<Section(level: 2, heading: "History"):'}
 
         its(:paragraphs){should be_kind_of(Tree::Nodes)}
         its(:'paragraphs.count'){should > 20}

@@ -151,9 +151,10 @@ module Infoboxer
       # See {Sections parent module} documentation for details.
       class Section < Tree::Compound
         def initialize(heading, children = Tree::Nodes[])
-          # no super: we don't wont to rewriter children's parent
+          # no super: we don't wont to rewrite children's parent
           @children = Tree::Nodes[*children]
           @heading = heading
+          @params = {level: heading.level, heading: heading.text.strip}
         end
 
         # Section's heading.
@@ -173,6 +174,12 @@ module Infoboxer
         end
 
         include Container
+
+        private
+
+        #def show_params
+          #super(level: heading.level, heading: heading.text)
+        #end
       end
     end
   end
