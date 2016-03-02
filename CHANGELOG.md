@@ -1,5 +1,21 @@
 # Infoboxer's change log
 
+## 0.2.3 (2016-03-02)
+
+New and enchanced features:
+* more useful templates (quick-n-dirty sometimes, but prettier output for
+  typical cases);
+* Caching of wikiobjects, so for several calls to `Infoboxer.wp` it would
+  be only one API call for wiki metainformation;
+* `MediaWiki#get` now preserves order of pages (page list would be in
+  the same order as requested titles);
+* `MediaWiki#get_h` to receive hash of `title => page object` (useful
+  to know which titles have been no pages for and better control on
+  redirects).
+
+Fixes:
+* `Image` node equality fixed.
+
 ## 0.2.2 (2016-01-03)
 
 Fixes:
@@ -22,7 +38,7 @@ Fixes:
   50 in previous versions);
 * `bin/infoboxer` console added for quick experimenting;
 * `Template#to_h` added for quick information extraction;
-* many small bugfixes and echancements. 
+* many small bugfixes and enchancements. 
 
 ## 0.1.2.1 (2015-12-04)
 
