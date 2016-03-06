@@ -52,5 +52,24 @@ describe Infoboxer do
         its(:'api_base_url.to_s'){should == 'http://ru.tardis.wikia.com/api.php'}
       end
     end
+
+    context 'Configuration' do
+      describe '.configuration' do
+        subject { Infoboxer.configuration }
+
+        it{should be_a(Infoboxer::Configuration)}
+      end
+
+      describe '.configure' do
+        let(:user_agent) { "some_user_agent" }
+
+        after { Infoboxer::MediaWiki.user_agent = Infoboxer::MediaWiki::UA }
+
+        it 'applies the user agent to MediaWiki' do
+          subject.configure { |c| c.add_option :user_agent, user_agent }
+          expect(Infoboxer::MediaWiki.user_agent).to eq(user_agent)
+        end
+      end
+    end
   end
 end

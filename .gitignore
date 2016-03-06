@@ -4,6 +4,7 @@ Gemfile.lock
 deprecated
 TODO.txt
 tmp
+tags
 examples
 profile/out/*.html
 spec/fixtures/vcr_cassettes

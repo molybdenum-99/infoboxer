@@ -167,6 +167,21 @@ module Infoboxer
     #     (see {wiki} for list of options)
     #
     # @return [MediaWiki]
+
+    # @!method configuration
+    # Global configuration object.
+    # @return [Configuration]
+    def configuration
+      @configuration ||= Configuration.new
+    end
+
+    # @!method configure
+    # Yields configuration object to caller before applying the configuration.
+    def configure
+      yield configuration if block_given?
+      MediaWiki.user_agent = configuration.user_agent
+      self
+    end
   end
 
   WIKIMEDIA_PROJECTS.each do |name, domain|
@@ -231,7 +246,7 @@ module Infoboxer
   # explicitly.
   #
   def Infoboxer.user_agent=(ua)
-    MediaWiki.user_agent = ua
+    self.configure { |c| c.add_option :user_agent, ua }
   end
 
   extend self
@@ -246,5 +261,6 @@ require_relative 'infoboxer/navigation'
 require_relative 'infoboxer/templates'
 
 require_relative 'infoboxer/media_wiki'
+require_relative 'infoboxer/configuration'
 
 require_relative 'infoboxer/definitions/en.wikipedia.org'
