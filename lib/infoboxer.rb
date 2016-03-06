@@ -246,5 +246,6 @@ require_relative 'infoboxer/navigation'
 require_relative 'infoboxer/templates'
 
 require_relative 'infoboxer/media_wiki'
+require_relative 'infoboxer/configuration'
 
 require_relative 'infoboxer/definitions/en.wikipedia.org'
