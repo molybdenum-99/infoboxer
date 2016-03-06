@@ -234,6 +234,14 @@ module Infoboxer
     MediaWiki.user_agent = ua
   end
 
+  def configuration
+    @configuration ||= Configuration.new
+  end
+
+  def configure
+    yield configuration if block_given?
+  end
+
   extend self
 end
 

@@ -52,5 +52,13 @@ describe Infoboxer do
         its(:'api_base_url.to_s'){should == 'http://ru.tardis.wikia.com/api.php'}
       end
     end
+
+    context 'Configuration' do
+      describe '.configuration' do
+        subject { Infoboxer.configuration }
+
+        it{should be_a(Infoboxer::Configuration)}
+      end
+    end
   end
 end
