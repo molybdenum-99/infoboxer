@@ -231,7 +231,7 @@ module Infoboxer
   # explicitly.
   #
   def Infoboxer.user_agent=(ua)
-    MediaWiki.user_agent = ua
+    self.configure { |c| c.add_option :user_agent, ua }
   end
 
   def configuration
@@ -240,6 +240,7 @@ module Infoboxer
 
   def configure
     yield configuration if block_given?
+    MediaWiki.user_agent = configuration.user_agent
   end
 
   extend self
