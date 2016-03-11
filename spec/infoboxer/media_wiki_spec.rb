@@ -138,7 +138,7 @@ module Infoboxer
         its(:count){should == 2}
       end
 
-      context 'when invalida title requested', :vcr do
+      context 'when invalid title requested', :vcr do
         it 'should raise' do
           expect{client.get('It%27s not')}.to raise_error(/contains invalid characters/)
         end
@@ -152,6 +152,15 @@ module Infoboxer
         it{should be_a(Hash)}
         its(:keys){should == ['Argentina', 'Ukraine', 'WTF I just read? Make me unsee it']}
         its(['WTF I just read? Make me unsee it']){should be_nil}
+      end
+
+      context 'when several pages, including redirected to same', :vcr do
+        subject{client.get_h('Kharkiv', 'Kharkov', 'Kharkiv, Ukraine')}
+
+        it{should be_a(Hash)}
+        its(:keys){should == ['Kharkiv', 'Kharkov', 'Kharkiv, Ukraine']}
+        its(:values){should all be_a MediaWiki::Page}
+        its(:'values.uniq.count'){should == 1}
       end
     end
 

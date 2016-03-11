@@ -67,7 +67,10 @@ module Infoboxer
           redirects(true). # FIXME: should be done transparently by MediaWiktory?
           perform.pages
       }.inject(:concat). # somehow flatten(1) fails!
-      sort_by{|page| titles.index(page.queried_title) || 1_000}
+      sort_by{|page|
+        res_title = page.alt_titles.detect{|t| titles.include?(t)} # FIXME?..
+        titles.index(res_title) || 1_000
+      }
     end
 
     # Receive list of parsed MediaWiki pages for list of titles provided.
@@ -123,7 +126,7 @@ module Infoboxer
     def get_h(*titles)
       pages = [*get(*titles)]
       titles.map{|t|
-        [t, pages.detect{|p| p.source.queried_title == t}]
+        [t, pages.detect{|p| p.source.alt_titles.include?(t)}]
       }.to_h
     end
 

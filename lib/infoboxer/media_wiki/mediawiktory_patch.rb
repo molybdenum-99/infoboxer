@@ -3,10 +3,8 @@ require 'mediawiktory'
 # FIXME: looks like pretty "core" functionality and should moved to mediawiktory itself
 
 class MediaWiktory::Page
-  attr_writer :queried_title
-
-  def queried_title
-    @queried_title || title
+  def alt_titles
+    @alt_titles ||= [title]
   end
 end
 
@@ -18,7 +16,7 @@ class MediaWiktory::Query::Response
     if raw.query.redirects
       raw.query.redirects.each do |redirect|
         pg = @pages.detect{|p| p.title == redirect.to} or next
-        pg.queried_title = redirect.from
+        pg.alt_titles << redirect.from
       end
     end
   end
