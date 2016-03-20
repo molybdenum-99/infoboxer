@@ -39,6 +39,14 @@ module Infoboxer
         end
       end
 
+      context 'when no pages', :vcr do
+        # could emerge on "automatically" created page lists, should work
+        subject{client.raw()}
+
+        it{should be_kind_of(Array)}
+        it{should be_empty}
+      end
+
       context 'when non-existing page', :vcr do
         subject{client.raw('it is non-existing definitely').first}
         its(:title){should == 'It is non-existing definitely'}

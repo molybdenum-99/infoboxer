@@ -60,6 +60,8 @@ module Infoboxer
     #
     # @return [Array<Hash>]
     def raw(*titles)
+      return [] if titles.empty? # could emerge on "automatically" created page lists, should work
+      
       titles.each_slice(50).map{|part|
         @client.query.
           titles(*part).
