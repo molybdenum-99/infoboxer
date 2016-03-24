@@ -170,6 +170,14 @@ module Infoboxer
         its(:values){should all be_a MediaWiki::Page}
         its(:'values.uniq.count'){should == 1}
       end
+
+      context 'with downcase titles', :vcr do
+        subject{client.get_h('kharkiv')}
+
+        it{should be_a(Hash)}
+        its(:keys){should == ['kharkiv']}
+        its(:values){should all be_a MediaWiki::Page}
+      end
     end
 
     describe :category, :vcr do

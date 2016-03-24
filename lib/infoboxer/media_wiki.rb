@@ -70,7 +70,7 @@ module Infoboxer
           perform.pages
       }.inject(:concat). # somehow flatten(1) fails!
       sort_by{|page|
-        res_title = page.alt_titles.detect{|t| titles.include?(t)} # FIXME?..
+        res_title = page.alt_titles.detect{|t| titles.map(&:downcase).include?(t.downcase)} # FIXME?..
         titles.index(res_title) || 1_000
       }
     end
@@ -128,7 +128,7 @@ module Infoboxer
     def get_h(*titles)
       pages = [*get(*titles)]
       titles.map{|t|
-        [t, pages.detect{|p| p.source.alt_titles.include?(t)}]
+        [t, pages.detect{|p| p.source.alt_titles.map(&:downcase).include?(t.downcase)}]
       }.to_h
     end
 
