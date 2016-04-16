@@ -1,5 +1,11 @@
 # Infoboxer's change log
 
+## 0.2.4 (2016-04-16)
+
+* `MediaWiki#get_h` works correctly with several synonymous pages now;
+* `get` and `get_h` work better when some of required titles are downcase;
+* Travis compatibility check restored.
+
 ## 0.2.3 (2016-03-02)
 
 New and enchanced features:
