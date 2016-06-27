@@ -1,6 +1,8 @@
 # Infoboxer's change log
 
-## 0.2.5 (2016-06-27)
+## 0.2.6 (2016-06-27)
+
+_0.2.5 was erroneously released without any changes._
 
 * Fix of `<math>` tags parsing (#66)
 
