@@ -44,7 +44,7 @@ module Infoboxer
   #
   # Most of navigational and other Node's methods return {Nodes} type,
   # which is an `Array` descendant with additional functionality.
-  # 
+  #
   # ## Complex data extraction
   #
   # Most of uniform, machine-extractable data in Wikipedia is stored in
@@ -62,7 +62,7 @@ module Infoboxer
     require_relative 'tree/nodes'
 
     %w[text compound inline
-      image html paragraphs list template table ref
+      image html paragraphs list template table ref math
       document].each do |type|
       require_relative "tree/#{type}"
     end

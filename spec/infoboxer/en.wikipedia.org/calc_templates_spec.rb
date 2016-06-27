@@ -6,15 +6,15 @@ module Infoboxer
       variables.each_with_index.map{|v, i| Tree::Var.new((i+1).to_s, Tree::Text.new(v))}
     }
     subject{traits.templates.find(name).new(name, Tree::Nodes[*template_vars])}
-    
+
     describe '{{Convert}}' do
       let(:name){'Convert'}
-      
+
       context 'simplest case' do
         let(:variables){%w[120 km mi]}
 
         it{should be_kind_of(Templates::Base)}
-        
+
         its(:text){should == '120 km'}
         its(:value1){should == '120'}
         its(:value2){should be_nil}
@@ -38,19 +38,19 @@ module Infoboxer
 
     describe '{{Age}}' do
       let(:name){'Age'}
-      
+
       context 'one date' do
-        # FIXME: use timecomp here
+        # FIXME: use timecomp here!!!
         let(:variables){%w[1985 07 01]}
 
         it{should be_kind_of(Templates::Base)}
-        
-        its(:text){should == '30 years'}
+
+        its(:text){should == '31 years'}
       end
 
       context 'two dates' do
         let(:variables){%w[1985 07 01 1995 08 15]}
-        
+
         its(:text){should == '10 years'}
       end
     end

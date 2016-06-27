@@ -3,7 +3,7 @@ module Infoboxer
   class Parser
     module Inline
       include Tree
-      
+
       def inline(until_pattern = nil)
         start = @context.lineno
         nodes = Nodes[]
@@ -19,13 +19,13 @@ module Infoboxer
             break unless until_pattern
             @context.fail!("#{until_pattern} not found, starting from #{start}")
           end
-          
+
           if @context.eol?
             nodes << "\n"
             @context.next!
           end
         end
-        
+
         nodes
       end
 
@@ -48,7 +48,7 @@ module Infoboxer
 
           break if @context.inline_eol?(until_pattern)
         end
-        
+
         nodes
       end
 
@@ -66,7 +66,7 @@ module Infoboxer
             break unless until_pattern
             @context.fail!("#{until_pattern} not found")
           end
-          
+
           if @context.eol?
             @context.next!
             paragraphs(until_pattern).each do |p|
@@ -75,7 +75,7 @@ module Infoboxer
             break
           end
         end
-        
+
         nodes
       end
 
@@ -104,6 +104,8 @@ module Infoboxer
             reference($1, true)
           when /<ref([^>]*)>/
             reference($1)
+          when /<math>/
+            math
           when '<'
             html || Text.new(match) # it was not HTML, just accidental <
           else
@@ -132,7 +134,7 @@ module Infoboxer
           link = @context.scan_continued_until(/\s+|\]/)
           if @context.matched =~ /\s+/
             @context.push_eol_sign(/^\]/)
-            caption = short_inline(/\]/) 
+            caption = short_inline(/\]/)
             @context.pop_eol_sign
           end
           ExternalLink.new(protocol + link, caption)
@@ -141,6 +143,10 @@ module Infoboxer
         def reference(param_str, closed = false)
           children = closed ? Nodes[] : long_inline(/<\/ref>/)
           Ref.new(children, parse_params(param_str))
+        end
+
+        def math
+          Math.new(@context.scan_continued_until(/<\/math>/))
         end
 
         def nowiki(tag_rest)

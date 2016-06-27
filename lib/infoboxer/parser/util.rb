@@ -9,14 +9,15 @@ module Infoboxer
         \[\[          |     # link
         {{            |     # template
         \[[a-z]+:\/\/ |     # external link
-        <nowiki[^>]*> |     # reference
-        <ref[^>]*>    |     # nowiki
+        <nowiki[^>]*> |     # nowiki
+        <ref[^>]*>    |     # reference
+        <math>        |     # math
         <                   # HTML tag
       )/x
 
       INLINE_EOL = %r[(?=   # if we have ahead... (not scanned, just checked
         </ref>        |     # <ref> closed
-        }}            
+        }}
       )]x
 
       INLINE_EOL_BRACK = %r[(?=   # if we have ahead... (not scanned, just checked
@@ -50,13 +51,13 @@ module Infoboxer
           short_inline_until_cache_brackets2: Hash.new{|h, r|
             h[r] = Regexp.union(*[r, INLINE_EOL_BRACK2, FORMATTING, /$/].compact.uniq)
           }
-          
+
         }
       end
 
       def parse_params(str)
         return {} unless str
-        
+
         scan = StringScanner.new(str)
         params = {}
         loop do
