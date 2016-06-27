@@ -1,5 +1,9 @@
 # Infoboxer's change log
 
+## 0.2.5 (2016-06-27)
+
+* Fix of `<math>` tags parsing (#66)
+
 ## 0.2.4 (2016-04-16)
 
 * `MediaWiki#get_h` works correctly with several synonymous pages now;
@@ -44,7 +48,7 @@ Fixes:
   50 in previous versions);
 * `bin/infoboxer` console added for quick experimenting;
 * `Template#to_h` added for quick information extraction;
-* many small bugfixes and enchancements. 
+* many small bugfixes and enchancements.
 
 ## 0.1.2.1 (2015-12-04)
 
