@@ -11,7 +11,7 @@ module Infoboxer
 
     context 'when just text' do
       let(:source){'just text'}
-      
+
       it{should == [Tree::Text.new('just text')]}
     end
 
@@ -24,32 +24,32 @@ module Infoboxer
     context 'when italic' do
       context 'simple' do
         let(:source){"''italic''"}
-        
+
         it{should == [Tree::Italic.new(Tree::Text.new('italic'))]}
       end
 
       context 'auto-closing of markup' do
         let(:source){"''italic"}
-        
+
         it{should == [Tree::Italic.new(Tree::Text.new('italic'))]}
       end
     end
 
     context 'when bold' do
       let(:source){"'''bold'''"}
-      
+
       it{should == [Tree::Bold.new(Tree::Text.new('bold'))]}
     end
 
     context 'when bold italic' do
       let(:source){"'''''bold italic'''''"}
-      
+
       it{should == [Tree::BoldItalic.new(Tree::Text.new('bold italic'))]}
     end
 
     context 'when wikilink' do
       subject{nodes.first}
-      
+
       context 'with label' do
         let(:source){'[[Argentina|Ar]]'}
 
@@ -85,7 +85,7 @@ module Infoboxer
 
     context 'when external link' do
       subject{nodes.first}
-      
+
       context 'with label' do
         let(:source){'[http://google.com Google]'}
 
@@ -128,7 +128,7 @@ module Infoboxer
 
     context 'when HTML' do
       subject{nodes.first}
-      
+
       context 'paired' do
         let(:source){'<strike>Some text</strike>'}
 
@@ -204,6 +204,13 @@ module Infoboxer
       end
     end
 
+    context 'when math' do
+      let(:source){"<math> all kinds <ref> of {{highly}} irrelevant '' markup </math>"}
+      subject{nodes.first}
+
+      it{should == Tree::Math.new(" all kinds <ref> of {{highly}} irrelevant '' markup ")}
+    end
+
     describe 'sequence' do
       subject{nodes}
       context 'plain' do
@@ -262,7 +269,7 @@ module Infoboxer
 
       context 'when cross-sected inside template' do
         let(:source){"''italic{{tmpl|its ''italic'' too}}''"}
-        
+
         its(:count){should == 1}
         its(:'first.text'){should == 'italic'}
         its(:'first.children.count'){should == 2}
