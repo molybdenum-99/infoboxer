@@ -12,6 +12,8 @@ end
 require 'coveralls'
 Coveralls.wear!
 
+require 'byebug'
+
 $:.unshift 'lib'
 
 require 'infoboxer'
