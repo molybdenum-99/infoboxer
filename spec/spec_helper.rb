@@ -12,7 +12,7 @@ end
 require 'coveralls'
 Coveralls.wear!
 
-#require 'byebug'
+# require 'byebug'
 
 $:.unshift 'lib'
 

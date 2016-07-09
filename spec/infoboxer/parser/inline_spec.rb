@@ -39,6 +39,12 @@ module Infoboxer
       let(:source){"'''bold'''"}
 
       it{should == [Tree::Bold.new(Tree::Text.new('bold'))]}
+
+      context 'when mixed with apostrofe' do
+        let(:source){"L''''aritmetica'''"}
+
+        it{should == [Tree::Text.new('L'), Tree::Bold.new(Tree::Text.new("'aritmetica"))]}
+      end
     end
 
     context 'when bold italic' do
