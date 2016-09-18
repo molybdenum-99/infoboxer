@@ -2,6 +2,6 @@
 module Infoboxer
   MAJOR = 0
   MINOR = 2
-  PATCH = 6
+  PATCH = 7
   VERSION = [MAJOR, MINOR, PATCH].join('.')
 end

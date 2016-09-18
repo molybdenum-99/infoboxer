@@ -1,5 +1,11 @@
 # Infoboxer's change log
 
+## 0.2.7 (2016-09-18)
+
+* Fix `Math` node rendering to text (#68);
+* Fix consequtive apostrophes problem (#69);
+* Fix math parsing in templates (#70).
+
 ## 0.2.6 (2016-06-27)
 
 _0.2.5 was erroneously released without any changes._
