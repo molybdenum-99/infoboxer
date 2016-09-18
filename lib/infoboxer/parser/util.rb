@@ -5,7 +5,7 @@ module Infoboxer
       attr_reader :re
 
       FORMATTING = /(
-        '{2,5}        |     # bold, italic
+        '''''|'''|''  |     # bold, italic, bold italic
         \[\[          |     # link
         {{            |     # template
         \[[a-z]+:\/\/ |     # external link

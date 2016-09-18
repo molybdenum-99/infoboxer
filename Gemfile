@@ -13,6 +13,7 @@ group :development do
   gem 'rake'
   gem 'ruby-prof'
   gem 'rubygems-tasks'
+  gem 'byebug'
 end
 
 group :test do

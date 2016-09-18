@@ -39,6 +39,12 @@ module Infoboxer
       let(:source){"'''bold'''"}
 
       it{should == [Tree::Bold.new(Tree::Text.new('bold'))]}
+
+      context 'when mixed with apostrofe' do
+        let(:source){"L''''aritmetica'''"}
+
+        it{should == [Tree::Text.new('L'), Tree::Bold.new(Tree::Text.new("'aritmetica"))]}
+      end
     end
 
     context 'when bold italic' do
@@ -209,6 +215,12 @@ module Infoboxer
       subject{nodes.first}
 
       it{should == Tree::Math.new(" all kinds <ref> of {{highly}} irrelevant '' markup ")}
+
+      context 'math in templates' do
+        let(:source) { '{{Ecuación|<math>g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} </math>}}' }
+        subject { nodes.lookup(:Template).first.variables.first.lookup(:Math).first }
+        it { should == Tree::Math.new('g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} ') }
+      end
     end
 
     describe 'sequence' do

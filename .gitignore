@@ -14,3 +14,4 @@ rubocop
 .coveralls.yml
 coverage
 doc
+.byebug*

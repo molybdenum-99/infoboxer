@@ -3,7 +3,7 @@ module Infoboxer
   class Parser
     module Template
       include Tree
-      
+
       # NB: here we are not distingish templates like `{{Infobox|variable}}`
       # and "magic words" like `{{formatnum:123}}`
       # Just calling all of them "templates". This behaviour will change
@@ -12,7 +12,7 @@ module Infoboxer
       def template
         name = @context.scan_continued_until(/\||:|}}/) or
           @context.fail!("Template name not found")
-          
+
         name.strip!
         vars = @context.eat_matched?('}}') ? Nodes[] : template_vars
         @context.traits.templates.find(name).new(name, vars)
@@ -21,10 +21,10 @@ module Infoboxer
       def template_vars
         num = 1
         res = Nodes[]
-        
+
         guarded_loop do
           @context.next! while @context.eol?
-          if @context.check(/\s*([^ =}|]+)\s*=\s*/)
+          if @context.check(/\s*([^ =}|<]+)\s*=\s*/)
             name = @context.scan(/\s*([^ =]+)/).strip
             @context.skip(/\s*=\s*/)
           else

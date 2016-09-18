@@ -41,7 +41,7 @@ module Infoboxer
               Still that, other paragraph.
             }}
 
-            it{should == 
+            it{should ==
               "Heading 2\n\n" \
               "Heading 3\n\n" \
               "Paragraph.\n\n" \
@@ -101,7 +101,7 @@ module Infoboxer
                 ** nested
                 * list
               }}
-                
+
               it{should ==
                 "* its\n"\
                 "  * a\n"\
@@ -123,7 +123,7 @@ module Infoboxer
                 paragraph
               }}
 
-              it{should == 
+              it{should ==
                 "* list\n" \
                 "* with\n" \
                 "  1. different\n" \
@@ -144,10 +144,10 @@ module Infoboxer
                Next line
               }}
 
-            it{should == 
+            it{should ==
               "Here will be pre:\n\n" \
               "First line\n" \
-              "Next line\n\n" 
+              "Next line\n\n"
             }
           end
 
@@ -206,8 +206,13 @@ module Infoboxer
             let(:source){'some text <b>with bold</b> text'}
             it{should == "some text with bold text\n\n"}
           end
+
+          context 'math' do
+            let(:source) { '<math>g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} </math>' }
+            it { is_expected.to eq "<math>g = \\frac{F}{m} = \\frac {G M_T}{{R_T}^2} </math>\n\n" }
+          end
         end
-        
+
       end
     end
   end
