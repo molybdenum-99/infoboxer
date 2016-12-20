@@ -1,0 +1,1085 @@
+{{About|the U.S. state}}
+{{pp-move-indef}}
+{{lead too short|date=July 2016}}
+{{Use mdy dates|date=March 2015}}
+{{Infobox U.S. state
+|Name = Wyoming
+|Fullname = State of Wyoming
+|Flag = Flag of Wyoming.svg
+|Flaglink = [[Flag of Wyoming|Flag]]
+|Seal = Seal of Wyoming.svg
+|Seallink = [[Seal of Wyoming|Seal]]
+|Map = Wyoming in United States.svg
+|Nickname = Equality State (official);<br />Cowboy State; Big Wyoming<ref name="WyoFacts">{{cite web |url=http://www.wyo.gov/about-wyoming/wyoming-facts-and-symbols |title=Wyoming Facts and Symbols |publisher=State of Wyoming |date=2013 |archiveurl=http://web.archive.org/web/20160920053220/http://www.wyo.gov/about-wyoming/wyoming-facts-and-symbols |archivedate=September 20, 2016 |deadurl=no |accessdate=October 12, 2016}}</ref>
+|Motto = Equal Rights
+|Former = Wyoming Territory
+|Capital = [[Cheyenne, Wyoming|Cheyenne]]
+|LargestMetro = [[Cheyenne metropolitan area|Cheyenne Metro Area]]
+|OfficialLang = [[English language|English]]
+|Demonym = [[List of demonyms for U.S. states#List|Wyomingite]]
+|LargestCity = capital
+|Governor = [[Matt Mead]] (R)
+|Lieutenant Governor =
+|Lieutenant Governor_alt = Secretary of State
+|Legislature = [[Wyoming Legislature]]
+|Upperhouse = [[Wyoming Senate|Senate]]
+|Lowerhouse = [[Wyoming House of Representatives|House of Representatives]]
+|Senators = [[Mike Enzi]] (R)<br />[[John Barrasso]] (R)
+|Representative = [[Cynthia Lummis]] (R)
+|PostalAbbreviation = WY, Wyo.
+|AreaRank = 10th
+|TotalArea = 253,600 <!--converted to sqkm from ref below -->
+|TotalAreaUS = 97,914<ref name="WyoFacts"/>
+|PCWater = 0.7
+|PopRank = 50th
+|2010Pop = 586,107 (2015 estimate); 563,626 (2010 census)<ref name=PopEstUS/>
+|DensityRank = 49th
+|2000DensityUS = 5.97
+|2000Density = 2.31
+|MedianHouseholdIncome = $60,925<ref>{{cite web|url=http://kff.org/other/state-indicator/median-annual-income/?currentTimeframe=0|work=The Henry J. Kaiser Family Foundation|title=Median Annual Household Income|accessdate=December 9, 2016}}</ref>
+|IncomeRank      = 15th
+|AdmittanceOrder = 44th
+|AdmittanceDate = July 10, 1890
+|TimeZone = [[Mountain Time Zone|Mountain]]: [[Coordinated Universal Time|UTC]] [[Mountain Standard Time|-7]]/[[Mountain Daylight Time|-6]]
+|Latitude = [[41st parallel north|41°N]] to [[45th parallel north|45°N]]
+|Longitude = 104°3'W to 111°3'W
+|WidthUS = 372.8
+|Width = 600
+|LengthUS = 280
+|Length = 452
+|HighestPoint = [[Gannett Peak]]<ref>{{cite ngs |id=OW0356 |designation=Gannett Peak Cairn |accessdate=October 24, 2011}}</ref><ref name=USGS>{{cite web |url=http://egsc.usgs.gov/isb/pubs/booklets/elvadist/elvadist.html |title=Elevations and Distances in the United States |publisher=[[United States Geological Survey]] |year=2001 |accessdate=October 24, 2011 |deadurl=yes |archiveurl=https://web.archive.org/web/20120722022527/http://egsc.usgs.gov/isb/pubs/booklets/elvadist/elvadist.html |archivedate=July 22, 2012}}</ref><ref name=NAVD88>Elevation adjusted to [[North American Vertical Datum of 1988]].</ref>
+|HighestElevUS = 13,809
+|HighestElev = 4209.1
+|MeanElevUS = 6,700
+|MeanElev = 2040
+|LowestPoint = [[Belle Fourche River]] at {{nobreak|[[South Dakota]] border}}<ref name=USGS/><ref name=NAVD88/>
+|LowestElevUS = 3,101
+|LowestElev = 945
+|ISOCode = US-WY
+|Website = wyoming.gov
+}}
+{{Infobox U.S. state symbols
+|Name = Wyoming
+|Flag = Flag of Wyoming.svg
+|Seal = Seal of Wyoming.svg
+|Amphibian =
+|Bird = [[Western meadowlark]] (''Sturnella neglecta'')
+|Butterfly =
+|Dinosaur = ''[[Triceratops]]''
+|Fish = [[Cutthroat trout]] (''Oncorhynchus clarki'')
+|Flower = [[Wyoming Indian paintbrush]] (''Castilleja linariifolia'')
+|Grass = [[Pascopyrum|Western wheatgrass]] (''Pascopyrum smithii'')
+|Circumcision Statistics = 73%	(2013) Still Medicaid funded
+|Mammal = [[American bison]] (''Bison bison'')
+|Reptile = [[Horned lizard]] (''[[Phrynosoma douglassi brevirostre]]'')
+|Tree = [[Plains cottonwood]] (''Populus sargentii'')
+|Beverage =
+|Colors =
+|Dance =
+|Food =
+|Fossil = ''[[Knightia]]''
+|Gemstone =
+|Instrument =
+|Mineral = [[Nephrite]]
+|Motto = [[Equal Rights (motto)|Equal Rights]]
+|Poem =
+|Rock =
+|Shell =
+|Ships =
+|Slogan =
+|Soil = [[Forkwood]] (unofficial)
+|Song = "[[Wyoming (song)|Wyoming]]" by Charles E. Winter & George E. Knapp
+|Sport =
+|Tartan =
+|Toy =
+|Other =
+|Route Marker = WY-789.svg
+|Quarter = 2007 WY Proof Rev.png
+|QuarterReleaseDate = 2007
+}}
+
+'''Wyoming''' {{IPAc-en|audio=en-us-Wyoming.ogg|w|aɪ|ˈ|oʊ|m|ɪ|ŋ}} is a state in the [[Mountain States|mountain region]] of the western United States. It is the [[List of U.S. states and territories by area|tenth largest state by area]], the [[List of U.S. states and territories by population|least populous state]] and the [[List of U.S. states by population density|second least densely populated state]] in the country. Wyoming is bordered on the north by [[Montana]], on the east by [[South Dakota]] and [[Nebraska]], on the south by [[Colorado]], on the southwest by [[Utah]], and on the west by [[Idaho]]. [[Cheyenne, Wyoming|Cheyenne]] is the capital and the most populous city in Wyoming, with a population estimate of 63,335 in 2015.<ref name="Cheyenne Pop Estimate">{{cite web|title= Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2015|url=http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk|publisher=[[United States Census Bureau]]|accessdate=November 3, 2016}}</ref> The state population was estimated at 586,107 in 2015.<ref name=PopEstUS/>
+
+The western two-thirds of the state is covered mostly with the mountain ranges and rangelands in the  [[Rocky Mountains]], while the eastern third of the state is high elevation prairie known as the [[High Plains (United States)|High Plains]].
+
+==Geography==
+
+===Location and size===
+As specified in the designating legislation for the [[Territory of Wyoming]], Wyoming's borders are lines of [[latitude]], [[41st parallel north|41°N]] and [[45th parallel north|45°N]], and [[longitude]], 104°3'W and 111°3'W (27° W and 34° W of the [[Washington Meridian]]), making the shape of the state a latitude-longitude quadrangle.<ref>{{cite journal |author=Willam J. Gribb |author2=Lawrence M. Ostrech |title=Databases and Algorithms to Determine the Boundary of Wyoming |publisher=University of Wyoming, Department of Geography |url=http://gis.esri.com/library/userconf/proc04/docs/pap1718.pdf |accessdate=December 14, 2008}}</ref> Wyoming is one of only three states (along with [[Colorado]] and [[Utah]]) to have borders along only straight latitudinal and longitudinal lines, rather than being defined by natural landmarks. Due to surveying inaccuracies during the 19th century, Wyoming's legal border deviates from the true [[latitude]] and [[longitude]] lines by up to half of a mile (0.8&nbsp;km) in some spots, especially in the mountainous region along the [[45th parallel north|45th parallel]].<ref>{{cite web |url=http://www.maa.org/mathtourist/mathtourist_08_30_07.html |title=Rectangular States and Kinky Borders |author=Ivars Peterson |accessdate=December 14, 2008 |deadurl=yes |archiveurl=https://web.archive.org/web/20080705160310/http://www.maa.org/mathtourist/mathtourist_08_30_07.html |archivedate=July 5, 2008}}</ref> Wyoming is bordered on the north by [[Montana]], on the east by [[South Dakota]] and [[Nebraska]], on the south by [[Colorado]], on the southwest by [[Utah]], and on the west by [[Idaho]]. It is the tenth largest state in the United States in total area, containing {{convert|97814|sqmi|km2}} and is made up of 23 counties. From the north border to the south border it is {{convert|276|mi|km}};<ref>[http://www.javascripter.net/math/calculators/distancecalculator.htm Distance Calculator]. Javascripter.net. Retrieved July 12, 2013.</ref> and from the east to the west border is {{convert|365|mi|km}} at its south end and {{convert|342|mi|km}} at the north end.
+
+===Mountain ranges===
+The [[Great Plains]] meet the [[Rocky Mountains]] in Wyoming. The state is a great [[plateau]] broken by many [[mountain range]]s. Surface elevations range from the summit of [[Gannett Peak]] in the [[Wind River Range|Wind River Mountain Range]], at {{convert|13804|ft|m}}, to the [[Belle Fourche River]] valley in the state's northeast corner, at {{convert|3125|ft|m}}. In the northwest are the [[Absaroka Range|Absaroka]], [[Owl Creek Mountains|Owl Creek]], [[Gros Ventre Range|Gros Ventre]], [[Wind River Range|Wind River]] and the [[Teton Range|Teton]] ranges. In the north central are the [[Big Horn Mountains]]; in the northeast, the [[Black Hills]]; and in the southern region the [[Laramie Mountains|Laramie]], [[Medicine Bow Mountains|Snowy]] and [[Sierra Madre Range (Wyoming)|Sierra Madre]] ranges.
+
+The Snowy Range in the south central part of the state is an extension of the Colorado [[Rocky Mountains|Rockies]] in both geology and appearance. The Wind River Range in the west central part of the state is remote and includes more than 40 mountain peaks in excess of {{convert|13000|ft|m|abbr=on}} tall in addition to Gannett Peak, the highest peak in the state. The Big Horn Mountains in the north central portion are somewhat isolated from the bulk of the Rocky Mountains.
+
+The Teton Range in the northwest extends for {{convert|50|mi|km}}, part of which is included in [[Grand Teton National Park]]. The park includes the [[Grand Teton]], the second highest peak in the state.
+
+The [[Continental Divide]] spans north-south across the central portion of the state. Rivers east of the divide drain into the [[Missouri River Basin]] and eventually the [[Gulf of Mexico]]. They are the [[North Platte River|North Platte]], [[Wind River (Wyoming)|Wind]], [[Bighorn River|Big Horn]] and the [[Yellowstone River|Yellowstone]] rivers. The [[Snake River]] in northwest Wyoming eventually drains into the [[Columbia River]] and the Pacific Ocean, as does the [[Green River (Colorado River)|Green River]] through the [[Colorado River]] Basin.
+
+The Continental Divide forks in the south central part of the state in an area known as the [[Great Divide Basin]] where the waters that flow or precipitate into this area remain there and cannot flow to any ocean. Instead, because of the overall aridity of Wyoming, water in the Great Divide Basin simply sinks into the soil or evaporates.
+
+Several rivers begin in or flow through the state, including the Yellowstone River, Bighorn River, Green River, and the Snake River.
+
+===Islands===
+{{main article|List of islands of Wyoming}}
+Wyoming has 32 named islands, of which the majority are located in [[Jackson Lake]] and [[Yellowstone Lake]] within [[Yellowstone National Park]] in the northwest portion of the state. The [[Green River (Colorado River)|Green River]] in the southwest also contains a number of islands.
+
+===Public lands===
+[[File:Wyoming ref 2001.jpg|thumb|Wyoming terrain map]]
+More than 48% of the land in Wyoming is owned by the [[Federal government of the United States|U.S. government]], leading Wyoming to rank sixth in the United States in total acres and fifth in percentage of a state's land owned by the federal government.<ref name="maineenvironment.org">[http://www.maineenvironment.org/documents/publiclandownership.pdf MainEnvironment.org] Public Land Ownership by State, 1995 Main Environment.org</ref> This amounts to about {{convert|30099430|acre|km2}} owned and managed by the United States government. The state government owns an additional 6% of all Wyoming lands, or another {{convert|3864800|acre|km2}}.<ref name="maineenvironment.org"/>
+
+The vast majority of this government land is managed by the [[Bureau of Land Management]] and [[United States Forest Service|U.S. Forest Service]] in numerous [[United States National Forest|national forests]], a [[United States National Grassland|national grassland]], and a number of vast swathes of public land, in addition to the [[Francis E. Warren Air Force Base]] in Cheyenne.
+
+[[File:Map Wyoming NPS sites USA.gif|thumb|National Park Service sites map]]
+In addition, Wyoming contains areas managed by the [[National Park Service]] and other agencies such as the [[United States Fish and Wildlife Service|U.S. Fish and Wildlife Service]], including:
+
+'''National parks'''
+* [[Grand Teton National Park]]
+* [[Yellowstone National Park]]
+
+'''Memorial parkway'''
+* [[John D. Rockefeller Jr. Memorial Parkway]] between Yellowstone and Grand Teton National Parks
+
+'''National recreation areas'''
+* [[Bighorn Canyon National Recreation Area]]
+* [[Flaming Gorge National Recreation Area]] (managed by the Forest Service as part of [[Ashley National Forest]])
+
+'''National monuments'''
+* [[Devils Tower|Devils Tower National Monument]]
+* [[Fossil Butte National Monument]]
+
+'''National historic trails, landmarks and sites'''
+* [[California Trail|California National Historic Trail]]
+* [[Fort Laramie National Historic Site]]
+* [[Independence Rock (Wyoming)|Independence Rock National Historic Landmark]]
+* [[Medicine Wheel/Medicine Mountain National Historic Landmark]]
+* [[Mormon Trail|Mormon Pioneer National Historic Trail]]
+* [[National Register of Historic Places listings in Wyoming]]
+* [[Oregon Trail|Oregon National Historic Trail]]
+* [[Pony Express|Pony Express National Historic Trail]]
+
+'''National fish hatcheries'''
+* [[Jackson National Fish Hatchery]]
+* [[Saratoga National Fish Hatchery]]
+
+'''National wildlife refuges'''
+* [[National Elk Refuge]]
+* [[Seedskadee National Wildlife Refuge]]
+
+<gallery mode=packed>
+File:Castle Geyser (3678669019).jpg|[[Yellowstone National Park]]
+File:A110, Devils Tower National Monument, Wyoming, USA, 2004.jpg|[[Devils Tower|Devils Tower National Monument]]
+File:Thunder Basin National Grassland Douglas.jpg|[[Thunder Basin National Grassland]]
+File:Seedskadee nwr sunset.jpg|[[Seedskadee National Wildlife Refuge]]
+</gallery>
+{{wide image|Wide angle tetons.jpg|900px|align-cap=center|Panoramic view of the [[Teton Range]] looking west from [[Jackson Hole]], [[Grand Teton National Park]]}}
+
+==Climate==
+[[File:WY_koppen.svg|thumb|[[Köppen climate classification|Köppen climate types]] of Wyoming]]
+{{Further information|Climate change in Wyoming}}
+[[File:Wyoming.JPG|thumb|Wyoming state welcome sign on [[Interstate 80]] in [[Uinta County, Wyoming|Uinta County]] (at the [[Utah]] border)]]
+[[File:Autumn in the Bighorn Mountains.JPG|thumb|Autumn in the Bighorn Mountains]]
+
+Wyoming's climate is generally [[Semi-arid climate|semi-arid]] and [[continental climate|continental]] ([[Köppen climate classification]] ''[[Cold steppe|''BSk'']]''), and is drier and windier in comparison to most of the United States with greater temperature extremes. Much of this is due to the topography of the state. Summers in Wyoming are warm with July high temperatures averaging between {{convert|85|and|95|°F|°C|abbr=on}} in most of the state. With increasing elevation, however, this average drops rapidly with locations above {{convert|9000|ft|m}} averaging around {{convert|70|°F|°C|abbr=on}}. Summer nights throughout the state are characterized by a rapid cooldown with even the hottest locations averaging in the {{convert|50|–|60|F|C}} range at night. In most of the state, most of the precipitation tends to fall in the late spring and early summer. Winters are cold, but are variable with periods of sometimes extreme cold interspersed between generally mild periods, with [[Chinook winds]] providing unusually warm temperatures in some locations. Wyoming is a dry state with much of the land receiving less than {{convert|10|in|mm}} of rainfall per year. Precipitation depends on elevation with lower areas in the [[Bighorn Basin|Big Horn Basin]] averaging {{convert|5|-|8|in|mm}} (making the area nearly a true [[desert]]). The lower areas in the North and on the eastern plains typically average around {{convert|10|-|12|in|mm}}, making the climate there [[semi-arid]]. Some mountain areas do receive a good amount of precipitation, {{convert|20|in|mm}} or more, much of it as snow, sometimes {{convert|200|in|cm}} or more annually. The state's highest recorded temperature is {{convert|114|F|C}} at [[Basin, Wyoming|Basin]] on July 12, 1900 and the lowest recorded temperature is {{convert|-66|F|C}} at [[Riverside, Wyoming|Riverside]] on February 9, 1933.
+
+The number of [[thunderstorm]] days vary across the state with the southeastern plains of the state having the most days of thunderstorm activity. Thunderstorm activity in the state is highest during the late spring and early summer. The southeastern corner of the state is the most vulnerable part of the state to [[tornado]] activity. Moving away from that point and westwards, the incidence of tornadoes drops dramatically with the west part of the state showing little vulnerability. Tornadoes, where they occur, tend to be small and brief, unlike some of those that occur a little farther east.
+
+{| class="wikitable collapsible" style="width:700px;"
+! colspan= "14" style="background: #6688AA; color: #6688AA" | <span style="margin-left: 80px; color: white">{{big|Casper climate:}} Average maximum and minimum temperatures, and average rainfall.</span>
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy; height:17px;"| Month
+! style="background:#dcf0f0; color:navy;"| Jan
+! style="background:#dcf0f0; color:navy;"| Feb
+! style="background:#dcf0f0; color:navy;"| Mar
+! style="background:#dcf0f0; color:navy;"| Apr
+! style="background:#dcf0f0; color:navy;"| May
+! style="background:#dcf0f0; color:navy;"| Jun
+! style="background:#dcf0f0; color:navy;"| Jul
+! style="background:#dcf0f0; color:navy;"| Aug
+! style="background:#dcf0f0; color:navy;"| Sep
+! style="background:#dcf0f0; color:navy;"| Oct
+! style="background:#dcf0f0; color:navy;"| Nov
+! style="background:#dcf0f0; color:navy;"| Dec
+! style="background:#dcf0f0; color:navy; border-left:2px solid #bbb;"| '''Year'''
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy; height:16px;"| Average max. temperature °[[Fahrenheit|F]] ([[Celsius|°C]])
+| style="background:#fff;"| 32<br />(0)
+| style="background:#fff;"| 37<br />(3)
+| style="background: #F5E4D1;" | 45<br />(7)
+| style="background: #FFCF99;" | 56<br />(13)
+| style="background: #FFB86D;" | 66<br />(19)
+| style="background: #FF952B;" | 78<br />(26)
+| style="background: #F47D00;" | 87<br />(31)
+| style="background: #FF952B;" | 85<br />(29)
+| style="background: #FFA54D;" | 74<br />(23)
+| style="background: #FFB86D;" | 60<br />(16)
+| style="background: #F5E4D1;" | 44<br />(7)
+| style="background:#fff;"| 34<br />(1)
+| style="background: #FFCF99;" | '''58'''<br />('''14''')
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy;"| Average min. temperature<br />°F (°C)
+| style="background: #4DD2FF;" | 12<br />(−11)
+| style="background: #52D5F5;" | 16<br />(−9)
+| style="background: #52D5F5;" | 21<br />(−6)
+| style="background: #8CF1FC;" | 28<br />(−2)
+| style="background:#fff;"| 37<br />(3)
+| style="background: #F5E4D1;" | 46<br />(8)
+| style="background: #FFCF99;" | 54<br />(12)
+| style="background: #FFCF99;" | 51<br />(11)
+| style="background: #F5E4D1;" | 41<br />(5)
+| style="background:#fff;"| 32<br />(0)
+| style="background: #52D5F5;" | 21<br />(−6)
+| style="background: #52D5F5;" | 14<br />(−10)
+| style="background: #8CF1FC;" | '''31'''<br />('''-1''')
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy;"| Average rainfall<br />inches (mm)
+| style="background: #99E5FF;" | 0.6<br />(15.2)
+| style="background: #99E5FF;" | 0.6<br />(15.2)
+| style="background: #72DCFF;" | 1.0<br />(25.4)
+| style="background: #41CFFF;" | 1.6<br />(40.6)
+| style="background: #00BEFE;" | 2.1<br />(53.3)
+| style="background: #41CFFF;" | 1.5<br />(38.1)
+| style="background: #72DCFF;" | 1.3<br />(33.0)
+| style="background: #99E5FF;" | 0.7<br />(17.8)
+| style="background: #99E5FF;" | 0.9<br />(22.9)
+| style="background: #72DCFF;" | 1.0<br />(25.4)
+| style="background: #99E5FF;" | 0.8<br />(20.3)
+| style="background: #99E5FF;" | 0.7<br />(17.8)
+| style="background:#fff;"| '''12.8'''<br />('''325.1''')
+|-
+| colspan="14" style="background:#dcf0f0; color:navy; text-align:center;"| <small>Source:<ref>{{cite web |url=http://countrystudies.us/united-states/weather/wyoming/casper.htm |title=CountryStudies.us |publisher=CountryStudies.us |accessdate=July 31, 2010}}</ref></small>
+|}
+
+{| class="wikitable collapsible" style="width:700px;"
+! colspan= "14" style="background: #6688AA; color: #6688AA" | <span style="margin-left: 80px; color: white">{{big|Jackson climate:}} Average maximum and minimum temperatures, and average rainfall.</span>
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy; height:17px;"| Month
+! style="background:#dcf0f0; color:navy;"| Jan
+! style="background:#dcf0f0; color:navy;"| Feb
+! style="background:#dcf0f0; color:navy;"| Mar
+! style="background:#dcf0f0; color:navy;"| Apr
+! style="background:#dcf0f0; color:navy;"| May
+! style="background:#dcf0f0; color:navy;"| Jun
+! style="background:#dcf0f0; color:navy;"| Jul
+! style="background:#dcf0f0; color:navy;"| Aug
+! style="background:#dcf0f0; color:navy;"| Sep
+! style="background:#dcf0f0; color:navy;"| Oct
+! style="background:#dcf0f0; color:navy;"| Nov
+! style="background:#dcf0f0; color:navy;"| Dec
+! style="background:#dcf0f0; color:navy; border-left:2px solid #bbb;"| '''Year'''
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy; height:16px;"| Average max. temperature °[[Fahrenheit|F]] ([[Celsius|°C]])
+| style="background: #8CF1FC;" | 24<br />(−4)
+| style="background: #8CF1FC;" | 28<br />(−2)
+| style="background:#fff;"| 37<br />(3)
+| style="background: #F5E4D1;" | 47<br />(8)
+| style="background: #FFCF99;" | 58<br />(14)
+| style="background: #FFA54D;" | 68<br />(20)
+| style="background: #FF952B;" | 78<br />(26)
+| style="background: #FF952B;" | 77<br />(25)
+| style="background: #FFB86D;" | 67<br />(19)
+| style="background: #FFCF99;" | 54<br />(12)
+| style="background:#fff;"| 37<br />(3)
+| style="background: #8CF1FC;" | 24<br />(−4)
+| style="background: #F5E4D1;" | '''49'''<br />('''9''')
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy;"| Average min. temperature<br />°F (°C)
+| style="background: #00BEFE;" | -1<br />(−18)
+| style="background: #00BEFE;" | 2<br />(−17)
+| style="background: #4DD2FF;" | 10<br />(−12)
+| style="background: #52D5F5;" | 21<br />(−6)
+| style="background: #8CF1FC;" | 30<br />(−1)
+| style="background:#fff;"| 36<br />(2)
+| style="background: #F5E4D1;" | 41<br />(5)
+| style="background:#fff;"| 38<br />(3)
+| style="background: #8CF1FC;" | 31<br />(−1)
+| style="background: #52D5F5;" | 22<br />(−6)
+| style="background: #52D5F5;" | 14<br />(−10)
+| style="background: #00BEFE;" | 0<br />(−18)
+| style="background: #52D5F5;" | '''20'''<br />('''-7''')
+|- style="text-align:center;"
+! style="background:#dcf0f0; color:navy;"| Average rainfall<br />inches (mm)
+| style="background: #00B2EE;" | 2.6<br />(66.0)
+| style="background: #41CFFF;" | 1.9<br />(48.3)
+| style="background: #41CFFF;" | 1.6<br />(40.6)
+| style="background: #72DCFF;" | 1.4<br />(35.6)
+| style="background: #41CFFF;" | 1.9<br />(48.3)
+| style="background: #41CFFF;" | 1.8<br />(45.7)
+| style="background: #72DCFF;" | 1.3<br />(33.0)
+| style="background: #72DCFF;" | 1.3<br />(33.0)
+| style="background: #41CFFF;" | 1.5<br />(38.1)
+| style="background: #72DCFF;" | 1.3<br />(33.0)
+| style="background: #00BEFE;" | 2.3<br />(58.4)
+| style="background: #00B2EE;" | 2.5<br />(63.5)
+| style="background:#fff;"| '''21.4'''<br />('''543.6''')
+|-
+| colspan="14" style="background:#dcf0f0; color:navy; text-align:center;"| <small>Source:<ref>{{cite web |url=http://countrystudies.us/united-states/weather/wyoming/jackson.htm |title=Countrystudies.us |publisher=Countrystudies.us |accessdate=July 31, 2010}}</ref></small>
+|}
+
+==History==
+{{Main article|History of Wyoming}}
+[[File:Alfred Jacob Miller - Fort Laramie - Walters 37194049.jpg|thumb|The first [[Fort Laramie]] as it looked before 1840 (painting from memory by Alfred Jacob Miller)]]
+Several Native American groups originally inhabited the region now known as Wyoming. The [[Crow Nation|Crow]], [[Arapaho]], [[Lakota people|Lakota]], and [[Shoshone]] were but a few of the original inhabitants encountered when [[White people|white]] explorers first entered the region. What is now southwestern Wyoming became a part of the [[Spanish Empire]] and later Mexican territory of [[Alta California]], until it was ceded to the United States in 1848 at the end of the [[Mexican–American War]]. French-Canadian trappers from Québec and Montréal went into the state in the late 18th century, leaving French toponyms such as Téton, [[Jacques La Ramee|La Ramie]], etc. [[John Colter]], a member of the [[Lewis and Clark Expedition]], itself guided by French Canadian Toussaint Charbonneau and his young Shoshone wife, [[Sacagawea]], first described the region in 1807. At the time, his reports of the [[Greater Yellowstone Ecosystem|Yellowstone]] area were considered to be fictional.<ref>{{Gutenberg |no=42112 |name=The Yellowstone National Park |bullet=none }}</ref> [[Robert Stuart (explorer)|Robert Stuart]] and a party of five men returning from [[Astoria, Oregon|Astoria]] discovered [[South Pass (Wyoming)|South Pass]] in 1812. The [[Oregon Trail]] later followed that route. In 1850, [[Jim Bridger]] located what is now known as [[Bridger Pass]], which the [[Union Pacific Railroad]] used in 1868—as did [[Interstate 80 in Wyoming|Interstate 80]], 90 years later. Bridger also explored Yellowstone and filed reports on the region that, like those of Colter, were largely regarded as [[tall tale]]s at the time.
+
+The region had acquired the name ''Wyoming'' by 1865, when Representative [[James Mitchell Ashley]] of [[Ohio]] introduced a bill to Congress to provide a "temporary government for [[Wyoming Territory|the territory of Wyoming]]". The territory was named after the [[Wyoming Valley]] in Pennsylvania, made famous by the 1809 poem ''[[Gertrude of Wyoming]]'' by [[Thomas Campbell (poet)|Thomas Campbell]], based on the [[Battle of Wyoming]] in the [[American Revolutionary War]]. The name ultimately derives from the [[Munsee language|Munsee]] word ''{{lang|umu|xwé:wamənk}}'', meaning "at the big river flat."<ref>Bright, William (2004). ''Native American Place Names of the United States''. Norman: University of Oklahoma Press, pg. 576</ref><ref>[http://wyoming.gov/general/narrative.asp State of Wyoming&nbsp;– Narrative] {{webarchive |url=https://web.archive.org/web/20080515091433/http://wyoming.gov/general/narrative.asp |date=May 15, 2008 }}</ref>
+
+[[File:Wyoming Jeep Trail.JPG|thumb|left|upright=0.75|A backcounty road in the [[Sierra Madre Range (Wyoming)|Sierra Madre Range]] of southeastern Wyoming near Bridger Peak]]
+After the [[Union Pacific Railroad]] had reached the town of [[Cheyenne, Wyoming|Cheyenne]] in 1867, the region's population began to grow steadily, and the federal government established the Wyoming Territory on July 25, 1868.<ref>[http://wyoming.gov/state/wyoming_news/general/history.asp State of Wyoming&nbsp;– General Facts About Wyoming] {{webarchive |url=https://web.archive.org/web/20070927200649/http://wyoming.gov/state/wyoming_news/general/history.asp |date=September 27, 2007 }}</ref> Unlike mineral-rich [[Colorado]], Wyoming lacked significant deposits of gold and silver, as well as Colorado's subsequent population boom. However, [[South Pass City, Wyoming|South Pass City]] did experience a short-lived boom after the Carissa Mine began producing gold in 1867.<ref>{{cite web |url=http://wyoparks.state.wy.us/Site/Brochure/SouthPassCity.pdf |title=South Pass City Historic Site |format=PDF |publisher=Wyoming State Parks, Historic Sites & Trails}}</ref> Furthermore, copper was mined in some areas between the [[Sierra Madre Range (Wyoming)|Sierra Madre Mountains]] and the Snowy Range near [[Grand Encampment, Wyoming|Grand Encampment]].<ref>{{cite book |url=https://books.google.com/?id=M8pIAAAAMAAJ |title=Mines Register: Successor to the Mines Handbook and the Copper Handbook, Describing the Non-ferrous Metal Mining Companies in the Western Hemisphere |year=1911 |last1=Stevens |first1=Horace Jared |last2=Weed |first2=Walter Harvey |last3=Neale |first3=Walter Garfield |last4=Rand |first4=Lenox Hawes |last5=Sturgis |first5=Edward Barney |last6=Zimmerman |first6=Joseph |display-authors=2}}</ref>
+
+Once government-sponsored expeditions to the Yellowstone country began, reports by Colter and Bridger, previously believed to be apocryphal, were found to be true. This led to the creation of [[Yellowstone National Park]], which became the world's first [[national park]] in 1872. Nearly all of Yellowstone National Park lies within the far northwestern borders of Wyoming.
+
+On December 10, 1869, territorial Governor [[John Allen Campbell]] extended the right to vote to women, making Wyoming the first territory and then United States state to grant [[suffrage]] to women. In addition, Wyoming was also a pioneer in welcoming women into politics. Women first served on juries in Wyoming ([[Laramie, Wyoming|Laramie]] in 1870); Wyoming had the first female court bailiff ([[Mary Atkinson (bailiff)|Mary Atkinson]], Laramie, in 1870); and the first female [[justice of the peace]] in the country ([[Esther Hobart Morris]], South Pass City, in 1870). Also, in 1924, Wyoming became the first state to elect a female governor, [[Nellie Tayloe Ross]], who took office in January 1925.<ref>{{cite book |last=Larson |first=T. A. |title=History of Wyoming |url=https://books.google.co.uk/books?id=9zVKYtdsUDEC |year=1990 |publisher=University of Nebraska Press |isbn=978-0-803-27936-0}}</ref> Due to its civil-rights history, one of Wyoming's state nicknames is "The Equality State", and the official state motto is "Equal Rights".<ref name="WyoFacts"/>
+
+Wyoming's constitution included [[women's suffrage]] and a pioneering article on [[water right]]s.<ref>{{cite book |title=Frontier Spirit: The Story of Wyoming |last=Sodaro |first=Craig |author2=Adams, Randy |year=1996 |publisher=Johnson Books |isbn=1-55566-163-7 |pages=136–39}}</ref> Congress admitted Wyoming into the Union as the 44th state on July 10, 1890.<ref name="WyoFacts"/>
+
+Wyoming was the location of the [[Johnson County War]] of 1892, which erupted between competing groups of cattle ranchers. The passage of the federal [[Homestead Act]] led to an influx of small ranchers. A [[range war]] broke out when either or both of the groups chose violent conflict over commercial competition in the use of the public land.
+
+==Demographics==
+{{US Census population
+|1870= 9118
+|1880= 20789
+|1890= 62555
+|1900= 92531
+|1910= 145965
+|1920= 194402
+|1930= 225565
+|1940= 250742
+|1950= 290529
+|1960= 330066
+|1970= 332416
+|1980= 469557
+|1990= 453588
+|2000= 493782
+|2010= 563626
+|estimate= 586107
+|estyear= 2015
+|align-fn=center
+|footnote=Sources: 1910–2010<ref>{{cite web |author=Resident Population Data |url=http://2010.census.gov/2010census/data/apportionment-pop-text.php |title=Resident Population Data&nbsp;– 2010 Census |publisher=2010.census.gov |accessdate=December 24, 2012 |deadurl=yes |archiveurl=https://web.archive.org/web/20131019160532/http://2010.census.gov/2010census/data/apportionment-pop-text.php |archivedate=October 19, 2013}}</ref><ref>[http://2010.census.gov/2010census/data/apportionment-pop-text.php ] {{webarchive |url=https://web.archive.org/web/20131019160532/http://2010.census.gov/2010census/data/apportionment-pop-text.php |date=October 19, 2013 }}</ref><ref name=wydeccen>{{cite web |url=http://eadiv.state.wy.us/demog_data/cntycity_hist.htm |publisher=U.S. Census, State of Wyoming |title=Historical decennial census population for Wyoming counties, cities, and towns |accessdate=September 24, 2012}}</ref><br />2015 Estimate<ref name=PopEstUS/>
+}}
+
+===Population===
+[[File:Wyoming population map.png|thumb|300px|Wyoming population density map - the largest population centers are [[Cheyenne, WY MSA|Cheyenne]] in the southeast and [[Casper, WY, MSA|Casper]] in the east central]]
+The [[United States Census Bureau]] estimates that the population of Wyoming was 586,107 on July 1, 2015, a 3.99% increase since the [[2010 United States Census]].<ref name=PopEstUS>{{cite web |url=http://www.census.gov/popest/data/state/totals/2015/tables/NST-EST2015-01.csv |format=CSV |title=Table 1. Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 |date=December 26, 2015 |publisher=[[U.S. Census Bureau]] |accessdate=December 26, 2015}}</ref> The [[center of population]] of Wyoming is located in [[Natrona County, Wyoming|Natrona County]].<ref>{{cite web |url=http://quickfacts.census.gov/qfd/states/56/56021.html |title=State & County QuickFacts |year=2013 |publisher=U.S. Census Bureau |accessdate=May 6, 2013}}</ref><ref>{{cite web |url=http://www.census.gov/geo/reference/docs/cenpop2010/CenPop2010_Mean_ST.txt |title=Centers of Population by State |year=2013 |publisher=U.S. Census Bureau |accessdate=May 9, 2013}}</ref>
+
+In 2014, the United States Census Bureau estimated that the racial composition of the population was 92.7% [[White American]] (82.9 non-Hispanic white), 2.7% American Indian and Alaska Native, 1.6% Black or African American, 1.0% Asian American, and 0.1% Native Hawaiian or Pacific Islander.<ref name=USCB2012est>{{cite web |url=http://quickfacts.census.gov/qfd/states/56000.html |title=Wyoming QuickFacts |author=<!--Staff writer(s); no by-line.--> |year=2014 |website=US Census Bureau |publisher=United States Census Bureau |accessdate=January 12, 2016}}</ref>
+
+According to the 2010 census, the racial composition of the population was 90.7% White American, 0.8% Black or African American, 2.4% American Indian and Alaska Native, 0.8% Asian American, 0.1% Native Hawaiian and other Pacific Islander, 2.2% from two or more races, and 3.0% from some other race. Ethnically, 8.9% of the total population was of [[Hispanic and Latino Americans|Hispanic]] or Latino origin (they may be of any race) and 91.1% Non-Hispanic, with [[non-Hispanic white]]s constituting the largest non-Hispanic group at 85.9%.<ref>[http://quickfacts.census.gov/qfd/states/56000.html Wyoming QuickFacts from the US Census Bureau]. Quickfacts.census.gov. Retrieved July 12, 2013.</ref>
+
+As of 2015, Wyoming had an estimated population of 586,107, which was an increase of 1,954, or 0.29%, from the prior year and an increase of 22,481, or 3.99%, since the [[2010 United States Census|2010 census]]. This includes a natural increase since the last census of 12,165 people (that is 33,704 births minus 21,539 deaths) and an increase from net migration of 4,035 people into the state. Immigration resulted in a net increase of 2,264 people, and migration within the country produced a net increase of 1,771 people. In 2004, the foreign-born population was 11,000 (2.2%). In 2005, total births in Wyoming numbered 7,231 (birth rate of 14.04 per thousand).<ref>{{cite web |url=http://www.billingsgazette.net/articles/2007/05/21/news/wyoming/40-growing.txt |title=Hispanics fastest growing ethnic group in Wyoming |date=May 21, 2007 |publisher=Billings Gazette via AP |accessdate=May 7, 2008}}</ref> Sparsely populated, Wyoming is the least populous state of the United States. Wyoming has the second-lowest population density, behind [[Alaska]]. It is one of only two states with a smaller population than the nation's capital, Washington, D.C. (the other state is [[Vermont]]).
+
+According to the 2000 census, the largest ancestry groups in Wyoming are: [[German-American|German]] (26.0%), [[English American|English]] (16.0%), [[Irish American|Irish]] (13.3%), [[Norwegian-American|Norwegian]] (4.3%), and [[Swedish-American|Swedish]] (3.5%).<ref>{{cite web |title=Census 2000 Summary file 3 - Wyoming |url=http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=CF |website=American FactFinder |accessdate=18 March 2016 |deadurl=yes |archiveurl=https://web.archive.org/web/20141129082905/http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=CF |archivedate=November 29, 2014}}</ref>
+
+As of 2011, 24.9% of Wyoming's population younger than age 1 were minorities.<ref>{{cite news |url=http://www.cleveland.com/datacentral/index.ssf/2012/06/americas_under_age_1_populatio.html |title=Americans under age 1 now mostly minorities, but not in Ohio: Statistical Snapshot |last=Exner |first=Rich |date=June 3, 2012 |work=[[The Plain Dealer]]}}</ref>
+
+===Languages===
+In 2010, 93.39% (474,343) of Wyomingites over the age of 5 spoke English as their [[primary language]]. 4.47% (22,722) spoke Spanish, 0.35% (1,771) spoke German, and 0.28% (1,434) spoke French. Other common non-English languages included [[Algonquian languages|Algonquian]] (0.18%), Russian (0.10%), [[Tagalog language|Tagalog]], and [[Greek language|Greek]] (both 0.09%).<ref>{{cite web |title=Most Spoken Languages in Wyoming in 2010 |url=http://www.mla.org/cgi-shl/docstudio/docs.pl?map_data_results |publisher=[[Modern Language Association]] |accessdate=December 15, 2013 }}{{dead link|date=August 2016|bot=medic}}{{cbignore|bot=medic}}</ref>
+
+In 2007, the [[American Community Survey]] reported that 6.2% (30,419) of Wyoming's population over five years old spoke a language other than English at home. Of those, 68.1% were able to speak English very well, 16.0% spoke English well, 10.9% did not speak English well, and 5.0% did not speak English at all.<ref name="Language2007">{{cite web |url=http://www.census.gov/hhes/socdemo/language/data/acs/ACS-12.pdf |title=Language Use in the United States: 2007 |author=Hyon B. Shin |author2=Robert A. Kominski |date=April 2010 |work=United States Census Bureau |publisher=United States Department of Commerce |accessdate=May 27, 2013}}</ref>
+
+===Religion===
+According to a 2013 Gallup Poll, the religious affiliations of the people of Wyoming were: 49% [[Protestants]], 18% [[Catholicism in the United States|Catholics]], 9% [[Latter-day Saint]]s ([[Mormon]]s) and less than 1% [[Jewish]].<ref>{{cite web |url=http://www.gallup.com/poll/167120/mississippi-alabama-protestant-states.aspx |title=Mississippi and Alabama Most Protestant States in U.S |publisher=Gallup.com |accessdate=June 4, 2014}}</ref>
+
+A 2010 ARDA report recognized as the largest denominations in Wyoming the Church of Jesus Christ of Latter-day Saints ([[Mormon]]s) with 62,804 (11%), the [[Catholicism in the United States|Catholic Church]] with 61,222 (10.8%) and the Southern Baptist Convention with 15,812 adherents (2.8%). The same report counted 59,247 [[Evangelicalism|Evangelical Protestants]] (10.5%), 36,539 [[Mainline Protestant]]s (6.5%), 785 [[Eastern Orthodox Church|Eastern Orthodox Christians]]; 281 [[Black church|Black Protestants]], as well as 65,000 adhering to other traditions and 340,552 unclaimed.<ref>{{cite web |title=State Membership Report: Wyoming |url=http://www.thearda.com/rcms2010/r/s/56/rcms2010_56_state_adh_2010.asp |publisher=[[Association of Religion Data Archives]] |accessdate=December 15, 2013}}</ref>
+
+
+
+{| class="wikitable"  style="float:right; margin:0 0 1em 1em; font-size:95%;"
+|+ '''Presidential election results'''<ref>{{cite web|title = Dave Leip's Atlas of U.S. Presidential Elections | accessdate = November 18, 2016 | url = http://uselectionatlas.org/RESULTS/}}</ref>
+|- style="background:lightgrey;"
+! Year
+! [[Democratic Party (United States)|Democratic]]
+! [[Republican Party (United States)|Republican]]
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 2016|2016]]
+| {{Party shading/Democratic}}|21.88% ''55,973''
+| {{Party shading/Republican}}|'''68.17%''' ''174,419''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 2012|2012]]
+| {{Party shading/Democratic}}|27.82% ''69,286''
+| {{Party shading/Republican}}|'''68.64%''' ''170,962''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 2008|2008]]
+| {{Party shading/Democratic}}|32.54% ''82,868''
+| {{Party shading/Republican}}|'''64.78%''' ''164,958''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 2004|2004]]
+| {{Party shading/Democratic}}|29.07% ''70,776''
+| {{Party shading/Republican}}|'''68.86%''' ''167,629''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 2000|2000]]
+| {{Party shading/Democratic}}|27.70% ''60,481''
+| {{Party shading/Republican}}|'''67.76%''' ''147,947''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1996|1996]]
+| {{Party shading/Democratic}}|36.84% ''77,934''
+| {{Party shading/Republican}}|'''49.81%''' ''105,388''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1992|1992]]
+| {{Party shading/Democratic}}|33.97% ''68,160''
+| {{Party shading/Republican}}|'''39.55%''' ''79,347''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1988|1988]]
+| {{Party shading/Democratic}}|38.01% ''67,113''
+| {{Party shading/Republican}}|'''60.53%''' ''106,867''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1984|1984]]
+| {{Party shading/Democratic}}|28.24% ''53,370''
+| {{Party shading/Republican}}|'''70.51%''' ''133,241''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1980|1980]]
+| {{Party shading/Democratic}}|27.97% ''49,427''
+| {{Party shading/Republican}}|'''62.64%''' ''110,700''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1976|1976]]
+| {{Party shading/Democratic}}|39.81% ''62,239''
+| {{Party shading/Republican}}|'''59.30%''' ''92,717''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1972|1972]]
+| {{Party shading/Democratic}}|30.47% ''44,358''
+| {{Party shading/Republican}}|'''69.01%''' ''100,464''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1968|1968]]
+| {{Party shading/Democratic}}|35.51% ''45,173''
+| {{Party shading/Republican}}|'''55.76%''' ''70,927'
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1964|1964]]
+| {{Party shading/Democratic}}|'''56.56%''' ''80,718''
+| {{Party shading/Republican}}|43.44% ''61,988''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1960|1960]]
+| {{Party shading/Democratic}}|44.99% ''63,331''
+| {{Party shading/Republican}}|'''55.01%''' ''77,451''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1956|1956]]
+| {{Party shading/Democratic}}|39.92% ''49,554''
+| {{Party shading/Republican}}|'''60.08%''' ''74,573''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1952|1952]]
+| {{Party shading/Democratic}}|37.09% ''47,934''
+| {{Party shading/Republican}}|'''62.71%''' ''81,047''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1948|1948]]
+| {{Party shading/Democratic}}|'''51.62%''' ''52,354''
+| {{Party shading/Republican}}|47.27% ''47,947''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1944|1944]]
+| {{Party shading/Democratic}}|48.77% ''49,419''
+| {{Party shading/Republican}}|'''51.23%''' ''51,921''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1940|1940]]
+| {{Party shading/Democratic}}|'''52.82%''' ''59,287''
+| {{Party shading/Republican}}|46.89% ''52,633''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1936|1936]]
+| {{Party shading/Democratic}}|'''60.58%''' ''62,624''
+| {{Party shading/Republican}}|37.47% ''38,739''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1932|1932]]
+| {{Party shading/Democratic}}|'''56.07%''' ''54,370''
+| {{Party shading/Republican}}|40.82% ''39,583''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1928|1928]]
+| {{Party shading/Democratic}}|35.37% ''29,299''
+| {{Party shading/Republican}}|'''63.68%''' ''52,748''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1924|1924]]
+| {{Party shading/Democratic}}|16.11% ''12,868''
+| {{Party shading/Republican}}|'''52.39%''' ''41,858''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1920|1920]]
+| {{Party shading/Democratic}}|31.86% ''17,429''
+| {{Party shading/Republican}}|'''64.15%''' ''35,091''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1916|1916]]
+| {{Party shading/Democratic}}|'''54.62%''' ''28,316''
+| {{Party shading/Republican}}|41.86% ''21,698''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1912|1912]]
+| {{Party shading/Democratic}}|'''36.20%''' ''15,310''
+| {{Party shading/Republican}}|34.42% ''14,560''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1908|1908]]
+| {{Party shading/Democratic}}|39.67% ''14,918''
+| {{Party shading/Republican}}|'''55.43%''' ''20,846''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1904|1904]]
+| {{Party shading/Democratic}}|29.08% ''8,930''
+| {{Party shading/Republican}}|'''66.72%''' ''20,489''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1900|1900]]
+| {{Party shading/Democratic}}|41.17% ''10,164''
+| {{Party shading/Republican}}|'''58.66%''' ''14,482''
+|- style="text-align:center;"
+| {{Party shading/Democratic}}|[[U.S. presidential election, 1896|1896]]
+| {{Party shading/Democratic}}|'''51.49%''' ''10,861''
+| {{Party shading/Republican}}|47.75% ''10,072''
+|- style="text-align:center;"
+| {{Party shading/Republican}}|[[U.S. presidential election, 1892|1892]]
+| {{Party shading/Democratic}}|46.14% ''7,772''
+| {{Party shading/Republican}}|'''50.52%''' ''8,454''
+|}
+
+==Economy==
+{{See also|Wyoming locations by per capita income}}
+[[File:Wind Power 4892597382.jpg|thumb|[[Wind farm]] in [[Uinta County, Wyoming|Uinta County]]]]
+According to the 2012 United States Bureau of Economic Analysis report, Wyoming's [[gross state product]] was $38.4 billion.<ref>{{cite web |title=GDP by State |url=http://www.bea.gov/iTable/iTable.cfm?reqid=70&step=1&isuri=1&acrdn=1#reqid=70&step=1&isuri=1 |publisher=Bureau of Economic Analysis |accessdate=July 14, 2013}}</ref> As of 2014 the population was growing slightly with the most growth in tourist-oriented areas such as [[Teton County, Wyoming|Teton County]]. Boom conditions in neighboring states such as North Dakota were drawing energy workers away. About half of Wyoming's counties showed population losses.<ref name=CST032915>{{cite news |author1=Star-Tribune staff writers |title=Wyoming's population growth slows |url=http://trib.com/business/wyoming-s-population-growth-slows/article_c72f35b3-9802-5498-af01-d02c63416edb.html |accessdate=July 16, 2015 |work=Casper Star-Tribune |date=March 29, 2015 |quote=...according to Wyoming's Economic Analysis Division}}</ref> The state makes active efforts through Wyoming Grown, an internet-based recruitment program, to find jobs for young people educated in Wyoming who have emigrated but may wish to return.<ref name=NYT71515>{{cite news |author1=Julie Turkewitz |title=Wyoming, Long on Pride but Short on People, Hopes to Lure Some Back |url=http://www.nytimes.com/2015/07/16/us/wyoming-long-on-pride-but-short-on-people-hopes-to-lure-some-back.html |accessdate=July 16, 2015 |work=The New York Times |date=July 15, 2015 |quote=This effort has taken the form of an Internet-based recruitment program called Wyoming Grown. Young Wyomingites who have left the state sign up on the program's website, and quickly receive a call from a recruiter who helps link them to work here.}}</ref>
+
+As of November 2015, the state's unemployment rate was 4.0%.<ref>[http://www.bls.gov/eag/eag.wy.htm Bls.gov]; Local Area Unemployment Statistics</ref>
+The composition of Wyoming's economy differs significantly from that of other states with most activity in tourism, agriculture, and energy extraction; and little in anything else.<ref name=NYT71515 />
+
+The mineral extraction industry and travel and tourism sector are the main drivers behind Wyoming's economy. The federal government owns about 50% of its landmass, while 6% is controlled by the state. Total taxable values of mining production in Wyoming for 2001 was over $6.7 billion. The [[Tourism|tourism industry]] accounts for over $2 billion in revenue for the state.
+
+In 2002, more than six million people visited Wyoming's [[national park]]s and monuments. The key tourist attractions in Wyoming include [[Grand Teton National Park]], [[Yellowstone National Park]], [[Devils Tower National Monument]], [[Independence Rock (Wyoming)|Independence Rock]] and [[Fossil Butte National Monument]]. Each year Yellowstone National Park, the world's first national park, receives three million visitors.
+
+Historically, agriculture has been an important component of Wyoming's economy. Its overall importance to the performance of Wyoming's economy has waned. However, agriculture is still an essential part of Wyoming's culture and lifestyle. The main agricultural commodities produced in Wyoming include livestock (beef), [[hay]], [[sugar beets]], grain (wheat and barley), and [[wool]]. More than 91% of land in Wyoming is classified as rural.
+
+===Mineral and energy production===
+[[File:Coal mine Wyoming.jpg|thumb|A Wyoming coal mine]]
+Wyoming's mineral commodities include coal, natural gas, [[coalbed methane]], [[crude oil]], [[uranium]], and [[trona]].
+* Coal: Wyoming produced 395.5 million short tons (358.8 million metric tons) of coal in 2004, greater than any other state.<ref>{{cite web |url=http://tonto.eia.doe.gov/state/state_energy_profiles.cfm?sid=WY |title=EIA State Energy Profiles: Wyoming |date=June 12, 2008 |accessdate=June 24, 2008}}</ref> Wyoming possesses a reserve of 68.7 billion tons (62.3 billion metric tons) of coal. Major coal areas include the [[Powder River Basin]] and the [[Green River Basin]]
+* Coalbed methane (CBM): The boom for CBM began in the mid-1990s. CBM is characterized as methane gas that is extracted from Wyoming's coal bed seams. It is another means of natural gas production. There has been substantial CBM production in the [[Powder River Basin]]. In 2002, the CBM production yield was 327.5 billion cubic feet (9.3&nbsp;km<sup>3</sup>).
+* Crude oil: Wyoming produced {{convert|53400000|oilbbl}} of crude oil in 2007. The state ranked 5th nationwide in oil production in 2007.<ref name="petro"/> Petroleum is most often used as a motor fuel, but it is also utilized in the manufacture of plastics, paints, and synthetic rubber.
+* Diamonds: The [[Kelsey Lake Diamond Mine]], located in Colorado less than {{convert|1000|ft|m}} from the Wyoming border, produced gem quality diamonds for several years. The [[Wyoming craton]], which hosts the [[kimberlite]] [[volcanic pipe]]s that were mined, underlies most of Wyoming.
+* Natural gas: Wyoming produced 2,254 trillion cubic feet (63,83 trillion m<sup>3</sup>) of natural gas in 2007. The state ranked 2nd nationwide for natural gas production in 2007.<ref name="petro"/> The major markets for natural gas include industrial, commercial, and domestic heating.
+[[File:Rig wind river.jpg|thumb|A [[drilling rig]] drills for natural gas just west of the [[Wind River Range]] in the Wyoming [[Rocky Mountains|Rockies]]]]
+* Trona: Wyoming possesses the world's largest known reserve of [[trona]],<ref name="gearino">{{cite news |url=http://www.casperstartribune.net/articles/2009/02/16/news/wyoming/4b7e9a771fe4bd868725755e00268e51.txt |title=Soda ash companies enjoy record year |last=Gearino |first=Jeff |work=Casper Star Tribune |date=February 16, 2009}}{{dead link|date=June 2016|bot=medic}}{{cbignore|bot=medic}}</ref> a mineral used for manufacturing glass, paper, soaps, baking soda, water softeners, and pharmaceuticals. In 2008 Wyoming produced 46 million short tons (41.7 million metric tons) of trona, 25% of the world's production.<ref name="gearino"/>
+* Wind power: Because of Wyoming's geography and high-altitude, the potential for [[wind power in Wyoming]] is one of the highest of any state in the US. The [[Chokecherry and Sierra Madre Wind Energy Project]] is the largest commercial wind generation facility under development in North America.<ref>http://www.powercompanyofwyoming.com/</ref> [[Carbon County, Wyoming|Carbon County]] is home to the largest proposed wind farm in the US. However, construction plans have been halted because of proposed new taxes on wind power energy production.<ref>{{cite web |last1=Paterson |first1=Leigh |title=Construction of Largest U.S. Wind Farm Is on Hold |url=http://wyomingpublicmedia.org/post/construction-largest-us-wind-farm-hold |accessdate=21 June 2016 |publisher=wyomingpublicmedia.org |date=June 14, 2016}}</ref>
+* Uranium: Although [[uranium mining in Wyoming]] is much less active than it was in previous decades, recent increases in the price of [[uranium]] have generated new interest in uranium prospecting and mining.
+
+===Taxes===
+Unlike most other states, Wyoming does not levy an individual or corporate [[income tax]]. In addition, Wyoming does not assess any tax on retirement income earned and received from another state. Wyoming has a state [[sales tax]] of 4%. Counties have the option of collecting an additional 1% tax for general revenue and a 1% tax for specific purposes, if approved by voters. Food for human consumption is not subject to sales tax.<ref>[http://www.billingsgazette.net/articles/2006/03/03/news/wyoming/32-food-tax.prt ''Votes back repeal of food tax''], [[Billings Gazette]], March 3, 2006</ref> There also is a county lodging tax that varies from 2% to 5%. The state collects a [[use tax]] of 5% on items purchased elsewhere and brought into Wyoming.
+All [[property tax]] is based on the assessed value of the property and Wyoming's Department of Revenue's Ad Valorem Tax Division supports, trains, and guides local government agencies in the uniform assessment, valuation and taxation of locally assessed property. "Assessed value" means taxable value; "taxable value" means a percent of the fair market value of property in a particular class. Statutes limit property tax increases. For county revenue, the property tax rate cannot exceed 12 [[Mill (currency)|mills]] (or 1.2%) of assessed value. For cities and towns, the rate is limited to 8 [[Mill (currency)|mills]] (0.8%). With very few exceptions, state law limits the property tax rate for all governmental purposes.
+
+[[Personal property]] held for personal use is tax-exempt. Inventory if held for resale, pollution control equipment, cash, accounts receivable, stocks and bonds are also exempt. Other exemptions include property used for religious, educational, charitable, fraternal, benevolent and government purposes and improvements for handicapped access. Mine lands, underground mining equipment, and oil and gas extraction equipment are exempt from property tax but companies must pay a gross products tax on minerals and a [[severance tax]] on mineral production.<ref>{{cite web |url=http://www.wvpolicy.org/getting-the-story-right-mineral-taxation-in-wyoming-and-west-virginia |title=Getting the Story Right; Mineral Taxation in Wyoming and West Virginia |publisher=West Virginia Center on Budget and Policy Blog |accessdate=November 10, 2012}}</ref><ref>Wyoming Statutes Section 39-13-103</ref>
+
+Wyoming does not collect [[inheritance tax]]es. There is limited [[estate tax]] related to federal estate tax collection.
+
+In 2008, the [[Tax Foundation]] ranked Wyoming as having the single most "business friendly" tax climate of all 50 states.<ref>{{cite web |url=http://www.taxfoundation.org/research/topic/68.html |title=The Tax Foundation&nbsp;– Tax Research Areas&nbsp;– Wyoming |publisher=Taxfoundation.org |accessdate=July 31, 2010}}</ref> Wyoming state and local governments in fiscal year 2007 collected $2.242 billion in taxes, levies, and royalties from the oil and gas industry. The state's mineral industry, including oil, gas, [[trona]], and coal provided $1.3 billion in property taxes from 2006 mineral production.<ref name="petro">{{cite web |url=http://www.pawyo.org/facts.html |title=Petroleum Association of Wyoming}}</ref> Wyoming receives more federal tax dollars per capita in aid than any other state except Alaska. The federal aid per capita in Wyoming is more than double the United States average.<ref>{{cite web |url=https://www.census.gov/prod/2011pubs/fas-10.pdf |title=Federal Aid to States for Fiscal Year 2010 |format=PDF |accessdate=June 4, 2014}}</ref>
+
+As of 2016, Wyoming does not require the beneficial owners of LLCs to be disclosed in the filing, which creates an opportunity for a tax haven, according to Clark Stith of Clark Stith & Associates in Rock Springs, Wyoming, a former Republican candidate for Wyoming secretary of state.<ref name="PANAMA PAPERS INCLUDE NEVADA, WYOMING AMONG OFFSHORE TAX HAVENS">{{cite web |title=PANAMA PAPERS INCLUDE NEVADA, WYOMING AMONG OFFSHORE TAX HAVENS |work=2016 TNT 65-4 |publisher=Tax Notes Today |date=5 April 2016 |accessdate=5 April 2016 |author=Hamilton, Amy}}</ref>
+
+==Transportation==
+{{ussm|wyoming.PNG|wy|right}}
+The largest airport in Wyoming is [[Jackson Hole Airport]], with over 500 employees.<ref>{{cite web |url=http://www.jacksonholeairport.com/news/improvement |title=Terminal Expansion}}</ref> Three interstate highways and thirteen United States highways pass through Wyoming. In addition, the state is served by the [[State highways in Wyoming|Wyoming state highway system]].
+
+[[Interstate 25 in Wyoming|Interstate 25]] enters the state south of Cheyenne and runs north, intersecting Interstate 80 in Cheyenne. It passes through [[Casper, Wyoming|Casper]] and ends at Interstate 90 near [[Buffalo, Wyoming|Buffalo]]. [[Interstate 80 in Wyoming|Interstate 80]] crosses the Utah border west of [[Evanston, Wyoming|Evanston]] and runs east through the southern half of the state, passing through Cheyenne before entering Nebraska near [[Pine Bluffs, Wyoming|Pine Bluffs]]. [[Interstate 90 in Wyoming|Interstate 90]] comes into Wyoming near [[Parkman, Wyoming|Parkman]] and cuts through the northern part of the state. It serves [[Gillette, Wyoming|Gillette]] and enters South Dakota east of [[Sundance, Wyoming|Sundance]].
+
+U.S. Routes [[U.S. Route 14|14]], [[U.S. Route 16|16]], and [[U.S. Route 20#Eastern Section|the eastern section of U.S. 20]] all have their western terminus at the eastern entrance to Yellowstone National Park and pass through [[Cody, Wyoming|Cody]]. U.S. 14 travels eastward before joining I-90 at [[Gillette, Wyoming|Gillette]]. U.S. 14 then follows I-90 to the South Dakota border. U.S. 16 and 20 split off of U.S. 14 at [[Greybull, Wyoming|Greybull]] and U.S. 16 turns east at [[Worland, Wyoming|Worland]] while U.S. 20 continues south [[Shoshoni, Wyoming|Shoshoni]]. [[U.S. Route 287]] carries traffic from [[Fort Collins, Colorado]] into [[Laramie, Wyoming]] through a pass between the [[Laramie Mountains]] and the [[Medicine Bow Mountains]], merges with US 30 and I-80 until it reaches Rawlins, where it continues north, passing Lander. Outside of Moran, U.S. 287 is part of a large interchange with U.S. Highways 26, 191, and 89, before continuing north to the southern entrance of Yellowstone. U.S. 287 continues north of Yellowstone, but the two sections are separated by the national park.
+
+Other [[United States Numbered Highways|U.S. highways]] that pass through the state are United States Highways are [[U.S. Highway 18 (Wyoming)|18]], [[U.S. Highway 26 (Wyoming)|26]], [[U.S. Highway 30 (Wyoming)|30]], [[U.S. Highway 85 (Wyoming)|85]], [[U.S. Highway 87 (Wyoming)|87]], [[U.S. Highway 89 (Wyoming)|89]], [[U.S. Highway 189 (Wyoming)|189]], [[U.S. Highway 191 (Wyoming)|191]], [[U.S. Highway 212 (Wyoming)|212]], and [[U.S. Highway 287 (Wyoming)|287]].
+
+Wyoming is one of only two states (the other being [[South Dakota]]) in the [[48 contiguous states]] not served by [[Amtrak]].<ref>{{cite web |title=Amtrak National Facts |url=https://www.amtrak.com/servlet/ContentServer?c=Page&pagename=am%2FLayout&cid=1246041980246 |publisher=Amtrak.com |accessdate=18 March 2016}}</ref>
+
+''See also: [[List of Wyoming railroads]], [[List of airports in Wyoming]], [[State highways in Wyoming]].
+
+{{clear}}
+
+==Wind River Indian Reservation==
+{{Main article|Wind River Indian Reservation}}
+[[File:WindRiverCanyon.JPG|thumb|[[Wind River Canyon]]]]
+The Wind River [[Indian Reservation]] is shared by the [[Shoshone|Eastern Shoshone]] and [[Arapaho|Northern Arapaho]] tribes of Native Americans in the central western portion of the state near [[Lander, Wyoming|Lander]]. The reservation is home to 2,500 Eastern Shoshone and 5,000 Northern Arapaho.<ref>{{cite web |url=http://www.wind-river.org/info/communities/reservation.php |title=Wind River Country: Wind River Indian Reservation.}}</ref>
+
+[[Chief Washakie]] established the reservation in 1868<ref name="shoshone">[http://www.easternshoshone.net/WindRiverReservation.htm Background of Wind River Reservation] {{webarchive |url=https://web.archive.org/web/20090227071317/http://www.easternshoshone.net/WindRiverReservation.htm |date=February 27, 2009 }}</ref> as the result of negotiations with the federal government in the [[Fort Bridger]] Treaty.<ref name="pbs">{{cite web |url=http://www.pbs.org/independentlens/chiefs/rez.html |title=Chiefe: The Rez}} PBS. Independent Lens</ref> However, the Northern Arapaho were forced onto the Shoshone reservation in 1876 by the federal government after the government failed to provide a promised separate reservation.<ref name="pbs"/>
+
+Today the Wind River Indian Reservation is jointly owned, with each tribe having a 50% interest in the land, water, and other natural resources.<ref name="arapaho">{{cite web |url=http://www.northernarapaho.com/background |title=Background: Northern Arapaho Tribe.}}</ref> The reservation is a sovereign, self-governed land with two independent governing bodies: the Eastern Shoshone Tribal Government and the Northern Arapaho Tribal Government. The Eastern Shoshone Business Council meets jointly with the Northern Arapaho Business Council as the Joint Business Council to decide matters that affect both tribes.<ref name="shoshone"/> Six elected council members from each tribe serve on the joint council.
+
+==State law and government==
+[[File:Wyoming State Capitol.jpg|thumb|Wyoming State Capitol building, Cheyenne]]
+Wyoming's Constitution established three branches of government: the executive, [[Wyoming Legislature|legislative]], and [[Wyoming Supreme Court|judicial]] branches.
+
+The [[Wyoming State Legislature]] comprises a [[Wyoming House of Representatives|House of Representatives]] with 60 members and a [[Wyoming Senate|Senate]] with 30 members.
+
+The executive branch is headed by the [[Governor of Wyoming|governor]] and includes a [[Secretary of State of Wyoming|secretary of state]], [[Wyoming State Auditor|auditor]], treasurer and superintendent of public instruction. Wyoming does not have a [[Lieutenant governor (United States)#Wyoming|lieutenant governor]]. Instead the secretary of state stands first in the line of succession.
+
+Wyoming's sparse population warrants it only a single [[at-large]] seat in the [[United States House of Representatives|U.S. House of Representatives]], and hence only three votes in the [[Electoral College (United States)|Electoral College]]. Its low population renders Wyoming voters effectively more powerful in presidential elections than those in more populous states. For example, while Montana had a 2010 census population of 989,415 to Wyoming's 563,626, they both have the same number of electoral votes.
+
+Wyoming is an [[alcoholic beverage control state]].
+
+===Judicial system===
+Wyoming's highest court is the [[Supreme Court of Wyoming]], with five justices presiding over appeals from the state's lower courts. Wyoming is unusual in that it does not have an intermediate [[appellate court]], like most states. This is largely attributable to the state's size and correspondingly lower caseload. Appeals from the state district courts go directly to the Wyoming Supreme Court. Wyoming also has state circuit courts (formerly county courts), of limited jurisdiction, which handle certain types of cases, such as civil claims with lower dollar amounts, misdemeanor criminal offenses, and [[felony]] [[arraignment]]s. Circuit court judges also commonly hear small claims cases as well.
+
+Before 1972, Wyoming judges were selected by popular vote on a nonpartisan ballot. This earlier system was criticized by the state bar who called for the adoption of the [[Missouri Plan]], a system designed to balance judiciary independence with judiciary accountability. In 1972, an amendment to article 5 of the Wyoming Constitution, which incorporated a modified version of the plan, was adopted by the voters. Since the adoption of the amendment, all state court judges in Wyoming are nominated by the Judicial Nominating Commission and appointed by the Governor. They are then subject to a [[retention vote]] by the electorate one year after appointment.<ref>{{cite book |last1=Hubble |first1=Larry |title=The Equality State: Government and Politics in Wyoming |date=2008 |publisher=Eddie Bowers Publishing Co. |location=Peosta, Iowa |isbn=978-1-57879-076-0 |pages=91–92 |edition=6th|display-authors=etal}}</ref>
+
+===Politics===
+{| class="wikitable" style="float:right; margin:2em; font-size:90%;"
+|+ '''Presidential elections results'''<ref>{{cite web |url=http://uselectionatlas.org/RESULTS/compare.php?year=2008&fips=56&f=1&off=0&elect=0&type=state |title=Presidential General Election Results Comparison&nbsp;– New York |publisher=US Election Atlas |accessdate=January 10, 2010 |author=Leip, David}}</ref>
+|- style="background:lightgrey;"
+!Year
+![[Republican Party (United States)|Republicans]]
+![[Democratic Party (United States)|Democrats]]
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 2012|2012]]
+| style="text-align:center; background:#fff3f3;"|'''68.64%''' ''170,962''
+| style="text-align:center; background:#f0f0ff;"|27.82% ''69,286''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 2008|2008]]
+| style="text-align:center; background:#fff3f3;"|'''64.78%''' ''164,958''
+| style="text-align:center; background:#f0f0ff;"|32.54% ''82,868''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 2004|2004]]
+| style="text-align:center; background:#fff3f3;"|'''68.86%''' ''167,629''
+| style="text-align:center; background:#f0f0ff;"|29.07% ''70,776''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 2000|2000]]
+| style="text-align:center; background:#fff3f3;"|'''67.76%''' ''147,947''
+| style="text-align:center; background:#f0f0ff;"|27.70% ''60,481''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1996|1996]]
+| style="text-align:center; background:#fff3f3;"|'''49.81%''' ''105,388''
+| style="text-align:center; background:#f0f0ff;"|36.84% ''77,934''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1992|1992]]
+| style="text-align:center; background:#fff3f3;"|'''39.70%''' ''79,347''
+| style="text-align:center; background:#f0f0ff;"|34.10% ''68,160''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1988|1988]]
+| style="text-align:center; background:#fff3f3;"|'''60.53%''' ''106,867''
+| style="text-align:center; background:#f0f0ff;"|38.01% ''67,113''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1984|1984]]
+| style="text-align:center; background:#fff3f3;"|'''70.51%''' ''133,241''
+| style="text-align:center; background:#f0f0ff;"|28.24% ''53,370''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1980|1980]]
+| style="text-align:center; background:#fff3f3;"|'''62.64%''' ''110,700''
+| style="text-align:center; background:#f0f0ff;"|27.97% ''49,427''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1976|1976]]
+| style="text-align:center; background:#fff3f3;"|'''59.30%''' ''92,717''
+| style="text-align:center; background:#f0f0ff;"|39.81% ''62,239''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1972|1972]]
+| style="text-align:center; background:#fff3f3;"|'''69.01%''' ''100,464''
+| style="text-align:center; background:#f0f0ff;"|30.47% ''44,358''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1968|1968]]
+| style="text-align:center; background:#fff3f3;"|'''55.76%''' ''70,927''
+| style="text-align:center; background:#f0f0ff;"|35.51% ''45,173''
+|-
+| style="text-align:center; background:#f0f0ff;"|[[United States presidential election, 1964|1964]]
+| style="text-align:center; background:#fff3f3;"|43.44% ''61,998''
+| style="text-align:center; background:#f0f0ff;"|'''56.56%''' ''80,718''
+|-
+| style="text-align:center; background:#fff3f3;"|[[United States presidential election, 1960|1960]]
+| style="text-align:center; background:#fff3f3;"|'''55.01%''' ''77,451''
+| style="text-align:center; background:#f0f0ff;"|44.99% ''63,331''
+|}
+Wyoming's political history defies easy classification. The state was the first to grant women the right to vote and to elect a woman governor.<ref name="Today in History">{{cite web |url=http://memory.loc.gov/ammem/today/dec10.html |title=Today in History |publisher=The Library of Congress |accessdate=July 20, 2012}}</ref> On December 10, 1869, [[John Allen Campbell]], the first Governor of the Wyoming Territory, approved the first law in United States history explicitly granting women the right to vote. This day was later commemorated as [[Wyoming Day]].<ref name="Today in History"/> On November 5, 1889, voters approved the first constitution in the world granting full voting rights to women.<ref name="memory.loc.gov">{{cite web |url=http://memory.loc.gov/ammem/today/dec10.html |title=Today in History |publisher=The Library of Congress |accessdate=July 27, 2012}}</ref>
+
+While the state elected notable [[Democratic Party (United States)|Democrats]] to federal office in the 1960s and 1970s, politics have become decidedly more conservative since the 1980s as the [[Republican Party (United States)|Republican Party]] came to dominate the state's congressional delegation. Today, Wyoming is represented in Washington by its two Senators, [[Mike Enzi]] and [[John Barrasso]], and its one member of the House of Representatives, Congresswoman [[Cynthia Lummis]]. All three are Republicans. The state has not voted for a Democrat for president since 1964, one of only eight times since statehood. At present, there are only two relatively reliably Democratic counties: affluent [[Teton County, Wyoming|Teton]] and college county [[Albany County, Wyoming|Albany]]. In the 2004 presidential election, [[George W. Bush]] won his second-largest  victory, with 69% of the vote. Former Vice President [[Dick Cheney]] is a Wyoming resident and represented the state in Congress from 1979 to 1989.
+
+Republicans are no less dominant at the state level. They have held a majority in the state senate continuously since 1936 and in the state house since 1964. However, Democrats held the [[governor of Wyoming|governorship]] for all but eight years between 1975 and 2011. Uniquely, Wyoming elected Democrat [[Nellie Tayloe Ross]] as the first woman in United States history to serve as state governor. She served from 1925 to 1927 after winning a special election after her husband, [[William Bradford Ross]], unexpectedly died a little more than a year into his term.<ref>{{cite book |author=Teva J. Scheer |title=Governor lady: the life and times of Nellie Tayloe Ross |publisher=University of Missouri Press |location=Columbia |year=2005 |page=73 |isbn=0-8262-1626-9 |oclc=}}</ref>
+{{further information|Political party strength in Wyoming}}
+{{clear}}
+
+==Counties==
+{{Further information|List of counties in Wyoming}}
+<!-- This section is linked from [[Laramie County, Wyoming]] -->
+The state of Wyoming has 23 [[county (United States)|counties]].
+[[File:Wyoming counties map.png|thumb|left|600px|An enlargeable map of the 23 counties of Wyoming]]
+
+{| class="wikitable"
+|+{{big|'''The 23 counties of the state of Wyoming'''}}<ref name=PopEstWY>{{cite web |url=http://www.census.gov/popest/data/counties/totals/2011/tables/CO-EST2011-01-56.csv |title=Annual Estimates of the Resident Population for Counties of Wyoming: April 1, 2010 to July 1, 2011 |format=[[comma-separated values|CSV]] |work=2011 Population Estimates |publisher=[[United States Census Bureau]], Population Division |date=April 2012 |accessdate=April 18, 2012}}</ref><br />|-
+! Rank
+! County
+! Population
+! Rank
+! County
+! Population
+|-
+| style="text-align: center;" | 1
+| [[Laramie County, Wyoming|Laramie]]
+| style="text-align: right;" | 94,483
+| style="text-align: center;" | 13
+| [[Converse County, Wyoming|Converse]]
+| style="text-align: right;" | 14,008
+|-
+| style="text-align: center;" | 2
+| [[Natrona County, Wyoming|Natrona]]
+| style="text-align: right;" | 78,621
+| style="text-align: center;" | 14
+| [[Goshen County, Wyoming|Goshen]]
+| style="text-align: right;" | 13,636
+|-
+| style="text-align: center;" | 3
+| [[Campbell County, Wyoming|Campbell]]
+| style="text-align: right;" | 47,874
+| style="text-align: center;" | 15
+| [[Big Horn County, Wyoming|Big Horn]]
+| style="text-align: right;" | 11,794
+|-
+| style="text-align: center;" | 4
+| [[Sweetwater County, Wyoming|Sweetwater]]
+| style="text-align: right;" | 45,267
+| style="text-align: center;" | 16
+| [[Sublette County, Wyoming|Sublette]]
+| style="text-align: right;" | 10,368
+|-
+| style="text-align: center;" | 5
+| [[Fremont County, Wyoming|Fremont]]
+| style="text-align: right;" | 41,110
+| style="text-align: center;" | 17
+| [[Platte County, Wyoming|Platte]]
+| style="text-align: right;" | 8,756
+|-
+| style="text-align: center;" | 6
+| [[Albany County, Wyoming|Albany]]
+| style="text-align: right;" | 37,276
+| style="text-align: center;" | 18
+| [[Johnson County, Wyoming|Johnson]]
+| style="text-align: right;" | 8,615
+|-
+| style="text-align: center;" | 7
+| [[Sheridan County, Wyoming|Sheridan]]
+| style="text-align: right;" | 29,596
+| style="text-align: center;" | 19
+| [[Washakie County, Wyoming|Washakie]]
+| style="text-align: right;" | 8,464
+|-
+| style="text-align: center;" | 8
+| [[Park County, Wyoming|Park]]
+| style="text-align: right;" | 28,702
+| style="text-align: center;" | 20
+| [[Crook County, Wyoming|Crook]]
+| style="text-align: right;" | 7,155
+|-
+| style="text-align: center;" | 9
+| [[Teton County, Wyoming|Teton]]
+| style="text-align: right;" | 21,675
+| style="text-align: center;" | 21
+| [[Weston County, Wyoming|Weston]]
+| style="text-align: right;" | 7,082
+|-
+| style="text-align: center;" | 10
+| [[Uinta County, Wyoming|Uinta]]
+| style="text-align: right;" | 21,025
+| style="text-align: center;" | 22
+| [[Hot Springs County, Wyoming|Hot Springs]]
+| style="text-align: right;" | 4,822
+|-
+| style="text-align: center;" | 11
+| [[Lincoln County, Wyoming|Lincoln]]
+| style="text-align: right;" | 17,961
+| style="text-align: center;" | 23
+| [[Niobrara County, Wyoming|Niobrara]]
+| style="text-align: right;" | 2,456
+|-
+| style="text-align: center;" | 12
+| [[Carbon County, Wyoming|Carbon]]
+| style="text-align: right;" | 15,666
+| colspan="2" style="text-align:right;"| '''Wyoming Total'''
+| style="text-align: right;" | '''576,412'''
+|}
+
+[[Vehicle registration plates of Wyoming|Wyoming license plates]] contain a number on the left that indicates the county where the vehicle is registered, ranked by an earlier census.<ref name=wydeccen/> Specifically, the numbers are representative of the property values of the counties in 1930.<ref>http://www.tetonat.com/2010/07/08/interesting-wyoming-license-plate-fact/</ref> The county license plate numbers are as follows:
+{| class="wikitable"
+|-
+! License<br />Plate<br />Prefix
+! County
+! License<br />Plate<br />Prefix
+! County
+! License<br />Plate<br />Prefix
+! County
+|-
+| style="text-align: center;" | 1
+| Natrona
+| style="text-align: center;" | 9
+| Big Horn
+| style="text-align: center;" | 17
+| Campbell
+|-
+| style="text-align: center;" | 2
+| Laramie
+| style="text-align: center;" | 10
+| Fremont
+| style="text-align: center;" | 18
+| Crook
+|-
+| style="text-align: center;" | 3
+| Sheridan
+| style="text-align: center;" | 11
+| Park
+| style="text-align: center;" | 19
+| Uinta
+|-
+| style="text-align: center;" | 4
+| Sweetwater
+| style="text-align: center;" | 12
+| Lincoln
+| style="text-align: center;" | 20
+| Washakie
+|-
+| style="text-align: center;" | 5
+| Albany
+| style="text-align: center;" | 13
+| Converse
+| style="text-align: center;" | 21
+| Weston
+|-
+| style="text-align: center;" | 6
+| Carbon
+| style="text-align: center;" | 14
+| Niobrara
+| style="text-align: center;" | 22
+| Teton
+|-
+| style="text-align: center;" | 7
+| Goshen
+| style="text-align: center;" | 15
+| Hot Springs
+| style="text-align: center;" | 23
+| Sublette
+|-
+| style="text-align: center;" | 8
+| Platte
+| style="text-align: center;" | 16
+| Johnson
+|&nbsp;
+|&nbsp;
+|}
+
+==Cities and towns==
+[[File:Casperskyline.jpg|thumb|upright=0.75|City of [[Casper, Wyoming]]]]
+The State of Wyoming has 99 [[List of municipalities in Wyoming|incorporated municipalities]].
+
+{| class=wikitable
+|+ '''Most Populous Wyoming Cities and Towns'''<ref name=PopEstCitiesWY>{{cite web |url=http://www.census.gov/popest/cities/tables/SUB-EST2005-04-56.csv |title=Table 4: Annual Estimates of the Population for Incorporated Places in Wyoming, Listed Alphabetically: April 1, 2000 to July 1, 2008 |format=[[comma-separated values|CSV]] |work=2008 Population Estimates |publisher=U.S. Census Bureau, Population Division |date=June 20, 2006 |accessdate=January 9, 2007}}</ref>
+|-
+! Rank
+! City
+! County
+! Population
+|-
+| style="text-align: center;" | 1
+| [[Cheyenne, Wyoming|Cheyenne]]
+| [[Laramie County, Wyoming|Laramie]]
+| style="text-align: right;" | 60,096
+|-
+| style="text-align: center;" | 2
+| [[Casper, Wyoming|Casper]]
+| [[Natrona County, Wyoming|Natrona]]
+| style="text-align: right;" | 55,988
+|-
+| style="text-align: center;" | 3
+| [[Laramie, Wyoming|Laramie]]
+| [[Albany County, Wyoming|Albany]]
+| style="text-align: right;" | 31,312
+|-
+| style="text-align: center;" | 4
+| [[Gillette, Wyoming|Gillette]]
+| [[Campbell County, Wyoming|Campbell]]
+| style="text-align: right;" | 29,389
+|-
+| style="text-align: center;" | 5
+| [[Rock Springs, Wyoming|Rock Springs]]
+| [[Sweetwater County, Wyoming|Sweetwater]]
+| style="text-align: right;" | 23,229
+|-
+| style="text-align: center;" | 6
+| [[Sheridan, Wyoming|Sheridan]]
+| [[Sheridan County, Wyoming|Sheridan]]
+| style="text-align: right;" | 17,517
+|-
+| style="text-align: center;" | 7
+| [[Green River, Wyoming|Green River]]
+| [[Sweetwater County, Wyoming|Sweetwater]]
+| style="text-align: right;" | 12,622
+|-
+| style="text-align: center;" | 8
+| [[Evanston, Wyoming|Evanston]]
+| [[Uinta County, Wyoming|Uinta]]
+| style="text-align: right;" | 12,282
+|-
+| style="text-align: center;" | 9
+| [[Riverton, Wyoming|Riverton]]
+| [[Fremont County, Wyoming|Fremont]]
+| style="text-align: right;" | 10,867
+|-
+| style="text-align: center;" | 10
+| [[Jackson, Wyoming|Jackson]]
+| [[Teton County, Wyoming|Teton]]
+| style="text-align: right;" | 9,710
+|-
+| style="text-align: center;" | 11
+| [[Cody, Wyoming|Cody]]
+| [[Park County, Wyoming|Park]]
+| style="text-align: right;" | 9,653
+|-
+| style="text-align: center;" | 12
+| [[Rawlins, Wyoming|Rawlins]]
+| [[Carbon County, Wyoming|Carbon]]
+| style="text-align: right;" | 9,203
+|-
+| style="text-align: center;" | 13
+| [[Lander, Wyoming|Lander]]
+| [[Fremont County, Wyoming|Fremont]]
+| style="text-align: right;" | 7,571
+|-
+| style="text-align:center;"| 14
+| [[Torrington, Wyoming|Torrington]]
+| [[Goshen County, Wyoming|Goshen]]
+| style="text-align: right;" | 6,690
+|-
+| style="text-align: center;" | 15
+| [[Powell, Wyoming|Powell]]
+| [[Park County, Wyoming|Park]]
+| style="text-align: right;" | 6,314
+|-
+|}
+
+In 2005, 50.6% of Wyomingites lived in one of the 13 most populous Wyoming municipalities.
+
+==Metropolitan areas==
+The [[United States Census Bureau]] has defined two [[United States metropolitan area|Metropolitan Statistical Areas]] (MSA) and seven [[United States micropolitan area|Micropolitan Statistical Areas]] (MiSA) for the State of Wyoming. In 2008, 30.4% of Wyomingites lived in either of the [[United States metropolitan area|Metropolitan Statistical Areas]], and 73% lived in either a [[United States metropolitan area|Metropolitan Statistical Area]] or a [[United States micropolitan area|Micropolitan Statistical Area]].
+
+[[File:CheyenneWY downtown.jpg|thumb|Cheyenne]]
+
+{| class=wikitable
+|+ '''Metropolitan and Micropolitan Statistical Areas'''<ref name=PopEstCompMSA>{{cite web |url=http://www.census.gov/popest/data/metro/totals/2013/index.html |title=Metropolitan and Micropolitan Statistical Areas&nbsp;— Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2013 |work=2013 Population Estimates |publisher=U.S. Census Bureau, Population Division |date=December 26, 2014 |accessdate=December 26, 2014}}</ref>
+|-
+! Census Area
+! County
+! Population
+|-
+| [[Cheyenne, WY MSA|Cheyenne]]
+| [[Laramie County, Wyoming]]
+| style="text-align: right;" | '''95,809'''
+|-
+| [[Casper, WY, MSA|Casper]]
+| [[Natrona County, Wyoming]]
+| style="text-align: right;" | '''80,973'''
+|-
+| [[Gillette, WY, Μ μSA|Gillette]]
+| [[Campbell County, Wyoming]]
+| style="text-align: right;" | '''48,176'''
+|-
+| [[Rock Springs, Wyoming micropolitan area|Rock Springs]]
+| [[Sweetwater County, Wyoming]]
+| style="text-align: right;" | '''45,237'''
+|-
+| rowspan=3 | Jackson
+| [[Teton County, Wyoming]]
+| style="text-align: right;" | 32,543
+|-
+| [[Teton County, Idaho]]
+| style="text-align: right;" | 10,275
+|-
+| style="text-align: right;" | ''Total''
+| style="text-align: right;" | '''42,818'''
+|-
+| [[Riverton, Wyoming micropolitan area|Riverton]]
+| [[Fremont County, Wyoming]]
+| style="text-align: right;" | '''40,998'''
+|-
+| [[Laramie, Wyoming micropolitan area|Laramie]]
+| [[Albany County, Wyoming]]
+| style="text-align: right;" | '''37,422'''
+|-
+| [[Sheridan, Wyoming micropolitan area|Sheridan]]
+| [[Sheridan County, Wyoming]]
+| style="text-align: right;" | '''29,824'''
+|-
+| [[Evanston, Wyoming micropolitan area|Evanston]]
+| [[Uinta County, Wyoming]]
+| style="text-align: right;" | '''21,066'''
+|}
+
+==Education==
+{{Main article|List of high schools in Wyoming}}
+
+[[Public education]] is directed by the state superintendent of public instruction, an elected state official. Educational policies are set by the State Board of Education, a nine-member board appointed by the governor. The constitution prohibits the state from establishing curriculum and text book selections; these are the prerogatives of local school boards. The [[Wyoming School for the Deaf]] was the only in-state school dedicated to supporting [[deaf]] students in Wyoming, but it closed in the summer of 2000.
+
+===Higher education===
+[[File:Rocky Mountain Herbarium University of Wyoming.JPG|thumb|Rocky Mountain Herbarium University of Wyoming]]
+{{Main article|List of colleges and universities in Wyoming}}
+Wyoming has one public four-year institution, the [[University of Wyoming]] in [[Laramie, Wyoming|Laramie]] and one private four-year college, Wyoming Catholic College, in Lander, Wyoming. In addition, there are seven two-year [[community college]]s spread through the state.
+
+Before the passing of a new law in 2006, Wyoming had hosted unaccredited institutions, many of them suspected [[diploma mill]]s.<ref>[http://seattletimes.nwsource.com/html/education/2002174735_diploma09.html Alleged "diploma mills" flocking to Wyoming], by Mead Gruver, ''The Seattle Times'', February 9, 2005</ref> The 2006 law is forcing unaccredited institutions to make one of three choices: move out of Wyoming, close down, or apply for accreditation. The [[Oregon State Office of Degree Authorization]] predicts that in a few years the problem of diploma mills in Wyoming might be resolved.<ref>[http://www.osac.state.or.us/oda/unaccredited.aspx Unaccredited Colleges] {{webarchive |url=https://web.archive.org/web/20070715144241/http://www.osac.state.or.us/oda/unaccredited.aspx |date=July 15, 2007 }}, Potential problems with degree suppliers located in these states&nbsp;– Wyoming, ''[[Oregon State Office of Degree Authorization]]''</ref>
+
+==Sports==
+Due to its sparse population, the state of Wyoming lacks any major professional sports teams. Some of the most popular sports teams in the state are the [[University of Wyoming]] [[Wyoming Cowboys and Cowgirls|Cowboys and Cowgirls]] teams&nbsp;– particularly football and basketball, which play in the [[Mountain West Conference]]. Their stadiums in Laramie are at about 7,200 feet (2,200 m) above sea level, the highest in [[NCAA Division I]]. High school sports are governed by the [[Wyoming High School Activities Association]], which sponsors 12 sports.
+
+Rodeo is popular in Wyoming, and Casper has hosted the [[College National Finals Rodeo]] since 2001.
+
+==State symbols==
+[[File:Indian Paintbrush in Grand Teton NP-NPS.jpg|thumb|State flower of Wyoming: Indian paintbrush]]
+{{main article|List of Wyoming state symbols}}
+List of all Wyoming state symbols:<ref name="WyoFacts"/>
+* [[List of U.S. state birds|State bird]]: [[western meadowlark]] (''[[Sturnella neglecta]]'')
+* State coin: [[Sacagawea dollar]]
+* [[State dinosaur]]: ''[[Triceratops]]''
+* State emblem: [[Bucking Horse and Rider]]
+* [[State fish]]: [[cutthroat trout]] (''Oncorhynchus clarki'')
+* [[Flags of the U.S. states|State flag]]: [[Flag of the State of Wyoming]]
+* [[List of U.S. state flowers|State flower]]: [[Wyoming Indian paintbrush]] (''Castilleja linariifolia'')
+* [[State fossil]]: ''[[Knightia]]''
+* [[List of U.S. state minerals, rocks, stones and gemstones|State gemstone]]: [[Nephrite|Wyoming nephrite jade]]
+* [[List of U.S. state grasses|State grass]]: [[Pascopyrum|western wheatgrass]] (''Pascopyrum smithii'')
+* [[List of U.S. state insects|State insect]]: [[Callophrys sheridanii|Sheridan's green hairstreak butterfly]] (''Callophrys sheridanii'')
+* [[List of U.S. state mammals|State mammal]]: [[American bison]] (''Bison bison'')
+* [[List of U.S. state mottos|State motto]]: ''[[Equal Rights (motto)|Equal Rights]]''
+* [[List of U.S. state nicknames|State nicknames]]: Equality State; Cowboy State; Big Wyoming
+* [[State reptile]]: [[horned lizard]] (''[[Phrynosoma douglassi brevirostre]]'')
+* [[Seals of the U.S. states|State seal]]: [[Great Seal of the State of Wyoming]]
+* [[List of U.S. state songs|State song]]: "[[Wyoming (song)|Wyoming]]" by Charles E. Winter & George E. Knapp
+* [[List of U.S. state sports|State sport]]: [[rodeo]]
+* [[List of U.S. state trees|State tree]]: [[plains cottonwood]] (''Populus sargentii'')
+
+==See also==
+{{portal|Wyoming}}
+* [[Outline of Wyoming]]&nbsp;– organized list of topics about Wyoming
+* [[Index of Wyoming-related articles]]
+* [[List of people from Wyoming]]
+* [[List of mountain ranges in Wyoming]]
+* [[List of trails in Wyoming]]
+
+{{clear}}
+
+==References==
+{{Reflist|30em}}
+
+==External links==
+{{Sister project links|voy=Wyoming}}
+* [http://wyoming.gov/ State of Wyoming government official website]
+* [http://www.wyomingtourism.org/ Official Wyoming State Travel Website&nbsp;– Forever West]
+* [http://www.ers.usda.gov/data-products/state-fact-sheets/state-data.aspx?StateFIPS=56&StateName=Wyoming#.U85_hvldVu0 Wyoming State Facts from USDA]
+* {{dmoz|Regional/North_America/United_States/Wyoming}}
+* {{osmrelation-inline|161991}}
+{{clear}}
+
+{{Navboxes
+|title= [[File:Nuvola apps kpdf2.png|25px]] Topics related to Wyoming
+|state=off
+|list1=</span>
+{{Wyoming|expanded}}
+{{United States political divisions}}
+{{United States topics}}
+}}
+
+{{Geographic location
+ | Northwest =
+ | North = {{flag|Montana}}
+ | Northeast = {{flag|North Dakota}}
+ | West = {{flag|Idaho}}
+ | Centre = '' Wyoming'': [[Outline of Wyoming|Outline]] • [[Index of Wyoming-related articles|Index]]
+ | East = {{flag|South Dakota}}<br />{{flag|Nebraska}}
+ | Southwest = {{flag|Utah}}
+ | South = {{flag|Colorado}}
+ | Southeast = {{flag|Kansas}}
+}}
+
+{{s-start}}
+{{s-bef|before=[[Idaho]]}}
+{{s-ttl|title=[[List of U.S. states by date of statehood]]|years=Admitted on July 10, 1890 (44th)}}
+{{s-aft|after=[[Utah]]}}
+{{s-end}}
+
+{{Coord|display=title|43|N|107.5|W|region:US-WY_type:adm1st_scale:3000000}}
+
+{{Authority control}}
+
+[[Category:Wyoming| ]]
+[[Category:States and territories established in 1890]]
+[[Category:States of the United States]]
+[[Category:Western United States]]
+[[Category:1890 establishments in the United States]]
