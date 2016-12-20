@@ -1,6 +1,7 @@
 # encoding: utf-8
 require 'ostruct'
 require 'procme'
+require 'logger'
 
 module Infoboxer
   class Parser
@@ -47,12 +48,13 @@ module Infoboxer
         end
       end
     end
-    
+
     include Tree
 
     def initialize(context)
       @context = context
       @re = OpenStruct.new(make_regexps)
+      @logger = Logger.new(STDOUT).tap { |l| l.level = Logger::FATAL }
     end
 
     require_relative 'parser/inline'
@@ -65,6 +67,11 @@ module Infoboxer
 
     require_relative 'parser/util'
     include Parser::Util
+
+
+    def log(msg)
+      @logger.info "#{msg} | #{@context.lineno}:#{@context.colno}: #{@context.current}"
+    end
   end
 end
 

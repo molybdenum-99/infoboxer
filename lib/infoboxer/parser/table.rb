@@ -4,12 +4,15 @@ module Infoboxer
     # http://en.wikipedia.org/wiki/Help:Table
     module Table
       include Tree
-      
+
       def table
-         @context.current =~ /^\s*{\|/ or
+        @context.current =~ /^\s*{\|/ or
           @context.fail!('Something went wrong: trying to parse not a table')
 
+        log 'Starting to parse table'
+
         prms = table_params
+        log "Table params found #{prms}"
         table = Tree::Table.new(Nodes[], prms)
 
         @context.next!
@@ -41,7 +44,7 @@ module Infoboxer
 
         when /^\s*\|\+/                     # caption
           table_caption(table)
-          
+
         when /^\s*\|-(.*)$/                 # row start
           table_row(table, $1)
 
@@ -61,18 +64,21 @@ module Infoboxer
       end
 
       def table_row(table, param_str)
+        log 'Table row found'
         table.push_children(TableRow.new(Nodes[], parse_params(param_str)))
       end
 
       def table_caption(table)
+        log 'Table caption found'
         @context.skip(/^\s*\|\+\s*/)
 
         children = inline(/^\s*([|!]|{\|)/)
-        @context.prev! # compensate next! which will be done in table()
+        @context.prev! if @context.eol? # compensate next! which will be done in table()
         table.push_children(TableCaption.new(children.strip))
       end
 
       def table_cells(table, cell_class = TableCell)
+        log 'Table cells found'
         table.push_children(TableRow.new()) unless table.children.last.is_a?(TableRow)
         row = table.children.last
 
@@ -91,7 +97,7 @@ module Infoboxer
 
       def table_template(table)
         contents = paragraph(/^\s*([|!]|{\|)/).to_templates?
-        
+
         if (row = table.children.last).is_a?(TableRow)
           if (cell = row.children.last).is_a?(BaseCell)
             cell.push_children(*contents)
@@ -126,7 +132,7 @@ module Infoboxer
             return false
           end
         end
-        
+
         container.push_children(paragraph(/^\s*([|!]|{\|)/))
         table.push_children(container) unless container.parent
         true

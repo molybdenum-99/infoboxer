@@ -13,12 +13,16 @@ module Infoboxer
         name = @context.scan_continued_until(/\||:|}}/) or
           @context.fail!("Template name not found")
 
+        log "Parsing template #{name}"
+
         name.strip!
         vars = @context.eat_matched?('}}') ? Nodes[] : template_vars
         @context.traits.templates.find(name).new(name, vars)
       end
 
       def template_vars
+        log "Parsing template variables"
+
         num = 1
         res = Nodes[]
 
@@ -31,11 +35,13 @@ module Infoboxer
             name = num
             num += 1
           end
+          log "Variable #{name} found"
 
           value = long_inline(/\||}}/)
           unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
             res << Var.new(name.to_s, value)
           end
+          log "Variable value found"
 
           break if @context.eat_matched?('}}')
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")
