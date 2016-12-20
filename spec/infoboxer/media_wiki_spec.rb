@@ -7,7 +7,7 @@ module Infoboxer
       subject{client}
       its(:inspect){should == '#<Infoboxer::MediaWiki(en.wikipedia.org)>'}
     end
-    
+
     describe :raw do
       context 'when single page', :vcr do
         subject{client.raw('Argentina').first}
@@ -101,7 +101,7 @@ module Infoboxer
 
     describe :traits, :vcr do
       subject(:traits){client.traits}
-      
+
       context 'static part - guess by domain' do
         subject{traits.templates.find('&')}
         it{should < Templates::Literal}
@@ -185,9 +185,9 @@ module Infoboxer
         subject{client.category('Category:Ukrainian rock music groups')}
         it{should be_a(Tree::Nodes)}
         its(:count){should > 40}
-        
+
         it 'should have correct content' do
-          expect(subject.map(&:title)).to include('Dymna Sumish', 'Okean Elzy', 'Vopli Vidopliasova')
+          expect(subject.map(&:title)).to include('Dymna Sumish', 'Okean Elzy', 'Vopli Vidopliassova')
         end
       end
 
@@ -202,26 +202,26 @@ module Infoboxer
 
         context 'when no namespace' do
           before{client.category('Ukrainian rock music groups')}
-          
+
           its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian rock music groups')}
         end
 
         context 'default namespace' do
           before{client.category('Category:Ukrainian rock music groups')}
-          
+
           its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian rock music groups')}
         end
 
         context 'localized namespace' do
           let(:client){MediaWiki.new('https://es.wikipedia.org/w/api.php')}
           before{client.category('Categoría:Grupos de rock de Ucrania')}
-          
+
           its(:'uri.query_values'){should include('gcmtitle' => 'Categoría:Grupos de rock de Ucrania')}
         end
 
         xcontext 'not a namespace' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
           before{client.category('Ukrainian: rock music groups')}
-          
+
           its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian: rock music groups')}
         end
 
@@ -233,7 +233,7 @@ module Infoboxer
         subject{client.search('intitle:"town tramway systems in Chile"')}
         it{should be_a(Tree::Nodes)}
         its(:count){should == 1}
-        
+
         it 'should have correct content' do
           expect(subject.map(&:title)).to include('List of town tramway systems in Chile')
         end
@@ -251,7 +251,7 @@ module Infoboxer
         subject{client.prefixsearch('Ukrainian hr')}
         it{should be_a(Tree::Nodes)}
         its(:count){should > 1}
-        
+
         it 'should have correct content' do
           expect(subject.map(&:title)).to include('Ukrainian hryvnia')
         end
