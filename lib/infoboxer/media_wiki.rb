@@ -57,13 +57,13 @@ module Infoboxer
     # classes).
     #
     # @return [Array<Hash>]
-    def raw(*titles)
+    def raw(*titles, prop: [])
       return [] if titles.empty? # could emerge on "automatically" created page lists, should work
 
       titles.each_slice(50).map { |part|
         @client.query.
           titles(*part).
-          prop(revisions: {prop: :content}, info: {prop: :url}).
+          prop(*prop, revisions: {prop: :content}, info: {prop: :url}).
           redirects(true). # FIXME: should be done transparently by MediaWiktory?
           perform.pages
       }.inject(:concat). # somehow flatten(1) fails!
@@ -97,8 +97,8 @@ module Infoboxer
     #     and obtain meaningful results instead of NoMethodError or some
     #     NotFound.
     #
-    def get(*titles)
-      pages = raw(*titles).
+    def get(*titles, prop: [])
+      pages = raw(*titles, prop: prop).
         tap { |ps| ps.detect(&:invalid?).tap { |i| i && fail(i.raw.invalidreason) } }.
         select(&:exists?).
         map { |raw|

@@ -151,6 +151,12 @@ module Infoboxer
           expect{client.get('It%27s not')}.to raise_error(/contains invalid characters/)
         end
       end
+
+      describe ':prop', :vcr do
+        subject { client.get('Argentina', prop: :wbentityusage) }
+
+        its(:source) { is_expected.to have_key(:wbentityusage) }
+      end
     end
 
     describe :get_h do

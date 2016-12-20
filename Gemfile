@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'mediawiktory', path: '/media/storage/work/gems/mediawiktory'
+
 group :docs do
   gem 'dokaz', git: 'https://github.com/zverok/dokaz.git'
   gem 'yard'
