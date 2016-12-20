@@ -36,10 +36,10 @@ module Infoboxer
 
       private
 
-      PARAMS_TO_INSPECT = [:url, :title] #, :domain]
+      PARAMS_TO_INSPECT = [:url, :title].freeze
 
       def show_params
-        super(params.select{|k, v| PARAMS_TO_INSPECT.include?(k)})
+        super(params.select { |k, _v| PARAMS_TO_INSPECT.include?(k) })
       end
     end
   end

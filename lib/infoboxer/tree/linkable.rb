@@ -23,20 +23,18 @@ module Infoboxer
       # @return [String]
       def url
         # FIXME: fragile as hell.
-        page.url.sub(/[^\/]+$/, link.gsub(' ', '_'))
+        page.url.sub(%r{[^/]+$}, link.tr(' ', '_'))
       end
 
       protected
 
       def page
-        page = lookup_parents(MediaWiki::Page).first or
-          fail("Not in a page from real source")
+        lookup_parents(MediaWiki::Page).first or fail('Not in a page from real source')
       end
 
       def client
-        page.client or fail("MediaWiki client not set")
+        page.client or fail('MediaWiki client not set')
       end
-
     end
   end
 end

@@ -24,11 +24,11 @@ module Infoboxer
         # even empty tag should not be dropped!
         false
       end
-      
+
       def text
         # because we want "clean" text,
         # without references & footnotes messed up in it
-        '' 
+        ''
       end
     end
   end

@@ -6,7 +6,7 @@ module Infoboxer
       def initialize(children = Nodes.new, params = {})
         super(params)
         @children = Nodes[*children]
-        @children.each{|c| c.parent = self}
+        @children.each { |c| c.parent = self }
       end
 
       # List of children
@@ -24,7 +24,7 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def push_children(*nodes)
-        nodes.each{|c| c.parent = self}.each do |n|
+        nodes.each { |c| c.parent = self }.each do |n|
           @children << n
         end
       end
@@ -45,10 +45,10 @@ module Infoboxer
       end
 
       # Kinda "private" methods, used by Parser only -------------------
-      
+
       # @private
       # Internal, used by {Parser}
-      def can_merge?(other)
+      def can_merge?(_other)
         false
       end
 
@@ -80,7 +80,7 @@ module Infoboxer
 
       def _eq(other)
         children == other.children
-      end      
+      end
     end
   end
 end

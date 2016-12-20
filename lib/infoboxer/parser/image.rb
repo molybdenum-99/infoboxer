@@ -3,17 +3,17 @@ module Infoboxer
   class Parser
     module Image
       include Tree
-      
+
       def image
         @context.skip(re.file_namespace) or
           @context.fail!("Something went wrong: it's not image?")
 
         path = @context.scan_until(/\||\]\]/)
         attrs = if @context.matched == '|'
-          image_attrs
-        else
-          {}
-        end
+                  image_attrs
+                else
+                  {}
+                end
         Tree::Image.new(path, attrs)
       end
 
@@ -27,7 +27,7 @@ module Infoboxer
 
         nodes.map(&method(:image_attr)).
           inject(&:merge).
-          reject{|k, v| v.nil? || v.empty?}
+          reject { |_k, v| v.nil? || v.empty? }
       end
 
       def image_attr(nodes)

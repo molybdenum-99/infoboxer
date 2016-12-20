@@ -9,9 +9,9 @@ require 'optparse'
 wiki_url = nil
 
 OptionParser.new do |opts|
-  opts.banner = "Usage: infoboxer [-w wiki_api_url]"
+  opts.banner = 'Usage: infoboxer [-w wiki_api_url]'
 
-  opts.on("-w", "--wiki WIKI_API_URL",
+  opts.on('-w', '--wiki WIKI_API_URL',
               "Make wiki by WIKI_API_URL a default wiki, and use it with just get('Pagename')") do |w|
     wiki_url = w
   end
@@ -20,19 +20,19 @@ end.parse!
 if wiki_url
   if wiki_url =~ /^[a-z]+$/
     wiki_url = case
-    when domain = Infoboxer::WIKIMEDIA_PROJECTS[wiki_url.to_sym]
-      "https://en.#{domain}/w/api.php"
-    when domain = Infoboxer::WIKIMEDIA_PROJECTS[('w' + wiki_url).to_sym]
-      "https://en.#{domain}/w/api.php"
-    else
-      fail("Unidentified wiki: #{wiki_url}")
-    end
+               when domain = Infoboxer::WIKIMEDIA_PROJECTS[wiki_url.to_sym]
+                 "https://en.#{domain}/w/api.php"
+               when domain = Infoboxer::WIKIMEDIA_PROJECTS[('w' + wiki_url).to_sym]
+                 "https://en.#{domain}/w/api.php"
+               else
+                 fail("Unidentified wiki: #{wiki_url}")
+               end
   end
-  
+
   DEFAULT_WIKI = Infoboxer.wiki(wiki_url)
   puts "Default Wiki selected: #{wiki_url}.\nNow you can use `get('Pagename')`, `category('Categoryname')` and so on.\n\n"
   [:raw, :get, :get_h, :category, :search, :prefixsearch].each do |m|
-    define_method(m){|*arg|
+    define_method(m) { |*arg|
       DEFAULT_WIKI.send(m, *arg)
     }
   end
@@ -41,4 +41,3 @@ end
 require 'irb'
 ARGV.shift until ARGV.empty?
 IRB.start
-

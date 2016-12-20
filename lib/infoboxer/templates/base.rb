@@ -2,7 +2,7 @@ module Infoboxer
   module Templates
     class Base < Tree::Template
       include Tree
-      
+
       class << self
         attr_accessor :template_name, :template_options
 
@@ -16,7 +16,7 @@ module Infoboxer
       end
 
       def ==(other)
-        other.kind_of?(Tree::Template) && _eq(other)
+        other.is_a?(Tree::Template) && _eq(other)
       end
 
       protected
@@ -49,7 +49,7 @@ module Infoboxer
     # Used for {Set} definitions.
     class Replace < Base
       def replace
-        fail(NotImplementedError, "Descendants should define :replace")
+        fail(NotImplementedError, 'Descendants should define :replace')
       end
 
       def text

@@ -16,12 +16,12 @@ module Infoboxer
       # @return [Nodes]
       attr_reader :caption
 
-      # @!attribute [r] path 
+      # @!attribute [r] path
       # @!attribute [r] type
-      # @!attribute [r] location 
+      # @!attribute [r] location
       # @!attribute [r] alignment
       # @!attribute [r] link
-      # @!attribute [r] alt 
+      # @!attribute [r] alt
 
       def_readers :path, :type,
         :location, :alignment, :link,

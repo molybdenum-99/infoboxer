@@ -19,7 +19,7 @@ module Infoboxer
           @templates ||= Templates::Set.new
 
           return @templates unless definition
-          
+
           @templates.define(&definition)
         end
 
@@ -59,7 +59,7 @@ module Infoboxer
         # [English Wikipedia traits](https://github.com/molybdenum-99/infoboxer/blob/master/lib/infoboxer/definitions/en.wikipedia.org.rb)
         # for example implementation.
         def for(domain, &block)
-          Traits.domains[domain].tap{|c| c && c.instance_eval(&block)} ||
+          Traits.domains[domain].tap { |c| c && c.instance_eval(&block) } ||
             Class.new(self, &block).domain(domain)
         end
 
@@ -86,7 +86,7 @@ module Infoboxer
       private
 
       def namespace_aliases(options, canonical)
-        namespace = (options[:namespaces] || []).detect{|v| v.canonical == canonical}
+        namespace = (options[:namespaces] || []).detect { |v| v.canonical == canonical }
         return nil unless namespace
         [namespace['*'], *namespace.aliases]
       end
@@ -94,8 +94,7 @@ module Infoboxer
       DEFAULTS = {
         file_namespace: 'File',
         category_namespace: 'Category'
-      }
-
+      }.freeze
     end
   end
 end

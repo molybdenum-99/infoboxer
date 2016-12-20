@@ -1,7 +1,6 @@
 # encoding: utf-8
 require 'procme'
 require 'backports/2.1.0/array/to_h'
-#require 'backports/2.2.0/object/itself' Y U NO???
 
 # Main client module for entire infoboxer functionality. If you're lucky,
 # there's no other classes/modules you need to instantiate or call
@@ -9,7 +8,7 @@ require 'backports/2.1.0/array/to_h'
 #
 # ```ruby
 # Infoboxer.wp.get('List of radio telescopes')
-# # or 
+# # or
 # Infoboxer.wikiquote.get('Vonnegut')
 # ```
 # ...and have fully navigable Wiki information.
@@ -49,10 +48,10 @@ require 'backports/2.1.0/array/to_h'
 # ```
 #
 module Infoboxer
-  private # hiding constants from YARD
+  # @private
+  WIKIA_API_URL = 'http://%s.wikia.com/api.php'.freeze
 
-  WIKIA_API_URL = 'http://%s.wikia.com/api.php'
-
+  # @private
   WIKIMEDIA_PROJECTS = {
     wikipedia: 'wikipedia.org',
     wikivoyage: 'wikivoyage.org',
@@ -62,20 +61,21 @@ module Infoboxer
     wikinews: 'wikinews.org',
     wikiversity: 'wikiversity.org',
     wikisource: 'wikisource.org'
-  }
+  }.freeze
 
+  # @private
   WIKIMEDIA_COMMONS = {
     commons: 'commons.wikimedia.org',
     species: 'species.wikimedia.org',
-  }
+  }.freeze
 
-  WIKIS = {}
-
-  public
-  
   # Includeable version of {Infoboxer.wiki}
   def wiki(api_url, options = {})
-    WIKIS[api_url] ||= MediaWiki.new(api_url, options || {})
+    wikis[api_url] ||= MediaWiki.new(api_url, options || {})
+  end
+
+  def wikis
+    @wikis ||= {}
   end
 
   class << self
@@ -92,20 +92,20 @@ module Infoboxer
     #   ```ruby
     #   Infoboxer.wiki('some_url').get('Some page title')
     #   ```
-    
+
     # @!method wikipedia(lang = 'en', options = {})
     # Shortcut for creating Wikipedia client.
     #
     # @param lang two-character code for language version
     # @param options (see #wiki for list of options)
     # @return [MediaWiki]
-    
+
     # @!method commons(options = {})
     # Shortcut for creating [WikiMedia Commons](https://commons.wikimedia.org/) client.
     #
     # @param options (see #wiki for list of options)
     # @return [MediaWiki]
-    
+
     # @!method wikibooks(lang = 'en', options = {})
     # Shortcut for creating [Wikibooks](https://en.wikibooks.org/) client.
     # See {wikipedia} for params explanation.
@@ -141,7 +141,7 @@ module Infoboxer
     #
     # @param options (see #wiki for list of options)
     # @return [MediaWiki]
-    
+
     # @!method wiktionary(lang = 'en', options = {})
     # Shortcut for creating [Wiktionary](https://en.wiktionary.org/) client.
     # See {wikipedia} for params explanation.
@@ -152,13 +152,13 @@ module Infoboxer
     #
     # @overload wikia(*domains)
     #   @param *domains list of domains to merge, like this:
-    #   
+    #
     #     ```ruby
     #     Infoboxer.wikia('tardis') # looks at tardis.wikia.com
     #     Infoboxer.wikia('tardis', 'ru') # looks in Russian version, ru.tardis.wikia.com
     #     ```
     #     If you are surprised by "reversing" list of subdomains, think of
-    #     it as of chain of refinements (looking in "tardis" wiki, its "ru" 
+    #     it as of chain of refinements (looking in "tardis" wiki, its "ru"
     #     version, specifically).
     #
     # @overload wikia(*domains, options)
@@ -171,9 +171,7 @@ module Infoboxer
 
   WIKIMEDIA_PROJECTS.each do |name, domain|
     define_method name do |lang = 'en', options = {}|
-      if lang.is_a?(Hash)
-        lang, options = 'en', lang
-      end
+      lang, options = 'en', lang if lang.is_a?(Hash)
 
       wiki("https://#{lang}.#{domain}/w/api.php", options)
     end
@@ -189,10 +187,10 @@ module Infoboxer
 
   # @!method wikipedia(lang = 'en', options = {})
   # Includeable version of {Infoboxer.wikipedia}
-  
+
   # @!method commons(options = {})
   # Includeable version of {Infoboxer.commons}
-  
+
   # @!method wikibooks(lang = 'en', options = {})
   # Includeable version of {Infoboxer.wikibooks}
 
@@ -213,7 +211,7 @@ module Infoboxer
 
   # @!method species(options = {})
   # Includeable version of {Infoboxer.species}
-  
+
   # @!method wiktionary(lang = 'en', options = {})
   # Includeable version of {Infoboxer.wiktionary}
 
@@ -223,14 +221,14 @@ module Infoboxer
     wiki(WIKIA_API_URL % domains.reverse.join('.'), options)
   end
 
-  # Sets user agent string globally. Default user agent is 
+  # Sets user agent string globally. Default user agent is
   # {MediaWiki::UA}.
   #
   # User agent can also be rewriten as an option to {wiki} method (and
   # its shortcuts like {wikipedia}), or by using {MediaWiki#initialize}
   # explicitly.
   #
-  def Infoboxer.user_agent=(ua)
+  def self.user_agent=(ua)
     MediaWiki.user_agent = ua
   end
 

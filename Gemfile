@@ -14,6 +14,7 @@ group :development do
   gem 'ruby-prof'
   gem 'rubygems-tasks'
   gem 'byebug'
+  gem 'rubocop'
 end
 
 group :test do

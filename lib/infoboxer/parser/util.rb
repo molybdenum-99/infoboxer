@@ -4,16 +4,16 @@ module Infoboxer
     module Util
       attr_reader :re
 
-      FORMATTING = /(
+      FORMATTING = %r[(
         '''''|'''|''  |     # bold, italic, bold italic
         \[\[          |     # link
         {{            |     # template
-        \[[a-z]+:\/\/ |     # external link
+        \[[a-z]+://   |     # external link
         <nowiki[^>]*> |     # nowiki
         <ref[^>]*>    |     # reference
         <math>        |     # math
         <                   # HTML tag
-      )/x
+      )]x
 
       INLINE_EOL = %r[(?=   # if we have ahead... (not scanned, just checked
         </ref>        |     # <ref> closed
@@ -34,21 +34,20 @@ module Infoboxer
         \]\]                # or int.link closed
       )]x
 
-
       def make_regexps
         {
           file_namespace: /(#{@context.traits.file_namespace.join('|')}):/,
           formatting: FORMATTING,
-          inline_until_cache: Hash.new{|h, r|
+          inline_until_cache: Hash.new { |h, r|
             h[r] = Regexp.union(*[r, FORMATTING, /$/].compact.uniq)
           },
-          short_inline_until_cache: Hash.new{|h, r|
+          short_inline_until_cache: Hash.new { |h, r|
             h[r] = Regexp.union(*[r, INLINE_EOL, FORMATTING, /$/].compact.uniq)
           },
-          short_inline_until_cache_brackets: Hash.new{|h, r|
+          short_inline_until_cache_brackets: Hash.new { |h, r|
             h[r] = Regexp.union(*[r, INLINE_EOL_BRACK, FORMATTING, /$/].compact.uniq)
           },
-          short_inline_until_cache_brackets2: Hash.new{|h, r|
+          short_inline_until_cache_brackets2: Hash.new { |h, r|
             h[r] = Regexp.union(*[r, INLINE_EOL_BRACK2, FORMATTING, /$/].compact.uniq)
           }
 
@@ -67,11 +66,7 @@ module Infoboxer
           if scan.peek(1) == '='
             scan.skip(/=\s*/)
             q = scan.scan(/['"]/)
-            if q
-              value = scan.scan_until(/#{q}|$/).sub(q, '')
-            else
-              value = scan.scan_until(/\s|$/)
-            end
+            value = q ? scan.scan_until(/#{q}|$/).sub(q, '') : scan.scan_until(/\s|$/)
             params[name.to_sym] = value
           else
             params[name.to_sym] = name
@@ -89,7 +84,6 @@ module Infoboxer
             @context.fail!("Infinite loop on position #{pos_after.last}")
         end
       end
-
     end
   end
 end

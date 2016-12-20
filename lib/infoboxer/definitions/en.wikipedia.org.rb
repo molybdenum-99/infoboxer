@@ -38,7 +38,7 @@ module Infoboxer
         'Asterisk' => '*',
         'Colon' => ':',
         'Em dash' => '—',
-        'Gc' => "†",
+        'Gc' => '†',
         'Ibeam' => 'I',
         'Long dash' => ' ——— ',
         'Nbhyph' => '‑',
@@ -64,7 +64,7 @@ module Infoboxer
         'Break' => "\n", # FIXME: in fact, break has optional parameter "how many breaks"
         'Crlf' => "\n",  # FIXME: in fact, alias for break, should have DSL syntax for it!
         'Crlf2' => "\n",
-        
+
       )
       show(
         'Allow wrap',
@@ -168,7 +168,7 @@ module Infoboxer
         'lime', 'green', 'aqua (color)', 'cyan', 'teal', 'blue', 'navy (color)',
         'purple', 'fuchsia', 'magenta'
       )
-      
+
       # Some most popular templates, without categorical splitting
       # https://en.wikipedia.org/wiki/Wikipedia:Database_reports/Templates_transcluded_on_the_most_pages
       # ------------------------------------------------------------------------------------------------
@@ -190,7 +190,7 @@ module Infoboxer
       template 'Coord' do
         def model
           @model ||= begin
-            npos = lookup_children(text: /^N|S$/).first.index rescue nil
+            npos = lookup_children(text: /^N|S$/).first.index rescue nil # rubocop:disable Style/RescueModifier
             case npos
             when 1
               :decimal
@@ -240,7 +240,7 @@ module Infoboxer
           'to', 'to(-)', 'to about',
           '+/-', '±', '+',
           'by', 'x', '×', 'x',
-        ]
+        ].freeze
 
         def between
           ALLOW_BETWEEN.include?(fetch('2').text) ? fetch('2').text : nil
@@ -253,11 +253,11 @@ module Infoboxer
         def measure_from
           between ? fetch('4').text : fetch('2').text
         end
-        
+
         def measure_to
           between ? fetch('5').text : fetch('3').text
         end
-        
+
         def text
           [value1, between, value2, measure_from].compact.join(' ')
         end

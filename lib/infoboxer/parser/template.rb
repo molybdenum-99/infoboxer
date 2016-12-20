@@ -11,7 +11,7 @@ module Infoboxer
       # More about magic words: https://www.mediawiki.org/wiki/Help:Magic_words
       def template
         name = @context.scan_continued_until(/\||:|}}/) or
-          @context.fail!("Template name not found")
+          @context.fail!('Template name not found')
 
         log "Parsing template #{name}"
 
@@ -21,7 +21,7 @@ module Infoboxer
       end
 
       def template_vars
-        log "Parsing template variables"
+        log 'Parsing template variables'
 
         num = 1
         res = Nodes[]
@@ -41,7 +41,7 @@ module Infoboxer
           unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
             res << Var.new(name.to_s, value)
           end
-          log "Variable value found"
+          log 'Variable value found'
 
           break if @context.eat_matched?('}}')
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")

@@ -64,7 +64,7 @@ module Infoboxer
     %w[lookup shortcuts sections].each do |nav|
       require_relative "navigation/#{nav}"
     end
-    
+
     class Tree::Node
       include Navigation::Lookup::Node
       include Navigation::Shortcuts::Node

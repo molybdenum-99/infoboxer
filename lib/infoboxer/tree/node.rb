@@ -11,7 +11,7 @@ module Infoboxer
     #
     class Node
       include ProcMe
-      
+
       def initialize(params = {})
         @params = params
       end
@@ -48,12 +48,12 @@ module Infoboxer
 
       # List of siblings before this one
       def prev_siblings
-        siblings.select{|n| n.index < index}
+        siblings.select { |n| n.index < index }
       end
 
       # List of siblings after this one
       def next_siblings
-        siblings.select{|n| n.index > index}
+        siblings.select { |n| n.index > index }
       end
 
       # Node children list
@@ -63,7 +63,7 @@ module Infoboxer
 
       # @private
       # Used only during tree construction in {Parser}.
-      def can_merge?(other)
+      def can_merge?(_other)
         false
       end
 
@@ -87,7 +87,7 @@ module Infoboxer
       # #     pretty <Italic>
       # #     complicated <Text>
       # ```
-      # 
+      #
       # Useful for understanding page structure, and Infoboxer's representation
       # of this structure
       def to_tree(level = 0)
@@ -144,33 +144,33 @@ module Infoboxer
 
       def descr
         if !params || params.empty?
-          "#{clean_class}"
+          clean_class
         else
           "#{clean_class}(#{show_params})"
         end
       end
 
       def show_params(prms = nil)
-        (prms || params).map{|k, v| "#{k}: #{v.inspect}"}.join(', ')
+        (prms || params).map { |k, v| "#{k}: #{v.inspect}" }.join(', ')
       end
 
       def indent(level)
         '  ' * level
       end
 
-      def _eq(other)
+      def _eq(_other)
         fail(NotImplementedError, "#_eq should be defined in subclasses (called for #{self.class})")
       end
 
       def decode(str)
         Node.coder.decode(str)
       end
-      
+
       class << self
         # Internal: descendandts DSL
         def def_readers(*keys)
           keys.each do |k|
-            define_method(k){ params[k] }
+            define_method(k) { params[k] }
           end
         end
 

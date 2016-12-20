@@ -1,13 +1,13 @@
 # encoding: utf-8
 module Infoboxer
   module Tree
-    # Represents item of ordered or unordered list. 
+    # Represents item of ordered or unordered list.
     class ListItem < BaseParagraph
       # @private
       # Internal, used by {Parser}
       def can_merge?(other)
         other.class == self.class &&
-          other.children.first.kind_of?(List)
+          other.children.first.is_a?(List)
       end
 
       # @private
@@ -22,10 +22,10 @@ module Infoboxer
 
       def text
         make_marker + if children.last.is_a?(List)
-          children[0..-2].map(&:text).join + "\n" + children.last.text
-        else
-          children.map(&:text).join + "\n"
-        end
+                        children[0..-2].map(&:text).join + "\n" + children.last.text
+                      else
+                        children.map(&:text).join + "\n"
+                      end
       end
 
       private
@@ -71,7 +71,7 @@ module Infoboxer
 
     # Represents unordered list (list with markers).
     class UnorderedList < List
-      def make_marker(item)
+      def make_marker(_item)
         list_text_indent + '* '
       end
     end
@@ -87,7 +87,7 @@ module Infoboxer
     # consists of {DTerm}s and {DDefinition}s.
     #
     # NB: In fact, at least in English Wikipedia, orphan "definition terms"
-    # are used as a low-level headers, especially in lists of links/references. 
+    # are used as a low-level headers, especially in lists of links/references.
     class DefinitionList < List
       def make_marker(item)
         case item
@@ -133,7 +133,7 @@ module Infoboxer
         klass = LISTS[m] or
           fail("Something went wrong: undefined list marker type #{m}")
         item_klass = ITEMS[m]
-        
+
         if marker.empty?
           klass.new(item_klass.new(nodes))
         else
@@ -141,15 +141,13 @@ module Infoboxer
         end
       end
 
-      private
-
       # @private
       LISTS = {
         ';' => DefinitionList,
         ':' => DefinitionList,
         '*' => UnorderedList,
         '#' => OrderedList
-      }
+      }.freeze
 
       # @private
       ITEMS = {
@@ -157,8 +155,7 @@ module Infoboxer
         ':' => DDefinition,
         '*' => ListItem,
         '#' => ListItem
-      }
-      
+      }.freeze
     end
   end
 end

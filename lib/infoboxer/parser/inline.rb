@@ -33,13 +33,13 @@ module Infoboxer
         nodes = Nodes[]
         guarded_loop do
           # FIXME: quick and UGLY IS HELL JUST TRYING TO MAKE THE SHIT WORK
-          if @context.inline_eol_sign == /^\]/
-            chunk = @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
-          elsif @context.inline_eol_sign == /^\]\]/
-            chunk = @context.scan_until(re.short_inline_until_cache_brackets2[until_pattern])
-          else
-            chunk = @context.scan_until(re.short_inline_until_cache[until_pattern])
-          end
+          chunk = if @context.inline_eol_sign == /^\]/
+                    @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
+                  elsif @context.inline_eol_sign == /^\]\]/
+                    @context.scan_until(re.short_inline_until_cache_brackets2[until_pattern])
+                  else
+                    @context.scan_until(re.short_inline_until_cache[until_pattern])
+                  end
           nodes << chunk
 
           break if @context.matched_inline?(until_pattern)
@@ -80,89 +80,90 @@ module Infoboxer
       end
 
       private
-        def inline_formatting(match)
-          case match
-          when "'''''"
-            BoldItalic.new(short_inline(/'''''/))
-          when "'''"
-            Bold.new(short_inline(/'''/))
-          when "''"
-            Italic.new(short_inline(/''/))
-          when '[['
-            if @context.check(re.file_namespace)
-              image
-            else
-              wikilink
-            end
-          when /\[(.+)/
-            external_link($1)
-          when '{{'
-            template
-          when /<nowiki([^>]*)>/
-            nowiki($1)
-          when /<ref([^>]*)\/>/
-            reference($1, true)
-          when /<ref([^>]*)>/
-            reference($1)
-          when /<math>/
-            math
-          when '<'
-            html || Text.new(match) # it was not HTML, just accidental <
+
+      def inline_formatting(match)
+        case match
+        when "'''''"
+          BoldItalic.new(short_inline(/'''''/))
+        when "'''"
+          Bold.new(short_inline(/'''/))
+        when "''"
+          Italic.new(short_inline(/''/))
+        when '[['
+          if @context.check(re.file_namespace)
+            image
           else
-            match # FIXME: TEMP
+            wikilink
           end
-        end
-
-        # http://en.wikipedia.org/wiki/Help:Link#Wikilinks
-        # [[abc]]
-        # [[a|b]]
-        def wikilink
-          link = @context.scan_continued_until(/\||\]\]/)
-          if @context.matched == '|'
-            @context.push_eol_sign(/^\]\]/)
-            caption = inline(/\]\]/)
-            @context.pop_eol_sign
-          end
-
-          Wikilink.new(link, caption)
-        end
-
-        # http://en.wikipedia.org/wiki/Help:Link#External_links
-        # [http://www.example.org]
-        # [http://www.example.org link name]
-        def external_link(protocol)
-          link = @context.scan_continued_until(/\s+|\]/)
-          if @context.matched =~ /\s+/
-            @context.push_eol_sign(/^\]/)
-            caption = short_inline(/\]/)
-            @context.pop_eol_sign
-          end
-          ExternalLink.new(protocol + link, caption)
-        end
-
-        def reference(param_str, closed = false)
-          children = closed ? Nodes[] : long_inline(/<\/ref>/)
-          Ref.new(children, parse_params(param_str))
-        end
-
-        def math
-          Math.new(@context.scan_continued_until(/<\/math>/))
-        end
-
-        def nowiki(tag_rest)
-          if tag_rest.end_with?('/')
-            Text.new('')
-          else
-            Text.new(@context.scan_continued_until(/<\/nowiki>/))
-          end
+        when /\[(.+)/
+          external_link($1)
+        when '{{'
+          template
+        when /<nowiki([^>]*)>/
+          nowiki($1)
+        when %r{<ref([^>]*)/>}
+          reference($1, true)
+        when /<ref([^>]*)>/
+          reference($1)
+        when /<math>/
+          math
+        when '<'
+          html || Text.new(match) # it was not HTML, just accidental <
+        else
+          match # FIXME: TEMP
         end
       end
 
-      require_relative 'image'
-      require_relative 'html'
-      require_relative 'template'
-      include Infoboxer::Parser::Image
-      include Infoboxer::Parser::HTML
-      include Infoboxer::Parser::Template
+      # http://en.wikipedia.org/wiki/Help:Link#Wikilinks
+      # [[abc]]
+      # [[a|b]]
+      def wikilink
+        link = @context.scan_continued_until(/\||\]\]/)
+        if @context.matched == '|'
+          @context.push_eol_sign(/^\]\]/)
+          caption = inline(/\]\]/)
+          @context.pop_eol_sign
+        end
+
+        Wikilink.new(link, caption)
+      end
+
+      # http://en.wikipedia.org/wiki/Help:Link#External_links
+      # [http://www.example.org]
+      # [http://www.example.org link name]
+      def external_link(protocol)
+        link = @context.scan_continued_until(/\s+|\]/)
+        if @context.matched =~ /\s+/
+          @context.push_eol_sign(/^\]/)
+          caption = short_inline(/\]/)
+          @context.pop_eol_sign
+        end
+        ExternalLink.new(protocol + link, caption)
+      end
+
+      def reference(param_str, closed = false)
+        children = closed ? Nodes[] : long_inline(%r{</ref>})
+        Ref.new(children, parse_params(param_str))
+      end
+
+      def math
+        Math.new(@context.scan_continued_until(%r{</math>}))
+      end
+
+      def nowiki(tag_rest)
+        if tag_rest.end_with?('/')
+          Text.new('')
+        else
+          Text.new(@context.scan_continued_until(%r{</nowiki>}))
+        end
+      end
+    end
+
+    require_relative 'image'
+    require_relative 'html'
+    require_relative 'template'
+    include Infoboxer::Parser::Image
+    include Infoboxer::Parser::HTML
+    include Infoboxer::Parser::Template
   end
 end

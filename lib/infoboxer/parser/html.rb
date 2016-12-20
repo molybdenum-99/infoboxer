@@ -3,16 +3,16 @@ module Infoboxer
   class Parser
     module HTML
       include Tree
-      
+
       def html
         case
-        when @context.check(/\/[a-z]+>/)
+        when @context.check(%r{/[a-z]+})
           html_closing_tag
         when @context.check(/br\s*>/)
           html_br
         when @context.check(%r{[a-z]+[^/>]*/>})
           html_auto_closing_tag
-        when @context.check(/[a-z]+[^>\/]*>/)
+        when @context.check(%r{[a-z]+[^>/]*>})
           html_opening_tag
         else
           # not an HTML tag at all!
@@ -21,7 +21,7 @@ module Infoboxer
       end
 
       def html_closing_tag
-        @context.skip(/\//)
+        @context.skip(%r{/})
         tag = @context.scan(/[a-z]+/)
         @context.skip(/>/)
         HTMLClosingTag.new(tag)
@@ -43,8 +43,8 @@ module Infoboxer
         tag = @context.scan(/[a-z]+/)
         attrs = @context.scan(/[^>]+/)
         @context.skip(/>/)
-        contents = short_inline(/<\/#{tag}>/)
-        if @context.matched =~ /<\/#{tag}>/
+        contents = short_inline(%r{</#{tag}>})
+        if @context.matched =~ %r{</#{tag}>}
           HTMLTag.new(tag, parse_params(attrs), contents)
         else
           [

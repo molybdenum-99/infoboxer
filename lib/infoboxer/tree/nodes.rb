@@ -10,7 +10,7 @@ module Infoboxer
     # like those:
     #
     # ```ruby
-    # document.sections.                  # => Nodes returned, 
+    # document.sections.                  # => Nodes returned,
     #   select{|section|                  #    you can treat them as array, but also...
     #     section.text.length > 1000      #
     #   }.                                #
@@ -22,7 +22,6 @@ module Infoboxer
     # ```
     #
     class Nodes < Array
-
       # @!method select(&block)
       #    Just like Array#select, but returns Nodes
 
@@ -42,7 +41,7 @@ module Infoboxer
       #    Just like Array#-, but returns Nodes
 
       [:select, :reject, :sort_by, :flatten, :compact, :-].each do |sym|
-        define_method(sym){|*args, &block|
+        define_method(sym) { |*args, &block|
           Nodes[*super(*args, &block)]
         }
       end
@@ -68,7 +67,7 @@ module Infoboxer
       # Just like Array#map, but returns Nodes, **if** all map results are Node
       def map
         res = super
-        if res.all?{|n| n.is_a?(Node) || n.is_a?(Nodes)}
+        if res.all? { |n| n.is_a?(Node) || n.is_a?(Nodes) }
           Nodes[*res]
         else
           res
@@ -77,7 +76,7 @@ module Infoboxer
 
       # @!method prev_siblings
       #   Previous siblings (flat list) of all nodes inside.
-      
+
       # @!method next_siblings
       #   Next siblings (flat list) of all nodes inside.
 
@@ -88,13 +87,13 @@ module Infoboxer
       #   Fetches by name(s) variables for all templates inside.
       #
       #   See {Tree::Template#fetch} for explanation.
-      
+
       [
         :prev_siblings, :next_siblings, :siblings,
         :fetch
       ].each do |sym|
-        define_method(sym){|*args|
-          make_nodes map{|n| n.send(sym, *args)}
+        define_method(sym) { |*args|
+          make_nodes map { |n| n.send(sym, *args) }
         }
       end
 
@@ -105,7 +104,7 @@ module Infoboxer
       #
       # @return [Array<Hash>]
       def fetch_hashes(*args)
-        map{|t| t.fetch_hash(*args)}
+        map { |t| t.fetch_hash(*args) }
       end
 
       # Just join of all {Node#to_tree Node#to_tree} strings inside.
@@ -114,7 +113,7 @@ module Infoboxer
       end
 
       def inspect
-        '[' + 
+        '[' +
           case
           when count > MAX_CHILDREN
             self[0...MAX_CHILDREN].map(&:inspect).join(', ') + ", ...#{count - MAX_CHILDREN} more nodes"
@@ -138,19 +137,19 @@ module Infoboxer
       # @return [Nodes<MediaWiki::Page>] It is still `Nodes`, so you
       #   still can process them uniformely.
       def follow
-        links = select{|n| n.respond_to?(:link)}.map(&:link)
+        links = select { |n| n.respond_to?(:link) }.map(&:link)
         return Nodes[] if links.empty?
         page = first.lookup_parents(MediaWiki::Page).first or
-          fail("Not in a page from real source")
-        page.client or fail("MediaWiki client not set")
+          fail('Not in a page from real source')
+        page.client or fail('MediaWiki client not set')
         page.client.get(*links)
       end
 
       # @private
       # Internal, used by {Parser}
       def <<(node)
-        if node.kind_of?(Array)
-          node.each{|n| self << n}
+        if node.is_a?(Array)
+          node.each { |n| self << n }
         elsif last && last.can_merge?(node)
           last.merge!(node)
         else
@@ -172,7 +171,7 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def flow_templates
-        make_nodes map{|n| n.is_a?(Paragraph) ? n.to_templates? : n}
+        make_nodes map { |n| n.is_a?(Paragraph) ? n.to_templates? : n }
       end
 
       private

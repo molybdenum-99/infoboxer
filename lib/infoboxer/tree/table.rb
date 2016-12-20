@@ -25,29 +25,24 @@ module Infoboxer
       #
       # FIXME: it can easily be several table heading rows
       def heading_row
-        rows.first && rows.first.children.all?(&call(matches?: TableHeading)) ?
-          rows.first : nil
+        rows.first if rows.first && rows.first.children.all?(&call(matches?: TableHeading))
       end
 
       # For now, returns all table rows except {#heading_row}
       def body_rows
-        rows.first && rows.first.children.all?(&call(matches?: TableHeading)) ?
-          rows[1..-1] :
-          rows
+        rows.first && rows.first.children.all?(&call(matches?: TableHeading)) ? rows[1..-1] : rows
       end
 
       def text
         table = Terminal::Table.new
-        if caption
-          table.title = caption.text.sub(/\n+\Z/, '')
-        end
-        
+        table.title = caption.text.sub(/\n+\Z/, '') if caption
+
         if heading_row
           table.headings = heading_row.children.map(&:text).
             map(&call(sub: [/\n+\Z/, '']))
         end
 
-        table.rows = body_rows.map{|r|
+        table.rows = body_rows.map { |r|
           r.children.map(&:text).
             map(&call(sub: [/\n+\Z/, '']))
         }

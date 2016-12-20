@@ -20,17 +20,16 @@ module Infoboxer
         super(label || Nodes.new([Text.new(link)]), link: link)
       end
 
-      #@!attribute [r] link
+      # @!attribute [r] link
 
       def_readers :link
     end
 
     # External link. Has other nodes as a contents, and, err, link (url).
     class ExternalLink < Link
-    
-      #@!attribute [r] url
-      #  synonym for `#link`
-      
+      # @!attribute [r] url
+      #   synonym for `#link`
+
       alias_method :url, :link
     end
   end

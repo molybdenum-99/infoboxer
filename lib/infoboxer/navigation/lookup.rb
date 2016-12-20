@@ -139,20 +139,20 @@ module Infoboxer
         def _lookup_next_siblings(selector)
           next_siblings._find(selector)
         end
-        
+
         [:matches?,
           :lookup, :lookup_children, :lookup_parents,
           :lookup_siblings,
           :lookup_next_siblings, :lookup_prev_siblings
-        ].map{|sym| [sym, :"_#{sym}"]}.each do |sym, underscored|
+        ].map { |sym| [sym, :"_#{sym}"] }.each do |sym, underscored|
 
-          define_method(sym){|*args, &block|
+          define_method(sym) { |*args, &block|
             send(underscored, Selector.new(*args, &block))
           }
         end
 
         # Checks if node has any parent matching selectors.
-        def has_parent?(*selectors, &block)
+        def parent?(*selectors, &block)
           !lookup_parents(*selectors, &block).empty?
         end
       end
@@ -181,7 +181,7 @@ module Infoboxer
 
         # Underscored version of {#find}.
         def _find(selector)
-          select{|n| n._matches?(selector)}
+          select { |n| n._matches?(selector) }
         end
 
         # Selects nodes of current list (and only it, no children checks),
@@ -194,8 +194,8 @@ module Infoboxer
           :_lookup, :_lookup_children, :_lookup_parents,
           :_lookup_siblings, :_lookup_prev_siblings, :_lookup_next_siblings
         ].each do |sym|
-          define_method(sym){|*args|
-            make_nodes map{|n| n.send(sym, *args)}
+          define_method(sym) { |*args|
+            make_nodes map { |n| n.send(sym, *args) }
           }
         end
 
@@ -204,9 +204,9 @@ module Infoboxer
           :lookup, :lookup_children, :lookup_parents,
           :lookup_siblings,
           :lookup_next_siblings, :lookup_prev_siblings
-        ].map{|sym| [sym, :"_#{sym}"]}.each do |sym, underscored|
+        ].map { |sym| [sym, :"_#{sym}"] }.each do |sym, underscored|
 
-          define_method(sym){|*args, &block|
+          define_method(sym) { |*args, &block|
             send(underscored, Selector.new(*args, &block))
           }
         end

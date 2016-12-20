@@ -20,7 +20,7 @@ module Infoboxer
 
       # @private
       def find(name)
-        _, template = @templates.detect{|m, t| m === name.downcase}
+        _, template = @templates.detect { |m, _t| m === name.downcase }
         template || Base
       end
 
@@ -43,15 +43,15 @@ module Infoboxer
       #   def from
       #     fetch_date('1', '2', '3')
       #   end
-      # 
+      #
       #   def to
       #     fetch_date('4', '5', '6') || Date.today
       #   end
-      # 
+      #
       #   def value
       #     (to - from).to_i / 365 # FIXME: obviously
       #   end
-      # 
+      #
       #   def text
       #     "#{value} years"
       #   end
@@ -100,7 +100,7 @@ module Infoboxer
       # Expected to be used inside Set definition block.
       def replace(*replacements)
         case
-        when replacements.count == 2 && replacements.all?{|r| r.is_a?(String)}
+        when replacements.count == 2 && replacements.all? { |r| r.is_a?(String) }
           name, what = *replacements
           setup_class(name, Replace) do
             define_method(:replace) do
@@ -108,8 +108,8 @@ module Infoboxer
             end
           end
         when replacements.count == 1 && replacements.first.is_a?(Hash)
-          replacements.first.each do |name, what|
-            replace(name, what)
+          replacements.first.each do |nm, wht|
+            replace(nm, wht)
           end
         else
           fail(ArgumentError, "Can't call :replace with #{replacements.join(', ')}")
@@ -163,9 +163,9 @@ module Infoboxer
       def setup_class(name, base_class, options = {}, &definition)
         match = options.fetch(:match, name.downcase)
         base = options.fetch(:base, base_class)
-        base = self.find(base) if base.is_a?(String)
+        base = find(base) if base.is_a?(String)
 
-        Class.new(base, &definition).tap{|cls|
+        Class.new(base, &definition).tap { |cls|
           cls.template_name = name
           cls.template_options = options
           @templates.unshift [match, cls]

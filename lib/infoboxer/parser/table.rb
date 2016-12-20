@@ -23,7 +23,7 @@ module Infoboxer
         end
 
         # FIXME: not the most elegant way, huh?
-        table.children.reject!{|r| r.children.empty?}
+        table.children.reject! { |r| r.children.empty? }
 
         table
       end
@@ -35,28 +35,22 @@ module Infoboxer
 
       def table_next_line(table)
         case @context.current
-        when /^\s*\|}(.*)$/                 # table end
+        when /^\s*\|}(.*)$/ # table end
           @context.scan(/^\s*\|}/)
-          return false # should not continue
-
+          # should not continue
+          return false
         when /^\s*!/                        # heading (th) in a row
           table_cells(table, TableHeading)
-
         when /^\s*\|\+/                     # caption
           table_caption(table)
-
         when /^\s*\|-(.*)$/                 # row start
           table_row(table, $1)
-
         when /^\s*\|/                       # cell in row
           table_cells(table)
-
         when /^\s*{{/                       # template can be at row level
           table_template(table)
-
         when nil
           return false
-
         else
           return table_cell_cont(table)
         end
@@ -79,16 +73,16 @@ module Infoboxer
 
       def table_cells(table, cell_class = TableCell)
         log 'Table cells found'
-        table.push_children(TableRow.new()) unless table.children.last.is_a?(TableRow)
+        table.push_children(TableRow.new) unless table.children.last.is_a?(TableRow)
         row = table.children.last
 
         @context.skip(/\s*[!|]\s*/)
         guarded_loop do
-          if @context.check(/[^|{|\[]+\|([^\|]|$)/)
-            params = parse_params(@context.scan_until(/\|/))
-          else
-            params = {}
-          end
+          params = if @context.check(/[^|{|\[]+\|([^\|]|$)/)
+                     parse_params(@context.scan_until(/\|/))
+                   else
+                     {}
+                   end
           content = short_inline(/(\|\||!!)/)
           row.push_children(cell_class.new(content, params))
           break if @context.eol?
@@ -123,14 +117,11 @@ module Infoboxer
                       nil
                     end
 
-        if !container
+        unless container
           # return "table not continued" unless row is empty
-          if @context.current.empty?
-            return true
-          else
-            @context.prev!
-            return false
-          end
+          return true if @context.current.empty?
+          @context.prev!
+          return false
         end
 
         container.push_children(paragraph(/^\s*([|!]|{\|)/))

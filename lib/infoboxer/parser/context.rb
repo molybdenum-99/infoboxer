@@ -82,7 +82,7 @@ module Infoboxer
 
       def scan_until(re, leave_pattern = false)
         guard_eof!
-        
+
         res = _scan_until(re)
         res[matched] = '' if res && !leave_pattern
         res
@@ -102,14 +102,14 @@ module Infoboxer
         # not using StringScanner#check, as it will change #matched value
         eol? ||
           (
-            (current =~ %r[^(</ref>|}})] || @inline_eol_sign && current =~ @inline_eol_sign) && 
+            (current =~ %r[^(</ref>|}})] || @inline_eol_sign && current =~ @inline_eol_sign) &&
             (!exclude || $1 !~ exclude)
           ) # FIXME: ugly, but no idea of prettier solution
       end
 
       def scan_continued_until(re, leave_pattern = false)
         res = ''
-        
+
         loop do
           chunk = _scan_until(re)
           case matched
@@ -122,7 +122,7 @@ module Infoboxer
             eof? && fail!("Unfinished scan: #{re} not found")
           end
         end
-        
+
         res[/#{re}\Z/] = '' unless leave_pattern
         res
       end
@@ -156,8 +156,7 @@ module Infoboxer
       end
 
       def guard_eof!
-        #eof? and fail!("End of input reached")
-        @scanner or fail!("End of input reached")
+        @scanner or fail!('End of input reached')
       end
 
       def shift(amount)
@@ -167,12 +166,11 @@ module Infoboxer
         if current
           @scanner.string = current
           @rest = current
-          @matched = nil
         else
           @scanner = nil
           @rest = nil
-          @matched = nil
         end
+        @matched = nil
       end
     end
   end

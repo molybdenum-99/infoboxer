@@ -2,7 +2,7 @@
 module Infoboxer
   module Tree
     module HTMLTagCommons
-      BLOCK_TAGS = %w[div p br] # FIXME: are some other used in WP?
+      BLOCK_TAGS = %w[div p br].freeze # FIXME: are some other used in WP?
 
       def text
         super + (BLOCK_TAGS.include?(tag) ? "\n" : '')
@@ -27,7 +27,7 @@ module Infoboxer
         # even empty tag, for ex., <br>, should not be dropped!
         false
       end
-      
+
       private
 
       def descr
@@ -47,12 +47,12 @@ module Infoboxer
         super(attrs)
         @tag = tag
       end
-      
+
       attr_reader :tag
       alias_method :attrs, :params
 
       include HTMLTagCommons
-      
+
       private
 
       def descr

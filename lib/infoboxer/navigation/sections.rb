@@ -24,7 +24,7 @@ module Infoboxer
     #  lookup_parents(:Section) # => []
     # ```
     module Sections
-      # This module is included in {Tree::Document Document}, allowing 
+      # This module is included in {Tree::Document Document}, allowing
       # you to navigate through document's logical sections (and also
       # included in each {Sections::Section} instance, allowing to navigate
       # recursively).
@@ -36,8 +36,8 @@ module Infoboxer
         # @return {Tree::Nodes}
         def intro
           children.
-            take_while{|n| !n.is_a?(Tree::Heading)}.
-            select{|n| n.is_a?(Tree::BaseParagraph)}
+            take_while { |n| !n.is_a?(Tree::Heading) }.
+            select { |n| n.is_a?(Tree::BaseParagraph) }
         end
 
         # List of sections inside current container.
@@ -48,12 +48,12 @@ module Infoboxer
         # document.sections                 # all top-level sections
         # document.sections('Culture')      # only "Culture" section
         # document.sections(/^List of/)     # all sections with heading matching pattern
-        #   
-        # document.   
+        #
+        # document.
         #   sections('Culture').            # long way of recieve nested section
         #     sections('Music')             # (Culture / Music)
-        # 
-        # document. 
+        #
+        # document.
         #   sections('Culture', 'Music')    # the same as above
         #
         # document.
@@ -69,14 +69,14 @@ module Infoboxer
             h.count == 1 or fail(ArgumentError, "Undefined behavior with #{h}")
             names.unshift(h.keys.first, h.values.first)
           end
-          
+
           case names.count
           when 0
             @sections
           when 1
-            @sections.select{|s| names.first === s.heading.text_}
+            @sections.select { |s| names.first === s.heading.text_ }
           else
-            @sections.select{|s| names.first === s.heading.text_}.sections(*names[1..-1])
+            @sections.select { |s| names.first === s.heading.text_ }.sections(*names[1..-1])
           end
         end
 
@@ -88,8 +88,8 @@ module Infoboxer
           level = headings.first.level
 
           children.
-            chunk{|n| n.matches?(Tree::Heading, level: level)}.
-            drop_while{|is_heading, nodes| !is_heading}.
+            chunk { |n| n.matches?(Tree::Heading, level: level) }.
+            drop_while { |is_heading, _nodes| !is_heading }.
             each do |is_heading, nodes|
               if is_heading
                 nodes.each do |node|
@@ -115,18 +115,18 @@ module Infoboxer
         # @return {Tree::Nodes<Section>}
         def in_sections
           main_node = parent.is_a?(Tree::Document) ? self : lookup_parents[-2]
-          
+
           heading = if main_node.is_a?(Tree::Heading)
-            main_node.lookup_prev_siblings(Tree::Heading, level: main_node.level - 1).last
-          else
-            main_node.lookup_prev_siblings(Tree::Heading).last
-          end
+                      main_node.lookup_prev_siblings(Tree::Heading, level: main_node.level - 1).last
+                    else
+                      main_node.lookup_prev_siblings(Tree::Heading).last
+                    end
           return Tree::Nodes[] unless heading
-          
+
           section = Section.new(heading,
             heading.next_siblings.
-              take_while{|n| !n.is_a?(Tree::Heading) || n.level < heading.level}
-          )
+              take_while { |n| !n.is_a?(Tree::Heading) || n.level < heading.level }
+                               )
           Tree::Nodes[section, *heading.in_sections]
         end
       end
@@ -137,10 +137,10 @@ module Infoboxer
       module Nodes
         # @!method sections(*names)
         # @!method in_sections
-        
+
         [:sections, :in_sections].each do |sym|
-          define_method(sym){|*args|
-            make_nodes map{|n| n.send(sym, *args)}
+          define_method(sym) { |*args|
+            make_nodes map { |n| n.send(sym, *args) }
           }
         end
       end
@@ -175,11 +175,11 @@ module Infoboxer
 
         include Container
 
-        private
-
-        #def show_params
-          #super(level: heading.level, heading: heading.text)
-        #end
+        # private
+        #
+        # def show_params
+        #  super(level: heading.level, heading: heading.text)
+        # end
       end
     end
   end

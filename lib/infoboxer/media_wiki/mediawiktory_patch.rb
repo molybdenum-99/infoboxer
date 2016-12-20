@@ -12,12 +12,11 @@ class MediaWiktory::Query::Response
   alias_method :old_initialize, :initialize
   def initialize(*arg)
     old_initialize(*arg)
-    
-    if raw.query.redirects
-      raw.query.redirects.each do |redirect|
-        pg = @pages.detect{|p| p.title == redirect.to} or next
-        pg.alt_titles << redirect.from
-      end
+
+    return unless raw.query.redirects
+    raw.query.redirects.each do |redirect|
+      pg = @pages.detect { |p| p.title == redirect.to } or next
+      pg.alt_titles << redirect.from
     end
   end
 end

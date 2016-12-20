@@ -83,19 +83,19 @@ module Infoboxer
 
         # Returns true, if current node is **inside** bold.
         def bold?
-          has_parent?(Tree::Bold)
+          parent?(Tree::Bold)
         end
 
         # Returns true, if current node is **inside** italic.
         def italic?
-          has_parent?(Tree::Italic)
+          parent?(Tree::Italic)
         end
 
         # Returns true, if current node is **inside** heading.
         #
         # @param level optional concrete level to check
         def heading?(level = nil)
-          has_parent?(Tree::Heading, level: level)
+          parent?(Tree::Heading, level: level)
         end
 
         # Returns all infoboxes inside current node.
@@ -129,12 +129,12 @@ module Infoboxer
         private
 
         def ensure_traits
-          ensure_page.traits or fail("No site traits found")
+          ensure_page.traits or fail('No site traits found')
         end
 
         def ensure_page
           (is_a?(MediaWiki::Page) ? self : lookup_parents(MediaWiki::Page).first) or
-            fail("Node is not inside Page, maybe parsed from text?")
+            fail('Node is not inside Page, maybe parsed from text?')
         end
       end
 
@@ -157,8 +157,8 @@ module Infoboxer
         [:wikilinks, :headings, :paragraphs, :external_links, :images,
          :templates, :tables, :lists, :infoboxes, :infobox, :categories].
           each do |m|
-            define_method(m){|*args|
-              make_nodes map{|n| n.send(m, *args)}
+            define_method(m) { |*args|
+              make_nodes map { |n| n.send(m, *args) }
             }
           end
       end

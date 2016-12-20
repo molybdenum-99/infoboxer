@@ -35,7 +35,7 @@ module Infoboxer
       # The same way, `[Pipe (programming)]` has `topic == 'Pipe'` and
       # `refinement == 'programming'`
       attr_reader :topic
-      
+
       # Refinement part of link name.
       #
       # See {#topic} for explanation.
@@ -58,16 +58,14 @@ module Infoboxer
       # @see http://en.wikipedia.org/wiki/Help:Pipe_trick
       def parse_topic!
         @topic, @refinement = case @name
-          when /^(.+\S)\s*\((.+)\)$/,
-               /^(.+?),\s*(.+)$/
-            [$1, $2]
-          else
-            [@name, '']
-          end
+                              when /^(.+\S)\s*\((.+)\)$/, /^(.+?),\s*(.+)$/
+                                [$1, $2]
+                              else
+                                [@name, '']
+                              end
 
-        if children.count == 1 && children.first.is_a?(Text) && children.first.raw_text.empty?
-          children.first.raw_text = @topic
-        end
+        return unless children.count == 1 && children.first.is_a?(Text) && children.first.raw_text.empty?
+        children.first.raw_text = @topic
       end
     end
   end

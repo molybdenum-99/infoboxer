@@ -68,7 +68,6 @@ module Infoboxer
     require_relative 'parser/util'
     include Parser::Util
 
-
     def log(msg)
       @logger.info "#{msg} | #{@context.lineno}:#{@context.colno}: #{@context.current}"
     end

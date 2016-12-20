@@ -40,7 +40,7 @@ module Infoboxer
     # with Infoboxer, you are working with original templates.
     #
     # It requires some mastering and understanding, yet allows to do
-    # very poweful things. There are many kinds of them, from pure 
+    # very poweful things. There are many kinds of them, from pure
     # formatting-related (which are typically not more than small bells
     # and whistles for page outlook, and should be rendered as a text)
     # to very information-heavy ones, like
@@ -107,14 +107,14 @@ module Infoboxer
 
       def initialize(name, variables = Nodes[])
         super(Nodes[], extract_params(variables))
-        @name  = name 
-        @variables = Nodes[*variables].each{|v| v.parent = self}
+        @name = name
+        @variables = Nodes[*variables].each { |v| v.parent = self }
       end
 
       # See {Node#to_tree}
       def to_tree(level = 0)
         '  ' * level + "<#{descr}>\n" +
-          variables.map{|var| var.to_tree(level+1)}.join
+          variables.map { |var| var.to_tree(level+1) }.join
       end
 
       # Represents entire template as hash of `String => String`,
@@ -123,7 +123,7 @@ module Infoboxer
       #
       # @return [Hash{String => String}]
       def to_h
-        variables.map{|var| [var.name, var.text]}.to_h
+        variables.map { |var| [var.name, var.text] }.to_h
       end
 
       # Returns list of template variables with numeric names (which
@@ -148,14 +148,14 @@ module Infoboxer
       #
       # @return [Nodes<Var>]
       def fetch(*patterns)
-        Nodes[*patterns.map{|p| variables.find(name: p)}.flatten]
+        Nodes[*patterns.map { |p| variables.find(name: p) }.flatten]
       end
 
       # Fetches hash `{name => variable}`, by same patterns as {#fetch}.
       #
       # @return [Hash<String => Var>]
       def fetch_hash(*patterns)
-        fetch(*patterns).map{|v| [v.name, v]}.to_h
+        fetch(*patterns).map { |v| [v.name, v] }.to_h
       end
 
       # Fetches date by list of variable names containing date components.
@@ -175,11 +175,11 @@ module Infoboxer
       def fetch_date(*patterns)
         components = fetch(*patterns)
         components.pop while components.last.nil? && !components.empty?
-        
+
         if components.empty?
           nil
         else
-          Date.new(*components.map{|v| v.to_s.to_i})
+          Date.new(*components.map { |v| v.to_s.to_i })
         end
       end
 
@@ -231,16 +231,16 @@ module Infoboxer
       def clean_class
         "Template[#{name}]"
       end
-      
+
       def extract_params(vars)
         # NB: backports' to_h is cleaner but has performance penalty :(
         Hash[*vars.
-          select{|v| v.children.count == 1 && v.children.first.is_a?(Text)}.
-          map{|v| [v.name, v.children.first.raw_text]}.flatten(1)]
+          select { |v| v.children.count == 1 && v.children.first.is_a?(Text) }.
+          flat_map { |v| [v.name, v.children.first.raw_text] }]
       end
 
       def inspect_variables(depth)
-        variables.to_a[0..1].map{|name, var| "#{name}: #{var.inspect(depth+1)}"}.join(', ') +
+        variables.to_a[0..1].map { |name, var| "#{name}: #{var.inspect(depth+1)}" }.join(', ') +
           (variables.count > 2 ? ', ...' : '')
       end
     end

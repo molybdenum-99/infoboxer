@@ -1,6 +1,4 @@
 # encoding: utf-8
-#require 'rest-client'
-#require 'json'
 require 'mediawiktory'
 require 'addressable/uri'
 
@@ -27,7 +25,7 @@ module Infoboxer
     #
     # You can set yours as an option to {Infoboxer.wiki} and its shortcuts,
     # or to {#initialize}
-    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)"
+    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)".freeze
 
     class << self
       # User agent getter/setter.
@@ -61,16 +59,16 @@ module Infoboxer
     # @return [Array<Hash>]
     def raw(*titles)
       return [] if titles.empty? # could emerge on "automatically" created page lists, should work
-      
-      titles.each_slice(50).map{|part|
+
+      titles.each_slice(50).map { |part|
         @client.query.
           titles(*part).
           prop(revisions: {prop: :content}, info: {prop: :url}).
           redirects(true). # FIXME: should be done transparently by MediaWiktory?
           perform.pages
       }.inject(:concat). # somehow flatten(1) fails!
-      sort_by{|page|
-        res_title = page.alt_titles.detect{|t| titles.map(&:downcase).include?(t.downcase)} # FIXME?..
+      sort_by { |page|
+        res_title = page.alt_titles.detect { |t| titles.map(&:downcase).include?(t.downcase) } # FIXME?..
         titles.index(res_title) || 1_000
       }
     end
@@ -101,9 +99,9 @@ module Infoboxer
     #
     def get(*titles)
       pages = raw(*titles).
-        tap{|pages| pages.detect(&:invalid?).tap{|i| i && fail(i.raw.invalidreason)}}.
+        tap { |ps| ps.detect(&:invalid?).tap { |i| i && fail(i.raw.invalidreason) } }.
         select(&:exists?).
-        map{|raw|
+        map { |raw|
           Page.new(self,
             Parser.paragraphs(raw.content, traits),
             raw)
@@ -127,8 +125,8 @@ module Infoboxer
     #
     def get_h(*titles)
       pages = [*get(*titles)]
-      titles.map{|t|
-        [t, pages.detect{|p| p.source.alt_titles.map(&:downcase).include?(t.downcase)}]
+      titles.map { |t|
+        [t, pages.detect { |p| p.source.alt_titles.map(&:downcase).include?(t.downcase) }]
       }.to_h
     end
 
@@ -140,7 +138,7 @@ module Infoboxer
     # it can really take a while to fetch all pages.
     #
     # @param title Category title. You can use namespaceless title (like
-    #     `"Countries in South America"`), title with namespace (like 
+    #     `"Countries in South America"`), title with namespace (like
     #     `"Category:Countries in South America"`) or title with local
     #     namespace (like `"Catégorie:Argentine"` for French Wikipedia)
     #
@@ -148,7 +146,7 @@ module Infoboxer
     #
     def category(title)
       title = normalize_category_title(title)
-      
+
       list(categorymembers: {title: title, limit: 50})
     end
 
@@ -205,7 +203,7 @@ module Infoboxer
       response.continue! while response.continue?
 
       pages = response.pages.select(&:exists?).
-        map{|raw|
+        map { |raw|
           Page.new(self,
             Parser.paragraphs(raw.content, traits),
             raw)
@@ -218,7 +216,7 @@ module Infoboxer
       # FIXME: shouldn't it go to MediaWiktory?..
       namespace, titl = title.include?(':') ? title.split(':', 2) : [nil, title]
       namespace, titl = nil, title unless traits.category_namespace.include?(namespace)
-      
+
       namespace ||= traits.category_namespace.first
       [namespace, titl].join(':')
     end
@@ -229,8 +227,8 @@ module Infoboxer
 
     def extract_namespaces
       siteinfo = @client.query.meta(siteinfo: {prop: [:namespaces, :namespacealiases]}).perform
-      siteinfo.raw.query.namespaces.map{|_, namespace|
-        aliases = siteinfo.raw.query.namespacealiases.select{|a| a.id == namespace.id}.map{|a| a['*']}
+      siteinfo.raw.query.namespaces.map { |_, namespace|
+        aliases = siteinfo.raw.query.namespacealiases.select { |a| a.id == namespace.id }.map { |a| a['*'] }
         namespace.merge(aliases: aliases)
       }
     end
