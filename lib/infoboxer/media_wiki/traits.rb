@@ -69,10 +69,12 @@ module Infoboxer
 
       def initialize(options = {})
         @options = options
-        @file_namespace = [DEFAULTS[:file_namespace], namespace_aliases(options, 'File')].
-          flatten.compact.uniq
-        @category_namespace = [DEFAULTS[:category_namespace], namespace_aliases(options, 'Category')].
-          flatten.compact.uniq
+        @file_namespace =
+          [DEFAULTS[:file_namespace], namespace_aliases(options, 'File')]
+          .flatten.compact.uniq
+        @category_namespace =
+          [DEFAULTS[:category_namespace], namespace_aliases(options, 'Category')]
+          .flatten.compact.uniq
       end
 
       # @private

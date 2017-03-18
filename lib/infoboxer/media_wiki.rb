@@ -12,7 +12,8 @@ module Infoboxer
   # Usage:
   #
   # ```ruby
-  # client = Infoboxer::MediaWiki.new('http://en.wikipedia.org/w/api.php', user_agent: 'My Own Project')
+  # client = Infoboxer::MediaWiki
+  #   .new('http://en.wikipedia.org/w/api.php', user_agent: 'My Own Project')
   # page = client.get('Argentina')
   # ```
   #
@@ -25,7 +26,8 @@ module Infoboxer
     #
     # You can set yours as an option to {Infoboxer.wiki} and its shortcuts,
     # or to {#initialize}
-    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)".freeze
+    UA = "Infoboxer/#{Infoboxer::VERSION} "\
+      '(https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)'.freeze
 
     class << self
       # User agent getter/setter.
@@ -60,17 +62,18 @@ module Infoboxer
     def raw(*titles, prop: [])
       return [] if titles.empty? # could emerge on "automatically" created page lists, should work
 
-      titles.each_slice(50).map { |part|
-        @client.query.
-          titles(*part).
-          prop(*prop, revisions: {prop: %i[content timestamp]}, info: {prop: :url}).
-          redirects(true). # FIXME: should be done transparently by MediaWiktory?
-          perform.pages
-      }.inject(:concat). # somehow flatten(1) fails!
-      sort_by { |page|
-        res_title = page.alt_titles.detect { |t| titles.map(&:downcase).include?(t.downcase) } # FIXME?..
+      titles.each_slice(50).map do |part|
+        @client.query
+               .titles(*part)
+               .prop(*prop, revisions: {prop: %i(content timestamp)}, info: {prop: :url})
+               .redirects(true) # FIXME: should be done transparently by MediaWiktory?
+               .perform.pages
+      end.inject(:concat) # somehow flatten(1) fails!
+            .sort_by do |page|
+        res_title = page.alt_titles
+                        .detect { |t| titles.map(&:downcase).include?(t.downcase) } # FIXME?..
         titles.index(res_title) || 1_000
-      }
+      end
     end
 
     # Receive list of parsed MediaWiki pages for list of titles provided.
@@ -98,14 +101,14 @@ module Infoboxer
     #     NotFound.
     #
     def get(*titles, prop: [])
-      pages = raw(*titles, prop: prop).
-        tap { |ps| ps.detect(&:invalid?).tap { |i| i && fail(i.raw.invalidreason) } }.
-        select(&:exists?).
-        map { |raw|
-          Page.new(self,
-            Parser.paragraphs(raw.content, traits),
-            raw)
-        }
+      pages = raw(*titles, prop: prop)
+              .tap { |ps| ps.detect(&:invalid?).tap { |i| i && fail(i.raw.invalidreason) } }
+              .select(&:exists?)
+              .map do |raw|
+        Page.new(self,
+                 Parser.paragraphs(raw.content, traits),
+                 raw)
+      end
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
@@ -194,20 +197,20 @@ module Infoboxer
     private
 
     def list(query)
-      response = @client.query.
-        generator(query).
-        prop(revisions: {prop: :content}, info: {prop: :url}).
-        redirects(true). # FIXME: should be done transparently by MediaWiktory?
-        perform
+      response = @client.query
+                        .generator(query)
+                        .prop(revisions: {prop: :content}, info: {prop: :url})
+                        .redirects(true) # FIXME: should be done transparently by MediaWiktory?
+                        .perform
 
       response.continue! while response.continue?
 
-      pages = response.pages.select(&:exists?).
-        map { |raw|
-          Page.new(self,
-            Parser.paragraphs(raw.content, traits),
-            raw)
-        }
+      pages = response.pages.select(&:exists?)
+                      .map do |raw|
+        Page.new(self,
+                 Parser.paragraphs(raw.content, traits),
+                 raw)
+      end
 
       Tree::Nodes[*pages]
     end
@@ -227,10 +230,13 @@ module Infoboxer
 
     def extract_namespaces
       siteinfo = @client.query.meta(siteinfo: {prop: [:namespaces, :namespacealiases]}).perform
-      siteinfo.raw.query.namespaces.map { |_, namespace|
-        aliases = siteinfo.raw.query.namespacealiases.select { |a| a.id == namespace.id }.map { |a| a['*'] }
+      siteinfo.raw.query.namespaces.map do |_, namespace|
+        aliases =
+          siteinfo.raw.query
+                  .namespacealiases
+                  .select { |a| a.id == namespace.id }.map { |a| a['*'] }
         namespace.merge(aliases: aliases)
-      }
+      end
     end
   end
 end

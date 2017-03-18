@@ -41,9 +41,9 @@ module Infoboxer
       #    Just like Array#-, but returns Nodes
 
       [:select, :reject, :sort_by, :flatten, :compact, :-].each do |sym|
-        define_method(sym) { |*args, &block|
+        define_method(sym) do |*args, &block|
           Nodes[*super(*args, &block)]
-        }
+        end
       end
 
       # Just like Array#first, but returns Nodes, if provided with `n` of elements.
@@ -92,9 +92,9 @@ module Infoboxer
         :prev_siblings, :next_siblings, :siblings,
         :fetch
       ].each do |sym|
-        define_method(sym) { |*args|
+        define_method(sym) do |*args|
           make_nodes map { |n| n.send(sym, *args) }
-        }
+        end
       end
 
       # By list of variable names, fetches hashes of `{name => value}`
@@ -116,7 +116,8 @@ module Infoboxer
         '[' +
           case
           when count > MAX_CHILDREN
-            self[0...MAX_CHILDREN].map(&:inspect).join(', ') + ", ...#{count - MAX_CHILDREN} more nodes"
+            self[0...MAX_CHILDREN].map(&:inspect).join(', ') +
+            ", ...#{count - MAX_CHILDREN} more nodes"
           else
             map(&:inspect).join(', ')
           end + ']'

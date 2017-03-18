@@ -44,7 +44,8 @@ module Infoboxer
         when /^\s*\|\+/                     # caption
           table_caption(table)
         when /^\s*\|-(.*)$/                 # row start
-          table_row(table, $1)
+          table_row(table, Regexp.last_match(1))
+
         when /^\s*\|/                       # cell in row
           table_cells(table)
         when /^\s*{{/                       # template can be at row level
@@ -119,9 +120,8 @@ module Infoboxer
 
         unless container
           # return "table not continued" unless row is empty
-          return true if @context.current.empty?
-          @context.prev!
-          return false
+          @context.prev! unless @context.current.empty?
+          return @context.current.empty?
         end
 
         container.push_children(paragraph(/^\s*([|!]|{\|)/))

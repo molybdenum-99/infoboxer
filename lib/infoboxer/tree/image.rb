@@ -24,8 +24,8 @@ module Infoboxer
       # @!attribute [r] alt
 
       def_readers :path, :type,
-        :location, :alignment, :link,
-        :alt
+                  :location, :alignment, :link,
+                  :alt
 
       def border?
         !params[:border].to_s.empty?
@@ -42,8 +42,8 @@ module Infoboxer
       def to_tree(level = 0)
         super(level) +
           if caption && !caption.empty?
-            indent(level+1) + "caption:\n" +
-              caption.children.map(&call(to_tree: level+2)).join
+            indent(level + 1) + "caption:\n" +
+            caption.children.map(&call(to_tree: level + 2)).join
           else
             ''
           end

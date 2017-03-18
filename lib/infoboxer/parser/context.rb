@@ -8,9 +8,9 @@ module Infoboxer
       attr_reader :traits
 
       def initialize(text, traits = nil)
-        @lines = text.
-          gsub(/<!--.+?-->/m, ''). # FIXME: will also kill comments inside <nowiki> tag
-          split(/[\r\n]/)
+        @lines = text
+                 .gsub(/<!--.+?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
+                 .split(/[\r\n]/)
         @lineno = -1
         @traits = traits || MediaWiki::Traits.default
         @scanner = StringScanner.new('')
@@ -103,7 +103,7 @@ module Infoboxer
         eol? ||
           (
             (current =~ %r[^(</ref>|}})] || @inline_eol_sign && current =~ @inline_eol_sign) &&
-            (!exclude || $1 !~ exclude)
+            (!exclude || Regexp.last_match(1) !~ exclude)
           ) # FIXME: ugly, but no idea of prettier solution
       end
 
@@ -162,7 +162,7 @@ module Infoboxer
       def shift(amount)
         @lineno += amount
         current = @lines[lineno]
-        @next_lines = @lines[(lineno+1)..-1]
+        @next_lines = @lines[(lineno + 1)..-1]
         if current
           @scanner.string = current
           @rest = current

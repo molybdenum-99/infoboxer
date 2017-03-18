@@ -35,9 +35,9 @@ module Infoboxer
         #
         # @return {Tree::Nodes}
         def intro
-          children.
-            take_while { |n| !n.is_a?(Tree::Heading) }.
-            select { |n| n.is_a?(Tree::BaseParagraph) }
+          children
+            .take_while { |n| !n.is_a?(Tree::Heading) }
+            .select { |n| n.is_a?(Tree::BaseParagraph) }
         end
 
         # List of sections inside current container.
@@ -87,10 +87,10 @@ module Infoboxer
           return res if headings.empty?
           level = headings.first.level
 
-          children.
-            chunk { |n| n.matches?(Tree::Heading, level: level) }.
-            drop_while { |is_heading, _nodes| !is_heading }.
-            each do |is_heading, nodes|
+          children
+            .chunk { |n| n.matches?(Tree::Heading, level: level) }
+            .drop_while { |is_heading, _nodes| !is_heading }
+            .each do |is_heading, nodes|
               if is_heading
                 nodes.each do |node|
                   res << Section.new(node)
@@ -116,17 +116,18 @@ module Infoboxer
         def in_sections
           main_node = parent.is_a?(Tree::Document) ? self : lookup_parents[-2]
 
-          heading = if main_node.is_a?(Tree::Heading)
-                      main_node.lookup_prev_siblings(Tree::Heading, level: main_node.level - 1).last
-                    else
-                      main_node.lookup_prev_siblings(Tree::Heading).last
-                    end
+          heading =
+            if main_node.is_a?(Tree::Heading)
+              main_node.lookup_prev_siblings(Tree::Heading, level: main_node.level - 1).last
+            else
+              main_node.lookup_prev_siblings(Tree::Heading).last
+            end
           return Tree::Nodes[] unless heading
 
-          section = Section.new(heading,
-            heading.next_siblings.
-              take_while { |n| !n.is_a?(Tree::Heading) || n.level < heading.level }
-                               )
+          body = heading.next_siblings
+                        .take_while { |n| !n.is_a?(Tree::Heading) || n.level < heading.level }
+
+          section = Section.new(heading, body)
           Tree::Nodes[section, *heading.in_sections]
         end
       end
@@ -139,9 +140,9 @@ module Infoboxer
         # @!method in_sections
 
         [:sections, :in_sections].each do |sym|
-          define_method(sym) { |*args|
+          define_method(sym) do |*args|
             make_nodes map { |n| n.send(sym, *args) }
-          }
+          end
         end
       end
 
@@ -174,12 +175,6 @@ module Infoboxer
         end
 
         include Container
-
-        # private
-        #
-        # def show_params
-        #  super(level: heading.level, heading: heading.text)
-        # end
       end
     end
   end

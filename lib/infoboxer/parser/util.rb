@@ -4,7 +4,7 @@ module Infoboxer
     module Util
       attr_reader :re
 
-      FORMATTING = %r[(
+      FORMATTING = %r((
         '''''|'''|''  |     # bold, italic, bold italic
         \[\[          |     # link
         {{            |     # template
@@ -13,7 +13,7 @@ module Infoboxer
         <ref[^>]*>    |     # reference
         <math>        |     # math
         <                   # HTML tag
-      )]x
+      ))x
 
       INLINE_EOL = %r[(?=   # if we have ahead... (not scanned, just checked
         </ref>        |     # <ref> closed
@@ -24,7 +24,8 @@ module Infoboxer
         </ref>        |     # <ref> closed
         }}            |     # or template closed
         (?<!\])\](?!\])     # or ext.link closed,
-                            # the madness with look-ahead/behind means "match single bracket but not double"
+                            # the madness with look-ahead/behind means
+                            # "match single bracket but not double"
       )]x
 
       # FIXME: ok, NOW it's officially ridiculous
@@ -50,7 +51,6 @@ module Infoboxer
           short_inline_until_cache_brackets2: Hash.new { |h, r|
             h[r] = Regexp.union(*[r, INLINE_EOL_BRACK2, FORMATTING, /$/].compact.uniq)
           }
-
         }
       end
 

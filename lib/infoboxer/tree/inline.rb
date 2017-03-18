@@ -29,7 +29,6 @@ module Infoboxer
     class ExternalLink < Link
       # @!attribute [r] url
       #   synonym for `#link`
-
       alias_method :url, :link
     end
   end

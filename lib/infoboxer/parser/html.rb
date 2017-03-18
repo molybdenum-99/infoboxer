@@ -6,7 +6,7 @@ module Infoboxer
 
       def html
         case
-        when @context.check(%r{/[a-z]+})
+        when @context.check(%r{/[a-z]+>})
           html_closing_tag
         when @context.check(/br\s*>/)
           html_br

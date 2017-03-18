@@ -33,13 +33,14 @@ module Infoboxer
         nodes = Nodes[]
         guarded_loop do
           # FIXME: quick and UGLY IS HELL JUST TRYING TO MAKE THE SHIT WORK
-          chunk = if @context.inline_eol_sign == /^\]/
-                    @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
-                  elsif @context.inline_eol_sign == /^\]\]/
-                    @context.scan_until(re.short_inline_until_cache_brackets2[until_pattern])
-                  else
-                    @context.scan_until(re.short_inline_until_cache[until_pattern])
-                  end
+          chunk =
+            if @context.inline_eol_sign == /^\]/
+              @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
+            elsif @context.inline_eol_sign == /^\]\]/
+              @context.scan_until(re.short_inline_until_cache_brackets2[until_pattern])
+            else
+              @context.scan_until(re.short_inline_until_cache[until_pattern])
+            end
           nodes << chunk
 
           break if @context.matched_inline?(until_pattern)
@@ -96,15 +97,15 @@ module Infoboxer
             wikilink
           end
         when /\[(.+)/
-          external_link($1)
+          external_link(Regexp.last_match(1))
         when '{{'
           template
         when /<nowiki([^>]*)>/
-          nowiki($1)
+          nowiki(Regexp.last_match(1))
         when %r{<ref([^>]*)/>}
-          reference($1, true)
+          reference(Regexp.last_match(1), true)
         when /<ref([^>]*)>/
-          reference($1)
+          reference(Regexp.last_match(1))
         when /<math>/
           math
         when '<'

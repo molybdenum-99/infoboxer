@@ -62,8 +62,8 @@ module Infoboxer
     require_relative 'tree/nodes'
 
     %w[text compound inline
-      image html paragraphs list template table ref math
-      document].each do |type|
+       image html paragraphs list template table ref math
+       document].each do |type|
       require_relative "tree/#{type}"
     end
   end

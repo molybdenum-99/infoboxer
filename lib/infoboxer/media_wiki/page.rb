@@ -36,7 +36,7 @@ module Infoboxer
 
       private
 
-      PARAMS_TO_INSPECT = [:url, :title].freeze
+      PARAMS_TO_INSPECT = %i[url title].freeze
 
       def show_params
         super(params.select { |k, _v| PARAMS_TO_INSPECT.include?(k) })

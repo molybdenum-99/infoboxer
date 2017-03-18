@@ -30,7 +30,11 @@ module Infoboxer
 
       # For now, returns all table rows except {#heading_row}
       def body_rows
-        rows.first && rows.first.children.all?(&call(matches?: TableHeading)) ? rows[1..-1] : rows
+        if rows.first && rows.first.children.all?(&call(matches?: TableHeading))
+          rows[1..-1]
+        else
+          rows
+        end
       end
 
       def text
@@ -38,13 +42,13 @@ module Infoboxer
         table.title = caption.text.sub(/\n+\Z/, '') if caption
 
         if heading_row
-          table.headings = heading_row.children.map(&:text).
-            map(&call(sub: [/\n+\Z/, '']))
+          table.headings = heading_row.children.map(&:text)
+                                      .map(&call(sub: [/\n+\Z/, '']))
         end
 
         table.rows = body_rows.map { |r|
-          r.children.map(&:text).
-            map(&call(sub: [/\n+\Z/, '']))
+          r.children.map(&:text)
+           .map(&call(sub: [/\n+\Z/, '']))
         }
         table.to_s + "\n\n"
       end

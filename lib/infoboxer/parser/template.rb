@@ -38,9 +38,10 @@ module Infoboxer
           log "Variable #{name} found"
 
           value = long_inline(/\||}}/)
-          unless value.empty? && name.is_a?(Numeric) # it was just empty line otherwise
-            res << Var.new(name.to_s, value)
-          end
+
+          # it was just empty line otherwise
+          res << Var.new(name.to_s, value) unless value.empty? && name.is_a?(Numeric)
+
           log 'Variable value found'
 
           break if @context.eat_matched?('}}')

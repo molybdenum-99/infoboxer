@@ -57,14 +57,16 @@ module Infoboxer
 
       # @see http://en.wikipedia.org/wiki/Help:Pipe_trick
       def parse_topic!
-        @topic, @refinement = case @name
-                              when /^(.+\S)\s*\((.+)\)$/, /^(.+?),\s*(.+)$/
-                                [$1, $2]
-                              else
-                                [@name, '']
-                              end
+        @topic, @refinement =
+          case @name
+          when /^(.+\S)\s*\((.+)\)$/, /^(.+?),\s*(.+)$/
+            [Regexp.last_match(1), Regexp.last_match(2)]
+          else
+            [@name, '']
+          end
 
-        return unless children.count == 1 && children.first.is_a?(Text) && children.first.raw_text.empty?
+        return unless children.count == 1 &&
+                      children.first.is_a?(Text) && children.first.raw_text.empty?
         children.first.raw_text = @topic
       end
     end

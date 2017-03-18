@@ -144,7 +144,7 @@ module Infoboxer
 
       def descr
         if !params || params.empty?
-          clean_class
+          clean_class.to_s
         else
           "#{clean_class}(#{show_params})"
         end
