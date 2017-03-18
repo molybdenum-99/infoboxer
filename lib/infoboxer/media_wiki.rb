@@ -63,7 +63,7 @@ module Infoboxer
       titles.each_slice(50).map { |part|
         @client.query.
           titles(*part).
-          prop(*prop, revisions: {prop: :content}, info: {prop: :url}).
+          prop(*prop, revisions: {prop: %i[content timestamp]}, info: {prop: :url}).
           redirects(true). # FIXME: should be done transparently by MediaWiktory?
           perform.pages
       }.inject(:concat). # somehow flatten(1) fails!
