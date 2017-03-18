@@ -35,7 +35,7 @@ module Infoboxer
 
       def table_next_line(table)
         case @context.current
-        when /^\s*\|}(.*)$/ # table end
+        when /^\s*\|}(.*)$/                 # table end
           @context.scan(/^\s*\|}/)
           # should not continue
           return false
@@ -55,6 +55,7 @@ module Infoboxer
         else
           return table_cell_cont(table)
         end
+
         true # should continue parsing
       end
 
@@ -120,8 +121,9 @@ module Infoboxer
 
         unless container
           # return "table not continued" unless row is empty
-          @context.prev! unless @context.current.empty?
-          return @context.current.empty?
+          return true if @context.current.empty?
+          @context.prev!
+          return false
         end
 
         container.push_children(paragraph(/^\s*([|!]|{\|)/))
