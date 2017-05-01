@@ -51,8 +51,7 @@ module Infoboxer
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
     def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
-      #@client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(options))
-      @client = MediaWiktory::Wikipedia::Api.new(api_base_url)
+      @client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(options))
       @traits = Traits.get(@api_base_url.host, namespaces: extract_namespaces)
     end
 
@@ -203,7 +202,6 @@ module Infoboxer
                         .redirects() # FIXME: should be done transparently by MediaWiktory?
                         .response
 
-      p response.instance_variable_get('@action').to_url
       response = response.continue while response.continue?
 
       return Tree::Nodes[] if response['pages'].nil?

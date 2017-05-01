@@ -72,11 +72,12 @@ module Infoboxer
       end
 
 
-      xcontext 'user-agent' do
+      context 'user-agent' do
+        subject { WebMock.last_request.headers }
+
         context 'default' do
-          before{client.raw('Argentina')}
-          subject{WebMock.last_request}
-          its(:headers){should include('User-Agent' => MediaWiki::UA)}
+          before { client.raw('Argentina') }
+          it { is_expected.to include('User-Agent' => MediaWiki::UA) }
         end
 
         context 'globally set' do
@@ -84,8 +85,7 @@ module Infoboxer
             Infoboxer.user_agent = 'My Cool UA'
             client.raw('Argentina')
           }
-          subject{WebMock.last_request}
-          its(:headers){should include('User-Agent' => 'My Cool UA')}
+          it { is_expected.to include('User-Agent' => 'My Cool UA') }
         end
 
         context 'locally set' do
@@ -96,8 +96,7 @@ module Infoboxer
               user_agent: 'Something else')
             client_with_ua.raw('Argentina')
           }
-          subject{WebMock.last_request}
-          its(:headers){should include('User-Agent' => 'Something else')}
+          it { is_expected.to include('User-Agent' => 'Something else') }
         end
       end
     end
