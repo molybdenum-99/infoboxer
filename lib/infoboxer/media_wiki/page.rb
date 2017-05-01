@@ -9,7 +9,7 @@ module Infoboxer
     class Page < Tree::Document
       def initialize(client, children, source)
         @client, @source = client, source
-        super(children, title: source.title, url: source.fullurl)
+        super(children, title: source['title'], url: source['fullurl'])
       end
 
       # Instance of {MediaWiki} which this page was received from

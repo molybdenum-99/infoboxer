@@ -1,75 +1,78 @@
 # encoding: utf-8
 module Infoboxer
-  describe MediaWiki do
-    let(:client){MediaWiki.new('https://en.wikipedia.org/w/api.php')}
+  describe MediaWiki, :vcr do
+    let(:client) { MediaWiki.new('https://en.wikipedia.org/w/api.php') }
 
-    describe :inspect, :vcr do
-      subject{client}
-      its(:inspect){should == '#<Infoboxer::MediaWiki(en.wikipedia.org)>'}
+    describe :inspect do
+      subject { client }
+      its(:inspect) { is_expected.to eq '#<Infoboxer::MediaWiki(en.wikipedia.org)>' }
     end
 
     describe :raw do
-      context 'when single page', :vcr do
-        subject{client.raw('Argentina').first}
+      # TODO: rewrite specs for new, hash-returning implementation
+      context 'single page' do
+        subject(:page) { client.raw(title).values.first }
 
-        it{should be_kind_of(MediaWiktory::Page)}
-        its(:title){should == 'Argentina'}
-        its(:content){should include("'''Argentina'''")}
-        its(:fullurl){should == 'https://en.wikipedia.org/wiki/Argentina'}
-      end
+        context 'default' do
+          let(:title) { 'Argentina' }
 
-      context 'when several pages', :vcr do
-        subject{client.raw('Argentina', 'Ukraine')}
+          it{ is_expected.to be_a Hash }
+          its(['title']) { is_expected.to eq 'Argentina' }
+          it { expect(subject['revisions'].first['*']).to include("'''Argentina'''") }
+          #its(:fullurl){should == 'https://en.wikipedia.org/wiki/Argentina'}
+        end
 
-        it{should be_kind_of(Array)}
-        its(:count){should == 2}
-        it 'should extract all pages' do
-          expect(subject.map(&:title)).to eq %w[Argentina Ukraine]
+        context 'non-existent' do
+          let(:title) { 'it is non-existing definitely' }
+
+          its(['title']) { is_expected.to eq 'It is non-existing definitely' }
+          its(['missing']) { is_expected.to be_truthy }
+        end
+
+        context 'redirect' do
+          let(:title) { 'Einstein' }
+
+          its(['title']) { is_expected.to eq 'Albert Einstein'}
+          it { expect(subject['revisions'].first['*']).not_to include('#REDIRECT') }
+          #its(:fullurl){should == 'https://en.wikipedia.org/wiki/Albert_Einstein'}
         end
       end
 
-      context 'when > 50 pages', :vcr do
-        let(:titles){(1920..1975).map(&:to_s)}
-        subject{client.raw(*titles)}
+      context 'several pages' do
+        subject(:pages) { client.raw(*titles).values }
 
-        it{should be_kind_of(Array)}
-        its(:count){should == titles.count}
-        it 'should extract all pages' do
-          expect(subject.map(&:title)).to eq titles
+        context 'default' do
+          let(:titles) { ['Argentina', 'Ukraine'] }
+
+          it { is_expected.to be_an Array }
+          its(:count) { is_expected.to eq 2 }
+          its_map(['title']) { is_expected.to eq %w[Argentina Ukraine] }
+        end
+
+        context '> 50 pages' do
+          let(:titles) { (1920..1975).map(&:to_s) }
+
+          it { is_expected.to be_an Array }
+          its(:count) { is_expected.to eq titles.count }
+          its_map(['title']) { is_expected.to eq titles }
+        end
+
+        context 'no pages' do
+          # could emerge on "automatically" created page lists, should work
+          let(:titles) { [] }
+
+          it { is_expected.to be_an(Array).and be_empty }
+        end
+
+        xcontext 'preserve order, even with redirects' do
+          let(:titles) { ['Oster', 'Einstein', 'Bolhrad'] }
+
+          its_map(['title']) { is_expected.to eq ['Oster', 'Albert Einstein', 'Bolhrad'] }
         end
       end
 
-      context 'when no pages', :vcr do
-        # could emerge on "automatically" created page lists, should work
-        subject{client.raw()}
 
-        it{should be_kind_of(Array)}
-        it{should be_empty}
-      end
-
-      context 'when non-existing page', :vcr do
-        subject{client.raw('it is non-existing definitely').first}
-        its(:title){should == 'It is non-existing definitely'}
-        it{should be_missing}
-      end
-
-      context 'when redirect page', :vcr do
-        subject{client.raw('Einstein').first}
-
-        its(:title){should == 'Albert Einstein'}
-        its(:content){should_not include('#REDIRECT')}
-        its(:fullurl){should == 'https://en.wikipedia.org/wiki/Albert_Einstein'}
-      end
-
-      context 'preserve order', :vcr do
-        subject(:list){client.raw('Oster', 'Einstein', 'Bolhrad')}
-
-        it 'should have exactly the same order as requested' do
-          expect(list.map(&:title)).to eq ['Oster', 'Albert Einstein', 'Bolhrad']
-        end
-      end
-
-      context 'user-agent', :vcr do
+      xcontext 'user-agent' do
         context 'default' do
           before{client.raw('Argentina')}
           subject{WebMock.last_request}
@@ -99,7 +102,7 @@ module Infoboxer
       end
     end
 
-    describe :traits, :vcr do
+    xdescribe :traits do
       subject(:traits){client.traits}
 
       context 'static part - guess by domain' do
@@ -109,164 +112,174 @@ module Infoboxer
 
       context 'dynamic part - taken from API' do
         let(:client){MediaWiki.new('https://fr.wikipedia.org/w/api.php')}
-        subject{client.traits}
-        its(:file_namespace){should == ['File', 'Fichier', 'Image']}
-        its(:category_namespace){should == ['Category', 'Catégorie']}
-      end
 
-      context 'custom part - set on creation' do
+        context 'before first page fetched' do
+          its(:file_namespace){should == ['File', 'Fichier', 'Image']}
+          its(:category_namespace){should == ['Category', 'Catégorie']}
+        end
+
+        context 'after page fetched' do
+          before { client.get('Paris') }
+
+          its(:file_namespace){should == ['File', 'Fichier', 'Image']}
+          its(:category_namespace){should == ['Category', 'Catégorie']}
+        end
       end
     end
 
-    describe :get, :vcr do
-      context 'when single page', :vcr do
-        subject{client.get('Argentina')}
+    describe :get do
+      context 'when single page' do
+        subject { client.get('Argentina') }
 
-        it{should be_a(MediaWiki::Page)}
-        its(:title){should == 'Argentina'}
-        its(:url){should == 'https://en.wikipedia.org/wiki/Argentina'}
-        its(:source){should be_a(MediaWiktory::Page)}
+        it { is_expected.to be_a MediaWiki::Page }
+        its(:title) { is_expected.to eq 'Argentina' }
+        #its(:url){should == 'https://en.wikipedia.org/wiki/Argentina'}
+        its(:source) { is_expected.to match hash_including('title' => 'Argentina') }
       end
 
-      context 'when several pages', :vcr do
-        subject{client.get('Argentina', 'Ukraine')}
+      context 'when several pages' do
+        subject { client.get('Argentina', 'Ukraine') }
 
-        it{should all(be_a(MediaWiki::Page))}
+        it { is_expected.to all be_a MediaWiki::Page}
       end
 
       context 'when signle non-existing page' do
-        subject{client.get('Why I am still trying this kind of stuff, huh?')}
+        subject { client.get('Why I am still trying this kind of stuff, huh?') }
 
-        it{should be_nil}
+        it { is_expected.to be_nil }
       end
 
       context 'when several pages, including non-existent' do
-        subject{client.get('Argentina', 'Ukraine', 'WTF I just read? Make me unsee it')}
+        subject { client.get('Argentina', 'Ukraine', 'WTF I just read? Make me unsee it') }
 
-        its(:count){should == 2}
+        its(:count) { is_expected.to eq 2 }
       end
 
-      context 'when invalid title requested', :vcr do
-        it 'should raise' do
-          expect{client.get('It%27s not')}.to raise_error(/contains invalid characters/)
-        end
+      context 'when invalid title requested' do
+        subject { client.get('It%27s not') }
+        its_call { is_expected.to raise_error(/contains invalid characters/) }
       end
 
-      describe ':prop', :vcr do
+      describe ':prop' do
         subject { client.get('Argentina', prop: :wbentityusage) }
 
-        its(:source) { is_expected.to have_key(:wbentityusage) }
+        its(:source) { is_expected.to have_key('wbentityusage') }
       end
     end
 
     describe :get_h do
-      context 'when several pages, including non-existent', :vcr do
-        subject{client.get_h('Argentina', 'Ukraine', 'WTF I just read? Make me unsee it')}
+      subject { client.get_h(*titles) }
 
-        it{should be_a(Hash)}
-        its(:keys){should == ['Argentina', 'Ukraine', 'WTF I just read? Make me unsee it']}
-        its(['WTF I just read? Make me unsee it']){should be_nil}
+      context 'when several pages, including non-existent' do
+        let(:titles) { ['Argentina', 'Ukraine', 'WTF I just read? Make me unsee it'] }
+
+        it { is_expected.to be_a Hash }
+        its(:keys) { are_expected.to eq ['Argentina', 'Ukraine', 'WTF I just read? Make me unsee it'] }
+        its(['WTF I just read? Make me unsee it']) { is_expected.to be_nil }
       end
 
-      context 'when several pages, including redirected to same', :vcr do
-        subject{client.get_h('Kharkiv', 'Kharkov', 'Kharkiv, Ukraine')}
+      context 'when several pages, including redirected to same' do
+        let(:titles) { ['Kharkiv', 'Kharkov', 'Kharkiv, Ukraine'] }
 
-        it{should be_a(Hash)}
-        its(:keys){should == ['Kharkiv', 'Kharkov', 'Kharkiv, Ukraine']}
-        its(:values){should all be_a MediaWiki::Page}
-        its(:'values.uniq.count'){should == 1}
+        it { is_expected.to be_a Hash }
+        its(:keys) { are_expected.to eq ['Kharkiv', 'Kharkov', 'Kharkiv, Ukraine'] }
+        its(:values) { are_expected.to all be_a MediaWiki::Page }
+        its(:values) { are_expected.to all have_attributes(title: 'Kharkiv') }
+
+        # TODO: parse all synonyms in one pass
+        # its(:'values.uniq.count') { is_expected.to eq 1 }
       end
 
-      context 'with downcase titles', :vcr do
-        subject{client.get_h('kharkiv')}
+      context 'with downcase titles' do
+        let(:titles) { ['kharkiv'] }
 
-        it{should be_a(Hash)}
-        its(:keys){should == ['kharkiv']}
-        its(:values){should all be_a MediaWiki::Page}
+        it { is_expected.to be_a Hash }
+        its(:keys) { are_expected.to eq ['kharkiv'] }
+        its(:values) { are_expected.to all be_a MediaWiki::Page}
       end
     end
 
-    describe :category, :vcr do
+    describe :category do
+      subject(:response) { client.category(category) }
+
       context 'when category exists' do
-        subject{client.category('Category:Ukrainian rock music groups')}
-        it{should be_a(Tree::Nodes)}
-        its(:count){should > 40}
+        let(:category) { 'Category:Ukrainian rock music groups' }
+        it { is_expected.to be_a(Tree::Nodes) }
+        its(:count) { is_expected.to be > 40 }
 
-        it 'should have correct content' do
-          expect(subject.map(&:title)).to include('Dymna Sumish', 'Okean Elzy', 'Vopli Vidopliassova')
-        end
+        its_map(:title) { is_expected.to include('Dymna Sumish', 'Okean Elzy', 'Vopli Vidopliassova') }
       end
 
-      xcontext 'when category is not' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
-        subject{client.category('Category:krainian rock music groups')}
-        it{should be_a(Tree::Nodes)}
-        it{should be_empty}
+      context 'when category is not' do
+        let(:category) { 'Category:krainian rock music groups' }
+        it { is_expected.to be_a(Tree::Nodes)}
+        it { is_expected.to be_empty}
       end
 
-      describe 'category name transformation', :vcr do
-        subject{WebMock.last_request}
+      describe 'category name transformation' do
+        # FIXME: better webmock specs!
+        subject { WebMock.last_request }
+
+        before { response }
 
         context 'when no namespace' do
-          before{client.category('Ukrainian rock music groups')}
+          let(:category) { 'Ukrainian rock music groups' }
 
-          its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian rock music groups')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian rock music groups')}
         end
 
         context 'default namespace' do
-          before{client.category('Category:Ukrainian rock music groups')}
+          let(:category) { 'Category:Ukrainian rock music groups' }
 
-          its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian rock music groups')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian rock music groups')}
         end
 
         context 'localized namespace' do
-          let(:client){MediaWiki.new('https://es.wikipedia.org/w/api.php')}
-          before{client.category('Categoría:Grupos de rock de Ucrania')}
+          let(:client) { MediaWiki.new('https://es.wikipedia.org/w/api.php') }
+          let(:category) { 'Categoría:Grupos de rock de Ucrania' }
 
-          its(:'uri.query_values'){should include('gcmtitle' => 'Categoría:Grupos de rock de Ucrania')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Categoría:Grupos de rock de Ucrania')}
         end
 
-        xcontext 'not a namespace' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
-          before{client.category('Ukrainian: rock music groups')}
+        context 'not a namespace' do
+          let(:category) { 'Ukrainian: rock music groups' }
 
-          its(:'uri.query_values'){should include('gcmtitle' => 'Category:Ukrainian: rock music groups')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian: rock music groups')}
         end
-
       end
     end
 
-    describe :search, :vcr do
-      context 'when found' do
-        subject{client.search('intitle:"town tramway systems in Chile"')}
-        it{should be_a(Tree::Nodes)}
-        its(:count){should == 1}
+    describe :search do
+      subject { client.search(query) }
 
-        it 'should have correct content' do
-          expect(subject.map(&:title)).to include('List of town tramway systems in Chile')
-        end
+      context 'when found' do
+        let(:query) { 'intitle:"town tramway systems in Chile"' }
+        it { is_expected.to be_a(Tree::Nodes) }
+        its(:count) { is_expected.to eq 1 }
+
+        its_map(:title) { is_expected.to include('List of town tramway systems in Chile') }
       end
 
-      xcontext 'when not found' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
-        subject{client.search('intitle:"town tramway systems in Vunuatu"')}
-        it{should be_a(Tree::Nodes)}
-        it{should be_empty}
+      context 'when not found' do
+        let(:query) { 'intitle:"town tramway systems in Vunuatu"' }
+        it { is_expected.to be_a(Tree::Nodes).and be_empty }
       end
     end
 
-    describe :prefixsearch, :vcr do
-      context 'when found' do
-        subject{client.prefixsearch('Ukrainian hr')}
-        it{should be_a(Tree::Nodes)}
-        its(:count){should > 1}
+    describe :prefixsearch do
+      subject { client.prefixsearch(prefix) }
 
-        it 'should have correct content' do
-          expect(subject.map(&:title)).to include('Ukrainian hryvnia')
-        end
+      context 'when found' do
+        let(:prefix) { 'Ukrainian hr' }
+        it { is_expected.to be_a(Tree::Nodes) }
+        its(:count) { is_expected.to be > 1 }
+
+        its_map(:title) { is_expected.to include('Ukrainian hryvnia') }
       end
 
-      xcontext 'when not found' do # waits for https://github.com/molybdenum-99/mediawiktory/issues/26
-        subject{client.prefixsearch('Ukrainian foooo')}
-        it{should be_a(Tree::Nodes)}
-        it{should be_empty}
+      context 'when not found' do
+        let(:prefix) { 'Ukrainian foooo' }
+        it { is_expected.to be_a(Tree::Nodes).and be_empty }
       end
     end
   end

@@ -51,7 +51,8 @@ module Infoboxer
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
     def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
-      @client = MediaWiktory::Client.new(api_base_url, user_agent: user_agent(options))
+      #@client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(options))
+      @client = MediaWiktory::Wikipedia::Api.new(api_base_url)
       @traits = Traits.get(@api_base_url.host, namespaces: extract_namespaces)
     end
 
@@ -60,20 +61,23 @@ module Infoboxer
     #
     # @return [Array<Hash>]
     def raw(*titles, prop: [])
-      return [] if titles.empty? # could emerge on "automatically" created page lists, should work
+      return {} if titles.empty? # could emerge on "automatically" created page lists, should work
 
       titles.each_slice(50).map do |part|
-        @client.query
-               .titles(*part)
-               .prop(*prop, revisions: {prop: %i(content timestamp)}, info: {prop: :url})
-               .redirects(true) # FIXME: should be done transparently by MediaWiktory?
-               .perform.pages
-      end.inject(:concat) # somehow flatten(1) fails!
-            .sort_by do |page|
-        res_title = page.alt_titles
-                        .detect { |t| titles.map(&:downcase).include?(t.downcase) } # FIXME?..
-        titles.index(res_title) || 1_000
-      end
+        response = @client
+          .query
+          .titles(*part)
+          .prop(*prop, :revisions).prop(:content, :timestamp)
+          .redirects # FIXME: should be done transparently by MediaWiktory?
+          .response
+          #.prop(*prop, revisions: {prop: %i(content timestamp)}, info: {prop: :url})
+
+        sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
+        redirects = response['redirects']&.map { |r| [r['from'], sources[r['to']]] }.to_h || {}
+
+        # This way for 'Einstein' query we'll have {'Albert Einstein' => page, 'Einstein' => same page}
+        sources.merge(redirects)
+      end.inject(:merge)
     end
 
     # Receive list of parsed MediaWiki pages for list of titles provided.
@@ -101,14 +105,7 @@ module Infoboxer
     #     NotFound.
     #
     def get(*titles, prop: [])
-      pages = raw(*titles, prop: prop)
-              .tap { |ps| ps.detect(&:invalid?).tap { |i| i && fail(i.raw.invalidreason) } }
-              .select(&:exists?)
-              .map do |raw|
-        Page.new(self,
-                 Parser.paragraphs(raw.content, traits),
-                 raw)
-      end
+      pages = get_h(*titles, prop: prop).values.compact
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
@@ -126,11 +123,16 @@ module Infoboxer
     #
     # @return [Hash<String, Page>]
     #
-    def get_h(*titles)
-      pages = [*get(*titles)]
-      titles.map { |t|
-        [t, pages.detect { |p| p.source.alt_titles.map(&:downcase).include?(t.downcase) }]
-      }.to_h
+    def get_h(*titles, prop: [])
+      raw_pages = raw(*titles, prop: prop)
+              .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
+              .select { |_, p| !p.key?('missing') }
+      titles.map { |title| [title, make_page(raw_pages, title)] }.to_h
+    end
+
+    def make_page(raw_pages, title)
+      source = raw_pages.detect { |ptitle, _| ptitle.downcase == title.downcase }&.last or return nil
+      Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
     end
 
     # Receive list of parsed MediaWiki pages from specified category.
@@ -140,7 +142,7 @@ module Infoboxer
     # fetched in 50-page batches, then parsed. So, for large category
     # it can really take a while to fetch all pages.
     #
-    # @param title Category title. You can use namespaceless title (like
+    # @param title [String] Category title. You can use namespaceless title (like
     #     `"Countries in South America"`), title with namespace (like
     #     `"Category:Countries in South America"`) or title with local
     #     namespace (like `"Catégorie:Argentine"` for French Wikipedia)
@@ -150,7 +152,7 @@ module Infoboxer
     def category(title)
       title = normalize_category_title(title)
 
-      list(categorymembers: {title: title, limit: 50})
+      list(@client.query.generator(:categorymembers).title(title).limit('max'))
     end
 
     # Receive list of parsed MediaWiki pages for provided search query.
@@ -159,10 +161,10 @@ module Infoboxer
     #
     # **NB**: currently, this API **always** fetches all pages from
     # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large category
+    # fetched in 50-page batches, then parsed. So, for large search query
     # it can really take a while to fetch all pages.
     #
-    # @param query Search query. For old installations, look at
+    # @param query [String] Search query. For old installations, look at
     #     https://www.mediawiki.org/wiki/Help:Searching
     #     for search syntax. For new ones (including Wikipedia), see at
     #     https://www.mediawiki.org/wiki/Help:CirrusSearch.
@@ -170,7 +172,7 @@ module Infoboxer
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
     def search(query)
-      list(search: {search: query, limit: 50})
+      list(@client.query.generator(:search).search(query).limit('max'))
     end
 
     # Receive list of parsed MediaWiki pages with titles startin from prefix.
@@ -179,15 +181,15 @@ module Infoboxer
     #
     # **NB**: currently, this API **always** fetches all pages from
     # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large category
+    # fetched in 50-page batches, then parsed. So, for large search query
     # it can really take a while to fetch all pages.
     #
-    # @param prefix page title prefix.
+    # @param prefix [String] Page title prefix.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
     def prefixsearch(prefix)
-      list(prefixsearch: {search: prefix, limit: 100})
+      list(@client.query.generator(:prefixsearch).search(prefix).limit('max'))
     end
 
     def inspect
@@ -197,20 +199,18 @@ module Infoboxer
     private
 
     def list(query)
-      response = @client.query
-                        .generator(query)
-                        .prop(revisions: {prop: :content}, info: {prop: :url})
-                        .redirects(true) # FIXME: should be done transparently by MediaWiktory?
-                        .perform
+      response = query.prop(:revisions).prop(:content) # TODO prop(:info).prop(:url)
+                        .redirects() # FIXME: should be done transparently by MediaWiktory?
+                        .response
 
-      response.continue! while response.continue?
+      p response.instance_variable_get('@action').to_url
+      response = response.continue while response.continue?
 
-      pages = response.pages.select(&:exists?)
-                      .map do |raw|
-        Page.new(self,
-                 Parser.paragraphs(raw.content, traits),
-                 raw)
-      end
+      return Tree::Nodes[] if response['pages'].nil?
+
+      pages = response['pages']
+        .values.select { |p| p['missing'].nil? }
+        .map { |raw| p raw if raw['revisions'].nil?; Page.new(self, Parser.paragraphs(raw['revisions'].first['*'], traits), raw) }
 
       Tree::Nodes[*pages]
     end
@@ -229,13 +229,11 @@ module Infoboxer
     end
 
     def extract_namespaces
-      siteinfo = @client.query.meta(siteinfo: {prop: [:namespaces, :namespacealiases]}).perform
-      siteinfo.raw.query.namespaces.map do |_, namespace|
+      siteinfo = @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases).response
+      siteinfo['namespaces'].map do |_, namespace|
         aliases =
-          siteinfo.raw.query
-                  .namespacealiases
-                  .select { |a| a.id == namespace.id }.map { |a| a['*'] }
-        namespace.merge(aliases: aliases)
+          siteinfo['namespacealiases'].select { |a| a['id'] == namespace['id'] }.map { |a| a['*'] }
+        namespace.merge('aliases' => aliases)
       end
     end
   end

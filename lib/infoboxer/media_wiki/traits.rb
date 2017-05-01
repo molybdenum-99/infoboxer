@@ -88,9 +88,9 @@ module Infoboxer
       private
 
       def namespace_aliases(options, canonical)
-        namespace = (options[:namespaces] || []).detect { |v| v.canonical == canonical }
+        namespace = (options[:namespaces] || []).detect { |v| v['canonical'] == canonical }
         return nil unless namespace
-        [namespace['*'], *namespace.aliases]
+        [namespace['*'], *namespace['aliases']]
       end
 
       DEFAULTS = {
