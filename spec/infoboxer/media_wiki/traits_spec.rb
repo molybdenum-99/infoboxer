@@ -12,7 +12,7 @@ module Infoboxer
       load 'lib/infoboxer/definitions/en.wikipedia.org.rb'
       $VERBOSE = verbose
     }
-    
+
     context 'definition' do
       let(:klass){Class.new(described_class)}
       let(:traits){klass.new}
@@ -92,8 +92,8 @@ module Infoboxer
         before{
           klass.domain 'in.wikipedia.org'
         }
-        subject{MediaWiki::Traits.get('in.wikipedia.org', Hashie::Mash.new(namespaces: [{canonical: 'File', '*' => 'Fichier'}]))}
-        its(:file_namespace){should == ['File', 'Fichier']}
+        subject{ MediaWiki::Traits.get('in.wikipedia.org', {namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]})}
+        its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier')}
       end
     end
   end

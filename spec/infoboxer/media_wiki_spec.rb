@@ -19,7 +19,7 @@ module Infoboxer
           it{ is_expected.to be_a Hash }
           its(['title']) { is_expected.to eq 'Argentina' }
           it { expect(subject['revisions'].first['*']).to include("'''Argentina'''") }
-          #its(:fullurl){should == 'https://en.wikipedia.org/wiki/Argentina'}
+          its(['fullurl']) { is_expected.to eq 'https://en.wikipedia.org/wiki/Argentina' }
         end
 
         context 'non-existent' do
@@ -34,7 +34,7 @@ module Infoboxer
 
           its(['title']) { is_expected.to eq 'Albert Einstein'}
           it { expect(subject['revisions'].first['*']).not_to include('#REDIRECT') }
-          #its(:fullurl){should == 'https://en.wikipedia.org/wiki/Albert_Einstein'}
+          its(['fullurl']) { is_expected.to eq 'https://en.wikipedia.org/wiki/Albert_Einstein' }
         end
       end
 
@@ -101,27 +101,27 @@ module Infoboxer
       end
     end
 
-    xdescribe :traits do
-      subject(:traits){client.traits}
+    describe :traits do
+      subject(:traits) { client.traits }
 
       context 'static part - guess by domain' do
-        subject{traits.templates.find('&')}
-        it{should < Templates::Literal}
+        subject { traits.templates.find('&') }
+        it { is_expected.to be < Templates::Literal }
       end
 
       context 'dynamic part - taken from API' do
-        let(:client){MediaWiki.new('https://fr.wikipedia.org/w/api.php')}
+        let(:client) { MediaWiki.new('https://fr.wikipedia.org/w/api.php') }
 
         context 'before first page fetched' do
-          its(:file_namespace){should == ['File', 'Fichier', 'Image']}
-          its(:category_namespace){should == ['Category', 'Catégorie']}
+          its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier', 'Image') }
+          its(:category_namespace) { is_expected.to contain_exactly('Category', 'Catégorie') }
         end
 
         context 'after page fetched' do
           before { client.get('Paris') }
 
-          its(:file_namespace){should == ['File', 'Fichier', 'Image']}
-          its(:category_namespace){should == ['Category', 'Catégorie']}
+          its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier', 'Image') }
+          its(:category_namespace) { is_expected.to contain_exactly('Category', 'Catégorie') }
         end
       end
     end

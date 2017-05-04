@@ -66,10 +66,9 @@ module Infoboxer
         response = @client
           .query
           .titles(*part)
-          .prop(*prop, :revisions).prop(:content, :timestamp)
+          .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
           .redirects # FIXME: should be done transparently by MediaWiktory?
           .response
-          #.prop(*prop, revisions: {prop: %i(content timestamp)}, info: {prop: :url})
 
         sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
         redirects = response['redirects']&.map { |r| [r['from'], sources[r['to']]] }.to_h || {}
