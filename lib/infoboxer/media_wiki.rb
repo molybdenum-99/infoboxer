@@ -2,7 +2,6 @@
 require 'mediawiktory'
 require 'addressable/uri'
 
-require_relative 'media_wiki/mediawiktory_patch'
 require_relative 'media_wiki/traits'
 require_relative 'media_wiki/page'
 
@@ -71,7 +70,7 @@ module Infoboxer
           .response
 
         sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
-        redirects = response['redirects']&.map { |r| [r['from'], sources[r['to']]] }.to_h || {}
+        redirects = (response['redirects'] && response['redirects'].map { |r| [r['from'], sources[r['to']]] }.to_h) || {}
 
         # This way for 'Einstein' query we'll have {'Albert Einstein' => page, 'Einstein' => same page}
         sources.merge(redirects)
@@ -129,7 +128,8 @@ module Infoboxer
     end
 
     def make_page(raw_pages, title)
-      source = raw_pages.detect { |ptitle, _| ptitle.downcase == title.downcase }&.last or return nil
+      _, source = raw_pages.detect { |ptitle, _| ptitle.downcase == title.downcase }
+      source or return nil
       Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
     end
 
