@@ -235,7 +235,7 @@ module Infoboxer
       def extract_params(vars)
         vars
           .select { |v| v.children.count == 1 && v.children.first.is_a?(Text) }
-          .flat_map { |v| [v.name, v.children.first.raw_text] }.to_h
+          .map { |v| [v.name, v.children.first.raw_text] }.to_h
       end
 
       def inspect_variables(depth)
