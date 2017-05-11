@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 # @private
 class Object
   # Unfortunately, not in backports gem still :(

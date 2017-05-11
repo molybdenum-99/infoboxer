@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Templates
     # Base class for defining set of templates, used for some site/domain.

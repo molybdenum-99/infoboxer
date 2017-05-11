@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Navigation
     # `Sections` module provides logical view on document strcture.
@@ -139,9 +140,9 @@ module Infoboxer
         # @!method sections(*names)
         # @!method in_sections
 
-        [:sections, :in_sections].each do |sym|
+        %i[sections in_sections].each do |sym|
           define_method(sym) do |*args|
-            make_nodes map { |n| n.send(sym, *args) }
+            make_nodes(map { |n| n.send(sym, *args) })
           end
         end
       end

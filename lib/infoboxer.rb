@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'procme'
 
 # Main client module for entire infoboxer functionality. If you're lucky,

@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     # Represents image (or other media file).

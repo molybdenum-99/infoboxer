@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   class Parser
     # http://en.wikipedia.org/wiki/Help:Table
@@ -37,7 +38,6 @@ module Infoboxer
         case @context.current
         when /^\s*\|}(.*)$/                 # table end
           @context.scan(/^\s*\|}/)
-          # should not continue
           return false
         when /^\s*!/                        # heading (th) in a row
           table_cells(table, TableHeading)

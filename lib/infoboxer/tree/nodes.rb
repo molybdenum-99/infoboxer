@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     # List of nodes, which tries to be useful both as array, and as proxy
@@ -40,7 +41,7 @@ module Infoboxer
       # @!method -(other)
       #    Just like Array#-, but returns Nodes
 
-      [:select, :reject, :sort_by, :flatten, :compact, :-].each do |sym|
+      %i[select reject sort_by flatten compact -].each do |sym|
         define_method(sym) do |*args, &block|
           Nodes[*super(*args, &block)]
         end
@@ -88,12 +89,12 @@ module Infoboxer
       #
       #   See {Tree::Template#fetch} for explanation.
 
-      [
-        :prev_siblings, :next_siblings, :siblings,
-        :fetch
+      %i[
+        prev_siblings next_siblings siblings
+        fetch
       ].each do |sym|
         define_method(sym) do |*args|
-          make_nodes map { |n| n.send(sym, *args) }
+          make_nodes(map { |n| n.send(sym, *args) })
         end
       end
 
@@ -172,7 +173,7 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def flow_templates
-        make_nodes map { |n| n.is_a?(Paragraph) ? n.to_templates? : n }
+        make_nodes(map { |n| n.is_a?(Paragraph) ? n.to_templates? : n })
       end
 
       private

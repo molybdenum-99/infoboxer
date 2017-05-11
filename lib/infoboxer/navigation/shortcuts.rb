@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Navigation
     # See {Shortcuts::Node Shortcuts::Node} for everything!
@@ -158,7 +159,7 @@ module Infoboxer
            templates tables lists infoboxes infobox categories]
           .each do |m|
             define_method(m) do |*args|
-              make_nodes map { |n| n.send(m, *args) }
+              make_nodes(map { |n| n.send(m, *args) })
             end
           end
       end

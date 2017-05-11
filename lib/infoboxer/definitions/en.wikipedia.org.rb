@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   MediaWiki::Traits.for('en.wikipedia.org') do
     templates do

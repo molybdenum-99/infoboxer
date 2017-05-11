@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'mediawiktory'
 require 'addressable/uri'
 
@@ -63,14 +64,19 @@ module Infoboxer
 
       titles.each_slice(50).map do |part|
         response = @client
-          .query
-          .titles(*part)
-          .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
-          .redirects # FIXME: should be done transparently by MediaWiktory?
-          .response
+                   .query
+                   .titles(*part)
+                   .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
+                   .redirects # FIXME: should be done transparently by MediaWiktory?
+                   .response
 
         sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
-        redirects = (response['redirects'] && response['redirects'].map { |r| [r['from'], sources[r['to']]] }.to_h) || {}
+        redirects =
+          if response['redirects']
+            response['redirects'].map { |r| [r['from'], sources[r['to']]] }.to_h
+          else
+            {}
+          end
 
         # This way for 'Einstein' query we'll have {'Albert Einstein' => page, 'Einstein' => same page}
         sources.merge(redirects)
@@ -122,13 +128,13 @@ module Infoboxer
     #
     def get_h(*titles, prop: [])
       raw_pages = raw(*titles, prop: prop)
-              .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
-              .select { |_, p| !p.key?('missing') }
+                  .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
+                  .reject { |_, p| p.key?('missing') }
       titles.map { |title| [title, make_page(raw_pages, title)] }.to_h
     end
 
     def make_page(raw_pages, title)
-      _, source = raw_pages.detect { |ptitle, _| ptitle.downcase == title.downcase }
+      _, source = raw_pages.detect { |ptitle, _| ptitle.casecmp(title).zero? }
       source or return nil
       Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
     end
@@ -197,17 +203,19 @@ module Infoboxer
     private
 
     def list(query)
-      response = query.prop(:revisions).prop(:content) # TODO prop(:info).prop(:url)
-                        .redirects() # FIXME: should be done transparently by MediaWiktory?
-                        .response
+      response = query
+                 .prop(:revisions, :info)
+                 .prop(:content, :timestamp, :url)
+                 .redirects # FIXME: should be done transparently by MediaWiktory?
+                 .response
 
       response = response.continue while response.continue?
 
       return Tree::Nodes[] if response['pages'].nil?
 
       pages = response['pages']
-        .values.select { |p| p['missing'].nil? }
-        .map { |raw| p raw if raw['revisions'].nil?; Page.new(self, Parser.paragraphs(raw['revisions'].first['*'], traits), raw) }
+              .values.select { |p| p['missing'].nil? }
+              .map { |raw| Page.new(self, Parser.paragraphs(raw['revisions'].first['*'], traits), raw) }
 
       Tree::Nodes[*pages]
     end

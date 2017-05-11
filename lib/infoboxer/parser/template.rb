@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   class Parser
     module Template
