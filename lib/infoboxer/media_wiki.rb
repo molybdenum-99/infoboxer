@@ -35,9 +35,12 @@ module Infoboxer
       # Default value is {UA}.
       #
       # You can also use per-instance option, see {#initialize}
+      #
+      # @return [String]
       attr_accessor :user_agent
     end
 
+    # @private
     attr_reader :api_base_url, :traits
 
     # Creating new MediaWiki client. {Infoboxer.wiki} provides shortcut
@@ -58,16 +61,24 @@ module Infoboxer
     # Receive "raw" data from Wikipedia (without parsing or wrapping in
     # classes).
     #
-    # @return [Array<Hash>]
+    # @param titles [Array<String>] List of page titles to get.
+    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
+    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
+    #   for the list of available properties.
+    #
+    # @return [Hash{String => Hash}] Hash of `{requested title => raw MediaWiki object}`. Note that
+    #   even missing (does not exist in current Wiki) or invalid (impossible title) still be present
+    #   in response, just will have `"missing"` or `"invalid"` key, just like MediaWiki returns them.
     def raw(*titles, prop: [])
-      return {} if titles.empty? # could emerge on "automatically" created page lists, should work
+      # could emerge on "automatically" created page lists, should work
+      return {} if titles.empty?
 
       titles.each_slice(50).map do |part|
         response = @client
                    .query
                    .titles(*part)
                    .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
-                   .redirects # FIXME: should be done transparently by MediaWiktory?
+                   .redirects
                    .response
 
         sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
@@ -91,7 +102,12 @@ module Infoboxer
     # many queries as necessary to extract them all (it will be like
     # `(titles.count / 50.0).ceil` requests)
     #
-    # @return [Tree::Nodes<Page>] array of parsed pages. Notes:
+    # @param titles [Array<String>] List of page titles to get.
+    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
+    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
+    #   for the list of available properties.
+    #
+    # @return [Page, Tree::Nodes<Page>] array of parsed pages. Notes:
     #   * if you call `get` with only one title, one page will be
     #     returned instead of an array
     #   * if some of pages are not in wiki, they will not be returned,
@@ -104,15 +120,15 @@ module Infoboxer
     #     Infoboxer.wp.get('Argentina', 'Chile', 'Something non-existing').
     #        infobox.fetch('some value')
     #     ```
-    #     and obtain meaningful results instead of NoMethodError or some
-    #     NotFound.
+    #     and obtain meaningful results instead of `NoMethodError` or
+    #     `SomethingNotFound`.
     #
     def get(*titles, prop: [])
       pages = get_h(*titles, prop: prop).values.compact
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
-    # Same as {#get}, but returns hash of {requested title => page}.
+    # Same as {#get}, but returns hash of `{requested title => page}`.
     #
     # Useful quirks:
     # * when requested page not existing, key will be still present in
@@ -124,6 +140,11 @@ module Infoboxer
     # This allows you to be in full control of what pages of large list
     # you've received.
     #
+    # @param titles [Array<String>] List of page titles to get.
+    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
+    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
+    #   for the list of available properties.
+    #
     # @return [Hash<String, Page>]
     #
     def get_h(*titles, prop: [])
@@ -131,12 +152,6 @@ module Infoboxer
                   .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
                   .reject { |_, p| p.key?('missing') }
       titles.map { |title| [title, make_page(raw_pages, title)] }.to_h
-    end
-
-    def make_page(raw_pages, title)
-      _, source = raw_pages.detect { |ptitle, _| ptitle.casecmp(title).zero? }
-      source or return nil
-      Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
     end
 
     # Receive list of parsed MediaWiki pages from specified category.
@@ -196,17 +211,24 @@ module Infoboxer
       list(@client.query.generator(:prefixsearch).search(prefix).limit('max'))
     end
 
+    # @return [String]
     def inspect
       "#<#{self.class}(#{@api_base_url.host})>"
     end
 
     private
 
+    def make_page(raw_pages, title)
+      _, source = raw_pages.detect { |ptitle, _| ptitle.casecmp(title).zero? }
+      source or return nil
+      Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
+    end
+
     def list(query)
       response = query
                  .prop(:revisions, :info)
                  .prop(:content, :timestamp, :url)
-                 .redirects # FIXME: should be done transparently by MediaWiktory?
+                 .redirects
                  .response
 
       response = response.continue while response.continue?
