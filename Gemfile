@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'mediawiktory', github: 'molybdenum-99/mediawiktory', branch: 'develop'
+# gem 'mediawiktory', github: 'molybdenum-99/mediawiktory', branch: 'develop'
 
 group :docs do
   gem 'dokaz', git: 'https://github.com/zverok/dokaz.git'
