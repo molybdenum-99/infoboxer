@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 gemspec
 
+# gem 'mediawiktory', github: 'molybdenum-99/mediawiktory', branch: 'develop'
+
 group :docs do
   gem 'dokaz', git: 'https://github.com/zverok/dokaz.git'
-  gem 'yard'
+  gem 'yard', '~> 0.9'
   gem 'redcarpet'
-  gem 'inch'
+  #gem 'inch'
 end
 
 group :development do
@@ -22,5 +24,6 @@ group :test do
   gem 'rspec-its', '~> 1'
   gem 'vcr'
   gem 'webmock'
+  gem 'saharspec', github: 'zverok/saharspec'
   gem 'coveralls', require: false
 end

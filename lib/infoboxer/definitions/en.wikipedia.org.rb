@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   MediaWiki::Traits.for('en.wikipedia.org') do
     templates do
@@ -69,7 +70,7 @@ module Infoboxer
       show(
         'Allow wrap',
         'Nowrap',
-          'j', 'nobr', 'nobreak', # aliases for Nowrap
+        'j', 'nobr', 'nobreak', # aliases for Nowrap
         'nowraplinks',
       )
       # inflow_template('Normalwraplink') # TODO: tricky
@@ -235,12 +236,11 @@ module Infoboxer
         end
 
         ALLOW_BETWEEN = ['-;', '–',
-          'and', '&', 'and(-)', ', and',
-          'or', ', or',
-          'to', 'to(-)', 'to about',
-          '+/-', '±', '+',
-          'by', 'x', '×', 'x',
-        ].freeze
+                         'and', '&', 'and(-)', ', and',
+                         'or', ', or',
+                         'to', 'to(-)', 'to about',
+                         '+/-', '±', '+',
+                         'by', 'x', '×', 'x',].freeze
 
         def between
           ALLOW_BETWEEN.include?(fetch('2').text) ? fetch('2').text : nil

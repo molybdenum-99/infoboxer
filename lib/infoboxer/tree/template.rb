@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require_relative 'linkable'
 
 module Infoboxer
@@ -114,7 +115,7 @@ module Infoboxer
       # See {Node#to_tree}
       def to_tree(level = 0)
         '  ' * level + "<#{descr}>\n" +
-          variables.map { |var| var.to_tree(level+1) }.join
+          variables.map { |var| var.to_tree(level + 1) }.join
       end
 
       # Represents entire template as hash of `String => String`,
@@ -233,14 +234,13 @@ module Infoboxer
       end
 
       def extract_params(vars)
-        # NB: backports' to_h is cleaner but has performance penalty :(
-        Hash[*vars.
-          select { |v| v.children.count == 1 && v.children.first.is_a?(Text) }.
-          flat_map { |v| [v.name, v.children.first.raw_text] }]
+        vars
+          .select { |v| v.children.count == 1 && v.children.first.is_a?(Text) }
+          .map { |v| [v.name, v.children.first.raw_text] }.to_h
       end
 
       def inspect_variables(depth)
-        variables.to_a[0..1].map { |name, var| "#{name}: #{var.inspect(depth+1)}" }.join(', ') +
+        variables.to_a[0..1].map { |name, var| "#{name}: #{var.inspect(depth + 1)}" }.join(', ') +
           (variables.count > 2 ? ', ...' : '')
       end
     end

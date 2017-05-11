@@ -1,5 +1,11 @@
 # Infoboxer's change log
 
+## 0.2.8 (2017-05-11)
+
+* Switch to MediaWiktory 0.1.0 + some subsequent cleanup of internal logic;
+* Additional `prop:` param for `MediaWiki#get`, `#get_h`, and `#raw`, allowing to fetch arbitrary
+  page properties.
+
 ## 0.2.7 (2016-09-18)
 
 * Fix `Math` node rendering to text (#68);

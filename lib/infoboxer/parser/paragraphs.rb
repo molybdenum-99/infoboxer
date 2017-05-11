@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   class Parser
     module Paragraphs
@@ -51,11 +52,7 @@ module Infoboxer
       # FIXME: in fact, there's some formatting, that should work inside pre
       def pre(until_pattern)
         @context.skip(/^ /)
-        str = if until_pattern
-                @context.scan_until(/(#{until_pattern}|$)/)
-              else
-                @context.current
-              end
+        str = until_pattern ? @context.scan_until(/(#{until_pattern}|$)/) : @context.current
         Pre.new(Nodes[Text.new(str)])
       end
 

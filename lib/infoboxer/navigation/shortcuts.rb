@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Navigation
     # See {Shortcuts::Node Shortcuts::Node} for everything!
@@ -154,12 +155,12 @@ module Infoboxer
         # @!method infoboxes(*selectors, &block)
         # @!method categories
 
-        [:wikilinks, :headings, :paragraphs, :external_links, :images,
-         :templates, :tables, :lists, :infoboxes, :infobox, :categories].
-          each do |m|
-            define_method(m) { |*args|
-              make_nodes map { |n| n.send(m, *args) }
-            }
+        %i[wikilinks headings paragraphs external_links images
+           templates tables lists infoboxes infobox categories]
+          .each do |m|
+            define_method(m) do |*args|
+              make_nodes(map { |n| n.send(m, *args) })
+            end
           end
       end
     end

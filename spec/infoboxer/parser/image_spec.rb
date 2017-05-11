@@ -57,7 +57,7 @@ module Infoboxer
       }
       let(:traits){
         # FIXME: works well in real life, but too complex for test
-        MediaWiki::Traits.new(Hashie::Mash.new(namespaces: [{canonical: 'File', '*' => 'Fichier'}]))
+        MediaWiki::Traits.new({namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]})
       }
       let(:ctx){Parser::Context.new(source, traits)}
 

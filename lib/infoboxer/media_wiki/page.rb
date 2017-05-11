@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   class MediaWiki
     # A descendant of {Tree::Document Document}, representing page,
@@ -9,7 +10,7 @@ module Infoboxer
     class Page < Tree::Document
       def initialize(client, children, source)
         @client, @source = client, source
-        super(children, title: source.title, url: source.fullurl)
+        super(children, title: source['title'], url: source['fullurl'])
       end
 
       # Instance of {MediaWiki} which this page was received from
@@ -36,7 +37,7 @@ module Infoboxer
 
       private
 
-      PARAMS_TO_INSPECT = [:url, :title].freeze
+      PARAMS_TO_INSPECT = %i[url title].freeze
 
       def show_params
         super(params.select { |k, _v| PARAMS_TO_INSPECT.include?(k) })

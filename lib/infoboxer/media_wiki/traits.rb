@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   class MediaWiki
     # DSL for defining "traits" for some site.
@@ -69,10 +70,12 @@ module Infoboxer
 
       def initialize(options = {})
         @options = options
-        @file_namespace = [DEFAULTS[:file_namespace], namespace_aliases(options, 'File')].
-          flatten.compact.uniq
-        @category_namespace = [DEFAULTS[:category_namespace], namespace_aliases(options, 'Category')].
-          flatten.compact.uniq
+        @file_namespace =
+          [DEFAULTS[:file_namespace], namespace_aliases(options, 'File')]
+          .flatten.compact.uniq
+        @category_namespace =
+          [DEFAULTS[:category_namespace], namespace_aliases(options, 'Category')]
+          .flatten.compact.uniq
       end
 
       # @private
@@ -86,9 +89,9 @@ module Infoboxer
       private
 
       def namespace_aliases(options, canonical)
-        namespace = (options[:namespaces] || []).detect { |v| v.canonical == canonical }
+        namespace = (options[:namespaces] || []).detect { |v| v['canonical'] == canonical }
         return nil unless namespace
-        [namespace['*'], *namespace.aliases]
+        [namespace['*'], *namespace['aliases']]
       end
 
       DEFAULTS = {

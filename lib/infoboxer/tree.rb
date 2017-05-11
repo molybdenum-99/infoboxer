@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   # Infoboxer provides you with tree structure of the Wikipedia page,
   # which you can introspect and navigate with ease. This tree structure
@@ -62,8 +63,8 @@ module Infoboxer
     require_relative 'tree/nodes'
 
     %w[text compound inline
-      image html paragraphs list template table ref math
-      document].each do |type|
+       image html paragraphs list template table ref math
+       document].each do |type|
       require_relative "tree/#{type}"
     end
   end

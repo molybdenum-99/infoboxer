@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Templates
     # Base class for defining set of templates, used for some site/domain.
@@ -108,8 +109,8 @@ module Infoboxer
             end
           end
         when replacements.count == 1 && replacements.first.is_a?(Hash)
-          replacements.first.each do |nm, wht|
-            replace(nm, wht)
+          replacements.first.each do |nm, rep|
+            replace(nm, rep)
           end
         else
           fail(ArgumentError, "Can't call :replace with #{replacements.join(', ')}")
@@ -165,11 +166,11 @@ module Infoboxer
         base = options.fetch(:base, base_class)
         base = find(base) if base.is_a?(String)
 
-        Class.new(base, &definition).tap { |cls|
+        Class.new(base, &definition).tap do |cls|
           cls.template_name = name
           cls.template_options = options
           @templates.unshift [match, cls]
-        }
+        end
       end
     end
   end

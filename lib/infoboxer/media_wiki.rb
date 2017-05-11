@@ -1,8 +1,8 @@
 # encoding: utf-8
+
 require 'mediawiktory'
 require 'addressable/uri'
 
-require_relative 'media_wiki/mediawiktory_patch'
 require_relative 'media_wiki/traits'
 require_relative 'media_wiki/page'
 
@@ -12,7 +12,8 @@ module Infoboxer
   # Usage:
   #
   # ```ruby
-  # client = Infoboxer::MediaWiki.new('http://en.wikipedia.org/w/api.php', user_agent: 'My Own Project')
+  # client = Infoboxer::MediaWiki
+  #   .new('http://en.wikipedia.org/w/api.php', user_agent: 'My Own Project')
   # page = client.get('Argentina')
   # ```
   #
@@ -25,7 +26,8 @@ module Infoboxer
     #
     # You can set yours as an option to {Infoboxer.wiki} and its shortcuts,
     # or to {#initialize}
-    UA = "Infoboxer/#{Infoboxer::VERSION} (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)".freeze
+    UA = "Infoboxer/#{Infoboxer::VERSION} "\
+      '(https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)'.freeze
 
     class << self
       # User agent getter/setter.
@@ -33,9 +35,12 @@ module Infoboxer
       # Default value is {UA}.
       #
       # You can also use per-instance option, see {#initialize}
+      #
+      # @return [String]
       attr_accessor :user_agent
     end
 
+    # @private
     attr_reader :api_base_url, :traits
 
     # Creating new MediaWiki client. {Infoboxer.wiki} provides shortcut
@@ -49,28 +54,44 @@ module Infoboxer
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
     def initialize(api_base_url, options = {})
       @api_base_url = Addressable::URI.parse(api_base_url)
-      @client = MediaWiktory::Client.new(api_base_url, user_agent: user_agent(options))
+      @client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(options))
       @traits = Traits.get(@api_base_url.host, namespaces: extract_namespaces)
     end
 
     # Receive "raw" data from Wikipedia (without parsing or wrapping in
     # classes).
     #
-    # @return [Array<Hash>]
-    def raw(*titles)
-      return [] if titles.empty? # could emerge on "automatically" created page lists, should work
+    # @param titles [Array<String>] List of page titles to get.
+    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
+    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
+    #   for the list of available properties.
+    #
+    # @return [Hash{String => Hash}] Hash of `{requested title => raw MediaWiki object}`. Note that
+    #   even missing (does not exist in current Wiki) or invalid (impossible title) still be present
+    #   in response, just will have `"missing"` or `"invalid"` key, just like MediaWiki returns them.
+    def raw(*titles, prop: [])
+      # could emerge on "automatically" created page lists, should work
+      return {} if titles.empty?
 
-      titles.each_slice(50).map { |part|
-        @client.query.
-          titles(*part).
-          prop(revisions: {prop: :content}, info: {prop: :url}).
-          redirects(true). # FIXME: should be done transparently by MediaWiktory?
-          perform.pages
-      }.inject(:concat). # somehow flatten(1) fails!
-      sort_by { |page|
-        res_title = page.alt_titles.detect { |t| titles.map(&:downcase).include?(t.downcase) } # FIXME?..
-        titles.index(res_title) || 1_000
-      }
+      titles.each_slice(50).map do |part|
+        response = @client
+                   .query
+                   .titles(*part)
+                   .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
+                   .redirects
+                   .response
+
+        sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
+        redirects =
+          if response['redirects']
+            response['redirects'].map { |r| [r['from'], sources[r['to']]] }.to_h
+          else
+            {}
+          end
+
+        # This way for 'Einstein' query we'll have {'Albert Einstein' => page, 'Einstein' => same page}
+        sources.merge(redirects)
+      end.inject(:merge)
     end
 
     # Receive list of parsed MediaWiki pages for list of titles provided.
@@ -81,7 +102,12 @@ module Infoboxer
     # many queries as necessary to extract them all (it will be like
     # `(titles.count / 50.0).ceil` requests)
     #
-    # @return [Tree::Nodes<Page>] array of parsed pages. Notes:
+    # @param titles [Array<String>] List of page titles to get.
+    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
+    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
+    #   for the list of available properties.
+    #
+    # @return [Page, Tree::Nodes<Page>] array of parsed pages. Notes:
     #   * if you call `get` with only one title, one page will be
     #     returned instead of an array
     #   * if some of pages are not in wiki, they will not be returned,
@@ -94,22 +120,15 @@ module Infoboxer
     #     Infoboxer.wp.get('Argentina', 'Chile', 'Something non-existing').
     #        infobox.fetch('some value')
     #     ```
-    #     and obtain meaningful results instead of NoMethodError or some
-    #     NotFound.
+    #     and obtain meaningful results instead of `NoMethodError` or
+    #     `SomethingNotFound`.
     #
-    def get(*titles)
-      pages = raw(*titles).
-        tap { |ps| ps.detect(&:invalid?).tap { |i| i && fail(i.raw.invalidreason) } }.
-        select(&:exists?).
-        map { |raw|
-          Page.new(self,
-            Parser.paragraphs(raw.content, traits),
-            raw)
-        }
+    def get(*titles, prop: [])
+      pages = get_h(*titles, prop: prop).values.compact
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
-    # Same as {#get}, but returns hash of {requested title => page}.
+    # Same as {#get}, but returns hash of `{requested title => page}`.
     #
     # Useful quirks:
     # * when requested page not existing, key will be still present in
@@ -121,13 +140,18 @@ module Infoboxer
     # This allows you to be in full control of what pages of large list
     # you've received.
     #
+    # @param titles [Array<String>] List of page titles to get.
+    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
+    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
+    #   for the list of available properties.
+    #
     # @return [Hash<String, Page>]
     #
-    def get_h(*titles)
-      pages = [*get(*titles)]
-      titles.map { |t|
-        [t, pages.detect { |p| p.source.alt_titles.map(&:downcase).include?(t.downcase) }]
-      }.to_h
+    def get_h(*titles, prop: [])
+      raw_pages = raw(*titles, prop: prop)
+                  .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
+                  .reject { |_, p| p.key?('missing') }
+      titles.map { |title| [title, make_page(raw_pages, title)] }.to_h
     end
 
     # Receive list of parsed MediaWiki pages from specified category.
@@ -137,7 +161,7 @@ module Infoboxer
     # fetched in 50-page batches, then parsed. So, for large category
     # it can really take a while to fetch all pages.
     #
-    # @param title Category title. You can use namespaceless title (like
+    # @param title [String] Category title. You can use namespaceless title (like
     #     `"Countries in South America"`), title with namespace (like
     #     `"Category:Countries in South America"`) or title with local
     #     namespace (like `"Catégorie:Argentine"` for French Wikipedia)
@@ -147,7 +171,7 @@ module Infoboxer
     def category(title)
       title = normalize_category_title(title)
 
-      list(categorymembers: {title: title, limit: 50})
+      list(@client.query.generator(:categorymembers).title(title).limit('max'))
     end
 
     # Receive list of parsed MediaWiki pages for provided search query.
@@ -156,10 +180,10 @@ module Infoboxer
     #
     # **NB**: currently, this API **always** fetches all pages from
     # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large category
+    # fetched in 50-page batches, then parsed. So, for large search query
     # it can really take a while to fetch all pages.
     #
-    # @param query Search query. For old installations, look at
+    # @param query [String] Search query. For old installations, look at
     #     https://www.mediawiki.org/wiki/Help:Searching
     #     for search syntax. For new ones (including Wikipedia), see at
     #     https://www.mediawiki.org/wiki/Help:CirrusSearch.
@@ -167,7 +191,7 @@ module Infoboxer
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
     def search(query)
-      list(search: {search: query, limit: 50})
+      list(@client.query.generator(:search).search(query).limit('max'))
     end
 
     # Receive list of parsed MediaWiki pages with titles startin from prefix.
@@ -176,38 +200,44 @@ module Infoboxer
     #
     # **NB**: currently, this API **always** fetches all pages from
     # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large category
+    # fetched in 50-page batches, then parsed. So, for large search query
     # it can really take a while to fetch all pages.
     #
-    # @param prefix page title prefix.
+    # @param prefix [String] Page title prefix.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
     def prefixsearch(prefix)
-      list(prefixsearch: {search: prefix, limit: 100})
+      list(@client.query.generator(:prefixsearch).search(prefix).limit('max'))
     end
 
+    # @return [String]
     def inspect
       "#<#{self.class}(#{@api_base_url.host})>"
     end
 
     private
 
+    def make_page(raw_pages, title)
+      _, source = raw_pages.detect { |ptitle, _| ptitle.casecmp(title).zero? }
+      source or return nil
+      Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
+    end
+
     def list(query)
-      response = @client.query.
-        generator(query).
-        prop(revisions: {prop: :content}, info: {prop: :url}).
-        redirects(true). # FIXME: should be done transparently by MediaWiktory?
-        perform
+      response = query
+                 .prop(:revisions, :info)
+                 .prop(:content, :timestamp, :url)
+                 .redirects
+                 .response
 
-      response.continue! while response.continue?
+      response = response.continue while response.continue?
 
-      pages = response.pages.select(&:exists?).
-        map { |raw|
-          Page.new(self,
-            Parser.paragraphs(raw.content, traits),
-            raw)
-        }
+      return Tree::Nodes[] if response['pages'].nil?
+
+      pages = response['pages']
+              .values.select { |p| p['missing'].nil? }
+              .map { |raw| Page.new(self, Parser.paragraphs(raw['revisions'].first['*'], traits), raw) }
 
       Tree::Nodes[*pages]
     end
@@ -226,11 +256,12 @@ module Infoboxer
     end
 
     def extract_namespaces
-      siteinfo = @client.query.meta(siteinfo: {prop: [:namespaces, :namespacealiases]}).perform
-      siteinfo.raw.query.namespaces.map { |_, namespace|
-        aliases = siteinfo.raw.query.namespacealiases.select { |a| a.id == namespace.id }.map { |a| a['*'] }
-        namespace.merge(aliases: aliases)
-      }
+      siteinfo = @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases).response
+      siteinfo['namespaces'].map do |_, namespace|
+        aliases =
+          siteinfo['namespacealiases'].select { |a| a['id'] == namespace['id'] }.map { |a| a['*'] }
+        namespace.merge('aliases' => aliases)
+      end
     end
   end
 end

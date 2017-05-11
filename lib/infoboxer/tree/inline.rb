@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     # Represents italic text.
@@ -29,7 +30,6 @@ module Infoboxer
     class ExternalLink < Link
       # @!attribute [r] url
       #   synonym for `#link`
-
       alias_method :url, :link
     end
   end

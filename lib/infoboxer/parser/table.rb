@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   class Parser
     # http://en.wikipedia.org/wiki/Help:Table
@@ -35,16 +36,16 @@ module Infoboxer
 
       def table_next_line(table)
         case @context.current
-        when /^\s*\|}(.*)$/ # table end
+        when /^\s*\|}(.*)$/                 # table end
           @context.scan(/^\s*\|}/)
-          # should not continue
           return false
         when /^\s*!/                        # heading (th) in a row
           table_cells(table, TableHeading)
         when /^\s*\|\+/                     # caption
           table_caption(table)
         when /^\s*\|-(.*)$/                 # row start
-          table_row(table, $1)
+          table_row(table, Regexp.last_match(1))
+
         when /^\s*\|/                       # cell in row
           table_cells(table)
         when /^\s*{{/                       # template can be at row level
@@ -54,6 +55,7 @@ module Infoboxer
         else
           return table_cell_cont(table)
         end
+
         true # should continue parsing
       end
 

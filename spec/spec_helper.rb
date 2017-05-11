@@ -18,6 +18,7 @@ $:.unshift 'lib'
 
 require 'infoboxer'
 
+# TODO: replace with saharspec/string_ext
 def unindent(text)
   lines = text.split("\n")
   lines.shift while lines.first =~ /^\s*$/ && !lines.empty?
@@ -26,6 +27,9 @@ def unindent(text)
     map{|ln| ln.scan(/^\s*/)}.flatten.map(&:length).min
   lines.map{|ln| ln.sub(/^\s{#{min_indent}}/, '')}.join("\n")
 end
+
+require 'saharspec/its_map'
+require 'saharspec/its_call'
 
 module WebMock
   class Util::HashCounter

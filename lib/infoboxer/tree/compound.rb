@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     # Base class for all nodes with children.
@@ -40,7 +41,7 @@ module Infoboxer
           "#{indent(level)}#{children.first.text} <#{descr}>\n"
         else
           "#{indent(level)}<#{descr}>\n" +
-            children.map(&call(to_tree: level+1)).join
+            children.map(&call(to_tree: level + 1)).join
         end
       end
 

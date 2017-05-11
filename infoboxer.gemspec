@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
   EOF
   s.licenses = ['MIT']
 
+  s.required_ruby_version = '>= 2.1.0'
+
   s.files = `git ls-files`.split($RS).reject do |file|
     file =~ /^(?:
     spec\/.*
@@ -31,8 +33,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'htmlentities'
   s.add_dependency 'procme'
-  s.add_dependency 'mediawiktory', '>= 0.0.2'
+  s.add_dependency 'mediawiktory', '>= 0.1.0'
   s.add_dependency 'addressable'
   s.add_dependency 'terminal-table'
-  s.add_dependency 'backports'
 end

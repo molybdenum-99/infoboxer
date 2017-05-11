@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require_relative 'selector'
 
 module Infoboxer
@@ -104,8 +105,8 @@ module Infoboxer
 
         # Underscored version of {#lookup}
         def _lookup(selector)
-          Tree::Nodes[_matches?(selector) ? self : nil, *children._lookup(selector)].
-            flatten.compact
+          Tree::Nodes[_matches?(selector) ? self : nil, *children._lookup(selector)]
+            .flatten.compact
         end
 
         # Underscored version of {#lookup_children}
@@ -140,15 +141,18 @@ module Infoboxer
           next_siblings._find(selector)
         end
 
-        [:matches?,
-          :lookup, :lookup_children, :lookup_parents,
-          :lookup_siblings,
-          :lookup_next_siblings, :lookup_prev_siblings
-        ].map { |sym| [sym, :"_#{sym}"] }.each do |sym, underscored|
+        %i[
+          matches?
+          lookup lookup_children lookup_parents
+          lookup_siblings
+          lookup_next_siblings lookup_prev_siblings
+        ]
+          .map { |sym| [sym, :"_#{sym}"] }
+          .each do |sym, underscored|
 
-          define_method(sym) { |*args, &block|
+          define_method(sym) do |*args, &block|
             send(underscored, Selector.new(*args, &block))
-          }
+          end
         end
 
         # Checks if node has any parent matching selectors.
@@ -190,25 +194,25 @@ module Infoboxer
           _find(Selector.new(*selectors, &block))
         end
 
-        [
-          :_lookup, :_lookup_children, :_lookup_parents,
-          :_lookup_siblings, :_lookup_prev_siblings, :_lookup_next_siblings
+        %i[
+          _lookup _lookup_children _lookup_parents
+          _lookup_siblings _lookup_prev_siblings _lookup_next_siblings
         ].each do |sym|
-          define_method(sym) { |*args|
-            make_nodes map { |n| n.send(sym, *args) }
-          }
+          define_method(sym) do |*args|
+            make_nodes(map { |n| n.send(sym, *args) })
+          end
         end
 
         # not delegate, but redefine: Selector should be constructed only once
-        [
-          :lookup, :lookup_children, :lookup_parents,
-          :lookup_siblings,
-          :lookup_next_siblings, :lookup_prev_siblings
+        %i[
+          lookup lookup_children lookup_parents
+          lookup_siblings
+          lookup_next_siblings lookup_prev_siblings
         ].map { |sym| [sym, :"_#{sym}"] }.each do |sym, underscored|
 
-          define_method(sym) { |*args, &block|
+          define_method(sym) do |*args, &block|
             send(underscored, Selector.new(*args, &block))
-          }
+          end
         end
       end
     end

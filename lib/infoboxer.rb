@@ -1,6 +1,6 @@
 # encoding: utf-8
+
 require 'procme'
-require 'backports/2.1.0/array/to_h'
 
 # Main client module for entire infoboxer functionality. If you're lucky,
 # there's no other classes/modules you need to instantiate or call
@@ -69,13 +69,13 @@ module Infoboxer
     species: 'species.wikimedia.org',
   }.freeze
 
+  def wikis
+    @wikis ||= {}
+  end
+
   # Includeable version of {Infoboxer.wiki}
   def wiki(api_url, options = {})
     wikis[api_url] ||= MediaWiki.new(api_url, options || {})
-  end
-
-  def wikis
-    @wikis ||= {}
   end
 
   class << self

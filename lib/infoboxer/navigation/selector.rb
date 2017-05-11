@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Navigation
     module Lookup
@@ -44,9 +45,7 @@ module Infoboxer
           when Proc
             check.call(node)
           when Hash
-            check.all? { |attr, value|
-              node.respond_to?(attr) && value === node.send(attr)
-            }
+            check.all? { |attr, value| node.respond_to?(attr) && value === node.send(attr) }
           when Symbol
             node.respond_to?(check) && node.send(check)
           else

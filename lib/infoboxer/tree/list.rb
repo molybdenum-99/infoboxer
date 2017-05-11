@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     # Represents item of ordered or unordered list.
@@ -21,11 +22,12 @@ module Infoboxer
       end
 
       def text
-        make_marker + if children.last.is_a?(List)
-                        children[0..-2].map(&:text).join + "\n" + children.last.text
-                      else
-                        children.map(&:text).join + "\n"
-                      end
+        make_marker +
+          if children.last.is_a?(List)
+            children[0..-2].map(&:text).join + "\n" + children.last.text
+          else
+            children.map(&:text).join + "\n"
+          end
       end
 
       private
@@ -118,7 +120,7 @@ module Infoboxer
       def merge!(other)
         ochildren = other.children.dup
         if children.last && ochildren.first &&
-          children.last.can_merge?(ochildren.first)
+           children.last.can_merge?(ochildren.first)
 
           children.last.merge!(ochildren.shift)
         end
