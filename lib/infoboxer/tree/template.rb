@@ -17,6 +17,7 @@ module Infoboxer
       end
 
       # Internal, used by {Parser}
+      # Means even children-less Var should not be removed from parser tree.
       def empty?
         false
       end
@@ -54,6 +55,7 @@ module Infoboxer
     # values.
     #
     # ### On variables naming
+    #
     # MediaWiki templates can contain _named_ and _unnamed_ variables.
     # Example:
     #
@@ -104,12 +106,18 @@ module Infoboxer
       # See {Var} class to understand what you can do with them.
       #
       # @return [Nodes<Var>]
-      attr_reader :variables
+      # attr_reader :variables
+      alias_method :variables, :children
 
       def initialize(name, variables = Nodes[])
-        super(Nodes[], extract_params(variables))
+        # super(Nodes[], extract_params(variables))
+        super(variables, extract_params(variables))
         @name = name
-        @variables = Nodes[*variables].each { |v| v.parent = self }
+        # @variables = Nodes[*variables].each { |v| v.parent = self }
+      end
+
+      def text
+        ''
       end
 
       # See {Node#to_tree}

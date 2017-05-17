@@ -35,9 +35,11 @@ module Infoboxer
     #
     # Used for {Set} definitions.
     class Show < Base
-      alias_method :children, :unnamed_variables
+      def text
+        unnamed_variables.map(&:text).join(children_separator)
+      end
 
-      protected
+      private
 
       def children_separator
         ' '

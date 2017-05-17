@@ -62,7 +62,7 @@ module Infoboxer
   # {Sections::Node} for upwards.
   #
   module Navigation
-    %w[lookup shortcuts sections].each do |nav|
+    %w[lookup shortcuts sections wikipath].each do |nav|
       require_relative "navigation/#{nav}"
     end
 
@@ -70,12 +70,14 @@ module Infoboxer
       include Navigation::Lookup::Node
       include Navigation::Shortcuts::Node
       include Navigation::Sections::Node
+      include Navigation::Wikipath
     end
 
     class Tree::Nodes
       include Navigation::Lookup::Nodes
       include Navigation::Shortcuts::Nodes
       include Navigation::Sections::Nodes
+      include Navigation::Wikipath
     end
 
     class Tree::Document

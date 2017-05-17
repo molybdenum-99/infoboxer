@@ -30,6 +30,9 @@ end
 
 require 'saharspec/its_map'
 require 'saharspec/its_call'
+require 'saharspec/and_not'
+require 'saharspec/send_message'
+require 'saharspec/string_ext'
 
 module WebMock
   class Util::HashCounter

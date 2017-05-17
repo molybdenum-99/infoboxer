@@ -42,6 +42,10 @@ module Infoboxer
         parent ? parent.index_of(self) : 0
       end
 
+      def first?
+        index.zero?
+      end
+
       # List of all sibling nodes (children of same parent)
       def siblings
         parent ? parent.children - [self] : Nodes[]
