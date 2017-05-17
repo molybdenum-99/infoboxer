@@ -3,56 +3,61 @@ module Infoboxer
   describe Navigation::Sections do
     # Document is immutable and is created ~0.3 sec each time.
     # So, fot tens of examples it's wiser to create it only once.
-    before(:all){
+    before(:all) {
       @document = Parser.document(File.read('spec/fixtures/argentina.wiki'))
-    }
-    let(:document){@document}
+     }
+    let(:document) { @document }
 
     describe :intro do
-      subject{document.intro}
+      subject { document.intro }
 
-      it{should be_a(Tree::Nodes)}
-      its(:count){should == 5}
-      it{should == document.paragraphs.first(5)}
+      it { is_expected.to be_a(Tree::Nodes) }
+      its(:count) { is_expected.to eq 5 }
+      it { is_expected.to eq document.children.grep(Tree::BaseParagraph).first(5) }
     end
 
     describe :sections do
-      let(:sections){document.sections}
+      subject(:sections) { document.sections }
 
       describe 'basics' do
-        it 'should group document in top-level sections' do
-          expect(sections.count).to eq(12)
-          expect(sections).to all(be_kind_of(Navigation::Sections::Section))
-          expect(sections.map(&:heading).map(&:text_)).to eq \
-            [
-              'Name and etymology',
-              'History',
-              'Geography',
-              'Politics',
-              'Economy',
-              'Demographics',
-              'Culture',
-              'See also',
-              'Notes',
-              'References',
-              'Bibliography',
-              'External links'
-            ]
-        end
+        its(:count) { is_expected.to eq 12 }
+        it { is_expected.to all(be_kind_of(Navigation::Sections::Section)) }
+        its_map(:'heading.text_') { are_expected.to eq \
+          [
+            'Name and etymology',
+            'History',
+            'Geography',
+            'Politics',
+            'Economy',
+            'Demographics',
+            'Culture',
+            'See also',
+            'Notes',
+            'References',
+            'Bibliography',
+            'External links'
+          ]
+        }
+      end
+
+      describe '#lookup_children' do
+        subject { document.lookup_children(:Section).first  }
+
+        it { is_expected.to eq sections[0]  }
       end
 
       describe Navigation::Sections::Section do
-        subject{sections[1]} # History section
+        subject { sections[1] } # History section
 
-        its(:heading){should == Tree::Heading.new(Tree::Text.new('History'), 2)}
-        its(:inspect){should be_start_with '#<Section(level: 2, heading: "History"):'}
+        its(:heading) { is_expected.to eq Tree::Heading.new(Tree::Text.new('History'), 2) }
+        its(:inspect) { is_expected.to eq '#<Section(level: 2, heading: "History"): 39 nodes>' }
 
-        its(:paragraphs){should be_kind_of(Tree::Nodes)}
-        its(:'paragraphs.count'){should > 20}
+        its(:paragraphs) { is_expected.to be_kind_of(Tree::Nodes) }
+        its(:'paragraphs.count') { is_expected.to be > 20 }
 
-        its(:'sections.count'){should == 8}
+        its(:'sections.count') { is_expected.to eq 8 }
 
-        its(:intro){should be_empty}
+        its(:intro) { is_expected.to be_empty }
 
         it 'should not rewrite nodes parents' do
           expect(subject.children.first.lookup_parents(Tree::Document)).not_to be_empty
@@ -62,47 +67,45 @@ module Infoboxer
 
       describe 'selected sections' do
         context 'one level' do
-          subject{document.sections('History')}
+          subject { document.sections('History') }
 
-          it{should be_a(Tree::Nodes)}
-          its(:count){should == 1}
-          its(:'first.heading.text_'){should == 'History'}
+          it { is_expected.to be_a(Tree::Nodes) }
+          its(:count) { is_expected.to eq 1 }
+          its(:'first.heading.text_') { is_expected.to eq 'History' }
         end
 
         context 'several levels' do
-          subject{document.sections('History', 'Colonial era')}
+          subject { document.sections('History', 'Colonial era') }
 
-          it{should be_a(Tree::Nodes)}
-          its(:count){should == 1}
-          its(:'first.heading.text_'){should == 'Colonial era'}
+          it { is_expected.to be_a(Tree::Nodes) }
+          its(:count) { is_expected.to eq 1 }
+          its(:'first.heading.text_') { is_expected.to eq 'Colonial era' }
         end
 
         context 'two levels: hash' do
-          subject{document.sections('History' => 'Colonial era')}
+          subject { document.sections('History' => 'Colonial era') }
 
-          it{should be_a(Tree::Nodes)}
-          its(:count){should == 1}
-          its(:'first.heading.text_'){should == 'Colonial era'}
+          it { is_expected.to be_a(Tree::Nodes) }
+          its(:count) { is_expected.to eq 1 }
+          its(:'first.heading.text_') { is_expected.to eq 'Colonial era' }
         end
 
         context 'two levels: when second is not existing' do
-          subject{document.sections.first.sections}
+          subject { document.sections.first.sections }
 
-          it{should be_a(Tree::Nodes)}
-          it{should be_empty}
+          it { is_expected.to be_a(Tree::Nodes) }
+          it { is_expected.to be_empty }
         end
       end
     end
 
     describe :in_sections do
-      let(:para){document.lookup(:Paragraph, text: /Declassified documents of the Chilean secret police/)}
-      subject{para.in_sections}
+      let(:para) { document.lookup(:Paragraph, text: /Declassified documents of the Chilean secret police/) }
+      subject { para.in_sections }
 
-      its(:count){should == 2}
+      its(:count) { is_expected.to eq 2 }
 
-      it 'should be in order' do
-        expect(subject.map(&:heading).map(&:text_)).to eq ['Dirty War', 'History']
-      end
+      its_map(:'heading.text_') { is_expected.to eq ['Dirty War', 'History'] }
 
       it 'should not rewrite nodes parents' do
         expect(para.lookup_parents(:Document)).not_to be_empty
@@ -110,19 +113,17 @@ module Infoboxer
       end
 
       context 'deeply nested nodes' do
-        let(:link){document.lookup(:ListItem).lookup(:Wikilink, text: 'Northwest').first}
-        subject{link.in_sections}
+        let(:link) { document.lookup(:ListItem).lookup(:Wikilink, text: 'Northwest').first }
+        subject { link.in_sections }
 
-        its(:count){should == 2}
-        it 'should be in order' do
-          expect(subject.map(&:heading).map(&:text_)).to eq ['Regions', 'Geography']
-        end
+        its(:count) { is_expected.to eq 2 }
+        its_map(:'heading.text_') { is_expected.to eq ['Regions', 'Geography'] }
       end
 
       context 'concrete level' do
       end
-      
-      context 'if there\'s no' do
+
+      context "if there's no" do
       end
     end
   end

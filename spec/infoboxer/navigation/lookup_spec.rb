@@ -13,7 +13,7 @@ module Infoboxer
       |}
       }.strip.gsub(/\n\s+/m, "\n"))
     }
-    
+
     describe :lookup do
       context 'without any args' do
         subject{
@@ -22,7 +22,7 @@ module Infoboxer
         it{should be_kind_of(Tree::Nodes)}
         its(:count){should > 10}
       end
-      
+
       context 'with block' do
         subject{
           document.lookup{|n| n.is_a?(Tree::Text) && n.text =~ /test/i}
@@ -31,7 +31,7 @@ module Infoboxer
         it{should be_kind_of(Tree::Nodes)}
         it{should == [
           Tree::Text.new('Test in first '),
-          Tree::Text.new(' deep test') 
+          Tree::Text.new(' deep test')
         ]}
       end
 
@@ -48,20 +48,20 @@ module Infoboxer
         it{should be_kind_of(Tree::Nodes)}
         it{should == [
           Tree::Text.new('Test in first '),
-          Tree::Text.new(' deep test') 
+          Tree::Text.new(' deep test')
         ]}
       end
 
       context 'by accessor' do
         before{
           Tree::ListItem.module_eval{
-            def first?
+            def first_list_item?
               index.zero?
             end
           }
         }
         subject{
-          document.lookup(:first?)
+          document.lookup(:first_list_item?)
         }
         its(:count){should == 1}
         its(:text){should == "* cool list\n"}
@@ -80,7 +80,7 @@ module Infoboxer
 
         it{should be_kind_of(Tree::Nodes)}
         it{should == [
-          Tree::Text.new(' deep test') 
+          Tree::Text.new(' deep test')
         ]}
       end
 
@@ -103,7 +103,7 @@ module Infoboxer
 
       context 'indirect child' do
         subject{cell.lookup_children(Tree::ListItem)}
-        
+
         it{should be_empty}
       end
     end
@@ -127,7 +127,7 @@ module Infoboxer
       let(:cell){document.lookup(Tree::TableCell).first}
       context 'parent found' do
         subject{cell.lookup_parents(Tree::Table)}
-        
+
         its(:count){should == 1}
         its(:first){should be_a(Tree::Table)}
       end
@@ -147,7 +147,7 @@ module Infoboxer
     describe :lookup_siblings do
       let!(:node){document.lookup(Tree::ListItem, text: /cool list/).first}
       subject{node.lookup_siblings(text: /test/)}
-      
+
       its(:count){should == 1}
       it{should all(be_a(Tree::ListItem))}
     end

@@ -45,7 +45,10 @@ module Infoboxer
           when Proc
             check.call(node)
           when Hash
-            check.all? { |attr, value| node.respond_to?(attr) && value === node.send(attr) }
+            check.all? { |attr, value|
+              node.respond_to?(attr) && value === node.send(attr) ||
+              node.params.key?(attr) && value === node.params[attr]
+            }
           when Symbol
             node.respond_to?(check) && node.send(check)
           else

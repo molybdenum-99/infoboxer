@@ -10,7 +10,7 @@ module Infoboxer
         |
         | {{Use dmy dates|date=July 2014}}
         |
-        |=== Heading ===
+        |=== Section 1 ===
         |
         |{| some=table
         ||With
@@ -39,5 +39,6 @@ module Infoboxer
     }
     its(['//template/var[name=date]']) { is_expected.to include(be_a(Tree::Var).and have_attributes(name: 'date')) }
     its(['/section']) { is_expected.not_to be_empty }
+    its(['/section[heading=Section 1]']) { is_expected.to eq [document.sections.first] }
   end
 end

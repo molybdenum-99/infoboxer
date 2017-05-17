@@ -12,9 +12,9 @@ module Infoboxer
       context 'by default' do
         subject{document.wikilinks}
 
-        its(:count){should > 100}
-        its(:'first.link'){should == 'federal republic'}
-        its(:'first.parent'){should be_a(Tree::Paragraph)}
+        its(:count){ is_expected.to be > 100}
+        its(:'first.link'){ is_expected.to eq 'Argentine Constitution'}
+        its(:'first.parent'){ is_expected.to be_a(Tree::Var)}
         it 'should have no namespaced link' do
           expect(subject.map(&:link)).not_to include(match(/:$/))
         end
@@ -23,7 +23,7 @@ module Infoboxer
       context 'by namespace' do
         subject{document.wikilinks('Category')}
 
-        its(:'first.link'){should == 'Category:Argentina'}
+        its(:'first.link'){ is_expected.to eq 'Category:Argentina'}
         it 'should have all links namespaced' do
           expect(subject.map(&:link)).to all(match(/^Category:/))
         end
@@ -38,38 +38,39 @@ module Infoboxer
         end
       end
     end
-    
+
     describe :external_links do
       subject{document.external_links}
 
-      its(:count){should > 20}
-      its(:'first.link'){should == 'http://www.studyspanish.com/lessons/defart2.htm'}
+      its(:count){ is_expected.to be > 20}
+      its(:'first.link'){ is_expected.to eq 'http://www.studyspanish.com/lessons/defart2.htm'}
     end
-    
+
     describe :images do
       subject{document.images}
 
-      its(:count){should > 20}
-      its(:'first.path'){should == 'SantaCruz-CuevaManos-P2210651b.jpg'}
+      its(:count){ is_expected.to be > 20}
+      its_map(:path){ is_expected.to include 'SantaCruz-CuevaManos-P2210651b.jpg'}
     end
-    
+
     describe :templates do
       subject{document.templates}
 
-      its(:count){should > 10}
-      its(:'first.name'){should == 'other uses'}
+      its(:count){ is_expected.to be > 10}
+      its(:'first.name'){ is_expected.to eq 'other uses'}
     end
 
     describe :tables do
       subject{document.tables}
 
-      its(:count){should > 0}
-      its(:first){should be_a(Tree::Table)}
+      its(:count){ is_expected.to be > 0}
+      its(:first){ is_expected.to be_a(Tree::Table)}
     end
 
-    describe :paragraphs do
+    # FIXME: With new templates policy, #paragraphs shortcut seems useless
+    xdescribe :paragraphs do
       subject{document.paragraphs}
-      its(:count){should > 100}
+      its(:count){ is_expected.to be > 100}
       it 'should be only paragraph-level nodes' do
         expect(subject.map(&:class).uniq).to \
           contain_exactly(Tree::Paragraph, Tree::ListItem, Tree::Heading, Tree::DTerm, Tree::DDefinition)
@@ -78,7 +79,7 @@ module Infoboxer
 
     describe :headings do
       subject{document.headings}
-      its(:count){should == 46}
+      its(:count){ is_expected.to eq 46}
 
       it 'should select by level' do
         expect(document.headings(2).count).to eq 12
