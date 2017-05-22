@@ -110,10 +110,8 @@ module Infoboxer
       alias_method :variables, :children
 
       def initialize(name, variables = Nodes[])
-        # super(Nodes[], extract_params(variables))
         super(variables, extract_params(variables))
         @name = name
-        # @variables = Nodes[*variables].each { |v| v.parent = self }
       end
 
       def text
