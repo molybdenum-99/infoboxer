@@ -19,7 +19,7 @@ module Infoboxer
 
       private
 
-      def scan_step(scanner)
+      def scan_step(scanner) # rubocop:disable Metrics/PerceivedComplexity
         op = scanner.scan(%r{//?}) or unexpected(scanner, '/')
         type = scanner.scan(/[A-Za-z_]*/)
         attrs = {}
@@ -67,6 +67,7 @@ module Infoboxer
     private
 
     def apply_step(node, step)
+      step = step.dup
       op = step.delete(:op) || :lookup_children
       args = []
       if (t = step.delete(:type))

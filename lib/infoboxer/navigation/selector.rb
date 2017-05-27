@@ -47,7 +47,7 @@ module Infoboxer
           when Hash
             check.all? { |attr, value|
               node.respond_to?(attr) && value === node.send(attr) ||
-              node.params.key?(attr) && value === node.params[attr]
+                node.params.key?(attr) && value === node.params[attr]
             }
           when Symbol
             node.respond_to?(check) && node.send(check)
