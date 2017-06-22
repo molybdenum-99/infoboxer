@@ -39,6 +39,7 @@ module Infoboxer
           log "Variable #{name} found"
 
           value = long_inline(/\||}}/)
+          value.pop if value.last.is_a?(Pre) && value.last.text =~ /^\s*$/ # FIXME: dirty!
 
           # it was just empty line otherwise
           res << Var.new(name.to_s, value) unless value.empty? && name.is_a?(Numeric)

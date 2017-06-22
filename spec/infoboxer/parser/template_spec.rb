@@ -99,6 +99,14 @@ module Infoboxer
       end
     end
 
+    context 'with newline+space before next var' do
+      let(:source){ "{{the name|var=test\n |var2=foo}}" }
+      it{should be_a(Tree::Template)}
+      it 'should preserve all content' do
+        expect(subject.variables.first.children).to eq [Tree::Text.new('test')]
+      end
+    end
+
     context 'with <ref> and other template in variable' do
       let(:source){ "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}|othervar}}" }
       it{should be_a(Tree::Template)}
