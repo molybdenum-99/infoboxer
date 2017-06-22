@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'ostruct'
-require 'procme'
 require 'logger'
 
 module Infoboxer

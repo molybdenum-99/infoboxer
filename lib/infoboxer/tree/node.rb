@@ -11,8 +11,6 @@ module Infoboxer
     # you will receive it from tree and use for navigations.
     #
     class Node
-      include ProcMe
-
       def initialize(params = {})
         @params = params
       end

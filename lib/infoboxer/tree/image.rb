@@ -44,7 +44,7 @@ module Infoboxer
         super(level) +
           if caption && !caption.empty?
             indent(level + 1) + "caption:\n" +
-            caption.children.map(&call(to_tree: level + 2)).join
+            caption.children.map { |c| c.to_tree(level + 2) }.join
           else
             ''
           end

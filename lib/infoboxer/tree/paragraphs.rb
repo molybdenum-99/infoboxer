@@ -75,7 +75,7 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def to_templates
-        children.select(&filter(itself: Template))
+        children.grep(Template)
       end
 
       # @private

@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
   s.executables << 'infoboxer'
 
   s.add_dependency 'htmlentities'
-  s.add_dependency 'procme'
   s.add_dependency 'mediawiktory', '>= 0.1.0'
   s.add_dependency 'addressable'
   s.add_dependency 'terminal-table'

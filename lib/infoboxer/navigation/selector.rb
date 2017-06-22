@@ -7,8 +7,6 @@ module Infoboxer
       #
       # See {Lookup::Node Lookup::Node} for detailed explanation of available selectors.
       class Selector
-        include ProcMe
-
         def initialize(*arg, &block)
           @arg = [arg, block].flatten.compact.map(&method(:sym_to_class))
           @arg.each do |a|
