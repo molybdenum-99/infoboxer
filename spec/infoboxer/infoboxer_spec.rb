@@ -3,10 +3,10 @@ describe Infoboxer do
   describe 'common MediaWiki shortcuts', :vcr do
     context 'Wikipedia' do
       describe 'default' do
-        subject{Infoboxer.wikipedia}
+        subject { Infoboxer.wikipedia }
 
-        it{should be_a(Infoboxer::MediaWiki)}
-        its(:'api_base_url.to_s'){should == 'https://en.wikipedia.org/w/api.php'}
+        it { should be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { should == 'https://en.wikipedia.org/w/api.php' }
       end
 
       describe 'caching' do
@@ -18,38 +18,38 @@ describe Infoboxer do
       end
 
       describe 'language' do
-        subject{Infoboxer.wikipedia('fr')}
+        subject { Infoboxer.wikipedia('fr') }
 
-        its(:'api_base_url.to_s'){should == 'https://fr.wikipedia.org/w/api.php'}
+        its(:'api_base_url.to_s') { should == 'https://fr.wikipedia.org/w/api.php' }
       end
 
       describe 'shortcut' do
-        subject{Infoboxer.wp('fr')}
+        subject { Infoboxer.wp('fr') }
 
-        its(:'api_base_url.to_s'){should == 'https://fr.wikipedia.org/w/api.php'}
+        its(:'api_base_url.to_s') { should == 'https://fr.wikipedia.org/w/api.php' }
       end
     end
 
     context 'Wikia' do
       describe 'simple' do
-        subject{Infoboxer.wikia('tardis')}
+        subject { Infoboxer.wikia('tardis') }
 
-        it{should be_a(Infoboxer::MediaWiki)}
-        its(:'api_base_url.to_s'){should == 'http://tardis.wikia.com/api.php'}
+        it { should be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { should == 'http://tardis.wikia.com/api.php' }
       end
 
       describe 'subdomain' do
-        subject{Infoboxer.wikia('ru.tardis')}
+        subject { Infoboxer.wikia('ru.tardis') }
 
-        it{should be_a(Infoboxer::MediaWiki)}
-        its(:'api_base_url.to_s'){should == 'http://ru.tardis.wikia.com/api.php'}
+        it { should be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { should == 'http://ru.tardis.wikia.com/api.php' }
       end
 
       describe 'language' do
-        subject{Infoboxer.wikia('tardis', 'ru')}
+        subject { Infoboxer.wikia('tardis', 'ru') }
 
-        it{should be_a(Infoboxer::MediaWiki)}
-        its(:'api_base_url.to_s'){should == 'http://ru.tardis.wikia.com/api.php'}
+        it { should be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { should == 'http://ru.tardis.wikia.com/api.php' }
       end
     end
   end

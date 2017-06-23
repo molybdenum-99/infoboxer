@@ -3,53 +3,53 @@ require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'paragraphs' do
-    let(:ctx){Parser::Context.new(source)}
-    let(:parser){Parser.new(ctx)}
+    let(:ctx) { Parser::Context.new(source) }
+    let(:parser) { Parser.new(ctx) }
 
-    let(:nodes){parser.paragraphs}
+    let(:nodes) { parser.paragraphs }
 
     describe 'one item' do
-      subject{nodes.first}
+      subject { nodes.first }
 
       context 'just a para' do
-        let(:source){'some text'}
+        let(:source) { 'some text' }
 
-        it{should be_a(Tree::Paragraph)}
-        its(:text){should == "some text\n\n"}
+        it { should be_a(Tree::Paragraph) }
+        its(:text) { should == "some text\n\n" }
       end
 
       context 'heading' do
-        let(:source){'== Some text =='}
+        let(:source) { '== Some text ==' }
 
-        it{should be_a(Tree::Heading)}
-        its(:text){should == "Some text\n\n"}
-        its(:level){should == 2}
+        it { should be_a(Tree::Heading) }
+        its(:text) { should == "Some text\n\n" }
+        its(:level) { should == 2 }
       end
 
       context 'list item' do
         context 'first level' do
-          let(:source){'* Some text'}
+          let(:source) { '* Some text' }
 
-          it{should be_a(Tree::UnorderedList)}
-          its(:'children.count'){should == 1}
-          its(:children){should all(be_kind_of(Tree::ListItem))}
+          it { should be_a(Tree::UnorderedList) }
+          its(:'children.count') { should == 1 }
+          its(:children) { should all(be_kind_of(Tree::ListItem)) }
         end
 
         context 'dl/dt' do
-          let(:source){'; Some text'}
-          it{should == Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text')))}
+          let(:source) { '; Some text' }
+          it { should == Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text'))) }
         end
 
         context 'dl/dd' do
-          let(:source){': Some text'}
-          it{should == Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text')))}
+          let(:source) { ': Some text' }
+          it { should == Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text'))) }
         end
 
         context 'next levels' do
-          let(:source){'*#; Some text'}
+          let(:source) { '*#; Some text' }
 
           # Prepare to madness!!!
-          it{should ==
+          it { should ==
             Tree::UnorderedList.new(
               Tree::ListItem.new(
                 Tree::OrderedList.new(
@@ -68,25 +68,25 @@ module Infoboxer
       end
 
       context 'hr' do
-        let(:source){'--------------'}
+        let(:source) { '--------------' }
 
-        it{should be_a(Tree::HR)}
+        it { should be_a(Tree::HR) }
       end
 
       context 'pre' do
-        let(:source){' i += 1'}
+        let(:source) { ' i += 1' }
 
-        it{should be_a(Tree::Pre)}
-        its(:text){should == "i += 1\n\n"}
+        it { should be_a(Tree::Pre) }
+        its(:text) { should == "i += 1\n\n" }
       end
     end
 
     describe 'sequence' do
-      subject{nodes}
+      subject { nodes }
 
-      let(:source){ "== Heading ==\nParagraph\n*List item"}
+      let(:source) { "== Heading ==\nParagraph\n*List item" }
 
-      its(:count){should == 3}
+      its(:count) { should == 3 }
       it 'should be correct items' do
         expect(subject.map(&:class)).to eq [Tree::Heading, Tree::Paragraph, Tree::UnorderedList]
         expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "* List item\n\n"]
@@ -94,12 +94,12 @@ module Infoboxer
     end
 
     describe 'merging subsequent' do
-      subject{Parser.paragraphs(source)}
+      subject { Parser.paragraphs(source) }
 
       context 'paragraphs' do
-        let(:source){"First para\nStill first\n\nNext para"}
+        let(:source) { "First para\nStill first\n\nNext para" }
 
-        its(:count){should == 2}
+        its(:count) { should == 2 }
         it 'should be only two of them' do
           expect(subject.map(&:text)).to eq \
             ["First para Still first\n\n", "Next para\n\n"]
@@ -107,13 +107,13 @@ module Infoboxer
       end
 
       context 'not mergeable' do
-        let(:source){"== First heading ==\n== Other heading =="}
+        let(:source) { "== First heading ==\n== Other heading ==" }
 
-        its(:count){should == 2}
+        its(:count) { should == 2 }
       end
 
       context 'list' do
-        let(:source){
+        let(:source) {
           %Q{
             * start
             ** level two
@@ -127,7 +127,7 @@ module Infoboxer
         }
 
         # not the most elegant way of testing trees, but still!
-        it{should ==
+        it { should ==
           [
             Tree::UnorderedList.new(
               Tree::ListItem.new([
@@ -175,52 +175,52 @@ module Infoboxer
       end
 
       context 'complex def-list' do
-        let(:source){unindent(%Q{
+        let(:source) { unindent(%Q{
           :{{,}}[[Guaraní language|Guaraní]] in [[Corrientes Province]].<ref name=gn>{{cite Argentine law|jur=CN|l=5598|date=22 de octubre de 2004}}</ref>
           :{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
         })}
 
-        its(:first){should be_a(Tree::DefinitionList)}
+        its(:first) { should be_a(Tree::DefinitionList) }
       end
 
       context 'templates-only paragraph' do
-        let(:source){
+        let(:source) {
           %Q{{{template}}\n\nparagraph}
         }
 
-        it{should == [
+        it { should == [
           Tree::Template.new('template'),
           Tree::Paragraph.new(Tree::Text.new('paragraph'))
         ]}
       end
 
       context 'empty line' do
-        let(:source){
+        let(:source) {
           %Q{paragraph1\n \nparagraph2} # see the space between them?
         }
 
-        it{should == [
+        it { should == [
           Tree::Paragraph.new(Tree::Text.new('paragraph1')),
           Tree::Paragraph.new(Tree::Text.new('paragraph2'))
         ]}
       end
 
       context 'empty line in pre context' do
-        let(:source){
+        let(:source) {
           %Q{ paragraph1\n \n paragraph2} # see the space between them?
         }
 
-        it{should == [
+        it { should == [
           Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
         ]}
       end
 
       context 'comments in document' do
-        let(:source){
+        let(:source) {
           "== Heading <!-- nasty comment with ''markup and [[things\n\nmany of them{{-->parsed =="
         }
 
-        it{should == [
+        it { should == [
           Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
         ]}
       end

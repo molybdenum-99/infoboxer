@@ -7,7 +7,7 @@ module Infoboxer
     end
 
     describe 'template expansion on-the-fly' do
-      let(:klass){
+      let(:klass) {
         Class.new(MediaWiki::Traits) do
           templates do
             show 'join'
@@ -16,53 +16,53 @@ module Infoboxer
           end
         end
       }
-      let(:traits){klass.new}
-      let(:nodes){
+      let(:traits) { klass.new }
+      let(:nodes) {
         Parser.inline(source, traits)
       }
 
       context 'when simple nested templates' do
-        let(:source){
+        let(:source) {
           "before {{join|{{!}} text|and ''italics''}} after"
         }
 
-        subject{nodes}
+        subject { nodes }
 
-        its(:text){should == 'before | text and italics after'}
+        its(:text) { should == 'before | text and italics after' }
       end
 
       context 'when multiline templates' do
-        let(:source){
+        let(:source) {
           "{{unknown|{{!}}\n\ntext\n\nfoo {{,}}}}r"
         }
-        subject{nodes.first.variables.first.children}
-        it{should == [
+        subject { nodes.first.variables.first.children }
+        it { should == [
           traits.templates.find('!').new('!'),
           Tree::Paragraph.new(Tree::Text.new('text')),
           Tree::Paragraph.new([Tree::Text.new('foo '), traits.templates.find(',').new(',')]),
         ]}
-        its(:text){should == "|text\n\nfoo ·\n\n"}
+        its(:text) { should == "|text\n\nfoo ·\n\n" }
       end
 
       context 'when templates in image caption' do
-        let(:source){
+        let(:source) {
           "[[File:image.png|This {{!}} that]]"
         }
 
-        subject{
+        subject {
           nodes.first.caption
         }
 
-        its(:text){should == 'This | that'}
+        its(:text) { should == 'This | that' }
       end
 
       context 'when templates in tables' do
-        let(:source){
+        let(:source) {
           "{|\n|+Its in {{!}} caption!\n|}"
         }
-        let(:table){Parser.paragraphs(source, traits).first}
-        subject{table.lookup(:TableCaption).first}
-        its(:text){should == 'Its in | caption!'}
+        let(:table) { Parser.paragraphs(source, traits).first }
+        subject { table.lookup(:TableCaption).first }
+        its(:text) { should == 'Its in | caption!' }
       end
     end
 

@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Infoboxer
   describe 'simple templates definitions' do
-    let(:traits){MediaWiki::Traits.get('en.wikipedia.org')}
+    let(:traits) { MediaWiki::Traits.get('en.wikipedia.org') }
 
     def parse(wikitext)
       Parser.inline(wikitext, traits)

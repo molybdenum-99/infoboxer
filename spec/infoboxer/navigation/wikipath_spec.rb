@@ -4,7 +4,7 @@ module Infoboxer
 
     #let(:document) { @document }
 
-    let(:document){
+    let(:document) {
       Parser.document(%Q{
         |Test in first ''paragraph''
         |

@@ -161,35 +161,6 @@ Layout/SpaceAroundOperators:
     - 'spec/infoboxer/en.wikipedia.org/calc_templates_spec.rb'
     - 'spec/infoboxer/tree/inspect_spec.rb'
 
-# Offense count: 858
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Enabled: false
-
-# Offense count: 1448
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SupportedStylesForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Enabled: false
-
-# Offense count: 33
-# Cop supports --auto-correct.
-#Layout/TrailingWhitespace:
-  #Exclude:
-    #- 'spec/infoboxer/en.wikipedia.org/simple_templates_spec.rb'
-    #- 'spec/infoboxer/integration/site_traits_spec.rb'
-    #- 'spec/infoboxer/parser/flow_spec.rb'
-    #- 'spec/infoboxer/parser/paragraphs_spec.rb'
-    #- 'spec/infoboxer/parser/table_spec.rb'
-    #- 'spec/infoboxer/tree/inspect_spec.rb'
-    #- 'spec/infoboxer/tree/nodes_spec.rb'
-    #- 'spec/infoboxer/tree/template_spec.rb'
-    #- 'spec/infoboxer/tree/wikilink_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith.

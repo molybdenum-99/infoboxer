@@ -16,7 +16,7 @@ module Infoboxer
         context 'default' do
           let(:title) { 'Argentina' }
 
-          it{ is_expected.to be_a Hash }
+          it { is_expected.to be_a Hash }
           its(['title']) { is_expected.to eq 'Argentina' }
           it { expect(subject['revisions'].first['*']).to include("'''Argentina'''") }
           its(['fullurl']) { is_expected.to eq 'https://en.wikipedia.org/wiki/Argentina' }
@@ -32,7 +32,7 @@ module Infoboxer
         context 'redirect' do
           let(:title) { 'Einstein' }
 
-          its(['title']) { is_expected.to eq 'Albert Einstein'}
+          its(['title']) { is_expected.to eq 'Albert Einstein' }
           it { expect(subject['revisions'].first['*']).not_to include('#REDIRECT') }
           its(['fullurl']) { is_expected.to eq 'https://en.wikipedia.org/wiki/Albert_Einstein' }
         end
@@ -81,7 +81,7 @@ module Infoboxer
         end
 
         context 'globally set' do
-          before{
+          before {
             Infoboxer.user_agent = 'My Cool UA'
             client.raw('Argentina')
           }
@@ -89,7 +89,7 @@ module Infoboxer
         end
 
         context 'locally set' do
-          before{
+          before {
             Infoboxer.user_agent = 'My Cool UA'
             client_with_ua = MediaWiki.new(
               'https://en.wikipedia.org/w/api.php',
@@ -139,7 +139,7 @@ module Infoboxer
       context 'when several pages' do
         subject { client.get('Argentina', 'Ukraine') }
 
-        it { is_expected.to all be_a MediaWiki::Page}
+        it { is_expected.to all be_a MediaWiki::Page }
       end
 
       context 'when signle non-existing page' do
@@ -194,7 +194,7 @@ module Infoboxer
 
         it { is_expected.to be_a Hash }
         its(:keys) { are_expected.to eq ['kharkiv'] }
-        its(:values) { are_expected.to all be_a MediaWiki::Page}
+        its(:values) { are_expected.to all be_a MediaWiki::Page }
       end
     end
 
@@ -211,8 +211,8 @@ module Infoboxer
 
       context 'when category is not' do
         let(:category) { 'Category:krainian rock music groups' }
-        it { is_expected.to be_a(Tree::Nodes)}
-        it { is_expected.to be_empty}
+        it { is_expected.to be_a(Tree::Nodes) }
+        it { is_expected.to be_empty }
       end
 
       describe 'category name transformation' do
@@ -224,26 +224,26 @@ module Infoboxer
         context 'when no namespace' do
           let(:category) { 'Ukrainian rock music groups' }
 
-          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian rock music groups')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian rock music groups') }
         end
 
         context 'default namespace' do
           let(:category) { 'Category:Ukrainian rock music groups' }
 
-          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian rock music groups')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian rock music groups') }
         end
 
         context 'localized namespace' do
           let(:client) { MediaWiki.new('https://es.wikipedia.org/w/api.php') }
           let(:category) { 'Categoría:Grupos de rock de Ucrania' }
 
-          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Categoría:Grupos de rock de Ucrania')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Categoría:Grupos de rock de Ucrania') }
         end
 
         context 'not a namespace' do
           let(:category) { 'Ukrainian: rock music groups' }
 
-          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian: rock music groups')}
+          its(:'uri.query_values') { is_expected.to include('gcmtitle' => 'Category:Ukrainian: rock music groups') }
         end
       end
     end

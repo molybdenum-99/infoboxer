@@ -4,35 +4,35 @@ module Infoboxer
     describe Node do
       describe :text do
         context 'from node' do
-          let(:text){node.text}
-          subject{text}
+          let(:text) { node.text }
+          subject { text }
 
           context Text do
-            let(:node){Text.new('test')}
+            let(:node) { Text.new('test') }
 
-            it{should == 'test'}
+            it { should == 'test' }
           end
 
           context Compound do
-            let(:node){Compound.new([Text.new('one'), Text.new('two')])}
+            let(:node) { Compound.new([Text.new('one'), Text.new('two')]) }
 
-            it{should == 'onetwo'}
+            it { should == 'onetwo' }
           end
 
           context Paragraph do
-            let(:node){Paragraph.new([Text.new('one')])}
+            let(:node) { Paragraph.new([Text.new('one')]) }
 
-            it{should == "one\n\n"}
+            it { should == "one\n\n" }
           end
         end
 
         context 'from source' do
-          let(:document){Parser.document(unindent(source))}
-          let(:text){document.text}
-          subject{text}
+          let(:document) { Parser.document(unindent(source)) }
+          let(:text) { document.text }
+          subject { text }
 
           context 'simple headings and paragraphs' do
-            let(:source){%Q{
+            let(:source) { %Q{
               == Heading 2 ==
               === Heading 3 ===
               Paragraph.
@@ -41,7 +41,7 @@ module Infoboxer
               Still that, other paragraph.
             }}
 
-            it{should ==
+            it { should ==
               "Heading 2\n\n" \
               "Heading 3\n\n" \
               "Paragraph.\n\n" \
@@ -51,13 +51,13 @@ module Infoboxer
 
           context 'lists' do
             context 'unordered' do
-              let(:source){%Q{
+              let(:source) { %Q{
                 * its
                 * a
                 * list
               }}
 
-              it{should ==
+              it { should ==
                 "* its\n"\
                 "* a\n"\
                 "* list\n\n"
@@ -65,13 +65,13 @@ module Infoboxer
             end
 
             context 'ordered' do
-              let(:source){%Q{
+              let(:source) { %Q{
                 # its
                 # a
                 # list
               }}
 
-              it{should ==
+              it { should ==
                 "1. its\n"\
                 "2. a\n"\
                 "3. list\n\n"
@@ -79,14 +79,14 @@ module Infoboxer
             end
 
             context 'definitions' do
-              let(:source){%Q{
+              let(:source) { %Q{
                 ; its
                 : a
                 ; list
                 : of defs
               }}
 
-              it{should ==
+              it { should ==
                 "its:\n"\
                 "  a\n"\
                 "list:\n"\
@@ -95,14 +95,14 @@ module Infoboxer
             end
 
             context 'nest' do
-              let(:source){%Q{
+              let(:source) { %Q{
                 * its
                 ** a
                 ** nested
                 * list
               }}
 
-              it{should ==
+              it { should ==
                 "* its\n"\
                 "  * a\n"\
                 "  * nested\n"\
@@ -111,7 +111,7 @@ module Infoboxer
             end
 
             context 'mixing and nesting' do
-              let(:source){%Q{
+              let(:source) { %Q{
                 * list
                 * with
                 *# different
@@ -123,7 +123,7 @@ module Infoboxer
                 paragraph
               }}
 
-              it{should ==
+              it { should ==
                 "* list\n" \
                 "* with\n" \
                 "  1. different\n" \
@@ -137,14 +137,14 @@ module Infoboxer
           end
 
           context 'pre' do
-            let(:source){%Q{
+            let(:source) { %Q{
               Here will be pre:
 
                First line
                Next line
               }}
 
-            it{should ==
+            it { should ==
               "Here will be pre:\n\n" \
               "First line\n" \
               "Next line\n\n"
@@ -152,7 +152,7 @@ module Infoboxer
           end
 
           context 'tables' do
-            let(:source){%Q{
+            let(:source) { %Q{
               {|
               |+ Caption
               |-
@@ -170,7 +170,7 @@ module Infoboxer
               |}
             }}
 
-            it{should ==
+            it { should ==
               "+-------+------+----------+\n"\
               "|         Caption         |\n"\
               "+-------+------+----------+\n"\
@@ -183,28 +183,28 @@ module Infoboxer
           end
 
           context 'links and other inline markup' do
-            let(:source){"one ''two'' [[named|link]] [[unnamed link]]"}
-            it{should == "one two link unnamed link\n\n"}
+            let(:source) { "one ''two'' [[named|link]] [[unnamed link]]" }
+            it { should == "one two link unnamed link\n\n" }
           end
 
           context 'br' do
-            let(:source){'one<br/>two'}
-            it{should == "one\ntwo\n\n"}
+            let(:source) { 'one<br/>two' }
+            it { should == "one\ntwo\n\n" }
           end
 
           context 'ref' do
-            let(:source){'some text<ref>with ref</ref>'}
-            it{should == "some text\n\n"}
+            let(:source) { 'some text<ref>with ref</ref>' }
+            it { should == "some text\n\n" }
           end
 
           context 'templates' do
-            let(:source){"some text{{with|realy=complex ''template''}}"}
-            it{should == "some text\n\n"}
+            let(:source) { "some text{{with|realy=complex ''template''}}" }
+            it { should == "some text\n\n" }
           end
 
           context 'html tags' do
-            let(:source){'some text <b>with bold</b> text'}
-            it{should == "some text with bold text\n\n"}
+            let(:source) { 'some text <b>with bold</b> text' }
+            it { should == "some text with bold text\n\n" }
           end
 
           context 'math' do

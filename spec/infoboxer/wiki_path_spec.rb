@@ -31,7 +31,7 @@ module Infoboxer
       end
 
       context 'erroneous paths' do
-        it {expect { subject['foo'] }.to raise_error(WikiPath::ParseError, %r{expecting /}) }
+        it { expect { subject['foo'] }.to raise_error(WikiPath::ParseError, %r{expecting /}) }
       end
     end
 
