@@ -6,6 +6,7 @@ module Infoboxer
       describe :text do
         context 'from node' do
           let(:text) { node.text }
+
           subject { text }
 
           context Text do
@@ -30,6 +31,7 @@ module Infoboxer
         context 'from source' do
           let(:document) { Parser.document(unindent(source)) }
           let(:text) { document.text }
+
           subject { text }
 
           context 'simple headings and paragraphs' do
@@ -201,31 +203,37 @@ module Infoboxer
 
           context 'links and other inline markup' do
             let(:source) { "one ''two'' [[named|link]] [[unnamed link]]" }
+
             it { is_expected.to eq "one two link unnamed link\n\n" }
           end
 
           context 'br' do
             let(:source) { 'one<br/>two' }
+
             it { is_expected.to eq "one\ntwo\n\n" }
           end
 
           context 'ref' do
             let(:source) { 'some text<ref>with ref</ref>' }
+
             it { is_expected.to eq "some text\n\n" }
           end
 
           context 'templates' do
             let(:source) { "some text{{with|realy=complex ''template''}}" }
+
             it { is_expected.to eq "some text\n\n" }
           end
 
           context 'html tags' do
             let(:source) { 'some text <b>with bold</b> text' }
+
             it { is_expected.to eq "some text with bold text\n\n" }
           end
 
           context 'math' do
             let(:source) { '<math>g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} </math>' }
+
             it { is_expected.to eq "<math>g = \\frac{F}{m} = \\frac {G M_T}{{R_T}^2} </math>\n\n" }
           end
         end

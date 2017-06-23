@@ -23,11 +23,13 @@ module Infoboxer
 
       context 'when multiline without end regexp (implicit end)' do
         let(:source) { "some text\nor some other text" }
+
         it { is_expected.to eq [Tree::Text.new('some text')] }
       end
 
       context 'when multiline with end regexp' do
         let(:source) { "some text\nor some other text}}" }
+
         subject { parser.inline(/}}/) }
 
         it { is_expected.to eq [Tree::Text.new("some text\nor some other text")] }
@@ -35,6 +37,7 @@ module Infoboxer
 
       context 'when multiline with end regexp not found' do
         let(:source) { "some text\nor some other text" }
+
         it 'should fail' do
           expect { parser.inline(/}}/) }.to raise_error(Parser::ParsingError)
         end
@@ -57,11 +60,13 @@ module Infoboxer
 
       context 'when multiline without end regexp (implicit end)' do
         let(:source) { "some text\nor some other text" }
+
         it { is_expected.to eq [Tree::Text.new('some text')] }
       end
 
       context 'when multiline with end regexp on first line' do
         let(:source) { "some}} text\nor some other text" }
+
         subject { parser.short_inline(/}}/) }
 
         it { is_expected.to eq [Tree::Text.new('some')] }
@@ -69,6 +74,7 @@ module Infoboxer
 
       context 'when multiline with end regexp not found' do
         let(:source) { "some text\nor some other text" }
+
         subject { parser.short_inline(/}}/) }
 
         it { is_expected.to eq [Tree::Text.new('some text')] }
@@ -76,6 +82,7 @@ module Infoboxer
 
       context 'when "syntetic eol" (end of block element)' do
         let(:source) { "some</ref> text\nor some other text" }
+
         subject { parser.short_inline(/''/) }
 
         it { is_expected.to eq [Tree::Text.new('some')] }
@@ -84,18 +91,22 @@ module Infoboxer
 
     describe :paragraphs do
       subject { parser.paragraphs }
+
       describe 'one-liner' do
         let(:source) { 'some text' }
+
         it { is_expected.to eq [Tree::Paragraph.new(Tree::Text.new('some text'))] }
       end
 
       describe 'continuous paragraph' do
         let(:source) { "some text\nor some other text" }
+
         it { is_expected.to eq [Tree::Paragraph.new(Tree::Text.new('some text or some other text'))] }
       end
 
       describe 'several paragraphs' do
         let(:source) { "some text\n\nor some other text" }
+
         it {
           is_expected.to eq [
             Tree::Paragraph.new(Tree::Text.new('some text')),
@@ -106,7 +117,9 @@ module Infoboxer
 
       describe 'with end regexp' do
         let(:source) { "some text\n\nor some}} other text" }
+
         subject { parser.paragraphs(/}}/) }
+
         it {
           is_expected.to eq [
             Tree::Paragraph.new(Tree::Text.new('some text')),
@@ -121,25 +134,32 @@ module Infoboxer
 
     describe 'long inline' do
       subject { parser.long_inline }
+
       describe 'one-liner' do
         let(:source) { 'some text' }
+
         it { is_expected.to eq [Tree::Text.new('some text')] }
       end
 
       describe 'one-liner - with end regexp' do
         let(:source) { 'some }} text' }
+
         subject { parser.long_inline(/}}/) }
+
         it { is_expected.to eq [Tree::Text.new('some ')] }
       end
 
       describe 'inline, then paragraphs' do
         let(:source) { "some text\nor some other text" }
+
         it { is_expected.to eq [Tree::Text.new('some text'), Tree::Paragraph.new(Tree::Text.new('or some other text'))] }
       end
 
       describe 'inline, then paragraphs - with end regexp' do
         let(:source) { "some text\nor some}} other text" }
+
         subject { parser.long_inline(/}}/) }
+
         it { is_expected.to eq [Tree::Text.new('some text'), Tree::Paragraph.new(Tree::Text.new('or some'))] }
       end
     end

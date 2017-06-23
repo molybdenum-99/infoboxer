@@ -38,6 +38,7 @@ module Infoboxer
 
     describe '#call' do
       let(:node) { spy }
+
       subject { ->(source) { described_class.parse(source).call(node) } }
 
       context 'one level' do

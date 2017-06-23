@@ -8,6 +8,7 @@ module Infoboxer
     let(:parser) { Parser.new(ctx) }
 
     let(:nodes) { parser.inline }
+
     subject { nodes }
 
     context 'when just text' do
@@ -118,6 +119,7 @@ module Infoboxer
 
       context 'not a link: complex inline' do
         let(:source) { "This ''is [just text], trust'' me" }
+
         subject { nodes.find(Tree::Italic).first }
 
         its(:text) { is_expected.to eq 'is [just text], trust' }
@@ -163,6 +165,7 @@ module Infoboxer
 
       context 'self-closing with attrs' do
         let(:source) { '<div name=totalpop/>' }
+
         it { is_expected.to be_a(Tree::HTMLTag) }
         its(:children) { is_expected.to be_empty }
         its(:attrs) { is_expected.to eq(name: 'totalpop') }
@@ -193,6 +196,7 @@ module Infoboxer
     context 'when nowiki' do
       context 'when non-empty' do
         let(:source) { "<nowiki> all kinds <ref> of {{highly}} irrelevant '' markup </nowiki>" }
+
         subject { nodes.first }
 
         it { is_expected.to eq Tree::Text.new(" all kinds <ref> of {{highly}} irrelevant '' markup ") }
@@ -200,7 +204,9 @@ module Infoboxer
 
       context 'when empty' do
         let(:source) { 'The country is also a producer of [[industrial mineral]]<nowiki/>s.' }
+
         subject { nodes }
+
         it {
           is_expected.to eq [
             Tree::Text.new('The country is also a producer of '),
@@ -213,19 +219,23 @@ module Infoboxer
 
     context 'when math' do
       let(:source) { "<math> all kinds <ref> of {{highly}} irrelevant '' markup </math>" }
+
       subject { nodes.first }
 
       it { is_expected.to eq Tree::Math.new(" all kinds <ref> of {{highly}} irrelevant '' markup ") }
 
       context 'math in templates' do
         let(:source) { '{{Ecuación|<math>g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} </math>}}' }
+
         subject { nodes.lookup(:Template).first.variables.first.lookup(:Math).first }
+
         it { is_expected.to eq Tree::Math.new('g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} ') }
       end
     end
 
     describe 'sequence' do
       subject { nodes }
+
       context 'plain' do
         let(:source) { "This is '''bold''' text with [[Some link|Link]]" }
 
@@ -236,6 +246,7 @@ module Infoboxer
 
       context 'html + template' do
         let(:source) { '<br>{{small|(Sun of May)}}' }
+
         its(:count) { is_expected.to eq 2 }
         its(:first) { is_expected.to be_kind_of(Tree::HTMLTag) }
         its(:last) { is_expected.to be_kind_of(Tree::Template) }
@@ -243,18 +254,22 @@ module Infoboxer
 
       context 'text + html' do
         let(:source) { 'test <b>me</b>' }
+
         its(:count) { is_expected.to eq 2 }
         its_map(:class) { are_expected.to eq [Tree::Text, Tree::HTMLTag] }
       end
 
       context 'text, ref, template' do
         let(:source) { '4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>' }
+
         its(:count) { is_expected.to eq 2 }
         its_map(:class) { are_expected.to eq [Tree::Text, Tree::Ref] }
 
         context 'even in "short" context' do
           let(:source) { '4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>' }
+
           subject { parser.short_inline }
+
           its(:count) { is_expected.to eq 2 }
           its_map(:class) { are_expected.to eq [Tree::Text, Tree::Ref] }
         end
@@ -264,6 +279,7 @@ module Infoboxer
     describe 'nesting' do
       context 'simple' do
         let(:source) { "'''[[Bold link|Link]]'''" }
+
         subject { Parser.inline(source).first }
 
         it { is_expected.to be_kind_of(Tree::Bold) }

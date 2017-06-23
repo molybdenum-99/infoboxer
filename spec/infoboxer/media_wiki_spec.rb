@@ -6,6 +6,7 @@ module Infoboxer
 
     describe :inspect do
       subject { client }
+
       its(:inspect) { is_expected.to eq '#<Infoboxer::MediaWiki(en.wikipedia.org)>' }
     end
 
@@ -107,6 +108,7 @@ module Infoboxer
 
       context 'static part - guess by domain' do
         subject { traits.templates.find('&') }
+
         it { is_expected.to be < Templates::Literal }
       end
 
@@ -157,6 +159,7 @@ module Infoboxer
 
       context 'when invalid title requested' do
         subject { client.get('It%27s not') }
+
         its_call { is_expected.to raise_error(/contains invalid characters/) }
       end
 
@@ -204,6 +207,7 @@ module Infoboxer
 
       context 'when category exists' do
         let(:category) { 'Category:Ukrainian rock music groups' }
+
         it { is_expected.to be_a(Tree::Nodes) }
         its(:count) { is_expected.to be > 40 }
 
@@ -212,6 +216,7 @@ module Infoboxer
 
       context 'when category is not' do
         let(:category) { 'Category:krainian rock music groups' }
+
         it { is_expected.to be_a(Tree::Nodes) }
         it { is_expected.to be_empty }
       end
@@ -254,6 +259,7 @@ module Infoboxer
 
       context 'when found' do
         let(:query) { 'intitle:"town tramway systems in Chile"' }
+
         it { is_expected.to be_a(Tree::Nodes) }
         its(:count) { is_expected.to eq 1 }
 
@@ -262,6 +268,7 @@ module Infoboxer
 
       context 'when not found' do
         let(:query) { 'intitle:"town tramway systems in Vunuatu"' }
+
         it { is_expected.to be_a(Tree::Nodes).and be_empty }
       end
     end
@@ -271,6 +278,7 @@ module Infoboxer
 
       context 'when found' do
         let(:prefix) { 'Ukrainian hr' }
+
         it { is_expected.to be_a(Tree::Nodes) }
         its(:count) { is_expected.to be > 1 }
 
@@ -279,6 +287,7 @@ module Infoboxer
 
       context 'when not found' do
         let(:prefix) { 'Ukrainian foooo' }
+
         it { is_expected.to be_a(Tree::Nodes).and be_empty }
       end
     end

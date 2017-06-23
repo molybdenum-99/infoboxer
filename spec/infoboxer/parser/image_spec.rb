@@ -8,6 +8,7 @@ module Infoboxer
     let(:parser) { Parser.new(ctx) }
 
     let(:nodes) { parser.inline }
+
     subject { nodes.first }
 
     context 'when simplest' do
@@ -67,6 +68,7 @@ module Infoboxer
 
       context 'should parse File: prefix' do
         let(:source) { %{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]} }
+
         it { is_expected.to be_an(Tree::Image) }
       end
     end

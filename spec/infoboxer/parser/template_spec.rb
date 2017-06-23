@@ -9,6 +9,7 @@ module Infoboxer
 
     let(:nodes) { parser.inline }
     let(:template) { nodes.first }
+
     subject { template }
 
     context 'simplest' do
@@ -79,6 +80,7 @@ module Infoboxer
 
     context 'with paragraphs in variable' do
       let(:source) { "{{the name|var=some\nmultiline\n''text''}}" }
+
       it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.children.map(&:class)).to eq [Tree::Text, Tree::Paragraph]
@@ -87,6 +89,7 @@ module Infoboxer
 
     context 'with newlines before nested template' do
       let(:source) { "{{the name|var=\n {{nested}}}}" }
+
       it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.children).to all(be_a(Tree::Template))
@@ -95,6 +98,7 @@ module Infoboxer
 
     context 'with newlines before variable name' do
       let(:source) { "{{the name|\nvar=test}}" }
+
       it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.name).to eq 'var'
@@ -103,6 +107,7 @@ module Infoboxer
 
     context 'with newline+space before next var' do
       let(:source) { "{{the name|var=test\n |var2=foo}}" }
+
       it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.children).to eq [Tree::Text.new('test')]
@@ -111,12 +116,14 @@ module Infoboxer
 
     context 'with <ref> and other template in variable' do
       let(:source) { "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}|othervar}}" }
+
       it { is_expected.to be_a(Tree::Template) }
       its(:'variables.count') { is_expected.to eq 2 }
     end
 
     context 'with other template in variable - newlines' do
       let(:source) { "{{the name|first=\n {{\nother-template\n }}\n| othervar}}" }
+
       it { is_expected.to be_a(Tree::Template) }
       its(:'variables.count') { is_expected.to eq 2 }
     end
@@ -151,6 +158,7 @@ module Infoboxer
       its(:'variables.first.name') { is_expected.to eq '1' }
       context 'magic inside magic' do
         subject { template.variables.first.children.first }
+
         it { is_expected.to be_a(Tree::Template) }
         its(:name) { is_expected.to eq '#expr' }
       end
@@ -158,6 +166,7 @@ module Infoboxer
 
     context 'and now for really sick stuff!' do
       let(:source) { File.read('spec/fixtures/large_infobox.txt') }
+
       it { is_expected.to be_a(Tree::Template) }
       its(:"variables.count") { is_expected.to eq 87 }
     end

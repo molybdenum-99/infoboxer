@@ -79,6 +79,7 @@ module Infoboxer
 
       describe MediaWiki::Page, :vcr do
         let(:node) { Infoboxer.wikipedia.get('Argentina') }
+
         it {
           is_expected.to match \
             %r{^\#<Page\(title: "Argentina", url: "https://en.wikipedia.org/wiki/Argentina"\): [^<]{,31}\.\.\.>$}

@@ -38,11 +38,13 @@ module Infoboxer
       describe :strip do
         context 'last empty texts' do
           subject { Nodes[Text.new('test'), Text.new(' ')] }
+
           its(:strip) { is_expected.to eq Nodes[Text.new('test')] }
         end
 
         context 'spaces in last text' do
           subject { Nodes[Text.new('test ')] }
+
           its(:strip) { is_expected.to eq Nodes[Text.new('test')] }
         end
       end
@@ -52,6 +54,7 @@ module Infoboxer
           context 'text' do
             context 'when previous was text' do
               subject { Nodes[Text.new('test')] }
+
               before {
                 subject << Text.new(' me')
               }
@@ -60,6 +63,7 @@ module Infoboxer
 
             context 'when previous was not a text' do
               subject { Nodes[Italic.new(Text.new('test'))] }
+
               before {
                 subject << Text.new(' me')
               }
@@ -68,6 +72,7 @@ module Infoboxer
 
             context 'when its first text' do
               subject { Nodes[] }
+
               before {
                 subject << 'test'
               }
@@ -78,6 +83,7 @@ module Infoboxer
           context 'paragraphs' do
             context 'when can merge' do
               subject { Nodes[Paragraph.new(Text.new('test'))] }
+
               before {
                 subject << Paragraph.new(Text.new('me'))
               }
@@ -86,6 +92,7 @@ module Infoboxer
 
             context 'when can\'t merge' do
               subject { Nodes[Paragraph.new(Text.new('test'))] }
+
               before {
                 subject << Pre.new(Text.new('me'))
               }
@@ -94,10 +101,12 @@ module Infoboxer
 
             context 'children\'s #parent rewriting' do
               let(:para) { Nodes[Paragraph.new(Text.new('test'))] }
+
               before {
                 para << Paragraph.new([Text.new('me, '), Italic.new(Text.new('please'))])
               }
               subject { para.lookup(:Italic).first }
+
               its(:parent) { is_expected.to eq para.first }
             end
           end
@@ -106,6 +115,7 @@ module Infoboxer
         describe 'empty paragraphs dropping' do
           context 'into paragraph' do
             subject { Nodes[Paragraph.new(Text.new('test'))] }
+
             before {
               subject << EmptyParagraph.new(' ')
             }
@@ -115,6 +125,7 @@ module Infoboxer
 
           context 'into pre' do
             subject { Nodes[Pre.new(Text.new('test'))] }
+
             before {
               subject << EmptyParagraph.new('   ')
             }
@@ -124,6 +135,7 @@ module Infoboxer
 
           context 'into pre -- really empty' do
             subject { Nodes[Pre.new(Text.new('test'))] }
+
             before {
               subject << EmptyParagraph.new('')
             }
@@ -134,6 +146,7 @@ module Infoboxer
 
         describe 'implicit flatten' do
           subject { Nodes[Text.new('test')] }
+
           before {
             subject << [Text.new(' me')]
           }
@@ -150,7 +163,9 @@ module Infoboxer
             ),
             ]
           }
+
           subject { nodes.flow_templates }
+
           its(:count) { is_expected.to eq 2 }
           it { is_expected.to all(be_a(Template)) }
         end
@@ -158,6 +173,7 @@ module Infoboxer
         describe 'ignoring of empty nodes' do
           context 'text' do
             subject { Nodes[Italic.new(Text.new('test'))] }
+
             before {
               subject << Text.new('')
             }
@@ -166,6 +182,7 @@ module Infoboxer
 
           context 'compound' do
             subject { Nodes[Paragraph.new(Text.new('test'))] }
+
             before {
               subject << Pre.new
             }
@@ -174,6 +191,7 @@ module Infoboxer
 
           context 'but not HTML!' do
             subject { Nodes[Paragraph.new(Text.new('test'))] }
+
             before {
               subject << HTMLTag.new('br', {})
             }
@@ -182,6 +200,7 @@ module Infoboxer
 
           context 'empty paragraphs' do
             subject { Nodes[Heading.new(Text.new('test'), 2)] }
+
             before {
               subject << EmptyParagraph.new(' ')
             }

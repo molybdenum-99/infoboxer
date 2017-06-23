@@ -20,6 +20,7 @@ module Infoboxer
         subject {
           document.lookup
         }
+
         it { is_expected.to be_kind_of(Tree::Nodes) }
         its(:count) { is_expected.to be > 10 }
       end
@@ -40,6 +41,7 @@ module Infoboxer
 
       context 'by class' do
         subject { document.lookup(Tree::Table) }
+
         its(:count) { is_expected.to eq 1 }
       end
 
@@ -68,12 +70,14 @@ module Infoboxer
         subject {
           document.lookup(:first_list_item?)
         }
+
         its(:count) { is_expected.to eq 1 }
         its(:text) { is_expected.to eq "* cool list\n" }
       end
 
       context 'by class-ish symbol' do
         subject { document.lookup(:Table) }
+
         its(:count) { is_expected.to eq 1 }
         its(:first) { is_expected.to be_a(Tree::Table) }
       end
@@ -122,16 +126,19 @@ module Infoboxer
           .lookup(Tree::ListItem)
           .lookup_children(text: /test/)
       }
+
       it { is_expected.to eq [Tree::Text.new(' deep test')] }
     end
 
     describe :parent do
       subject { document.lookup(Tree::TableCell).first }
+
       its(:parent) { is_expected.to be_a(Tree::TableRow) }
     end
 
     describe :lookup_parents do
       let(:cell) { document.lookup(Tree::TableCell).first }
+
       context 'parent found' do
         subject { cell.lookup_parents(Tree::Table) }
 
@@ -142,17 +149,20 @@ module Infoboxer
 
     describe :index do
       subject { document.lookup(Tree::Heading).first }
+
       its(:index) { is_expected.to eq 1 }
     end
 
     describe :siblings do
       subject { document.lookup(Tree::ListItem, text: /cool list/).first }
+
       its(:'siblings.count') { is_expected.to eq 2 }
       its(:siblings) { is_expected.to all(be_a(Tree::ListItem)) }
     end
 
     describe :lookup_siblings do
       let!(:node) { document.lookup(Tree::ListItem, text: /cool list/).first }
+
       subject { node.lookup_siblings(text: /test/) }
 
       its(:count) { is_expected.to eq 1 }
@@ -161,18 +171,21 @@ module Infoboxer
 
     describe :prev_siblings do
       subject { document.lookup(Tree::ListItem, text: /deep test/).first }
+
       its(:'prev_siblings.count') { is_expected.to eq 1 }
       its(:'prev_siblings.text') { is_expected.to include('cool list') }
     end
 
     describe :next_siblings do
       subject { document.lookup(Tree::ListItem, text: /deep test/).first }
+
       its(:'next_siblings.count') { is_expected.to eq 1 }
       its(:'next_siblings.text') { is_expected.to include('some more') }
     end
 
     describe :lookup_prev_siblings do
       let!(:node) { document.lookup(Tree::ListItem, text: /deep test/).first }
+
       it 'works' do
         expect(node.lookup_prev_siblings(text: /cool/).count).to eq 1
         expect(node.lookup_prev_siblings(text: /more/).count).to eq 0
@@ -181,6 +194,7 @@ module Infoboxer
 
     describe :lookup_next_siblings do
       let!(:node) { document.lookup(Tree::ListItem, text: /deep test/).first }
+
       it 'works' do
         expect(node.lookup_next_siblings(text: /cool/).count).to eq 0
         expect(node.lookup_next_siblings(text: /more/).count).to eq 1

@@ -64,6 +64,7 @@ module Infoboxer
     # FIXME: With new templates policy, #paragraphs shortcut seems useless
     xdescribe :paragraphs do
       subject { document.paragraphs }
+
       its(:count) { is_expected.to be > 100 }
       it 'should be only paragraph-level nodes' do
         expect(subject.map(&:class).uniq).to \
@@ -73,6 +74,7 @@ module Infoboxer
 
     describe :headings do
       subject { document.headings }
+
       its(:count) { is_expected.to eq 46 }
 
       it 'should select by level' do

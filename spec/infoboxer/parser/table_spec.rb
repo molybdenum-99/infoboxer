@@ -9,6 +9,7 @@ module Infoboxer
 
     let(:nodes) { parser.paragraphs }
     let(:table) { nodes.first }
+
     subject { table }
 
     describe 'simplest: one cell, one row' do
@@ -29,6 +30,7 @@ module Infoboxer
     describe 'multiple cells' do
       let(:table) { nodes.first }
       let(:cells) { table.rows.first.cells }
+
       subject { cells }
 
       context 'all cells in one line' do
@@ -38,6 +40,7 @@ module Infoboxer
           |one||two||three: it's a long text, dude!
           |}
         }}
+
         its(:count) { is_expected.to eq 3 }
         it 'should preserve text' do
           expect(subject.map(&:text)).to eq ['one', 'two', "three: it's a long text, dude!"]
@@ -52,6 +55,7 @@ module Infoboxer
           |three: it's a long text, dude!||and four
           |}
         }}
+
         its(:count) { is_expected.to eq 4 }
         it 'should preserve text' do
           expect(subject.map(&:text)).to eq \
@@ -67,9 +71,11 @@ module Infoboxer
           three: it's a long text, dude!||and four
           |}
         }}
+
         its(:count) { is_expected.to eq 2 }
         describe 'last cell' do
           subject { cells.last }
+
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
               [Tree::Text, Tree::Paragraph]
@@ -91,6 +97,7 @@ module Infoboxer
         its(:count) { is_expected.to eq 2 }
         describe 'last cell' do
           subject { cells.last }
+
           it 'should do bad things with next lines!' do
             expect(subject.children.map(&:class)).to eq \
               [Tree::Text, Templates::Base]
@@ -108,6 +115,7 @@ module Infoboxer
         |two
         |}
       }}
+
       its(:"rows.count") { is_expected.to eq 2 }
       it 'should preserve texts' do
         expect(subject.rows.map(&:text)).to eq %w[one two]
@@ -122,7 +130,9 @@ module Infoboxer
           {{!}}
           |}
         }}
+
         subject { table.rows.last.children.first }
+
         it { is_expected.to be_a(Tree::Template) }
       end
     end
@@ -137,6 +147,7 @@ module Infoboxer
           ! three
           |}
         }}
+
         subject { table.rows.first.children }
 
         its(:count) { is_expected.to eq 3 }
@@ -157,6 +168,7 @@ module Infoboxer
           ! three
           |}
         }}
+
         subject { table.rows[1].children }
 
         its(:count) { is_expected.to eq 3 }
@@ -173,6 +185,7 @@ module Infoboxer
           ! one||two||three
           |}
         }}
+
         subject { table.rows.first.children }
 
         its(:count) { is_expected.to eq 3 }
@@ -189,6 +202,7 @@ module Infoboxer
           ! one!!two!!three
           |}
         }}
+
         subject { table.rows.first.children }
 
         its(:count) { is_expected.to eq 3 }
@@ -207,6 +221,7 @@ module Infoboxer
           | three
           |}
         }}
+
         subject { table.rows.first.children }
 
         its(:count) { is_expected.to eq 3 }
@@ -281,6 +296,7 @@ module Infoboxer
         {| border="1" style="border-collapse:collapse;"
         |}
       }}
+
       subject { table.params }
 
       it { is_expected.to be_kind_of(Hash) }
@@ -299,6 +315,7 @@ module Infoboxer
         |test
         |}
       }}
+
       subject { table.rows.first.params }
 
       it { is_expected.to be_kind_of(Hash) }
@@ -317,6 +334,7 @@ module Infoboxer
           | style="text-align:right;" |test
           |}
         }}
+
         subject { table.rows.first.cells.first.params }
 
         it { is_expected.to be_kind_of(Hash) }
@@ -334,6 +352,7 @@ module Infoboxer
           | style="text-align:right;" |test||border|one
           |}
         }}
+
         subject { table.rows.first.cells[1].params }
 
         it { is_expected.to be_kind_of(Hash) }
@@ -352,6 +371,7 @@ module Infoboxer
           | style="text-align:right; |test||border|one
           |}
         }}
+
         subject { table.rows.first.cells[1].params }
 
         it { is_expected.to be_kind_of(Hash) }
@@ -376,6 +396,7 @@ module Infoboxer
           |}
           |}
         }}
+
         subject { table.rows.first.cells.first.children.first }
 
         it { is_expected.to be_kind_of(Tree::Table) }
@@ -414,6 +435,7 @@ module Infoboxer
         That's paragraph!
       ]
       }
+
       it 'works' do
         expect(table.rows).to be_empty
         expect(nodes.last).to eq Tree::Paragraph.new(Tree::Text.new("That's paragraph!"))
@@ -427,7 +449,9 @@ module Infoboxer
           |Still a cell!
         ]
         }
+
         subject { table.rows.first.cells.first }
+
         its(:text) { is_expected.to eq 'Still a cell!' }
       end
     end
@@ -436,6 +460,7 @@ module Infoboxer
       # From
       # http://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems#General_information
       let(:source) { File.read('spec/fixtures/large_table.txt') }
+
       its(:"rows.count") { is_expected.to eq 61 }
       it 'should be cool' do
         expect(subject.rows.map(&:children).map(&:count)).to all(be > 1)

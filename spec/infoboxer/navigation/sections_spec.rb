@@ -103,6 +103,7 @@ module Infoboxer
 
     describe :in_sections do
       let(:para) { document.lookup(:Paragraph, text: /Declassified documents of the Chilean secret police/) }
+
       subject { para.in_sections }
 
       its(:count) { is_expected.to eq 2 }
@@ -116,6 +117,7 @@ module Infoboxer
 
       context 'deeply nested nodes' do
         let(:link) { document.lookup(:ListItem).lookup(:Wikilink, text: 'Northwest').first }
+
         subject { link.in_sections }
 
         its(:count) { is_expected.to eq 2 }

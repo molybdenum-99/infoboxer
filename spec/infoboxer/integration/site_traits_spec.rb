@@ -36,7 +36,9 @@ module Infoboxer
         let(:source) {
           "{{unknown|{{!}}\n\ntext\n\nfoo {{,}}}}r"
         }
+
         subject { nodes.first.variables.first.children }
+
         it {
           is_expected.to eq [
             traits.templates.find('!').new('!'),
@@ -64,7 +66,9 @@ module Infoboxer
           "{|\n|+Its in {{!}} caption!\n|}"
         }
         let(:table) { Parser.paragraphs(source, traits).first }
+
         subject { table.lookup(:TableCaption).first }
+
         its(:text) { is_expected.to eq 'Its in | caption!' }
       end
     end
@@ -83,7 +87,9 @@ module Infoboxer
           end
         }
         let(:client) { MediaWiki.new('http://en.wikipedia.org/w/api.php') }
+
         subject { client }
+
         its(:context) { is_expected.to be_a(klass) }
       end
 

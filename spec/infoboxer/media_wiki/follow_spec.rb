@@ -10,11 +10,13 @@ module Infoboxer
 
     describe :url do
       subject { link.url }
+
       it { is_expected.to eq 'https://en.wikipedia.org/wiki/Chile' }
     end
 
     describe :follow do
       subject { VCR.use_cassette('follow-chile') { link.follow } }
+
       it { is_expected.to be_a(MediaWiki::Page) }
       its(:title) { is_expected.to eq 'Chile' }
       its(:text) { is_expected.to include('The arid Atacama Desert in northern Chile contains great mineral wealth, principally copper.') }
@@ -29,6 +31,7 @@ module Infoboxer
     let(:links) { source.lookup(:Wikilink).first(3) }
 
     subject { VCR.use_cassette('follow-several') { links.follow } }
+
     it { is_expected.to be_a(Tree::Nodes) }
     it { is_expected.to all(be_a(MediaWiki::Page)) }
   end
@@ -42,11 +45,13 @@ module Infoboxer
 
     describe :url do
       subject { template.url }
+
       it { is_expected.to eq 'https://en.wikipedia.org/wiki/Template:Indomalaya_tropical_and_subtropical_coniferous_forests' }
     end
 
     describe :follow do
       subject { VCR.use_cassette('follow-template') { template.follow } }
+
       it { is_expected.to be_a(MediaWiki::Page) }
       its(:url) { is_expected.to eq 'https://en.wikipedia.org/wiki/Template:Indomalaya_tropical_and_subtropical_coniferous_forests' }
     end

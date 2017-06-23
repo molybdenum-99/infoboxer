@@ -8,6 +8,7 @@ module Infoboxer
     let(:parser) { Parser.new(ctx) }
 
     let(:nodes) { parser.inline }
+
     subject { nodes.first }
 
     context 'simple' do
@@ -35,6 +36,7 @@ module Infoboxer
 
     context 'self-closing' do
       let(:source) { '<ref name=totalpop/>' }
+
       it { is_expected.to be_kind_of(Tree::Ref) }
       its(:params) { is_expected.to eq(name: 'totalpop') }
     end

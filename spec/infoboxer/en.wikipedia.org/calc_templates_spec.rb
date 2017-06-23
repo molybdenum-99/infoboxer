@@ -6,6 +6,7 @@ module Infoboxer
     let(:template_vars) {
       variables.each_with_index.map { |v, i| Tree::Var.new((i + 1).to_s, Tree::Text.new(v)) }
     }
+
     subject { traits.templates.find(name).new(name, Tree::Nodes[*template_vars]) }
 
     describe '{{Convert}}' do
@@ -25,6 +26,7 @@ module Infoboxer
 
       context 'with between sign' do
         let(:variables) { %w[120 × 15 m acres] }
+
         its(:text) { is_expected.to eq '120 × 15 m' }
         its(:value1) { is_expected.to eq '120' }
         its(:value2) { is_expected.to eq '15' }

@@ -38,11 +38,13 @@ module Infoboxer
 
         context 'dl/dt' do
           let(:source) { '; Some text' }
+
           it { is_expected.to eq Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text'))) }
         end
 
         context 'dl/dd' do
           let(:source) { ': Some text' }
+
           it { is_expected.to eq Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text'))) }
         end
 

@@ -30,6 +30,7 @@ module Infoboxer
         end
 
         subject { traits.templates.find('!') }
+
         it { is_expected.to be_a(Class) }
         it { is_expected.to be < Templates::Base }
         its(:inspect) { is_expected.to eq 'Infoboxer::Templates::Template[!]' }
@@ -43,7 +44,9 @@ module Infoboxer
 
           context 'text replacements' do
             let(:template) { traits.templates.find('!') }
+
             subject { template.new('!') }
+
             its(:text) { is_expected.to eq '|' }
           end
         end
@@ -54,10 +57,12 @@ module Infoboxer
           klass.domain 'in.wikipedia.org'
         }
         subject { described_class.get('in.wikipedia.org') }
+
         it { is_expected.to be_a(klass) }
 
         context 'when non-bound domain' do
           subject { described_class.get('fr.wikipedia.org') }
+
           it { is_expected.to be_a(described_class) }
         end
       end
@@ -71,10 +76,12 @@ module Infoboxer
           }
         }
         let(:traits) { described_class.get('in.wikipedia.org') }
+
         it 'should be defined' do
           expect(traits).to be_kind_of(klass)
         end
         subject { traits.templates.find('foo') }
+
         it { is_expected.to be_a(Class) }
         it { is_expected.to be < Templates::Show }
 
@@ -94,6 +101,7 @@ module Infoboxer
           klass.domain 'in.wikipedia.org'
         }
         subject { described_class.get('in.wikipedia.org', namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]) }
+
         its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier') }
       end
     end
