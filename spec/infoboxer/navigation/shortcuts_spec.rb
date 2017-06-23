@@ -16,27 +16,20 @@ module Infoboxer
         its(:count) { is_expected.to be > 100 }
         its(:'first.link') { is_expected.to eq 'Argentine Constitution' }
         its(:'first.parent') { is_expected.to be_a(Tree::Var) }
-        it 'should have no namespaced link' do
-          expect(subject.map(&:link)).not_to include(match(/:$/))
-        end
+        its_map(:link) { are_expected.not_to include(match(/:$/)) }
       end
 
       context 'by namespace' do
         subject { document.wikilinks('Category') }
 
         its(:'first.link') { is_expected.to eq 'Category:Argentina' }
-        it 'should have all links namespaced' do
-          expect(subject.map(&:link)).to all(match(/^Category:/))
-        end
+        its_map(:link) { are_expected.to all(match(/^Category:/)) }
       end
 
       context 'all namespaces' do
         subject { document.wikilinks(nil) }
 
-        it 'should have all kinds of links' do
-          expect(subject.map(&:link)).to include(match(/^Category:/))
-          expect(subject.map(&:link)).to include(match(/^[^:]+$/))
-        end
+        its_map(:link) { is_expected.to include(match(/^Category:/)).and include(match(/^[^:]+$/)) }
       end
     end
 

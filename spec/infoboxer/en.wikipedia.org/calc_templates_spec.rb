@@ -41,12 +41,12 @@ module Infoboxer
       let(:name) { 'Age' }
 
       context 'one date' do
-        # FIXME: use timecomp here!!!
+        before { Timecop.freeze(Date.parse('2017-06-23')) }
         let(:variables) { %w[1985 07 01] }
 
         it { is_expected.to be_kind_of(Templates::Base) }
 
-        its(:text) { is_expected.to eq '31 years' }
+        its(:text) { is_expected.to eq '32 years' }
       end
 
       context 'two dates' do

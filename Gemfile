@@ -25,6 +25,7 @@ group :test do
   gem 'rspec-its', '~> 1'
   gem 'vcr'
   gem 'webmock'
+  gem 'timecop'
   gem 'saharspec', github: 'zverok/saharspec'
   gem 'coveralls', require: false
 end

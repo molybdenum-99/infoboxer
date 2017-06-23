@@ -229,44 +229,34 @@ module Infoboxer
       context 'plain' do
         let(:source) { "This is '''bold''' text with [[Some link|Link]]" }
 
-        it 'should be parsed!' do
-          expect(subject.count).to eq 4
-          expect(subject.map(&:class)).to eq [Tree::Text, Tree::Bold, Tree::Text, Tree::Wikilink]
-          expect(subject.map(&:text)).to eq ['This is ', 'bold', ' text with ', 'Link']
-        end
+        its(:count) { is_expected.to eq 4 }
+        its_map(:class) { is_expected.to eq [Tree::Text, Tree::Bold, Tree::Text, Tree::Wikilink] }
+        its_map(:text) { is_expected.to eq ['This is ', 'bold', ' text with ', 'Link'] }
       end
 
       context 'html + template' do
         let(:source) { '<br>{{small|(Sun of May)}}' }
-        it 'should be parsed!' do
-          expect(subject.count).to eq 2
-          expect(subject.first).to be_kind_of(Tree::HTMLTag)
-          expect(subject.last).to be_kind_of(Tree::Template)
-        end
+        its(:count) { is_expected.to eq 2 }
+        its(:first) { is_expected.to be_kind_of(Tree::HTMLTag) }
+        its(:last) { is_expected.to be_kind_of(Tree::Template) }
       end
 
       context 'text + html' do
         let(:source) { 'test <b>me</b>' }
-        it 'should be parsed!' do
-          expect(subject.count).to eq 2
-          expect(subject.map(&:class)).to eq [Tree::Text, Tree::HTMLTag]
-        end
+        its(:count) { is_expected.to eq 2 }
+        its_map(:class) { are_expected.to eq [Tree::Text, Tree::HTMLTag] }
       end
 
       context 'text, ref, template' do
         let(:source) { '4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>' }
-        it 'should be parsed!' do
-          expect(subject.count).to eq 2
-          expect(subject.map(&:class)).to eq [Tree::Text, Tree::Ref]
-        end
+        its(:count) { is_expected.to eq 2 }
+        its_map(:class) { are_expected.to eq [Tree::Text, Tree::Ref] }
 
         context 'even in "short" context' do
           let(:source) { '4D S.A.S.<ref>{{Citation | url = http://www.4D.com | title = 4D}}</ref>' }
           subject { parser.short_inline }
-          it 'should be parsed!' do
-            expect(subject.count).to eq 2
-            expect(subject.map(&:class)).to eq [Tree::Text, Tree::Ref]
-          end
+          its(:count) { is_expected.to eq 2 }
+          its_map(:class) { are_expected.to eq [Tree::Text, Tree::Ref] }
         end
       end
     end

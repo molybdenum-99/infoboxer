@@ -38,8 +38,7 @@ module Infoboxer
           end
           log "Variable #{name} found"
 
-          value = long_inline(/\||}}/)
-          value.pop if value.last.is_a?(Pre) && value.last.text =~ /^\s*$/ # FIXME: dirty!
+          value = sanitize_value(long_inline(/\||}}/))
 
           # it was just empty line otherwise
           res << Var.new(name.to_s, value) unless value.empty? && name.is_a?(Numeric)
@@ -50,6 +49,11 @@ module Infoboxer
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")
         end
         res
+      end
+
+      def sanitize_value(nodes)
+        nodes.pop if nodes.last.is_a?(Pre) && nodes.last.text =~ /^\s*$/ # FIXME: dirty!
+        nodes
       end
     end
   end
