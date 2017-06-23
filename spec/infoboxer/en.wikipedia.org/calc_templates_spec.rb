@@ -1,9 +1,10 @@
 # encoding: utf-8
+
 module Infoboxer
   describe 'calculated templates' do
     let(:traits) { MediaWiki::Traits.get('en.wikipedia.org') }
     let(:template_vars) {
-      variables.each_with_index.map { |v, i| Tree::Var.new((i+1).to_s, Tree::Text.new(v)) }
+      variables.each_with_index.map { |v, i| Tree::Var.new((i + 1).to_s, Tree::Text.new(v)) }
     }
     subject { traits.templates.find(name).new(name, Tree::Nodes[*template_vars]) }
 

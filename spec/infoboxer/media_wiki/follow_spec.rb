@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe Tree::Wikilink do
     let(:source) { VCR.use_cassette('follow-source-argentine') {
@@ -12,7 +13,7 @@ module Infoboxer
     end
 
     describe :follow do
-      subject { VCR.use_cassette("follow-chile") { link.follow } }
+      subject { VCR.use_cassette('follow-chile') { link.follow } }
       it { should be_a(MediaWiki::Page) }
       its(:title) { should == 'Chile' }
       its(:text) { should include('The arid Atacama Desert in northern Chile contains great mineral wealth, principally copper.') }
@@ -25,7 +26,7 @@ module Infoboxer
     }}
     let(:links) { source.lookup(:Wikilink).first(3) }
 
-    subject { VCR.use_cassette("follow-several") { links.follow } }
+    subject { VCR.use_cassette('follow-several') { links.follow } }
     it { should be_a(Tree::Nodes) }
     it { should all(be_a(MediaWiki::Page)) }
   end

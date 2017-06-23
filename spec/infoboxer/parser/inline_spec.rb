@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'infoboxer/parser'
 
 module Infoboxer
@@ -81,7 +82,7 @@ module Infoboxer
       end
 
       context 'with spans in label' do
-        let(:source) { "[[Argentina|Argentinian <span>Republic]]" }
+        let(:source) { '[[Argentina|Argentinian <span>Republic]]' }
 
         it { should be_a(Tree::Wikilink) }
         its(:link) { should == 'Argentina' }
@@ -200,7 +201,7 @@ module Infoboxer
       end
 
       context 'when empty' do
-        let(:source) { "The country is also a producer of [[industrial mineral]]<nowiki/>s." }
+        let(:source) { 'The country is also a producer of [[industrial mineral]]<nowiki/>s.' }
         subject { nodes }
         it { should == [
           Tree::Text.new('The country is also a producer of '),

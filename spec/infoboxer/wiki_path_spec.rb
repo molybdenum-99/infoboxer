@@ -1,10 +1,11 @@
 # encoding: utf-8
+
 require 'infoboxer/wiki_path'
 
 module Infoboxer
   describe WikiPath do
     describe '._parse' do
-      subject { ->(source) { described_class._parse(source) } } #.to_h } }
+      subject { ->(source) { described_class._parse(source) } }
 
       context 'one level' do
         its(['/template']) { is_expected.to eq [{type: :Template}] }

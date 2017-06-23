@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe MediaWiki, :vcr do
     let(:client) { MediaWiki.new('https://en.wikipedia.org/w/api.php') }
@@ -71,7 +72,6 @@ module Infoboxer
         end
       end
 
-
       context 'user-agent' do
         subject { WebMock.last_request.headers }
 
@@ -132,7 +132,7 @@ module Infoboxer
 
         it { is_expected.to be_a MediaWiki::Page }
         its(:title) { is_expected.to eq 'Argentina' }
-        #its(:url){should == 'https://en.wikipedia.org/wiki/Argentina'}
+        its(:url) { should == 'https://en.wikipedia.org/wiki/Argentina' }
         its(:source) { is_expected.to match hash_including('title' => 'Argentina') }
       end
 

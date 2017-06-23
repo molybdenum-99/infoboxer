@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'infoboxer/parser'
 
 module Infoboxer
@@ -57,7 +58,7 @@ module Infoboxer
       }
       let(:traits) {
         # FIXME: works well in real life, but too complex for test
-        MediaWiki::Traits.new({namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]})
+        MediaWiki::Traits.new(namespaces: [{'canonical' => 'File', '*' => 'Fichier'}])
       }
       let(:ctx) { Parser::Context.new(source, traits) }
 
@@ -77,7 +78,7 @@ module Infoboxer
         "{{legend4|#22b14c|Argentina}}\n"\
         "{{legend4|#2f3699|Nations hosting a resident diplomatic mission}}\n"\
         "{{legend4|#b9b9b9|Nations without a resident diplomatic mission}}\n"\
-        "</div>]]"
+        '</div>]]'
       }
 
       it { should be_a(Tree::Image) }

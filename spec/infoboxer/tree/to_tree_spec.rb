@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     describe Node do
@@ -70,8 +71,8 @@ module Infoboxer
         context HTMLTag do
           let(:node) {
             HTMLTag.new('div',
-              {class: 'table_inside', style: 'float:left;'},
-              [Text.new('contents'), Italic.new(Text.new('italic'))])
+                        {class: 'table_inside', style: 'float:left;'},
+                        [Text.new('contents'), Italic.new(Text.new('italic'))])
           }
 
           it { should ==
@@ -83,7 +84,7 @@ module Infoboxer
 
         context HTMLOpeningTag do
           let(:node) {
-            HTMLOpeningTag.new('div', {class: 'table_inside', style: 'float:left;'})
+            HTMLOpeningTag.new('div', class: 'table_inside', style: 'float:left;')
           }
 
           it { should ==

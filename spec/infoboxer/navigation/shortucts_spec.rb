@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe Navigation::Shortcuts do
     # Document is immutable and is created ~0.3 sec each time.

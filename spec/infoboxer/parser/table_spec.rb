@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'infoboxer/parser'
 
 module Infoboxer
@@ -216,7 +217,7 @@ module Infoboxer
         }}
 
         it { should be_a(Tree::TableCaption) }
-        its(:text) { should == "test me" }
+        its(:text) { should == 'test me' }
       end
 
       context 'with formatting' do

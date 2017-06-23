@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'infoboxer/parser'
 
 module Infoboxer
@@ -63,41 +64,41 @@ module Infoboxer
         let(:source) { "some}} text\nor some other text" }
         subject { parser.short_inline(/}}/) }
 
-        it { should == [Tree::Text.new("some")] }
+        it { should == [Tree::Text.new('some')] }
       end
 
       context 'when multiline with end regexp not found' do
         let(:source) { "some text\nor some other text" }
         subject { parser.short_inline(/}}/) }
 
-        it { should == [Tree::Text.new("some text")] }
+        it { should == [Tree::Text.new('some text')] }
       end
 
       context 'when "syntetic eol" (end of block element)' do
         let(:source) { "some</ref> text\nor some other text" }
         subject { parser.short_inline(/''/) }
 
-        it { should == [Tree::Text.new("some")] }
+        it { should == [Tree::Text.new('some')] }
       end
     end
 
     describe :paragraphs do
       subject { parser.paragraphs }
       describe 'one-liner' do
-        let(:source) { "some text" }
+        let(:source) { 'some text' }
         it { should == [Tree::Paragraph.new(Tree::Text.new('some text'))] }
       end
 
       describe 'continuous paragraph' do
         let(:source) { "some text\nor some other text" }
-        it { should == [Tree::Paragraph.new(Tree::Text.new("some text or some other text"))] }
+        it { should == [Tree::Paragraph.new(Tree::Text.new('some text or some other text'))] }
       end
 
       describe 'several paragraphs' do
         let(:source) { "some text\n\nor some other text" }
         it { should == [
-          Tree::Paragraph.new(Tree::Text.new("some text")),
-          Tree::Paragraph.new(Tree::Text.new("or some other text"))
+          Tree::Paragraph.new(Tree::Text.new('some text')),
+          Tree::Paragraph.new(Tree::Text.new('or some other text'))
         ]}
       end
 
@@ -105,8 +106,8 @@ module Infoboxer
         let(:source) { "some text\n\nor some}} other text" }
         subject { parser.paragraphs(/}}/) }
         it { should == [
-          Tree::Paragraph.new(Tree::Text.new("some text")),
-          Tree::Paragraph.new(Tree::Text.new("or some"))
+          Tree::Paragraph.new(Tree::Text.new('some text')),
+          Tree::Paragraph.new(Tree::Text.new('or some'))
         ]}
       end
 
@@ -117,25 +118,25 @@ module Infoboxer
     describe 'long inline' do
       subject { parser.long_inline }
       describe 'one-liner' do
-        let(:source) { "some text" }
+        let(:source) { 'some text' }
         it { should == [Tree::Text.new('some text')] }
       end
 
       describe 'one-liner - with end regexp' do
-        let(:source) { "some }} text" }
+        let(:source) { 'some }} text' }
         subject { parser.long_inline(/}}/) }
         it { should == [Tree::Text.new('some ')] }
       end
 
       describe 'inline, then paragraphs' do
         let(:source) { "some text\nor some other text" }
-        it { should == [Tree::Text.new("some text"), Tree::Paragraph.new(Tree::Text.new("or some other text"))] }
+        it { should == [Tree::Text.new('some text'), Tree::Paragraph.new(Tree::Text.new('or some other text'))] }
       end
 
       describe 'inline, then paragraphs - with end regexp' do
         let(:source) { "some text\nor some}} other text" }
         subject { parser.long_inline(/}}/) }
-        it { should == [Tree::Text.new("some text"), Tree::Paragraph.new(Tree::Text.new("or some"))] }
+        it { should == [Tree::Text.new('some text'), Tree::Paragraph.new(Tree::Text.new('or some'))] }
       end
     end
   end

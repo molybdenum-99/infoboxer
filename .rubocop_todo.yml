@@ -6,20 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Layout/AlignArray:
-  Exclude:
-    - 'spec/infoboxer/tree/nodes_spec.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: with_first_parameter, with_fixed_indentation
-Layout/AlignParameters:
-  Exclude:
-    - 'spec/infoboxer/tree/to_tree_spec.rb'
-
 # Offense count: 15
 # Cop supports --auto-correct.
 Layout/BlockEndNewline:
@@ -33,33 +19,6 @@ Layout/BlockEndNewline:
     - 'spec/infoboxer/tree/inspect_spec.rb'
     - 'spec/infoboxer/tree/template_spec.rb'
 
-# Offense count: 10
-# Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Exclude:
-    - 'spec/infoboxer/integration/site_traits_spec.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: leading, trailing
-Layout/DotPosition:
-  Exclude:
-    - 'spec/infoboxer/integration/all_en_templates_spec.rb'
-    - 'spec/infoboxer/navigation/lookup_spec.rb'
-    - 'spec/spec_helper.rb'
-
-# Offense count: 29
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterMagicComment:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/EmptyLines:
-  Exclude:
-    - 'spec/infoboxer/media_wiki_spec.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -69,13 +28,6 @@ Layout/EmptyLinesAroundBlockBody:
     - 'spec/infoboxer/parser/table_spec.rb'
     - 'spec/infoboxer/tree/text_spec.rb'
     - 'spec/infoboxer/wiki_path_spec.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'spec/infoboxer/navigation/sections_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -91,22 +43,6 @@ Layout/FirstParameterIndentation:
 # SupportedStyles: special_inside_parentheses, consistent, align_brackets
 Layout/IndentArray:
   EnforcedStyle: consistent
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'spec/infoboxer/navigation/sections_spec.rb'
-
-# Offense count: 23
-# Cop supports --auto-correct.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'spec/infoboxer/integration/site_traits_spec.rb'
-    - 'spec/infoboxer/media_wiki_spec.rb'
-    - 'spec/infoboxer/navigation/wikipath_spec.rb'
-    - 'spec/infoboxer/wiki_path_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -153,14 +89,6 @@ Layout/MultilineMethodCallIndentation:
   Exclude:
     - 'spec/spec_helper.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Layout/SpaceAroundOperators:
-  Exclude:
-    - 'spec/infoboxer/en.wikipedia.org/calc_templates_spec.rb'
-    - 'spec/infoboxer/tree/inspect_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith.
@@ -203,22 +131,6 @@ Style/BarePercentLiterals:
     - 'spec/infoboxer/tree/text_spec.rb'
     - 'spec/infoboxer/tree/to_tree_spec.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'spec/infoboxer/media_wiki/traits_spec.rb'
-    - 'spec/infoboxer/parser/image_spec.rb'
-    - 'spec/infoboxer/tree/to_tree_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/MethodCallWithoutArgsParentheses:
-  Exclude:
-    - 'spec/infoboxer/tree/nodes_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/NestedParenthesizedCalls:
@@ -248,22 +160,6 @@ Style/PercentQLiterals:
   Exclude:
     - 'spec/infoboxer/parser/image_spec.rb'
     - 'spec/infoboxer/parser/template_spec.rb'
-
-# Offense count: 25
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'spec/infoboxer/integration/site_traits_spec.rb'
-    - 'spec/infoboxer/media_wiki/follow_spec.rb'
-    - 'spec/infoboxer/parser/flow_spec.rb'
-    - 'spec/infoboxer/parser/image_spec.rb'
-    - 'spec/infoboxer/parser/inline_spec.rb'
-    - 'spec/infoboxer/parser/ref_spec.rb'
-    - 'spec/infoboxer/parser/table_spec.rb'
-    - 'spec/infoboxer/tree/nodes_spec.rb'
-    - 'spec/spec_helper.rb'
 
 # Offense count: 50
 # Cop supports --auto-correct.

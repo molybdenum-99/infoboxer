@@ -1,10 +1,11 @@
 # encoding: utf-8
+
 module Infoboxer
   describe Navigation::Sections do
     # Document is immutable and is created ~0.3 sec each time.
     # So, fot tens of examples it's wiser to create it only once.
     before(:all) {
-      @document = Parser.document(File.read('spec/fixtures/argentina.wiki'))
+       @document = Parser.document(File.read('spec/fixtures/argentina.wiki'))
      }
     let(:document) { @document }
 
@@ -41,9 +42,9 @@ module Infoboxer
       end
 
       describe '#lookup_children' do
-        subject { document.lookup_children(:Section).first  }
+        subject { document.lookup_children(:Section).first }
 
-        it { is_expected.to eq sections[0]  }
+        it { is_expected.to eq sections[0] }
       end
 
       describe Navigation::Sections::Section do

@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe MediaWiki::Traits do
     before do
@@ -92,7 +93,7 @@ module Infoboxer
         before {
           klass.domain 'in.wikipedia.org'
         }
-        subject { MediaWiki::Traits.get('in.wikipedia.org', {namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]}) }
+        subject { MediaWiki::Traits.get('in.wikipedia.org', namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]) }
         its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier') }
       end
     end

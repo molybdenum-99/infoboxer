@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'infoboxer/parser'
 
 module Infoboxer
@@ -43,7 +44,7 @@ module Infoboxer
       }
 
       it { should be_kind_of(Tree::Ref) }
-      its(:children) { should == [Tree::Italic.new(Tree::Text.new("bad markup!"))] }
+      its(:children) { should == [Tree::Italic.new(Tree::Text.new('bad markup!'))] }
     end
   end
 end

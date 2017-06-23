@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe Templates::Set do
     context 'definition' do

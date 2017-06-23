@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 describe Infoboxer do
   describe 'common MediaWiki shortcuts', :vcr do
     context 'Wikipedia' do

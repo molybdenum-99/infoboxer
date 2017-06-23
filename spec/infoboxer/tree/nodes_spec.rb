@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     describe Nodes do
@@ -126,7 +127,7 @@ module Infoboxer
             before {
               subject << EmptyParagraph.new('')
             }
-            it { should == [Pre.new(Text.new("test"))] }
+            it { should == [Pre.new(Text.new('test'))] }
             its(:last) { should be_closed }
           end
         end
@@ -142,9 +143,9 @@ module Infoboxer
         describe 'flowing-in templates' do
           let(:nodes) { Nodes[Paragraph.new(
               [Text.new(' '),
-              Template.new('one'),
-              Text.new("\n"),
-              Template.new('two')]),
+               Template.new('one'),
+               Text.new("\n"),
+               Template.new('two')]),
             ]
           }
           subject { nodes.flow_templates }
@@ -164,7 +165,7 @@ module Infoboxer
           context 'compound' do
             subject { Nodes[Paragraph.new(Text.new('test'))] }
             before {
-              subject << Pre.new()
+              subject << Pre.new
             }
             it { should == [Paragraph.new(Text.new('test'))] }
           end

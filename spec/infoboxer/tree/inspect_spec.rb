@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   module Tree
     describe Node, :inspect do
@@ -20,7 +21,7 @@ module Infoboxer
         end
 
         context 'really long text' do
-          let(:str) { 'some text'*100 }
+          let(:str) { 'some text' * 100 }
           let(:node) { Text.new(str) }
 
           it { should == "#<Text: #{str[0..30]}...>" }

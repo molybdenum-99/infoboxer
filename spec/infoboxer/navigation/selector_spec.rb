@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe Navigation::Lookup::Selector do
     context 'when class' do

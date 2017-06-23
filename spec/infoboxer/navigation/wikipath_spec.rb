@@ -1,9 +1,5 @@
 module Infoboxer
   describe Navigation::Wikipath do
-    #before(:all) { @document = Parser.document(File.read('spec/fixtures/argentina.wiki')) }
-
-    #let(:document) { @document }
-
     let(:document) {
       Parser.document(%Q{
         |Test in first ''paragraph''

@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 module Infoboxer
   describe Navigation::Lookup do
     let(:document) {
@@ -110,10 +111,10 @@ module Infoboxer
 
     describe 'chain of lookups' do
       subject {
-        document.
-          lookup(Tree::List).
-          lookup(Tree::ListItem).
-          lookup_children(text: /test/)
+        document
+          .lookup(Tree::List)
+          .lookup(Tree::ListItem)
+          .lookup_children(text: /test/)
       }
       it { should == [Tree::Text.new(' deep test')] }
     end
