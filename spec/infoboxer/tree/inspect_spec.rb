@@ -11,18 +11,18 @@ module Infoboxer
           it{should == '#<Node(level: 3, class: "red")>'}
         end
       end
-      
+
       describe Text do
         context 'by default' do
           let(:node){Text.new('some text')}
-          
+
           it{should == '#<Text: some text>'}
         end
 
         context 'really long text' do
           let(:str){'some text'*100}
           let(:node){Text.new(str)}
-          
+
           it{should == "#<Text: #{str[0..30]}...>"}
         end
       end

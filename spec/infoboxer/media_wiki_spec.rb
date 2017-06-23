@@ -42,7 +42,7 @@ module Infoboxer
         subject(:pages) { client.raw(*titles).values }
 
         context 'default' do
-          let(:titles) { ['Argentina', 'Ukraine'] }
+          let(:titles) { %w[Argentina Ukraine] }
 
           it { is_expected.to be_an Array }
           its(:count) { is_expected.to eq 2 }
@@ -65,7 +65,7 @@ module Infoboxer
         end
 
         xcontext 'preserve order, even with redirects' do
-          let(:titles) { ['Oster', 'Einstein', 'Bolhrad'] }
+          let(:titles) { %w[Oster Einstein Bolhrad] }
 
           its_map(['title']) { is_expected.to eq ['Oster', 'Albert Einstein', 'Bolhrad'] }
         end

@@ -6,11 +6,11 @@ module Infoboxer
     def parse(wikitext)
       Parser.inline(wikitext, traits)
     end
-    
+
     def w2t(wikitext)
       parse(wikitext).text
     end
-    
+
     describe 'literal templates' do
       it 'should leave them as is' do
         expect(w2t('A {{&}} B is {{1/2}}')).to eq 'A & B is 1/2'

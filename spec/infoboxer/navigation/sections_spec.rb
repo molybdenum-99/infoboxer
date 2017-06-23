@@ -117,7 +117,7 @@ module Infoboxer
         subject { link.in_sections }
 
         its(:count) { is_expected.to eq 2 }
-        its_map(:'heading.text_') { is_expected.to eq ['Regions', 'Geography'] }
+        its_map(:'heading.text_') { is_expected.to eq %w[Regions Geography] }
       end
 
       context 'concrete level' do

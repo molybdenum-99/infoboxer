@@ -23,7 +23,7 @@ module Infoboxer
       end
 
       xcontext 'wildcards' do
-        its(['/*']) { is_expected.to eq [{type: %r{.+}}] }
+        its(['/*']) { is_expected.to eq [{type: /.+/}] }
       end
 
       context 'skiplevels' do

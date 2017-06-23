@@ -28,7 +28,7 @@ module Infoboxer
       let(:table){nodes.first}
       let(:cells){table.rows.first.cells}
       subject{cells}
-      
+
       context 'all cells in one line' do
         let(:source){%Q{
           {|
@@ -40,7 +40,7 @@ module Infoboxer
           expect(subject.map(&:text)).to eq ['one', 'two', "three: it's a long text, dude!"]
         end
       end
-      
+
       context 'cells on separate lines' do
         let(:source){%Q{
           {|
@@ -54,7 +54,7 @@ module Infoboxer
             ['one', 'two', "three: it's a long text, dude!", 'and four']
         end
       end
-      
+
       context 'multiline cells' do
         let(:source){%Q{
           {|
@@ -104,7 +104,7 @@ module Infoboxer
       }}
       its(:"rows.count"){should == 2}
       it 'should preserve texts' do
-        expect(subject.rows.map(&:text)).to eq ['one', 'two']
+        expect(subject.rows.map(&:text)).to eq %w[one two]
       end
 
       context 'row-level template' do
@@ -207,7 +207,7 @@ module Infoboxer
 
     describe 'table caption' do
       subject{table.caption}
-      
+
       context 'simple' do
         let(:source){%Q{
           {|
@@ -381,9 +381,9 @@ module Infoboxer
     describe 'implicitly closed table' do
       let(:source){%Q[
         {|
-        
+
         That's paragraph!
-        
+
       ]}
       it 'works' do
         expect(table.rows).to be_empty
@@ -393,7 +393,7 @@ module Infoboxer
       context 'not closed on empty lines' do
         let(:source){%Q[
           {|
-          
+
           |Still a cell!
         ]}
         subject{table.rows.first.cells.first}

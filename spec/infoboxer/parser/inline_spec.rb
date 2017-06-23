@@ -206,7 +206,7 @@ module Infoboxer
           Tree::Text.new('The country is also a producer of '),
           Tree::Wikilink.new('industrial mineral'),
           Tree::Text.new('s.')
-          ]}
+        ]}
       end
     end
 

@@ -8,7 +8,7 @@ module Infoboxer
 
     describe :inline do
       subject{parser.inline}
-      
+
       context 'when simple one-liner' do
         let(:source){'some text'}
 
@@ -28,7 +28,7 @@ module Infoboxer
       context 'when multiline with end regexp' do
         let(:source){"some text\nor some other text}}"}
         subject{parser.inline(/}}/)}
-        
+
         it{should == [Tree::Text.new("some text\nor some other text")]}
       end
 
@@ -42,7 +42,7 @@ module Infoboxer
 
     describe :short_inline do
       subject{parser.short_inline}
-      
+
       context 'when simple one-liner' do
         let(:source){'some text'}
 
@@ -62,21 +62,21 @@ module Infoboxer
       context 'when multiline with end regexp on first line' do
         let(:source){"some}} text\nor some other text"}
         subject{parser.short_inline(/}}/)}
-        
+
         it{should == [Tree::Text.new("some")]}
       end
 
       context 'when multiline with end regexp not found' do
         let(:source){"some text\nor some other text"}
         subject{parser.short_inline(/}}/)}
-        
+
         it{should == [Tree::Text.new("some text")]}
       end
 
       context 'when "syntetic eol" (end of block element)' do
         let(:source){"some</ref> text\nor some other text"}
         subject{parser.short_inline(/''/)}
-        
+
         it{should == [Tree::Text.new("some")]}
       end
     end

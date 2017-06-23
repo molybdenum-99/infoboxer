@@ -5,7 +5,7 @@ module Infoboxer
       MediaWiki::Traits.templates.clear
       MediaWiki::Traits.domains.clear
     end
-    
+
     describe 'template expansion on-the-fly' do
       let(:klass){
         Class.new(MediaWiki::Traits) do
@@ -30,7 +30,7 @@ module Infoboxer
 
         its(:text){should == 'before | text and italics after'}
       end
-      
+
       context 'when multiline templates' do
         let(:source){
           "{{unknown|{{!}}\n\ntext\n\nfoo {{,}}}}r"
@@ -71,7 +71,7 @@ module Infoboxer
         #let!(:klass){
           #Class.new(MediaWiki::Traits) do
             #domain 'en.wikipedia.org'
-            
+
             #templates_text(
               #'!' => '|',
               #',' => '·'

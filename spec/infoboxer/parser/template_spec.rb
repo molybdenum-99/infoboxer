@@ -45,7 +45,7 @@ module Infoboxer
       let(:source){ '{{the name|test1|foo=bar|test2}}' }
 
       it 'should have variables named consistently' do
-        expect(subject.variables.map(&:name)).to eq ['1', 'foo', '2']
+        expect(subject.variables.map(&:name)).to eq %w[1 foo 2]
       end
     end
 

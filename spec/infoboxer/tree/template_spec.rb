@@ -3,7 +3,7 @@ module Infoboxer
   module Tree
     describe Template do
       let(:template){Parser.inline(unindent(source)).first}
-      
+
       describe 'variables as params' do
         let(:source){%Q{
           {{some template|lang=en|wtf|text=not a ''parameter''}}
@@ -29,7 +29,7 @@ module Infoboxer
           its(:count){should == 3}
           it{should all(be_a(Tree::Var))}
           it 'should be all variables queried' do
-            expect(subject.map(&:name)).to eq ['leader_title1', 'leader_title2', 'leader_title3']
+            expect(subject.map(&:name)).to eq %w[leader_title1 leader_title2 leader_title3]
           end
         end
 
@@ -37,7 +37,7 @@ module Infoboxer
           subject{template.fetch('leader_title1', 'leader_name1')}
           its(:count){should == 2}
           it 'should be all variables queried' do
-            expect(subject.map(&:name)).to eq ['leader_title1', 'leader_name1']
+            expect(subject.map(&:name)).to eq %w[leader_title1 leader_name1]
           end
         end
 
@@ -53,7 +53,7 @@ module Infoboxer
 
         subject{template.fetch_hash('leader_title1', 'leader_name1')}
         it{should be_a(Hash)}
-        its(:keys){should == ['leader_title1', 'leader_name1']}
+        its(:keys){should == %w[leader_title1 leader_name1]}
         its(:values){should all(be_a(Tree::Var))}
       end
 

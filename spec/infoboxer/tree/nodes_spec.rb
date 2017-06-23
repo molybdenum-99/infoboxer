@@ -4,17 +4,17 @@ module Infoboxer
     describe Nodes do
       describe :inspect do
         subject{nodes.inspect}
-        
+
         context 'by default' do
           let(:nodes){Nodes[Text.new('some text')]}
-          
+
           it{should == '[#<Text: some text>]'}
         end
 
         context 'really long children list' do
-          let(:children){20.times.map{Text.new('some text')}}
+          let(:children){Array.new(20){Text.new('some text')}}
           let(:nodes){Nodes[*children]}
-          
+
           it{should == '[#<Text: some text>, #<Text: some text>, #<Text: some text>, #<Text: some text>, #<Text: some text>, ...15 more nodes]'}
         end
       end

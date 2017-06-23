@@ -13,14 +13,14 @@ module Infoboxer
 
       context 'just a para' do
         let(:source){'some text'}
-        
+
         it{should be_a(Tree::Paragraph)}
         its(:text){should == "some text\n\n"}
       end
 
       context 'heading' do
         let(:source){'== Some text =='}
-        
+
         it{should be_a(Tree::Heading)}
         its(:text){should == "Some text\n\n"}
         its(:level){should == 2}
@@ -29,7 +29,7 @@ module Infoboxer
       context 'list item' do
         context 'first level' do
           let(:source){'* Some text'}
-          
+
           it{should be_a(Tree::UnorderedList)}
           its(:'children.count'){should == 1}
           its(:children){should all(be_kind_of(Tree::ListItem))}
@@ -69,13 +69,13 @@ module Infoboxer
 
       context 'hr' do
         let(:source){'--------------'}
-        
+
         it{should be_a(Tree::HR)}
       end
 
       context 'pre' do
         let(:source){' i += 1'}
-        
+
         it{should be_a(Tree::Pre)}
         its(:text){should == "i += 1\n\n"}
       end
@@ -111,7 +111,7 @@ module Infoboxer
 
         its(:count){should == 2}
       end
-      
+
       context 'list' do
         let(:source){
           %Q{

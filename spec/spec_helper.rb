@@ -14,7 +14,7 @@ Coveralls.wear!
 
 # require 'byebug'
 
-$:.unshift 'lib'
+$LOAD_PATH.unshift 'lib'
 
 require 'infoboxer'
 
@@ -41,11 +41,11 @@ module WebMock
     end
   end
 
-  def WebMock.requests
+  def self.requests
     RequestRegistry.instance.requested_signatures.ordered_keys
   end
 
-  def WebMock.last_request
+  def self.last_request
     requests.last
   end
 end

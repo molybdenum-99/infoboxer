@@ -10,7 +10,7 @@ module Infoboxer
         its(:topic){should == 'Test'}
         its(:refinement){should == ''}
       end
-      
+
       context :namespace do
         subject{Wikilink.new('Category:Test')}
         its(:name){should == 'Test'}
@@ -49,7 +49,7 @@ module Infoboxer
         context ', ()' do
           subject{Wikilink.new('Phoenix, Arizona (USA)')}
           its(:topic){should == 'Phoenix, Arizona'}
-          its(:refinement){should == 'USA'} 
+          its(:refinement){should == 'USA'}
         end
       end
 
