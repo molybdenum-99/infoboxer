@@ -229,7 +229,6 @@ module Infoboxer
             it { is_expected.to eq "<math>g = \\frac{F}{m} = \\frac {G M_T}{{R_T}^2} </math>\n\n" }
           end
         end
-
       end
     end
   end

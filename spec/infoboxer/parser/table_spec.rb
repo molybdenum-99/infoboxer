@@ -97,7 +97,6 @@ module Infoboxer
           end
         end
       end
-
     end
 
     describe 'multiple rows' do
@@ -413,8 +412,8 @@ module Infoboxer
         {|
 
         That's paragraph!
-
-      ]}
+      ]
+      }
       it 'works' do
         expect(table.rows).to be_empty
         expect(nodes.last).to eq Tree::Paragraph.new(Tree::Text.new("That's paragraph!"))
@@ -426,7 +425,8 @@ module Infoboxer
           {|
 
           |Still a cell!
-        ]}
+        ]
+        }
         subject { table.rows.first.cells.first }
         its(:text) { should == 'Still a cell!' }
       end
@@ -441,6 +441,5 @@ module Infoboxer
         expect(subject.rows.map(&:children).map(&:count)).to all(be > 1)
       end
     end
-
   end
 end

@@ -69,7 +69,6 @@ module Infoboxer
             send_message(node, :lookup).with(:Template)
             .and_then(:lookup_children).with(:Var, name: '1')
             .and_then(:lookup).with(:Wikilink)
-
         }
       end
     end

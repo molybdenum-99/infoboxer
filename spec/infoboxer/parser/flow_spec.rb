@@ -100,7 +100,8 @@ module Infoboxer
           should == [
             Tree::Paragraph.new(Tree::Text.new('some text')),
             Tree::Paragraph.new(Tree::Text.new('or some other text'))
-          ]}
+          ]
+        }
       end
 
       describe 'with end regexp' do
@@ -110,7 +111,8 @@ module Infoboxer
           should == [
             Tree::Paragraph.new(Tree::Text.new('some text')),
             Tree::Paragraph.new(Tree::Text.new('or some'))
-          ]}
+          ]
+        }
       end
 
       describe 'with end regexp - pre' do

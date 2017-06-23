@@ -84,7 +84,8 @@ module Infoboxer
             'capital' => 'Buenos Aires',
             'government_type' => 'Federal presidential constitutional republic'
             # ...and so on
-          )}
+          )
+        }
       end
     end
   end

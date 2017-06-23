@@ -134,34 +134,34 @@ module Infoboxer
             [
               Tree::UnorderedList.new(
                 Tree::ListItem.new([
-                  Tree::Text.new('start'),
-                  Tree::UnorderedList.new([
-                    Tree::ListItem.new(
-                      Tree::Text.new('level two')
-                    ),
-                    Tree::ListItem.new(
-                      Tree::Text.new('level two - same list')
-                    ),
-                  ]),
-                  Tree::OrderedList.new([
-                    Tree::ListItem.new(
-                      Tree::Text.new('level two - other list')
-                    )
-                  ]),
-                  Tree::DefinitionList.new([
-                    Tree::DTerm.new(
-                      Tree::Text.new('level two - even other, dl')
-                    ),
-                    Tree::DDefinition.new([
-                      Tree::Text.new('level two - same dl'),
-                      Tree::OrderedList.new(
-                        Tree::ListItem.new(
-                          Tree::Text.new('level three - next level')
-                        )
-                      )
-                    ])
-                  ])
-                ])
+                                     Tree::Text.new('start'),
+                                     Tree::UnorderedList.new([
+                                                               Tree::ListItem.new(
+                                                                 Tree::Text.new('level two')
+                                                               ),
+                                                               Tree::ListItem.new(
+                                                                 Tree::Text.new('level two - same list')
+                                                               ),
+                                                             ]),
+                                     Tree::OrderedList.new([
+                                                             Tree::ListItem.new(
+                                                               Tree::Text.new('level two - other list')
+                                                             )
+                                                           ]),
+                                     Tree::DefinitionList.new([
+                                                                Tree::DTerm.new(
+                                                                  Tree::Text.new('level two - even other, dl')
+                                                                ),
+                                                                Tree::DDefinition.new([
+                                                                                        Tree::Text.new('level two - same dl'),
+                                                                                        Tree::OrderedList.new(
+                                                                                          Tree::ListItem.new(
+                                                                                            Tree::Text.new('level three - next level')
+                                                                                          )
+                                                                                        )
+                                                                                      ])
+                                                              ])
+                                   ])
               ),
 
               Tree::OrderedList.new(
@@ -196,7 +196,8 @@ module Infoboxer
           should == [
             Tree::Template.new('template'),
             Tree::Paragraph.new(Tree::Text.new('paragraph'))
-          ]}
+          ]
+        }
       end
 
       context 'empty line' do
@@ -208,7 +209,8 @@ module Infoboxer
           should == [
             Tree::Paragraph.new(Tree::Text.new('paragraph1')),
             Tree::Paragraph.new(Tree::Text.new('paragraph2'))
-          ]}
+          ]
+        }
       end
 
       context 'empty line in pre context' do
@@ -219,7 +221,8 @@ module Infoboxer
         it {
           should == [
             Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
-          ]}
+          ]
+        }
       end
 
       context 'comments in document' do
@@ -230,7 +233,8 @@ module Infoboxer
         it {
           should == [
             Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
-          ]}
+          ]
+        }
       end
     end
   end

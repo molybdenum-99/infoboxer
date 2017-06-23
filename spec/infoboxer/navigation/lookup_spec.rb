@@ -34,7 +34,8 @@ module Infoboxer
           should == [
             Tree::Text.new('Test in first '),
             Tree::Text.new(' deep test')
-          ]}
+          ]
+        }
       end
 
       context 'by class' do
@@ -52,7 +53,8 @@ module Infoboxer
           should == [
             Tree::Text.new('Test in first '),
             Tree::Text.new(' deep test')
-          ]}
+          ]
+        }
       end
 
       context 'by accessor' do
@@ -85,7 +87,8 @@ module Infoboxer
         it {
           should == [
             Tree::Text.new(' deep test')
-          ]}
+          ]
+        }
       end
 
       context 'by fields which only some subclasses have' do

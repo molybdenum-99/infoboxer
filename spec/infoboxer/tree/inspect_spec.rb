@@ -38,11 +38,13 @@ module Infoboxer
         context 'long children list' do
           let(:node) {
             Compound.new([
-              Text.new('one long sentence'),
-              Text.new('two long sentences'),
-              Text.new('three long sentences'),
-              Text.new('four long sentences'),
-              Text.new('five')])}
+                           Text.new('one long sentence'),
+                           Text.new('two long sentences'),
+                           Text.new('three long sentences'),
+                           Text.new('four long sentences'),
+                           Text.new('five')
+                         ])
+          }
 
           it { should == '#<Compound: one long sentencetwo long sente...>' }
         end

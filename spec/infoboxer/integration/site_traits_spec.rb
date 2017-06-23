@@ -42,7 +42,8 @@ module Infoboxer
             traits.templates.find('!').new('!'),
             Tree::Paragraph.new(Tree::Text.new('text')),
             Tree::Paragraph.new([Tree::Text.new('foo '), traits.templates.find(',').new(',')]),
-          ]}
+          ]
+        }
         its(:text) { should == "|text\n\nfoo ·\n\n" }
       end
 
