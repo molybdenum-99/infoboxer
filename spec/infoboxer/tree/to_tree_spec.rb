@@ -41,8 +41,9 @@ module Infoboxer
         context Wikilink do
           let(:node) { Wikilink.new('Argentina', [Text.new('Argentinian Republic')]) }
 
-          it { should ==
-            "Argentinian Republic <Wikilink(link: \"Argentina\")>\n"
+          it {
+            should ==
+              "Argentinian Republic <Wikilink(link: \"Argentina\")>\n"
           }
         end
 
@@ -50,8 +51,9 @@ module Infoboxer
           context 'without caption' do
             let(:node) { Image.new('picture.jpg', width: '5', height: '6') }
 
-            it { should ==
-              "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"
+            it {
+              should ==
+                "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"
             }
           end
 
@@ -60,10 +62,11 @@ module Infoboxer
               Image.new('picture.jpg', width: '5', height: '6', caption: ImageCaption.new(Text.new('Look at me')))
             }
 
-            it { should ==
-              "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"\
-              "  caption:\n"\
-              "    Look at me <Text>\n"
+            it {
+              should ==
+                "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"\
+                "  caption:\n"\
+                "    Look at me <Text>\n"
             }
           end
         end
@@ -75,10 +78,11 @@ module Infoboxer
                         [Text.new('contents'), Italic.new(Text.new('italic'))])
           }
 
-          it { should ==
-            "<HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"\
-            "  contents <Text>\n"\
-            "  italic <Italic>\n"
+          it {
+            should ==
+              "<HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"\
+              "  contents <Text>\n"\
+              "  italic <Italic>\n"
           }
         end
 
@@ -87,8 +91,9 @@ module Infoboxer
             HTMLOpeningTag.new('div', class: 'table_inside', style: 'float:left;')
           }
 
-          it { should ==
-            "<HTMLOpeningTag:div(class: \"table_inside\", style: \"float:left;\")>\n"
+          it {
+            should ==
+              "<HTMLOpeningTag:div(class: \"table_inside\", style: \"float:left;\")>\n"
           }
         end
 
@@ -106,14 +111,15 @@ module Infoboxer
             Heading.new([Text.new('one')], 3)
           }
 
-          it { should ==
-            "one <Heading(level: 3)>\n"
+          it {
+            should ==
+              "one <Heading(level: 3)>\n"
           }
         end
 
         context List do
           let(:node) {
-            Parser.paragraphs(%Q{
+            Parser.paragraphs(%{
             * one
             * two
             *# two-1 ''italic''
@@ -123,36 +129,38 @@ module Infoboxer
             }.strip.gsub(/\n\s+/m, "\n")).first
           }
 
-          it { should ==
-            "<UnorderedList>\n"\
-            "  one <ListItem>\n"\
-            "  <ListItem>\n"\
-            "    two <Text>\n"\
-            "    <OrderedList>\n"\
-            "      <ListItem>\n"\
-            "        two-1  <Text>\n"\
-            "        italic <Italic>\n"\
-            "      <ListItem>\n"\
-            "        two-2 <Text>\n"\
-            "        <DefinitionList>\n"\
-            "          two-2-dt <DTerm>\n"\
-            "          two-2-dd <DDefinition>\n"\
+          it {
+            should ==
+              "<UnorderedList>\n"\
+              "  one <ListItem>\n"\
+              "  <ListItem>\n"\
+              "    two <Text>\n"\
+              "    <OrderedList>\n"\
+              "      <ListItem>\n"\
+              "        two-1  <Text>\n"\
+              "        italic <Italic>\n"\
+              "      <ListItem>\n"\
+              "        two-2 <Text>\n"\
+              "        <DefinitionList>\n"\
+              "          two-2-dt <DTerm>\n"\
+              "          two-2-dd <DDefinition>\n"\
           }
         end
 
         context Template do
           let(:node) {
-            Parser.inline(%Q{
+            Parser.inline(%{
             {{name|unnamed value|named=named value ''with markup''}}
             }.strip.gsub(/\n\s+/m, "\n")).first
           }
 
-          it { should ==
-            "<Template[name](1: \"unnamed value\")>\n"\
-            "  unnamed value <Var(1)>\n"\
-            "  <Var(named)>\n"\
-            "    named value  <Text>\n"\
-            "    with markup <Italic>\n"\
+          it {
+            should ==
+              "<Template[name](1: \"unnamed value\")>\n"\
+              "  unnamed value <Var(1)>\n"\
+              "  <Var(named)>\n"\
+              "    named value  <Text>\n"\
+              "    with markup <Italic>\n"\
           }
         end
       end

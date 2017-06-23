@@ -141,11 +141,13 @@ module Infoboxer
         end
 
         describe 'flowing-in templates' do
-          let(:nodes) { Nodes[Paragraph.new(
+          let(:nodes) {
+            Nodes[Paragraph.new(
               [Text.new(' '),
                Template.new('one'),
                Text.new("\n"),
-               Template.new('two')]),
+               Template.new('two')]
+            ),
             ]
           }
           subject { nodes.flow_templates }

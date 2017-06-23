@@ -1,7 +1,7 @@
 module Infoboxer
   describe Navigation::Wikipath do
     let(:document) {
-      Parser.document(%Q{
+      Parser.document(%{
         |Test in first ''paragraph''
         |
         | {{Use dmy dates|date=July 2014}}
@@ -33,7 +33,7 @@ module Infoboxer
         .to include(have_attributes(text_: '* cool list'))
         .and_not include(have_attributes(text_: '* some more'))
     }
-    its(['//template/var[name=date]']) { is_expected.to include(be_a(Tree::Var).and have_attributes(name: 'date')) }
+    its(['//template/var[name=date]']) { is_expected.to include(be_a(Tree::Var).and(have_attributes(name: 'date'))) }
     its(['/section']) { is_expected.not_to be_empty }
     its(['/section[heading=Section 1]']) { is_expected.to eq [document.sections.first] }
   end

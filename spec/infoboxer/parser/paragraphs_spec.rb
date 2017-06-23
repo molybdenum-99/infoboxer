@@ -50,20 +50,21 @@ module Infoboxer
           let(:source) { '*#; Some text' }
 
           # Prepare to madness!!!
-          it { should ==
-            Tree::UnorderedList.new(
-              Tree::ListItem.new(
-                Tree::OrderedList.new(
-                  Tree::ListItem.new(
-                    Tree::DefinitionList.new(
-                      Tree::DTerm.new(
-                        Tree::Text.new('Some text')
+          it {
+            should ==
+              Tree::UnorderedList.new(
+                Tree::ListItem.new(
+                  Tree::OrderedList.new(
+                    Tree::ListItem.new(
+                      Tree::DefinitionList.new(
+                        Tree::DTerm.new(
+                          Tree::Text.new('Some text')
+                        )
                       )
                     )
                   )
                 )
               )
-            )
           }
         end
       end
@@ -115,7 +116,7 @@ module Infoboxer
 
       context 'list' do
         let(:source) {
-          %Q{
+          %{
             * start
             ** level two
             ** level two - same list
@@ -128,55 +129,57 @@ module Infoboxer
         }
 
         # not the most elegant way of testing trees, but still!
-        it { should ==
-          [
-            Tree::UnorderedList.new(
-              Tree::ListItem.new([
-                Tree::Text.new('start'),
-                Tree::UnorderedList.new([
-                  Tree::ListItem.new(
-                    Tree::Text.new('level two')
-                  ),
-                  Tree::ListItem.new(
-                    Tree::Text.new('level two - same list')
-                  ),
-                ]),
-                Tree::OrderedList.new([
-                  Tree::ListItem.new(
-                    Tree::Text.new('level two - other list')
-                  )
-                ]),
-                Tree::DefinitionList.new([
-                  Tree::DTerm.new(
-                    Tree::Text.new('level two - even other, dl')
-                  ),
-                  Tree::DDefinition.new([
-                    Tree::Text.new('level two - same dl'),
-                    Tree::OrderedList.new(
-                      Tree::ListItem.new(
-                        Tree::Text.new('level three - next level')
-                      )
+        it {
+          should ==
+            [
+              Tree::UnorderedList.new(
+                Tree::ListItem.new([
+                  Tree::Text.new('start'),
+                  Tree::UnorderedList.new([
+                    Tree::ListItem.new(
+                      Tree::Text.new('level two')
+                    ),
+                    Tree::ListItem.new(
+                      Tree::Text.new('level two - same list')
+                    ),
+                  ]),
+                  Tree::OrderedList.new([
+                    Tree::ListItem.new(
+                      Tree::Text.new('level two - other list')
                     )
+                  ]),
+                  Tree::DefinitionList.new([
+                    Tree::DTerm.new(
+                      Tree::Text.new('level two - even other, dl')
+                    ),
+                    Tree::DDefinition.new([
+                      Tree::Text.new('level two - same dl'),
+                      Tree::OrderedList.new(
+                        Tree::ListItem.new(
+                          Tree::Text.new('level three - next level')
+                        )
+                      )
+                    ])
                   ])
                 ])
-              ])
-            ),
+              ),
 
-            Tree::OrderedList.new(
-              Tree::ListItem.new(
-                Tree::UnorderedList.new(
-                  Tree::ListItem.new(
-                    Tree::Text.new('orphan list with second level at once')
+              Tree::OrderedList.new(
+                Tree::ListItem.new(
+                  Tree::UnorderedList.new(
+                    Tree::ListItem.new(
+                      Tree::Text.new('orphan list with second level at once')
+                    )
                   )
                 )
               )
-            )
-          ]
+            ]
         }
       end
 
       context 'complex def-list' do
-        let(:source) { unindent(%Q{
+        let(:source) {
+          unindent(%{
           :{{,}}[[Guaraní language|Guaraní]] in [[Corrientes Province]].<ref name=gn>{{cite Argentine law|jur=CN|l=5598|date=22 de octubre de 2004}}</ref>
           :{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
         })}
@@ -186,34 +189,37 @@ module Infoboxer
 
       context 'templates-only paragraph' do
         let(:source) {
-          %Q{{{template}}\n\nparagraph}
+          %{{{template}}\n\nparagraph}
         }
 
-        it { should == [
-          Tree::Template.new('template'),
-          Tree::Paragraph.new(Tree::Text.new('paragraph'))
-        ]}
+        it {
+          should == [
+            Tree::Template.new('template'),
+            Tree::Paragraph.new(Tree::Text.new('paragraph'))
+          ]}
       end
 
       context 'empty line' do
         let(:source) {
-          %Q{paragraph1\n \nparagraph2} # see the space between them?
+          %{paragraph1\n \nparagraph2} # see the space between them?
         }
 
-        it { should == [
-          Tree::Paragraph.new(Tree::Text.new('paragraph1')),
-          Tree::Paragraph.new(Tree::Text.new('paragraph2'))
-        ]}
+        it {
+          should == [
+            Tree::Paragraph.new(Tree::Text.new('paragraph1')),
+            Tree::Paragraph.new(Tree::Text.new('paragraph2'))
+          ]}
       end
 
       context 'empty line in pre context' do
         let(:source) {
-          %Q{ paragraph1\n \n paragraph2} # see the space between them?
+          %{ paragraph1\n \n paragraph2} # see the space between them?
         }
 
-        it { should == [
-          Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
-        ]}
+        it {
+          should == [
+            Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
+          ]}
       end
 
       context 'comments in document' do
@@ -221,9 +227,10 @@ module Infoboxer
           "== Heading <!-- nasty comment with ''markup and [[things\n\nmany of them{{-->parsed =="
         }
 
-        it { should == [
-          Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
-        ]}
+        it {
+          should == [
+            Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
+          ]}
       end
     end
   end

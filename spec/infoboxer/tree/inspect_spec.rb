@@ -36,12 +36,13 @@ module Infoboxer
         end
 
         context 'long children list' do
-          let(:node) { Compound.new([
-            Text.new('one long sentence'),
-            Text.new('two long sentences'),
-            Text.new('three long sentences'),
-            Text.new('four long sentences'),
-            Text.new('five')])}
+          let(:node) {
+            Compound.new([
+              Text.new('one long sentence'),
+              Text.new('two long sentences'),
+              Text.new('three long sentences'),
+              Text.new('four long sentences'),
+              Text.new('five')])}
 
           it { should == '#<Compound: one long sentencetwo long sente...>' }
         end
@@ -49,8 +50,9 @@ module Infoboxer
         context 'complex children' do
           let(:node) { Compound.new([Italic.new(Text.new('one')), Italic.new(Bold.new(Text.new('two')))]) }
 
-          it { should ==
-            '#<Compound: onetwo>'
+          it {
+            should ==
+              '#<Compound: onetwo>'
           }
         end
       end
@@ -78,8 +80,9 @@ module Infoboxer
 
       describe MediaWiki::Page, :vcr do
         let(:node) { Infoboxer.wikipedia.get('Argentina') }
-        it { should match \
-          %r{^\#<Page\(title: "Argentina", url: "https://en.wikipedia.org/wiki/Argentina"\): [^<]{,31}\.\.\.>$}
+        it {
+          should match \
+            %r{^\#<Page\(title: "Argentina", url: "https://en.wikipedia.org/wiki/Argentina"\): [^<]{,31}\.\.\.>$}
         }
       end
     end

@@ -54,7 +54,7 @@ module Infoboxer
 
     context 'with non-default site traits provided' do
       let(:source) {
-        %Q{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
+        %{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
       }
       let(:traits) {
         # FIXME: works well in real life, but too complex for test
@@ -66,7 +66,7 @@ module Infoboxer
       its(:path) { should == 'SantaCruz-CuevaManos-P2210651b.jpg' }
 
       context 'should parse File: prefix' do
-        let(:source) { %Q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]} }
+        let(:source) { %{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]} }
         it { should be_an(Tree::Image) }
       end
     end

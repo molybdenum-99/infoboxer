@@ -3,7 +3,7 @@
 module Infoboxer
   describe Navigation::Lookup do
     let(:document) {
-      Parser.document(%Q{
+      Parser.document(%{
       Test in first ''paragraph''
       === Heading ===
       {| some=table
@@ -30,10 +30,11 @@ module Infoboxer
         }
 
         it { should be_kind_of(Tree::Nodes) }
-        it { should == [
-          Tree::Text.new('Test in first '),
-          Tree::Text.new(' deep test')
-        ]}
+        it {
+          should == [
+            Tree::Text.new('Test in first '),
+            Tree::Text.new(' deep test')
+          ]}
       end
 
       context 'by class' do
@@ -47,10 +48,11 @@ module Infoboxer
         }
 
         it { should be_kind_of(Tree::Nodes) }
-        it { should == [
-          Tree::Text.new('Test in first '),
-          Tree::Text.new(' deep test')
-        ]}
+        it {
+          should == [
+            Tree::Text.new('Test in first '),
+            Tree::Text.new(' deep test')
+          ]}
       end
 
       context 'by accessor' do
@@ -80,9 +82,10 @@ module Infoboxer
         }
 
         it { should be_kind_of(Tree::Nodes) }
-        it { should == [
-          Tree::Text.new(' deep test')
-        ]}
+        it {
+          should == [
+            Tree::Text.new(' deep test')
+          ]}
       end
 
       context 'by fields which only some subclasses have' do

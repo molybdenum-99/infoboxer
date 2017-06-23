@@ -69,10 +69,11 @@ module Infoboxer
 
       it { should be_a(Tree::Template) }
       its(:name) { should == 'the name' }
-      its(:variables) { should ==
-        [
-          Tree::Var.new('1', [Tree::Wikilink.new('Argentina', Tree::Text.new('Ar'))])
-        ]
+      its(:variables) {
+        should ==
+          [
+            Tree::Var.new('1', [Tree::Wikilink.new('Argentina', Tree::Text.new('Ar'))])
+          ]
       }
     end
 
@@ -121,7 +122,8 @@ module Infoboxer
     end
 
     context 'with complex lists inside' do
-      let(:source) { unindent(%Q{
+      let(:source) {
+        unindent(%{
         {{Infobox country
         |footnote_a = {{note|note-lang}}''[[De facto]]'' at all government levels.{{efn-ua|name=es|Though not declared official ''[[de jure]]'', the Spanish language is the only one used in the wording of laws, decrees, resolutions, official documents and public acts.}} In addition, some provinces have official ''[[de jure]]'' languages:
         :{{,}}[[Guaraní language|Guaraní]] in [[Corrientes Province]].<ref name=gn>{{cite Argentine law|jur=CN|l=5598|date=22 de octubre de 2004}}</ref>
@@ -135,13 +137,13 @@ module Infoboxer
     end
 
     context 'with simple variable inside' do
-      let(:source) { %Q{{{some template|lang=en|wtf|text=not a ''parameter''}}} }
+      let(:source) { %{{{some template|lang=en|wtf|text=not a ''parameter''}}} }
 
       its(:'variables.count') { should == 3 }
     end
 
     context 'magic words' do
-      let(:source) { %Q{{{formatnum:{{#expr: 14.3 * 2.589988110336 round 1}} }}} }
+      let(:source) { %{{{formatnum:{{#expr: 14.3 * 2.589988110336 round 1}} }}} }
 
       it { should be_a(Tree::Template) }
       its(:name) { should == 'formatnum' }

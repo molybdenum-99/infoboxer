@@ -2,9 +2,10 @@
 
 module Infoboxer
   describe Tree::Wikilink do
-    let(:source) { VCR.use_cassette('follow-source-argentine') {
-      Infoboxer.wp.get('Argentina')
-    }}
+    let(:source) {
+      VCR.use_cassette('follow-source-argentine') {
+        Infoboxer.wp.get('Argentina')
+      }}
     let(:link) { source.lookup(:Wikilink, link: 'Chile').first }
 
     describe :url do
@@ -21,9 +22,10 @@ module Infoboxer
   end
 
   describe Tree::Nodes, :follow do
-    let(:source) { VCR.use_cassette('follow-source-argentine2') {
-      Infoboxer.wp.get('Argentina')
-    }}
+    let(:source) {
+      VCR.use_cassette('follow-source-argentine2') {
+        Infoboxer.wp.get('Argentina')
+      }}
     let(:links) { source.lookup(:Wikilink).first(3) }
 
     subject { VCR.use_cassette('follow-several') { links.follow } }
@@ -32,9 +34,10 @@ module Infoboxer
   end
 
   describe 'Template#follow' do
-    let(:source) { VCR.use_cassette('follow-source-forests') {
-      Infoboxer.wp.get('Tropical and subtropical coniferous forests')
-    }}
+    let(:source) {
+      VCR.use_cassette('follow-source-forests') {
+        Infoboxer.wp.get('Tropical and subtropical coniferous forests')
+      }}
     let(:template) { source.templates(name: /forests$/).first }
 
     describe :url do

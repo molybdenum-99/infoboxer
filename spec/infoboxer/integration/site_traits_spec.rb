@@ -37,11 +37,12 @@ module Infoboxer
           "{{unknown|{{!}}\n\ntext\n\nfoo {{,}}}}r"
         }
         subject { nodes.first.variables.first.children }
-        it { should == [
-          traits.templates.find('!').new('!'),
-          Tree::Paragraph.new(Tree::Text.new('text')),
-          Tree::Paragraph.new([Tree::Text.new('foo '), traits.templates.find(',').new(',')]),
-        ]}
+        it {
+          should == [
+            traits.templates.find('!').new('!'),
+            Tree::Paragraph.new(Tree::Text.new('text')),
+            Tree::Paragraph.new([Tree::Text.new('foo '), traits.templates.find(',').new(',')]),
+          ]}
         its(:text) { should == "|text\n\nfoo ·\n\n" }
       end
 

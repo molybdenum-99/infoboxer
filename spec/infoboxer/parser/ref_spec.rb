@@ -15,11 +15,12 @@ module Infoboxer
         "<ref>The text\nof the reference</ref>"
       }
 
-      it { should ==
-        Tree::Ref.new([
-          Tree::Text.new('The text'),
-          Tree::Paragraph.new(Tree::Text.new('of the reference'))
-        ])
+      it {
+        should ==
+          Tree::Ref.new([
+            Tree::Text.new('The text'),
+            Tree::Paragraph.new(Tree::Text.new('of the reference'))
+          ])
       }
     end
 

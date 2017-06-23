@@ -12,7 +12,8 @@ module Infoboxer
     subject { table }
 
     describe 'simplest: one cell, one row' do
-      let(:source) { %Q{{|
+      let(:source) {
+        %{{|
         |one
         |}}
       }
@@ -31,7 +32,8 @@ module Infoboxer
       subject { cells }
 
       context 'all cells in one line' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |one||two||three: it's a long text, dude!
           |}
@@ -43,7 +45,8 @@ module Infoboxer
       end
 
       context 'cells on separate lines' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |one||two
           |three: it's a long text, dude!||and four
@@ -57,7 +60,8 @@ module Infoboxer
       end
 
       context 'multiline cells' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |one||two
           three: it's a long text, dude!||and four
@@ -76,7 +80,8 @@ module Infoboxer
       end
 
       context 'multiline with template' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |one||two {{template
           |it's content}}
@@ -96,7 +101,8 @@ module Infoboxer
     end
 
     describe 'multiple rows' do
-      let(:source) { %Q{
+      let(:source) {
+        %{
         {|
         |one
         |-
@@ -109,7 +115,8 @@ module Infoboxer
       end
 
       context 'row-level template' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |one
           |-
@@ -123,7 +130,8 @@ module Infoboxer
 
     describe 'headings' do
       context 'in first row' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           ! one
           ! two
@@ -140,7 +148,8 @@ module Infoboxer
       end
 
       context 'in next row' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |wtf
           |-
@@ -159,7 +168,8 @@ module Infoboxer
       end
 
       context 'several headers in line' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           ! one||two||three
           |}
@@ -174,7 +184,8 @@ module Infoboxer
       end
 
       context 'several headers in line -header separator' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           ! one!!two!!three
           |}
@@ -189,7 +200,8 @@ module Infoboxer
       end
 
       context 'in the middle of a row' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           | one
           ! two
@@ -210,7 +222,8 @@ module Infoboxer
       subject { table.caption }
 
       context 'simple' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |+ test me
           |}
@@ -221,7 +234,8 @@ module Infoboxer
       end
 
       context 'with formatting' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |+ test me ''please'' [[here]]
           |}
@@ -235,7 +249,8 @@ module Infoboxer
       end
 
       context 'multiline' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           |+ test me
           please
@@ -249,7 +264,8 @@ module Infoboxer
       # seems to be pretty exotic one, in fact.
       # neglect it (implementation anyways was dumb)
       xcontext 'with tag' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           <caption>test me please</caption>
           |}
@@ -261,7 +277,8 @@ module Infoboxer
     end
 
     describe 'table-level params' do
-      let(:source) { %Q{
+      let(:source) {
+        %{
         {| border="1" style="border-collapse:collapse;"
         |}
       }}
@@ -269,13 +286,15 @@ module Infoboxer
 
       it { should be_kind_of(Hash) }
       its(:keys) { are_expected.to contain_exactly(:border, :style) }
-      its(:values) { are_expected.to \
-        contain_exactly('1', 'border-collapse:collapse;')
+      its(:values) {
+        are_expected.to \
+          contain_exactly('1', 'border-collapse:collapse;')
       }
     end
 
     describe 'row-level params' do
-      let(:source) { %Q{
+      let(:source) {
+        %{
         {|
         |- border="1" style="border-collapse:collapse;"
         |test
@@ -285,14 +304,16 @@ module Infoboxer
 
       it { should be_kind_of(Hash) }
       its(:keys) { are_expected.to contain_exactly(:border, :style) }
-      its(:values) { are_expected.to \
-        contain_exactly('1', 'border-collapse:collapse;')
+      its(:values) {
+        are_expected.to \
+          contain_exactly('1', 'border-collapse:collapse;')
       }
     end
 
     describe 'cell-level params' do
       context 'when first' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           | style="text-align:right;" |test
           |}
@@ -301,13 +322,15 @@ module Infoboxer
 
         it { should be_kind_of(Hash) }
         its(:keys) { are_expected.to contain_exactly(:style) }
-        its(:values) { are_expected.to \
-          contain_exactly('text-align:right;')
+        its(:values) {
+          are_expected.to \
+            contain_exactly('text-align:right;')
         }
       end
 
       context 'when several' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           | style="text-align:right;" |test||border|one
           |}
@@ -316,14 +339,16 @@ module Infoboxer
 
         it { should be_kind_of(Hash) }
         its(:keys) { are_expected.to contain_exactly(:border) }
-        its(:values) { are_expected.to \
-          contain_exactly('border')
+        its(:values) {
+          are_expected.to \
+            contain_exactly('border')
         }
       end
 
       context 'when uneven quotes' do
         # Example like this can be found at https://en.wikipedia.org/wiki/Chevrolet_Volt_(second_generation)
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {|
           | style="text-align:right; |test||border|one
           |}
@@ -332,15 +357,17 @@ module Infoboxer
 
         it { should be_kind_of(Hash) }
         its(:keys) { are_expected.to contain_exactly(:border) }
-        its(:values) { are_expected.to \
-          contain_exactly('border')
+        its(:values) {
+          are_expected.to \
+            contain_exactly('border')
         }
       end
     end
 
     describe 'nested tables, damn them' do
       context 'when in empty cell' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {| style="width:98%; background:none;"
           |-
           |
@@ -356,7 +383,8 @@ module Infoboxer
       end
 
       context 'when in multiline cell' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {| style="width:98%; background:none;"
           |-
           | some
@@ -380,7 +408,8 @@ module Infoboxer
     end
 
     describe 'implicitly closed table' do
-      let(:source) { %Q[
+      let(:source) {
+        %[
         {|
 
         That's paragraph!
@@ -392,7 +421,8 @@ module Infoboxer
       end
 
       context 'not closed on empty lines' do
-        let(:source) { %Q[
+        let(:source) {
+          %[
           {|
 
           |Still a cell!

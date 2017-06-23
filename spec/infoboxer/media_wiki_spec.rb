@@ -93,7 +93,8 @@ module Infoboxer
             Infoboxer.user_agent = 'My Cool UA'
             client_with_ua = MediaWiki.new(
               'https://en.wikipedia.org/w/api.php',
-              user_agent: 'Something else')
+              user_agent: 'Something else'
+            )
             client_with_ua.raw('Argentina')
           }
           it { is_expected.to include('User-Agent' => 'Something else') }

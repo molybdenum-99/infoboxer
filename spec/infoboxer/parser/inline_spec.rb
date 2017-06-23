@@ -150,8 +150,9 @@ module Infoboxer
         it { should be_a(Tree::HTMLTag) }
         its(:tag) { should == 'strike' }
         its(:children) { should == [Tree::Text.new('Some text')] }
-        its(:attrs) { should ==
-          {class: 'airstrike', style: 'color: red;'}
+        its(:attrs) {
+          should ==
+            {class: 'airstrike', style: 'color: red;'}
         }
       end
 
@@ -203,11 +204,12 @@ module Infoboxer
       context 'when empty' do
         let(:source) { 'The country is also a producer of [[industrial mineral]]<nowiki/>s.' }
         subject { nodes }
-        it { should == [
-          Tree::Text.new('The country is also a producer of '),
-          Tree::Wikilink.new('industrial mineral'),
-          Tree::Text.new('s.')
-        ]}
+        it {
+          should == [
+            Tree::Text.new('The country is also a producer of '),
+            Tree::Wikilink.new('industrial mineral'),
+            Tree::Text.new('s.')
+          ]}
       end
     end
 

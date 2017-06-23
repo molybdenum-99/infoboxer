@@ -6,7 +6,8 @@ module Infoboxer
       let(:template) { Parser.inline(unindent(source)).first }
 
       describe 'variables as params' do
-        let(:source) { %Q{
+        let(:source) {
+          %{
           {{some template|lang=en|wtf|text=not a ''parameter''}}
         }}
 
@@ -77,12 +78,13 @@ module Infoboxer
         let(:source) { File.read('spec/fixtures/large_infobox.txt') }
         subject { template.to_h }
 
-        it { should include(
-          'conventional_long_name' => 'Argentine Republic',
-          'capital' => 'Buenos Aires',
-          'government_type' => 'Federal presidential constitutional republic'
-          # ...and so on
-        )}
+        it {
+          should include(
+            'conventional_long_name' => 'Argentine Republic',
+            'capital' => 'Buenos Aires',
+            'government_type' => 'Federal presidential constitutional republic'
+            # ...and so on
+          )}
       end
     end
   end

@@ -23,21 +23,22 @@ module Infoboxer
       describe 'basics' do
         its(:count) { is_expected.to eq 12 }
         it { is_expected.to all(be_kind_of(Navigation::Sections::Section)) }
-        its_map(:'heading.text_') { are_expected.to eq \
-          [
-            'Name and etymology',
-            'History',
-            'Geography',
-            'Politics',
-            'Economy',
-            'Demographics',
-            'Culture',
-            'See also',
-            'Notes',
-            'References',
-            'Bibliography',
-            'External links'
-          ]
+        its_map(:'heading.text_') {
+          are_expected.to eq \
+            [
+              'Name and etymology',
+              'History',
+              'Geography',
+              'Politics',
+              'Economy',
+              'Demographics',
+              'Culture',
+              'See also',
+              'Notes',
+              'References',
+              'Bibliography',
+              'External links'
+            ]
         }
       end
 

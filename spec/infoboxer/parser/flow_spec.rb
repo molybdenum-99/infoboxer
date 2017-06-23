@@ -96,19 +96,21 @@ module Infoboxer
 
       describe 'several paragraphs' do
         let(:source) { "some text\n\nor some other text" }
-        it { should == [
-          Tree::Paragraph.new(Tree::Text.new('some text')),
-          Tree::Paragraph.new(Tree::Text.new('or some other text'))
-        ]}
+        it {
+          should == [
+            Tree::Paragraph.new(Tree::Text.new('some text')),
+            Tree::Paragraph.new(Tree::Text.new('or some other text'))
+          ]}
       end
 
       describe 'with end regexp' do
         let(:source) { "some text\n\nor some}} other text" }
         subject { parser.paragraphs(/}}/) }
-        it { should == [
-          Tree::Paragraph.new(Tree::Text.new('some text')),
-          Tree::Paragraph.new(Tree::Text.new('or some'))
-        ]}
+        it {
+          should == [
+            Tree::Paragraph.new(Tree::Text.new('some text')),
+            Tree::Paragraph.new(Tree::Text.new('or some'))
+          ]}
       end
 
       describe 'with end regexp - pre' do

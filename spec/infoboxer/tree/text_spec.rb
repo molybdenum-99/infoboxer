@@ -33,7 +33,8 @@ module Infoboxer
           subject { text }
 
           context 'simple headings and paragraphs' do
-            let(:source) { %Q{
+            let(:source) {
+              %{
               == Heading 2 ==
               === Heading 3 ===
               Paragraph.
@@ -42,77 +43,87 @@ module Infoboxer
               Still that, other paragraph.
             }}
 
-            it { should ==
-              "Heading 2\n\n" \
-              "Heading 3\n\n" \
-              "Paragraph.\n\n" \
-              "Other paragraph. Still that, other paragraph.\n\n"
+            it {
+              should ==
+                "Heading 2\n\n" \
+                "Heading 3\n\n" \
+                "Paragraph.\n\n" \
+                "Other paragraph. Still that, other paragraph.\n\n"
             }
           end
 
           context 'lists' do
             context 'unordered' do
-              let(:source) { %Q{
+              let(:source) {
+                %{
                 * its
                 * a
                 * list
               }}
 
-              it { should ==
-                "* its\n"\
-                "* a\n"\
-                "* list\n\n"
+              it {
+                should ==
+                  "* its\n"\
+                  "* a\n"\
+                  "* list\n\n"
               }
             end
 
             context 'ordered' do
-              let(:source) { %Q{
+              let(:source) {
+                %{
                 # its
                 # a
                 # list
               }}
 
-              it { should ==
-                "1. its\n"\
-                "2. a\n"\
-                "3. list\n\n"
+              it {
+                should ==
+                  "1. its\n"\
+                  "2. a\n"\
+                  "3. list\n\n"
               }
             end
 
             context 'definitions' do
-              let(:source) { %Q{
+              let(:source) {
+                %{
                 ; its
                 : a
                 ; list
                 : of defs
               }}
 
-              it { should ==
-                "its:\n"\
-                "  a\n"\
-                "list:\n"\
-                "  of defs\n\n"
+              it {
+                should ==
+                  "its:\n"\
+                  "  a\n"\
+                  "list:\n"\
+                  "  of defs\n\n"
               }
             end
 
             context 'nest' do
-              let(:source) { %Q{
+              let(:source) {
+                %{
                 * its
                 ** a
                 ** nested
                 * list
               }}
 
-              it { should ==
-                "* its\n"\
-                "  * a\n"\
-                "  * nested\n"\
-                "* list\n\n"\
+              it {
+                should ==
+                  "* its\n"\
+                  "  * a\n"\
+                  "  * nested\n"\
+                  "* list\n\n"\
               }
             end
 
             context 'mixing and nesting' do
-              let(:source) { %Q{
+              let(:source) {
+                %{
                 * list
                 * with
                 *# different
@@ -124,36 +135,40 @@ module Infoboxer
                 paragraph
               }}
 
-              it { should ==
-                "* list\n" \
-                "* with\n" \
-                "  1. different\n" \
-                "  2. levels of\n" \
-                "    deep:\n" \
-                "      inlining!\n" \
-                "* is cool\n\n"\
-                "paragraph\n\n"
+              it {
+                should ==
+                  "* list\n" \
+                  "* with\n" \
+                  "  1. different\n" \
+                  "  2. levels of\n" \
+                  "    deep:\n" \
+                  "      inlining!\n" \
+                  "* is cool\n\n"\
+                  "paragraph\n\n"
               }
             end
           end
 
           context 'pre' do
-            let(:source) { %Q{
+            let(:source) {
+              %{
               Here will be pre:
 
                First line
                Next line
               }}
 
-            it { should ==
-              "Here will be pre:\n\n" \
-              "First line\n" \
-              "Next line\n\n"
+            it {
+              should ==
+                "Here will be pre:\n\n" \
+                "First line\n" \
+                "Next line\n\n"
             }
           end
 
           context 'tables' do
-            let(:source) { %Q{
+            let(:source) {
+              %{
               {|
               |+ Caption
               |-
@@ -171,15 +186,16 @@ module Infoboxer
               |}
             }}
 
-            it { should ==
-              "+-------+------+----------+\n"\
-              "|         Caption         |\n"\
-              "+-------+------+----------+\n"\
-              "| first | row  | headings |\n"\
-              "+-------+------+----------+\n"\
-              "| next  | row  | cells    |\n"\
-              "| even  | next | row      |\n"\
-              "+-------+------+----------+\n\n"
+            it {
+              should ==
+                "+-------+------+----------+\n"\
+                "|         Caption         |\n"\
+                "+-------+------+----------+\n"\
+                "| first | row  | headings |\n"\
+                "+-------+------+----------+\n"\
+                "| next  | row  | cells    |\n"\
+                "| even  | next | row      |\n"\
+                "+-------+------+----------+\n\n"
             }
           end
 
