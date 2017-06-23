@@ -33,7 +33,7 @@ module Infoboxer
           context 'when only one text node' do
             let(:node) { Compound.new([Text.new('one')]) }
 
-            it { should == "one <Compound>\n" }
+            it { is_expected.to eq "one <Compound>\n" }
           end
         end
 
@@ -42,7 +42,7 @@ module Infoboxer
           let(:node) { Wikilink.new('Argentina', [Text.new('Argentinian Republic')]) }
 
           it {
-            should ==
+            is_expected.to eq \
               "Argentinian Republic <Wikilink(link: \"Argentina\")>\n"
           }
         end
@@ -52,7 +52,7 @@ module Infoboxer
             let(:node) { Image.new('picture.jpg', width: '5', height: '6') }
 
             it {
-              should ==
+              is_expected.to eq \
                 "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"
             }
           end
@@ -63,7 +63,7 @@ module Infoboxer
             }
 
             it {
-              should ==
+              is_expected.to eq \
                 "<Image(path: \"picture.jpg\", width: \"5\", height: \"6\")>\n"\
                 "  caption:\n"\
                 "    Look at me <Text>\n"
@@ -79,7 +79,7 @@ module Infoboxer
           }
 
           it {
-            should ==
+            is_expected.to eq \
               "<HTMLTag:div(class: \"table_inside\", style: \"float:left;\")>\n"\
               "  contents <Text>\n"\
               "  italic <Italic>\n"
@@ -92,7 +92,7 @@ module Infoboxer
           }
 
           it {
-            should ==
+            is_expected.to eq \
               "<HTMLOpeningTag:div(class: \"table_inside\", style: \"float:left;\")>\n"
           }
         end
@@ -102,7 +102,7 @@ module Infoboxer
             HTMLClosingTag.new('div')
           }
 
-          it { should == "<HTMLClosingTag:div>\n" }
+          it { is_expected.to eq "<HTMLClosingTag:div>\n" }
         end
 
         # Paragraph-level nodes ------------------------------------------
@@ -112,7 +112,7 @@ module Infoboxer
           }
 
           it {
-            should ==
+            is_expected.to eq \
               "one <Heading(level: 3)>\n"
           }
         end
@@ -130,7 +130,7 @@ module Infoboxer
           }
 
           it {
-            should ==
+            is_expected.to eq \
               "<UnorderedList>\n"\
               "  one <ListItem>\n"\
               "  <ListItem>\n"\
@@ -155,7 +155,7 @@ module Infoboxer
           }
 
           it {
-            should ==
+            is_expected.to eq \
               "<Template[name](1: \"unnamed value\")>\n"\
               "  unnamed value <Var(1)>\n"\
               "  <Var(named)>\n"\

@@ -29,7 +29,7 @@ module Infoboxer
 
         subject { nodes }
 
-        its(:text) { should == 'before | text and italics after' }
+        its(:text) { is_expected.to eq 'before | text and italics after' }
       end
 
       context 'when multiline templates' do
@@ -38,13 +38,13 @@ module Infoboxer
         }
         subject { nodes.first.variables.first.children }
         it {
-          should == [
+          is_expected.to eq [
             traits.templates.find('!').new('!'),
             Tree::Paragraph.new(Tree::Text.new('text')),
             Tree::Paragraph.new([Tree::Text.new('foo '), traits.templates.find(',').new(',')]),
           ]
         }
-        its(:text) { should == "|text\n\nfoo ·\n\n" }
+        its(:text) { is_expected.to eq "|text\n\nfoo ·\n\n" }
       end
 
       context 'when templates in image caption' do
@@ -56,7 +56,7 @@ module Infoboxer
           nodes.first.caption
         }
 
-        its(:text) { should == 'This | that' }
+        its(:text) { is_expected.to eq 'This | that' }
       end
 
       context 'when templates in tables' do
@@ -65,7 +65,7 @@ module Infoboxer
         }
         let(:table) { Parser.paragraphs(source, traits).first }
         subject { table.lookup(:TableCaption).first }
-        its(:text) { should == 'Its in | caption!' }
+        its(:text) { is_expected.to eq 'Its in | caption!' }
       end
     end
 
@@ -84,7 +84,7 @@ module Infoboxer
         }
         let(:client) { MediaWiki.new('http://en.wikipedia.org/w/api.php') }
         subject { client }
-        its(:context) { should be_a(klass) }
+        its(:context) { is_expected.to be_a(klass) }
       end
 
       context 'when not defined' do

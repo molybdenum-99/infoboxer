@@ -15,8 +15,8 @@ module Infoboxer
         %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg]]}
       }
 
-      it { should be_a(Tree::Image) }
-      its(:path) { should == 'SantaCruz-CuevaManos-P2210651b.jpg' }
+      it { is_expected.to be_a(Tree::Image) }
+      its(:path) { is_expected.to eq 'SantaCruz-CuevaManos-P2210651b.jpg' }
     end
 
     context 'when complex' do
@@ -26,16 +26,16 @@ module Infoboxer
         %q{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px|The [[Cueva de las Manos|Cave of the Hands]] in [[Santa Cruz province, Argentina|Santa Cruz province]], with indigenous artwork dating from 13,000–9,000 years ago|alt=Stencilled hands on the cave's wall]]}
       }
 
-      it { should be_a(Tree::Image) }
-      its(:path) { should == 'SantaCruz-CuevaManos-P2210651b.jpg' }
-      its(:type) { should == 'thumb' }
-      its(:width) { should == 200 }
-      its(:alt) { should == "Stencilled hands on the cave's wall" }
+      it { is_expected.to be_a(Tree::Image) }
+      its(:path) { is_expected.to eq 'SantaCruz-CuevaManos-P2210651b.jpg' }
+      its(:type) { is_expected.to eq 'thumb' }
+      its(:width) { is_expected.to eq 200 }
+      its(:alt) { is_expected.to eq "Stencilled hands on the cave's wall" }
 
       describe 'caption' do
         subject { nodes.first.caption }
 
-        it { should be_a(Tree::ImageCaption) }
+        it { is_expected.to be_a(Tree::ImageCaption) }
         it 'should preserve all data' do
           expect(subject.children.map(&:class)).to eq \
             [Tree::Text, Tree::Wikilink, Tree::Text, Tree::Wikilink, Tree::Text]
@@ -62,12 +62,12 @@ module Infoboxer
       }
       let(:ctx) { Parser::Context.new(source, traits) }
 
-      it { should be_an(Tree::Image) }
-      its(:path) { should == 'SantaCruz-CuevaManos-P2210651b.jpg' }
+      it { is_expected.to be_an(Tree::Image) }
+      its(:path) { is_expected.to eq 'SantaCruz-CuevaManos-P2210651b.jpg' }
 
       context 'should parse File: prefix' do
         let(:source) { %{[[File:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]} }
-        it { should be_an(Tree::Image) }
+        it { is_expected.to be_an(Tree::Image) }
       end
     end
 
@@ -81,9 +81,9 @@ module Infoboxer
         '</div>]]'
       }
 
-      it { should be_a(Tree::Image) }
-      its(:path) { should == 'Diplomatic missions of Argentina.png' }
-      its(:width) { should == 250 }
+      it { is_expected.to be_a(Tree::Image) }
+      its(:path) { is_expected.to eq 'Diplomatic missions of Argentina.png' }
+      its(:width) { is_expected.to eq 250 }
       it 'should have a caption ' do
         expect(subject.caption.children.map(&:class)).to eq \
           [Tree::Text, Tree::Paragraph]

@@ -15,35 +15,35 @@ module Infoboxer
       context 'just a para' do
         let(:source) { 'some text' }
 
-        it { should be_a(Tree::Paragraph) }
-        its(:text) { should == "some text\n\n" }
+        it { is_expected.to be_a(Tree::Paragraph) }
+        its(:text) { is_expected.to eq "some text\n\n" }
       end
 
       context 'heading' do
         let(:source) { '== Some text ==' }
 
-        it { should be_a(Tree::Heading) }
-        its(:text) { should == "Some text\n\n" }
-        its(:level) { should == 2 }
+        it { is_expected.to be_a(Tree::Heading) }
+        its(:text) { is_expected.to eq "Some text\n\n" }
+        its(:level) { is_expected.to eq 2 }
       end
 
       context 'list item' do
         context 'first level' do
           let(:source) { '* Some text' }
 
-          it { should be_a(Tree::UnorderedList) }
-          its(:'children.count') { should == 1 }
-          its(:children) { should all(be_kind_of(Tree::ListItem)) }
+          it { is_expected.to be_a(Tree::UnorderedList) }
+          its(:'children.count') { is_expected.to eq 1 }
+          its(:children) { is_expected.to all(be_kind_of(Tree::ListItem)) }
         end
 
         context 'dl/dt' do
           let(:source) { '; Some text' }
-          it { should == Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text'))) }
+          it { is_expected.to eq Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text'))) }
         end
 
         context 'dl/dd' do
           let(:source) { ': Some text' }
-          it { should == Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text'))) }
+          it { is_expected.to eq Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text'))) }
         end
 
         context 'next levels' do
@@ -51,7 +51,7 @@ module Infoboxer
 
           # Prepare to madness!!!
           it {
-            should ==
+            is_expected.to eq \
               Tree::UnorderedList.new(
                 Tree::ListItem.new(
                   Tree::OrderedList.new(
@@ -72,14 +72,14 @@ module Infoboxer
       context 'hr' do
         let(:source) { '--------------' }
 
-        it { should be_a(Tree::HR) }
+        it { is_expected.to be_a(Tree::HR) }
       end
 
       context 'pre' do
         let(:source) { ' i += 1' }
 
-        it { should be_a(Tree::Pre) }
-        its(:text) { should == "i += 1\n\n" }
+        it { is_expected.to be_a(Tree::Pre) }
+        its(:text) { is_expected.to eq "i += 1\n\n" }
       end
     end
 
@@ -88,7 +88,7 @@ module Infoboxer
 
       let(:source) { "== Heading ==\nParagraph\n*List item" }
 
-      its(:count) { should == 3 }
+      its(:count) { is_expected.to eq 3 }
       it 'should be correct items' do
         expect(subject.map(&:class)).to eq [Tree::Heading, Tree::Paragraph, Tree::UnorderedList]
         expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "* List item\n\n"]
@@ -101,7 +101,7 @@ module Infoboxer
       context 'paragraphs' do
         let(:source) { "First para\nStill first\n\nNext para" }
 
-        its(:count) { should == 2 }
+        its(:count) { is_expected.to eq 2 }
         it 'should be only two of them' do
           expect(subject.map(&:text)).to eq \
             ["First para Still first\n\n", "Next para\n\n"]
@@ -111,7 +111,7 @@ module Infoboxer
       context 'not mergeable' do
         let(:source) { "== First heading ==\n== Other heading ==" }
 
-        its(:count) { should == 2 }
+        its(:count) { is_expected.to eq 2 }
       end
 
       context 'list' do
@@ -130,7 +130,7 @@ module Infoboxer
 
         # not the most elegant way of testing trees, but still!
         it {
-          should ==
+          is_expected.to eq \
             [
               Tree::UnorderedList.new(
                 Tree::ListItem.new([
@@ -184,7 +184,7 @@ module Infoboxer
           :{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
         })}
 
-        its(:first) { should be_a(Tree::DefinitionList) }
+        its(:first) { is_expected.to be_a(Tree::DefinitionList) }
       end
 
       context 'templates-only paragraph' do
@@ -193,7 +193,7 @@ module Infoboxer
         }
 
         it {
-          should == [
+          is_expected.to eq [
             Tree::Template.new('template'),
             Tree::Paragraph.new(Tree::Text.new('paragraph'))
           ]
@@ -206,7 +206,7 @@ module Infoboxer
         }
 
         it {
-          should == [
+          is_expected.to eq [
             Tree::Paragraph.new(Tree::Text.new('paragraph1')),
             Tree::Paragraph.new(Tree::Text.new('paragraph2'))
           ]
@@ -219,7 +219,7 @@ module Infoboxer
         }
 
         it {
-          should == [
+          is_expected.to eq [
             Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
           ]
         }
@@ -231,7 +231,7 @@ module Infoboxer
         }
 
         it {
-          should == [
+          is_expected.to eq [
             Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
           ]
         }

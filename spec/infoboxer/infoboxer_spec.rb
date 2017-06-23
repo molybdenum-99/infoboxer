@@ -6,8 +6,8 @@ describe Infoboxer do
       describe 'default' do
         subject { described_class.wikipedia }
 
-        it { should be_a(Infoboxer::MediaWiki) }
-        its(:'api_base_url.to_s') { should == 'https://en.wikipedia.org/w/api.php' }
+        it { is_expected.to be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { is_expected.to eq 'https://en.wikipedia.org/w/api.php' }
       end
 
       describe 'caching' do
@@ -21,13 +21,13 @@ describe Infoboxer do
       describe 'language' do
         subject { described_class.wikipedia('fr') }
 
-        its(:'api_base_url.to_s') { should == 'https://fr.wikipedia.org/w/api.php' }
+        its(:'api_base_url.to_s') { is_expected.to eq 'https://fr.wikipedia.org/w/api.php' }
       end
 
       describe 'shortcut' do
         subject { described_class.wp('fr') }
 
-        its(:'api_base_url.to_s') { should == 'https://fr.wikipedia.org/w/api.php' }
+        its(:'api_base_url.to_s') { is_expected.to eq 'https://fr.wikipedia.org/w/api.php' }
       end
     end
 
@@ -35,22 +35,22 @@ describe Infoboxer do
       describe 'simple' do
         subject { described_class.wikia('tardis') }
 
-        it { should be_a(Infoboxer::MediaWiki) }
-        its(:'api_base_url.to_s') { should == 'http://tardis.wikia.com/api.php' }
+        it { is_expected.to be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { is_expected.to eq 'http://tardis.wikia.com/api.php' }
       end
 
       describe 'subdomain' do
         subject { described_class.wikia('ru.tardis') }
 
-        it { should be_a(Infoboxer::MediaWiki) }
-        its(:'api_base_url.to_s') { should == 'http://ru.tardis.wikia.com/api.php' }
+        it { is_expected.to be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { is_expected.to eq 'http://ru.tardis.wikia.com/api.php' }
       end
 
       describe 'language' do
         subject { described_class.wikia('tardis', 'ru') }
 
-        it { should be_a(Infoboxer::MediaWiki) }
-        its(:'api_base_url.to_s') { should == 'http://ru.tardis.wikia.com/api.php' }
+        it { is_expected.to be_a(Infoboxer::MediaWiki) }
+        its(:'api_base_url.to_s') { is_expected.to eq 'http://ru.tardis.wikia.com/api.php' }
       end
     end
   end

@@ -11,19 +11,19 @@ module Infoboxer
           context Text do
             let(:node) { Text.new('test') }
 
-            it { should == 'test' }
+            it { is_expected.to eq 'test' }
           end
 
           context Compound do
             let(:node) { Compound.new([Text.new('one'), Text.new('two')]) }
 
-            it { should == 'onetwo' }
+            it { is_expected.to eq 'onetwo' }
           end
 
           context Paragraph do
             let(:node) { Paragraph.new([Text.new('one')]) }
 
-            it { should == "one\n\n" }
+            it { is_expected.to eq "one\n\n" }
           end
         end
 
@@ -44,7 +44,7 @@ module Infoboxer
             }}
 
             it {
-              should ==
+              is_expected.to eq \
                 "Heading 2\n\n" \
                 "Heading 3\n\n" \
                 "Paragraph.\n\n" \
@@ -62,7 +62,7 @@ module Infoboxer
               }}
 
               it {
-                should ==
+                is_expected.to eq \
                   "* its\n"\
                   "* a\n"\
                   "* list\n\n"
@@ -78,7 +78,7 @@ module Infoboxer
               }}
 
               it {
-                should ==
+                is_expected.to eq \
                   "1. its\n"\
                   "2. a\n"\
                   "3. list\n\n"
@@ -95,7 +95,7 @@ module Infoboxer
               }}
 
               it {
-                should ==
+                is_expected.to eq \
                   "its:\n"\
                   "  a\n"\
                   "list:\n"\
@@ -113,7 +113,7 @@ module Infoboxer
               }}
 
               it {
-                should ==
+                is_expected.to eq \
                   "* its\n"\
                   "  * a\n"\
                   "  * nested\n"\
@@ -136,7 +136,7 @@ module Infoboxer
               }}
 
               it {
-                should ==
+                is_expected.to eq \
                   "* list\n" \
                   "* with\n" \
                   "  1. different\n" \
@@ -159,7 +159,7 @@ module Infoboxer
               }}
 
             it {
-              should ==
+              is_expected.to eq \
                 "Here will be pre:\n\n" \
                 "First line\n" \
                 "Next line\n\n"
@@ -187,7 +187,7 @@ module Infoboxer
             }}
 
             it {
-              should ==
+              is_expected.to eq \
                 "+-------+------+----------+\n"\
                 "|         Caption         |\n"\
                 "+-------+------+----------+\n"\
@@ -201,27 +201,27 @@ module Infoboxer
 
           context 'links and other inline markup' do
             let(:source) { "one ''two'' [[named|link]] [[unnamed link]]" }
-            it { should == "one two link unnamed link\n\n" }
+            it { is_expected.to eq "one two link unnamed link\n\n" }
           end
 
           context 'br' do
             let(:source) { 'one<br/>two' }
-            it { should == "one\ntwo\n\n" }
+            it { is_expected.to eq "one\ntwo\n\n" }
           end
 
           context 'ref' do
             let(:source) { 'some text<ref>with ref</ref>' }
-            it { should == "some text\n\n" }
+            it { is_expected.to eq "some text\n\n" }
           end
 
           context 'templates' do
             let(:source) { "some text{{with|realy=complex ''template''}}" }
-            it { should == "some text\n\n" }
+            it { is_expected.to eq "some text\n\n" }
           end
 
           context 'html tags' do
             let(:source) { 'some text <b>with bold</b> text' }
-            it { should == "some text with bold text\n\n" }
+            it { is_expected.to eq "some text with bold text\n\n" }
           end
 
           context 'math' do

@@ -14,23 +14,23 @@ module Infoboxer
       context 'simplest case' do
         let(:variables) { %w[120 km mi] }
 
-        it { should be_kind_of(Templates::Base) }
+        it { is_expected.to be_kind_of(Templates::Base) }
 
-        its(:text) { should == '120 km' }
-        its(:value1) { should == '120' }
-        its(:value2) { should be_nil }
-        its(:measure_from) { should == 'km' }
-        its(:measure_to) { should == 'mi' }
+        its(:text) { is_expected.to eq '120 km' }
+        its(:value1) { is_expected.to eq '120' }
+        its(:value2) { is_expected.to be_nil }
+        its(:measure_from) { is_expected.to eq 'km' }
+        its(:measure_to) { is_expected.to eq 'mi' }
       end
 
       context 'with between sign' do
         let(:variables) { %w[120 × 15 m acres] }
-        its(:text) { should == '120 × 15 m' }
-        its(:value1) { should == '120' }
-        its(:value2) { should == '15' }
-        its(:between) { should == '×' }
-        its(:measure_from) { should == 'm' }
-        its(:measure_to) { should == 'acres' }
+        its(:text) { is_expected.to eq '120 × 15 m' }
+        its(:value1) { is_expected.to eq '120' }
+        its(:value2) { is_expected.to eq '15' }
+        its(:between) { is_expected.to eq '×' }
+        its(:measure_from) { is_expected.to eq 'm' }
+        its(:measure_to) { is_expected.to eq 'acres' }
       end
     end
 
@@ -44,15 +44,15 @@ module Infoboxer
         # FIXME: use timecomp here!!!
         let(:variables) { %w[1985 07 01] }
 
-        it { should be_kind_of(Templates::Base) }
+        it { is_expected.to be_kind_of(Templates::Base) }
 
-        its(:text) { should == '31 years' }
+        its(:text) { is_expected.to eq '31 years' }
       end
 
       context 'two dates' do
         let(:variables) { %w[1985 07 01 1995 08 15] }
 
-        its(:text) { should == '10 years' }
+        its(:text) { is_expected.to eq '10 years' }
       end
     end
 

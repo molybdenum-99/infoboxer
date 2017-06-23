@@ -14,32 +14,32 @@ module Infoboxer
     context 'simplest' do
       let(:source) { '{{the name}}' }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'the name' }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'the name' }
     end
 
     context 'with unnamed variable' do
       let(:source) { '{{the name|en}}' }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'the name' }
-      its(:variables) { should == [Tree::Var.new('1', Tree::Text.new('en'))] }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'the name' }
+      its(:variables) { is_expected.to eq [Tree::Var.new('1', Tree::Text.new('en'))] }
     end
 
     context 'with named variable' do
       let(:source) { '{{the name|lang=en}}' }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'the name' }
-      its(:variables) { should == [Tree::Var.new('lang', Tree::Text.new('en'))] }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'the name' }
+      its(:variables) { is_expected.to eq [Tree::Var.new('lang', Tree::Text.new('en'))] }
     end
 
     context 'with empty variable' do
       let(:source) { '{{the name|lang=}}' }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'the name' }
-      its(:variables) { should == [Tree::Var.new('lang')] }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'the name' }
+      its(:variables) { is_expected.to eq [Tree::Var.new('lang')] }
     end
 
     context 'with named and unnamed mixed' do
@@ -53,24 +53,24 @@ module Infoboxer
     context 'with empty line' do
       let(:source) { '{{the name|}}' }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'the name' }
-      its(:variables) { should == [] }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'the name' }
+      its(:variables) { is_expected.to eq [] }
     end
 
     context 'with "=" symbol in variable' do
       let(:source) { '{{the name|formula=1+2=3}}' }
 
-      its(:variables) { should == [Tree::Var.new('formula', Tree::Text.new('1+2=3'))] }
+      its(:variables) { is_expected.to eq [Tree::Var.new('formula', Tree::Text.new('1+2=3'))] }
     end
 
     context 'with link in variable' do
       let(:source) { '{{the name|[[Argentina|Ar]]}}' }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'the name' }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'the name' }
       its(:variables) {
-        should ==
+        is_expected.to eq \
           [
             Tree::Var.new('1', [Tree::Wikilink.new('Argentina', Tree::Text.new('Ar'))])
           ]
@@ -79,7 +79,7 @@ module Infoboxer
 
     context 'with paragraphs in variable' do
       let(:source) { "{{the name|var=some\nmultiline\n''text''}}" }
-      it { should be_a(Tree::Template) }
+      it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.children.map(&:class)).to eq [Tree::Text, Tree::Paragraph]
       end
@@ -87,7 +87,7 @@ module Infoboxer
 
     context 'with newlines before nested template' do
       let(:source) { "{{the name|var=\n {{nested}}}}" }
-      it { should be_a(Tree::Template) }
+      it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.children).to all(be_a(Tree::Template))
       end
@@ -95,7 +95,7 @@ module Infoboxer
 
     context 'with newlines before variable name' do
       let(:source) { "{{the name|\nvar=test}}" }
-      it { should be_a(Tree::Template) }
+      it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.name).to eq 'var'
       end
@@ -103,7 +103,7 @@ module Infoboxer
 
     context 'with newline+space before next var' do
       let(:source) { "{{the name|var=test\n |var2=foo}}" }
-      it { should be_a(Tree::Template) }
+      it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
         expect(subject.variables.first.children).to eq [Tree::Text.new('test')]
       end
@@ -111,14 +111,14 @@ module Infoboxer
 
     context 'with <ref> and other template in variable' do
       let(:source) { "{{the name|<ref>some\nmultiline\nreference</ref> {{and|other-template}}|othervar}}" }
-      it { should be_a(Tree::Template) }
-      its(:'variables.count') { should == 2 }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:'variables.count') { is_expected.to eq 2 }
     end
 
     context 'with other template in variable - newlines' do
       let(:source) { "{{the name|first=\n {{\nother-template\n }}\n| othervar}}" }
-      it { should be_a(Tree::Template) }
-      its(:'variables.count') { should == 2 }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:'variables.count') { is_expected.to eq 2 }
     end
 
     context 'with complex lists inside' do
@@ -132,34 +132,34 @@ module Infoboxer
         }}
       })}
 
-      it { should be_a(Tree::Template) }
-      its(:'variables.count') { should == 2 }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:'variables.count') { is_expected.to eq 2 }
     end
 
     context 'with simple variable inside' do
       let(:source) { %{{{some template|lang=en|wtf|text=not a ''parameter''}}} }
 
-      its(:'variables.count') { should == 3 }
+      its(:'variables.count') { is_expected.to eq 3 }
     end
 
     context 'magic words' do
       let(:source) { %{{{formatnum:{{#expr: 14.3 * 2.589988110336 round 1}} }}} }
 
-      it { should be_a(Tree::Template) }
-      its(:name) { should == 'formatnum' }
-      its(:'variables.count') { should == 1 }
-      its(:'variables.first.name') { should == '1' }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:name) { is_expected.to eq 'formatnum' }
+      its(:'variables.count') { is_expected.to eq 1 }
+      its(:'variables.first.name') { is_expected.to eq '1' }
       context 'magic inside magic' do
         subject { template.variables.first.children.first }
-        it { should be_a(Tree::Template) }
-        its(:name) { should == '#expr' }
+        it { is_expected.to be_a(Tree::Template) }
+        its(:name) { is_expected.to eq '#expr' }
       end
     end
 
     context 'and now for really sick stuff!' do
       let(:source) { File.read('spec/fixtures/large_infobox.txt') }
-      it { should be_a(Tree::Template) }
-      its(:"variables.count") { should == 87 }
+      it { is_expected.to be_a(Tree::Template) }
+      its(:"variables.count") { is_expected.to eq 87 }
     end
   end
 end

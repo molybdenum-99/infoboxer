@@ -30,9 +30,9 @@ module Infoboxer
         end
 
         subject { traits.templates.find('!') }
-        it { should be_a(Class) }
-        it { should < Templates::Base }
-        its(:inspect) { should == 'Infoboxer::Templates::Template[!]' }
+        it { is_expected.to be_a(Class) }
+        it { is_expected.to be < Templates::Base }
+        its(:inspect) { is_expected.to eq 'Infoboxer::Templates::Template[!]' }
 
         context 'definition helpers' do
           before {
@@ -44,7 +44,7 @@ module Infoboxer
           context 'text replacements' do
             let(:template) { traits.templates.find('!') }
             subject { template.new('!') }
-            its(:text) { should == '|' }
+            its(:text) { is_expected.to eq '|' }
           end
         end
       end
@@ -54,11 +54,11 @@ module Infoboxer
           klass.domain 'in.wikipedia.org'
         }
         subject { described_class.get('in.wikipedia.org') }
-        it { should be_a(klass) }
+        it { is_expected.to be_a(klass) }
 
         context 'when non-bound domain' do
           subject { described_class.get('fr.wikipedia.org') }
-          it { should be_a(described_class) }
+          it { is_expected.to be_a(described_class) }
         end
       end
 
@@ -75,8 +75,8 @@ module Infoboxer
           expect(traits).to be_kind_of(klass)
         end
         subject { traits.templates.find('foo') }
-        it { should be_a(Class) }
-        it { should < Templates::Show }
+        it { is_expected.to be_a(Class) }
+        it { is_expected.to be < Templates::Show }
 
         it 'should continue definition' do
           described_class.for('in.wikipedia.org') {

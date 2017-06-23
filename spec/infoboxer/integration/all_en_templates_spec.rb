@@ -8,6 +8,6 @@ module Infoboxer
           .fetch('leader_name1')
           .lookup(:Wikilink).first.link
     }
-    it { should == 'Michelle Bachelet' }
+    it { is_expected.to eq 'Michelle Bachelet' }
   end
 end

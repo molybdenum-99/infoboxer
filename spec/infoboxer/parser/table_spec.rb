@@ -18,8 +18,8 @@ module Infoboxer
         |}}
       }
 
-      it { should be_a(Tree::Table) }
-      its(:'rows.count') { should == 1 }
+      it { is_expected.to be_a(Tree::Table) }
+      its(:'rows.count') { is_expected.to eq 1 }
       it 'should contain text' do
         expect(subject.rows.first.cells.first.children).to eq \
           [Tree::Text.new('one')]
@@ -38,7 +38,7 @@ module Infoboxer
           |one||two||three: it's a long text, dude!
           |}
         }}
-        its(:count) { should == 3 }
+        its(:count) { is_expected.to eq 3 }
         it 'should preserve text' do
           expect(subject.map(&:text)).to eq ['one', 'two', "three: it's a long text, dude!"]
         end
@@ -52,7 +52,7 @@ module Infoboxer
           |three: it's a long text, dude!||and four
           |}
         }}
-        its(:count) { should == 4 }
+        its(:count) { is_expected.to eq 4 }
         it 'should preserve text' do
           expect(subject.map(&:text)).to eq \
             ['one', 'two', "three: it's a long text, dude!", 'and four']
@@ -67,7 +67,7 @@ module Infoboxer
           three: it's a long text, dude!||and four
           |}
         }}
-        its(:count) { should == 2 }
+        its(:count) { is_expected.to eq 2 }
         describe 'last cell' do
           subject { cells.last }
           it 'should do bad things with next lines!' do
@@ -88,7 +88,7 @@ module Infoboxer
           |}
         }}
 
-        its(:count) { should == 2 }
+        its(:count) { is_expected.to eq 2 }
         describe 'last cell' do
           subject { cells.last }
           it 'should do bad things with next lines!' do
@@ -108,7 +108,7 @@ module Infoboxer
         |two
         |}
       }}
-      its(:"rows.count") { should == 2 }
+      its(:"rows.count") { is_expected.to eq 2 }
       it 'should preserve texts' do
         expect(subject.rows.map(&:text)).to eq %w[one two]
       end
@@ -123,7 +123,7 @@ module Infoboxer
           |}
         }}
         subject { table.rows.last.children.first }
-        it { should be_a(Tree::Template) }
+        it { is_expected.to be_a(Tree::Template) }
       end
     end
 
@@ -139,7 +139,7 @@ module Infoboxer
         }}
         subject { table.rows.first.children }
 
-        its(:count) { should == 3 }
+        its(:count) { is_expected.to eq 3 }
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
             [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
@@ -159,7 +159,7 @@ module Infoboxer
         }}
         subject { table.rows[1].children }
 
-        its(:count) { should == 3 }
+        its(:count) { is_expected.to eq 3 }
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
             [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
@@ -175,7 +175,7 @@ module Infoboxer
         }}
         subject { table.rows.first.children }
 
-        its(:count) { should == 3 }
+        its(:count) { is_expected.to eq 3 }
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
             [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
@@ -191,7 +191,7 @@ module Infoboxer
         }}
         subject { table.rows.first.children }
 
-        its(:count) { should == 3 }
+        its(:count) { is_expected.to eq 3 }
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
             [Tree::TableHeading, Tree::TableHeading, Tree::TableHeading]
@@ -209,7 +209,7 @@ module Infoboxer
         }}
         subject { table.rows.first.children }
 
-        its(:count) { should == 3 }
+        its(:count) { is_expected.to eq 3 }
         it 'should be headers' do
           expect(subject.map(&:class)).to eq \
             [Tree::TableCell, Tree::TableHeading, Tree::TableCell]
@@ -228,8 +228,8 @@ module Infoboxer
           |}
         }}
 
-        it { should be_a(Tree::TableCaption) }
-        its(:text) { should == 'test me' }
+        it { is_expected.to be_a(Tree::TableCaption) }
+        its(:text) { is_expected.to eq 'test me' }
       end
 
       context 'with formatting' do
@@ -240,7 +240,7 @@ module Infoboxer
           |}
         }}
 
-        it { should be_a(Tree::TableCaption) }
+        it { is_expected.to be_a(Tree::TableCaption) }
         it 'should be formatted' do
           expect(subject.children.map(&:class)).to eq \
             [Tree::Text, Tree::Italic, Tree::Text, Tree::Wikilink]
@@ -256,8 +256,8 @@ module Infoboxer
           |}
         }}
 
-        it { should be_a(Tree::TableCaption) }
-        its(:text) { should == "test me\nplease" }
+        it { is_expected.to be_a(Tree::TableCaption) }
+        its(:text) { is_expected.to eq "test me\nplease" }
       end
 
       # seems to be pretty exotic one, in fact.
@@ -270,8 +270,8 @@ module Infoboxer
           |}
         }}
 
-        it { should be_a(Tree::TableCaption) }
-        its(:text) { should == "test me please\n\n" }
+        it { is_expected.to be_a(Tree::TableCaption) }
+        its(:text) { is_expected.to eq "test me please\n\n" }
       end
     end
 
@@ -283,7 +283,7 @@ module Infoboxer
       }}
       subject { table.params }
 
-      it { should be_kind_of(Hash) }
+      it { is_expected.to be_kind_of(Hash) }
       its(:keys) { are_expected.to contain_exactly(:border, :style) }
       its(:values) {
         are_expected.to \
@@ -301,7 +301,7 @@ module Infoboxer
       }}
       subject { table.rows.first.params }
 
-      it { should be_kind_of(Hash) }
+      it { is_expected.to be_kind_of(Hash) }
       its(:keys) { are_expected.to contain_exactly(:border, :style) }
       its(:values) {
         are_expected.to \
@@ -319,7 +319,7 @@ module Infoboxer
         }}
         subject { table.rows.first.cells.first.params }
 
-        it { should be_kind_of(Hash) }
+        it { is_expected.to be_kind_of(Hash) }
         its(:keys) { are_expected.to contain_exactly(:style) }
         its(:values) {
           are_expected.to \
@@ -336,7 +336,7 @@ module Infoboxer
         }}
         subject { table.rows.first.cells[1].params }
 
-        it { should be_kind_of(Hash) }
+        it { is_expected.to be_kind_of(Hash) }
         its(:keys) { are_expected.to contain_exactly(:border) }
         its(:values) {
           are_expected.to \
@@ -354,7 +354,7 @@ module Infoboxer
         }}
         subject { table.rows.first.cells[1].params }
 
-        it { should be_kind_of(Hash) }
+        it { is_expected.to be_kind_of(Hash) }
         its(:keys) { are_expected.to contain_exactly(:border) }
         its(:values) {
           are_expected.to \
@@ -378,7 +378,7 @@ module Infoboxer
         }}
         subject { table.rows.first.cells.first.children.first }
 
-        it { should be_kind_of(Tree::Table) }
+        it { is_expected.to be_kind_of(Tree::Table) }
       end
 
       context 'when in multiline cell' do
@@ -428,7 +428,7 @@ module Infoboxer
         ]
         }
         subject { table.rows.first.cells.first }
-        its(:text) { should == 'Still a cell!' }
+        its(:text) { is_expected.to eq 'Still a cell!' }
       end
     end
 
@@ -436,7 +436,7 @@ module Infoboxer
       # From
       # http://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems#General_information
       let(:source) { File.read('spec/fixtures/large_table.txt') }
-      its(:"rows.count") { should == 61 }
+      its(:"rows.count") { is_expected.to eq 61 }
       it 'should be cool' do
         expect(subject.rows.map(&:children).map(&:count)).to all(be > 1)
       end

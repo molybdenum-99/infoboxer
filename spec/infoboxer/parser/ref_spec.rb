@@ -16,7 +16,7 @@ module Infoboxer
       }
 
       it {
-        should ==
+        is_expected.to eq \
           Tree::Ref.new([
                           Tree::Text.new('The text'),
                           Tree::Paragraph.new(Tree::Text.new('of the reference'))
@@ -29,14 +29,14 @@ module Infoboxer
         "<ref name=gini>\nThe text\n\nof the reference</ref>"
       }
 
-      it { should be_kind_of(Tree::Ref) }
-      its(:params) { should == {name: 'gini'} }
+      it { is_expected.to be_kind_of(Tree::Ref) }
+      its(:params) { is_expected.to eq(name: 'gini') }
     end
 
     context 'self-closing' do
       let(:source) { '<ref name=totalpop/>' }
-      it { should be_kind_of(Tree::Ref) }
-      its(:params) { should == {name: 'totalpop'} }
+      it { is_expected.to be_kind_of(Tree::Ref) }
+      its(:params) { is_expected.to eq(name: 'totalpop') }
     end
 
     context 'with incomplete markup' do
@@ -44,8 +44,8 @@ module Infoboxer
         "<ref>''bad markup!</ref>"
       }
 
-      it { should be_kind_of(Tree::Ref) }
-      its(:children) { should == [Tree::Italic.new(Tree::Text.new('bad markup!'))] }
+      it { is_expected.to be_kind_of(Tree::Ref) }
+      its(:children) { is_expected.to eq [Tree::Italic.new(Tree::Text.new('bad markup!'))] }
     end
   end
 end

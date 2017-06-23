@@ -133,7 +133,7 @@ module Infoboxer
 
         it { is_expected.to be_a MediaWiki::Page }
         its(:title) { is_expected.to eq 'Argentina' }
-        its(:url) { should == 'https://en.wikipedia.org/wiki/Argentina' }
+        its(:url) { is_expected.to eq 'https://en.wikipedia.org/wiki/Argentina' }
         its(:source) { is_expected.to match hash_including('title' => 'Argentina') }
       end
 

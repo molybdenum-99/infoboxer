@@ -9,14 +9,14 @@ module Infoboxer
         context 'by default' do
           let(:nodes) { Nodes[Text.new('some text')] }
 
-          it { should == '[#<Text: some text>]' }
+          it { is_expected.to eq '[#<Text: some text>]' }
         end
 
         context 'really long children list' do
           let(:children) { Array.new(20) { Text.new('some text') } }
           let(:nodes) { Nodes[*children] }
 
-          it { should == '[#<Text: some text>, #<Text: some text>, #<Text: some text>, #<Text: some text>, #<Text: some text>, ...15 more nodes]' }
+          it { is_expected.to eq '[#<Text: some text>, #<Text: some text>, #<Text: some text>, #<Text: some text>, #<Text: some text>, ...15 more nodes]' }
         end
       end
 
@@ -38,12 +38,12 @@ module Infoboxer
       describe :strip do
         context 'last empty texts' do
           subject { Nodes[Text.new('test'), Text.new(' ')] }
-          its(:strip) { should == Nodes[Text.new('test')] }
+          its(:strip) { is_expected.to eq Nodes[Text.new('test')] }
         end
 
         context 'spaces in last text' do
           subject { Nodes[Text.new('test ')] }
-          its(:strip) { should == Nodes[Text.new('test')] }
+          its(:strip) { is_expected.to eq Nodes[Text.new('test')] }
         end
       end
 
@@ -55,7 +55,7 @@ module Infoboxer
               before {
                 subject << Text.new(' me')
               }
-              it { should == [Text.new('test me')] }
+              it { is_expected.to eq [Text.new('test me')] }
             end
 
             context 'when previous was not a text' do
@@ -63,7 +63,7 @@ module Infoboxer
               before {
                 subject << Text.new(' me')
               }
-              it { should == [Italic.new(Text.new('test')), Text.new(' me')] }
+              it { is_expected.to eq [Italic.new(Text.new('test')), Text.new(' me')] }
             end
 
             context 'when its first text' do
@@ -71,7 +71,7 @@ module Infoboxer
               before {
                 subject << 'test'
               }
-              it { should == [Text.new('test')] }
+              it { is_expected.to eq [Text.new('test')] }
             end
           end
 
@@ -81,7 +81,7 @@ module Infoboxer
               before {
                 subject << Paragraph.new(Text.new('me'))
               }
-              it { should == [Paragraph.new(Text.new('test me'))] }
+              it { is_expected.to eq [Paragraph.new(Text.new('test me'))] }
             end
 
             context 'when can\'t merge' do
@@ -89,7 +89,7 @@ module Infoboxer
               before {
                 subject << Pre.new(Text.new('me'))
               }
-              it { should == [Paragraph.new(Text.new('test')), Pre.new(Text.new('me'))] }
+              it { is_expected.to eq [Paragraph.new(Text.new('test')), Pre.new(Text.new('me'))] }
             end
 
             context 'children\'s #parent rewriting' do
@@ -98,7 +98,7 @@ module Infoboxer
                 para << Paragraph.new([Text.new('me, '), Italic.new(Text.new('please'))])
               }
               subject { para.lookup(:Italic).first }
-              its(:parent) { should == para.first }
+              its(:parent) { is_expected.to eq para.first }
             end
           end
         end
@@ -109,8 +109,8 @@ module Infoboxer
             before {
               subject << EmptyParagraph.new(' ')
             }
-            it { should == [Paragraph.new(Text.new('test'))] }
-            its(:last) { should be_closed }
+            it { is_expected.to eq [Paragraph.new(Text.new('test'))] }
+            its(:last) { is_expected.to be_closed }
           end
 
           context 'into pre' do
@@ -118,8 +118,8 @@ module Infoboxer
             before {
               subject << EmptyParagraph.new('   ')
             }
-            it { should == [Pre.new(Text.new("test\n  "))] }
-            its(:last) { should_not be_closed }
+            it { is_expected.to eq [Pre.new(Text.new("test\n  "))] }
+            its(:last) { is_expected.not_to be_closed }
           end
 
           context 'into pre -- really empty' do
@@ -127,8 +127,8 @@ module Infoboxer
             before {
               subject << EmptyParagraph.new('')
             }
-            it { should == [Pre.new(Text.new('test'))] }
-            its(:last) { should be_closed }
+            it { is_expected.to eq [Pre.new(Text.new('test'))] }
+            its(:last) { is_expected.to be_closed }
           end
         end
 
@@ -137,7 +137,7 @@ module Infoboxer
           before {
             subject << [Text.new(' me')]
           }
-          it { should == [Text.new('test me')] }
+          it { is_expected.to eq [Text.new('test me')] }
         end
 
         describe 'flowing-in templates' do
@@ -151,8 +151,8 @@ module Infoboxer
             ]
           }
           subject { nodes.flow_templates }
-          its(:count) { should == 2 }
-          it { should all(be_a(Template)) }
+          its(:count) { is_expected.to eq 2 }
+          it { is_expected.to all(be_a(Template)) }
         end
 
         describe 'ignoring of empty nodes' do
@@ -161,7 +161,7 @@ module Infoboxer
             before {
               subject << Text.new('')
             }
-            it { should == [Italic.new(Text.new('test'))] }
+            it { is_expected.to eq [Italic.new(Text.new('test'))] }
           end
 
           context 'compound' do
@@ -169,7 +169,7 @@ module Infoboxer
             before {
               subject << Pre.new
             }
-            it { should == [Paragraph.new(Text.new('test'))] }
+            it { is_expected.to eq [Paragraph.new(Text.new('test'))] }
           end
 
           context 'but not HTML!' do
@@ -177,7 +177,7 @@ module Infoboxer
             before {
               subject << HTMLTag.new('br', {})
             }
-            it { should == [Paragraph.new(Text.new('test')), HTMLTag.new('br', {})] }
+            it { is_expected.to eq [Paragraph.new(Text.new('test')), HTMLTag.new('br', {})] }
           end
 
           context 'empty paragraphs' do
@@ -185,7 +185,7 @@ module Infoboxer
             before {
               subject << EmptyParagraph.new(' ')
             }
-            it { should == [Heading.new(Text.new('test'), 2)] }
+            it { is_expected.to eq [Heading.new(Text.new('test'), 2)] }
           end
         end
       end

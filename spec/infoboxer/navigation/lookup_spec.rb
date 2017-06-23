@@ -20,8 +20,8 @@ module Infoboxer
         subject {
           document.lookup
         }
-        it { should be_kind_of(Tree::Nodes) }
-        its(:count) { should > 10 }
+        it { is_expected.to be_kind_of(Tree::Nodes) }
+        its(:count) { is_expected.to be > 10 }
       end
 
       context 'with block' do
@@ -29,9 +29,9 @@ module Infoboxer
           document.lookup { |n| n.is_a?(Tree::Text) && n.text =~ /test/i }
         }
 
-        it { should be_kind_of(Tree::Nodes) }
+        it { is_expected.to be_kind_of(Tree::Nodes) }
         it {
-          should == [
+          is_expected.to eq [
             Tree::Text.new('Test in first '),
             Tree::Text.new(' deep test')
           ]
@@ -40,7 +40,7 @@ module Infoboxer
 
       context 'by class' do
         subject { document.lookup(Tree::Table) }
-        its(:count) { should == 1 }
+        its(:count) { is_expected.to eq 1 }
       end
 
       context 'by class & fields' do
@@ -48,9 +48,9 @@ module Infoboxer
           document.lookup(Tree::Text, text: /test/i)
         }
 
-        it { should be_kind_of(Tree::Nodes) }
+        it { is_expected.to be_kind_of(Tree::Nodes) }
         it {
-          should == [
+          is_expected.to eq [
             Tree::Text.new('Test in first '),
             Tree::Text.new(' deep test')
           ]
@@ -68,14 +68,14 @@ module Infoboxer
         subject {
           document.lookup(:first_list_item?)
         }
-        its(:count) { should == 1 }
-        its(:text) { should == "* cool list\n" }
+        its(:count) { is_expected.to eq 1 }
+        its(:text) { is_expected.to eq "* cool list\n" }
       end
 
       context 'by class-ish symbol' do
         subject { document.lookup(:Table) }
-        its(:count) { should == 1 }
-        its(:first) { should be_a(Tree::Table) }
+        its(:count) { is_expected.to eq 1 }
+        its(:first) { is_expected.to be_a(Tree::Table) }
       end
 
       context 'everything at once' do
@@ -83,9 +83,9 @@ module Infoboxer
           document.lookup(Tree::Text, text: /test/i) { |n| n.text.length == 10 }
         }
 
-        it { should be_kind_of(Tree::Nodes) }
+        it { is_expected.to be_kind_of(Tree::Nodes) }
         it {
-          should == [
+          is_expected.to eq [
             Tree::Text.new(' deep test')
           ]
         }
@@ -94,7 +94,7 @@ module Infoboxer
       context 'by fields which only some subclasses have' do
         subject { document.lookup(Tree::Heading, level: 3) }
 
-        its(:count) { should == 1 }
+        its(:count) { is_expected.to eq 1 }
       end
     end
 
@@ -104,14 +104,14 @@ module Infoboxer
       context 'direct child only' do
         subject { cell.lookup_children(Tree::Text) }
 
-        its(:count) { should == 1 }
-        its(:first) { should == Tree::Text.new('With') }
+        its(:count) { is_expected.to eq 1 }
+        its(:first) { is_expected.to eq Tree::Text.new('With') }
       end
 
       context 'indirect child' do
         subject { cell.lookup_children(Tree::ListItem) }
 
-        it { should be_empty }
+        it { is_expected.to be_empty }
       end
     end
 
@@ -122,12 +122,12 @@ module Infoboxer
           .lookup(Tree::ListItem)
           .lookup_children(text: /test/)
       }
-      it { should == [Tree::Text.new(' deep test')] }
+      it { is_expected.to eq [Tree::Text.new(' deep test')] }
     end
 
     describe :parent do
       subject { document.lookup(Tree::TableCell).first }
-      its(:parent) { should be_a(Tree::TableRow) }
+      its(:parent) { is_expected.to be_a(Tree::TableRow) }
     end
 
     describe :lookup_parents do
@@ -135,40 +135,40 @@ module Infoboxer
       context 'parent found' do
         subject { cell.lookup_parents(Tree::Table) }
 
-        its(:count) { should == 1 }
-        its(:first) { should be_a(Tree::Table) }
+        its(:count) { is_expected.to eq 1 }
+        its(:first) { is_expected.to be_a(Tree::Table) }
       end
     end
 
     describe :index do
       subject { document.lookup(Tree::Heading).first }
-      its(:index) { should == 1 }
+      its(:index) { is_expected.to eq 1 }
     end
 
     describe :siblings do
       subject { document.lookup(Tree::ListItem, text: /cool list/).first }
-      its(:'siblings.count') { should == 2 }
-      its(:siblings) { should all(be_a(Tree::ListItem)) }
+      its(:'siblings.count') { is_expected.to eq 2 }
+      its(:siblings) { is_expected.to all(be_a(Tree::ListItem)) }
     end
 
     describe :lookup_siblings do
       let!(:node) { document.lookup(Tree::ListItem, text: /cool list/).first }
       subject { node.lookup_siblings(text: /test/) }
 
-      its(:count) { should == 1 }
-      it { should all(be_a(Tree::ListItem)) }
+      its(:count) { is_expected.to eq 1 }
+      it { is_expected.to all(be_a(Tree::ListItem)) }
     end
 
     describe :prev_siblings do
       subject { document.lookup(Tree::ListItem, text: /deep test/).first }
-      its(:'prev_siblings.count') { should == 1 }
-      its(:'prev_siblings.text') { should include('cool list') }
+      its(:'prev_siblings.count') { is_expected.to eq 1 }
+      its(:'prev_siblings.text') { is_expected.to include('cool list') }
     end
 
     describe :next_siblings do
       subject { document.lookup(Tree::ListItem, text: /deep test/).first }
-      its(:'next_siblings.count') { should == 1 }
-      its(:'next_siblings.text') { should include('some more') }
+      its(:'next_siblings.count') { is_expected.to eq 1 }
+      its(:'next_siblings.text') { is_expected.to include('some more') }
     end
 
     describe :lookup_prev_siblings do
