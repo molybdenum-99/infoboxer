@@ -53,24 +53,24 @@ module Infoboxer
         before {
           klass.domain 'in.wikipedia.org'
         }
-        subject { MediaWiki::Traits.get('in.wikipedia.org') }
+        subject { described_class.get('in.wikipedia.org') }
         it { should be_a(klass) }
 
         context 'when non-bound domain' do
-          subject { MediaWiki::Traits.get('fr.wikipedia.org') }
-          it { should be_a(MediaWiki::Traits) }
+          subject { described_class.get('fr.wikipedia.org') }
+          it { should be_a(described_class) }
         end
       end
 
       describe 'definition-and-binding' do
         let!(:klass) {
-          MediaWiki::Traits.for('in.wikipedia.org') {
+          described_class.for('in.wikipedia.org') {
             templates {
               show 'foo'
             }
           }
         }
-        let(:traits) { MediaWiki::Traits.get('in.wikipedia.org') }
+        let(:traits) { described_class.get('in.wikipedia.org') }
         it 'should be defined' do
           expect(traits).to be_kind_of(klass)
         end
@@ -79,7 +79,7 @@ module Infoboxer
         it { should < Templates::Show }
 
         it 'should continue definition' do
-          MediaWiki::Traits.for('in.wikipedia.org') {
+          described_class.for('in.wikipedia.org') {
             templates {
               show 'bar'
             }
@@ -93,7 +93,7 @@ module Infoboxer
         before {
           klass.domain 'in.wikipedia.org'
         }
-        subject { MediaWiki::Traits.get('in.wikipedia.org', namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]) }
+        subject { described_class.get('in.wikipedia.org', namespaces: [{'canonical' => 'File', '*' => 'Fichier'}]) }
         its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier') }
       end
     end
