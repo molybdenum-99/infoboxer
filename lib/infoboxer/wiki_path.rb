@@ -1,4 +1,5 @@
 module Infoboxer
+  # @private
   class WikiPath
     ParseError = Class.new(ArgumentError)
 
@@ -67,6 +68,7 @@ module Infoboxer
     private
 
     def apply_step(node, step)
+      # TODO: "compile" the op/args sequences at WikiPath initialization
       step = step.dup
       op = step.delete(:op) || :lookup_children
       args = []

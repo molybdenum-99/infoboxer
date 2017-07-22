@@ -38,6 +38,19 @@ module Infoboxer
   #
   # Look into {Shortcuts::Node} documentation for list of shortcuts.
   #
+  # ## Wikipath
+  #
+  # WikiPath is XPath-alike query language you can use to navigate the tree:
+  #
+  # ```ruby
+  # document.wikipath('//paragraph//wikilink[namespace=Category]')
+  # ```
+  #
+  # It can look more or less verbose than pure-ruby navigation, but the big advantage of WikiPath
+  # is it is pure data: you can store some paths in YAML file, for example.
+  #
+  # Look at {Wikipath#wikipath #wikipath} method docs for full reference.
+  #
   # ## Logical structure navigation
   #
   # MediaWiki page structure is flat, like HTML's (there's just sequence

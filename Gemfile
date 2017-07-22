@@ -7,7 +7,7 @@ gemspec
 group :docs do
   gem 'dokaz', git: 'https://github.com/zverok/dokaz.git'
   gem 'yard', '~> 0.9'
-  gem 'kramdown'
+  gem 'redcarpet'
   #gem 'inch'
 end
 

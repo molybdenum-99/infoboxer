@@ -24,7 +24,7 @@ module Infoboxer
       end
 
       xcontext 'wildcards' do
-        its(['/*']) { is_expected.to eq [{type: /.+/}] }
+        its(['/*']) { is_expected.to eq [{type: %r{.+}}] } # rubocop:disable Style/RegexpLiteral
       end
 
       context 'skiplevels' do
