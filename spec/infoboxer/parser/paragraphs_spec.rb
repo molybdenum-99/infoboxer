@@ -1,92 +1,96 @@
 # encoding: utf-8
+
 require 'infoboxer/parser'
 
 module Infoboxer
   describe Parser, 'paragraphs' do
-    let(:ctx){Parser::Context.new(source)}
-    let(:parser){Parser.new(ctx)}
+    let(:ctx) { Parser::Context.new(source) }
+    let(:parser) { Parser.new(ctx) }
 
-    let(:nodes){parser.paragraphs}
+    let(:nodes) { parser.paragraphs }
 
     describe 'one item' do
-      subject{nodes.first}
+      subject { nodes.first }
 
       context 'just a para' do
-        let(:source){'some text'}
-        
-        it{should be_a(Tree::Paragraph)}
-        its(:text){should == "some text\n\n"}
+        let(:source) { 'some text' }
+
+        it { is_expected.to be_a(Tree::Paragraph) }
+        its(:text) { is_expected.to eq "some text\n\n" }
       end
 
       context 'heading' do
-        let(:source){'== Some text =='}
-        
-        it{should be_a(Tree::Heading)}
-        its(:text){should == "Some text\n\n"}
-        its(:level){should == 2}
+        let(:source) { '== Some text ==' }
+
+        it { is_expected.to be_a(Tree::Heading) }
+        its(:text) { is_expected.to eq "Some text\n\n" }
+        its(:level) { is_expected.to eq 2 }
       end
 
       context 'list item' do
         context 'first level' do
-          let(:source){'* Some text'}
-          
-          it{should be_a(Tree::UnorderedList)}
-          its(:'children.count'){should == 1}
-          its(:children){should all(be_kind_of(Tree::ListItem))}
+          let(:source) { '* Some text' }
+
+          it { is_expected.to be_a(Tree::UnorderedList) }
+          its(:'children.count') { is_expected.to eq 1 }
+          its(:children) { is_expected.to all(be_kind_of(Tree::ListItem)) }
         end
 
         context 'dl/dt' do
-          let(:source){'; Some text'}
-          it{should == Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text')))}
+          let(:source) { '; Some text' }
+
+          it { is_expected.to eq Tree::DefinitionList.new(Tree::DTerm.new(Tree::Text.new('Some text'))) }
         end
 
         context 'dl/dd' do
-          let(:source){': Some text'}
-          it{should == Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text')))}
+          let(:source) { ': Some text' }
+
+          it { is_expected.to eq Tree::DefinitionList.new(Tree::DDefinition.new(Tree::Text.new('Some text'))) }
         end
 
         context 'next levels' do
-          let(:source){'*#; Some text'}
+          let(:source) { '*#; Some text' }
 
           # Prepare to madness!!!
-          it{should ==
-            Tree::UnorderedList.new(
-              Tree::ListItem.new(
-                Tree::OrderedList.new(
-                  Tree::ListItem.new(
-                    Tree::DefinitionList.new(
-                      Tree::DTerm.new(
-                        Tree::Text.new('Some text')
+          it {
+            is_expected.to eq \
+              Tree::UnorderedList.new(
+                Tree::ListItem.new(
+                  Tree::OrderedList.new(
+                    Tree::ListItem.new(
+                      Tree::DefinitionList.new(
+                        Tree::DTerm.new(
+                          Tree::Text.new('Some text')
+                        )
                       )
                     )
                   )
                 )
               )
-            )
           }
         end
       end
 
       context 'hr' do
-        let(:source){'--------------'}
-        
-        it{should be_a(Tree::HR)}
+        let(:source) { '--------------' }
+
+        it { is_expected.to be_a(Tree::HR) }
       end
 
       context 'pre' do
-        let(:source){' i += 1'}
-        
-        it{should be_a(Tree::Pre)}
-        its(:text){should == "i += 1\n\n"}
+        let(:source) { ' i += 1' }
+
+        it { is_expected.to be_a(Tree::Pre) }
+        its(:text) { is_expected.to eq "i += 1\n\n" }
       end
     end
 
     describe 'sequence' do
-      subject{nodes}
+      subject { nodes }
 
-      let(:source){ "== Heading ==\nParagraph\n*List item"}
+      let(:source) { "== Heading ==\nParagraph\n*List item" }
 
-      its(:count){should == 3}
+      its(:count) { is_expected.to eq 3 }
       it 'should be correct items' do
         expect(subject.map(&:class)).to eq [Tree::Heading, Tree::Paragraph, Tree::UnorderedList]
         expect(subject.map(&:text)).to eq ["Heading\n\n", "Paragraph\n\n", "* List item\n\n"]
@@ -94,12 +98,12 @@ module Infoboxer
     end
 
     describe 'merging subsequent' do
-      subject{Parser.paragraphs(source)}
+      subject { Parser.paragraphs(source) }
 
       context 'paragraphs' do
-        let(:source){"First para\nStill first\n\nNext para"}
+        let(:source) { "First para\nStill first\n\nNext para" }
 
-        its(:count){should == 2}
+        its(:count) { is_expected.to eq 2 }
         it 'should be only two of them' do
           expect(subject.map(&:text)).to eq \
             ["First para Still first\n\n", "Next para\n\n"]
@@ -107,14 +111,14 @@ module Infoboxer
       end
 
       context 'not mergeable' do
-        let(:source){"== First heading ==\n== Other heading =="}
+        let(:source) { "== First heading ==\n== Other heading ==" }
 
-        its(:count){should == 2}
+        its(:count) { is_expected.to eq 2 }
       end
-      
+
       context 'list' do
-        let(:source){
-          %Q{
+        let(:source) {
+          %{
             * start
             ** level two
             ** level two - same list
@@ -127,102 +131,112 @@ module Infoboxer
         }
 
         # not the most elegant way of testing trees, but still!
-        it{should ==
-          [
-            Tree::UnorderedList.new(
-              Tree::ListItem.new([
-                Tree::Text.new('start'),
-                Tree::UnorderedList.new([
-                  Tree::ListItem.new(
-                    Tree::Text.new('level two')
-                  ),
-                  Tree::ListItem.new(
-                    Tree::Text.new('level two - same list')
-                  ),
-                ]),
-                Tree::OrderedList.new([
-                  Tree::ListItem.new(
-                    Tree::Text.new('level two - other list')
-                  )
-                ]),
-                Tree::DefinitionList.new([
-                  Tree::DTerm.new(
-                    Tree::Text.new('level two - even other, dl')
-                  ),
-                  Tree::DDefinition.new([
-                    Tree::Text.new('level two - same dl'),
-                    Tree::OrderedList.new(
-                      Tree::ListItem.new(
-                        Tree::Text.new('level three - next level')
-                      )
-                    )
-                  ])
-                ])
-              ])
-            ),
+        it {
+          is_expected.to eq \
+            [
+              Tree::UnorderedList.new(
+                Tree::ListItem.new([
+                                     Tree::Text.new('start'),
+                                     Tree::UnorderedList.new([
+                                                               Tree::ListItem.new(
+                                                                 Tree::Text.new('level two')
+                                                               ),
+                                                               Tree::ListItem.new(
+                                                                 Tree::Text.new('level two - same list')
+                                                               ),
+                                                             ]),
+                                     Tree::OrderedList.new([
+                                                             Tree::ListItem.new(
+                                                               Tree::Text.new('level two - other list')
+                                                             )
+                                                           ]),
+                                     Tree::DefinitionList.new([
+                                                                Tree::DTerm.new(
+                                                                  Tree::Text.new('level two - even other, dl')
+                                                                ),
+                                                                Tree::DDefinition.new([
+                                                                                        Tree::Text.new('level two - same dl'),
+                                                                                        Tree::OrderedList.new(
+                                                                                          Tree::ListItem.new(
+                                                                                            Tree::Text.new('level three - next level')
+                                                                                          )
+                                                                                        )
+                                                                                      ])
+                                                              ])
+                                   ])
+              ),
 
-            Tree::OrderedList.new(
-              Tree::ListItem.new(
-                Tree::UnorderedList.new(
-                  Tree::ListItem.new(
-                    Tree::Text.new('orphan list with second level at once')
+              Tree::OrderedList.new(
+                Tree::ListItem.new(
+                  Tree::UnorderedList.new(
+                    Tree::ListItem.new(
+                      Tree::Text.new('orphan list with second level at once')
+                    )
                   )
                 )
               )
-            )
-          ]
+            ]
         }
       end
 
       context 'complex def-list' do
-        let(:source){unindent(%Q{
+        let(:source) {
+          unindent(%{
           :{{,}}[[Guaraní language|Guaraní]] in [[Corrientes Province]].<ref name=gn>{{cite Argentine law|jur=CN|l=5598|date=22 de octubre de 2004}}</ref>
           :{{,}}[[Kom language (South America)|Kom]], [[Moqoit language|Moqoit]] and [[Wichi language|Wichi]], in [[Chaco Province]].<ref name=kom>{{cite Argentine law|jur=CC|l=6604|bo=9092|date=28 de julio de 2010}}</ref>
         })}
 
-        its(:first){should be_a(Tree::DefinitionList)}
+        its(:first) { is_expected.to be_a(Tree::DefinitionList) }
       end
 
       context 'templates-only paragraph' do
-        let(:source){
-          %Q{{{template}}\n\nparagraph}
+        let(:source) {
+          %{{{template}}\n\nparagraph}
         }
 
-        it{should == [
-          Tree::Template.new('template'),
-          Tree::Paragraph.new(Tree::Text.new('paragraph'))
-        ]}
+        it {
+          is_expected.to eq [
+            Tree::Template.new('template'),
+            Tree::Paragraph.new(Tree::Text.new('paragraph'))
+          ]
+        }
       end
 
       context 'empty line' do
-        let(:source){
-          %Q{paragraph1\n \nparagraph2} # see the space between them?
+        let(:source) {
+          %{paragraph1\n \nparagraph2} # see the space between them?
         }
 
-        it{should == [
-          Tree::Paragraph.new(Tree::Text.new('paragraph1')),
-          Tree::Paragraph.new(Tree::Text.new('paragraph2'))
-        ]}
+        it {
+          is_expected.to eq [
+            Tree::Paragraph.new(Tree::Text.new('paragraph1')),
+            Tree::Paragraph.new(Tree::Text.new('paragraph2'))
+          ]
+        }
       end
 
       context 'empty line in pre context' do
-        let(:source){
-          %Q{ paragraph1\n \n paragraph2} # see the space between them?
+        let(:source) {
+          %{ paragraph1\n \n paragraph2} # see the space between them?
         }
 
-        it{should == [
-          Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
-        ]}
+        it {
+          is_expected.to eq [
+            Tree::Pre.new(Tree::Text.new("paragraph1\n\nparagraph2"))
+          ]
+        }
       end
 
       context 'comments in document' do
-        let(:source){
+        let(:source) {
           "== Heading <!-- nasty comment with ''markup and [[things\n\nmany of them{{-->parsed =="
         }
 
-        it{should == [
-          Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
-        ]}
+        it {
+          is_expected.to eq [
+            Tree::Heading.new(Tree::Text.new('Heading parsed'), 2)
+          ]
+        }
       end
     end
   end

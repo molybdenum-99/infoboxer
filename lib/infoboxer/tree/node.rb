@@ -11,8 +11,6 @@ module Infoboxer
     # you will receive it from tree and use for navigations.
     #
     class Node
-      include ProcMe
-
       def initialize(params = {})
         @params = params
       end
@@ -40,6 +38,10 @@ module Infoboxer
       # Position in parent's children array (zero-based)
       def index
         parent ? parent.index_of(self) : 0
+      end
+
+      def first?
+        index.zero?
       end
 
       # List of all sibling nodes (children of same parent)

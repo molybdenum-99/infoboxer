@@ -13,12 +13,12 @@ module Infoboxer
 
       # All table rows.
       def rows
-        children.select(&fltr(itself: TableRow))
+        children.grep(TableRow)
       end
 
       # Table caption, if exists.
       def caption
-        children.detect(&fltr(itself: TableCaption))
+        children.grep(TableCaption).first
       end
 
       # For now, returns first table row, if it consists only of
@@ -26,12 +26,12 @@ module Infoboxer
       #
       # FIXME: it can easily be several table heading rows
       def heading_row
-        rows.first if rows.first && rows.first.children.all?(&call(matches?: TableHeading))
+        rows.first if rows.first && rows.first.children.all? { |c| c.is_a?(TableHeading) }
       end
 
       # For now, returns all table rows except {#heading_row}
       def body_rows
-        if rows.first && rows.first.children.all?(&call(matches?: TableHeading))
+        if rows.first && rows.first.children.all? { |c| c.is_a?(TableHeading) }
           rows[1..-1]
         else
           rows
@@ -39,19 +39,11 @@ module Infoboxer
       end
 
       def text
-        table = Terminal::Table.new
-        table.title = caption.text.sub(/\n+\Z/, '') if caption
-
-        if heading_row
-          table.headings = heading_row.children.map(&:text)
-                                      .map(&call(sub: [/\n+\Z/, '']))
-        end
-
-        table.rows = body_rows.map { |r|
-          r.children.map(&:text)
-           .map(&call(sub: [/\n+\Z/, '']))
-        }
-        table.to_s + "\n\n"
+        Terminal::Table.new.tap { |table|
+          table.title = caption.text.sub(/\n+\Z/, '') if caption
+          table.headings = heading_row.children.map(&:text_) if heading_row
+          table.rows = body_rows.map { |r| r.children.map(&:text_) }
+        }.to_s + "\n\n"
       end
     end
 

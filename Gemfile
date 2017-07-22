@@ -13,10 +13,11 @@ end
 
 group :development do
   gem 'rake'
-  gem 'ruby-prof'
+  gem 'ruby-prof' unless RUBY_PLATFORM.include?('java')
   gem 'rubygems-tasks'
-  gem 'byebug'
+  gem 'byebug' unless RUBY_PLATFORM.include?('java')
   gem 'rubocop'
+  gem 'rubocop-rspec'
 end
 
 group :test do
@@ -24,6 +25,7 @@ group :test do
   gem 'rspec-its', '~> 1'
   gem 'vcr'
   gem 'webmock'
+  gem 'timecop'
   gem 'saharspec', github: 'zverok/saharspec'
   gem 'coveralls', require: false
 end

@@ -81,6 +81,14 @@ module Infoboxer
           end
         end
 
+        def lookup_children(*arg)
+          if arg.include?(:Section)
+            sections.find(*(arg - [:Section]))
+          else
+            super
+          end
+        end
+
         private
 
         def make_sections
@@ -145,6 +153,14 @@ module Infoboxer
             make_nodes(map { |n| n.send(sym, *args) })
           end
         end
+
+        def lookup_children(*arg)
+          if arg.include?(:Section)
+            sections.find(*(arg - [:Section]))
+          else
+            super
+          end
+        end
       end
 
       # Virtual node, representing logical section of the document.
@@ -173,6 +189,10 @@ module Infoboxer
 
         def empty?
           false
+        end
+
+        def inspect
+          "#<#{descr}: #{children.count} nodes>"
         end
 
         include Container

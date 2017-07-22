@@ -40,8 +40,7 @@ module Infoboxer
         if children.count == 1 && children.first.is_a?(Text)
           "#{indent(level)}#{children.first.text} <#{descr}>\n"
         else
-          "#{indent(level)}<#{descr}>\n" +
-            children.map(&call(to_tree: level + 1)).join
+          "#{indent(level)}<#{descr}>\n" + children.map { |c| c.to_tree(level + 1) }.join
         end
       end
 

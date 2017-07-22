@@ -7,8 +7,6 @@ module Infoboxer
       #
       # See {Lookup::Node Lookup::Node} for detailed explanation of available selectors.
       class Selector
-        include ProcMe
-
         def initialize(*arg, &block)
           @arg = [arg, block].flatten.compact.map(&method(:sym_to_class))
           @arg.each do |a|
@@ -45,7 +43,10 @@ module Infoboxer
           when Proc
             check.call(node)
           when Hash
-            check.all? { |attr, value| node.respond_to?(attr) && value === node.send(attr) }
+            check.all? { |attr, value|
+              node.respond_to?(attr) && value === node.send(attr) ||
+                node.params.key?(attr) && value === node.params[attr]
+            }
           when Symbol
             node.respond_to?(check) && node.send(check)
           else
