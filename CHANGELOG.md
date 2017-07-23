@@ -1,5 +1,12 @@
 # Infoboxer's change log
 
+## 0.3.0 (2017-07-23)
+
+* Change logic of navigation through templates; now templates contents aren't hidden from global
+  lookups. While sometimes leading to less impressive demos, this approach proved itself to be more
+  useful for production.
+* Introduce WikiPath query language as an alternative to series of lookups.
+
 ## 0.2.8 (2017-05-11)
 
 * Switch to MediaWiktory 0.1.0 + some subsequent cleanup of internal logic;
