@@ -24,7 +24,7 @@ module Infoboxer
           "#<Selector(#{@arg.map(&:to_s).join(', ')})>"
         end
 
-        def matches?(node)
+        def ===(node)
           @arg.all? { |a| arg_matches?(a, node) }
         end
 

@@ -100,7 +100,7 @@ module Infoboxer
 
         # Underscored version of {#matches?}
         def _matches?(selector)
-          selector.matches?(self)
+          selector === self
         end
 
         # Underscored version of {#lookup}
