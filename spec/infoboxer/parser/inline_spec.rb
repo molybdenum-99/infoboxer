@@ -7,9 +7,7 @@ module Infoboxer
     let(:ctx) { Parser::Context.new(source) }
     let(:parser) { Parser.new(ctx) }
 
-    let(:nodes) { parser.inline }
-
-    subject { nodes }
+    subject(:nodes) { parser.inline }
 
     context 'when just text' do
       let(:source) { 'just text' }
@@ -230,6 +228,32 @@ module Infoboxer
         subject { nodes.lookup(:Template).first.variables.first.lookup(:Math).first }
 
         it { is_expected.to eq Tree::Math.new('g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} ') }
+      end
+    end
+
+    context 'when gallery' do
+      let(:source) {
+        "<gallery caption=\"Sample gallery\" widths=\"180px\" heights=\"120px\">\n"\
+        "File:Wiki.png\n"\
+        "File:Wiki.png|Captioned\n"\
+        "File:Wiki.png|Captioned with alt text|alt=The Wikipedia logo\n"\
+        "File:Wiki.png|[[Help:Contents/Links|Links]] can be put in captions.\n"\
+        "File:Wiki.png|Full [[MediaWiki]] <br/>[[syntax]] may now be used...\n"\
+        "</gallery>"
+      }
+
+      subject(:gallery) { nodes.first }
+
+      it { is_expected.to be_a Tree::Gallery }
+      its(:params) { are_expected.to eq(caption: 'Sample gallery', widths: '180px', heights: '120px') }
+
+      context 'children' do
+        subject(:images) { gallery.children }
+
+        it { is_expected.to all be_a(Tree::Image) }
+        its_map(:path) { are_expected.to all eq 'Wiki.png' }
+        it { expect(images.last.caption.text).to eq "Full MediaWiki \nsyntax may now be used..." }
+        it { expect(images[2].params[:alt]).to eq 'The Wikipedia logo' }
       end
     end
 

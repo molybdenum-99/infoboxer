@@ -109,6 +109,8 @@ module Infoboxer
           reference(Regexp.last_match(1))
         when /<math>/
           math
+        when /<gallery([^>]*)>/
+          gallery(Regexp.last_match(1))
         when '<'
           html || Text.new(match) # it was not HTML, just accidental <
         else
@@ -158,6 +160,35 @@ module Infoboxer
         else
           Text.new(@context.scan_continued_until(%r{</nowiki>}))
         end
+      end
+
+      def gallery(tag_rest)
+        params = parse_params(tag_rest)
+        images = []
+        guarded_loop do
+          @context.next! if @context.eol?
+          path = @context.scan_until(%r{</gallery>|\||$})
+          attrs = @context.matched == '|' ? gallery_image_attrs : {}
+          unless path.empty?
+            # FIXME: or any other File: localized prefix
+            images << Tree::Image.new(path.sub(/^File:/, ''), attrs)
+          end
+          break if @context.matched == '</gallery>'
+        end
+        Gallery.new(images, params)
+      end
+
+      def gallery_image_attrs
+        nodes = []
+
+        guarded_loop do
+          nodes << short_inline(%r{\||</gallery>})
+          break if @context.eol? || @context.matched?(%r{</gallery>})
+        end
+
+        nodes.map(&method(:image_attr))
+             .inject(&:merge)
+             .reject { |_k, v| v.nil? || v.empty? }
       end
     end
 
