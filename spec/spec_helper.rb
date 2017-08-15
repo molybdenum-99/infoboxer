@@ -29,11 +29,7 @@ def unindent(text)
   lines.map { |ln| ln.sub(/^\s{#{min_indent}}/, '') }.join("\n")
 end
 
-require 'saharspec/its_map'
-require 'saharspec/its_call'
-require 'saharspec/and_not'
-require 'saharspec/send_message'
-require 'saharspec/string_ext'
+require 'saharspec'
 
 module WebMock
   class Util::HashCounter
@@ -50,3 +46,5 @@ module WebMock
     requests.last
   end
 end
+
+RSpec::Matchers.define_negated_matcher :not_include, :include
