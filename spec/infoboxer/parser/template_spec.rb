@@ -105,6 +105,15 @@ module Infoboxer
       end
     end
 
+    context 'with spaces before variable name' do
+      let(:source) { "{{the name| var=test}}" }
+
+      it { is_expected.to be_a(Tree::Template) }
+      it 'should preserve all content' do
+        expect(subject.variables.first.name).to eq 'var'
+      end
+    end
+
     context 'with newline+space before next var' do
       let(:source) { "{{the name|var=test\n |var2=foo}}" }
 
@@ -169,6 +178,15 @@ module Infoboxer
 
       it { is_expected.to be_a(Tree::Template) }
       its(:"variables.count") { is_expected.to eq 87 }
+    end
+
+    context 'Titanic' do
+      let(:source) {%{{{Infobox ship image
+| Ship image = [[File:RMS Titanic 3.jpg|300px]]
+| Ship caption = RMS ''Titanic'' departing [[Southampton]] on 10 April 1912
+}}}}
+      subject { template.variables }
+      its_map(:name) { are_expected.to eq ['Ship image', 'Ship caption'] }
     end
   end
 end

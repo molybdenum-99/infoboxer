@@ -29,8 +29,8 @@ module Infoboxer
 
         guarded_loop do
           @context.next! while @context.eol?
-          if @context.check(/\s*([^ =}|<]+)\s*=\s*/)
-            name = @context.scan(/\s*([^ =]+)/).strip
+          if @context.check(/\s*([^=}|<]+)\s*=\s*/)
+            name = @context.scan(/\s*([^=]+)/).strip
             @context.skip(/\s*=\s*/)
           else
             name = num
