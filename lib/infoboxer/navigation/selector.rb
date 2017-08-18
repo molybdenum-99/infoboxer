@@ -44,13 +44,21 @@ module Infoboxer
             check.call(node)
           when Hash
             check.all? { |attr, value|
-              node.respond_to?(attr) && value === node.send(attr) ||
-                node.params.key?(attr) && value === node.params[attr]
+              node.respond_to?(attr) && value_matches?(value, node.send(attr)) ||
+                node.params.key?(attr) && value_matches?(value, node.params[attr])
             }
           when Symbol
             node.respond_to?(check) && node.send(check)
           else
             check === node
+          end
+        end
+
+        def value_matches?(matcher, value)
+          if matcher.is_a?(String)
+            matcher.casecmp(value).zero?
+          else
+            matcher === value
           end
         end
       end

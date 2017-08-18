@@ -23,6 +23,13 @@ module Infoboxer
       it { is_expected.not_to be === Tree::Text.new('foo') }
     end
 
+    context 'when string' do
+      subject { described_class.new(text: 'test') }
+
+      it { is_expected.to be === Tree::Text.new('Test') }
+      it { is_expected.not_to be === Tree::Text.new('foo') }
+    end
+
     context 'when node-specific field' do
       subject { described_class.new(level: 3) }
 
