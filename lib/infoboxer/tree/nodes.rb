@@ -38,10 +38,16 @@ module Infoboxer
       # @!method compact
       #    Just like Array#compact, but returns Nodes
 
+      # @!method grep(pattern)
+      #    Just like Array#grep, but returns Nodes
+
+      # @!method grep_v(pattern)
+      #    Just like Array#grep_v, but returns Nodes
+
       # @!method -(other)
       #    Just like Array#-, but returns Nodes
 
-      %i[select reject sort_by flatten compact -].each do |sym|
+      %i[select reject sort_by flatten compact grep grep_v -].each do |sym|
         define_method(sym) do |*args, &block|
           Nodes[*super(*args, &block)]
         end
