@@ -52,7 +52,7 @@ module Infoboxer
       end
 
       def sanitize_value(nodes)
-        nodes.pop if nodes.last.is_a?(Pre) && nodes.last.text =~ /^\s*$/ # FIXME: dirty!
+        nodes.pop if (nodes.last.is_a?(Pre) || nodes.last.is_a?(Text)) && nodes.last.text =~ /^\s*$/ # FIXME: dirty!
         nodes
       end
     end
