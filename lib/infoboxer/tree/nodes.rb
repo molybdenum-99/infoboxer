@@ -81,6 +81,16 @@ module Infoboxer
         end
       end
 
+      # Just like Array#flat_map, but returns Nodes, **if** all map results are Node
+      def flat_map
+        res = super
+        if res.all? { |n| n.is_a?(Node) || n.is_a?(Nodes) }
+          Nodes[*res]
+        else
+          res
+        end
+      end
+
       # @!method prev_siblings
       #   Previous siblings (flat list) of all nodes inside.
 
