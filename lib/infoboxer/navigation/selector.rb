@@ -55,7 +55,7 @@ module Infoboxer
         end
 
         def value_matches?(matcher, value)
-          if matcher.is_a?(String)
+          if matcher.is_a?(String) && value.is_a?(String)
             matcher.casecmp(value).zero?
           else
             matcher === value
