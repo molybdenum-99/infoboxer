@@ -234,7 +234,8 @@ module Infoboxer
           context 'math' do
             let(:source) { '<math>g = \frac{F}{m} = \frac {G M_T}{{R_T}^2} </math>' }
 
-            it { is_expected.to eq "<math>g = \\frac{F}{m} = \\frac {G M_T}{{R_T}^2} </math>\n\n" }
+            # FIXME: why \n\n?
+            it { is_expected.to eq "g = \\frac{F}{m} = \\frac {G M_T}{{R_T}^2}\n\n" }
           end
         end
       end
