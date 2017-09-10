@@ -10,4 +10,4 @@ rvm:
 install:
   - bundle install --retry=3 --without development docs
 script:
-  - bundle exec rspec
+  - bundle exec rake

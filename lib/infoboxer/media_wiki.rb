@@ -47,11 +47,10 @@ module Infoboxer
     # for it, as well as shortcuts for some well-known wikis, like
     # {Infoboxer.wikipedia}.
     #
-    # @param api_base_url URL of `api.php` file in your MediaWiki
+    # @param api_base_url [String] URL of `api.php` file in your MediaWiki
     #   installation. Typically, its `<domain>/w/api.php`, but can vary
     #   in different wikis.
-    # @param options Only one option is currently supported:
-    #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
+    # @param user_agent [String] (also aliased as `:ua`) Custom User-Agent header.
     def initialize(api_base_url, ua: nil, user_agent: ua)
       @api_base_url = Addressable::URI.parse(api_base_url)
       @client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(user_agent))

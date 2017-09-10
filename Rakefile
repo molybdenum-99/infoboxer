@@ -4,6 +4,17 @@ require 'infoboxer'
 require 'rubygems/tasks'
 Gem::Tasks.new
 
+require 'yard-junk/rake'
+YardJunk::Rake.define_task
+
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new
+
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new
+
+task default: %w[spec rubocop yard:junk]
+
 namespace :dev do
   desc "Run regression check (just parsed/error) on set of large and dirty pages"
   task :regression do
@@ -32,7 +43,7 @@ namespace :dev do
       out = "profile/out/#{name}.html"
 
       text = File.read(f)
-      
+
       RubyProf.start
 
       Infoboxer::Parser.document(text)
