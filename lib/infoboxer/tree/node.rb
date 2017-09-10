@@ -11,7 +11,7 @@ module Infoboxer
     # you will receive it from tree and use for navigations.
     #
     class Node
-      def initialize(params = {})
+      def initialize(**params)
         @params = params
       end
 

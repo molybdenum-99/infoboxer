@@ -22,6 +22,10 @@ module Infoboxer
         false
       end
 
+      def named?
+        name !~ /^\d+$/
+      end
+
       protected
 
       def descr
@@ -139,7 +143,7 @@ module Infoboxer
       #
       # @return [Nodes<Var>]
       def unnamed_variables
-        variables.find(name: /^\d+$/)
+        variables.reject(&:named?)
       end
 
       # Fetches template variable(s) by name(s) or patterns.
@@ -242,7 +246,7 @@ module Infoboxer
       def extract_params(vars)
         vars
           .select { |v| v.children.count == 1 && v.children.first.is_a?(Text) }
-          .map { |v| [v.name, v.children.first.raw_text] }.to_h
+          .map { |v| [v.name.to_sym, v.children.first.raw_text] }.to_h
       end
 
       def inspect_variables(depth)

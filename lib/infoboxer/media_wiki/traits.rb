@@ -34,9 +34,8 @@ module Infoboxer
         end
 
         # @private
-        def get(domain, options = {})
-          cls = Traits.domains[domain]
-          cls ? cls.new(options) : Traits.new(options)
+        def get(domain, site_info = {})
+          (Traits.domains[domain] || Traits).new(site_info)
         end
 
         # @private
@@ -68,18 +67,27 @@ module Infoboxer
         alias_method :default, :new
       end
 
-      def initialize(options = {})
-        @options = options
-        @file_namespace =
-          [DEFAULTS[:file_namespace], namespace_aliases(options, 'File')]
-          .flatten.compact.uniq
-        @category_namespace =
-          [DEFAULTS[:category_namespace], namespace_aliases(options, 'Category')]
-          .flatten.compact.uniq
+      def initialize(site_info = {})
+        @site_info = site_info
+      end
+
+      def namespace?(prefix)
+        known_namespaces.include?(prefix)
+      end
+
+      def interwiki?(prefix)
+        known_interwikis.key?(prefix)
       end
 
       # @private
-      attr_reader :file_namespace, :category_namespace
+      def file_namespace
+        @file_namespace ||= ns_aliases('File')
+      end
+
+      # @private
+      def category_namespace
+        @category_namespace ||= ns_aliases('Category')
+      end
 
       # @private
       def templates
@@ -88,16 +96,54 @@ module Infoboxer
 
       private
 
-      def namespace_aliases(options, canonical)
-        namespace = (options[:namespaces] || []).detect { |v| v['canonical'] == canonical }
-        return nil unless namespace
-        [namespace['*'], *namespace['aliases']]
+      def known_namespaces
+        @known_namespaces ||=
+          if @site_info.empty?
+            STANDARD_NAMESPACES
+          else
+            (@site_info['namespaces'].values + @site_info['namespacealiases']).map { |n| n['*'] }
+          end
       end
 
-      DEFAULTS = {
-        file_namespace: 'File',
-        category_namespace: 'Category'
-      }.freeze
+      def known_interwikis
+        @known_interwikis ||=
+          if @site_info.empty?
+            {}
+          else
+            @site_info['interwikimap'].map { |iw| [iw['prefix'], iw] }.to_h
+          end
+      end
+
+      def ns_aliases(base)
+        return [base] if @site_info.empty?
+        main = @site_info['namespaces'].values.detect { |n| n['canonical'] == base }
+        [base, main['*']] +
+          @site_info['namespacealiases']
+          .select { |a| a['id'] == main['id'] }.flat_map { |n| n['*'] }
+          .compact.uniq
+      end
+
+      # See https://www.mediawiki.org/wiki/Help:Namespaces#Standard_namespaces
+      STANDARD_NAMESPACES = [
+        'Media',            # Direct linking to media files.
+        'Special',          # Special (non-editable) pages.
+        '',                 # (Main)
+        'Talk',             # Article discussion.
+        'User',             #
+        'User talk',        #
+        'Project',          # Meta-discussions related to the operation and development of the wiki.
+        'Project talk',     #
+        'File',             # Metadata for images, videos, sound files and other media.
+        'File talk',        #
+        'MediaWiki',        # System messages and other important content.
+        'MediaWiki talk',   #
+        'Template',         # Templates: blocks of text or wikicode that are intended to be transcluded.
+        'Template talk',    #
+        'Help',             # Help files, instructions and "how-to" guides.
+        'Help talk',        #
+        'Category',         # Categories: dynamic lists of other pages.
+        'Category talk',    #
+      ].freeze
     end
   end
 end

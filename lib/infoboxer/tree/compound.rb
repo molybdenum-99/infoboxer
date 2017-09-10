@@ -4,7 +4,7 @@ module Infoboxer
   module Tree
     # Base class for all nodes with children.
     class Compound < Node
-      def initialize(children = Nodes.new, params = {})
+      def initialize(children = Nodes.new, **params)
         super(params)
         @children = Nodes[*children]
         @children.each { |c| c.parent = self }

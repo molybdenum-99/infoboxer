@@ -14,14 +14,18 @@ module Infoboxer
       end
 
       context :namespace do
-        subject { Wikilink.new('Category:Test') }
+        subject { Wikilink.new('Category:Test', namespace: 'Category') }
 
         its(:name) { is_expected.to eq 'Test' }
         its(:namespace) { is_expected.to eq 'Category' }
+      end
 
-        # TODO: check how Wikipedia thinks about it, internally!
-        context 'when deeper' do
-        end
+      context :interwiki do
+        subject { Wikilink.new('wikt:Test', interwiki: 'wikt') }
+
+        its(:name) { is_expected.to eq 'Test' }
+        its(:namespace) { is_expected.to eq '' }
+        its(:interwiki) { is_expected.to eq 'wikt' }
       end
 
       context :anchor do
@@ -62,7 +66,7 @@ module Infoboxer
       end
 
       describe 'everything at once!' do
-        subject { Wikilink.new('Talk:Me, myself and Irene (film, bad)#Reception') }
+        subject { Wikilink.new('Talk:Me, myself and Irene (film, bad)#Reception', namespace: 'Talk') }
 
         its(:name) { is_expected.to eq 'Me, myself and Irene (film, bad)' }
         its(:namespace) { is_expected.to eq 'Talk' }

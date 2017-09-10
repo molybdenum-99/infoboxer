@@ -52,10 +52,10 @@ module Infoboxer
     #   in different wikis.
     # @param options Only one option is currently supported:
     #   * `:user_agent` (also aliased as `:ua`) -- custom User-Agent header.
-    def initialize(api_base_url, options = {})
+    def initialize(api_base_url, ua: nil, user_agent: ua)
       @api_base_url = Addressable::URI.parse(api_base_url)
-      @client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(options))
-      @traits = Traits.get(@api_base_url.host, namespaces: extract_namespaces)
+      @client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(user_agent))
+      @traits = Traits.get(@api_base_url.host, siteinfo)
     end
 
     # Receive "raw" data from Wikipedia (without parsing or wrapping in
@@ -251,17 +251,12 @@ module Infoboxer
       [namespace, titl].join(':')
     end
 
-    def user_agent(options)
-      options[:user_agent] || options[:ua] || self.class.user_agent || UA
+    def user_agent(custom)
+      custom || self.class.user_agent || UA
     end
 
-    def extract_namespaces
-      siteinfo = @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases).response
-      siteinfo['namespaces'].map do |_, namespace|
-        aliases =
-          siteinfo['namespacealiases'].select { |a| a['id'] == namespace['id'] }.map { |a| a['*'] }
-        namespace.merge('aliases' => aliases)
-      end
+    def siteinfo
+      @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases, :interwikimap).response.to_h
     end
   end
 end

@@ -96,7 +96,7 @@ module Infoboxer
         end
       end
 
-      describe 'on-the-fly enrichment' do
+      xdescribe 'on-the-fly enrichment' do
         before {
           klass.domain 'in.wikipedia.org'
         }

@@ -13,7 +13,7 @@ module Infoboxer
 
         subject { template.params }
 
-        it { is_expected.to eq('lang' => 'en', '1' => 'wtf') }
+        it { is_expected.to eq(lang: 'en', :'1' => 'wtf') }
       end
 
       describe :fetch do

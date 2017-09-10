@@ -106,7 +106,7 @@ module Infoboxer
     end
 
     context 'with spaces before variable name' do
-      let(:source) { "{{the name| var=test}}" }
+      let(:source) { '{{the name| var=test}}' }
 
       it { is_expected.to be_a(Tree::Template) }
       it 'should preserve all content' do
@@ -181,11 +181,14 @@ module Infoboxer
     end
 
     context 'Titanic' do
-      let(:source) {%{{{Infobox ship image
+      let(:source) {
+        %{{{Infobox ship image
 | Ship image = [[File:RMS Titanic 3.jpg|300px]]
 | Ship caption = RMS ''Titanic'' departing [[Southampton]] on 10 April 1912
 }}}}
+
       subject { template.variables }
+
       its_map(:name) { are_expected.to eq ['Ship image', 'Ship caption'] }
     end
   end

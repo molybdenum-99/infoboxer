@@ -72,8 +72,8 @@ module Infoboxer
   end
 
   # Includeable version of {Infoboxer.wiki}
-  def wiki(api_url, options = {})
-    wikis[api_url] ||= MediaWiki.new(api_url, options || {})
+  def wiki(api_url, **options)
+    wikis[api_url] ||= MediaWiki.new(api_url, options)
   end
 
   class << self
@@ -168,7 +168,7 @@ module Infoboxer
   end
 
   WIKIMEDIA_PROJECTS.each do |name, domain|
-    define_method name do |lang = 'en', options = {}|
+    define_method name do |lang = 'en', **options|
       lang, options = 'en', lang if lang.is_a?(Hash)
 
       wiki("https://#{lang}.#{domain}/w/api.php", options)
@@ -178,7 +178,7 @@ module Infoboxer
   alias_method :wp, :wikipedia
 
   WIKIMEDIA_COMMONS.each do |name, domain|
-    define_method name do |options = {}|
+    define_method name do |**options|
       wiki("https://#{domain}/w/api.php", options)
     end
   end

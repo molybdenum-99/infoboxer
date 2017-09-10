@@ -119,13 +119,6 @@ module Infoboxer
           its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier', 'Image') }
           its(:category_namespace) { is_expected.to contain_exactly('Category', 'Catégorie') }
         end
-
-        context 'after page fetched' do
-          before { client.get('Paris') }
-
-          its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier', 'Image') }
-          its(:category_namespace) { is_expected.to contain_exactly('Category', 'Catégorie') }
-        end
       end
     end
 

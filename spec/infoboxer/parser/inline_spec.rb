@@ -87,6 +87,34 @@ module Infoboxer
         its(:link) { is_expected.to eq 'Argentina' }
         its(:"children.count") { is_expected.to eq 3 } # opening tag as separate thing
       end
+
+      context '":" in link' do
+        before { allow(ctx.traits).to receive(:interwiki?) { |prefix| prefix == 'wikt' } }
+
+        context 'with namespace' do
+          let(:source) { '[[Category:Argentina]]' }
+
+          it { is_expected.to have_attributes(namespace: 'Category') }
+        end
+
+        context 'to external wiki' do
+          let(:source) { '[[wikt:Argentina]]' }
+
+          it { is_expected.to have_attributes(namespace: '', interwiki: 'wikt') }
+        end
+
+        xcontext 'to other language wiki' do
+          let(:source) { '[[:es:Argentina]]' }
+
+          it { is_expected.to have_attributes(namespace: '', lang: ':es:') }
+        end
+
+        context 'random ":"' do
+          let(:source) { '[[Country:Argentina]]' }
+
+          it { is_expected.to have_attributes(namespace: '', interwiki: nil, name: 'Country:Argentina') }
+        end
+      end
     end
 
     context 'when external link' do
@@ -239,7 +267,7 @@ module Infoboxer
         "File:Wiki.png|Captioned with alt text|alt=The Wikipedia logo\n"\
         "File:Wiki.png|[[Help:Contents/Links|Links]] can be put in captions.\n"\
         "File:Wiki.png|Full [[MediaWiki]] <br/>[[syntax]] may now be used...\n"\
-        "</gallery>"
+        '</gallery>'
       }
 
       subject(:gallery) { nodes.first }

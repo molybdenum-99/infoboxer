@@ -83,7 +83,7 @@ module Infoboxer
 
       private
 
-      def inline_formatting(match)
+      def inline_formatting(match) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/AbcSize
         case match
         when "'''''"
           BoldItalic.new(short_inline(/'''''/))
@@ -128,8 +128,17 @@ module Infoboxer
           caption = inline(/\]\]/)
           @context.pop_eol_sign
         end
+        namespace, = link.split(':', 2)
+        params =
+          if @context.traits.namespace?(namespace)
+            {namespace: namespace}
+          elsif @context.traits.interwiki?(namespace)
+            {interwiki: namespace}
+          else
+            {}
+          end
 
-        Wikilink.new(link, caption)
+        Wikilink.new(link, caption, **params)
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#External_links
@@ -170,8 +179,7 @@ module Infoboxer
           path = @context.scan_until(%r{</gallery>|\||$})
           attrs = @context.matched == '|' ? gallery_image_attrs : {}
           unless path.empty?
-            # FIXME: or any other File: localized prefix
-            images << Tree::Image.new(path.sub(/^File:/, ''), attrs)
+            images << Tree::Image.new(path.sub(/^#{re.file_namespace}/, ''), attrs)
           end
           break if @context.matched == '</gallery>'
         end
