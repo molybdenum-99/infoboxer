@@ -161,6 +161,12 @@ module Infoboxer
 
         its(:source) { is_expected.to have_key('wbentityusage') }
       end
+
+      describe 'interwiki' do
+        subject { client.get('test', interwiki: 'wikt') }
+
+        its(:url) { is_expected.to eq 'https://en.wiktionary.org/wiki/test' }
+      end
     end
 
     describe :get_h do

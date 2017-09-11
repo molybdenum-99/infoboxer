@@ -17,8 +17,8 @@ module Infoboxer
 
     # Base class for internal/external links,
     class Link < Compound
-      def initialize(link, label = nil)
-        super(label || Nodes.new([Text.new(link)]), link: link)
+      def initialize(link, label = nil, **attr)
+        super(label || Nodes.new([Text.new(link)]), link: link, **attr)
       end
 
       # @!attribute [r] link

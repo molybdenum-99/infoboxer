@@ -13,7 +13,7 @@ module Infoboxer
     # it to obtain linked pages.
     class Wikilink < Link
       def initialize(link, label = nil, namespace: nil, interwiki: nil)
-        super(link, label)
+        super(link, label, namespace: namespace, interwiki: interwiki)
         @namespace = namespace || ''
         @interwiki = interwiki
         parse_name!

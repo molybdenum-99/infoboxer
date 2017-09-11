@@ -47,7 +47,10 @@ module Infoboxer
       # @!method -(other)
       #    Just like Array#-, but returns Nodes
 
-      %i[select reject sort_by flatten compact grep grep_v -].each do |sym|
+      # @!method +(other)
+      #    Just like Array#+, but returns Nodes
+
+      %i[select reject sort_by flatten compact grep grep_v - +].each do |sym|
         define_method(sym) do |*args, &block|
           Nodes[*super(*args, &block)]
         end
@@ -155,12 +158,14 @@ module Infoboxer
       # @return [Nodes<MediaWiki::Page>] It is still `Nodes`, so you
       #   still can process them uniformely.
       def follow
-        links = select { |n| n.respond_to?(:link) }.map(&:link)
+        links = grep(Linkable)
         return Nodes[] if links.empty?
         page = first.lookup_parents(MediaWiki::Page).first or
           fail('Not in a page from real source')
         page.client or fail('MediaWiki client not set')
-        page.client.get(*links)
+        pages = links.group_by(&:interwiki)
+          .flat_map { |iw, ls|  page.client.get(*ls.map(&:link), interwiki: iw) }
+        pages.count == 1 ? pages.first : Nodes[*pages]
       end
 
       # @private

@@ -15,7 +15,7 @@ module Infoboxer
       # * {Tree::Nodes#follow} for extracting multiple links at once;
       # * {MediaWiki#get} for basic information on page extraction.
       def follow
-        client.get(link)
+        client.get(link, interwiki: interwiki)
       end
 
       # Human-readable page URL
@@ -27,6 +27,9 @@ module Infoboxer
       end
 
       protected
+
+      # redefined in {Wikilink}
+      def interwiki; end
 
       def page
         lookup_parents(MediaWiki::Page).first or fail('Not in a page from real source')

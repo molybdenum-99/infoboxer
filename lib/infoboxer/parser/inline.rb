@@ -128,17 +128,18 @@ module Infoboxer
           caption = inline(/\]\]/)
           @context.pop_eol_sign
         end
-        namespace, lnk = link.split(':', 2)
-        link, params =
+        name, namespace = link.split(':', 2).reverse
+        lnk, params =
           if @context.traits.namespace?(namespace)
             [link, {namespace: namespace}]
           elsif @context.traits.interwiki?(namespace)
-            [lnk, {interwiki: namespace}]
+            [name, {interwiki: namespace}]
           else
             [link, {}]
           end
 
-        Wikilink.new(link, caption, **params)
+        puts @context.rest if lnk.nil?
+        Wikilink.new(lnk, caption, **params)
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#External_links

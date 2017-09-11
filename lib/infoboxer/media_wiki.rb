@@ -122,7 +122,9 @@ module Infoboxer
     #     and obtain meaningful results instead of `NoMethodError` or
     #     `SomethingNotFound`.
     #
-    def get(*titles, prop: [])
+    def get(*titles, prop: [], interwiki: nil)
+      return interwikis(interwiki).get(*titles, prop: prop) if interwiki
+
       pages = get_h(*titles, prop: prop).values.compact
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
@@ -255,7 +257,21 @@ module Infoboxer
     end
 
     def siteinfo
-      @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases, :interwikimap).response.to_h
+      @siteinfo ||= @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases, :interwikimap).response.to_h
+    end
+
+    def interwikis(prefix)
+      @interwikis ||= Hash.new { |h, pre|
+        interwiki = siteinfo['interwikimap'].detect { |iw| iw['prefix'] == prefix } or
+          fail ArgumentError, "Undefined interwiki: #{prefix}"
+
+        # FIXME: fragile, but what can we do?..
+        m = interwiki['url'].match(%r{^(.+)/wiki/\$1$}) or
+          fail ArgumentError, "Interwiki #{interwiki} seems not to be a MediaWiki instance"
+        h[pre] = self.class.new("#{m[1]}/w/api.php") # TODO: copy useragent
+      }
+
+      @interwikis[prefix]
     end
   end
 end
