@@ -55,12 +55,8 @@ module Infoboxer
 
       private
 
-      def prefix
-        interwiki || namespace
-      end
-
       def parse_name!
-        @name = prefix.empty? ? link : link.sub(/^#{prefix}:/, '')
+        @name = namespace.empty? ? link : link.sub(/^#{namespace}:/, '')
         @name, @anchor = @name.split('#', 2)
         @anchor ||= ''
 

@@ -94,25 +94,25 @@ module Infoboxer
         context 'with namespace' do
           let(:source) { '[[Category:Argentina]]' }
 
-          it { is_expected.to have_attributes(namespace: 'Category') }
+          it { is_expected.to have_attributes(link: 'Category:Argentina', namespace: 'Category') }
         end
 
         context 'to external wiki' do
           let(:source) { '[[wikt:Argentina]]' }
 
-          it { is_expected.to have_attributes(namespace: '', interwiki: 'wikt') }
+          it { is_expected.to have_attributes(link: 'Argentina', namespace: '', interwiki: 'wikt') }
         end
 
         xcontext 'to other language wiki' do
           let(:source) { '[[:es:Argentina]]' }
 
-          it { is_expected.to have_attributes(namespace: '', lang: ':es:') }
+          it { is_expected.to have_attributes(link: 'Argentina', namespace: '', lang: ':es:') }
         end
 
         context 'random ":"' do
           let(:source) { '[[Country:Argentina]]' }
 
-          it { is_expected.to have_attributes(namespace: '', interwiki: nil, name: 'Country:Argentina') }
+          it { is_expected.to have_attributes(link: 'Country:Argentina', namespace: '', interwiki: nil, name: 'Country:Argentina') }
         end
       end
     end

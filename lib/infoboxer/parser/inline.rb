@@ -128,14 +128,14 @@ module Infoboxer
           caption = inline(/\]\]/)
           @context.pop_eol_sign
         end
-        namespace, = link.split(':', 2)
-        params =
+        namespace, lnk = link.split(':', 2)
+        link, params =
           if @context.traits.namespace?(namespace)
-            {namespace: namespace}
+            [link, {namespace: namespace}]
           elsif @context.traits.interwiki?(namespace)
-            {interwiki: namespace}
+            [lnk, {interwiki: namespace}]
           else
-            {}
+            [link, {}]
           end
 
         Wikilink.new(link, caption, **params)

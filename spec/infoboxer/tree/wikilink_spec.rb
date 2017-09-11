@@ -21,7 +21,7 @@ module Infoboxer
       end
 
       context :interwiki do
-        subject { Wikilink.new('wikt:Test', interwiki: 'wikt') }
+        subject { Wikilink.new('Test', interwiki: 'wikt') }
 
         its(:name) { is_expected.to eq 'Test' }
         its(:namespace) { is_expected.to eq '' }
