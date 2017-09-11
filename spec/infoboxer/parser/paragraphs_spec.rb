@@ -189,6 +189,21 @@ module Infoboxer
         its(:first) { is_expected.to be_a(Tree::DefinitionList) }
       end
 
+      # https://en.wikipedia.org/wiki/List_of_equations_in_gravitation
+      xcontext 'def-list + table' do
+        let(:source) {
+          unindent(%{
+          :{|
+          |-
+          |test
+          |me
+          |}
+        })}
+
+        its(:first) { is_expected.to be_a(Tree::DefinitionList) }
+        it { expect(subject.wikipath('//table')).to_not be_empty }
+      end
+
       context 'templates-only paragraph' do
         let(:source) {
           %{{{template}}\n\nparagraph}
