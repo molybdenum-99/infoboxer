@@ -4,8 +4,6 @@ gemspec
 
 # gem 'mediawiktory', github: 'molybdenum-99/mediawiktory', branch: 'develop'
 
-gem 'rubygems-tasks'
-
 group :docs do
   gem 'dokaz', git: 'https://github.com/zverok/dokaz.git'
   gem 'yard', '~> 0.9'
@@ -16,6 +14,7 @@ end
 group :development do
   gem 'rake'
   gem 'ruby-prof' unless RUBY_PLATFORM.include?('java')
+  gem 'rubygems-tasks'
   gem 'byebug' unless RUBY_PLATFORM.include?('java')
   gem 'rubocop'
   gem 'rubocop-rspec'

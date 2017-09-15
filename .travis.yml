@@ -8,6 +8,6 @@ rvm:
   #- jruby-19mode # Due to https://github.com/jruby/jruby/issues/2599
   #- rbx-2        # Mystery, subject to investigations!
 install:
-  - bundle install --retry=3 --without development docs
+  - bundle install --retry=3
 script:
   - bundle exec rake
