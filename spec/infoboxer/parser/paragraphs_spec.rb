@@ -201,7 +201,7 @@ module Infoboxer
         })}
 
         its(:first) { is_expected.to be_a(Tree::DefinitionList) }
-        it { expect(subject.wikipath('//table')).to_not be_empty }
+        it { expect(subject.wikipath('//table')).not_to be_empty }
       end
 
       context 'templates-only paragraph' do

@@ -164,7 +164,7 @@ module Infoboxer
           fail('Not in a page from real source')
         page.client or fail('MediaWiki client not set')
         pages = links.group_by(&:interwiki)
-          .flat_map { |iw, ls|  page.client.get(*ls.map(&:link), interwiki: iw) }
+                     .flat_map { |iw, ls| page.client.get(*ls.map(&:link), interwiki: iw) }
         pages.count == 1 ? pages.first : Nodes[*pages]
       end
 
