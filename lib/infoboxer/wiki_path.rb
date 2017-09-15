@@ -52,9 +52,12 @@ module Infoboxer
       end
 
       def process_type(type)
-        # TODO: Section
         type.gsub(/(?:^|_)([a-z])/, &:upcase).tr('_', '').to_sym
-            .tap { |t| Infoboxer::Tree.const_defined?(t) or fail(ParseError, "Unrecognized node type: #{type}") }
+            .tap { |t| valid_type?(t) or fail(ParseError, "Unrecognized node type: #{type}") }
+      end
+
+      def valid_type?(t)
+        t == :Section || Infoboxer::Tree.const_defined?(t)
       end
 
       def unexpected(scanner, expected)
