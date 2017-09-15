@@ -1,0 +1,163 @@
+inherit_from: .rubocop_todo.yml
+require: rubocop-rspec
+
+AllCops:
+  Include:
+    - 'lib/**/*'
+  Exclude:
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'examples/**/*'
+    - 'profile/**/*'
+    - 'tmp/**/*'
+    - 'deprecated/**/*'
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'infoboxer.gemspec'
+  DisplayCopNames: true
+
+Style/OptionHash:
+  Enabled: true
+
+# My personal style
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EmptyElse:
+  Enabled: false
+
+Style/CaseEquality:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "{}"
+    "%w": "[]"
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/ModuleFunction:
+  Exclude:
+    - 'lib/infoboxer.rb'
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - 'lib/infoboxer/definitions/en.wikipedia.org.rb'
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/infoboxer/definitions/en.wikipedia.org.rb'
+    - 'spec/**/*'
+
+Metrics/PerceivedComplexity:
+  Max: 8
+  Exclude:
+    - 'spec/**/*'
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/UnneededPercentQ:
+  Exclude:
+    - 'spec/**/*'
+
+# Specs style
+RSpec/LeadingSubject:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/infoboxer/en.wikipedia.org/calc_templates_spec.rb'
+    - 'spec/infoboxer/en.wikipedia.org/simple_templates_spec.rb'
+    - 'spec/infoboxer/integration/all_en_templates_spec.rb'
+    - 'spec/infoboxer/integration/fr_spec.rb'
+    - 'spec/infoboxer/integration/site_traits_spec.rb'
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+# Next two are useful for preloading large documents
+RSpec/BeforeAfterAll:
+  Enabled: false
+
+RSpec/InstanceVariable:
+  Enabled: false
+
+# TODO
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/DescribeSymbol:
+  Enabled: false
+
+# Complexity. I dare you to fix it! (Without perf.degradation)
+Metrics/AbcSize:
+  Max: 27
+  Exclude:
+    - 'spec/**/*'
+
+# Offense count: 1
+Metrics/ClassLength:
+  Max: 131
+
+# Offense count: 6
+Metrics/CyclomaticComplexity:
+  Max: 14
+
+# Offense count: 26
+Metrics/MethodLength:
+  Max: 30
+
+# Offense count: 3
+Metrics/ModuleLength:
+  Max: 288
+  Exclude:
+    - 'spec/**/*'
