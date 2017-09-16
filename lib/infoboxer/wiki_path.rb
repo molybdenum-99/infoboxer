@@ -36,7 +36,7 @@ module Infoboxer
           attrs[attr.to_sym] = process_value(value)
         end
         res = op == '//' ? {op: :lookup} : {}
-        res[:type] = type.gsub(/(?:^|_)([a-z])/, &:upcase).tr('_', '').to_sym unless type.empty?
+        res[:type] = process_type(type) unless type.empty?
         res.merge(attrs) # TODO: raise if empty selector
       end
 
@@ -49,6 +49,15 @@ module Infoboxer
         else
           value
         end
+      end
+
+      def process_type(type)
+        type.gsub(/(?:^|_)([a-z])/, &:upcase).tr('_', '').to_sym
+            .tap { |t| valid_type?(t) or fail(ParseError, "Unrecognized node type: #{type}") }
+      end
+
+      def valid_type?(t)
+        t == :Section || Infoboxer::Tree.const_defined?(t)
       end
 
       def unexpected(scanner, expected)

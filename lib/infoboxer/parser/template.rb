@@ -29,8 +29,8 @@ module Infoboxer
 
         guarded_loop do
           @context.next! while @context.eol?
-          if @context.check(/\s*([^ =}|<]+)\s*=\s*/)
-            name = @context.scan(/\s*([^ =]+)/).strip
+          if @context.check(/\s*([^=}|<]+)\s*=\s*/)
+            name = @context.scan(/\s*([^=]+)/).strip
             @context.skip(/\s*=\s*/)
           else
             name = num
@@ -52,7 +52,7 @@ module Infoboxer
       end
 
       def sanitize_value(nodes)
-        nodes.pop if nodes.last.is_a?(Pre) && nodes.last.text =~ /^\s*$/ # FIXME: dirty!
+        nodes.pop if (nodes.last.is_a?(Pre) || nodes.last.is_a?(Text)) && nodes.last.text =~ /^\s*$/ # FIXME: dirty!
         nodes
       end
     end

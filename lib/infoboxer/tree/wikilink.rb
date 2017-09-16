@@ -12,13 +12,22 @@ module Infoboxer
     # Note, that Wikilink is {Linkable}, so you can {Linkable#follow #follow}
     # it to obtain linked pages.
     class Wikilink < Link
-      def initialize(*)
-        super
-        parse_link!
+      def initialize(link, label = nil, namespace: nil, interwiki: nil)
+        super(link, label, namespace: namespace, interwiki: interwiki)
+        @namespace = namespace || ''
+        @interwiki = interwiki
+        parse_name!
       end
 
       # "Clean" wikilink name, for ex., `Cities` for `[Category:Cities]`
       attr_reader :name
+
+      # Interwiki identifier. For example, `[[wikt:Argentina]]`
+      # will have `"Argentina"` as its {#name} and `"wikt"` (wiktionary) as an
+      # interwiki. TODO: how to use it.
+      #
+      # See [Wikipedia docs](https://en.wikipedia.org/wiki/Help:Interwiki_linking) for details.
+      attr_reader :interwiki
 
       # Wikilink namespace, `Category` for `[Category:Cities]`, empty
       # string (not `nil`!) for just `[Cities]`
@@ -46,10 +55,8 @@ module Infoboxer
 
       private
 
-      def parse_link!
-        @name, @namespace = link.split(':', 2).reverse
-        @namespace ||= ''
-
+      def parse_name!
+        @name = namespace.empty? ? link : link.sub(/^#{namespace}:/, '')
         @name, @anchor = @name.split('#', 2)
         @anchor ||= ''
 

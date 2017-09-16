@@ -7,8 +7,8 @@ module Infoboxer
     # See [Wikipedia Tutorial](https://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax)
     # for explanation of attributes.
     class Image < Node
-      def initialize(path, params = {})
-        @caption = params.delete(:caption)
+      def initialize(path, caption: nil, **params)
+        @caption = caption
         super({path: path}.merge(params))
       end
 

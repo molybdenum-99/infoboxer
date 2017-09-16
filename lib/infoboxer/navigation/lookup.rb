@@ -98,9 +98,13 @@ module Infoboxer
         #   Selects matching nodes from current node's siblings, which
         #   are above current node in parents children list.
 
+        # @!method lookup_prev_sibling(*selectors, &block)
+        #   Selects first matching nodes from current node's siblings, which
+        #   are above current node in parents children list.
+
         # Underscored version of {#matches?}
         def _matches?(selector)
-          selector.matches?(self)
+          selector === self
         end
 
         # Underscored version of {#lookup}
@@ -136,6 +140,11 @@ module Infoboxer
           prev_siblings._find(selector)
         end
 
+        # Underscored version of {#lookup_prev_sibling}
+        def _lookup_prev_sibling(selector)
+          prev_siblings.reverse.detect { |n| selector === n }
+        end
+
         # Underscored version of {#lookup_next_siblings}
         def _lookup_next_siblings(selector)
           next_siblings._find(selector)
@@ -146,6 +155,7 @@ module Infoboxer
           lookup lookup_children lookup_parents
           lookup_siblings
           lookup_next_siblings lookup_prev_siblings
+          lookup_prev_sibling
         ]
           .map { |sym| [sym, :"_#{sym}"] }
           .each do |sym, underscored|

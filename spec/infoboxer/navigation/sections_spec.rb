@@ -13,8 +13,8 @@ module Infoboxer
       subject { document.intro }
 
       it { is_expected.to be_a(Tree::Nodes) }
-      its(:count) { is_expected.to eq 5 }
-      it { is_expected.to eq document.children.grep(Tree::BaseParagraph).first(5) }
+      its(:count) { is_expected.to eq 7 }
+      it { is_expected.to eq document.children.grep(Tree::BaseParagraph).first(7) }
     end
 
     describe :sections do
@@ -59,7 +59,7 @@ module Infoboxer
 
         its(:'sections.count') { is_expected.to eq 8 }
 
-        its(:intro) { is_expected.to be_empty }
+        its(:'intro.count') { is_expected.to eq 1 }
 
         it 'should not rewrite nodes parents' do
           expect(subject.children.first.lookup_parents(Tree::Document)).not_to be_empty

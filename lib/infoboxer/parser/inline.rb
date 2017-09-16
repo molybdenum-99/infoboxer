@@ -83,7 +83,7 @@ module Infoboxer
 
       private
 
-      def inline_formatting(match)
+      def inline_formatting(match) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/AbcSize
         case match
         when "'''''"
           BoldItalic.new(short_inline(/'''''/))
@@ -109,6 +109,8 @@ module Infoboxer
           reference(Regexp.last_match(1))
         when /<math>/
           math
+        when /<gallery([^>]*)>/
+          gallery(Regexp.last_match(1))
         when '<'
           html || Text.new(match) # it was not HTML, just accidental <
         else
@@ -126,8 +128,18 @@ module Infoboxer
           caption = inline(/\]\]/)
           @context.pop_eol_sign
         end
+        name, namespace = link.split(':', 2).reverse
+        lnk, params =
+          if @context.traits.namespace?(namespace)
+            [link, {namespace: namespace}]
+          elsif @context.traits.interwiki?(namespace)
+            [name, {interwiki: namespace}]
+          else
+            [link, {}]
+          end
 
-        Wikilink.new(link, caption)
+        puts @context.rest if lnk.nil?
+        Wikilink.new(lnk, caption, **params)
       end
 
       # http://en.wikipedia.org/wiki/Help:Link#External_links
@@ -158,6 +170,34 @@ module Infoboxer
         else
           Text.new(@context.scan_continued_until(%r{</nowiki>}))
         end
+      end
+
+      def gallery(tag_rest)
+        params = parse_params(tag_rest)
+        images = []
+        guarded_loop do
+          @context.next! if @context.eol?
+          path = @context.scan_until(%r{</gallery>|\||$})
+          attrs = @context.matched == '|' ? gallery_image_attrs : {}
+          unless path.empty?
+            images << Tree::Image.new(path.sub(/^#{re.file_namespace}/, ''), attrs)
+          end
+          break if @context.matched == '</gallery>'
+        end
+        Gallery.new(images, params)
+      end
+
+      def gallery_image_attrs
+        nodes = []
+
+        guarded_loop do
+          nodes << short_inline(%r{\||</gallery>})
+          break if @context.eol? || @context.matched?(%r{</gallery>})
+        end
+
+        nodes.map(&method(:image_attr))
+             .inject(&:merge)
+             .reject { |_k, v| v.nil? || v.empty? }
       end
     end
 

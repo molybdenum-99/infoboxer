@@ -119,13 +119,6 @@ module Infoboxer
           its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier', 'Image') }
           its(:category_namespace) { is_expected.to contain_exactly('Category', 'Catégorie') }
         end
-
-        context 'after page fetched' do
-          before { client.get('Paris') }
-
-          its(:file_namespace) { is_expected.to contain_exactly('File', 'Fichier', 'Image') }
-          its(:category_namespace) { is_expected.to contain_exactly('Category', 'Catégorie') }
-        end
       end
     end
 
@@ -167,6 +160,12 @@ module Infoboxer
         subject { client.get('Argentina', prop: :wbentityusage) }
 
         its(:source) { is_expected.to have_key('wbentityusage') }
+      end
+
+      describe 'interwiki' do
+        subject { client.get('test', interwiki: 'wikt') }
+
+        its(:url) { is_expected.to eq 'https://en.wiktionary.org/wiki/test' }
       end
     end
 

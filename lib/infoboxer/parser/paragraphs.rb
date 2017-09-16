@@ -14,7 +14,7 @@ module Infoboxer
 
           @context.next!
         end
-        nodes.flow_templates
+        nodes
       end
 
       private

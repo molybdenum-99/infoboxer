@@ -11,7 +11,7 @@ module Infoboxer
     # you will receive it from tree and use for navigations.
     #
     class Node
-      def initialize(params = {})
+      def initialize(**params)
         @params = params
       end
 
@@ -154,7 +154,7 @@ module Infoboxer
       end
 
       def show_params(prms = nil)
-        (prms || params).map { |k, v| "#{k}: #{v.inspect}" }.join(', ')
+        (prms || params).reject { |_, v| v.nil? }.map { |k, v| "#{k}: #{v.inspect}" }.join(', ')
       end
 
       def indent(level)

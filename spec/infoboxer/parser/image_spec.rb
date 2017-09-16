@@ -57,11 +57,11 @@ module Infoboxer
       let(:source) {
         %{[[Fichier:SantaCruz-CuevaManos-P2210651b.jpg|thumb|200px]]}
       }
-      let(:traits) {
-        # FIXME: works well in real life, but too complex for test
-        MediaWiki::Traits.new(namespaces: [{'canonical' => 'File', '*' => 'Fichier'}])
+      let(:ctx) { Parser::Context.new(source) }
+
+      before {
+        allow_any_instance_of(MediaWiki::Traits).to receive(:file_namespace).and_return(%w[File Fichier]) # rubocop:disable RSpec/AnyInstance
       }
-      let(:ctx) { Parser::Context.new(source, traits) }
 
       it { is_expected.to be_an(Tree::Image) }
       its(:path) { is_expected.to eq 'SantaCruz-CuevaManos-P2210651b.jpg' }

@@ -15,7 +15,7 @@ module Infoboxer
       # Text fragment without decodint of HTML entities.
       attr_accessor :raw_text
 
-      def initialize(text, params = {})
+      def initialize(text, **params)
         super(params)
         @raw_text = text
       end

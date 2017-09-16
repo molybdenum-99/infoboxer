@@ -33,6 +33,7 @@ module Infoboxer
 
       context 'erroneous paths' do
         it { expect { subject['foo'] }.to raise_error(WikiPath::ParseError, %r{expecting /}) }
+        it { expect { subject['//tmeplate'] }.to raise_error(WikiPath::ParseError, /Unrecognized node type: tmeplate/) }
       end
     end
 

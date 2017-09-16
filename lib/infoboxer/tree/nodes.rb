@@ -38,10 +38,19 @@ module Infoboxer
       # @!method compact
       #    Just like Array#compact, but returns Nodes
 
+      # @!method grep(pattern)
+      #    Just like Array#grep, but returns Nodes
+
+      # @!method grep_v(pattern)
+      #    Just like Array#grep_v, but returns Nodes
+
       # @!method -(other)
       #    Just like Array#-, but returns Nodes
 
-      %i[select reject sort_by flatten compact -].each do |sym|
+      # @!method +(other)
+      #    Just like Array#+, but returns Nodes
+
+      %i[select reject sort_by flatten compact grep grep_v - +].each do |sym|
         define_method(sym) do |*args, &block|
           Nodes[*super(*args, &block)]
         end
@@ -73,6 +82,21 @@ module Infoboxer
         else
           res
         end
+      end
+
+      # Just like Array#flat_map, but returns Nodes, **if** all map results are Node
+      def flat_map
+        res = super
+        if res.all? { |n| n.is_a?(Node) || n.is_a?(Nodes) }
+          Nodes[*res]
+        else
+          res
+        end
+      end
+
+      # Just like Array#group, but returns hash with `{<grouping variable> => Nodes}`
+      def group_by
+        super.map { |title, group| [title, Nodes[*group]] }.to_h
       end
 
       # @!method prev_siblings
@@ -139,12 +163,14 @@ module Infoboxer
       # @return [Nodes<MediaWiki::Page>] It is still `Nodes`, so you
       #   still can process them uniformely.
       def follow
-        links = select { |n| n.respond_to?(:link) }.map(&:link)
+        links = grep(Linkable)
         return Nodes[] if links.empty?
         page = first.lookup_parents(MediaWiki::Page).first or
           fail('Not in a page from real source')
         page.client or fail('MediaWiki client not set')
-        page.client.get(*links)
+        pages = links.group_by(&:interwiki)
+                     .flat_map { |iw, ls| page.client.get(*ls.map(&:link), interwiki: iw) }
+        pages.count == 1 ? pages.first : Nodes[*pages]
       end
 
       # @private
@@ -173,7 +199,9 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def flow_templates
-        make_nodes(map { |n| n.is_a?(Paragraph) ? n.to_templates? : n })
+        # TODO: will it be better?..
+        # make_nodes(map { |n| n.is_a?(Paragraph) ? n.to_templates? : n })
+        self
       end
 
       private

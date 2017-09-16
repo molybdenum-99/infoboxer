@@ -12,6 +12,7 @@ module Infoboxer
         \[[a-z]+://   |     # external link
         <nowiki[^>]*> |     # nowiki
         <ref[^>]*>    |     # reference
+        <gallery[^>]*>|     # gallery
         <math>        |     # math
         <                   # HTML tag
       ))x
