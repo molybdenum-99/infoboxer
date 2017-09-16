@@ -98,6 +98,10 @@ module Infoboxer
         #   Selects matching nodes from current node's siblings, which
         #   are above current node in parents children list.
 
+        # @!method lookup_prev_sibling(*selectors, &block)
+        #   Selects first matching nodes from current node's siblings, which
+        #   are above current node in parents children list.
+
         # Underscored version of {#matches?}
         def _matches?(selector)
           selector === self

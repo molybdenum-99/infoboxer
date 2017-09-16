@@ -28,5 +28,5 @@ group :test do
   gem 'timecop'
   gem 'saharspec' #, github: 'zverok/saharspec', branch: 'develop'
   gem 'coveralls', require: false
-  gem 'yard-junk', github: 'zverok/yard-junk'
+  gem 'yard-junk', '~> 0.0.5'
 end
