@@ -211,7 +211,7 @@ module Infoboxer
 
         it {
           is_expected.to eq [
-            Tree::Template.new('template'),
+            Tree::Paragraph.new(Tree::Template.new('template')),
             Tree::Paragraph.new(Tree::Text.new('paragraph'))
           ]
         }

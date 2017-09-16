@@ -94,6 +94,11 @@ module Infoboxer
         end
       end
 
+      # Just like Array#group, but returns hash with `{<grouping variable> => Nodes}`
+      def group_by
+        super.map { |title, group| [title, Nodes[*group]] }.to_h
+      end
+
       # @!method prev_siblings
       #   Previous siblings (flat list) of all nodes inside.
 
@@ -194,7 +199,9 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def flow_templates
-        make_nodes(map { |n| n.is_a?(Paragraph) ? n.to_templates? : n })
+        # TODO: will it be better?..
+        # make_nodes(map { |n| n.is_a?(Paragraph) ? n.to_templates? : n })
+        self
       end
 
       private

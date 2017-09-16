@@ -123,21 +123,25 @@ module Infoboxer
         #
         # @return {Tree::Nodes<Section>}
         def in_sections
-          main_node = parent.is_a?(Tree::Document) ? self : lookup_parents[-2]
+          return parent.in_sections unless parent.is_a?(Tree::Document)
+          return @in_sections if @in_sections
 
           heading =
-            if main_node.is_a?(Tree::Heading)
-              main_node.lookup_prev_siblings(Tree::Heading, level: main_node.level - 1).last
+            if is_a?(Tree::Heading)
+              lookup_prev_sibling(Tree::Heading, level: level - 1)
             else
-              main_node.lookup_prev_siblings(Tree::Heading).last
+              lookup_prev_sibling(Tree::Heading)
             end
-          return Tree::Nodes[] unless heading
+          unless heading
+            @in_sections = Tree::Nodes[]
+            return @in_sections
+          end
 
           body = heading.next_siblings
                         .take_while { |n| !n.is_a?(Tree::Heading) || n.level < heading.level }
 
           section = Section.new(heading, body)
-          Tree::Nodes[section, *heading.in_sections]
+          @in_sections = Tree::Nodes[section, *heading.in_sections]
         end
       end
 

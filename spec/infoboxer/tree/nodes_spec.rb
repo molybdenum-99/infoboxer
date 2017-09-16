@@ -153,7 +153,7 @@ module Infoboxer
           it { is_expected.to eq [Text.new('test me')] }
         end
 
-        describe 'flowing-in templates' do
+        xdescribe 'flowing-in templates' do
           let(:nodes) {
             Nodes[Paragraph.new(
               [Text.new(' '),
