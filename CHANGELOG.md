@@ -1,5 +1,16 @@
 # Infoboxer's change log
 
+## 0.3.1.pre (2017-09-16)
+
+* Introduce interwiki links following (and proper handling of interwikis, in general);
+* Add `<gallery>` tag support;
+* Introduce `Navigation::Selector#===`;
+* Much more `Enumerable`'s methods supported by `Nodes`;
+* Lot of small simplifications, cleanups and bugfixes.
+
+TBH, it should be 0.4.0 or more, but it would be a shame to change versions so fast :) So, at least
+until it is `-pre`, let it be 0.3.1.
+
 ## 0.3.0 (2017-07-23)
 
 * Change logic of navigation through templates; now templates contents aren't hidden from global
