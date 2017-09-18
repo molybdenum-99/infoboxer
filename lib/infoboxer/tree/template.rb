@@ -119,7 +119,7 @@ module Infoboxer
       end
 
       def text
-        ''
+        unnamed_variables.map(&:text).join
       end
 
       # See {Node#to_tree}
