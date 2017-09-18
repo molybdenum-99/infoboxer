@@ -81,6 +81,18 @@ module Infoboxer
           end
         end
 
+        def subsections(*names)
+          sections = names.map { |name|
+            heading = lookup_children(:Heading, text_: name).first
+            next unless heading
+            body = heading.next_siblings
+                          .take_while { |n| !n.is_a?(Tree::Heading) || n.level > heading.level }
+
+            Section.new(heading, body)
+          }.compact
+          Tree::Nodes.new(sections)
+        end
+
         def lookup_children(*arg)
           if arg.include?(:Section)
             sections.find(*(arg - [:Section]))
@@ -138,7 +150,7 @@ module Infoboxer
           end
 
           body = heading.next_siblings
-                        .take_while { |n| !n.is_a?(Tree::Heading) || n.level < heading.level }
+                        .take_while { |n| !n.is_a?(Tree::Heading) || n.level > heading.level }
 
           section = Section.new(heading, body)
           @in_sections = Tree::Nodes[section, *heading.in_sections]

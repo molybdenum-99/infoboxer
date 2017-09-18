@@ -24,7 +24,7 @@ module Infoboxer
 
           it { is_expected.to be_a(Tree::Nodes) }
           its(:count) { is_expected.to eq 1 }
-          its(:text) { is_expected.to eq 'Argentine Republic' }
+          its(:text) { is_expected.to start_with 'Argentine Republic' }
         end
 
         context 'multiple values by regexp' do
@@ -88,7 +88,7 @@ module Infoboxer
 
         it {
           is_expected.to include(
-            'conventional_long_name' => 'Argentine Republic',
+            'conventional_long_name' => start_with('Argentine Republic'),
             'capital' => 'Buenos Aires',
             'government_type' => 'Federal presidential constitutional republic'
             # ...and so on

@@ -342,7 +342,7 @@ module Infoboxer
         let(:source) { "''italic{{tmpl|its ''italic'' too}}''" }
 
         its(:count) { is_expected.to eq 1 }
-        its(:'first.text') { is_expected.to eq 'italic' }
+        its(:'first.children.first.text') { is_expected.to eq 'italic' }
         its(:'first.children.count') { is_expected.to eq 2 }
       end
     end

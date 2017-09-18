@@ -153,6 +153,12 @@ module Infoboxer
         map(&:text).join
       end
 
+      alias_method :to_s, :text
+
+      def unwrap
+        map { |n| n.respond_to?(:unwrap) ? n.unwrap : n }
+      end
+
       # Fetches pages by ALL wikilinks inside in ONE query to MediaWiki
       # API.
       #
