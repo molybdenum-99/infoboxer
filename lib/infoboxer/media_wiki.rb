@@ -6,6 +6,13 @@ require 'addressable/uri'
 require_relative 'media_wiki/traits'
 require_relative 'media_wiki/page'
 
+class ::Object
+  def yield_self
+    yield self
+  end
+end
+
+
 module Infoboxer
   # MediaWiki client class.
   #
@@ -68,7 +75,7 @@ module Infoboxer
     # @return [Hash{String => Hash}] Hash of `{requested title => raw MediaWiki object}`. Note that
     #   even missing (does not exist in current Wiki) or invalid (impossible title) still be present
     #   in response, just will have `"missing"` or `"invalid"` key, just like MediaWiki returns them.
-    def raw(*titles, prop: [])
+    def raw(*titles, &processor)
       # could emerge on "automatically" created page lists, should work
       return {} if titles.empty?
 
@@ -76,9 +83,13 @@ module Infoboxer
         response = @client
                    .query
                    .titles(*part)
-                   .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
+                   .prop(:revisions, :info).prop(:content, :timestamp, :url)
+                   .yield_self { |req| block_given? ? yield(req) : req }
                    .redirects
                    .response
+
+        # If additional props are required, there may be additional pages, even despite each_slice(50)
+        response = response.continue while response.continue?
 
         sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
         redirects =
@@ -122,10 +133,10 @@ module Infoboxer
     #     and obtain meaningful results instead of `NoMethodError` or
     #     `SomethingNotFound`.
     #
-    def get(*titles, prop: [], interwiki: nil)
-      return interwikis(interwiki).get(*titles, prop: prop) if interwiki
+    def get(*titles, interwiki: nil, &processor)
+      return interwikis(interwiki).get(*titles, &processor) if interwiki
 
-      pages = get_h(*titles, prop: prop).values.compact
+      pages = get_h(*titles, &processor).values.compact
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
@@ -148,8 +159,8 @@ module Infoboxer
     #
     # @return [Hash<String, Page>]
     #
-    def get_h(*titles, prop: [])
-      raw_pages = raw(*titles, prop: prop)
+    def get_h(*titles, &processor)
+      raw_pages = raw(*titles, &processor)
                   .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
                   .reject { |_, p| p.key?('missing') }
       titles.map { |title| [title, make_page(raw_pages, title)] }.to_h
@@ -191,8 +202,8 @@ module Infoboxer
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
-    def search(query)
-      list(@client.query.generator(:search).search(query).limit('max'))
+    def search(query, limit: 'max', &processor)
+      list(@client.query.generator(:search).search(query).limit(limit), limit, &processor)
     end
 
     # Receive list of parsed MediaWiki pages with titles startin from prefix.
@@ -225,14 +236,15 @@ module Infoboxer
       Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
     end
 
-    def list(query)
+    def list(query, limit, &processor)
       response = query
                  .prop(:revisions, :info)
                  .prop(:content, :timestamp, :url)
+                 .yield_self { |req| block_given? ? yield(req) : req }
                  .redirects
                  .response
 
-      response = response.continue while response.continue?
+      response = response.continue while response.continue? && (limit == 'max' || response['pages'].count < limit)
 
       return Tree::Nodes[] if response['pages'].nil?
 
