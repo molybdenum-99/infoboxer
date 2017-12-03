@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   class Parser
     # http://en.wikipedia.org/wiki/Help:Table

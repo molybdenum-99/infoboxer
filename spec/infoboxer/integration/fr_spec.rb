@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe 'other-language Wikipedia', vcr: true do
     let(:client) { MediaWiki.new('https://fr.wikipedia.org/w/api.php') }

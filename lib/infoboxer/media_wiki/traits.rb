@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   class MediaWiki
     # DSL for defining "traits" for some site.

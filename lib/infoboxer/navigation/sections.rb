@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   module Navigation
     # `Sections` module provides logical view on document strcture.

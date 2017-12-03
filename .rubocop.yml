@@ -118,6 +118,9 @@ RSpec/ExampleLength:
 RSpec/NestedGroups:
   Enabled: false
 
+RSpec/ContextWording:
+  Enabled: false
+
 # Next two are useful for preloading large documents
 RSpec/BeforeAfterAll:
   Enabled: false

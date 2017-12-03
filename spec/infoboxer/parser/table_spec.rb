@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'infoboxer/parser'
 
 module Infoboxer

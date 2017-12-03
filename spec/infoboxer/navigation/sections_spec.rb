@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe Navigation::Sections do
     # Document is immutable and is created ~0.3 sec each time.

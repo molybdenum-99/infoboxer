@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   module Tree
     # List of nodes, which tries to be useful both as array, and as proxy

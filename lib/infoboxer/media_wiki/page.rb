@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   class MediaWiki
     # A descendant of {Tree::Document Document}, representing page,

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   module Tree
     # Base class for all nodes with children.

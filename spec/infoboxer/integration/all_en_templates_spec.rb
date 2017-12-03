@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe 'en.wikipedia.org', :vcr do
     let(:page) { Infoboxer.wp.get('Chile') }

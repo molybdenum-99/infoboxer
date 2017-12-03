@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe MediaWiki, :vcr do
     let(:client) { MediaWiki.new('https://en.wikipedia.org/w/api.php') }
@@ -153,11 +151,11 @@ module Infoboxer
       context 'when invalid title requested' do
         subject { client.get('It%27s not') }
 
-        its_call { is_expected.to raise_error(/contains invalid characters/) }
+        its_block { is_expected.to raise_error(/contains invalid characters/) }
       end
 
-      describe ':prop' do
-        subject { client.get('Argentina', prop: :wbentityusage) }
+      describe 'processor' do
+        subject { client.get('Argentina') { |req| req.prop(:wbentityusage) } }
 
         its(:source) { is_expected.to have_key('wbentityusage') }
       end

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   MAJOR = 0
   MINOR = 3

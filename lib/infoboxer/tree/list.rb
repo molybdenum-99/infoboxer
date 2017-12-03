@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   module Tree
     # Represents item of ordered or unordered list.
