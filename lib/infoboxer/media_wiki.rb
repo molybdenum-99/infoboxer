@@ -4,12 +4,6 @@ require 'addressable/uri'
 require_relative 'media_wiki/traits'
 require_relative 'media_wiki/page'
 
-class ::Object
-  def yield_self
-    yield self
-  end
-end
-
 module Infoboxer
   # MediaWiki client class.
   #
