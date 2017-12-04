@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe 'calculated templates' do
     let(:traits) { MediaWiki::Traits.get('en.wikipedia.org') }

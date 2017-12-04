@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # Main client module for entire infoboxer functionality. If you're lucky,
 # there's no other classes/modules you need to instantiate or call
 # directly. You just do:

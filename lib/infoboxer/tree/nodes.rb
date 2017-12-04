@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   module Tree
     # List of nodes, which tries to be useful both as array, and as proxy
@@ -151,6 +149,12 @@ module Infoboxer
       # Just join of all {Node#text Node#text}s inside.
       def text
         map(&:text).join
+      end
+
+      alias_method :to_s, :text
+
+      def unwrap
+        map { |n| n.respond_to?(:unwrap) ? n.unwrap : n }
       end
 
       # Fetches pages by ALL wikilinks inside in ONE query to MediaWiki

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require_relative 'linkable'
 
 module Infoboxer
@@ -119,7 +117,12 @@ module Infoboxer
       end
 
       def text
-        ''
+        res = unnamed_variables.map(&:text).join('|')
+        res.empty? ? '' : "{#{name}:#{res}}"
+      end
+
+      def unwrap
+        unnamed_variables.flat_map(&:children).unwrap
       end
 
       # See {Node#to_tree}

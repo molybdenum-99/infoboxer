@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe MediaWiki::Traits do
     before do

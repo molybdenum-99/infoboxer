@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'rspec/its'
 require 'vcr'
 require 'timecop'

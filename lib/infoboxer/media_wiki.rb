@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'mediawiktory'
 require 'addressable/uri'
 
@@ -61,24 +59,24 @@ module Infoboxer
     # classes).
     #
     # @param titles [Array<String>] List of page titles to get.
-    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
-    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
-    #   for the list of available properties.
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Hash{String => Hash}] Hash of `{requested title => raw MediaWiki object}`. Note that
     #   even missing (does not exist in current Wiki) or invalid (impossible title) still be present
     #   in response, just will have `"missing"` or `"invalid"` key, just like MediaWiki returns them.
-    def raw(*titles, prop: [])
+    def raw(*titles, &processor)
       # could emerge on "automatically" created page lists, should work
       return {} if titles.empty?
 
       titles.each_slice(50).map do |part|
-        response = @client
-                   .query
-                   .titles(*part)
-                   .prop(:revisions, :info, *prop).prop(:content, :timestamp, :url)
-                   .redirects
-                   .response
+        request = prepare_request(@client.query.titles(*part), &processor)
+        response = request.response
+
+        # If additional props are required, there may be additional pages, even despite each_slice(50)
+        response = response.continue while response.continue?
 
         sources = response['pages'].values.map { |page| [page['title'], page] }.to_h
         redirects =
@@ -102,9 +100,11 @@ module Infoboxer
     # `(titles.count / 50.0).ceil` requests)
     #
     # @param titles [Array<String>] List of page titles to get.
-    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
-    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
-    #   for the list of available properties.
+    # @param interwiki [Symbol] Identifier of other wiki, related to current, to fetch pages from.
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Page, Tree::Nodes<Page>] array of parsed pages. Notes:
     #   * if you call `get` with only one title, one page will be
@@ -122,10 +122,10 @@ module Infoboxer
     #     and obtain meaningful results instead of `NoMethodError` or
     #     `SomethingNotFound`.
     #
-    def get(*titles, prop: [], interwiki: nil)
-      return interwikis(interwiki).get(*titles, prop: prop) if interwiki
+    def get(*titles, interwiki: nil, &processor)
+      return interwikis(interwiki).get(*titles, &processor) if interwiki
 
-      pages = get_h(*titles, prop: prop).values.compact
+      pages = get_h(*titles, &processor).values.compact
       titles.count == 1 ? pages.first : Tree::Nodes[*pages]
     end
 
@@ -142,14 +142,15 @@ module Infoboxer
     # you've received.
     #
     # @param titles [Array<String>] List of page titles to get.
-    # @param prop [Array<Symbol>] List of additional page properties to get, refer to
-    #   [MediaWiktory::Actions::Query#prop](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query#prop-instance_method)
-    #   for the list of available properties.
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Hash<String, Page>]
     #
-    def get_h(*titles, prop: [])
-      raw_pages = raw(*titles, prop: prop)
+    def get_h(*titles, &processor)
+      raw_pages = raw(*titles, &processor)
                   .tap { |ps| ps.detect { |_, p| p['invalid'] }.tap { |_, i| i && fail(i['invalidreason']) } }
                   .reject { |_, p| p.key?('missing') }
       titles.map { |title| [title, make_page(raw_pages, title)] }.to_h
@@ -157,59 +158,59 @@ module Infoboxer
 
     # Receive list of parsed MediaWiki pages from specified category.
     #
-    # **NB**: currently, this API **always** fetches all pages from
-    # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large category
-    # it can really take a while to fetch all pages.
-    #
     # @param title [String] Category title. You can use namespaceless title (like
     #     `"Countries in South America"`), title with namespace (like
     #     `"Category:Countries in South America"`) or title with local
     #     namespace (like `"Catégorie:Argentine"` for French Wikipedia)
+    # @param limit [Integer, "max"]
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
-    def category(title)
+    def category(title, limit: 'max', &processor)
       title = normalize_category_title(title)
 
-      list(@client.query.generator(:categorymembers).title(title).limit('max'))
+      list(@client.query.generator(:categorymembers).title(title), limit, &processor)
     end
 
     # Receive list of parsed MediaWiki pages for provided search query.
     # See [MediaWiki API docs](https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bsearch)
     # for details.
     #
-    # **NB**: currently, this API **always** fetches all pages from
-    # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large search query
-    # it can really take a while to fetch all pages.
-    #
     # @param query [String] Search query. For old installations, look at
     #     https://www.mediawiki.org/wiki/Help:Searching
     #     for search syntax. For new ones (including Wikipedia), see at
     #     https://www.mediawiki.org/wiki/Help:CirrusSearch.
+    # @param limit [Integer, "max"]
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
-    def search(query)
-      list(@client.query.generator(:search).search(query).limit('max'))
+    def search(query, limit: 'max', &processor)
+      list(@client.query.generator(:search).search(query), limit, &processor)
     end
 
     # Receive list of parsed MediaWiki pages with titles startin from prefix.
     # See [MediaWiki API docs](https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bprefixsearch)
     # for details.
     #
-    # **NB**: currently, this API **always** fetches all pages from
-    # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large search query
-    # it can really take a while to fetch all pages.
-    #
     # @param prefix [String] Page title prefix.
+    # @param limit [Integer, "max"]
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
-    def prefixsearch(prefix)
-      list(@client.query.generator(:prefixsearch).search(prefix).limit('max'))
+    def prefixsearch(prefix, limit: 'max', &processor)
+      list(@client.query.generator(:prefixsearch).search(prefix), limit, &processor)
     end
 
     # @return [String]
@@ -225,14 +226,11 @@ module Infoboxer
       Page.new(self, Parser.paragraphs(source['revisions'].first['*'], traits), source)
     end
 
-    def list(query)
-      response = query
-                 .prop(:revisions, :info)
-                 .prop(:content, :timestamp, :url)
-                 .redirects
-                 .response
+    def list(query, limit, &processor)
+      request = prepare_request(query.limit(limit), &processor)
+      response = request.response
 
-      response = response.continue while response.continue?
+      response = response.continue while response.continue? && (limit == 'max' || response['pages'].count < limit)
 
       return Tree::Nodes[] if response['pages'].nil?
 
@@ -241,6 +239,11 @@ module Infoboxer
               .map { |raw| Page.new(self, Parser.paragraphs(raw['revisions'].first['*'], traits), raw) }
 
       Tree::Nodes[*pages]
+    end
+
+    def prepare_request(request)
+      request = request.prop(:revisions, :info).prop(:content, :timestamp, :url).redirects
+      block_given? ? yield(request) : request
     end
 
     def normalize_category_title(title)

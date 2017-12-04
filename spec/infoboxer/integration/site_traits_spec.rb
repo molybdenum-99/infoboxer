@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe 'Integration of MediaWiki::Traits into data' do
     before do

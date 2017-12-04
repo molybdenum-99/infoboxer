@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'htmlentities'
 
 module Infoboxer
@@ -162,7 +160,7 @@ module Infoboxer
       end
 
       def _eq(_other)
-        fail(NotImplementedError, "#_eq should be defined in subclasses (called for #{self.class})")
+        false
       end
 
       def decode(str)

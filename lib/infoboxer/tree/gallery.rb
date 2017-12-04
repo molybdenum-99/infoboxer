@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   module Tree
     # Represents gallery of images (contents of `<gallery>` special tag).

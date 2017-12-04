@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Infoboxer
   describe Tree::Wikilink, :vcr do
     let(:source) { Infoboxer.wp.get('Argentina') }

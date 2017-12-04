@@ -16,8 +16,8 @@ group :development do
   gem 'ruby-prof' unless RUBY_PLATFORM.include?('java')
   gem 'rubygems-tasks'
   gem 'byebug' unless RUBY_PLATFORM.include?('java')
-  gem 'rubocop', '= 0.49.0'
-  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'rubocop-rspec', '~> 1.20'
 end
 
 group :test do
@@ -26,7 +26,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'timecop'
-  gem 'saharspec' #, github: 'zverok/saharspec', branch: 'develop'
+  gem 'saharspec', '= 0.0.4'
   gem 'coveralls', require: false
-  gem 'yard-junk', '~> 0.0.5'
+  gem 'yard-junk', '~> 0.0.7'
 end
