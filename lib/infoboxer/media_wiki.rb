@@ -100,6 +100,7 @@ module Infoboxer
     # `(titles.count / 50.0).ceil` requests)
     #
     # @param titles [Array<String>] List of page titles to get.
+    # @param interwiki [Symbol] Identifier of other wiki, related to current, to fetch pages from.
     # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
     #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
     #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
@@ -157,15 +158,15 @@ module Infoboxer
 
     # Receive list of parsed MediaWiki pages from specified category.
     #
-    # **NB**: currently, this API **always** fetches all pages from
-    # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large category
-    # it can really take a while to fetch all pages.
-    #
     # @param title [String] Category title. You can use namespaceless title (like
     #     `"Countries in South America"`), title with namespace (like
     #     `"Category:Countries in South America"`) or title with local
     #     namespace (like `"Catégorie:Argentine"` for French Wikipedia)
+    # @param limit [Integer, "max"]
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
@@ -179,15 +180,15 @@ module Infoboxer
     # See [MediaWiki API docs](https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bsearch)
     # for details.
     #
-    # **NB**: currently, this API **always** fetches all pages from
-    # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large search query
-    # it can really take a while to fetch all pages.
-    #
     # @param query [String] Search query. For old installations, look at
     #     https://www.mediawiki.org/wiki/Help:Searching
     #     for search syntax. For new ones (including Wikipedia), see at
     #     https://www.mediawiki.org/wiki/Help:CirrusSearch.
+    # @param limit [Integer, "max"]
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
@@ -199,12 +200,12 @@ module Infoboxer
     # See [MediaWiki API docs](https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bprefixsearch)
     # for details.
     #
-    # **NB**: currently, this API **always** fetches all pages from
-    # category, there is no option to "take first 20 pages". Pages are
-    # fetched in 50-page batches, then parsed. So, for large search query
-    # it can really take a while to fetch all pages.
-    #
     # @param prefix [String] Page title prefix.
+    # @param limit [Integer, "max"]
+    # @param processor [Proc] Optional block to preprocess MediaWiktory query. Refer to
+    #   [MediaWiktory::Actions::Query](http://www.rubydoc.info/gems/mediawiktory/MediaWiktory/Wikipedia/Actions/Query)
+    #   for its API. Infoboxer assumes that the block returns new instance of `Query`, so be careful
+    #   while using it.
     #
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
