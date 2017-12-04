@@ -2,6 +2,6 @@ module Infoboxer
   MAJOR = 0
   MINOR = 3
   PATCH = 1
-  PRE = 'pre'.freeze # set to `nil` for normal releases
+  PRE = nil
   VERSION = [MAJOR, MINOR, PATCH, PRE].compact.join('.')
 end

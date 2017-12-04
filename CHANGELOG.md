@@ -1,5 +1,11 @@
 # Infoboxer's change log
 
+## 0.3.1 (2017-12-04)
+
+* (Experimental) new representation of templates, much more readable;
+* More access to querying process and underlying `MediaWiktory::Wikipedia::Query`;
+* Finally, `limit` parameter for multi-page queries (category, search, prefixsearch).
+
 ## 0.3.1.pre (2017-09-16)
 
 * Introduce interwiki links following (and proper handling of interwikis, in general);
