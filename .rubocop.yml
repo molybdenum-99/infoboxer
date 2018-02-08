@@ -11,6 +11,7 @@ AllCops:
     - 'profile/**/*'
     - 'tmp/**/*'
     - 'deprecated/**/*'
+    - 'spec/*_helpers.rb'
     - 'Rakefile'
     - 'Gemfile'
     - 'infoboxer.gemspec'
@@ -96,6 +97,9 @@ Style/BlockDelimiters:
 Style/UnneededPercentQ:
   Exclude:
     - 'spec/**/*'
+
+Style/FormatStringToken:
+  Enabled: false
 
 # Specs style
 RSpec/LeadingSubject:

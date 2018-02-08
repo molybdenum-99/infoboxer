@@ -1,3 +1,4 @@
+# rubocop:disable Layout/EmptyLinesAroundArguments
 module Infoboxer
   MediaWiki::Traits.for('en.wikipedia.org') do
     templates do
@@ -370,3 +371,4 @@ module Infoboxer
     end
   end
 end
+# rubocop:enable Layout/EmptyLinesAroundArguments

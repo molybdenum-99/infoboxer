@@ -13,9 +13,8 @@ module Infoboxer
       # Internal, used by {Parser}
       def merge!(other)
         ochildren = other.children.dup
-        if children.last && children.last.can_merge?(ochildren.first)
-          children.last.merge!(ochildren.shift)
-        end
+        children.last.merge!(ochildren.shift) \
+          if children.last && children.last.can_merge?(ochildren.first)
         push_children(*ochildren)
       end
 

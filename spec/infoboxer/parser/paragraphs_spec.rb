@@ -163,7 +163,6 @@ module Infoboxer
                                                               ])
                                    ])
               ),
-
               Tree::OrderedList.new(
                 Tree::ListItem.new(
                   Tree::UnorderedList.new(
