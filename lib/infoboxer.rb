@@ -47,7 +47,6 @@ module Infoboxer
   # @private
   WIKIA_API_URL = 'http://%s.wikia.com/api.php'.freeze
 
-  # @private
   WIKIMEDIA_PROJECTS = {
     wikipedia: 'wikipedia.org',
     wikivoyage: 'wikivoyage.org',
@@ -59,7 +58,6 @@ module Infoboxer
     wikisource: 'wikisource.org'
   }.freeze
 
-  # @private
   WIKIMEDIA_COMMONS = {
     commons: 'commons.wikimedia.org',
     species: 'species.wikimedia.org',
@@ -178,6 +176,20 @@ module Infoboxer
   WIKIMEDIA_COMMONS.each do |name, domain|
     define_method name do |**options|
       wiki("https://#{domain}/w/api.php", options)
+    end
+  end
+
+  # Returns URL of API entry-point for a well-known Wiki-project (wikipedia, wikivoyage etc.)
+  # by project's name.
+  #
+  # @param symbol [Symbol] One of {WIKIMEDIA_PROJECTS} or {WIKIMEDIA_COMMONS} keys.
+  # @param lang [String, Symbol] Language of the project, if applicable.
+  # @return [String]
+  def url_for(symbol, lang = 'en')
+    if (domain = WIKIMEDIA_PROJECTS[symbol])
+      "https://#{lang}.#{domain}/w/api.php"
+    elsif (domain = WIKIMEDIA_COMMONS[symbol])
+      "https://#{domain}/w/api.php"
     end
   end
 

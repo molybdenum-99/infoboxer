@@ -264,7 +264,7 @@ module Infoboxer
         "File:Wiki.png|Captioned\n"\
         "File:Wiki.png|Captioned with alt text|alt=The Wikipedia logo\n"\
         "File:Wiki.png|[[Help:Contents/Links|Links]] can be put in captions.\n"\
-        "File:Wiki.png|Full [[MediaWiki]] <br/>[[syntax]] may now be used...\n"\
+        "file:Wiki.png|Full [[MediaWiki]] <br/>[[syntax]] may now be used...\n"\
         '</gallery>'
       }
 

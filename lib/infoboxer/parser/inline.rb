@@ -16,7 +16,7 @@ module Infoboxer
 
           if @context.eof?
             break unless until_pattern
-            @context.fail!("#{until_pattern} not found, starting from #{start}")
+            @context.fail!("#{until_pattern.source} not found, starting from #{start}")
           end
 
           if @context.eol?
@@ -64,7 +64,7 @@ module Infoboxer
 
           if @context.eof?
             break unless until_pattern
-            @context.fail!("#{until_pattern} not found")
+            @context.fail!("#{until_pattern.source} not found")
           end
 
           if @context.eol?
@@ -178,7 +178,8 @@ module Infoboxer
           path = @context.scan_until(%r{</gallery>|\||$})
           attrs = @context.matched == '|' ? gallery_image_attrs : {}
           unless path.empty?
-            images << Tree::Image.new(path.sub(/^#{re.file_namespace}/, ''), attrs)
+            # FIXME: what if path NOT matches the namespace?
+            images << Tree::Image.new(path.sub(/^#{re.file_namespace.source}/i, ''), attrs)
           end
           break if @context.matched == '</gallery>'
         end

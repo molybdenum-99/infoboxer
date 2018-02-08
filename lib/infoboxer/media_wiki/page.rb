@@ -33,6 +33,15 @@ module Infoboxer
         client.traits
       end
 
+      # FIXME: take from siteinfo!
+      def namespace
+        Traits::STANDARD_NAMESPACES[source.fetch('ns') + 2] # Media = -2, Specia = -1, Main = 0
+      end
+
+      def category?
+        namespace == 'Category'
+      end
+
       private
 
       PARAMS_TO_INSPECT = %i[url title].freeze

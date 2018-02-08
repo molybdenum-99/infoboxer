@@ -41,6 +41,9 @@ module Infoboxer
     # @private
     attr_reader :api_base_url, :traits
 
+    # @return [MediaWiktory::Wikipedia::Client]
+    attr_reader :api
+
     # Creating new MediaWiki client. {Infoboxer.wiki} provides shortcut
     # for it, as well as shortcuts for some well-known wikis, like
     # {Infoboxer.wikipedia}.
@@ -51,7 +54,7 @@ module Infoboxer
     # @param user_agent [String] (also aliased as `:ua`) Custom User-Agent header.
     def initialize(api_base_url, ua: nil, user_agent: ua)
       @api_base_url = Addressable::URI.parse(api_base_url)
-      @client = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(user_agent))
+      @api = MediaWiktory::Wikipedia::Api.new(api_base_url, user_agent: user_agent(user_agent))
       @traits = Traits.get(@api_base_url.host, siteinfo)
     end
 
@@ -72,7 +75,7 @@ module Infoboxer
       return {} if titles.empty?
 
       titles.each_slice(50).map do |part|
-        request = prepare_request(@client.query.titles(*part), &processor)
+        request = prepare_request(@api.query.titles(*part), &processor)
         response = request.response
 
         # If additional props are required, there may be additional pages, even despite each_slice(50)
@@ -173,7 +176,7 @@ module Infoboxer
     def category(title, limit: 'max', &processor)
       title = normalize_category_title(title)
 
-      list(@client.query.generator(:categorymembers).title(title), limit, &processor)
+      list(@api.query.generator(:categorymembers).title(title), limit, &processor)
     end
 
     # Receive list of parsed MediaWiki pages for provided search query.
@@ -193,7 +196,7 @@ module Infoboxer
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
     def search(query, limit: 'max', &processor)
-      list(@client.query.generator(:search).search(query), limit, &processor)
+      list(@api.query.generator(:search).search(query), limit, &processor)
     end
 
     # Receive list of parsed MediaWiki pages with titles startin from prefix.
@@ -210,7 +213,7 @@ module Infoboxer
     # @return [Tree::Nodes<Page>] array of parsed pages.
     #
     def prefixsearch(prefix, limit: 'max', &processor)
-      list(@client.query.generator(:prefixsearch).search(prefix), limit, &processor)
+      list(@api.query.generator(:prefixsearch).search(prefix), limit, &processor)
     end
 
     # @return [String]
@@ -260,7 +263,7 @@ module Infoboxer
     end
 
     def siteinfo
-      @siteinfo ||= @client.query.meta(:siteinfo).prop(:namespaces, :namespacealiases, :interwikimap).response.to_h
+      @siteinfo ||= @api.query.meta(:siteinfo).prop(:namespaces, :namespacealiases, :interwikimap).response.to_h
     end
 
     def interwikis(prefix)

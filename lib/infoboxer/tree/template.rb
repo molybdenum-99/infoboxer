@@ -149,6 +149,10 @@ module Infoboxer
         variables.reject(&:named?)
       end
 
+      def named_variables
+        variables.select(&:named?)
+      end
+
       # Fetches template variable(s) by name(s) or patterns.
       #
       # Usage:

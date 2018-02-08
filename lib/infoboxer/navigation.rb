@@ -94,5 +94,11 @@ module Infoboxer
     class Tree::Document
       include Navigation::Sections::Container
     end
+
+    module Helpers
+      def W(*arg, &block) # rubocop:disable Naming/MethodName
+        Lookup::Selector.new(*arg, &block)
+      end
+    end
   end
 end
