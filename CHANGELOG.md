@@ -1,5 +1,12 @@
 # Infoboxer's change log
 
+## 0.3.2 (2018-02-09)
+
+* Updated MediaWiktory to finally turn on gzip encoding of responses;
+* Utility methods to expose some internals (`MediaWiki#api`, `Infoboxer#url_for(:wikipedia)`,
+  `Page#namespaces`, `Template#named_variables` and so on);
+* Fix parsing of lowercase `file:` links in `<gallery>`.
+
 ## 0.3.1 (2017-12-04)
 
 * (Experimental) new representation of templates, much more readable;
