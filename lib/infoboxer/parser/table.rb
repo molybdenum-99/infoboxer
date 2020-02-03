@@ -16,8 +16,9 @@ module Infoboxer
 
         @context.next!
 
-        loop do
+        guarded_loop do
           table_next_line(table) or break
+          log 'Next table row'
           @context.next!
         end
 
@@ -73,7 +74,10 @@ module Infoboxer
                  end
 
         children = inline(/^\s*([|!]|{\|)/)
-        @context.prev! # compensate next! which will be done in table()
+        if @context.matched
+          @context.unscan_matched!
+          @context.prev! # compensate next! which will be done in table()
+        end
         table.push_children(TableCaption.new(children.strip, params))
       end
 

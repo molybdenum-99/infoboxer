@@ -2,7 +2,7 @@ require 'strscan'
 
 module Infoboxer
   class Parser
-    class Context
+    class Context # rubocop:disable Metrics/ClassLength
       attr_reader :lineno
       attr_reader :traits
 
@@ -128,7 +128,13 @@ module Infoboxer
 
       # state inspection
       def matched_inline?(re)
-        re.nil? ? (matched.empty? && eol?) : matched =~ re
+        if re.nil?
+          matched.empty? && eol?
+        elsif re.inspect.start_with?('/^') # was it REALLY at the beginning of the line?..
+          @scanner.pos == matched.length && matched =~ re
+        else
+          matched =~ re
+        end
       end
 
       def matched?(re)
@@ -142,6 +148,12 @@ module Infoboxer
       # basic services
       def fail!(text)
         fail(ParsingError, "#{text} at line #{@lineno}:\n\t#{current}")
+      end
+
+      def unscan_matched!
+        return unless @matched
+        @scanner.pos -= @matched.size
+        @rest = nil
       end
 
       private

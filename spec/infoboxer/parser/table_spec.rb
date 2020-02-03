@@ -506,5 +506,12 @@ module Infoboxer
       its(:"rows.count") { is_expected.to eq 1 }
       its(:caption) { is_expected.to be_nil } # empty node, in fact
     end
+
+    describe 'large broken table definition (issue #78)' do
+      let(:source) { File.read('spec/fixtures/broken_table_caption.txt') }
+
+      its(:"rows.count") { is_expected.to eq 1 }
+      its(:caption) { is_expected.not_to be_nil } # we parse too complicated params as caption text... it is OK, table's broken anyways :)
+    end
   end
 end
