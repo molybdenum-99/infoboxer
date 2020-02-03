@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=Tropical%20and%20subtropical%20coniferous%20forests
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Sep 2017 19:55:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '895'
+      Connection:
+      - keep-alive
+      Server:
+      - mw1203.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=43946 t=1505073302889771
+      X-Varnish:
+      - 292880995, 646757123, 54297132
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1068 pass, cp3041 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=10-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu,
+        12 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=10-Sep-2017;Path=/;HttpOnly;secure;Expires=Thu, 12 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.49.79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"203111":{"pageid":203111,"ns":0,"title":"Tropical
+        and subtropical coniferous forests","revisions":[{"timestamp":"2017-07-17T15:30:00Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"[[File:Biome_map_03.svg|thumb|right|400px|Extent
+        of Tropical and subtropical coniferous forest regions]]\n\n''''''Tropical
+        and subtropical coniferous forests'''''' are a [[tropical forest]] [[biome]].
+        They are located in regions of humid climate at [[tropical]] and [[subtropical]]
+        latitudes. Most tropical and subtropical coniferous forest [[ecoregion]]s
+        are found in the [[Nearctic]] and [[Neotropic]] [[ecozone]]s, from the [[Mid-Atlantic
+        states]] to [[Nicaragua]] and on the [[Greater Antilles]], [[Bahamas]], and
+        [[Bermuda]]. Other tropical and subtropical [[Conifer|coniferous forest]]s
+        ecoregions occur in [[Asia]].\n\nOutside the [[Americas]] and the [[Greater
+        Ranges]] of Asia they are rare and predominate on islands.\n\n==Tropical and
+        subtropical coniferous forests ecoregions==\n{{Indomalaya tropical and subtropical
+        coniferous forests}}\n{{Neotropic tropical and subtropical coniferous forests}}\n{{Nearctic
+        tropical and subtropical coniferous forests}}\n{{Austropacific tropical and
+        subtropical coniferous forests}}\n\n{{Biomes}}\n\n==See also== \n*[[Forest]]
+        \n*[[Trees of the world]]\n*[[Arid Forest Research Institute]] (AFRI)\n\n==External
+        links==\n* [http://www.panda.org/about_wwf/where_we_work/ecoregions/about/habitat_types/selecting_terrestrial_ecoregions/habitat03.cfm
+        Tropical and subtropical coniferous forests]\n\n[[Category:Tropical and subtropical
+        coniferous forests| ]]\n[[Category:Terrestrial biomes]]\n[[Category:Conifers]]\n[[Category:Forests]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-09-09T07:05:18Z","lastrevid":791013552,"length":1446,"fullurl":"https://en.wikipedia.org/wiki/Tropical_and_subtropical_coniferous_forests","editurl":"https://en.wikipedia.org/w/index.php?title=Tropical_and_subtropical_coniferous_forests&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Tropical_and_subtropical_coniferous_forests"}}}}'
+    http_version: 
+  recorded_at: Thu, 22 Jun 2017 21:00:00 GMT
+recorded_with: VCR 3.0.3

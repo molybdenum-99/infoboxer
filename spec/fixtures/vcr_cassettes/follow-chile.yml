@@ -1,0 +1,1908 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=Chile
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Sep 2017 20:08:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1290.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=51163 t=1505074118064176
+      X-Varnish:
+      - 157420486, 560746366, 61842233
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1065 pass, cp3043 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=10-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu,
+        12 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=10-Sep-2017;Path=/;HttpOnly;secure;Expires=Thu, 12 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.49.79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"5489":{"pageid":5489,"ns":0,"title":"Chile","revisions":[{"timestamp":"2017-09-03T16:57:09Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{{other
+        uses}}\n{{pp-semi|expiry=20 January 2020|small=yes}}\n{{pp-move-indef}}\n{{Use
+        dmy dates|date=January 2015}}\n{{Coord|30|S|71|W|display=title}}\n{{Infobox
+        country\n| conventional_long_name = Republic of Chile\n| native_name = {{native
+        name|es|Rep\u00fablica de Chile}}\n| common_name = Chile\n| image_flag = Flag
+        of Chile.svg\n| alt_flag = \n| image_coat = Coat of arms of Chile.svg\n| national_motto
+        = {{vunblist |{{native phrase|es|\"Por la raz\u00f3n o la fuerza\"|italics=off}}
+        |{{raise|0.45em |{{small|\"By right or might\"}}&nbsp;{{lower|0.5em|<ref>{{cite
+        web|title=100 peso Coin |url=http://www.bcentral.cl/eng/banknotes-coins/coins/m0100.htm
+        |work=[[Central Bank of Chile]] |accessdate=16 September 2012 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20120510231608/http://www.bcentral.cl/eng/banknotes-coins/coins/m0100.htm
+        |archivedate=10 May 2012 }}</ref>}}}}}}\n| national_anthem = <br/>''''[[National
+        Anthem of Chile]]'''' <div style=\"padding-top:0.5em;text-align:center;\"><center>[[File:United
+        States Navy Band - National Anthem of Chile.ogg]]</div></center>\n| image_map
+        = Chile (orthographic projection).svg\n| map_width = 220px\n| alt_map = |
+        map_caption = Chile shown in dark green; claimed but unrecognised [[Chilean
+        Antarctic Territory|Antarctic Territory]] shown in light green.\n| capital
+        = [[Santiago]]<sup>a</sup>\n| coordinates = {{Coord|33|26|S|70|40|W|type:city}}\n|
+        largest_city = capital\n| official_languages = \n| languages_type = [[National
+        language]]\n| languages = [[Chilean Spanish|Spanish]] \n| demonym = Chilean\n|ethnic_groups
+        =\n {{unbulleted list\n | 88.9% [[Mestizo]] and [[White Latin American|White]]
+        \n | 9.1% [[Mapuche]]\n | 0.7% [[Aymara people|Aymara]]\n | 1% other\n | {{small|(includes
+        Rapa Nui, Likan Antai, Quechua, Colla, Diaguita, Kawesqar, Yagan or Yamana)}}\n
+        | 0.3% unspecified\n }}\n|ethnic_groups_year = 2012<ref name=CIA>{{cite web
+        |author=Central Intelligence Agency |title=Chile |work=The World Factbook
+        |publisher=Central Intelligence Agency |location=Langley, Virginia |year=2016
+        |url=https://www.cia.gov/library/publications/the-world-factbook/geos/ci.html
+        |accessdate=January 29, 2017}}</ref>\n| government_type = [[Unitary state|Unitary]]
+        [[Presidential system|presidential]] [[constitutional republic]]\n| leader_title1
+        = [[President of Chile|President]]\n| leader_name1 = {{nowrap|[[Michelle Bachelet]]}}\n|
+        leader_title2 = [[President of the Senate of Chile|Senate President]]\n| leader_name2
+        = {{nowrap|[[Andr\u00e9s Zald\u00edvar]]}}\n| leader_title3 = [[President
+        of the Chamber of Deputies of Chile|President of the Chamber of Deputies]]\n|
+        leader_name3 = {{nowrap|[[Fidel Espinoza]]}}\n| legislature = [[National Congress
+        of Chile|National Congress]]\n| upper_house = [[Senate of Chile|Senate]]\n|
+        lower_house = [[Chamber of Deputies of Chile|Chamber of Deputies]]\n| sovereignty_type
+        = [[History of Chile|Independence]]\n| sovereignty_note = from [[Spain]]\n|
+        established_event1 = [[Government Junta of Chile (1810)|First Government Junta]]\n|
+        established_date1 = 18 September 1810\n| established_event2 = Declared\n|
+        established_date2 = 12 February 1818\n| established_event3 = Recognized\n|
+        established_date3 = 25 April 1844\n| established_event4 = {{nowrap|[[Constitution
+        of Chile|Current constitution]]}}\n| established_date4= 11 September 1980
+        (amended in 1989 and 2005)\n| area_rank = 37th\n| area_magnitude = 1 E11\n|
+        area_km2 = 756,096.3\n| area_sq_mi = 291,930.4\n| area_footnote = \n| percent_water
+        = 1.07<sup>b</sup>\n| population_estimate = 18,006,407<ref>{{cite web|url=http://www.ine.cl/canales/sala_prensa/noticias/noticia.php?opc=news&id=615&lang=esp|title=CIFRAS
+        DE ENVEJECIMIENTO Y MIGRACI\u00d3N MUESTRAN UN CHILE DISTINTO AL DE HACE UN
+        DECENIO|work=POBLACI\u00d3N PA\u00cdS Y REGIONES \u2013 ACTUALIZACI\u00d3N
+        2002\u20132012|publisher=[[National Statistics Institute (Chile)|National
+        Statistics Institute]]|date=4 September 2014|accessdate=4 September 2014}}</ref>\n|
+        population_estimate_rank = 62nd\n| population_estimate_year = 2015\n| population_census
+        = 16,341,929<ref>{{cite web |url=http://www.emol.com/noticias/nacional/2014/02/26/646872/entrega-de-conclusiones-del-cuestionado-censo-2012.html
+        |title=Revisi\u00f3n del cuestionado Censo 2012 reduce poblaci\u00f3n chilena
+        a 16.341.929 |publisher=Emol |accessdate=26 February 2014 |language=Spanish}}</ref>\n|
+        population_census_year = 2012\n| population_density_km2 = 24\n| population_density_sq_mi
+        = 61\n| population_density_rank = 194th\n| GDP_PPP = $455.941 billion<ref
+        name=\"imf\">{{cite web|url=http://www.imf.org/external/pubs/ft/weo/2017/01/weodata/weorept.aspx?pr.x=84&pr.y=11&sy=2017&ey=2017&scsm=1&ssd=1&sort=country&ds=.&br=1&c=228&s=NGDPD%2CNGDPDPC%2CPPPGDP%2CPPPPC&grp=0&a=|work=International
+        Monetary Fund web site|title=Chile|date=May 2017|accessdate=8 May 2017}}</ref>\n|
+        GDP_PPP_rank = 42nd\n| GDP_PPP_year = 2017\n| GDP_PPP_per_capita = $24,797<ref
+        name=\"imf\" />\n| GDP_PPP_per_capita_rank = 53rd\n| GDP_nominal = $251.220
+        billion<ref name=\"imf\" />\n| GDP_nominal_rank = 38th\n| GDP_nominal_year
+        = 2017\n| GDP_nominal_per_capita = $13,663<ref name=\"imf\" />\n| GDP_nominal_per_capita_rank
+        = 49th\n| Gini_year = 2011\n| Gini_change = decrease\n| Gini = 50.3 <!--number
+        only-->\n| Gini_ref = <ref>{{cite web |url=http://www.oecd.org/social/soc/47572883.pdf
+        |title=Society at a Glance : Social Indicators OECD |publisher=[[OECD]] |date=October
+        2012 |accessdate=28 October 2013}}</ref>\n| Gini_rank = \n| HDI_year = 2016<!--
+        Please use the year to which the data refers, not the publication year-->\n|
+        HDI_change = increase<!--increase/decrease/steady-->\n| HDI = 0.847 <!--number
+        only-->\n|HDI_ref = <ref name=\"HDI\">{{cite web |url=http://hdr.undp.org/sites/default/files/2016_human_development_report.pdf
+        |title=2016 Human Development Report  |date=2017 |accessdate=29 April 2017
+        |publisher=United Nations Development Programme }}</ref>\n| HDI_rank = 38th\n|
+        currency = [[Chilean peso|Peso]]\n| currency_code = CLP\n| time_zone = {{nowrap|[[Time
+        in Chile|CLT and EAST]]<sup>c</sup>}}\n| utc_offset = \u22123 and \u22125\n|
+        time_zone_DST =\n| utc_offset_DST = \n| DST_note = | antipodes = | date_format
+        = \n| drives_on = right\n| calling_code = [[+56]]\n| iso3166code = \n| cctld
+        = [[.cl]]\n| footnote_a = [[Politics of Chile#Legislative branch|Legislature]]
+        is based in [[Valpara\u00edso]].\n| footnote_b = Includes Easter Island and
+        [[Isla Sala y G\u00f3mez]]; does not include {{convert|1250000|km2}} of territory
+        claimed in Antarctica.\n}}\n[[File:The three areas of Chile.png|thumb|right|250px|Map
+        of the three areas dividing the Chilean territory:<br />''''''In blue:''''''
+        [[Continental Chile]].<br />''''''In red:'''''' [[Insular Chile]].<br />''''''In
+        green:'''''' [[Chilean Antarctic Territory|Antarctic Chile]].]]\n''''''Chile''''''
+        ({{IPAc-en|\u02c8|t\u0283|\u026a|l|i|}};<ref>{{cite web |url=http://dictionary.reference.com/browse/Chile
+        |title=Chile |publisher=Dictionary.reference.com |accessdate=14 November 2010}}</ref>
+        {{IPA-es|\u02c8t\u0283ile|lang}}), officially the ''''''Republic of Chile''''''
+        ({{Audio-es|Rep\u00fablica de Chile|RepChile.ogg}}),<!-- {{IPA-es|re\u02c8pu\u03b2lika
+        \u00f0e \u02c8t\u0283ile|}} --> is a [[South America]]n country occupying
+        a long, narrow strip of land between the [[Andes]] to the east and the Pacific
+        Ocean to the west. It borders [[Peru]] to the north, [[Bolivia]] to the northeast,
+        [[Argentina]] to the east, and the [[Drake Passage]] in the far south. Chilean
+        territory includes the Pacific islands of [[Juan Fern\u00e1ndez Islands|Juan
+        Fern\u00e1ndez]], [[Salas y G\u00f3mez]], [[Desventuradas Islands|Desventuradas]],
+        and [[Easter Island]] in [[Oceania]]. Chile also claims about {{convert|1250000|km2}}
+        of [[Antarctica]], although all claims are suspended under the [[Antarctic
+        Treaty]].\n\nThe arid [[Atacama Desert]] in northern Chile contains great
+        mineral wealth, principally [[Copper#Production|copper]]. The relatively small
+        central area dominates in terms of population and agricultural resources,
+        and is the cultural and political center from which Chile expanded in the
+        late 19th century when it incorporated its northern and southern regions.
+        Southern Chile is rich in forests and grazing lands, and features a string
+        of [[volcano]]es and lakes. The southern coast is a labyrinth of [[Fjords
+        and channels of Chile|fjords, inlets, canals]], twisting peninsulas, and islands.<ref
+        name=\"USDoS\">{{cite web|url=https://www.state.gov/outofdate/bgn/chile/192190.htm|title=Bureau
+        of Western Hemisphere Affairs, Background Note: Chile|publisher=[[United States
+        Department of State]]|date=16 December 2011}}</ref>\n\n[[Conquest of Chile|Spain
+        conquered and colonized]] Chile in the mid-16th century, replacing [[Incas
+        in Central Chile|Inca rule]] in northern and central Chile, but [[Arauco War|failing
+        to conquer]] the independent [[Mapuche]] who inhabited south-central Chile.
+        After [[Chilean Declaration of Independence|declaring its independence]] from
+        Spain in 1818, Chile emerged in the 1830s as a relatively stable authoritarian
+        republic. In the 19th century, Chile saw significant economic and territorial
+        growth, [[Occupation of Araucan\u00eda|ending Mapuche resistance]] in the
+        1880s and gaining its current northern territory in the [[War of the Pacific]]
+        (1879\u201383) after defeating Peru and Bolivia.<ref name=factbook>{{cite
+        web|title=Chile|url=https://www.cia.gov/library/publications/the-world-factbook/geos/ci.html|work=[[The
+        World Factbook]]|publisher=[[Central Intelligence Agency]]|accessdate=17 February
+        2014}}</ref> In the 1960s and 1970s the country experienced severe left-right
+        [[Polarization (politics)|political polarization]] and turmoil. This development
+        culminated with the [[1973 Chilean coup d''\u00e9tat]] that overthrew [[Salvador
+        Allende]]''s democratically elected left-wing government and instituted [[Military
+        dictatorship of Chile (1973\u201390)|a 16-year-long right-wing military dictatorship]]
+        that left more than 3,000 people dead or missing.<ref name=\"BBC-Chile\"/>
+        The regime, headed by [[Augusto Pinochet]], ended in 1990 after it lost a
+        [[Chilean presidential referendum, 1988|referendum in 1988]] and was succeeded
+        by a [[Concertaci\u00f3n|center-left coalition]] which ruled through four
+        presidencies until 2010.\n\nChile is today one of South America''s most stable
+        and prosperous nations.<ref name=\"BBC-Chile\"/> It leads [[Latin America]]n
+        nations in rankings of [[human development (humanity)|human development]],
+        [[competitiveness]], [[income per capita]], [[globalization]], [[Global Peace
+        Index|state of peace]], [[economic freedom]], and [[Political corruption|low
+        perception of corruption]].<ref name=\"hdrstats.undp.org\">{{cite web|url=http://hdrstats.undp.org/indicators/25.html
+        |title=Human and income poverty: developing countries |work=UNDP |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20090212140250/http://hdrstats.undp.org/indicators/25.html
+        |archivedate=12 February 2009 }}</ref> It also ranks high regionally in [[Failed
+        States Index#Failed States Index|sustainability of the state]], and democratic
+        development.<ref name=\"wdi\">{{cite web|url=http://databank.worldbank.org/ddp/home.do
+        |title=World Development Indicators |publisher=World Bank |date=17 April 2012
+        |accessdate=12 May 2012}}</ref> Currently it also holds [[List of countries
+        by intentional homicide rate|the lowest homicide rate per 100,000 people in
+        South America]]. Chile is a founding member of the [[United Nations]], the
+        [[Union of South American Nations]] (UNASUR) and the [[Community of Latin
+        American and Caribbean States]] (CELAC).\n\n==Etymology==<!--linked-->\nThere
+        are various theories about the origin of the word ''''Chile''''. According
+        to 17th-century Spanish chronicler [[Diego de Rosales]],<ref>{{cite web|url=http://www.chile.com/tpl/articulo/detalle/ver.tpl?cod_articulo=7225
+        |title=Chile.com.La Inc\u00f3gnita Sobre el Origen de la Palabra Chile |publisher=Chile.com
+        |date=15 June 2000 |accessdate=17 December 2009 |deadurl=yes |archiveurl=https://web.archive.org/web/20090415204553/http://www.chile.com/tpl/articulo/detalle/ver.tpl?cod_articulo=7225
+        |archivedate=15 April 2009 }}</ref> the [[Incas]] called the valley of the
+        [[Aconcagua]] \"Chili\" by corruption of the name of a [[Picunche]] [[tribal
+        chief]] (\"cacique\") called ''''Tili'''', who ruled the area at the time
+        of the Incan conquest in the 15th century.<ref>{{cite web|author=Encyclop\u00e6dia
+        Britannica |url=http://www.britannica.com/EBchecked/topic/459648/Picunche
+        |title=Picunche (people) \u2013 Britannica Online Encyclopedia |publisher=Britannica.com
+        |accessdate=17 December 2009}}</ref><ref name=\"encina\">{{Cite book|last=Encina|first=Francisco
+        A., and Leopoldo Castedo|title=Resumen de la Historia de Chile. 4th ed. Santiago|page=44|volume=I|publisher=Zig-Zag|year=1961|url=http://img242.imageshack.us/img242/6293/chilenameuo6.jpg}}</ref>
+        Another theory points to the similarity of the valley of the Aconcagua with
+        that of the [[Casma Valley]] in Peru, where there was a town and valley named
+        ''''Chili.''''<ref name=\"encina\"/>\n\nOther theories say Chile may derive
+        its name from a [[Indigenous peoples of the Americas|Native American]] word
+        meaning either \"ends of the earth\" or \"sea gulls\";<ref>{{cite encyclopedia|url=http://ea.grolier.com|title=Chile|encyclopedia=Encyclopedia
+        Americana|publisher=Grolier Online|year=2005|accessdate=2 March 2005|quote=The
+        name Chile is of Native American origin, meaning possibly \"ends of the earth\"
+        or simply \"sea gulls.\"}}</ref> from the Mapuche word ''''chilli,'''' which
+        may mean \"where the land ends;\"<ref name=\"hudson\">{{cite web|author=Hudson,
+        Rex A., ed.|url=http://lcweb2.loc.gov/frd/cs/cltoc.html|title=Chile: A Country
+        Study|work=GPO for the Library of Congress|year=1995|accessdate=27 February
+        2005}}</ref> or from the [[Quechua languages|Quechua]] ''''chiri'''', \"cold\",<ref
+        name=\"1911britannica\">\"CHILE\". Encyclop\u00e6dia Britannica. 11th ed.
+        1911. (\"derived, it is said, from the Quichua chiri, cold, or tchili, snow\")</ref>
+        or ''''tchili'''', meaning either \"snow\"<ref name=\"1911britannica\"/><ref>{{cite
+        encyclopedia|url=http://es.encarta.msn.com/encyclopedia_761572974_4/Chile.html
+        |title=Chile (rep\u00fablica) |encyclopedia=Enciclopedia Microsoft Encarta
+        Online |year=2005 |accessdate=26 February 2005 |quote=The region was then
+        known to its native population as Tchili, a Native American word meaning \"snow\".
+        |deadurl=yes |archiveurl=https://web.archive.org/web/20080510215421/http://es.encarta.msn.com/encyclopedia_761572974_4/Chile.html
+        |archivedate=10 May 2008 }}</ref> or \"the deepest point of the Earth\".<ref>{{cite
+        encyclopedia|last=Pearson|first=Neale J.|url=http://gme.grolier.com|title=Chile|encyclopedia=Grolier
+        Multimedia Encyclopedia|publisher=Scholastic Library Publishing|year=2004|accessdate=2
+        March 2005|quote=Chile''s name comes from an Indian word, Tchili, meaning
+        \"the deepest point of the Earth.\"}}</ref> Another origin attributed to ''''chilli''''
+        is the onomatopoeic ''''cheele-cheele''''\u2014the Mapuche imitation of the
+        warble of a bird locally known as [[Yellow-winged blackbird|trile]].<ref name=\"hudson\"/><ref>{{cite
+        book |first=Miguel |last=de Olivares y Gonz\u00e1lez SJ |title=Historia de
+        la Compa\u00f1\u00eda de Jes\u00fas en Chile |work=Colecci\u00f3n de historiadores
+        de Chile y documentos relativos a la historia nacional |year=1864 |origyear=1736
+        |publisher=Imprenta del Ferrocarril |location=Santiago |volume=4 |number=
+        }}<!-- missing URL |url= |accessdate=14 October 2010--></ref>\n\nThe Spanish
+        [[conquistadors]] heard about this name from the Incas, and the few survivors
+        of [[Diego de Almagro]]''s first Spanish expedition south from Peru in 1535\u201336
+        called themselves the \"men of Chilli\".<ref name=\"hudson\"/> Ultimately,
+        Almagro is credited with the universalization of the name ''''Chile'''', after
+        naming the [[Mapocho River|Mapocho]] valley as such.<ref name=\"encina\"/>
+        The older spelling \"Chili\" was in use in English until at least 1900 before
+        switching over to \"Chile.\"<ref>{{cite book|title=Appletons'' annual cyclopaedia
+        and register of important events of the year: 1900|publisher=Appletons|location=New
+        York|page=87|url=https://archive.org/stream/s3appletonsann05newyuoft#page/87/mode/1up}}</ref>\n\n==History==\n{{Main
+        article|History of Chile}}\n\n===Early history===\n[[File:Urville-Araucanians.jpg|thumb|upright|left|The
+        [[Mapuche]] people were the original inhabitants of southern and central Chile.]]
+        Stone tool evidence indicates humans sporadically frequented the [[Monte Verde]]
+        valley area as long as 18,500 years ago.<ref>{{cite web | url=https://www.sciencenews.org/article/people-roamed-tip-south-america-18500-years-ago
+        | title=People roamed tip of South America 18,500 years ago | work=Science
+        News | date=26 December 2015 | accessdate=26 December 2015 | author=Bower,
+        Bruce | pages=10}}</ref> About 10,000 years ago, migrating [[Indigenous Peoples
+        of the Americas|Native Americans]] settled in fertile valleys and coastal
+        areas of what is present-day Chile. Settlement sites from very early human
+        habitation include Monte Verde, [[Cueva del Milodon]] and the [[Pali Aike
+        Crater]]''s [[lava tube]]. The Incas briefly extended their empire into what
+        is now northern Chile, but the [[Mapuche]] (or Araucanians as they were known
+        by the Spaniards) successfully resisted many attempts by the [[Inca Empire]]
+        to subjugate them, despite their lack of state organization.<ref>{{cite book|title=Insight
+        Guides: Chile|url=https://books.google.com/books?id=Nf8SnJ_ZJbkC&pg=PA27|accessdate=14
+        July 2013|year=2002|publisher=Langenscheidt Publishing Group|isbn=978-981-234-890-6|page=27}}</ref>
+        They fought against the Sapa Inca Tupac Yupanqui and his army. The result
+        of the bloody three-day confrontation known as the [[Battle of the Maule]]
+        was that the Inca conquest of the territories of Chile ended at the [[Maule
+        river]].<ref name=\"countrystudies\"/>\n\n===Spanish colonization===\n{{main
+        article|Conquest of Chile|Colonial Chile}}\nIn 1520, while attempting to circumnavigate
+        the globe, [[Ferdinand Magellan]] discovered the southern passage now named
+        after him, the [[Strait of Magellan]], thus becoming the first European to
+        set foot on what is now Chile. The next Europeans to reach Chile were Diego
+        de Almagro and his band of Spanish conquistadors, who came from Peru in 1535
+        seeking gold. The Spanish encountered various cultures that supported themselves
+        principally through slash-and-burn agriculture and hunting.<ref name=\"countrystudies\"/>\n\nThe
+        conquest of Chile began in earnest in 1540 and was carried out by [[Pedro
+        de Valdivia]], one of [[Francisco Pizarro]]''s lieutenants, who founded the
+        city of Santiago on 12 February 1541. Although the Spanish did not find the
+        extensive gold and silver they sought, they recognized the agricultural potential
+        of Chile''s central valley, and Chile became part of the [[Spanish Empire]].<ref
+        name=\"countrystudies\"/>\n\n[[File:Pedro de Valdivia.jpg|thumb|upright|[[Pedro
+        de Valdivia]]]]\n[[File:Descriptionis Ptolemaic\u00e6 avgmentvm siue Occidentis
+        notitia breui commentario illustrata p134.tif|thumb|upright|Cornelius van
+        Wytfliet map from 1597]]\n\nConquest took place gradually, and the Europeans
+        suffered repeated setbacks. A massive Mapuche insurrection that began in 1553
+        resulted in Valdivia''s death and the destruction of many of the colony''s
+        principal settlements. Subsequent major insurrections took place in 1598 and
+        in 1655. Each time the Mapuche and other native groups revolted, the southern
+        border of the colony was driven northward. The abolition of [[slavery]] by
+        the Spanish crown in 1683 was done in recognition that enslaving the Mapuche
+        intensified resistance rather than cowing them into submission. Despite royal
+        prohibitions, relations remained strained from continual colonialist interference.<ref>{{cite
+        web|url=https://archive.org/stream/storiadellaguer00caivgoog/storiadellaguer00caivgoog_djvu.txt
+        |title=B\u00e1rbaros, page 66. David J. Weber |publisher=Archive.org }}</ref>\n\nCut
+        off to the north by desert, to the south by the Mapuche, to the east by the
+        Andes Mountains, and to the west by the ocean, Chile became one of the most
+        centralized, homogeneous colonies in Spanish America. Serving as a sort of
+        frontier [[garrison]], the colony found itself with the mission of forestalling
+        encroachment by both the Mapuche and Spain''s European enemies, especially
+        the [[British Empire|British]] and the Dutch. Buccaneers and English adventurers
+        menaced the colony in addition to the Mapuche, as was shown by [[Sir Francis
+        Drake]]''s 1578 raid on Valpara\u00edso, the colony''s principal port. Chile
+        hosted one of the largest standing armies in the Americas, making it one of
+        the most militarized of the Spanish possessions, as well as a [[Real Situado|drain
+        on the treasury of the Viceroyalty of Peru]].<ref name=\"hudson\"/>\n\nThe
+        first general census was conducted by the government of [[Agust\u00edn de
+        J\u00e1uregui]] between 1777 and 1778; it indicated that the population consisted
+        of 259,646 inhabitants: 73.5 percent of [[White Latin American|European descent]],
+        7.9 percent [[mestizo]]s, 8.6 percent [[Indigenous peoples of the Americas|indigenous
+        peoples]] and 9.8 percent blacks. Francisco Hurtado, Governor of the province
+        of [[Chilo\u00e9 Province|Chilo\u00e9]], conducted a census in 1784 and found
+        the population consisted of 26,703 inhabitants, 64.4 percent of whom were
+        whites and 33.5 percent of whom were natives.\n\nThe Diocese of [[Concepci\u00f3n,
+        Chile|Concepci\u00f3n]] conducted a census in areas south of the [[Maule river]]
+        in 1812, but did not include the indigenous population or the inhabitants
+        of the province of Chilo\u00e9. The population is estimated at 210,567, 86.1
+        percent of whom were [[Spanish Chilean|Spanish]] or of European descent, 10
+        percent of whom were indigenous and 3.7 percent of whom were mestizos, blacks
+        and [[mulatto]]s.<ref>{{cite web|url=http://www.ine.cl/canales/usuarios/cedoc_online/censos/pdf/censo_1813.pdf
+        |title=INE \u2013 Censo de 1813. Introducci\u00f3n |format=PDF }}</ref>\n\n===Independence
+        and nation building===\n{{see also|Argentine\u2013Chilean naval arms race}}\n[[File:Ohiggins.jpg|thumb|upright|[[Bernardo
+        O''Higgins]], the Supreme Director of Chile]]\nIn 1808, [[Napoleon I|Napoleon''s]]
+        enthronement of his brother [[Joseph Bonaparte|Joseph]] as the [[Spanish monarchy|Spanish
+        King]] precipitated the drive by the colony for [[Chilean War of Independence|independence
+        from Spain]]. A national junta in the name of [[Ferdinand VII of Spain|Ferdinand]]
+        \u2013 heir to the deposed king \u2013 was formed on 18 September 1810. The
+        [[Government Junta of Chile (1810)|Government Junta of Chile]] proclaimed
+        Chile an autonomous republic within the Spanish monarchy (in memory of this
+        day Chile celebrates its [[Fiestas Patrias (Chile)|National Day]] on 18 September
+        each year).\n\nAfter these events, a movement for total independence, under
+        the command of [[Jos\u00e9 Miguel Carrera]] (one of the most renowned patriots)
+        and his two brothers Juan Jos\u00e9 and [[Luis Carrera]], soon gained a wider
+        following. Spanish attempts to re-impose arbitrary rule during what was called
+        the [[Reconquista (Spanish America)|Reconquista]] led to a prolonged struggle,
+        including infighting from [[Bernardo O''Higgins]], who challenged Carrera''s
+        leadership.\n\nIntermittent warfare continued until 1817. With Carrera in
+        prison in Argentina, O''Higgins and anti-Carrera cohort [[Jos\u00e9 de San
+        Mart\u00edn]], hero of the [[Argentine War of Independence]], led [[Army of
+        the Andes|an army]] that [[Crossing of the Andes|crossed the Andes]] into
+        Chile and defeated the royalists. On 12 February 1818 [[Chilean Declaration
+        of Independence|Chile was proclaimed an independent republic]]. The political
+        revolt brought little social change, however, and 19th-century Chilean society
+        preserved the essence of the stratified colonial social structure, which was
+        greatly influenced by family politics and the Roman Catholic Church. A strong
+        presidency eventually emerged, but wealthy landowners remained powerful.<ref
+        name=\"countrystudies\"/>\n\n[[File:Sinking of the Esmeralda during the battle
+        of Iquique.jpg|thumb|left|Fighting during the [[War of the Pacific]]: The
+        [[Battle of Iquique]] on 21 May 1879]]\nChile slowly started to expand its
+        influence and to establish its borders. By the Tantauco Treaty, the archipelago
+        of Chilo\u00e9 was incorporated in 1826. The economy began to boom due to
+        the discovery of silver ore in Cha\u00f1arcillo, and the growing trade of
+        the port of Valpara\u00edso, which led to conflict over maritime supremacy
+        in the Pacific with Peru. At the same time, attempts were made to strengthen
+        sovereignty in southern Chile intensifying [[Occupation of Araucan\u00eda|penetration
+        into Araucan\u00eda]] and [[German colonization of Valdivia, Osorno and Llanquihue|colonizing
+        Llanquihue with German immigrants]] in 1848. Through the founding of [[Fort
+        Bulnes]] by the [[Schooner Ancud]] under the command of [[John Williams Wilson]],
+        the Magallanes region joined the country in 1843, while the Antofagasta area,
+        at the time part of, Bolivia, began to fill with people.\n\n[[File:Borders
+        Chile 1879 and 2006 SP.png|thumb|200px|Chile''s territorial gains after the
+        [[War of the Pacific]] (1879\u201383)]]\nToward the end of the 19th century,
+        the government in Santiago consolidated its position in the south by the [[Occupation
+        of Araucan\u00eda]]. The [[Boundary treaty of 1881 between Chile and Argentina]]
+        confirmed Chilean sovereignty over the Strait of Magellan. As a result of
+        the [[War of the Pacific]] with Peru and Bolivia (1879\u201383), Chile expanded
+        its territory northward by almost one-third, eliminating Bolivia''s access
+        to the Pacific, and acquired valuable [[Caliche (mineral)#Chilean caliche|nitrate]]
+        deposits, the exploitation of which led to an era of national affluence. Chile
+        had joined the stand as one of the high-income countries in South America
+        by 1870.<ref>{{cite book|author=Baten, J\u00f6rg |title=A History of the Global
+        Economy. From 1500 to the Present.|date=2016|publisher=Cambridge University
+        Press|page=137|isbn=9781107507180}}</ref>\n\nThe [[1891 Chilean Civil War]]
+        brought about a redistribution of power between the President and Congress,
+        and Chile established a parliamentary style democracy. However, the Civil
+        War had also been a contest between those who favored the development of local
+        industries and powerful Chilean banking interests, particularly the House
+        of Edwards who had strong ties to foreign investors. Soon after, the country
+        engaged in a [[Argentine\u2013Chilean naval arms race|vastly expensive naval
+        arms race]] with Argentina that nearly led to a war.\n\n===20th century===\n{{see
+        also|South American dreadnought race}}\nThe Chilean economy partially degenerated
+        into a system protecting the interests of a ruling [[oligarchy]]. By the 1920s,
+        the emerging middle and working classes were powerful enough to elect a reformist
+        president, [[Arturo Alessandri]], whose program was frustrated by a conservative
+        congress. In the 1920s, [[Marxism|Marxist]] groups with strong popular support
+        arose.<ref name=\"countrystudies\"/>\n\nA military coup led by General [[Luis
+        Altamirano]] in 1924 set off a period of political instability that lasted
+        until 1932. Of the ten governments that held power in that period, the longest
+        lasting was that of General [[Carlos Ib\u00e1\u00f1ez del Campo]], who briefly
+        held power in 1925 and then again between 1927 and 1931 in what was a de facto
+        dictatorship (although not really comparable in harshness or corruption to
+        the type of military dictatorship that has often bedeviled the rest of Latin
+        America).<ref>{{Cite book|title=Authoritarianism in Latin America since independence|last=Fowler|first=Will|year=1996|publisher=Geenwood
+        Press|location=University of Virginia|isbn=0-313-29843-2|pages=30\u201396}}</ref><ref>{{cite
+        book|last=Frazier|first=Lessie Jo |title=Salt in the Sand: Memory, Violence,
+        and the Nation-State in Chile, 1890 to the Present|url=https://books.google.com/books?id=gQU-GYGeVSEC&pg=PA163|accessdate=14
+        July 2013|date=17 July 2007|publisher=Duke University Press|isbn=978-0-8223-4003-4|pages=163\u2013184}}</ref>\n\nBy
+        relinquishing power to a democratically elected successor, Ib\u00e1\u00f1ez
+        del Campo retained the respect of a large enough segment of the population
+        to remain a viable politician for more than thirty years, in spite of the
+        vague and shifting nature of his ideology. When constitutional rule was restored
+        in 1932, a strong middle-class party, the Radicals, emerged. It became the
+        key force in coalition governments for the next 20 years. During the period
+        of [[Radical Party (Chile)|Radical Party]] dominance (1932\u201352), the state
+        increased its role in the economy. In 1952, voters returned Ib\u00e1\u00f1ez
+        del Campo to office for another six years. [[Jorge Alessandri]] succeeded
+        Ib\u00e1\u00f1ez del Campo in 1958, bringing Chilean conservatism back into
+        power democratically for another term.\n\nThe [[Chilean presidential election,
+        1964|1964 presidential election]] of [[Christian Democrat Party of Chile|Christian
+        Democrat]] [[Eduardo Frei Montalva]] by an [[absolute majority]] initiated
+        a period of major reform. Under the slogan \"Revolution in Liberty\", the
+        Frei administration embarked on far-reaching social and economic programs,
+        particularly in education, housing, and [[agrarian reform]], including rural
+        unionization of agricultural workers. By 1967, however, Frei encountered increasing
+        opposition from leftists, who charged that his reforms were inadequate, and
+        from conservatives, who found them excessive. At the end of his term, Frei
+        had not fully achieved his party''s ambitious goals.<ref name=\"countrystudies\">{{cite
+        web|url=http://countrystudies.us/chile/85.htm|title=Development and Breakdown
+        of Democracy, 1830\u20131973|work=Country Studies|publisher=Library of Congress|date=31
+        March 1994}}</ref>\n[[File:S.Allende 7 dias ilustrados.JPG|thumb|upright|President
+        [[Salvador Allende]]]]\nIn the 1970 election, Senator [[Salvador Allende]]
+        of the [[Socialist Party of Chile]] (then part of the \"[[Popular Unity (Chile)|Popular
+        Unity]]\" coalition which included the Communists, Radicals, Social-Democrats,
+        dissident Christian Democrats, the Popular Unitary Action Movement, and the
+        Independent Popular Action),<ref name=\"countrystudies\"/> achieved a partial
+        majority in a [[plurality (voting)|plurality]] of votes in a three-way contest,
+        followed by candidates Radomiro Tomic for the Christian Democrat Party and
+        Jorge Alessandri for the Conservative Party. Allende was not elected with
+        an absolute majority, receiving fewer than 35 percent of votes.\n\nThe [[National
+        Congress of Chile|Chilean Congress]] conducted a runoff vote between the leading
+        candidates, Allende and former president Jorge Alessandri, and, keeping with
+        tradition, chose Allende by a vote of 153 to 35. Frei refused to form an alliance
+        with Alessandri to oppose Allende, on the grounds that the Christian Democrats
+        were a workers'' party and could not make common cause with the right wing.<ref>{{Cite
+        book|last= Mares|first=David|author2=Francisco Rojas Aravena|title=The United
+        States and Chile: Coming in from the Cold|url=https://books.google.com/books?id=0Y3EWkKZsYcC&pg=PA145|accessdate=14
+        July 2013|year=2001|publisher=Routledge|isbn=978-0-415-93125-0|page=145}}</ref><ref>{{cite
+        book|last=Trento|first=Joseph J.|title=The Secret History Of The CIA|url=https://books.google.com/books?id=3uPBM7z_62gC&pg=PA560|accessdate=14
+        July 2013|year=2005|publisher=Carroll & Graf Publishers|isbn=978-0-7867-1500-8|page=560}}</ref>\n\nAn
+        [[economic depression]] that began in 1972 was exacerbated by [[capital flight]],
+        plummeting private investment, and withdrawal of bank deposits in response
+        to Allende''s socialist program. Production fell and unemployment rose. Allende
+        adopted measures including price freezes, wage increases, and tax reforms,
+        to increase consumer spending and redistribute income downward.<ref>{{cite
+        book|author=Lois Hecht Oppenheim|title=Politics in Chile: Socialism, Authoritarianism,
+        and Market Democracy|url=https://books.google.com/books?id=99ZLX52z_noC&pg=PA52|accessdate=14
+        July 2013|year=2007|publisher=Westview Press|isbn=978-0-7867-3426-9|page=52}}</ref>
+        Joint public-private [[public works]] projects helped reduce unemployment.<ref
+        name=\"De Vylder\">{{cite book|last=De Vylder|first=Stefan|title=Allende''s
+        Chile: The Political Economy of the Rise and Fall of the Unidad Popular|date=5
+        March 2009|publisher=Cambridge University Press|isbn=978-0-521-10757-0}}</ref>{{Page
+        needed|date=September 2010}} Much of the banking sector was [[nationalization|nationalized]].
+        Many enterprises within the [[Copper#Production|copper]], coal, iron, [[Caliche
+        (mineral)#Chilean caliche|nitrate]], and steel industries were [[Nationalization|expropriated]],
+        nationalized, or subjected to state intervention. Industrial output increased
+        sharply and unemployment fell during the Allende administration''s first year.<ref
+        name=\"De Vylder\"/>\n\nAllende''s program included advancement of workers''
+        interests,<ref name=\"De Vylder\"/><ref>{{cite web|url=http://grace.evergreen.edu/~arunc/texts/chile/torre/Allende.html|archiveurl=https://web.archive.org/web/20080107150857/http://grace.evergreen.edu/~arunc/texts/chile/torre/Allende.html|archivedate=7
+        January 2008 |title=Allende wins the elections: first coup attempt |publisher=Grace.evergreen.edu
+        |accessdate=17 December 2009}}</ref> replacing the judicial system with \"socialist
+        legality\",<ref name=friedman368>{{cite book|last=Friedman|first=Norman|title=The
+        Fifty-Year War: Conflict and Strategy in the Cold War|url=https://books.google.com/books?id=0CIXLdxhQMAC&pg=PA367|accessdate=14
+        July 2013|date=1 March 2007|publisher=Naval Institute Press|isbn=978-1-59114-287-4|pages=367\u2013368}}</ref>
+        nationalization of banks and forcing others to bankruptcy,<ref name=friedman368/>
+        and strengthening \"popular militias\" known as MIR.<ref name=friedman368/>
+        Started under former President Frei, the Popular Unity platform also called
+        for nationalization of Chile''s major copper mines in the form of a constitutional
+        amendment. The measure was passed unanimously by Congress.\n\nAs a result,<ref>{{cite
+        book|last=Qureshi|first=Lubna Z. |title=Nixon, Kissinger, and Allende: U.S.
+        Involvement in the 1973 Coup in Chile|url=https://books.google.com/books?id=alISgQdNY4kC&pg=PA86|accessdate=14
+        July 2013|year=2009|publisher=Lexington Books|isbn=978-0-7391-2655-4|pages=86\u201397}}</ref>
+        the [[Richard Nixon]] administration [[United States intervention in Chile|organized
+        and inserted secret operatives]] in Chile, in order to swiftly destabilize
+        Allende\u2019s government.<ref>{{cite web | title = Report on CIA Chilean
+        Task Force activities | work = Chile and the United States: Declassified Documents
+        relating to the Military Coup, 1970\u20131976 | publisher = The National Security
+        Archive: Electronic Briefing Books (George Washington University) | url =
+        http://www.gwu.edu/~nsarchiv/NSAEBB/NSAEBB8/ch01-01.htm | accessdate =11 March
+        2010 }}</ref> In addition, US financial pressure restricted international
+        economic credit to Chile.<ref name=\"fas.org\">{{cite web|url=https://fas.org/irp/ops/policy/church-chile.htm
+        |title=Covert Action In Chile 1963\u20131973, Staff Report Of The Select Committee
+        To Study Governmental Operations With Respect To Intelligence Activities |publisher=Federation
+        of American Scientists |accessdate=17 December 2009}}</ref>\n\nThe economic
+        problems were also exacerbated by Allende''s public spending which was financed
+        mostly by printing money and poor credit ratings given by commercial banks.<ref>{{Cite
+        news|url=http://www.time.com/time/magazine/article/0,9171,879153,00.html|title=Tightening
+        the Belt|work=Time Magazine|date = 7 August 1972 }}</ref>\nSimultaneously,
+        opposition media, politicians, business guilds and other organizations helped
+        to accelerate a campaign of domestic political and economical destabilization,
+        some of which was backed by the United States.<ref name=\"fas.org\"/><ref>{{cite
+        web|url=http://www.derechos.org/nizkor/chile/doc/hinchey.html |title=Equipo
+        Nizkor \u2013 CIA Activities in Chile \u2013 September 18, 2000 |publisher=Derechos.org
+        |accessdate=17 December 2009}}</ref> By early 1973, inflation was out of control.
+        The crippled economy was further battered by prolonged and sometimes simultaneous
+        strikes by physicians, teachers, students, truck owners, copper workers, and
+        the small business class.\nOn 26 May 1973, Chile\u2019s Supreme Court, which
+        was opposed to Allende''s government, unanimously denounced the Allende ''''disruption
+        of the legality of the nation''''. Although illegal under the Chilean constitution,
+        the court supported and strengthened Pinochet''s soon-to-be seizure of power.<ref
+        name=friedman368/><ref>{{cite web |url=http://www.law.yale.edu/documents/pdf/rightdegree_independence(5).pdf
+        |title=Transition to Democracy in Latin America: The Role of the judiciary
+        |publisher=Yale University |deadurl=yes |archiveurl=https://web.archive.org/web/20130819213445/http://www.law.yale.edu/documents/pdf/rightdegree_independence%285%29.pdf
+        |archivedate=19 August 2013 |df=dmy }}</ref>\n\n====Pinochet era (1973\u20131990)====\n{{Main
+        article|Military government of Chile (1973\u201390)}}\n[[File:Golpe de Estado
+        1973.jpg|thumb|Fighter jets bombing the Presidential Palace (''''La Moneda'''')
+        in Santiago during the [[Chilean coup of 1973]]]]\n[[File:Augusto Pinochet
+        1986.jpg|thumb|[[Augusto Pinochet]]''s authoritarian military government ruled
+        Chile between 1973 and 1990.]]\nA [[Chilean coup of 1973|military coup]] overthrew
+        Allende on 11 September 1973. As the armed forces bombarded the [[La Moneda
+        Palace|presidential palace]], Allende apparently committed suicide.<ref>{{Cite
+        book|first=\u00d3scar|last=Soto|title=El \u00faltimo d\u00eda de Salvador
+        Allende|year=1999|publisher=Aguilar|isbn=978-956-239-084-2}}</ref>{{page needed|date=July
+        2013}}<ref>{{Cite book|first=Eugeno|last=Ahumada|title=Chile: La memoria prohibida}}</ref>{{page
+        needed|date=July 2013}} After the coup, [[Henry Kissinger]] told U.S. president
+        [[Richard Nixon]] that the United States had \"helped\" the coup.<ref>{{cite
+        web|url=http://www2.gwu.edu/~nsarchiv/NSAEBB/NSAEBB437/ |title=KISSINGER AND
+        CHILE: THE DECLASSIFIED RECORD |publisher=The national security archive |date=16
+        September 2013|accessdate=16 September 2013}}</ref>\n\nA military junta, led
+        by General [[Augusto Pinochet]], took control of the country. The first years
+        of the regime were marked by [[Human rights violations in Pinochet''s Chile|human
+        rights violation]]s. On October 1973, at least 72 people were murdered by
+        the [[Caravan of Death]].<ref>{{Cite news|url=http://news.bbc.co.uk/2/hi/americas/850932.stm|title=Flashback:
+        Caravan of Death|publisher=BBC | date=25 July 2000}}</ref> According to the
+        [[Rettig Report]] and [[Valech Commission]], at least 2,115 were killed,<ref>{{cite
+        web |author=Ministerio del Interior |url=http://www.ddhh.gov.cl/ddhh_rettig.html
+        |title=Ministerio del Interior, Programa de Derechos Humanos \u2013 ddhh_rettig
+        |publisher=Ddhh.gov.cl |date=3 August 1999 |accessdate=17 December 2009 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20091223174254/http://www.ddhh.gov.cl/ddhh_rettig.html
+        |archivedate=23 December 2009 |df=dmy-all }}</ref> and at least 27,265<ref
+        name=sintesis>{{cite web|url=http://www.comisionprisionpoliticaytortura.cl/filesapp/Sintesis.pdf
+        |title=Sintesis Ok |format=PDF |accessdate=17 December 2009 |deadurl=yes |archiveurl=https://web.archive.org/web/20070727031254/http://www.comisionprisionpoliticaytortura.cl/filesapp/Sintesis.pdf
+        |archivedate=27 July 2007 }}</ref> were tortured (including 88 children younger
+        than 12 years old).<ref name=sintesis/> In 2011, Chile recognized an additional
+        9,800 victims, bringing the total number of killed, tortured or imprisoned
+        for political reasons to 40,018.<ref>Eva Vergara (August 18, 2015). [http://www.huffingtonpost.com/2011/08/18/chile-recognizes-9800-more-pinochet-victims_n_930754.html
+        Chile Recognizes 9,800 More Pinochet Victims]. ''''The Associated Press''''
+        via ''''The Huffington Post.'''' Retrieved August 25, 2015.</ref> At the national
+        stadium, filled with detainees, one of those tortured and killed was internationally
+        known poet-singer [[Victor Jara]] (see \"Music and Dance\", below). The stadium
+        was renamed for Jara in 2003.\n\nA new Constitution was approved by a controversial
+        [[plebiscite]] on 11 September 1980, and General Pinochet became president
+        of the republic for an eight-year term. After Pinochet obtained rule of the
+        country, several hundred committed Chilean revolutionaries joined the [[Sandinista]]
+        army in [[Nicaragua]], guerrilla forces in [[Argentina]] or training camps
+        in [[Cuba]], Eastern Europe and Northern Africa.<ref>{{cite book|author1=Pamela
+        Constable|author2=Arturo Valenzuela|title=A Nation of Enemies: Chile Under
+        Pinochet|year=1993|publisher=W W Norton & Company Incorporated|isbn=978-0-393-30985-0|page=150}}</ref>\n\nIn
+        the late 1980s, largely as a result of events such as the 1982 economic collapse<ref>{{cite
+        book|author=Naomi Klein|title=The Shock Doctrine: The Rise of Disaster Capitalism|url=https://books.google.com/books?id=PwHUAq5LPOQC&pg=PA85|accessdate=14
+        July 2013|date=1 April 2010|publisher=Henry Holt and Company (2007)|isbn=978-1-4299-1948-7|page=85}}</ref>
+        and mass [[civil resistance]] in 1983\u201388, the government gradually permitted
+        greater freedom of assembly, [[Freedom of speech|speech]], and association,
+        to include trade union and political activity.<ref>{{cite book|last= Huneeus|first=Carlos|editor=Adam
+        Roberts; Timothy Garton Ash|title=Civil Resistance and Power Politics:The
+        Experience of Non-violent Action from Gandhi to the Present|url=https://books.google.com/books?id=zD_S8Y2WbRsC&pg=PT168|accessdate=14
+        July 2013|date=3 September 2009|publisher=Oxford University Press|isbn=978-0-19-161917-5|pages=197\u2013212|chapter=Political
+        Mass Mobilization against Authoritarian Rule: Pinochet\u2019s Chile, 1983\u201388}}</ref>
+        The government launched market-oriented reforms with [[Hern\u00e1n B\u00fcchi]]
+        as Minister of Finance. Chile moved toward a [[free market economy]] that
+        saw an increase in domestic and foreign private investment, although the [[Copper#Production|copper]]
+        industry and other important mineral resources were not opened for competition.
+        In a [[Chilean national plebiscite, 1988|plebiscite]] on 5 October 1988, Pinochet
+        was denied a second eight-year term as president (56% against 44%). Chileans
+        elected a new president and the majority of members of a [[Bicameralism|bicameral]]
+        congress on 14 December 1989. Christian Democrat [[Patricio Aylwin]], the
+        candidate of a coalition of 17 political parties called the ''''[[Coalition
+        of Parties for Democracy|Concertaci\u00f3n]]'''', received an absolute majority
+        of votes (55%).<ref>{{Cite news|url=https://query.nytimes.com/gst/fullpage.html?res=950DE6DD1E3BF935A25751C1A96F948260|title=Man
+        in the News: Patricio Aylwin; A Moderate Leads Chile|work=The New York Times
+        | first=Shirley | last=Christian | date=16 December 1989}}</ref> President
+        Aylwin served from 1990 to 1994, in what was considered a transition period.\n\nIn
+        December 1993, Christian Democrat [[Eduardo Frei Ruiz-Tagle]], the son of
+        previous president Eduardo Frei Montalva, led the Concertaci\u00f3n coalition
+        to victory with an absolute majority of votes (58%).<ref>{{cite web|url=http://www.encyclopedia.com/doc/1P2-8257609.html|archiveurl=https://web.archive.org/web/20080526090105/http://www.encyclopedia.com/doc/1P2-8257609.html|archivedate=26
+        May 2008 |title=Chile elects new leader Late president''s son wins big |publisher=Encyclopedia.com
+        |date=12 December 1993 |accessdate=14 July 2013}}</ref>\n\n===21st century===\n{{See
+        also|2010 Chile earthquake|2011\u20132012 Chilean protests}}\n\n[[File:Izamiento
+        de la Gran Bandera Nacional - Presidentes de Chile.jpg|thumb|Five presidents
+        of Chile since [[Transition to democracy]] (1990\u20132018), celebrating the
+        [[Bicentennial of Chile]]|260x260px]]\nFrei Ruiz-Tagle was succeeded in 2000
+        by Socialist [[Ricardo Lagos]], who won the presidency in an unprecedented
+        [[Chilean presidential election, 1999\u20132000|runoff election]] against
+        [[Joaqu\u00edn Lav\u00edn]] of the rightist [[Alliance for Chile]].<ref>{{Cite
+        news|url=http://archives.cnn.com/2000/WORLD/americas/01/17/chile.elex.01/
+        |title=Moderate socialist Lagos wins Chilean presidential election |publisher=CNN
+        |date=16 January 2000 |archiveurl=https://web.archive.org/web/20080506162601/http://archives.cnn.com/2000/WORLD/americas/01/17/chile.elex.01/
+        |archivedate=6 May 2008 |deadurl=no |df=dmy }}</ref> In January 2006, Chileans
+        elected their first female president, [[Michelle Bachelet Jeria]], of the
+        Socialist Party, defeating [[Sebasti\u00e1n Pi\u00f1era]], of the [[National
+        Renewal (Chile)|National Renewal]] party, extending the ''''Concertaci\u00f3n''''
+        governance for another four years.<ref>{{cite web|url=http://www.msnbc.msn.com/id/10819903/|title=Chile
+        elects first woman president|publisher=MSNBC}}</ref><ref>{{Cite news|url=https://www.washingtonpost.com/wp-dyn/content/article/2006/03/11/AR2006031101381.html|title=Bachelet
+        Sworn In As Chile''s President|work=The Washington Post | first=Monte | last=Reel
+        | date=12 March 2006}}</ref> In January 2010, Chileans [[Chilean presidential
+        election, 2009-2010|elected]] [[Sebasti\u00e1n Pi\u00f1era]] as the first
+        rightist President in 20 years, defeating former President [[Eduardo Frei
+        Ruiz-Tagle]] of the ''''Concertaci\u00f3n'''', for a four-year term succeeding
+        Bachelet. Due to term limits, [[Sebasti\u00e1n Pi\u00f1era]] did not stand
+        for re-election in 2013, and his term expired in March 2014 resulting in [[Michelle
+        Bachelet]] returning to office.\n\nOn 27 February 2010, Chile was struck by
+        an 8.8 M<sub>W</sub> [[2010 Chile earthquake|earthquake]], the fifth largest
+        ever recorded at the time. More than 500 people died (most from the ensuing
+        [[tsunami]]) and over a million people lost their homes. The earthquake was
+        also followed by multiple aftershocks.<ref>{{cite web|url=http://www.australia-times.com.au/world/article.php?id=501|title=US
+        ready to help Chile: Obama|publisher=The Australia Times|accessdate=3 March
+        2010}}</ref> Initial damage estimates were in the range of US$15\u201330 billion,
+        around 10 to 15 percent of Chile''s real gross domestic product.<ref>[http://www.contractmagazine.com/contract/content_display/design/news/e3i128fcc3d3e64156a013dfae605b73a5b
+        More Quakes Shake Chile\u2019s Infrastructure], Adam Figman, ''''Contract
+        Magazine'''', 1 March 2010 {{webarchive |url=https://web.archive.org/web/20141114030306/http://www.contractmagazine.com/contract/content_display/design/news/e3i128fcc3d3e64156a013dfae605b73a5b
+        |date=14 November 2014 }}</ref>\n\nChile achieved global recognition for the
+        successful [[2010 Copiap\u00f3 mining accident|rescue of 33 trapped miners]]
+        in 2010. On 5 August 2010 the access tunnel collapsed at the San Jos\u00e9
+        copper and gold mine in the [[Atacama Desert]] near [[Copiap\u00f3]] in northern
+        Chile, trapping 33 men {{convert|700|m}} below ground. A rescue effort organized
+        by the Chilean government located the miners 17 days later. All 33 men were
+        brought to the surface two months later on 13 October 2010 over a period of
+        almost 24 hours, an effort that was carried on live television around the
+        world.<ref name=\"usstatedep\">{{cite web|url=https://www.state.gov/r/pa/ei/bgn/1981.htm|title=Background
+        Note: Chile|work=[[Bureau of Western Hemisphere Affairs]], [[United States
+        Department of State]]|date=16 December 2011|accessdate=19 March 2012}}</ref>\n\n==Geography,
+        climate, and environment==\n{{Main article|Geography of Chile}}\n{{See also|Natural
+        regions of Chile}}\n{{See also|Environmental issues in Chile}}\n\nA long and
+        narrow coastal [[Southern Cone]] country on the west side of the [[Andes Mountains]],
+        Chile stretches over {{convert|4300|km|-1|abbr=on}} north to south, but only
+        {{convert|350|km|0|abbr=on}} at its widest point east to west.<ref>{{cite
+        web|url=http://www.britannica.com/EBchecked/topic/111326/Chile |title=Chile
+        |publisher=Encyclop\u00e6dia Britannica |accessdate=7 May 2013}}</ref> This
+        encompasses a remarkable variety of climates and landscapes. It contains {{convert|756950|km2}}
+        of land area. It is situated within the [[Pacific Ring of Fire]]. Excluding
+        its Pacific islands and Antarctic claim, Chile lies between latitudes [[17th
+        parallel south|17\u00b0]] and [[56th parallel south|56\u00b0S]], and longitudes
+        [[66th meridian west|66\u00b0]] and [[75th meridian west|75\u00b0W]].\n\nChile
+        is among the longest north-south countries in the world. If one considers
+        only mainland territory, Chile is unique within this group in its narrowness
+        from east to west, with the other long north-south countries (including [[Brazil]],
+        [[Russia]], [[Canada]], and the United States, among others) all being wider
+        from east to west by a factor of more than 10. Chile also claims {{convert|1250000|km2|abbr=on}}
+        of [[Antarctica]] as part of its territory ([[Chilean Antarctic Territory]]).
+        However, this latter claim is suspended under the terms of the [[Antarctic
+        Treaty]], of which Chile is a signatory.<ref>{{cite web|title=Antarctic Treaty:
+        Information about the Antarctic Treaty and how Antarctica is governed. |work=Polar
+        Conservation Organisation |publisher=Polar Conservation Organisation |date=1
+        February 2008 |url=http://www.polarconservation.org/education/plonearticle.2005-12-28.3597747204/
+        |accessdate=11 March 2010 |deadurl=yes |archiveurl=https://web.archive.org/web/20100210224459/http://www.polarconservation.org/education/plonearticle.2005-12-28.3597747204
+        |archivedate=10 February 2010 }}</ref> It is the world''s southernmost country
+        that is geographically on the mainland.<ref>{{cite book|last1=Collin|first1=Robert|title=Trash
+        Talk: An Encyclopedia of Garbage and Recycling around the World|date=2015|page=121}}</ref>\n\nChile
+        controls [[Easter Island]] and [[Sala y G\u00f3mez]] Island, the easternmost
+        islands of Polynesia, which it incorporated to its territory in 1888, and
+        [[Robinson Crusoe Island]], more than {{convert|600|km|abbr=on}} from the
+        mainland, in the [[Juan Fern\u00e1ndez Islands]]. Also controlled but only
+        temporarily inhabited (by some local fishermen) are the small islands of San
+        Ambrosio and San Felix. These islands are notable because they extend Chile''s
+        claim to territorial waters out from its coast into the [[Pacific Ocean]].<ref>{{cite
+        book|last=Blanco|first=Alejandro Vergara |title=Derecho de aguas|url=https://books.google.com/books?id=4o3G0FyArtAC|accessdate=14
+        July 2013|year=1998|publisher=Editorial Jur\u00eddica de Chile|isbn=978-956-10-1241-7}}</ref>\n\nThe
+        northern [[Atacama Desert]] contains great mineral wealth, primarily [[Copper#Production|copper]]
+        and [[Caliche (mineral)#Chilean caliche|nitrate]]s. The relatively small Central
+        Valley, which includes Santiago, dominates the country in terms of population
+        and agricultural resources. This area is also the historical center from which
+        Chile expanded in the late 19th century, when it integrated the northern and
+        southern regions. Southern Chile is rich in forests, grazing lands, and features
+        a string of volcanoes and lakes. The southern coast is a labyrinth of fjords,
+        inlets, canals, twisting peninsulas, and islands. The Andes Mountains are
+        located on the eastern border.\n\n<gallery mode=packed heights=135 style=\"font-size:88%;line-height:120%\">\nMiscanti
+        Lagoon near San Pedro de Atacama Chile Luca Galuzzi 2006.jpg|[[Norte Grande]]\nValle
+        de Elqui1.jpg|[[Norte Chico, Chile|Norte Chico]]\nVi\u00f1edo Puente Alto.jpg|[[Central
+        Chile|Centro]]\nSalto de la Leona.jpg|[[Zona Sur|Sur]]\nTorres del Paine -
+        Flickr - Alanbritom.jpg|[[Zona Austral|Austral]]\n</gallery>\n\n===Climate===\n{{Main
+        article|Climate of Chile}}\n[[File:Chile map of K\u00f6ppen climate classification.svg|thumb|200px|Chile
+        map of K\u00f6ppen climate classification.]]\n[[File:Admiring the Galaxy.jpg|thumb|left|With
+        more than 300 clear nights each year, [[La Silla Observatory|La Silla]] is
+        in an ideal position to house advanced observational instruments]]\n\nThe
+        diverse [[climate of Chile]] ranges from the world''s driest desert in the
+        north\u2014the [[Atacama Desert]]\u2014through a [[Mediterranean climate]]
+        in the center, [[humid subtropical]] in Easter Island, to an [[oceanic climate]],
+        including [[alpine tundra]] and [[glaciers]] in the east and south.<ref name=\"BBC-Chile\">{{Cite
+        news|url=http://news.bbc.co.uk/2/hi/americas/country_profiles/1222764.stm|title=Country
+        profile: Chile |work=BBC News | date=16 December 2009 | accessdate=31 December
+        2009}}</ref> According to the [[K\u00f6ppen climate classification|K\u00f6ppen
+        system]], Chile within its borders hosts at least ten major climatic subtypes.
+        There are four seasons in most of the country: summer (December to February),
+        autumn (March to May), winter (June to August), and spring (September to November).\n\n===Biodiversity===\n{{main
+        article|Wildlife of Chile}}\n[[File:Cuernos del Paine from Lake Peho\u00e9.jpg|thumb|right|Torres
+        del Paine from Lake Peho\u00e9, Torres del Paine National Park, Chile]]\n\nThe
+        flora and fauna of Chile are characterized by a high degree of endemism, due
+        to its particular geography. In continental Chile, the [[Atacama Desert]]
+        in the north and the [[Andes Mountains|Andes mountains]] to the east are barriers
+        that have led to the isolation of flora and fauna. Add to that the enormous
+        length of Chile (over {{convert|4300|km|0|abbr=on}}) and this results in a
+        wide range of climates and environments that can be divided into three general
+        zones: the desert provinces of the north, central Chile, and the humid regions
+        of the south.\n\n===Flora===\n[[File:Araucaria araucana - Parque Nacional
+        Conguill\u00edo por lautaroj - 001.jpg|thumb|left|[[Araucaria araucana]] trees
+        in [[Conguill\u00edo National Park]]]]\nThe native flora of Chile consists
+        of relatively fewer species compared to the flora of other South American
+        countries. \nThe northernmost coastal and central region is largely barren
+        of vegetation, approaching the most absolute desert in the world.<ref name=Icarito>{{Cite
+        journal |author-link=La Tercera/Icarito |title=Icarito: Enciclopedia de la
+        flora y fauna de Chile |journal=Icarito |url=http://www.icarito.cl/icarito/enciclopedia/canal/canal/0,0,38035857_152308989,00.html
+        |id= |postscript=<!--None--> |deadurl=yes |archiveurl=https://web.archive.org/web/20060410080253/http://www.icarito.cl/icarito/enciclopedia/canal/canal/0%2C0%2C38035857_152308989%2C00.html
+        |archivedate=10 April 2006 |df=dmy-all }}</ref>\nOn the slopes of the Andes,
+        in addition to the scattered tola desert brush, grasses are found. The central
+        valley is characterized by several species of cacti, the hardy [[Acacia caven|espinos]],
+        the [[Araucaria araucana|Chilean pine]], the [[nothofagus|southern beeches]]
+        and the [[copihue]], a red bell-shaped flower that is Chile''s national flower.<ref
+        name= Icarito/>\n[[File:Lapageria rosea1.jpg|thumb|upright|[[Copihue]] in
+        flower]]\n\nIn southern Chile, south of the Biob\u00edo River, heavy precipitation
+        has produced dense forests of laurels, magnolias, and various species of conifers
+        and beeches, which become smaller and more stunted to the south.\n<ref name=\"Bio&Con\">{{Cite
+        journal | last = Smith-Ram\u00edrez | first = Cecilia | title = Distribution
+        patterns of flora and fauna in southern Chilean Coastal rain forests: Integrating
+        Natural History and GIS | journal = Biodiversity and Conservation | issue
+        = Volume 16, Number 9 / August 2007 | publisher = Springer Netherlands | date
+        = 27 October 2006 | doi = 10.1007/s10531-006-9073-2 }}</ref>\nThe cold temperatures
+        and winds of the extreme south preclude heavy forestation. Grassland is found
+        in Atlantic Chile (in Patagonia). Much of the Chilean flora is distinct from
+        that of neighboring Argentina, indicating that the Andean barrier existed
+        during its formation.<ref name=\"Bio&Con\"/>\n\nSome of Chile''s flora has
+        an Antarctic origin due to [[land bridge]]s which formed during the Cretaceous
+        ice ages, allowing plants to migrate from Antarctica to South America.<ref>[https://www.scientificamerican.com/article/chilean-and-antarctic-fossils-reveal-the-last-geologic-minutes-of-the-age-of-dinosaurs-slide-show/
+        Chilean and Antarctic Fossils Reveal the Last \"Geologic Minutes\" of the
+        Age of Dinosaurs]</ref>\n\nJust over 3,000 species of fungi are recorded in
+        Chile,<ref>Oehrens, E.B. \"Flora Fungosa Chilena\". Universidad de Chile,
+        Santiago de Chile, 1980</ref><ref>{{cite web|url=http://www.cybertruffle.org.uk/robigalia/eng/index.htm
+        |title=Cybertruffle''s Robigalia \u2013 Observations of fungi and their associated
+        organisms |publisher=cybertruffle.org.uk |accessdate=9 July 2011}}</ref> but
+        this number is far from complete. The true total number of fungal species
+        occurring in Chile is likely to be far higher, given the generally accepted
+        estimate that only about 7 percent of all fungi worldwide have so far been
+        discovered.<ref>Kirk, P.M., Cannon, P.F., Minter, D.W. and Stalpers, J. \"Dictionary
+        of the Fungi\". Edn 10. CABI, 2008</ref> Although the amount of available
+        information is still very small, a first effort has been made to estimate
+        the number of fungal species endemic to Chile, and 1995 species have been
+        tentatively identified as possible endemics of the country.<ref>{{cite web|url=http://www.cybertruffle.org.uk/chilfung/eng/endelist.htm
+        |title=Fungi of Chile \u2013 potential endemics |publisher=cybertruffle.org.uk
+        |accessdate=9 July 2011}}</ref>\n\n===Fauna===\n\nChile''s geographical isolation
+        has restricted the immigration of faunal life, so that only a few of the many
+        distinctive South American animals are found. Among the larger mammals are
+        the [[Cougar|puma]] or cougar, the llama-like [[guanaco]] and the fox-like
+        [[South American gray fox|chilla]]. In the forest region, several types of
+        marsupials and a small deer known as the [[Pud\u00fa|pudu]] are found.<ref
+        name= Icarito/>\n\nThere are many species of small birds, but most of the
+        larger common Latin American types are absent. Few freshwater fish are native,
+        but North American trout have been successfully introduced into the Andean
+        lakes.<ref name= Icarito/> Owing to the vicinity of the Humboldt Current,
+        ocean waters abound with fish and other forms of marine life, which in turn
+        support a rich variety of waterfowl, including several penguins. Whales are
+        abundant, and some six species of seals are found in the area.<ref name= Icarito/>\n\n<gallery
+        mode=packed heights=135 style=\"font-size:88%;line-height:120%\">\nFile:Cougar
+        (7062752887).jpg|[[Puma concolor|Puma]]\nFile:Sephanoides fernandensis.jpg|[[Juan
+        Fern\u00e1ndez firecrown]]\nFile:Guanacos, Parque Nacional Torres del Paine,
+        Chile3.jpg|[[Guanaco]]\nFile:Culpeo MC.jpg|[[Culpeo]]\nFile:Poudou IMG 4339.JPG|[[Pud\u00fa]]\nFile:Condor
+        des Andes m\u00e2le adulte.jpg|[[Andean condor]]\nFile:Huemul verdadero.JPG|[[Huemul]]\nFile:Emperor-atka4
+        hg.jpg|[[Emperor penguin]]s\n</gallery>\n\n===Topography===\nChile is located
+        along a highly [[seismic]] and [[volcanic]] zone, part of the Pacific Ring
+        of Fire, due to the subduction of the Nazca and Antarctic plates in the [[South
+        American plate]].\n\n[[File:Chile topo en.jpg|thumb|upright|left|Topographic
+        map of Chile. To view maps based on [[SRTM]] topographic relief of the country,
+        see [[:commons:Atlas of Chile/Clickable map|here]].]]\n\n[[File:Ojos del Salado
+        summit.jpg|thumbnail|[[Ojos del Salado|Nevado Ojos del Salado]]: View from
+        the top Chilean Argentine side.]]\n[[File:Salar de Atacama.jpg|thumbnail|The
+        [[Atacama Desert|Atacama]] [[Dry lake]], in Chile. At the horizon, the [[Licancabur]]
+        volcano.]]\n[[File:Lago Conguillio.jpg|thumbnail|Conguill\u00edo National
+        Park, south-central area of the country.]]\n[[File:BeagleChannelGlacier.jpg|thumbnail|A
+        glacier at the Beagle Channel]]\n\nLate [[Paleozoic]], 251 million years ago,
+        Chile belonged to the continental block called Gondwana. It was just a depression
+        accumulated marine sediments began to rise at the end of the Mesozoic, 66
+        million years ago, due to the collision between the Nazca and South American
+        plates, resulting in the Andes. The territory would be shaped by millions
+        of years due to the folding of the rocks, forming the current relief.\n\nThe
+        Chilean relief consists of the central depression, which crosses the country
+        longitudinally, flanked by two mountain ranges that make up about 80% of the
+        territory: the Andes mountains to the east-natural border with [[Bolivia]]
+        and [[Argentina]], with its most alton 18 located on the [[Nevado Ojos del
+        Salado]], at 6891.3 m, the highest volcano in the world, in the [[Atacama
+        Region|region of Atacama]] and Coastal Range west-minor height from the Andes,
+        with its highest point located on the hill Vicu\u00f1a Mackenna, at 3114 meters,
+        located in the Sierra Vicu\u00f1a Mackenna, the south of [[Antofagasta Region|Antofagasta]].
+        Among the coastal mountains and the Pacific is a series of coastal plains,
+        of variable length, which allow the settlement of coastal towns and big ports.
+        Some areas of the plains territories encompass territory east of the Andes,
+        and the Patagonian steppes and Magellan, or are high plateaus surrounded by
+        high mountain ranges, such as the Altiplano or Puna de Atacama.\n\nThe [[Far
+        North, Chile|Far North]] is the area between the northern boundary of the
+        country and the [[Parallel (geometry)|parallel]] 26\u00b0 S, covering the
+        first three regions. It is characterized by the presence of the [[Atacama
+        desert]], the most arid in the world. The desert is fragmented by streams
+        that originate in the area known as the [[Pampa del Tamarugal|pampas Tamarugal]].
+        The Andes, split in two and whose eastern arm runs [[Bolivia]], has a high
+        altitude and volcanic activity, which has allowed the formation of the Andean
+        altiplano and salt structures as the [[Salar de Atacama]], due to the gradual
+        accumulation of sediments over time.\n\nTo the south is the [[Norte Chico,
+        Chile|Norte Chico]], extending to the [[Aconcagua River|Aconcagua river]].
+        Los Andes begin to decrease its altitude to the south and closer to the coast,
+        reaching 90&nbsp;km away at the height of [[Illapel]], the narrowest part
+        of the Chilean territory. The two mountain ranges intersect, virtually eliminating
+        the intermediate depression. The existence of rivers flowing through the territory
+        allows the formation of [[Transverse Valleys|transverse valleys]], where agriculture
+        has developed strongly in recent times, while the [[coastal plains]] begin
+        to expand.\n\n{| class=\"wikitable\" style=\"float:left; margin-right:1em\"\n|-\n!
+        colspan=\"2\" |Ten highest peaks of Chile\n|-\n!Name !!Altitude ([[metre|m]])\n|-
+        \n|[[Nevado Ojos del Salado]]<sup>1</sup> ||align=right|6891,3\n|-\n|[[Nevado
+        Tres Cruces]]<sup>1</sup> ||align=right|6758\n|- \n|[[Llullaillaco]]<sup>1</sup>
+        ||align=right|6739\n|-\n|[[Incahuasi]]<sup>1</sup> ||align=right|6638\n|-
+        \n|[[Tupungato]]<sup>1</sup> ||align=right|6565\n|-\n|[[Ata (mountain)|Ata
+        Volcano]]<sup>1</sup> ||align=right|6501\n|-\n|[[Cerro El Muerto]]<sup>1</sup>
+        ||align=right|6488\n|-\n|[[Parinacota (volcano)|Parinacota]]<sup>2</sup> ||align=right|6342\n|-
+        \n|[[Pomerape]]<sup>2</sup> ||align=right|6282\n|- \n|[[Los Patos]]<sup>1</sup>
+        ||align=right|6239\n|-\n| colspan=\"2\" style=\"background:#efefef; text-align:left;\"|<small>Note:<sup>1</sup>
+        shared with Argentina, <sup>2</sup> shared with Bolivia.</small>\n|}\n\nThe
+        [[Zona Central, Chile|Central]] area is the most populated region of the country.
+        The coastal plains are wide and allow the establishment of cities and ports
+        along the Pacific, while the coastal mountains down its height. The Andes
+        maintains altitudes above 6000m but descend slowly starts approaching the
+        4000 meters on average. The intermediate depression reappears becoming a fertile
+        valley that allows agricultural development and human settlement, due to sediment
+        accumulation. To the south, the Cordillera de la Costa reappears in the [[Nahuelbuta
+        Range|range of Nahuelbuta]] while glacial sediments originate a series of
+        lakes in the area of [[La Frontera, Chile|La Frontera]].\n\nPatagonia extends
+        from within Reloncavi, at the height of parallel 41 \u00b0 S, to the south.
+        During the [[Llanquihue glaciation|last glaciation]], this area was covered
+        by ice that strongly eroded Chilean relief structures. As a result, the intermediate
+        depression sinks in the sea, while the coastal mountains rise to a series
+        of archipelagos, such as [[Chilo\u00e9 Island|Chilo\u00e9]] and the [[Chonos
+        Archipelago|Chonos]], disappearing in Taitao peninsula, in the parallel 47
+        \u00b0 S. The Andes mountain range loses height and erosion caused by the
+        action of glaciers has caused [[fjords]].\n\nEast of the Andes, on the continent,
+        or north of it, on the [[Tierra del Fuego (main island)|island of Tierra del
+        Fuego]] are located relatively flat plains, which in the Strait of Magellan
+        cover large areas.\n\nThe Andes, as he had done previously Cordillera de la
+        Costa, begins to break in the ocean causing a myriad of islands and islets
+        and disappear into it, sinking and reappearing in the Southern Antilles arc
+        and then the Antarctic Peninsula, where it is called Antartandes, in the Chilean
+        Antarctic Territory, lying between the meridians 53 \u00b0 W and 90 \u00b0
+        W.\n\nIn the middle of the Pacific, the country has sovereignty over several
+        islands of volcanic origin, collectively known as Insular Chile. Of these,
+        we highlight the archipelago of Juan Fernandez and Easter Island, which is
+        located in the fracture zone between the Nazca plate and the Pacific plate
+        known as East Pacific Rise.\n\n===Hydrography===\n[[File:Parinacota volcano
+        1995.jpg|thumbnail|left|[[Chungar\u00e1 Lake]] and [[Parinacota volcano]]]]\n{|
+        class=\"wikitable\" style=\"float:right;clear:right; margin-left:1em\"\n|-\n!
+        colspan=2 | Ten longest rivers of Chile\n|-\n! Name !! Length ([[Kilometre|km]])\n|-\n|[[Loa
+        River|Loa]] ||align=right|440\n|-\n|[[B\u00edo B\u00edo River|B\u00edo B\u00edo]]
+        ||align=right|380\n|-\n|[[Baker River (Chile)|Baker]] ||align=right|370\n|-\n|[[Copiap\u00f3
+        River|Copiap\u00f3]] ||align=right|292\n|-\n|[[Maipo River|Maipo]] ||align=right|250\n|-\n|[[Yelcho
+        River|Yelcho]]-[[Futaleuf\u00fa River|Futaleuf\u00fa]] ||align=right|246\n|-\n|[[Maule
+        River|Maule]] ||align=right|240\n|-\n|[[Palena River|Palena]] ||align=right|240\n|-\n|[[Tolt\u00e9n
+        River|Tolt\u00e9n]] ||align=right|231\n|-\n|[[Huasco River|Huasco]] ||align=right|230\n|-\n|
+        colspan=2 style=\"background:#efefef; text-align:left;\"|<small>Note: All
+        lengths exclusively through Chilean territory.</small>\n|}\n[[File:Lago Gral.
+        Carrera 01.JPG|thumbnail|left|[[General Carrera Lake|General Carrera lake]],
+        the largest in the country.]]\n[[File:Bruggen-PioXI FaceCompleteCroppedIMG5642.jpg|thumbnail|[[Br\u00fcggen
+        Glacier|Pio XI Glacier (or Br\u00fcggen)]], the longest in the southern hemisphere
+        outside of Antarctica.]]\n\nDue to the characteristics of the territory, Chile
+        is crossed by numerous rivers generally short in length and with low torrential
+        flow. They commonly extend from the [[Andes Mountains|Andes]] to the [[Pacific
+        Ocean]], flowing in an East to West direction.\n\nBecause of the [[desert]],
+        in the Norte Grande there are only short [[endorheic]] character streams,
+        except for the [[river Loa]], the longest in the country 440&nbsp;km.<ref
+        name=hydr>{{cite journal |author1=Niemeyer, Hans  |author2=Cereceda, Pilar
+        |year=1983 |title=Hydrography |work=Geography of Chile |publisher=[[Military
+        Geographic Institute (Chile)|Military Geographic Institute]] |edition=1st
+        |location=Santiago |volume=8 |accessdate=8 March 2011}}</ref> In the high
+        valleys, wetland areas generate [[Chungar\u00e1 Lake]], located at 4500 meters
+        above sea level. It and the river [[Lauca River|Lauca]] are shared with [[Bolivia]],
+        as well as the [[Lluta River|Lluta]].\n\nIn the center-north of the country,
+        the number of rivers that form valleys of agricultural importance increases.
+        Noteworthy are the Elqui with 75&nbsp;km<ref name=hydr/> long, 142&nbsp;km
+        Aconcagua, Maipo with 250&nbsp;km<ref name=hydr/> and its tributary, the Mapocho
+        with 110&nbsp;km, and Maule with 240&nbsp;km. Their waters mainly flow from
+        Andean snowmelt in the summer and winter rains. The major lakes in this area
+        are the artificial lake Rapel, the Colbun Maule lagoon and the lagoon of La
+        Laja.\n\n==Demographics==\n{{Main article|Demographics of Chile}}\n[[File:Chile-demography.png|thumb|300px|Population
+        of Chile from 1820, projected up to 2050]]\n\nChile''s 2002 census reported
+        a population of 15 million people. Its rate of population growth has been
+        decreasing since 1990, due to a declining [[birth rate]].<ref>{{cite web|url=http://www.ine.cl/canales/chile_estadistico/demografia_y_vitales/estadisticas_vitales/pdf/anuarios/vitales2003.zip|title=Anuario
+        Estad\u00edsticas Vitales 2003|publisher=Instituto National de Estad\u00edsticas}}</ref>
+        By 2050 the population is expected to reach approximately 20.2 million people.<ref>{{cite
+        web|url=http://www.ine.cl/canales/chile_estadistico/demografia_y_vitales/proyecciones/Informes/Microsoft%20Word%20-%20InforP_T.pdf|title=Chile:
+        Proyecciones y Estimaciones de Poblaci\u00f3n. Total Pa\u00eds 1950\u20132050|publisher=Instituto
+        National de Estad\u00edsticas|deadurl=yes|archiveurl=https://www.webcitation.org/5nXISo4aQ?url=http://www.ine.cl/canales/chile_estadistico/demografia_y_vitales/proyecciones/Informes/Microsoft%20Word%20-%20InforP_T.pdf|archivedate=14
+        February 2010|df=dmy-all}}</ref> About 85 percent of the country''s population
+        lives in urban areas, with 40 percent living in [[Santiago|Greater Santiago]].
+        The largest agglomerations according to the 2002 census are Greater Santiago
+        with 5.6 million people, [[Greater Concepci\u00f3n]] with 861,000\nand [[Greater
+        Valpara\u00edso]] with 824,000.<ref>{{cite web|url=http://www.observatoriourbano.cl/indurb/pre_ciudades.asp?id_user=0&idComCiu=0|title=List
+        of Chilean cities|publisher=Observatorio Urbano, Ministerio de Vivienda y
+        Urbanismo de Chile}}</ref>\n\n===Ancestry and ethnicity===\n{{main article|Indigenous
+        peoples in Chile|Immigration to Chile}}\n\nMexican professor Francisco Lizcano,
+        of the [[National Autonomous University of Mexico]], estimated that 52.7%
+        of [[Chileans]] were white, 39.3% were [[mestizo]], and 8% were [[Amerindian]].<ref>{{cite
+        web|author=Lizcano Fern\u00e1ndez |year=2005 |title=Composici\u00f3n \u00e9tnica
+        de las tres \u00e1reas culturales del continente americano al comienzo del
+        siglo XXI |url=http://convergencia.uaemex.mx/rev38/38pdf/LIZCANO.pdf |format=PDF
+        |publisher=UAEM |issn=1405-1435 |deadurl=yes |archiveurl=https://web.archive.org/web/20130626010236/http://convergencia.uaemex.mx/rev38/38pdf/LIZCANO.pdf
+        |archivedate=26 June 2013 }}</ref>\n\nThe most recent study in the Candela
+        Project establishes that the genetic composition of Chile is 52% of European
+        origin, with 44% of the genome coming from Native Americans (Amerindians),
+        and 4% coming from Africa, making Chile a primarily mestizo country with traces
+        of African descent present in half of the population.<ref>{{cite web |url=http://www.eldinamo.cl/2013/08/19/estudio-genetico-en-chilenos-muestra-desconocida-herencia-africana/
+        |title=Estudio gen\u00e9tico en chilenos muestra desconocida herencia africana
+        &#124; El D\u00ednamo |publisher=Eldinamo.cl |date=19 August 2013 |accessdate=22
+        December 2013 |deadurl=yes |archiveurl=https://web.archive.org/web/20140706180053/http://www.eldinamo.cl/2013/08/19/estudio-genetico-en-chilenos-muestra-desconocida-herencia-africana/
+        |archivedate=6 July 2014 |df=dmy-all }}</ref> Another genetic study conducted
+        by the [[University of Brasilia]] in several American countries shows a similar
+        genetic composition for Chile, with a European contribution of 51.6%, an Amerindian
+        (Native) contribution of 42.1%, and an African contribution of 6.3%.<ref name=UB>{{cite
+        web|last=Godinho |first=Neide Maria de Oliveira |title=O impacto das migra\u00e7\u00f5es
+        na constitui\u00e7\u00e3o gen\u00e9tica de popula\u00e7\u00f5es latino-americanas
+        |url=http://bdtd.bce.unb.br/tedesimplificado/tde_busca/arquivo.php?codArquivo=3873
+        |publisher=Universidade de Bras\u00edlia |accessdate=29 March 2013 |year=2008
+        |deadurl=yes |archiveurl=https://web.archive.org/web/20110706162307/http://bdtd.bce.unb.br/tedesimplificado/tde_arquivos/36/TDE-2008-08-21T100337Z-3085/Publico/2008_NeideMOGodinho.pdf
+        |archivedate=6 July 2011 |df=dmy }}</ref>\n\nA public health booklet from
+        the [[University of Chile]] states that 30% of the population is of Caucasian
+        origin; \"predominantly White\" Mestizos are estimated to amount a total of
+        65%, while Native Americans (Amerindians) comprise the remaining 5%.<ref name=\"UC\">{{cite
+        web | title =5.2.6. Estructura racial | url =http://mazinger.sisib.uchile.cl/repositorio/lb/ciencias_quimicas_y_farmaceuticas/medinae/cap2/5b6.html
+        | work =La Universidad de Chile | accessdate =26 August 2007 | language =
+        | deadurl =yes | archiveurl =https://web.archive.org/web/20071016124831/http://mazinger.sisib.uchile.cl/repositorio/lb/ciencias_quimicas_y_farmaceuticas/medinae/cap2/5b6.html
+        | archivedate =16 October 2007 | df =dmy-all }} ([http://mazinger.sisib.uchile.cl/repositorio/lb/ciencias_quimicas_y_farmaceuticas/medinae/
+        Main page] {{webarchive|url=https://web.archive.org/web/20090916211140/http://mazinger.sisib.uchile.cl/repositorio/lb/ciencias_quimicas_y_farmaceuticas/medinae/
+        |date=16 September 2009 }})</ref>\n\nDespite the genetic considerations, many
+        Chileans, if asked, would self-identify as White. The 2011 [[Latinobar\u00f3metro]]
+        survey asked respondents in Chile what race they considered themselves to
+        belong to. Most answered \"White\" (59%), while 25% said \"Mestizo\" and 8%
+        self-classified as \"indigenous\".<ref>{{cite web|url=http://www.latinobarometro.org/latino/LATContenidos.jsp
+        |title=Informe Latinobar\u00f3metro 2011 |publisher=Latinobarometro.org |accessdate=13
+        July 2013}}</ref> A 2002 national poll revealed that a majority of Chileans
+        believed they possessed some (43.4%) or much (8.3%) \"indigenous blood\",
+        while 40.3% responded that they had none.<ref>{{cite web|url=http://www.cepchile.cl/enc_encuestas.html|title=Encuesta
+        CEP, Julio 2002|date=July 2002|accessdate=18 May 2012|language=Spanish|deadurl=yes|archiveurl=https://web.archive.org/web/20130429001707/http://www.cepchile.cl/enc_encuestas.html|archivedate=29
+        April 2013|df=dmy-all}}</ref>\n\n[[File:Trajes chilenos -Geschichte des kost\u00fcms
+        in chronologischer entwicklung 1888- A. Racinet.jpg|thumb|left|[[Mapuche|Araucanian]]
+        Indians and [[Huaso]]s in Chile, 19th century.]]\n\nThe 1907 census reported
+        101,118 Indians, or 3.1% of the total population. Only those that practiced
+        their native culture or spoke their native language were considered to be
+        Indians, irrespective of their \"racial purity\".<ref>{{cite web|url=http://www.memoriachilena.cl//temas/documento_detalle.asp?id=MC0007943
+        |title=1907 census |publisher=Memoriachilena.cl }}</ref>\n\nIn 2002 a census
+        took place, directly asking the public whether they considered themselves
+        as part of any of the eight Chilean ethnic groups, regardless of whether or
+        not they maintained their culture, traditions and language, and 4.6 percent
+        of the population (692,192 people) fitted that description of [[indigenous
+        peoples in Chile]]. Of that number, 87.3% declared themselves Mapuche.<ref>{{cite
+        web|url=http://www.ine.cl/cd2002/sintesiscensal.pdf|title=Censo 2002 \u2013
+        S\u00edntesis de Resultados|work=Instituto Nacional de Estad\u00edsticas}}</ref>
+        Most of the indigenous population shows varying degrees of mixed ancestry.<ref
+        name=\"medwave\">{{cite web|url=http://www.medwave.cl/ciencia/11.act |title=El
+        gradiente sociogen\u00e9tico chileno y sus implicaciones \u00e9tico-sociales
+        |publisher=Medwave.cl |date=15 June 2000 |deadurl=yes |archiveurl=https://web.archive.org/web/20130818181825/http://www.medwave.cl/ciencia/11.act
+        |archivedate=18 August 2013 }}</ref>\n\nChile is one of 22 countries to have
+        signed and ratified the only binding international law concerning indigenous
+        peoples, the [[Indigenous and Tribal Peoples Convention, 1989]].<ref>{{cite
+        web|url=http://www.ilo.org/ilolex/cgi-lex/ratifce.pl?C169 |archive-url=http://arquivo.pt/wayback/20091225170052/http://www.ilo.org/ilolex/cgi-lex/ratifce.pl?C169
+        |dead-url=yes |archive-date=25 December 2009 |title=ILOLEX: submits English
+        query |publisher=Ilo.org |date=9 January 2004 }}</ref> It was adopted in 1989
+        as the [[International Labour Organization]] (ILO) Convention 169. Chile ratified
+        it in 2008. A Chilean court decision in November 2009 considered to be a landmark
+        ruling on indigenous rights and made use of the convention. The Supreme Court
+        decision on Aymara water rights upheld rulings by both the Pozo Almonte tribunal
+        and the Iquique Court of Appeals, and marks the first judicial application
+        of ILO Convention 169 in Chile.<ref>{{cite web|url=http://www.santiagotimes.cl/index.php?option=com_content&view=article&id=17739:chiles-supreme-court-upholds-indigenous-water-use-rights&catid=19:other&Itemid=142
+        |title=Chile\u2019s Supreme Court Upholds Indigenous Water Use Rights |publisher=The
+        Santiago Times |date=30 November 2009 |accessdate=2 March 2010}}</ref>\n\nChile
+        was never a particularly attractive destination for migrants, owing to its
+        remoteness and distance from Europe.<ref name=Euzko/><ref name=\"HistoriaContemporaneaDeChile\"/>
+        Europeans preferred to stay in countries closer to their homelands instead
+        of taking the long journey through the Straits of Magellan or crossing the
+        Andes.<ref name=Euzko/> European migration did not result in a significant
+        change in the ethnic composition of Chile, except in the [[Magallanes y la
+        Ant\u00e1rtica Chilena Region|region of Magellan]].<ref name=C1907>[http://www.ine.cl/canales/usuarios/cedoc_online/censos/pdf/censo_1907.pdf
+        Censo de poblaci\u00f3n de 1907, page-PDF 55/1277 and page-PDF 1249/1277 Instituto
+        Nacional de Estad\u00edsticas de Chile]</ref> Spaniards were the only major
+        European migrant group to Chile,<ref name=Euzko>{{cite web|url=http://www.euzkoetxeachile.cl/libros/04-De%20los%20Vascos%20Onati%20y%20los%20Elorza-2.pdf
+        |title=De los Vascos, O\u00f1ati y los Elorza |author=Waldo Ayarza Elorza
+        |pages=59, 65, 66 |format=PDF |accessdate=13 July 2013}}</ref> and there was
+        never large-scale immigration such as that to Argentina or Uruguay.<ref name=\"HistoriaContemporaneaDeChile\"/>
+        Between 1851 and 1924, Chile only received 0.5% of European immigration to
+        Latin America, compared to 46% to Argentina, 33% to Brazil, 14% to Cuba, and
+        4% to Uruguay.<ref name=Euzko/> However, it is undeniable that immigrants
+        have played a significant role in Chilean society.<ref name=\"HistoriaContemporaneaDeChile\"/>\n\n[[File:FamigliaCastagnaColoniCapitanPastene1910.jpg|thumb|Italian
+        immigrants to [[Italian Chilean|Capitan Pastene]] in southern Chile.]]\nOther
+        groups of [[Ethnic groups in Europe|Europeans]] have followed but are found
+        in smaller numbers, like the descendants of [[Austrians]]<ref>[http://www.dbnl.org/tekst/jong038duit01_01/jong038duit01_01_0018.php
+        Hoofdstuk XVI Historisch tussenspel] {{nl icon}}</ref> and [[Dutch people]].
+        Currently, these are estimated at about 50,000 people.<ref>{{cite web|url=http://www.cstandt.com/content/dutch-immigration
+        |title=Dutch immigration |publisher=Cstandt.com |deadurl=yes |archiveurl=https://web.archive.org/web/20130818221629/http://www.cstandt.com/content/dutch-immigration
+        |archivedate=18 August 2013 }}</ref> After the failed [[Revolutions of 1848
+        in the German states|liberal revolution of 1848]] in the German states,<ref
+        name=\"HistoriaContemporaneaDeChile\">{{cite book|last1=Salazar Vergara|first1=Gabriel
+        |last2=Pinto|first2=Julio|title=Historia contempor\u00e1nea de Chile: Actores,
+        identidad y movimiento. II|url=https://books.google.com/books?id=Vyx8JQtvU78C&pg=PA78|accessdate=14
+        July 2013|year=1999|publisher=[[Lom Ediciones]]|isbn=978-956-282-174-2|pages=76\u201381|chapter=La
+        Presencia Inmigrante}}</ref><ref>{{cite book |title= Superpoblaci\u00f3n |last=
+        Dur\u00e1n |first= Hip\u00f3lito |authorlink= Hip\u00f3lito Dur\u00e1n |year=
+        1997 |publisher= Real Academia Nacional de Medicina |location= Madrid |isbn=
+        84-923901-0-7 |trans_chapter= |chapter= El crecimiento de la poblaci\u00f3n
+        latinoamericana y en especial de Chile \u2022 Academia Chilena de Medicina
+        |chapterurl= |quote= |page= 217 |accessdate=16 September 2012 |url= https://books.google.com/books?id=IXFVHAXxNw0C&pg=PA217}}</ref>
+        a noticeable German immigration took place, laying the foundation for the
+        [[German-Chilean]] community. Sponsored by the Chilean government to \"unbarbarize\"
+        and colonize the southern region,<ref name=\"HistoriaContemporaneaDeChile\"/>
+        these Germans (including German-speaking Swiss, [[Silesians]], [[Alsace|Alsatians]]
+        and Austrians) settled mainly in [[German colonization of Valdivia, Osorno
+        and Llanquihue|Valdivia, Osorno and Llanquihue]].<ref>{{cite book |title=
+        Recuerdos del Pasado |last1= P\u00e9rez Rosales |first1= Vicente |authorlink=
+        Vicente P\u00e9rez Rosales |year= 1860 |publisher= Editorial Andr\u00e9s Bello
+        |location= Santiago de Chile |url= https://books.google.com/books?id=cISuC7tC5hsC}}</ref>\n\nDescendants
+        of different [[ethnic groups in Europe|European ethnic groups]] often intermarried
+        in Chile. This intermarriage and mixture of cultures and races have helped
+        to shape the present society and culture of the Chilean middle and upper classes.<ref
+        name=\"deia.com\">{{cite web|url=http://www.deia.com/es/impresa/2008/05/22/bizkaia/ekonomia/469496.php
+        |title=entrevista al Presidente de la C\u00e1mara vasca |publisher=Deia.com
+        |date=22 May 2008 |deadurl=yes |archiveurl=https://web.archive.org/web/20090511001812/http://www.deia.com/es/impresa/2008/05/22/bizkaia/ekonomia/469496.php
+        |archivedate=11 May 2009 }}</ref>\n\nDue in part to its economic fortunes,
+        Chile has recently become a new magnet for immigrants, mostly from neighboring
+        [[Argentina]], Bolivia and mainly Peru.<ref>{{cite web|url=http://www.migrationinformation.org/Profiles/display.cfm?ID=199
+        |title=Chile: Moving Towards a Migration Policy |publisher=Migrationinformation.org
+        |accessdate=1 August 2011}}</ref> According to the 2002 national census, Chile''s
+        foreign-born population has increased by 75% since 1992.<ref>{{cite web|url=
+        http://www.lanacion.com.ar/nota.asp?nota_id=920108 |title= El debate sobre
+        la inmigraci\u00f3n ilegal se extiende a la regi\u00f3n |accessdate=31 December
+        2008 |last= Landaburu |first= Juan |date= 24 June 2007 |work= [[La Naci\u00f3n]]
+        }}</ref> According to an estimate by the Migration and Foreign Residency Department,
+        317,057 foreigners were living in Chile as of December 2008.<ref>{{cite web|url=http://www.extranjeria.gov.cl/filesapp/Informe%20Estimacion%20Poblacion%20Extranjeros%202008.pdf
+        |title=Estimaci\u00f3n de Poblaci\u00f3n de Extranjeros en Chile a Diciembre
+        de 2008 |publisher=Departamento de Extranjer\u00eda y Migraci\u00f3n |format=PDF
+        |accessdate=13 July 2013}}</ref> Roughly 500,000 of Chile\u2019s population
+        is of full or partial [[Palestinian people|Palestinian origin]].<ref>{{cite
+        web|url=http://www.adnkronos.com/AKI/English/CultureAndMedia/?id=1.0.2050534508
+        |title=Chile: Palestinian refugees arrive to warm welcome |publisher=Adnkronos.com
+        |date=7 April 2003 }}</ref><ref>{{cite web|url=http://laventana.casa.cult.cu/modules.php?name=News&file=article&sid=514
+        |title=500,000 descendientes de primera y segunda generaci\u00f3n de palestinos
+        en Chile |publisher=Laventana.casa.cult.cu |accessdate=13 July 2013 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20090722073846/http://laventana.casa.cult.cu/modules.php?name=News&file=article&sid=514
+        |archivedate=22 July 2009 |df=dmy }}</ref>\n\n===Religion===\n{{Main article|Religion
+        in Chile}}\n{{bar box\n| title = Religious background in Chile (2015)<ref
+        name=\"censo.cl\">{{cite web|title=Population 15 years of age or older, by
+        religion, region, sex and age groups. (censused population) |url=http://plazapublica.cl/wp-content/uploads/658799.pdf
+        |accessdate= September 2015 |language=Spanish |format=.pdf}}</ref>\n| titlebar
+        = #ddd\n| left1 = Religion\n| right1 = Percent\n| float = right\n| bars =\n{{bar
+        percent|Roman Catholic|orange|55}}\n{{bar percent|None|red|25}}\n{{bar percent|Protestant|green|13}}\n{{bar
+        percent|Other|yellow|7}}\n}}\n\n{{As of|2012}}, 66.6%<ref name=\"censo.cl\"/>
+        of Chilean population over 15 years of age claimed to be of Catholic creed
+        \u2013 a decrease from the 70%<ref>7,853,428 out of 11,226,309 people over
+        15 years of age. {{cite web|title=Population 15 years of age or older, by
+        religion, administrative division, sex and age groups|url=http://www.ine.cl/cd2002/cuadros/6/C6_00000.pdf|work=Censo
+        2002|accessdate=1 March 2014|language=Spanish|format=PDF}}</ref> reported
+        by the 2002 census \u2013 while 17 percent reported adherence to an ''''evangelical''''
+        church. In the census, the term ''''evangelical'''' referred to all non-Catholic
+        Christian churches with the exception of the [[Orthodox Church]] (Greek, Persian,
+        Serbian, Ukrainian, and Armenian), [[The Church of Jesus Christ of Latter-day
+        Saints]] ([[Mormons]]), [[Seventh-day Adventists]], and [[Jehovah''s Witnesses]],
+        essentially limiting it to the [[Protestants]] (although [[Adventism]] is
+        often considered a part of it). Approximately 90 percent of Protestants (''''evangelicals'''')
+        are [[Pentecostal]]. [[Wesleyan Church|Wesleyan]], [[Lutheran]], [[Reformed
+        churches|Reformed Evangelical]], [[Presbyterian]], [[Anglican]], [[Anglicanism|Episcopalian]],
+        [[Baptist]] and [[Methodist church]]es are also present.<ref name=\"religiousfreedomreport\">{{cite
+        web|url=https://www.state.gov/g/drl/rls/irf/2008/108518.htm|title=Chile|work=International
+        Religious Freedom Report|publisher=United States Department of State|date=19
+        September 2008}}</ref> Irreligious people, atheists, and agnostics account
+        for around 12 percent of the population.\n\nCurrently in 2015, the majority
+        religion in Chile is Christianity (68%), with an estimated 55% of Chileans
+        belonging to the Catholic church, 13% Protestant or Evangelical and just 7%
+        with any other religion. Agnostics and atheist are estimated at 25%.<ref>http://plazapublica.cl/wp-content/uploads/658799.pdf</ref>\n\nThe
+        Constitution provides for [[freedom of religion]], and other laws and policies
+        contribute to the generally free practice of religion. The law at all levels
+        protects this right in full against abuse, either by governmental or private
+        actors.<ref name=\"religiousfreedomreport\"/>\n\nChurch and state are officially
+        [[separation of church and state|separate]] in Chile. The 1999 law on religion
+        prohibits [[religious discrimination]]. However, the Catholic Church enjoys
+        a privileged status and occasionally receives preferential treatment{{Citation
+        needed|date=February 2014}}. Government officials attend Catholic events as
+        well as major Protestant and Jewish ceremonies.<ref name=\"religiousfreedomreport\"/>\n\nThe
+        Government-observed religious holidays include Christmas, [[Good Friday]],
+        the [[Our Lady of Mount Carmel|Feast of the Virgin of Carmen]], the [[Feast
+        of Saints Peter and Paul]], the [[Assumption of Mary|Feast of the Assumption]],
+        [[All Saints'' Day]], and the [[Feast of the Immaculate Conception]] as [[Public
+        holiday|national holidays]].<ref name=\"religiousfreedomreport\"/> The government
+        has recently declared 31 October, [[Reformation Day]], a public national holiday,
+        in honor of the Protestant churches of the country.<ref>{{Cite news|url=http://www.economist.com/world/americas/displaystory.cfm?story_id=12564066&fsrc=rss
+        |title=Hola, Luther |work=The Economist |date=6 November 2008 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20081210125640/http://www.economist.com/world/americas/displaystory.cfm?story_id=12564066&fsrc=rss
+        |archivedate=10 December 2008 }}</ref><ref>{{Cite news|author=Andrea Henr\u00edquez
+        |url=http://news.bbc.co.uk/hi/spanish/specials/2007/en_nombre_de_la_fe/newsid_7701000/7701290.stm
+        |title=Los evang\u00e9licos tienen su feriado |publisher=BBC Mundo |date=31
+        October 2008 |accessdate=17 December 2009}}</ref>\n\nThe [[patron saint]]s
+        of Chile are [[Our Lady of Mount Carmel]] and [[Saint James the Greater]]
+        (''''Santiago'''').<ref>{{cite web |url=http://www.catholic.org/saints/patron.php?letter=C
+        |title=Patron Saints: ''C'' |publisher=Catholic Online |accessdate=28 June
+        2012}}</ref> In 2005, [[Alberto Hurtado|St. Alberto Hurtado]] was canonized
+        by [[Pope Benedict XVI]] and became the country''s second saint after [[Teresa
+        de los Andes|St. Teresa de los Andes]].<ref>{{cite web |url=http://www.canonizacion.cl/cano_etapaPH.html
+        |title=Las fechas del proceso de Canonizaci\u00f3n del Padre Hurtado |language=Spanish
+        |accessdate=9 January 2008 |archiveurl=https://web.archive.org/web/20080122033957/http://www.canonizacion.cl/cano_etapaPH.html
+        |archivedate=22 January 2008 |deadurl=yes |df=dmy-all }}</ref>\n\n===Languages===\nThe
+        [[Chilean Spanish|Spanish spoken in Chile]] is distinctively accented and
+        quite unlike that of neighboring South American countries because final syllables
+        and \"''''s''''\" sounds are often dropped, and some consonants have a soft
+        pronunciation. Accent varies only very slightly from north to south; more
+        noticeable are the differences in accent based on social class or whether
+        one lives in the city or the country. That the Chilean population was largely
+        formed in a small section at the center of the country and then migrated in
+        modest numbers to the north and south helps explain this relative lack of
+        differentiation, which was maintained by the national reach of radio, and
+        now television, which also helps to diffuse and homogenize colloquial expressions.<ref
+        name=\"countrystudies\"/>\n\nThere are several indigenous languages spoken
+        in Chile: [[Mapudungun]], [[Chilean Quechua|Quechua]], [[Aymara language|Aymara]]
+        and [[Rapa Nui language|Rapa Nui]]. After the Spanish invasion, Spanish took
+        over as the [[lingua franca]] and the indigenous languages have become minority
+        languages, with some now extinct or close to extinction.<ref>{{cite web|url=http://www.ethnologue.com/show_country.asp?name=CL
+        |title=Ethnologue report for Chile |publisher=Ethnologue.com |accessdate=1
+        August 2011}}</ref>\n\nGerman is still spoken to some extent in southern Chile,<ref>{{cite
+        web |author=Oliver Zoellner |url=http://www.research-worldwide.de/article-chile2005.html
+        |title=Oliver Zoellner &#124; Generating Samples of Ethnic Minorities in Chile
+        |publisher=Research-worldwide.de |accessdate=17 December 2009}}</ref> either
+        in small country side pockets or as a second language among the communities
+        of larger cities.\n\nThrough initiatives such as the [[English Opens Doors|English
+        Opens Doors Program]], the government made English mandatory for students
+        in fifth-grade and above in public schools. Most private schools in Chile
+        start teaching English from kindergarten.<ref>{{cite web|url=http://www.globalpost.com/dispatch/chile/090908/lack-english-proficiency
+        |title=Repeat after me: Hello, my name is |publisher=Globalpost.com }}</ref>
+        Common English words have been absorbed and appropriated into everyday Spanish
+        speech.<ref>{{cite web|url=http://www.scielo.cl/scielo.php?pid=S0718-04622005000200010&script=sci_arttext
+        |title=Anglicism in Chilean Spanish |publisher=Scielo.cl |date=4 May 2004}}</ref>\n\n===Identity
+        and traditions===\n[[File:TAMURE.png|thumb|Tamure Dancers, [[Easter Island]]]]\nDue
+        to the geography of Chile dissimilar cultural expressions vary markedly in
+        different parts of the country.{{citation needed|date=November 2014}}\n\n==
+        Government and politics ==\n{{Main article|Politics of Chile|Law of Chile}}\n[[File:Palacio
+        de La Moneda.png|thumb|left|The [[Palacio de La Moneda]] in downtown [[Santiago,
+        Chile|Santiago]].]]\n[[File:Tribjusticiacl.jpg|thumb|right|The [[Palacio de
+        los Tribunales de Justicia de Santiago|Palace of Justice]] in Santiago.]]\nThe
+        current [[Constitution of Chile]] was approved in a national [[plebiscite]]
+        \u2014regarded as \"highly irregular\" by some observers<ref>{{cite web|url=http://lcweb2.loc.gov/frd/cs/cltoc.html|title=A
+        Country Study: Chile|work=[[United States Library of Congress]]}}</ref>\u2014
+        in September 1980, under the military government of Augusto Pinochet. It entered
+        into force in March 1981. After Pinochet''s defeat in the [[Chilean national
+        plebiscite, 1988|1988 plebiscite]], the constitution was amended to ease provisions
+        for future amendments to the Constitution. In September 2005, President Ricardo
+        Lagos signed into law several constitutional amendments passed by Congress.
+        These include eliminating the positions of appointed senators and [[senators
+        for life]], granting the President authority to remove the commanders-in-chief
+        of the armed forces, and reducing the presidential term from six to four years.<ref>{{Cite
+        news|url=http://news.bbc.co.uk/2/hi/americas/4157908.stm|title=Chile scraps
+        Pinochet-era system|publisher=BBC | date=16 August 2005 | accessdate=31 December
+        2009}}</ref>\n\nThe [[Congress of Chile]] has a 38-seat [[Senate of Chile|Senate]]
+        and a 120-member [[Chamber of Deputies of Chile|Chamber of Deputies]]. Senators
+        serve for eight years with staggered terms, while deputies are elected every
+        4 years. The last congressional elections were held on 17 November 2013, concurrently
+        with the presidential election. The current Senate has a 21\u201315 split
+        in favor of the governing coalition and 2 independents. The current lower
+        house, the Chamber of Deputies, contains 67 members of the governing center-left
+        coalition, 48 from the center-right opposition and 5 from small parties or
+        independents. The Congress is located in the port city of Valpara\u00edso,
+        about {{convert|140|km|0|abbr=off}} west of the capital, Santiago.\n[[File:Congresschile.jpg|thumb|[[National
+        Congress of Chile|National Congress]] building in Valpara\u00edso.]]\nChile''s
+        congressional elections are governed by a [[Binomial System|binomial system]]
+        that, for the most part, rewards the two largest representations equally,
+        often regardless of their relative popular support. Parties are thus forced
+        to form wide coalitions and, historically, the two largest coalitions (Concertaci\u00f3n
+        and Alianza) split most of the seats. Only if the leading coalition ticket
+        out-polls the second place coalition by a margin of more than 2-to-1 does
+        the winning coalition gain both seats, which tends to lock the legislative
+        in a roughly 50-50 split.\n\nChile''s judiciary is independent and includes
+        a court of appeal, a system of military courts, a constitutional tribunal,
+        and the [[Supreme Court of Chile]]. In June 2005, Chile completed a nationwide
+        overhaul of its criminal justice system.<ref>{{cite web|url=http://www.chileangovernment.cl/index.php?id=448&option=com_content&task=view
+        |work=Chilean Government |title=President Lagos: We can make a greater effort
+        to make yesterday''s and today''s trials equally just |deadurl=yes |archiveurl=https://web.archive.org/web/20080423171251/http://www.chileangovernment.cl/index.php?id=448&option=com_content&task=view
+        |archivedate=23 April 2008 }}</ref> The reform has replaced inquisitorial
+        proceedings with an adversarial system more similar to that of the United
+        States.\n\nIn the 2001 congressional elections, the conservative [[Independent
+        Democratic Union]] (UDI) surpassed the [[Christian Democratic Party of Chile|Christian
+        Democrats]] for the first time to become the largest party in the lower house.
+        In the [[Chilean parliamentary election, 2005|2005 parliamentary election]],
+        both leading parties, the Christian Democrats and the UDI lost representation
+        in favor of their respective allies [[Socialist Party of Chile|Socialist Party]]
+        (which became the biggest party in the Concertaci\u00f3n block) and [[National
+        Renewal (Chile)|National Renewal]] in the right-wing alliance. In the 2009
+        legislative elections in Chile, the [[Communist Party of Chile|Communist Party]]
+        won 3 out of 120 seats in the Chamber of Deputies for the first time in 30
+        years (the Communist Party was not allowed to exist as such during the dictatorship).\n\nChileans
+        voted in the first round of presidential elections on 17 November 2013. None
+        of the nine presidential candidates got more than 50 percent of the vote.
+        As a result, the top two candidates, center-left [[Nueva Mayor\u00eda]] coalition''s
+        [[Michelle Bachelet]] and center-right [[Alianza (Chile)|Alianza]] coalition''s
+        [[Evelyn Matthei]], competed in a run-off election on 15 December 2013, which
+        Bachelet won. This was Chile''s sixth presidential election since the end
+        of the Pinochet era. All six have been judged free and fair. The president
+        is constitutionally barred from serving consecutive terms.\n\n=== Foreign
+        relations ===\n{{Main article|Foreign relations of Chile}}\n[[File:Foreign
+        relations of Chile.svg|thumb|340x340px|State of Chile\u2019s international
+        relations in the world:\n{{legend|#006680|Chile}}\n{{legend|#008000|Country
+        with diplomatic relations and Chilean embassy in the country.}}\n{{legend|#00AA88|Country
+        with diplomatic relations and an embassy in Chile, but no Chilean embassy.}}\n{{legend|#8DD35F|Country
+        with diplomatic relations but without ambassadors.}}\n{{legend|#cccccc|Country
+        with no diplomatic relations currently.}}\n]]\n\nSince the early decades after
+        independence, Chile has always had an active involvement in foreign affairs.
+        In 1837 the country aggressively challenged the dominance of Peru''s port
+        of [[Callao]] for preeminence in the Pacific trade routes, defeating the short-lived
+        alliance between Peru and Bolivia, the [[Peru-Bolivian Confederation]] (1836\u201339)
+        in the [[War of the Confederation]]. The war dissolved the confederation while
+        distributing power in the Pacific. A second international war, the [[War of
+        the Pacific]] (1879\u201383), further increased Chile''s regional role, while
+        adding considerably to its territory.<ref name=\"hudson\"/>\n\nDuring the
+        19th century, Chile''s commercial ties were primarily with Britain, a nation
+        that had a major influence on the formation of the Chilean navy. The French
+        influenced Chile''s legal and educational systems and had a decisive impact
+        on Chile, through the architecture of the capital in the boom years at the
+        turn of the 20th century. German influence came from the organization and
+        training of the army by [[Prussia]]ns.<ref name=\"hudson\"/>\n\nOn 26 June
+        1945, Chile participated as a founding member of the United Nations being
+        among 50 countries that signed the [[United Nations Charter]] in San Francisco,
+        California.<ref>{{cite web|url=https://www.un.org/members/list.shtml#c |title=United
+        Nations Member States |publisher=United Nations |accessdate=1 August 2011
+        |deadurl=yes |archiveurl=https://web.archive.org/web/20090417145758/http://www.un.org/members/list.shtml
+        |archivedate=17 April 2009 |df=dmy }}</ref><ref>{{cite web|url=https://www.un.org/members/growth.shtml
+        |title=United Nations Member States |publisher=United Nations |accessdate=1
+        August 2011}}</ref><ref>{{cite web|url=https://www.un.org/av/photo/detail/0001314.html?browse=all.html
+        |title=The San Francisco Conference: Chile Signs United Nations Charter }}{{dead
+        link|date=November 2016 |bot=InternetArchiveBot |fix-attempted=yes }}</ref>
+        With the military coup of 1973, Chile became isolated politically as a result
+        of widespread human rights abuses.<ref name=\"hudson\"/>\n\nSince its return
+        to democracy in 1990, Chile has been an active participant in the international
+        political arena. Chile completed a 2-year non-permanent position on the UN
+        Security Council in January 2005. Jose Miguel Insulza, a Chilean national,
+        was elected Secretary General of the Organization of American States in May
+        2005 and confirmed in his position, being re-elected in 2009. Chile is currently
+        serving on the International Atomic Energy Agency (IAEA) Board of Governors,
+        and the 2007\u20132008 chair of the board is Chile''s ambassador to the IAEA,
+        Milenko E. Skoknic. The country is an active member of the UN family of agencies
+        and participates in UN peacekeeping activities. It was [[United Nations Human
+        Rights Council#Members|re-elected]] as a member of the [[United Nations Human
+        Rights Council|UN Human Rights Council]] in 2011 for a three-year term.<ref>{{cite
+        web|title=Election (13 May 2010) Human Rights Council|url=https://www.un.org/en/ga/64/elections/hrc/index.shtml|work=64th
+        Session|publisher=[[United Nations General Assembly]]}}</ref> It was also
+        [[United Nations Security Council election, 2013|elected]] to one of five
+        non-permanent seats on the [[United Nations Security Council|UN Security Council]]
+        in 2013.<ref>{{cite web|title=Chad, Chile, Lithuania, Nigeria and Saudi Arabia
+        were elected to serve on the UN Security Council|date=17 October 2013|accessdate=17
+        October 2013|publisher=United Nations|url=https://www.un.org/apps/news/story.asp?NewsID=46277&Cr=security+council&Cr1=#.UmAVWCQd5TQ}}</ref>
+        Chile hosted the Defense Ministerial of the Americas in 2002 and the APEC
+        summit and related meetings in 2004. It also hosted the Community of Democracies
+        ministerial in April 2005 and the Ibero-American Summit in November 2007.
+        An associate member of Mercosur and a full member of APEC, Chile has been
+        a major player in international economic issues and hemispheric free trade.<ref
+        name=\"countrystudies\"/>\n\nThe Chilean Government has diplomatic relations
+        with most countries. It settled all its territorial disputes with Argentina
+        during the 1990s except for part of the border at [[Southern Patagonian Ice
+        Field]]. Chile and Bolivia severed diplomatic ties in 1978 over Bolivia''s
+        desire to regain sovereign access to the Pacific Ocean it lost to Chile in
+        1879\u201383 War of the Pacific. The two countries maintain consular relations
+        and are represented at the Consul General level.<ref name=\"countrystudies\"/>\n\n===Administrative
+        divisions===\n{{main article|Administrative divisions of Chile}}\n[[File:ChileRegions.png|thumb|110px|The
+        regions of Chile]]\nChile is divided into 15 regions, each headed by an [[intendant]]
+        appointed by the president. The regions are further divided into provinces,
+        with provincial governors also appointed by the president. Finally each province
+        is divided into [[Communes of Chile|communes]]<ref>{{cite web|url=http://www.gobiernodechile.cl/organigrama/organigrama.asp
+        |title=Organigrama |work=Gobierno de Chile |deadurl=yes |archiveurl=https://web.archive.org/web/20071214000711/http://www.gobiernodechile.cl/organigrama/organigrama.asp
+        |archivedate=14 December 2007 }}</ref> which are administered by municipalities,
+        each with its own mayor and council elected for four-year terms. Each region
+        is designated by a name and a [[Roman numeral]], assigned from north to south.
+        The only exception is the Santiago Metropolitan Region which is designated
+        ''''RM'''' (''''Regi\u00f3n Metropolitana''''). Two new regions were created
+        in 2006 and became operative in October 2007; Los R\u00edos in the south (Region
+        XIV), and Arica y Parinacota in the north (Region XV). The numbering scheme
+        skipped Region XIII, usually assumed to be the Metropolitan Region before
+        the 2006 reform.\n{|class=\"wikitable sortable\"\n|- style=\"background:#ececec;\"\n!Key!!Name!!Spanish!!Capital\n|-\n|XV\n|[[File:Flag
+        of Arica y Parinacota, Chile.svg|22x20px|border|Arica y Parinacota, Chile]]
+        [[Arica y Parinacota Region|Arica y Parinacota]]\n|Regi\u00f3n de Arica y
+        Parinacota\n|[[Arica, Chile|Arica]]\n|-\n|I\n|[[File:Flag of Tarapaca, Chile.svg|22x20px|border|Tarapac\u00e1,
+        Chile]] [[Tarapac\u00e1 Region|Tarapac\u00e1]]\n|Regi\u00f3n de Tarapac\u00e1\n|[[Iquique]]\n|-\n|II\n|[[File:Flag
+        of Antofagasta Region, Chile.svg|22x20px|border|Antofagasta, Chile]] [[Antofagasta
+        Region|Antofagasta]]\n|Regi\u00f3n de Antofagasta\n|[[Antofagasta]]\n|-\n|III\n|[[File:Flag
+        of Atacama, Chile.svg|22x20px|border|Atacama, Chile]] [[Atacama Region|Atacama]]\n|Regi\u00f3n
+        de Atacama\n|[[Copiap\u00f3, Chile|Copiap\u00f3]]\n|-\n|IV\n|[[File:Flag of
+        Coquimbo Region, Chile.svg|22x20px|border|Coquimbo, Chile]] [[Coquimbo Region|Coquimbo]]\n|Regi\u00f3n
+        de Coquimbo\n|[[La Serena, Chile|La Serena]]\n|-\n|V\n|[[File:Flag of Valparaiso
+        Region, Chile.svg|22x20px|border|Valpara\u00edso, Chile]] [[Valpara\u00edso
+        Region|Valpara\u00edso]]\n|Regi\u00f3n de Valpara\u00edso\n|[[Valpara\u00edso]]\n|-\n|RM\n|[[File:Flag
+        of the Metropolitan Region, Chile.svg|22x20px|border|Metropolitana de Santiago,
+        Chile]] [[Santiago Metropolitan Region|Metropolitana de Santiago]]\n|Regi\u00f3n
+        Metropolitana de Santiago\n|[[Santiago, Chile|Santiago]]\n|-\n|VI\n|[[File:Flag
+        of O''Higgins Region, Chile.svg|22x20px|border|Libertador General Bernardo
+        O''Higgins, Chile]] [[Libertador General Bernardo O''Higgins Region|Libertador
+        General Bernardo O''Higgins]]\n|Regi\u00f3n del Libertador General Bernardo
+        O''Higgins\n|[[Rancagua]]\n|-\n|VII\n|[[File:Flag of Maule, Chile.svg|22x20px|border|Maule,
+        Chile]] [[Maule Region|Maule]]\n|Regi\u00f3n del Maule\n|[[Talca]]\n|-\n|VIII\n|[[File:Flag
+        of Biob\u00edo Region, Chile.svg|22x20px|border|B\u00edo B\u00edo, Chile]]
+        [[B\u00edo B\u00edo Region|B\u00edo B\u00edo]]\n|Regi\u00f3n del Biob\u00edo\n|[[Concepci\u00f3n,
+        Chile|Concepci\u00f3n]]\n|-\n|IX\n|[[File:Flag of La Araucania, Chile.svg|22x20px|border|La
+        Araucan\u00eda, Chile]] [[La Araucan\u00eda Region|La Araucan\u00eda]]\n|Regi\u00f3n
+        de la Araucan\u00eda\n|[[Temuco]]\n|-\n|XIV\n|[[File:Flag of Los R\u00edos,
+        Chile.svg|22x20px|border|Los R\u00edos, Chile]] [[Los R\u00edos Region|Los
+        R\u00edos]]\n|Regi\u00f3n de Los R\u00edos\n|[[Valdivia, Chile|Valdivia]]\n|-\n|X\n|[[File:Flag
+        of Los Lagos Region, Chile.svg|22x20px|border|Los Lagos, Chile]] [[Los Lagos
+        Region|Los Lagos]]\n|Regi\u00f3n de Los Lagos\n|[[Puerto Montt]]\n|-\n|XI\n|[[File:Flag
+        of Aysen, Chile.svg|22x20px|border|Ays\u00e9n del General Carlos Ib\u00e1\u00f1ez
+        del Campo, Chile]] [[Ays\u00e9n Region|Ays\u00e9n del General Carlos Ib\u00e1\u00f1ez
+        del Campo]]\n|Regi\u00f3n Ays\u00e9n del General Carlos Ib\u00e1\u00f1ez del
+        Campo\n|[[Coyhaique]]\n|-\n|XII\n|[[File:Flag of Magallanes, Chile.svg|22x20px|border|Magallanes
+        y la Ant\u00e1rtica Chilena, Chile]] [[Magallanes y la Ant\u00e1rtica Chilena
+        Region|Magallanes y la Ant\u00e1rtica Chilena]]\n|Regi\u00f3n de Magallanes
+        y de la Ant\u00e1rtica Chilena\n|[[Punta Arenas]]\n|}\n\n===National symbols===\n[[File:Colca-condor-c03.jpg|thumb|left|The
+        [[Andean condor]] is the national bird of Chile]]\nThe national flower is
+        the [[copihue]] (''''Lapageria rosea'''', Chilean [[Campanula|bellflower]]),
+        which grows in the woods of southern Chile.\n\nThe [[Coat of arms of Chile|coat
+        of arms]] depicts the two national animals: the [[condor]] (''''Vultur gryphus'''',
+        a very large bird that lives in the mountains) and the [[Hippocamelus|huemul]]
+        (''''Hippocamelus bisulcus,'''' an endangered white tail deer). It also has
+        the legend ''''Por la raz\u00f3n o la fuerza'''' (''''By reason or by force'''').\n\nThe
+        [[flag of Chile]] consists of two equal horizontal bands of white (top) and
+        red; there is a blue square the same height as the white band at the hoist-side
+        end of the white band; the square bears a white five-pointed star in the center
+        representing a guide to progress and honor; blue symbolizes the sky, white
+        is for the snow-covered Andes, and red stands for the blood spilled to achieve
+        independence. The flag of Chile is similar to the [[Flag of Texas]], although
+        the Chilean flag is 21 years older. However, like the Texan flag, the flag
+        of Chile is modeled after the [[Flag of the United States]].<ref>{{cite web|url=http://www.worldatlas.com/webimage/flags/countrys/samerica/chile.htm
+        |title=Chile flag and description |publisher=Worldatlas.com |accessdate=1
+        August 2011}}</ref>\n\n==Military==\n{{Main article|Military of Chile}}\n{{multiple
+        image\n| header = Branches of the Chilean Armed Forces\n| image1 = Leopard
+        2A4CHL Chile.jpg|width1=145|caption1=[[Chilean Army]]<br />[[Leopard 2A4]]CHL\n|
+        image2 = Almirante Blanco Encalada (FF-15).jpg|width2=155|caption2=[[Chilean
+        Navy]]<br />[[Karel Doorman-class frigate]]\n| image3 = F-16CHL de Chile.jpg|width3=155|caption3=[[Chilean
+        Air Force]]<br />[[General Dynamics F-16 Fighting Falcon|F-16 Fighting Falcon]]\n}}\nThe
+        Armed Forces of Chile are subject to civilian control exercised by the president
+        through the Minister of Defense. The president has the authority to remove
+        the commanders-in-chief of the armed forces.<ref name=\"countrystudies\"/>\n\nThe
+        commander in chief of the [[Chilean Army]] is [[General officer#The specific
+        rank of general|General]] Humberto Oviedo Arriagada.<ref>{{cite web|url=http://chds.dodlive.mil/2014/05/19/chilean-army-commander-in-chief-visits-wjpc/|title=Chilean
+        Army Commander-in-Chief Visits WJPC|publisher=}}</ref><ref>{{cite web|url=http://www.carlisle.army.mil/banner/article.cfm?id=3477|title=Army
+        War College Community Banner|publisher=}}</ref> The Chilean Army is 45,000
+        strong and is organized with an Army headquarters in Santiago, six divisions
+        throughout its territory, an Air Brigade in [[Rancagua]], and a Special Forces
+        Command in [[Colina, Chile|Colina]]. The Chilean Army is one of the most professional
+        and technologically advanced armies in Latin America.<ref name=\"countrystudies\"/>\n\nAdmiral
+        Enrique Larra\u00f1aga Martin directs the 21,773-person [[Chilean Navy]],<ref>{{cite
+        web|url=http://www.armada.cl/p4_ingles/site/artic/20050707/pags/20050707095041.html
+        |title=The Navy\u2019s most valuable asset: its people |publisher=Wayback.archive.org
+        |accessdate=13 July 2013 |deadurl=yes |archiveurl=https://web.archive.org/web/20090101115012/http://www.armada.cl/p4_ingles/site/artic/20050707/pags/20050707095041.html
+        |archivedate=1 January 2009 }}</ref> including 2,500 Marines. Of the fleet
+        of 29 surface vessels, only eight are operational major combatants (frigates).
+        Those ships are based in [[Valpara\u00edso]].<ref>{{cite web |url=http://www.armada.cl/p4_ingles/site/artic/20050719/pags/20050719132710.html
+        |archiveurl=https://web.archive.org/web/20070610100514/http://www.armada.cl/p4_ingles/site/artic/20050719/pags/20050719132710.html
+        |archivedate=10 June 2007 |title=The National Fleet |publisher=Chilean Navy
+        |accessdate=30 May 2014}}</ref> The Navy operates its own aircraft for transport
+        and patrol; there are no Navy fighter or bomber aircraft. The Navy also operates
+        four submarines based in [[Talcahuano]].<ref name=\"countrystudies\"/><ref>{{cite
+        web|url=http://www.armada.cl/p4_ingles/site/artic/20050719/pags/20050719132849.html
+        |title=Submarine Force |publisher=Wayback.archive.org |accessdate=14 July
+        2013 |deadurl=yes |archiveurl=https://web.archive.org/web/20070610100430/http://www.armada.cl/p4_ingles/site/artic/20050719/pags/20050719132849.html
+        |archivedate=10 June 2007 }}</ref>\n\nAir Force General (four star) Jorge
+        Rojas \u00c1vila heads the 12,500 strong [[Chilean Air Force]]. Air assets
+        are distributed among five air brigades headquartered in Iquique, Antofagasta,
+        Santiago, Puerto Montt, and Punta Arenas. The Air Force also operates [[Base
+        Presidente Eduardo Frei Montalva|an airbase]] on [[King George Island (South
+        Shetland Islands)|King George Island]], Antarctica. The Air Force took delivery
+        of the final two of ten F-16s, all purchased from the U.S., in March 2007
+        after several decades of U.S. debate and previous refusal to sell. Chile also
+        took delivery in 2007 of a number of reconditioned Block 15 F-16s from the
+        Netherlands, bringing to 18 the total of F-16s purchased from the Dutch.<ref
+        name=\"countrystudies\"/>\n\nAfter the military coup in September 1973 the
+        [[Carabineros de Chile|Chilean national police]] (Carabineros) were incorporated
+        into the Defense Ministry. With the return of democratic government, the police
+        were placed under the operational control of the Interior Ministry but remained
+        under the nominal control of the Defense Ministry. Gen. Gustavo Gonz\u00e1lez
+        Jure is the head of the national police force of 40,964<ref>{{cite web|url=http://www.carabineros.cl/sitioweb/web/verSeccion.do?cod=239&codContenido=429
+        |title=Carabineros de Chile |publisher=Wayback.archive.org |date=24 October
+        2007 |accessdate=13 July 2013 |deadurl=yes |archiveurl=https://web.archive.org/web/20120312050416/http://www.carabineros.cl/sitioweb/web/verSeccion.do?cod=239&codContenido=429
+        |archivedate=12 March 2012 }}</ref> men and women who are responsible for
+        law enforcement, traffic management, narcotics suppression, border control,
+        and counter-terrorism throughout Chile.<ref name=\"countrystudies\"/>\n\n==Economy==\n{{Main
+        article|Economy of Chile}}\n[[File:Costanera Center Sep. 13.jpg|thumb|''''[[Sanhattan]]'''',
+        the financial district in Santiago de Chile.]]\nThe [[Central Bank of Chile]]
+        in Santiago serves as the [[central bank]] for the country. The Chilean currency
+        is the [[Chilean peso]] (CLP). Chile is one of South America''s most stable
+        and prosperous nations,<ref name=\"BBC-Chile\"/> leading Latin American nations
+        in [[human development (humanity)|human development]], competitiveness, income
+        per capita, globalization, economic freedom, and low perception of corruption.<ref
+        name=\"hdrstats.undp.org\"/> Since July 2013, Chile is considered by the [[World
+        Bank]] as a \"[[World Bank high-income economy|high-income economy]]\".<ref
+        name=\"wb\">{{cite web|url=http://data.worldbank.org/about/country-classifications
+        |title=How We Classify Countries |publisher=[[World Bank]] |accessdate=1 July
+        2013}}</ref><ref name=\":75\">{{cite web|title=Country and Lending Groups|url=http://data.worldbank.org/about/country-classifications/country-and-lending-groups#High_income|publisher=The
+        World Bank|accessdate=14 September 2013|location=High-income economies ($12,616
+        or more)|date=1 July 2013}}</ref><ref name=\":76\">{{cite web|title=GNI per
+        capita, Atlas method (current US$) |url=http://api.worldbank.org/datafiles/NY.GNP.PCAP.CD_Indicator_MetaData_en_EXCEL.xls
+        |publisher=The World Bank |accessdate=14 September 2013 |location=Washington,
+        D.C. |format=xls |date=1 August 2013 |quote=GNI-WB |deadurl=yes |archiveurl=https://web.archive.org/web/20130921055207/http://api.worldbank.org/datafiles/NY.GNP.PCAP.CD_Indicator_MetaData_en_EXCEL.xls
+        |archivedate=21 September 2013 |df=dmy }}</ref>\n\nChile has the highest degree
+        of [[economic freedom]] in South America (ranking 7th worldwide), owing to
+        its independent and efficient judicial system and prudent public finance management.<ref
+        name=iefhf>{{cite web|title=Chile|url=http://www.heritage.org/index/country/chile|work=Index
+        of Economic Freedom|publisher=Heritage Foundation|accessdate=13 July 2013}}</ref>
+        In May 2010 Chile became the first South American country to join the [[Organisation
+        for Economic Co-operation and Development|OECD]].<ref>{{cite web |url=http://www.oecd.org/chile/chilesaccessiontotheoecd.htm
+        |publisher=[[Organisation for Economic Co-operation and Development|OECD]]
+        |title=Chile\u2019s accession to the OECD |date=7 May 2010 |accessdate=22
+        July 2016 }}</ref> In 2006, Chile became the country with the highest nominal
+        GDP per capita in Latin America.<ref>[http://www.weforum.org/pdf/GCR09/GCR20092010fullrankings.pdf
+        Table 4: The Global Competitiveness Index 2009\u20132010 rankings and 2008\u20132009
+        comparisons] {{webarchive |url=https://web.archive.org/web/20101030003958/http://www.weforum.org/pdf/GCR09/GCR20092010fullrankings.pdf
+        |date=30 October 2010 }}. The Global Competitiveness Index 2009\u20132010.
+        World Economic Forum</ref>\n\nCopper mining makes up 20% of Chilean GDP and
+        60% of exports.<ref name=coppersol>{{cite news|title=Mining in Chile: Copper
+        solution|url=https://www.economist.com/news/business/21576714-mining-industry-has-enriched-chile-its-future-precarious-copper-solution|publisher=The
+        Economist|accessdate=13 July 2013|date=27 April 2013}}</ref> [[Escondida]]
+        is the largest copper mine in the world, producing over 5% of global supplies.<ref
+        name=coppersol/> Overall, Chile produces a third of the world\u2019s copper.<ref
+        name=coppersol/> [[Codelco]], the state mining firm, competes with private
+        ones.<ref name=coppersol/>\n\nSound economic policies, maintained consistently
+        since the 1980s, have contributed to steady economic growth in Chile and have
+        more than halved poverty rates.<ref name=factbook/><ref name=\"countrystudies\"/>
+        Chile began to experience a moderate economic downturn in 1999. The economy
+        remained sluggish until 2003, when it began to show clear signs of recovery,
+        achieving 4.0% GDP growth.<ref>{{cite web|url=http://indexmundi.com/chile/gdp_real_growth_rate.html
+        |title=Chile GDP \u2013 real growth rate |publisher=Indexmundi.com |date=21
+        February 2013 |accessdate=13 July 2013}}</ref> The Chilean economy finished
+        2004 with growth of 6 percent. Real GDP growth reached 5.7 percent in 2005
+        before falling back to 4 percent in 2006. GDP expanded by 5 percent in 2007.<ref
+        name=\"countrystudies\"/> Faced with an [[2008 financial crisis|international
+        economic downturn]] the government announced an economic stimulus plan to
+        spur employment and growth, and despite the global financial crisis, aimed
+        for an expansion of between 2 percent and 3 percent of GDP for 2009. Nonetheless,
+        economic analysts disagreed with government estimates and predicted economic
+        growth at a median of 1.5 percent.<ref>{{Cite news|url=https://www.reuters.com/article/economicNews/idUSN1027661220090110
+        |title=Chile finmin says no recession seen in 2009-report |publisher=Reuters
+        |date=10 January 2009 |accessdate=17 December 2009}}</ref> Real GDP growth
+        in 2012 was 5.5%. Growth slowed to 4.1% in the first quarter of 2013.<ref
+        name=imfartiv>{{cite web|title=Chile: 2013 Article IV Consultation; IMF Country
+        Report 13/198|date=14 June 2013|url=http://www.imf.org/external/pubs/ft/scr/2013/cr13198.pdf|publisher=IMF|accessdate=13
+        July 2013}}</ref>\n\nThe unemployment rate was 6.4% in April 2013.<ref>{{cite
+        news|title=Chile February\u2013April Unemployment Rises to 6.4% From 6.2%
+        in January\u2013March|url=https://www.wsj.com/article/BT-CO-20130531-706101.html|publisher=WSJ.com|accessdate=13
+        July 2013}}</ref> There are reported labor shortages in agriculture, mining,
+        and construction.<ref name=imfartiv/> The percentage of Chileans with per
+        capita household incomes below the poverty line\u2014defined as twice the
+        cost of satisfying a person''s minimal nutritional needs\u2014fell from 45.1
+        percent in 1987 to 11.5 percent in 2009, according to government surveys.<ref>{{cite
+        web|url=http://www.trabajoyequidad.cl/documentos/temp/TP-825-CASEN%202006%20en%20profundidad-22-06-2007.pdf|archiveurl=https://web.archive.org/web/20130113065308/http://www.trabajoyequidad.cl/documentos/temp/TP-825-CASEN%2B2006%2Ben%2Bprofundidad-22-06-2007.pdf|archivedate=13
+        January 2013|work=Libertad y Desarrollo|title=Casen 2006 en profundidad|accessdate=22
+        October 2007|date=22 June 2007|deadurl=yes|df=dmy-all}}</ref><ref>{{cite web|url=http://www.cepal.cl/publicaciones/xml/9/41799/PSE-panoramasocial2010.pdf
+        |title=Panorama social de Am\u00e9rica Latina |publisher=ECLAC |format=PDF
+        |year=2010 |accessdate=13 July 2013}}</ref> Critics in Chile, however, argue
+        that true poverty figures are considerably higher than those officially published.<ref>{{cite
+        web|url=http://www.economiaynegocios.cl/noticias/noticias.asp?id=35048|publisher=El
+        Mercurio|title=Una muy necesaria correcci\u00f3n: Hay cuatro millones de pobres
+        en Chile|date=14 October 2007|accessdate=22 October 2007}}</ref> Using the
+        relative yardstick favoured in many European countries, 27% of Chileans would
+        be poor, according to Juan Carlos Feres of the [[ECLAC]].<ref>{{Cite news|work=The
+        Economist|title=Destitute no more|url=http://www.economist.com/displaystory.cfm?story_id=9645174|accessdate=22
+        October 2007|date=16 August 2007}} {{Subscription}}</ref>\n\n[[File:Chile
+        GDP per capita (PPP).svg|thumb|left|Chilean (blue) and average Latin American
+        (gray) [[GDP per capita]] (1950\u20132008).]]\nAs of November 2012, about
+        11.1 million people (64% of the population) benefit from government welfare
+        programs,<ref>{{cite web|url=http://www.fichaproteccionsocial.gob.cl/estad/est_int.php?id=19
+        |title=Ficha de Protecci\u00f3n Social \u2013 Ministerio de Desarrollo Social
+        |publisher=Fichaproteccionsocial.gob.cl |date=20 November 2012 |accessdate=12
+        March 2013 |deadurl=yes |archiveurl=https://web.archive.org/web/20160518190839/http://www.fichaproteccionsocial.gob.cl/estad/est_int.php?id=19
+        |archivedate=18 May 2016 }}</ref>{{Clarify|date=May 2014}} via the \"Social
+        Protection Card\", which includes the population living in poverty and those
+        at a risk of falling into poverty.<ref>{{cite web|url=http://www.fichaproteccionsocial.gob.cl/fps/fps2.php
+        |title=Ficha de Protecci\u00f3n Social \u2013 Ministerio de Desarrollo Social
+        |publisher=Fichaproteccionsocial.gob.cl |accessdate=9 November 2012 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20120915085201/http://www.fichaproteccionsocial.gob.cl/fps/fps2.php
+        |archivedate=15 September 2012 }}</ref>\n\n[[Chile pension system|The privatized
+        national pension system]] (AFP) has encouraged domestic investment and contributed
+        to an estimated total domestic savings rate of approximately 21 percent of
+        GDP.<ref>{{cite web|url=http://www.safp.cl/573/articles-3523_copyright.pdf
+        |title=The Chilean pension system |format=PDF |accessdate=13 July 2013 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20120512092950/http://www.safp.cl/573/articles-3523_copyright.pdf
+        |archivedate=12 May 2012 }}</ref> Under the compulsory private pension system,
+        most formal sector employees pay 10 percent of their salaries into privately
+        managed funds.<ref name=\"countrystudies\"/> However, by 2009, it has been
+        reported that had been lost from the pension system to the global financial
+        crisis.<ref>{{cite web|url=http://www.globalpost.com/dispatch/chile/090121/uncertain-future
+        |title=An uncertain future |publisher=GlobalPost |accessdate=17 December 2009
+        |deadurl=yes |archiveurl=https://web.archive.org/web/20100811120405/https://www.globalpost.com/dispatch/chile/090121/uncertain-future
+        |archivedate=11 August 2010 |df=dmy }}</ref>\n\n[[File:Chuqui001 02.jpg|thumb|[[Chuquicamata]]
+        copper mine]]\nChile has signed [[free trade agreements]] (FTAs) with a whole
+        network of countries, including an FTA with the United States that was signed
+        in 2003 and implemented in January 2004.<ref>{{cite web |url=http://www.ustr.gov/Trade_Agreements/Bilateral/Chile_FTA/Final_Texts/Section_Index.html
+        |title=USA-Chile FTA Final Text |publisher=Ustr.gov |accessdate=13 July 2013
+        |deadurl=yes |archiveurl=https://web.archive.org/web/20160328045456/https://ustr.gov/trade_agreements/bilateral/chile_fta/final_texts/section_index.html
+        |archivedate=28 March 2016 |df=dmy-all }}</ref> Internal Government of Chile
+        figures show that even when factoring out inflation and the recent high price
+        of copper, bilateral trade between the U.S. and Chile has grown over 60 percent
+        since then.<ref name=\"countrystudies\"/> Chile''s total trade with China
+        reached US in 2006, representing nearly 66 percent of the value of its trade
+        relationship with Asia.<ref name=\"countrystudies\"/> Exports to Asia increased
+        from US in 2005 to US in 2006, a 29.9 percent increase.<ref name=\"countrystudies\"/>
+        Year-on-year growth in imports was especially strong from a number of countries:
+        Ecuador (123.9%), Thailand (72.1%), South Korea (52.6%), and China (36.9%).<ref
+        name=\"countrystudies\"/>\n\nChile''s approach to foreign direct investment
+        is codified in the country''s Foreign Investment Law. Registration is reported
+        to be simple and transparent, and foreign investors are guaranteed access
+        to the official [[foreign exchange market]] to repatriate their profits and
+        capital.<ref name=\"countrystudies\"/>\nThe Chilean Government has formed
+        a Council on Innovation and Competition, hoping to bring in additional FDI
+        to new parts of the economy.<ref name=\"countrystudies\"/>\n\n[[Standard &
+        Poor''s]] gives Chile a [[credit rating]] of AA-.<ref>{{cite news|title=UPDATE
+        2-S&P raises Chile''s credit rating to AA-minus|url=https://www.reuters.com/article/2012/12/26/chile-ratings-sandp-idUSL1E8NQ6KM20121226|publisher=Reuters|accessdate=13
+        July 2013|date=26 December 2012}}</ref> The Government of Chile continues
+        to pay down its foreign debt, with public debt only 3.9 percent of GDP at
+        the end of 2006.<ref name=\"countrystudies\"/> The Chilean central government
+        is a net creditor with a [[Net asset value|net asset position]] of 7% of GDP
+        at end 2012.<ref name=imfartiv/> The [[current account deficit]] was 4% in
+        the first quarter of 2013, financed mostly by foreign direct investment.<ref
+        name=imfartiv/> 14% of central government revenue came directly from copper
+        in 2012.<ref name=imfartiv/>\n\n===Infrastructure===\n\n====Transport====\n{{Main
+        article|Transport in Chile}}\n[[File:Mataveri Airport Easter Island Chile.jpg|thumbnail|left|[[Mataveri
+        International Airport]] in [[Easter Island]]]]\n[[File:Metrolinea4.jpg|thumbnail|[[Santiago
+        Metro]] is South America''s most extensive metro system<ref name=\"Home\">{{cite
+        web |url=http://www.metrosantiago.cl/guia-viajero |title=Gu\u00eda del Viajero
+        |publisher=Metro de Santiago |language=Spanish |trans_title=Plan Your Journey
+        |accessdate=18 September 2013}}</ref>]]\nDue to Chile''s topography a functioning
+        transport network is vital to its economy. Buses are now the main means of
+        long distance transportation in Chile, following the decline of its railway
+        network.<ref>{{cite web|url=http://www.omnilineas.cl/comparison/index.html|title=Omnilineas
+        website|author=Omnilineas|publisher=}}</ref> The bus system covers the entire
+        country, from [[Arica, Chile|Arica]] to [[Santiago, Chile|Santiago]] (a 30-hour
+        journey) and from Santiago to [[Punta Arenas]] (about 40 hours, with a change
+        at [[Osorno, Chile|Osorno]]).\n\nChile has a total of 372 runways (62 paved
+        and 310 unpaved). Important airports in Chile include [[Chacalluta International
+        Airport]] ([[Arica]]), [[Diego Aracena International Airport]] ([[Iquique]]),
+        [[Cerro Moreno International Airport]] ([[Antofagasta]]), [[Carriel Sur International
+        Airport]] ([[Concepci\u00f3n, Chile|Concepci\u00f3n]]), [[El Tepual International
+        Airport]] ([[Puerto Montt]]), [[Presidente Carlos Ib\u00e1\u00f1ez del Campo
+        International Airport]] ([[Punta Arenas]]), [[Mataveri International Airport]]
+        ([[Easter Island]]), the most remote airport in the world{{Dubious|date=February
+        2014}}, and the [[Comodoro Arturo Merino Ben\u00edtez International Airport]]
+        ([[Santiago]]) with a traffic of 12,105,524 passengers in 2011. Santiago is
+        headquarters of Latin America''s largest [[airline]] [[holding company]] and
+        Chilean [[flag carrier]] [[LAN Airlines]].\n\n====Telecommunications====\n[[File:Andes
+        y Torre Entel.jpg|thumbnail|[[Torre Entel]] in [[Santiago de Chile]], with
+        the [[Andes mountains]] in the background]]\n[[telecommunications in Chile|Chile
+        has a telecommunication]] system which covers much of the country, including
+        Chilean insular and Antarctic bases. Privatization of the telephone system
+        began in 1988; Chile has one of the most advanced telecommunications infrastructure
+        in South America with a modern system based on extensive microwave radio relay
+        facilities and domestic satellite system with 3 earth stations.<ref name=factbook
+        /> In 2012, there were 3.276 million main lines in use and 24.13 million mobile
+        cellular telephone subscribers.<ref name=factbook /> According to a 2012 database
+        of the [[International Telecommunications Union]] (ITU), 61.42% of the Chilean
+        population uses the internet, making Chile the country with the highest internet
+        penetration in [[South America]].<ref name=\"ITU-IndividualsUsingTheInternet\">[http://www.itu.int/en/ITU-D/Statistics/Documents/statistics/2013/Individuals_Internet_2000-2012.xls
+        \"Percentage of Individuals using the Internet 2000], International Telecommunications
+        Union (Geneva), June 2013, retrieved 22 June 2013</ref> The Chilean internet
+        country code is \"[[.cl]]\".\n\n==== Water supply and sanitation ====\n{{Main
+        article|Water supply and sanitation in Chile}}\n[[Water supply]] and [[sanitation]]
+        sector is characterized by high levels of access and good service quality.
+        Compared to most other countries, Chile''s water and sanitation sector \ndistinguishes
+        itself by the fact that all urban water companies are privately owned or operated.
+        The sector also prides itself of having a \nmodern and effective regulatory
+        framework, including an innovative \nsubsidy to water demand by the poor.
+        One weakness of the sector is the \nrelatively high water losses.\n\n===Agriculture===\n{{Main
+        article|Agriculture in Chile}}\n[[File:Chilean vineyard in Andes foothills.jpg|thumb|Many
+        of [[Chile''s vineyards]] are found on flat land within the foothills of the
+        Andes.]]\n[[Agriculture]] in Chile encompasses a wide range of different activities
+        due to its particular [[geography]], [[climate]] and [[geology]] and human
+        factors. Historically agriculture is one of the bases of Chile''s economy,
+        now agriculture and allied sectors like [[forestry]], [[logging]] and [[fishing]]
+        accounts only for 4.9% of the [[GDP]] {{As of|2007|lc=y}} and employed 13.6%
+        of the country''s labor force. Some major agriculture products of Chile includes
+        [[grapes]], [[apple]]s, [[pear]]s, [[onion]]s, [[wheat]], [[corn]], [[oats]],
+        [[peach]]es, [[garlic]], [[asparagus]], [[bean]]s, [[beef]], [[poultry]],
+        [[wool]], [[fish]], [[timber]] and [[hemp]].[1] Due to its geographical isolation
+        and strict customs policies Chile is free from diseases such as [[Mad Cow
+        Disease]], [[fruit fly (disambiguation)|fruit fly]] and [[Phylloxera]]. This,
+        plus being located in the [[Southern Hemisphere]] which has quite different
+        harvesting times from the [[Northern Hemisphere]], and its wide range of agriculture
+        conditions are considered Chile''s main comparative advantages. However, Chile''s
+        mountainous landscape limits the extent and intensity of agriculture so that
+        arable land corresponds only to 2.62% of the total territory.\n\n===Tourism===\n{{Main
+        article|Tourism in Chile}}\n\nTourism in Chile has experienced sustained growth
+        over the last few decades. In 2005, tourism grew by 13.6 percent, generating
+        more than 4.5 billion dollars of which 1.5 billion was attributed to foreign
+        tourists. According to the National Service of Tourism (Sernatur), 2 million
+        people a year visit the country. Most of these visitors come from other countries
+        in the American continent, mainly [[Argentina]]; followed by a growing number
+        from the United States, Europe, and [[Brazil]] with a growing number of Asians
+        from [[South Korea]] and [[PR China]].<ref>Blanco, Hern\u00e1n ''''et al.''''
+        (August 2007) [https://web.archive.org/web/20080408235147/http://www.rides.cl/pdf/trade_tourism_chile.pdf
+        International Trade and Sustainable Tourism in Chile]. International Institute
+        for Sustainable Development</ref>\n\n[[File:Puerto Varas Osorno.jpg|thumb|left|[[Osorno
+        (volcano)|Osorno volcano]], the [[Llanquihue Lake]] near of Puerto Varas]]\n\nThe
+        main attractions for tourists are places of natural beauty situated in the
+        extreme zones of the country: [[San Pedro de Atacama]], in the north, is very
+        popular with foreign tourists who arrive to admire the Incaic architecture,
+        the altiplano lakes, and the [[Valle de la Luna (Chile)|Valley of the Moon]].{{citation
+        needed|date=July 2014}} In [[Putre]], also in the north, there is the [[Chungar\u00e1
+        Lake]], as well as the [[Parinacota Volcano|Parinacota]] and the [[Pomerape]]
+        volcanoes, with altitudes of 6,348 m and 6,282 m, respectively. Throughout
+        the central Andes there are many ski resorts of international repute,{{citation
+        needed|date=July 2014}} including [[Portillo, Chile|Portillo]], [[Valle Nevado]]
+        and [[Termas de Chill\u00e1n]].\n\nThe main tourist sites in the south are
+        national parks (the most popular is [[Conguill\u00edo National Park]] in the
+        Araucan\u00eda){{citation needed|date=July 2014}} and the coastal area around
+        Tir\u00faa and Ca\u00f1ete with the [[Isla Mocha]] and the [[Nahuelbuta National
+        Park]], [[Chilo\u00e9 Archipelago]] and [[Patagonia]], which includes [[Laguna
+        San Rafael National Park]], with its many glaciers, and the [[Torres del Paine
+        National Park]]. The central port city of [[Valpara\u00edso]], which is World
+        Heritage with its unique architecture, is also popular.{{citation needed|date=July
+        2014}} Finally, Easter Island in the Pacific Ocean is one of the main Chilean
+        tourist destinations.\n\n[[File:Moai Rano raraku.jpg|thumb|upright|[[Moai]]
+        on [[Easter Island]], Chile]]\n\nFor locals, tourism is concentrated mostly
+        in the summer (December to March), and mainly in the coastal beach towns.{{citation
+        needed|date=July 2014}} [[Arica]], [[Iquique]], [[Antofagasta]], [[La Serena,
+        Chile|La Serena]] and [[Coquimbo]] are the main summer centers in the north,
+        and Puc\u00f3n on the shores of [[Lake Villarrica]] is the main center in
+        the south. Because of its proximity to Santiago, the coast of the Valpara\u00edso
+        Region, with its many beach resorts, receives the largest number of tourists.
+        [[Vi\u00f1a del Mar]], Valpara\u00edso''s northern affluent neighbor, is popular
+        because of its beaches, [[casino]], and its annual [[Vi\u00f1a del Mar International
+        Song Festival|song festival]], the most important musical event in Latin America.{{citation
+        needed|date=July 2014}} [[Pichilemu]] in the [[O''Higgins Region]] is widely
+        known as South America''s \"best [[surfing]] spot\" according to [[Fodor''s]].{{citation
+        needed|date=July 2014}}\n\nIn November 2005 the government launched a campaign
+        under the brand \"Chile: All Ways Surprising\" intended to promote the country
+        internationally for both business and tourism.<ref>{{cite web|url=http://www.prochile.us/
+        |title=Pro&#124;Chile \u2013 Importadores &#124; Selecci\u00f3n idiomas |publisher=Prochile.us
+        |accessdate=22 December 2013}}</ref> [[List of museums in Chile|Museums in
+        Chile]] such as the [[Chilean National Museum of Fine Arts]] built in 1880,
+        feature works by [[List of Chilean artists|Chilean artists]].\n\n==Education==\n{{Main
+        article|Education in Chile}}\n\nIn Chile, education begins with [[preschool]]
+        until the age of 5. [[Primary school]] is provided for children between ages
+        6 and 13. Students then attend [[secondary school]] until graduation at age
+        17.\n\nSecondary education is divided into two parts: During the first two
+        years, students receive a general education. Then, they choose a branch: scientific
+        humanistic education, artistic education, or technical and professional education.
+        Secondary school ends two years later on the acquirement of a certificate
+        (licencia de ense\u00f1anza media).<ref>{{cite web |url=http://www.unevoc.unesco.org/worldtvetdatabase1.php?ct=CHL|title=Chile
+        Country Profile, UNESCO-UNEVOC|publisher=}}</ref>\n\n[[File:Marcha cerca de
+        Biblioteca Nacional de Chile, sept. 2013.jpg|thumb|[[2011\u201313 Chilean
+        student protests]]]]\nChilean education is segregated by wealth in a three-tiered
+        system \u2014 the quality of the schools reflect socioeconomic backgrounds:\n*
+        city schools (colegios municipales) that are mostly free and have the worse
+        education results, mostly attended by poor students;\n* subsidized schools
+        that receive some money from the government which can be supplemented by fees
+        paid by the student''s family, which are attended by mid-income students and
+        typically get mid-level results; and \n* entirely private schools that consistently
+        get the best results. Many private schools charge attendance fees of 0,5 to
+        1 median household incomes.<ref>{{cite web|url=http://www.emol.com/noticias/nacional/2013/12/30/637336/mensualidad-en-colegios-top-10-en-la-psu-supera-los-250-mil.html
+        |title=Mensualidad de los colegios con los mejores puntajes en la PSU supera
+        los mil |publisher=Emol.com |date=30 December 2013 |accessdate=18 July 2014}}</ref>\n\n===Higher
+        education===\n{{See also|List of universities in Chile}}\n\nUpon successful
+        graduation of secondary school, students may continue into [[higher education]].
+        The higher education schools in Chile consist of [[Chilean Traditional Universities]]
+        and are divided into [[Public university|public universities]] or [[Private
+        university|private universities]]. There are [[List of medical schools in
+        South America#Chile|medical schools]] and both the [[Universidad de Chile]]
+        and [[Universidad Diego Portales]] offer [[Legal education|law schools]] in
+        a partnership with [[Yale University]].<ref>{{cite web|url=http://www.law.yale.edu/linkageinchili.htm
+        |title=Program in Chile &#124; Yale Law School |publisher=Law.yale.edu |accessdate=22
+        December 2013}}</ref>\n\n==Health==\n{{Main article|Healthcare in Chile}}\n\nThe
+        [[Ministry of Health (Chile)|Ministry of Health]] (''''Minsal'''') is the
+        cabinet-level administrative office in charge of planning, directing, coordinating,
+        executing, controlling and informing the public health policies formulated
+        by the President of Chile. The [[Fondo Nacional de Salud|National Health Fund]]
+        (''''Fonasa''''), created in 1979, is the financial entity entrusted to collect,
+        manage and distribute state funds for health in Chile. It is funded by the
+        public. All employees pay 7 percent of their monthly income to the fund.\n\nFonasa
+        is part of the NHSS and has executive power through the [[Ministry of Health
+        (Chile)]]. Its headquarters are in [[Santiago, Chile|Santiago]] and decentralized
+        public service is conducted by various Regional Offices. More than 12 million
+        beneficiaries benefit from Fonasa. Beneficiaries can also opt for more costly
+        private insurance through [[Isapre]]. [[List of hospitals in Chile|Hospitals
+        in Chile]] are mainly located in the [[Santiago Metropolitan Region]].\n\n==Culture==\n{{Main
+        article|Culture of Chile|Music of Chile|Chilean cuisine}}\n{{multiple image\n|
+        footer    = [[Pablo Neruda]] and [[Gabriela Mistral]], Nobel Prize recipients
+        in literature (1971 and 1945)\n| width1    = 102\n| image1    = Pablo Neruda.jpg\n|
+        alt1      = Pablo Neruda\n| width2    = 100\n| image2    = Gabriela Mistral-01.jpg\n|
+        alt2      = Gabriela Mistral\n}}\nFrom the period between early agricultural
+        settlements and up to the late pre-Hispanic period, northern Chile was a region
+        of Andean culture that was influenced by altiplano traditions spreading to
+        the coastal valleys of the north, while southern regions were areas of Mapuche
+        cultural activities. Throughout the colonial period following the conquest,
+        and during the early Republican period, the country''s culture was dominated
+        by the Spanish. Other European influences, primarily English, French, and
+        German began in the 19th century and have continued to this day. German migrants
+        influenced the Bavarian style rural architecture and cuisine in the south
+        of Chile in cities such as [[Valdivia]], [[Frutillar]], [[Puerto Varas]],
+        [[Osorno, Chile|Osorno]], [[Temuco]], [[Puerto Octay]], [[Llanquihue Province|Llanquihue]],
+        [[Faja Maisan]], [[Pitrufqu\u00e9n]], [[Victoria, Chile|Victoria]], [[Puc\u00f3n]]
+        and [[Puerto Montt]].<ref>{{cite web |url=http://www.allsouthernchile.com/southamerica/valdivia-southern-chile-city-guide/index.html
+        |title=Valdivia Chile |publisher=Allsouthernchile.com |accessdate=1 August
+        2011}}</ref><ref>{{cite web|author=International Web Solutions, Inc. <http://www.iwsinc.net>
+        |url=http://www.globaladrenaline.com/latinamerica/chile/ |title=Latin America
+        :: Chile |publisher=Global Adrenaline |accessdate=1 August 2011 |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20110711100623/http://www.globaladrenaline.com/latinamerica/chile/
+        |archivedate=11 July 2011 }}</ref><ref>{{cite web|url=http://www.learnapec.org/index.cfm?action=exploration&cou_id=4
+        |title=Learning About Each Other |publisher=Learnapec.org |accessdate=1 August
+        2011 |deadurl=yes |archiveurl=https://web.archive.org/web/20110429020520/http://www.learnapec.org/index.cfm?action=exploration&cou_id=4
+        |archivedate=29 April 2011 |df=dmy }}</ref><ref>{{cite web |url=http://www.country-studies.com/chile/foreign-relations.html
+        |title=Chile Foreign Relations |publisher=Country-studies.com |accessdate=1
+        August 2011}}</ref><ref>{{cite web |url=http://www.foodbycountry.com/Algeria-to-France/Chile.html
+        |title=Food in Chile \u2013 Chilean Food, Chilean Cuisine \u2013 traditional,
+        popular, dishes, recipe, diet, history, common, meals, rice, main, people,
+        favorite, customs, fruits, country, bread, vegetables, bread, drink, typical
+        |publisher=Foodbycountry.com |accessdate=1 August 2011}}</ref>\n\n===Music
+        and dance===\n[[File:Zamacueca-Chile.jpg|thumb|left|''''La Zamacueca'''',
+        by Manuel Antonio Caro.]]\nMusic in Chile ranges from folkloric, popular and
+        classical music. Its large geography generates different musical styles in
+        the north, center and south of the country, including also Easter Island and
+        Mapuche music.<ref>{{cite web |url=http://www.memoriachilena.cl/temas/index.asp?id_ut=elfolclordechileysustresgrandesraices
+        |title=Memoria Chilena |publisher=Memoriachilena.cl }}</ref> The national
+        dance is the [[cueca]]. Another form of traditional Chilean song, though not
+        a dance, is the tonada. Arising from music imported by the Spanish colonists,
+        it is distinguished from the cueca by an intermediate melodic section and
+        a more prominent melody.\n\nBetween 1950 and 1970 appears a rebirth in folk
+        music leading by groups such as [[Los de Ram\u00f3n]], Los Cuatro Huasos and
+        Los Huasos Quincheros, among others<ref>{{cite web|url=http://musicapopular.cl/2.0/index2.php?op=Artista&id=444
+        |title=Conjuntos Folkloricos de Chile |publisher=Musicapopular.cl |deadurl=yes
+        |archiveurl=https://web.archive.org/web/20071013104352/http://musicapopular.cl/2.0/index2.php?op=Artista&id=444
+        |archivedate=13 October 2007 }}</ref> with composers such as [[Ra\u00fal de
+        Ram\u00f3n]], [[Violeta Parra]] and others. In the mid-1960s native musical
+        forms were revitalized by the [[Parra family]] with the [[Nueva canci\u00f3n|Nueva
+        canci\u00f3n Chilena]], which was associated with political activists and
+        reformers such as [[V\u00edctor Jara]], [[Inti-Illimani]], and [[Quilapay\u00fan]].
+        Other important [[folk music|folk]] singer and researcher on [[folklore]]
+        and Chilean [[ethnography]], is [[Margot Loyola]]. Also many Chilean rock
+        bands like [[Los Jaivas]], [[Los Prisioneros]], [[La Ley (band)|La Ley]],
+        and [[Los Tres]] have reached international success. In February, annual music
+        festivals are held in [[Vi\u00f1a del Mar]].<ref>{{cite news|last=Martinez|first=Jessica|title=Top
+        Cultural Celebrations and Festivals in Chile|url=http://traveltips.usatoday.com/top-cultural-celebrations-festivals-chile-61003.html|newspaper=USA
+        Today}}</ref>\n\n===Literature===\nChileans call their country ''''pa\u00eds
+        de poetas''''\u2014country of poets.<ref>{{cite web|url=http://www.protocolo.com.mx/articulos.php?id_sec=2&id_art=600
+        |accessdate=29 October 2008 }}{{dead link|date=May 2016|bot=medic}}{{cbignore|bot=medic}}</ref><ref>{{cite
+        web |url=http://www.uchile.cl/cultura/poetasjovenes/bianchi26.htm |title=Un
+        mapa por completar: la joven poesia chilena \u2013 \u00bfPor qu\u00e9 tanta
+        y tan variada poes\u00eda? |publisher=Uchile.cl |accessdate=17 December 2009}}</ref>
+        [[Gabriela Mistral]] was the first Latin American to receive a [[Nobel Prize
+        in Literature]] (1945). Chile''s most famous poet is [[Pablo Neruda]], who
+        received the Nobel Prize for Literature (1971) and is world-renowned for his
+        extensive library of works on romance, nature, and politics. His three highly
+        personalized homes in [[Isla Negra]], Santiago and Valpara\u00edso are popular
+        tourist destinations.\n\nAmong the list of other Chilean poets are [[Carlos
+        Pezoa V\u00e9liz]], [[Vicente Huidobro]], [[Gonzalo Rojas]], [[Pablo de Rokha]],
+        [[Nicanor Parra]] and [[Ra\u00fal Zurita]]. [[Isabel Allende]] is the best-selling
+        Chilean novelist, with 51 millions of her novels sold worldwide.<ref>{{cite
+        web |url=http://www.laht.com/article.asp?ArticleId=346023&CategoryId=13003
+        |title=Latin American Herald Tribune \u2013 Isabel Allende Named to Council
+        of Cervantes Institute |publisher=Laht.com |accessdate=14 November 2010}}</ref>
+        Novelist [[Jos\u00e9 Donoso]]''s novel ''''[[The Obscene Bird of Night]]''''
+        is considered by critic [[Harold Bloom]] to be one of the canonical works
+        of 20th-century Western literature. Another internationally recognized Chilean
+        novelist and poet is [[Roberto Bola\u00f1o]] whose translations into English
+        have had an excellent reception from the critics.<ref>{{Cite news |url=http://www.time.com/time/arts/article/0,8599,1857951,00.html
+        |work=Time |date=10 November 2008 |accessdate=28 April 2010 |first=Lev |last=Grossman
+        |title=Bola\u00f1o''s 2666: The Best Book of 2008}}</ref><ref>{{cite web |author=Sarah
+        Kerr |url=http://www.nybooks.com/articles/22171 |title=The Triumph of Roberto
+        Bola\u00f1o |publisher=The New York Review of Books |date=18 December 2008}}</ref><ref>{{Cite
+        news| url=https://www.nytimes.com/2007/04/15/books/review/Wood.t.html |work=The
+        New York Times |title=The Visceral Realist |first=James |last=Wood |date=15
+        April 2007 |accessdate=1 April 2010}}</ref>\n\n===Cuisine===\n[[File:Chilean
+        Cazuela.JPG|thumb|Chilean [[Cazuela]] and assorted salads.]] [[Chilean cuisine]]
+        is a reflection of the country''s topographical variety, featuring an assortment
+        of seafood, beef, fruits, and vegetables. Traditional recipes include [[asado]],
+        [[cazuela]], [[empanada]]s, [[humita]]s, [[pastel de choclo]], pastel de papas,
+        [[curanto]] and [[sopaipilla#Chile|sopaipillas]].<ref>{{cite book|author=Maria
+        Baez Kijac|title=The South American Table: The Flavor and Soul of Authentic...|url=https://books.google.com/books?id=LlePAePLlqkC|accessdate=14
+        July 2013|year=2003|publisher=Harvard Common Press|isbn=978-1-55832-249-3}}</ref>
+        [[Crudos]] is an example of the mixture of culinary contributions from the
+        various ethnic influences in Chile. The raw minced [[llama]], heavy use of
+        shellfish and rice bread were taken from native [[Quechua people|Quechua]]
+        Andean cuisine, (although now beef brought to Chile by Europeans is also used
+        in place of the llama meat), lemon and onions were brought by the Spanish
+        colonists, and the use of [[mayonnaise]] and [[yogurt]] was introduced by
+        German immigrants, as was [[beer]].\n\n===Folklore===\nThe folklore of Chile,
+        cultural and demographic characteristics of the country, is the result of
+        mixture of Spanish and Amerindian elements that occurred during the colonial
+        period. Due to cultural and historical reasons, they are classified and distinguished
+        four major areas in the country: northern areas, central, southern and south.
+        Most of the traditions of the [[culture of Chile]] have a festive purpose,
+        but some, such as dances and ceremonies, have religious components.{{citation
+        needed|date=November 2014}}\n\n====Mythology====\n{{Main article|Chilean mythology}}\n\nChilean
+        mythology, is the mythology and beliefs of the Folklore of Chile.\n\nThis
+        includes [[Chilote mythology]], [[Rapa Nui mythology]] and [[Mapuche mythology]].\n\n===Cinema===\n{{Main
+        article|Cinema of Chile}}\n\nThe film originated in [[Valpara\u00edso]] on
+        26 May 1902 with the premiere of the documentary ''''Exercise General Fire
+        Brigade'''', the first film completely filmed and processed in the country.
+        In the following decades, marked milestones ''''The deck of Death'''' (or
+        ''''The Enigma of Lord Street'''') (1916), considered the first film Chilean
+        story, ''''The transmission of presidential'''' (1920), the first animated
+        film in the country, and ''''North and South'''' (1934), the first sound film
+        of Chile.\n\n===Sports===\n{{main article|Sport in Chile}}\n[[File:Estadio
+        Nacional de Chile 2.jpg|left|thumb|[[Estadio Nacional de Chile]]]]\n\nChile''s
+        most popular sport is association football. Chile has appeared in nine FIFA
+        World Cups which includes hosting the [[1962 FIFA World Cup]] where the [[Chile
+        national football team|national football team]] finished third. Other results
+        achieved by the national football team include two [[Copa Am\u00e9rica]] titles
+        ([[2015 Copa Am\u00e9rica|2015]] and [[Copa Am\u00e9rica Centenario|2016]]),
+        and two runners up positions,  one silver and two bronze medals at the [[Pan
+        American Games]], a bronze medal at the [[2000 Summer Olympics]] and two third
+        places finishes in the FIFA under-17 and under-20 youth tournaments. The top
+        league in the [[Chilean football league system]] is the [[Chilean Primera
+        Divisi\u00f3n]], which is named by the [[International Federation of Football
+        History & Statistics|IFFHS]] as the ninth strongest national football league
+        in the world.<ref name=iffhs>{{cite web |url=http://www.iffhs.de/?b6e28fa3002f71504e52d17f7370eff3702bb1c2bb11
+        |title=The strongest National League in the World 2011 |work=IFFHS |accessdate=18
+        April 2012}}</ref>\n\nThe main football clubs are [[Colo-Colo]], [[Club Universidad
+        de Chile|Universidad de Chile]] and [[Club Deportivo Universidad Cat\u00f3lica|Universidad
+        Cat\u00f3lica]]. Colo-Colo is the country''s most successful football club,
+        having both the most national and international championships, including the
+        coveted [[Copa Libertadores]] South American club tournament. Universidad
+        de Chile was the last international champion ([[Copa Sudamericana]] 2011).\n\n[[File:Bachelet
+        y campeones de polo.jpg|thumb|The Chilean national polo team with President
+        [[Michelle Bachelet]] and the trophy of the [[2008 World Polo Championship]].]]\n\nTennis
+        is Chile''s most successful sport. Its [[Chile Davis Cup team|national team]]
+        won the [[World Team Cup]] clay tournament twice (2003 & 2004), and played
+        the [[Davis Cup]] final against [[Italy]] in 1976. At the [[2004 Summer Olympics]]
+        the country captured gold and bronze in men''s singles and gold in men''s
+        doubles. [[Marcelo R\u00edos]] became the first Latin American man to reach
+        the number one spot in the [[List of ATP number 1 ranked players|ATP singles
+        rankings]] in 1998. [[Anita Lizana]] won the [[US Open (tennis)|US Open]]
+        in 1937, becoming the first woman from Latin America to win a [[Grand Slam
+        (tennis)|Grand Slam]] tournament. [[Luis Ayala (tennis)|Luis Ayala]] was twice
+        a runner-up at the French Open and both R\u00edos and [[Fernando Gonz\u00e1lez]]
+        reached the Australian Open men''s singles finals. Gonz\u00e1lez also won
+        a silver medal in singles at the [[2008 Summer Olympics]] in Beijing.\n\nAt
+        the Summer Olympic Games Chile boasts a total of two gold medals (tennis),
+        seven silver medals (athletics, [[Equestrian at the Summer Olympics|equestrian]],
+        [[boxing]], shooting and tennis) and four bronze medals (tennis, boxing and
+        football). In 2012, Chile won its first Paralympic Games medal (gold in Athletics).\n\n[[Chilean
+        rodeo|Rodeo]] is the country''s [[national sport]] and is practiced in the
+        more rural areas of the nation. A sport similar to [[hockey]] called ''''[[chueca]]''''
+        was played by the Mapuche people during the Spanish conquest. [[Skiing]] and
+        [[snowboarding]] are practiced at ski centers located in the Central Andes,
+        and in southern ski centers near to cities as Osorno, Puerto Varas, Temuco
+        and Punta Arenas. [[Surfing in Chile|surfing]] is popular at some coastal
+        towns. [[Polo]] is professionally practiced within Chile, with the country
+        achieving top prize in the 2008 and 2015 [[World Polo Championship]].\n\nBasketball
+        is a popular sport in which Chile has earned a bronze medal in the first men''s
+        [[FIBA World Championship]] held in 1950 and winning a second bronze medal
+        when Chile hosted the [[1959 FIBA World Championship]]. Chile hosted the first
+        [[FIBA World Championship for Women]] in 1953 finishing the tournament with
+        the silver medal. [[San Pedro de Atacama]] is host to the annual \"Atacama
+        Crossing\", a six-stage, {{convert|250|km|adj=on}} footrace which annually
+        attracts about 150 competitors from 35 countries. The [[Dakar Rally]] [[Off-road
+        racing|off-road automobile race]] has been held in both Chile and [[Argentina]]
+        since 2009.\n\n===Cultural heritage===\n[[File:Cerro Concepcion.jpg|thumbnail|right|The
+        historical district of the port city of Valpara\u00edso]]\nThe [[cultural
+        heritage]] of Chile consists, first, of their intangible heritage, composed
+        of various cultural events, such as visual arts, crafts, dances, holidays,
+        cuisine, games, music and traditions, and, secondly, by its tangible, consists
+        of those buildings, objects and sites of archaeological, architectural, traditional,
+        artistic, ethnographic, folkloric, historical, religious or technological
+        scattered through Chilean territory, among them, those goods are declared
+        [[World Heritage Site]] by [[UNESCO]], in accordance with the provisions of
+        the Convention concerning the Protection of World Cultural and Natural Heritage
+        of 1972, ratified by Chile in 1980. These cultural sites are the [[Rapa Nui
+        National Park]] (1995), the [[Churches of Chilo\u00e9]] (2000), [[Valpara\u00edso|the
+        historical district of the port city of Valpara\u00edso]] (2003), [[Humberstone
+        and Santa Laura Saltpeter Works]] (2005) and the mining city [[Sewell, Chile|Sewell]]
+        (2006).\n\nIn 1999 the ''''Cultural Heritage Day'''' was established as a
+        way to honour and commemorate Chiles cultural heritage. It is an official
+        national holiday celebrated in May every year.\n\n==See also==\n{{portal|Chile|Latin
+        America|Geography}}\n* [[Index of Chile-related articles]]\n* [[International
+        rankings of Chile]]\n* [[List of Chileans]]\n* [[Outline of Chile]]\n* [[2010
+        Chile earthquake]]\n{{clear}}\n\n==References==\n{{Reflist|25em}}\n\n==Further
+        reading==\n* Simon Collier and William F. Sater, ''''A History of Chile, 1808\u20131894,''''
+        Cambridge University Press, 1996\n* Paul W. Drake, and others., ''''Chile:
+        A Country Study,'''' Library of Congress, 1994\n* Luis Galdames, ''''A History
+        of Chile,'''' University of North Carolina Press, 1941\n* Brian Lovemen, ''''Chile:
+        The Legacy of Hispanic Capitalism,'''' 3rd ed., Oxford University Press, 2001\n*
+        John L. Rector, ''''The History of Chile,'''' Greenwood Press, 2003\n\n==External
+        links==\n{{Sister project links|voy=Chile}}\n* [http://www.thisischile.cl/
+        Official Chile website]\n* [http://www.gobiernodechile.cl/ Government of Chile]\n*{{CIA
+        World Factbook link|ci|Chile}}\n* [http://ucblibraries.colorado.edu/govpubs/for/chile.htm
+        Chile] from ''''UCB Libraries GovPubs''''\n*{{Dmoz|Regional/South_America/Chile}}\n*
+        [http://news.bbc.co.uk/2/hi/americas/country_profiles/1222764.stm Chile profile]
+        from the [[BBC News]]\n* [https://web.archive.org/web/20140116103522/http://www.ubicachile.cl/
+        Road maps of Chile, interactive]\n*[http://wits.worldbank.org/CountryProfile/Country/CHL/Year/2012/Summary
+        World Bank Summary Trade Statistics Chile]\n*{{Wikiatlas|Chile}}\n*{{osmrelation-inline|167454|bullet=no}}\n*
+        [http://www.ifs.du.edu/ifs/frm_CountryProfile.aspx?Country=CL Key Development
+        Forecasts for Chile] from [[International Futures]]\n* [http://www.chileculture.org/
+        Chile Cultural Society]\n\n{{Chile topics|state=uncollapsed}}\n{{Navboxes\n|
+        title = International membership\n| list =\n{{Countries of South America}}\n{{Andean
+        Community of Nations}}\n{{Organization of American States}}\n{{Union of South
+        American Nations topics}}\n{{Organisation for Economic Co-operation and Development}}\n{{G-15
+        nations}}\n{{Mercosur}}\n}}\n\n{{Authority control}}\n\n[[Category:Chile|
+        ]]\n[[Category:G15 nations]]\n[[Category:Former Spanish colonies]]\n[[Category:Liberal
+        democracies]]\n[[Category:Member states of the Union of South American Nations]]\n[[Category:Republics]]\n[[Category:States
+        and territories established in 1818]]\n[[Category:Spanish-speaking countries
+        and territories]]\n[[Category:Countries in South America]]\n[[Category:Member
+        states of the United Nations]]\n[[Category:1818 establishments in South America]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-09-08T04:11:36Z","lastrevid":798754974,"length":153246,"fullurl":"https://en.wikipedia.org/wiki/Chile","editurl":"https://en.wikipedia.org/w/index.php?title=Chile&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Chile"}}}}'
+    http_version: 
+  recorded_at: Thu, 22 Jun 2017 21:00:00 GMT
+recorded_with: VCR 3.0.3

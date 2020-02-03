@@ -1,0 +1,1589 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://fr.wikipedia.org/w/api.php?action=query&format=json&meta=siteinfo&siprop=namespaces%7Cnamespacealiases%7Cinterwikimap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Sep 2017 19:54:56 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1286.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://fr.wikipedia.org/wiki/Sp%C3%A9cial:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - DENY
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=54123 t=1505073296261057
+      X-Varnish:
+      - 817697308, 553862473, 44968277
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1055 pass, cp3043 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=10-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu,
+        12 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=10-Sep-2017;Path=/;HttpOnly;secure;Expires=Thu, 12 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.49.79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"namespaces":{"-2":{"id":-2,"case":"first-letter","canonical":"Media","*":"M\u00e9dia"},"-1":{"id":-1,"case":"first-letter","canonical":"Special","*":"Sp\u00e9cial"},"0":{"id":0,"case":"first-letter","content":"","*":""},"1":{"id":1,"case":"first-letter","subpages":"","canonical":"Talk","*":"Discussion"},"2":{"id":2,"case":"first-letter","subpages":"","canonical":"User","*":"Utilisateur"},"3":{"id":3,"case":"first-letter","subpages":"","canonical":"User
+        talk","*":"Discussion utilisateur"},"4":{"id":4,"case":"first-letter","subpages":"","canonical":"Project","*":"Wikip\u00e9dia"},"5":{"id":5,"case":"first-letter","subpages":"","canonical":"Project
+        talk","*":"Discussion Wikip\u00e9dia"},"6":{"id":6,"case":"first-letter","canonical":"File","*":"Fichier"},"7":{"id":7,"case":"first-letter","subpages":"","canonical":"File
+        talk","*":"Discussion fichier"},"8":{"id":8,"case":"first-letter","canonical":"MediaWiki","*":"MediaWiki"},"9":{"id":9,"case":"first-letter","subpages":"","canonical":"MediaWiki
+        talk","*":"Discussion MediaWiki"},"10":{"id":10,"case":"first-letter","subpages":"","canonical":"Template","*":"Mod\u00e8le"},"11":{"id":11,"case":"first-letter","subpages":"","canonical":"Template
+        talk","*":"Discussion mod\u00e8le"},"12":{"id":12,"case":"first-letter","subpages":"","canonical":"Help","*":"Aide"},"13":{"id":13,"case":"first-letter","subpages":"","canonical":"Help
+        talk","*":"Discussion aide"},"14":{"id":14,"case":"first-letter","subpages":"","canonical":"Category","*":"Cat\u00e9gorie"},"15":{"id":15,"case":"first-letter","subpages":"","canonical":"Category
+        talk","*":"Discussion cat\u00e9gorie"},"100":{"id":100,"case":"first-letter","subpages":"","canonical":"Portail","*":"Portail"},"101":{"id":101,"case":"first-letter","subpages":"","canonical":"Discussion
+        Portail","*":"Discussion Portail"},"102":{"id":102,"case":"first-letter","subpages":"","canonical":"Projet","*":"Projet"},"103":{"id":103,"case":"first-letter","subpages":"","canonical":"Discussion
+        Projet","*":"Discussion Projet"},"104":{"id":104,"case":"first-letter","subpages":"","canonical":"R\u00e9f\u00e9rence","*":"R\u00e9f\u00e9rence"},"105":{"id":105,"case":"first-letter","subpages":"","canonical":"Discussion
+        R\u00e9f\u00e9rence","*":"Discussion R\u00e9f\u00e9rence"},"828":{"id":828,"case":"first-letter","subpages":"","canonical":"Module","*":"Module"},"829":{"id":829,"case":"first-letter","subpages":"","canonical":"Module
+        talk","*":"Discussion module"},"2300":{"id":2300,"case":"first-letter","canonical":"Gadget","*":"Gadget"},"2301":{"id":2301,"case":"first-letter","canonical":"Gadget
+        talk","*":"Discussion gadget"},"2302":{"id":2302,"case":"case-sensitive","canonical":"Gadget
+        definition","defaultcontentmodel":"GadgetDefinition","*":"D\u00e9finition
+        de gadget"},"2303":{"id":2303,"case":"case-sensitive","canonical":"Gadget
+        definition talk","*":"Discussion d\u00e9finition de gadget"},"2600":{"id":2600,"case":"first-letter","canonical":"Topic","defaultcontentmodel":"flow-board","*":"Sujet"}},"namespacealiases":[{"id":1,"*":"Discuter"},{"id":2,"*":"Utilisatrice"},{"id":3,"*":"Discussion
+        Utilisateur"},{"id":3,"*":"Discussion Utilisatrice"},{"id":3,"*":"Discussion
+        utilisatrice"},{"id":4,"*":"WP"},{"id":4,"*":"Wikipedia"},{"id":5,"*":"DW"},{"id":5,"*":"Discussion
+        Wikipedia"},{"id":6,"*":"Image"},{"id":7,"*":"Discussion Fichier"},{"id":7,"*":"Discussion
+        Image"},{"id":7,"*":"Image talk"},{"id":11,"*":"Discussion Mod\u00e8le"},{"id":13,"*":"Discussion
+        Aide"},{"id":15,"*":"Discussion Cat\u00e9gorie"}],"interwikimap":[{"prefix":"acronym","url":"https://www.acronymfinder.com/$1.html"},{"prefix":"advisory","local":"","url":"https://advisory.wikimedia.org/wiki/$1"},{"prefix":"advogato","url":"http://www.advogato.org/$1"},{"prefix":"aew","url":"https://wiki.arabeyes.org/$1"},{"prefix":"appropedia","url":"http://www.appropedia.org/$1"},{"prefix":"aquariumwiki","url":"http://www.theaquariumwiki.com/$1"},{"prefix":"arborwiki","url":"https://localwiki.org/ann-arbor/$1"},{"prefix":"arxiv","url":"https://arxiv.org/abs/$1"},{"prefix":"atmwiki","url":"http://www.otterstedt.de/wiki/index.php/$1"},{"prefix":"baden","url":"http://www.stadtwiki-baden-baden.de/wiki/$1/"},{"prefix":"battlestarwiki","url":"http://en.battlestarwiki.org/wiki/$1"},{"prefix":"bcnbio","url":"http://historiapolitica.bcn.cl/resenas_parlamentarias/wiki/$1"},{"prefix":"beacha","url":"http://www.beachapedia.org/$1"},{"prefix":"betawiki","url":"https://translatewiki.net/wiki/$1"},{"prefix":"bibcode","url":"http://adsabs.harvard.edu/abs/$1"},{"prefix":"bibliowiki","url":"https://biblio.wiki/wiki/$1"},{"prefix":"bluwiki","url":"http://bluwiki.com/go/$1"},{"prefix":"blw","url":"http://britainloveswikipedia.org/wiki/$1"},{"prefix":"botwiki","url":"http://botwiki.sno.cc/wiki/$1"},{"prefix":"boxrec","url":"http://www.boxrec.com/media/index.php?$1"},{"prefix":"brickwiki","url":"http://www.brickwiki.info/wiki/$1"},{"prefix":"bugzilla","local":"","url":"https://bugzilla.wikimedia.org/show_bug.cgi?id=$1"},{"prefix":"bulba","url":"http://bulbapedia.bulbagarden.net/wiki/$1"},{"prefix":"c","local":"","url":"https://commons.wikimedia.org/wiki/$1"},{"prefix":"c2","url":"http://c2.com/cgi/wiki?$1"},{"prefix":"c2find","url":"http://c2.com/cgi/wiki?FindPage&value=$1"},{"prefix":"cache","url":"https://www.google.com/search?q=cache:$1","protorel":""},{"prefix":"\u0109ej","url":"http://esperanto.blahus.cz/cxej/vikio/index.php/$1"},{"prefix":"cellwiki","url":"http://cell.wikia.com/wiki/$1"},{"prefix":"centralwikia","url":"http://community.wikia.com/wiki/$1"},{"prefix":"chej","url":"http://esperanto.blahus.cz/cxej/vikio/index.php/$1"},{"prefix":"choralwiki","url":"http://www.cpdl.org/wiki/index.php/$1"},{"prefix":"citizendium","url":"http://en.citizendium.org/wiki/$1"},{"prefix":"ckwiss","url":"http://www.ck-wissen.de/ckwiki/index.php?title=$1"},{"prefix":"comixpedia","url":"http://www.comixpedia.org/index.php?title=$1"},{"prefix":"commons","local":"","url":"https://commons.wikimedia.org/wiki/$1"},{"prefix":"communityscheme","url":"http://community.schemewiki.org/?c=s&key=$1"},{"prefix":"communitywiki","url":"http://www.communitywiki.org/$1"},{"prefix":"comune","url":"http://rete.comuni-italiani.it/wiki/$1"},{"prefix":"creativecommons","url":"https://creativecommons.org/licenses/$1","protorel":""},{"prefix":"creativecommonswiki","url":"https://wiki.creativecommons.org/$1"},{"prefix":"cxej","url":"http://esperanto.blahus.cz/cxej/vikio/index.php/$1"},{"prefix":"dcc","url":"http://www.dccwiki.com/$1"},{"prefix":"dcdatabase","url":"http://dc.wikia.com/$1"},{"prefix":"dcma","url":"http://christian-morgenstern.de/dcma/index.php?title=$1"},{"prefix":"delicious","url":"https://www.delicious.com/tag/$1","protorel":""},{"prefix":"devmo","url":"https://developer.mozilla.org/en/docs/$1"},{"prefix":"dictionary","url":"http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=$1"},{"prefix":"dict","url":"http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=$1"},{"prefix":"disinfopedia","url":"http://www.sourcewatch.org/index.php/$1"},{"prefix":"distributedproofreaders","url":"http://www.pgdp.net/wiki/$1"},{"prefix":"distributedproofreadersca","url":"http://www.pgdpcanada.net/wiki/index.php/$1"},{"prefix":"dmoz","url":"http://dmoztools.net/$1"},{"prefix":"dmozs","url":"http://www.dmoz.org/cgi-bin/search?search=$1"},{"prefix":"doi","url":"https://dx.doi.org/$1","protorel":""},{"prefix":"donate","local":"","url":"https://donate.wikimedia.org/wiki/$1"},{"prefix":"doom_wiki","url":"http://doom.wikia.com/wiki/$1"},{"prefix":"download","local":"","url":"https://releases.wikimedia.org/$1"},{"prefix":"dbdump","local":"","url":"https://dumps.wikimedia.org/$1/latest/"},{"prefix":"dpd","url":"http://lema.rae.es/dpd/?key=$1"},{"prefix":"drae","url":"http://dle.rae.es/?w=$1"},{"prefix":"dreamhost","url":"http://wiki.dreamhost.com/index.php/$1"},{"prefix":"drumcorpswiki","url":"http://www.drumcorpswiki.com/index.php/$1"},{"prefix":"dwjwiki","url":"http://www.suberic.net/cgi-bin/dwj/wiki.cgi?$1"},{"prefix":"e\u0109ei","url":"http://www.ikso.net/cgi-bin/wiki.pl?$1"},{"prefix":"ecoreality","url":"http://www.EcoReality.org/wiki/$1"},{"prefix":"ecxei","url":"http://www.ikso.net/cgi-bin/wiki.pl?$1"},{"prefix":"elibre","url":"http://enciclopedia.us.es/index.php/$1"},{"prefix":"emacswiki","url":"http://www.emacswiki.org/cgi-bin/wiki.pl?$1"},{"prefix":"encyc","url":"http://encyc.org/wiki/$1"},{"prefix":"energiewiki","url":"http://www.netzwerk-energieberater.de/wiki/index.php/$1"},{"prefix":"englyphwiki","url":"http://en.glyphwiki.org/wiki/$1"},{"prefix":"enkol","url":"http://enkol.pl/$1"},{"prefix":"eokulturcentro","url":"http://esperanto.toulouse.free.fr/nova/wikini/wakka.php?wiki=$1"},{"prefix":"esolang","url":"http://esolangs.org/wiki/$1"},{"prefix":"etherpad","local":"","url":"https://etherpad.wikimedia.org/$1"},{"prefix":"ethnologue","url":"https://www.ethnologue.com/language/$1","protorel":""},{"prefix":"ethnologuefamily","url":"https://www.ethnologue.com/show_family.asp?subid=$1","protorel":""},{"prefix":"evowiki","url":"http://wiki.cotch.net/index.php/$1"},{"prefix":"exotica","url":"http://www.exotica.org.uk/wiki/$1"},{"prefix":"fanimutationwiki","url":"http://wiki.animutationportal.com/index.php/$1"},{"prefix":"fedora","url":"https://fedoraproject.org/wiki/$1","protorel":""},{"prefix":"finalfantasy","url":"http://finalfantasy.wikia.com/wiki/$1"},{"prefix":"finnix","url":"http://www.finnix.org/$1"},{"prefix":"flickruser","url":"https://www.flickr.com/people/$1","protorel":""},{"prefix":"flickrphoto","url":"https://www.flickr.com/photo.gne?id=$1","protorel":""},{"prefix":"floralwiki","url":"http://www.floralwiki.co.uk/wiki/$1"},{"prefix":"foldoc","url":"http://foldoc.org/$1"},{"prefix":"forthfreak","url":"http://wiki.forthfreak.net/index.cgi?$1"},{"prefix":"foundation","local":"","url":"https://wikimediafoundation.org/wiki/$1"},{"prefix":"foxwiki","url":"http://fox.wikis.com/wc.dll?Wiki~$1"},{"prefix":"freebio","url":"http://freebiology.org/wiki/$1"},{"prefix":"freebsdman","url":"https://www.FreeBSD.org/cgi/man.cgi?apropos=1&query=$1"},{"prefix":"freeculturewiki","url":"http://wiki.freeculture.org/index.php/$1"},{"prefix":"freedomdefined","url":"http://freedomdefined.org/$1"},{"prefix":"freefeel","url":"http://freefeel.org/wiki/$1"},{"prefix":"freekiwiki","url":"http://wiki.freegeek.org/index.php/$1"},{"prefix":"freenode","url":"irc://irc.freenode.net/$1"},{"prefix":"freesoft","url":"https://directory.fsf.org/wiki/$1","protorel":""},{"prefix":"ganfyd","url":"http://ganfyd.org/index.php?title=$1"},{"prefix":"gardenology","url":"http://www.gardenology.org/wiki/$1"},{"prefix":"gausswiki","url":"http://gauss.ffii.org/$1"},{"prefix":"gentoo","url":"https://wiki.gentoo.org/wiki/$1","protorel":""},{"prefix":"genwiki","url":"http://wiki.genealogy.net/index.php/$1"},{"prefix":"gerrit","local":"","url":"https://gerrit.wikimedia.org/r/$1"},{"prefix":"git","local":"","url":"https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/$1;a=log;h=refs/heads/master"},{"prefix":"globalvoices","url":"http://cyber.law.harvard.edu/dyn/globalvoices/wiki/$1"},{"prefix":"glossarwiki","url":"http://glossar.hs-augsburg.de/$1"},{"prefix":"glossarywiki","url":"http://glossary.hs-augsburg.de/$1"},{"prefix":"google","url":"https://www.google.com/search?q=$1","protorel":""},{"prefix":"googledefine","url":"https://www.google.com/search?q=define:$1","protorel":""},{"prefix":"googlegroups","url":"https://groups.google.com/groups?q=$1","protorel":""},{"prefix":"guildwarswiki","url":"http://wiki.guildwars.com/wiki/$1"},{"prefix":"guildwiki","url":"http://guildwars.wikia.com/wiki/$1"},{"prefix":"gutenberg","url":"http://www.gutenberg.org/etext/$1"},{"prefix":"gutenbergwiki","url":"http://www.gutenberg.org/wiki/$1"},{"prefix":"hackerspaces","url":"http://hackerspaces.org/wiki/$1"},{"prefix":"h2wiki","url":"http://halowiki.net/p/$1"},{"prefix":"hammondwiki","url":"http://www.dairiki.org/HammondWiki/index.php3?$1"},{"prefix":"hdl","url":"http://hdl.handle.net/$1"},{"prefix":"heroeswiki","url":"http://heroeswiki.com/$1"},{"prefix":"horizonlabs","local":"","url":"https://horizon.wikimedia.org/$1"},{"prefix":"hrwiki","url":"http://www.hrwiki.org/index.php/$1"},{"prefix":"hrfwiki","url":"http://fanstuff.hrwiki.org/index.php/$1"},{"prefix":"hupwiki","url":"http://wiki.hup.hu/index.php/$1"},{"prefix":"iarchive","url":"https://archive.org/details/$1","protorel":""},{"prefix":"imdbname","url":"http://www.imdb.com/name/nm$1/"},{"prefix":"imdbtitle","url":"http://www.imdb.com/title/tt$1/"},{"prefix":"imdbcompany","url":"http://www.imdb.com/company/co$1/"},{"prefix":"imdbcharacter","url":"http://www.imdb.com/character/ch$1/"},{"prefix":"incubator","local":"","url":"https://incubator.wikimedia.org/wiki/$1"},{"prefix":"infosecpedia","url":"http://infosecpedia.org/wiki/$1"},{"prefix":"infosphere","url":"http://theinfosphere.org/$1"},{"prefix":"irc","url":"irc://irc.freenode.net/$1"},{"prefix":"ircrc","local":"","url":"irc://irc.wikimedia.org/$1"},{"prefix":"rcirc","local":"","url":"irc://irc.wikimedia.org/$1"},{"prefix":"iso639-3","url":"http://www-01.sil.org/iso639-3/documentation.asp?id=$1"},{"prefix":"issn","url":"http://www.worldcat.org/issn/$1"},{"prefix":"iuridictum","url":"http://iuridictum.pecina.cz/w/$1"},{"prefix":"jaglyphwiki","url":"http://glyphwiki.org/wiki/$1"},{"prefix":"javanet","url":"http://wiki.java.net/bin/view/Main/$1"},{"prefix":"javapedia","url":"http://wiki.java.net/bin/view/Javapedia/$1"},{"prefix":"jefo","url":"http://esperanto-jeunes.org/wiki/$1"},{"prefix":"jerseydatabase","url":"http://jerseydatabase.com/wiki.php?id=$1"},{"prefix":"jira","url":"https://jira.toolserver.org/browse/$1"},{"prefix":"jspwiki","url":"http://www.ecyrd.com/JSPWiki/Wiki.jsp?page=$1"},{"prefix":"jstor","url":"http://www.jstor.org/journals/$1"},{"prefix":"kamelo","url":"http://kamelopedia.mormo.org/index.php/$1"},{"prefix":"karlsruhe","url":"http://ka.stadtwiki.net/$1"},{"prefix":"kinowiki","url":"http://kino.skripov.com/index.php/$1"},{"prefix":"kmwiki","url":"https://kmwiki.wikispaces.com/$1","protorel":""},{"prefix":"komicawiki","url":"http://wiki.komica.org/wiki3/?$1"},{"prefix":"kontuwiki","url":"http://kontu.wiki/$1"},{"prefix":"koslarwiki","url":"http://wiki.koslar.de/index.php/$1"},{"prefix":"wikitech","local":"","url":"https://wikitech.wikimedia.org/wiki/$1"},{"prefix":"libreplanet","url":"https://libreplanet.org/wiki/$1","protorel":""},{"prefix":"linguistlist","url":"https://linguistlist.org/forms/langs/LLDescription.cfm?code=$1","protorel":""},{"prefix":"linuxwiki","url":"http://www.linuxwiki.de/$1"},{"prefix":"linuxwikide","url":"http://www.linuxwiki.de/$1"},{"prefix":"liswiki","url":"http://liswiki.org/wiki/$1"},{"prefix":"literateprograms","url":"http://en.literateprograms.org/$1"},{"prefix":"livepedia","url":"http://www.livepedia.gr/index.php?title=$1"},{"prefix":"localwiki","url":"https://localwiki.org/$1"},{"prefix":"lojban","url":"http://mw.lojban.org/papri/$1"},{"prefix":"lostpedia","url":"http://lostpedia.wikia.com/wiki/$1"},{"prefix":"lqwiki","url":"http://wiki.linuxquestions.org/wiki/$1"},{"prefix":"luxo","url":"https://tools.wmflabs.org/guc/?user=$1"},{"prefix":"mail","local":"","url":"https://lists.wikimedia.org/mailman/listinfo/$1"},{"prefix":"mailarchive","local":"","url":"https://lists.wikimedia.org/pipermail/$1"},{"prefix":"mariowiki","url":"http://www.mariowiki.com/$1"},{"prefix":"marveldatabase","url":"http://www.marveldatabase.com/wiki/index.php/$1"},{"prefix":"meatball","url":"http://meatballwiki.org/wiki/$1"},{"prefix":"mw","local":"","url":"https://www.mediawiki.org/wiki/$1"},{"prefix":"mediazilla","local":"","url":"https://bugzilla.wikimedia.org/$1"},{"prefix":"memoryalpha","url":"http://memory-alpha.org/wiki/$1"},{"prefix":"metawiki","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"metawikimedia","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"metawikipedia","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"metawikisearch","url":"http://sunir.org/apps/meta.pl?$1"},{"prefix":"mineralienatlas","url":"http://www.mineralienatlas.de/lexikon/index.php/$1"},{"prefix":"moinmoin","url":"http://moinmo.in/$1"},{"prefix":"monstropedia","url":"http://www.monstropedia.org/?title=$1"},{"prefix":"mosapedia","url":"http://mosapedia.de/wiki/index.php/$1"},{"prefix":"mozcom","url":"http://mozilla.wikia.com/wiki/$1"},{"prefix":"mozillawiki","url":"https://wiki.mozilla.org/$1"},{"prefix":"mozillazinekb","url":"http://kb.mozillazine.org/$1"},{"prefix":"musicbrainz","url":"http://musicbrainz.org/doc/$1"},{"prefix":"mediawikiwiki","local":"","url":"https://www.mediawiki.org/wiki/$1"},{"prefix":"mwod","url":"https://www.merriam-webster.com/dictionary/$1"},{"prefix":"mwot","url":"https://www.merriam-webster.com/thesaurus/$1"},{"prefix":"nkcells","url":"http://www.nkcells.info/index.php?title=$1"},{"prefix":"nara","url":"https://catalog.archives.gov/id/$1"},{"prefix":"nosmoke","url":"http://no-smok.net/nsmk/$1"},{"prefix":"nost","local":"","url":"https://nostalgia.wikipedia.org/wiki/$1"},{"prefix":"nostalgia","local":"","url":"https://nostalgia.wikipedia.org/wiki/$1"},{"prefix":"oeis","url":"https://oeis.org/$1","protorel":""},{"prefix":"oldwikisource","local":"","url":"https://wikisource.org/wiki/$1"},{"prefix":"olpc","url":"http://wiki.laptop.org/go/$1"},{"prefix":"onelook","url":"http://www.onelook.com/?ls=b&w=$1"},{"prefix":"openlibrary","url":"http://openlibrary.org/$1"},{"prefix":"openstreetmap","url":"https://wiki.openstreetmap.org/wiki/$1","protorel":""},{"prefix":"openwetware","url":"http://openwetware.org/wiki/$1"},{"prefix":"openwiki","url":"http://openwiki.com/?$1"},{"prefix":"opera7wiki","url":"http://operawiki.info/$1"},{"prefix":"organicdesign","url":"http://www.organicdesign.co.nz/$1"},{"prefix":"orthodoxwiki","url":"http://orthodoxwiki.org/$1"},{"prefix":"osmwiki","url":"https://wiki.openstreetmap.org/wiki/$1","protorel":""},{"prefix":"otrs","local":"","url":"https://ticket.wikimedia.org/otrs/index.pl?Action=AgentTicketZoom&TicketID=$1"},{"prefix":"otrswiki","local":"","url":"https://otrs-wiki.wikimedia.org/wiki/$1"},{"prefix":"ourmedia","url":"https://www.socialtext.net/ourmedia/index.cgi?$1"},{"prefix":"outreach","local":"","url":"https://outreach.wikimedia.org/wiki/$1"},{"prefix":"outreachwiki","local":"","url":"https://outreach.wikimedia.org/wiki/$1"},{"prefix":"owasp","url":"https://www.owasp.org/index.php/$1"},{"prefix":"panawiki","url":"http://wiki.alairelibre.net/index.php?title=$1"},{"prefix":"patwiki","url":"http://gauss.ffii.org/$1"},{"prefix":"personaltelco","url":"http://www.personaltelco.net/$1"},{"prefix":"petscan","url":"https://petscan.wmflabs.org/?psid=$1"},{"prefix":"phab","local":"","url":"https://phabricator.wikimedia.org/$1"},{"prefix":"phabricator","local":"","url":"https://phabricator.wikimedia.org/$1"},{"prefix":"phwiki","url":"http://www.pocketheaven.com/ph/wiki/index.php?title=$1"},{"prefix":"phpwiki","url":"http://phpwiki.sourceforge.net/phpwiki/index.php?$1"},{"prefix":"planetmath","url":"http://planetmath.org/node/$1"},{"prefix":"pmeg","url":"http://www.bertilow.com/pmeg/$1"},{"prefix":"pmid","url":"https://www.ncbi.nlm.nih.gov/pubmed/$1?dopt=Abstract"},{"prefix":"pokewiki","url":"http://pokewiki.de/$1"},{"prefix":"pok\u00e9wiki","url":"http://pokewiki.de/$1"},{"prefix":"policy","local":"","url":"https://policy.wikimedia.org/$1"},{"prefix":"proofwiki","url":"https://www.proofwiki.org/wiki/$1","protorel":""},{"prefix":"pyrev","local":"","url":"https://www.mediawiki.org/wiki/Special:Code/pywikipedia/$1"},{"prefix":"pythoninfo","url":"https://wiki.python.org/moin/$1","protorel":""},{"prefix":"pythonwiki","url":"http://www.pythonwiki.de/$1"},{"prefix":"pywiki","url":"http://c2.com/cgi/wiki?$1"},{"prefix":"psycle","url":"http://psycle.sourceforge.net/wiki/$1"},{"prefix":"quality","local":"","url":"https://quality.wikimedia.org/wiki/$1"},{"prefix":"quarry","url":"https://quarry.wmflabs.org/$1"},{"prefix":"rev","local":"","url":"https://www.mediawiki.org/wiki/Special:Code/MediaWiki/$1"},{"prefix":"revo","url":"http://purl.org/NET/voko/revo/art/$1.html"},{"prefix":"rfc","url":"https://tools.ietf.org/html/rfc$1","protorel":""},{"prefix":"rheinneckar","url":"http://rhein-neckar-wiki.de/$1"},{"prefix":"robowiki","url":"http://robowiki.net/?$1"},{"prefix":"rodovid","url":"http://en.rodovid.org/wk/$1"},{"prefix":"reuterswiki","url":"http://glossary.reuters.com/index.php/$1"},{"prefix":"rowiki","url":"http://wiki.rennkuckuck.de/index.php/$1"},{"prefix":"rt","local":"","url":"https://rt.wikimedia.org/Ticket/Display.html?id=$1"},{"prefix":"rtfm","url":"ftp://rtfm.mit.edu/pub/faqs/$1"},{"prefix":"s23wiki","url":"http://s23.org/wiki/$1"},{"prefix":"scholar","url":"https://scholar.google.com/scholar?q=$1","protorel":""},{"prefix":"schoolswp","url":"http://schools-wikipedia.org/wiki/$1"},{"prefix":"scores","url":"http://imslp.org/wiki/$1"},{"prefix":"scoutwiki","url":"http://en.scoutwiki.org/$1"},{"prefix":"scramble","url":"http://www.scramble.nl/wiki/index.php?title=$1"},{"prefix":"seapig","url":"http://www.seapig.org/$1"},{"prefix":"seattlewiki","url":"http://seattle.wikia.com/wiki/$1"},{"prefix":"slwiki","url":"http://wiki.secondlife.com/wiki/$1"},{"prefix":"semantic-mw","url":"https://www.semantic-mediawiki.org/wiki/$1","protorel":""},{"prefix":"senseislibrary","url":"http://senseis.xmp.net/?$1"},{"prefix":"sharemap","url":"http://sharemap.org/$1"},{"prefix":"silcode","url":"http://www.sil.org/iso639-3/documentation.asp?id=$1"},{"prefix":"slashdot","url":"https://slashdot.org/article.pl?sid=$1"},{"prefix":"sourceforge","url":"https://sourceforge.net/$1"},{"prefix":"spcom","local":"","url":"https://spcom.wikimedia.org/wiki/$1"},{"prefix":"species","local":"","url":"https://species.wikimedia.org/wiki/$1"},{"prefix":"squeak","url":"http://wiki.squeak.org/squeak/$1"},{"prefix":"stats","local":"","url":"https://stats.wikimedia.org/$1"},{"prefix":"stewardry","url":"https://tools.wmflabs.org/meta/stewardry/?wiki=$1"},{"prefix":"strategy","local":"","url":"https://strategy.wikimedia.org/wiki/$1"},{"prefix":"strategywiki","url":"http://strategywiki.org/wiki/$1"},{"prefix":"sulutil","local":"","url":"https://meta.wikimedia.org/wiki/Special:CentralAuth/$1"},{"prefix":"swtrain","url":"http://train.spottingworld.com/$1"},{"prefix":"svn","local":"","url":"https://svn.wikimedia.org/viewvc/mediawiki/$1?view=log"},{"prefix":"swinbrain","url":"https://swinbrain.ict.swin.edu.au/wiki/$1","protorel":""},{"prefix":"tabwiki","url":"http://www.tabwiki.com/index.php/$1"},{"prefix":"tclerswiki","url":"http://wiki.tcl.tk/$1"},{"prefix":"technorati","url":"http://www.technorati.com/search/$1"},{"prefix":"tenwiki","local":"","url":"https://ten.wikipedia.org/wiki/$1"},{"prefix":"testwiki","local":"","url":"https://test.wikipedia.org/wiki/$1"},{"prefix":"testwikidata","local":"","url":"https://test.wikidata.org/wiki/$1"},{"prefix":"test2wiki","local":"","url":"https://test2.wikipedia.org/wiki/$1"},{"prefix":"tfwiki","url":"http://tfwiki.net/wiki/$1"},{"prefix":"thelemapedia","url":"http://www.thelemapedia.org/index.php/$1"},{"prefix":"theopedia","url":"http://www.theopedia.com/$1"},{"prefix":"thinkwiki","url":"http://www.thinkwiki.org/wiki/$1"},{"prefix":"ticket","local":"","url":"https://ticket.wikimedia.org/otrs/index.pl?Action=AgentTicketZoom&TicketNumber=$1"},{"prefix":"tmbw","url":"http://tmbw.net/wiki/$1"},{"prefix":"tmnet","url":"http://www.technomanifestos.net/?$1"},{"prefix":"tmwiki","url":"http://www.EasyTopicMaps.com/?page=$1"},{"prefix":"toolforge","url":"https://tools.wmflabs.org/$1"},{"prefix":"toollabs","url":"https://tools.wmflabs.org/$1"},{"prefix":"tools","url":"https://toolserver.org/$1","protorel":""},{"prefix":"tswiki","local":"","url":"https://www.mediawiki.org/wiki/Toolserver:$1","protorel":""},{"prefix":"translatewiki","url":"https://translatewiki.net/wiki/$1"},{"prefix":"tviv","url":"http://tviv.org/wiki/$1"},{"prefix":"tvtropes","url":"http://www.tvtropes.org/pmwiki/pmwiki.php/Main/$1"},{"prefix":"twiki","url":"http://twiki.org/cgi-bin/view/$1"},{"prefix":"tyvawiki","url":"http://www.tyvawiki.org/wiki/$1"},{"prefix":"uncyclopedia","url":"http://en.uncyclopedia.co/wiki/$1"},{"prefix":"unihan","url":"http://www.unicode.org/cgi-bin/GetUnihanData.pl?codepoint=$1"},{"prefix":"unreal","url":"http://wiki.beyondunreal.com/wiki/$1"},{"prefix":"urbandict","url":"http://www.urbandictionary.com/define.php?term=$1"},{"prefix":"usej","url":"http://www.tejo.org/usej/$1"},{"prefix":"usemod","url":"http://www.usemod.com/cgi-bin/wiki.pl?$1"},{"prefix":"usability","local":"","url":"https://usability.wikimedia.org/wiki/$1"},{"prefix":"utrs","url":"https://utrs.wmflabs.org/appeal.php?id=$1"},{"prefix":"vikidia","url":"https://fr.vikidia.org/wiki/$1","protorel":""},{"prefix":"vlos","url":"https://tusach.thuvienkhoahoc.com/wiki/$1"},{"prefix":"vkol","url":"http://kol.coldfront.net/thekolwiki/index.php/$1"},{"prefix":"voipinfo","url":"http://www.voip-info.org/wiki/view/$1"},{"prefix":"votewiki","local":"","url":"https://vote.wikimedia.org/wiki/$1"},{"prefix":"werelate","url":"http://www.werelate.org/wiki/$1"},{"prefix":"wg","local":"","url":"https://wg-en.wikipedia.org/wiki/$1"},{"prefix":"wikia","url":"http://www.wikia.com/wiki/c:$1"},{"prefix":"wikiasite","url":"http://www.wikia.com/wiki/c:$1"},{"prefix":"wikiapiary","url":"https://wikiapiary.com/wiki/$1","protorel":""},{"prefix":"wikibooks","local":"","url":"https://en.wikibooks.org/wiki/$1"},{"prefix":"wikichristian","url":"http://www.wikichristian.org/index.php?title=$1"},{"prefix":"wikicities","url":"http://www.wikia.com/wiki/$1"},{"prefix":"wikicity","url":"http://www.wikia.com/wiki/c:$1"},{"prefix":"wikiconference","url":"https://wikiconference.org/wiki/$1"},{"prefix":"wikidata","local":"","url":"https://www.wikidata.org/wiki/$1"},{"prefix":"wikif1","url":"http://www.wikif1.org/$1"},{"prefix":"wikifur","url":"https://en.wikifur.com/wiki/$1","protorel":""},{"prefix":"wikihow","url":"http://www.wikihow.com/$1"},{"prefix":"wikiindex","url":"http://wikiindex.org/$1"},{"prefix":"wikilemon","url":"http://wiki.illemonati.com/$1"},{"prefix":"wikilivres","url":"https://biblio.wiki/wiki/$1"},{"prefix":"wikilivresru","url":"http://wikilivres.ru/$1"},{"prefix":"wikimac-de","url":"http://apfelwiki.de/wiki/Main/$1"},{"prefix":"wikimedia","local":"","url":"https://wikimediafoundation.org/wiki/$1"},{"prefix":"wikinews","local":"","url":"https://en.wikinews.org/wiki/$1"},{"prefix":"wikinfo","url":"http://wikinfo.org/w/index.php/$1"},{"prefix":"wikinvest","url":"http://www.wikinvest.com/$1"},{"prefix":"wikiotics","url":"https://wikiotics.org/$1","protorel":""},{"prefix":"wikipapers","url":"http://wikipapers.referata.com/wiki/$1"},{"prefix":"wikipedia","local":"","url":"https://en.wikipedia.org/wiki/$1"},{"prefix":"wikipediawikipedia","local":"","url":"https://en.wikipedia.org/wiki/Wikipedia:$1"},{"prefix":"wikiquote","local":"","url":"https://en.wikiquote.org/wiki/$1"},{"prefix":"wikisophia","url":"http://wikisophia.org/index.php?title=$1"},{"prefix":"wikisource","local":"","url":"https://en.wikisource.org/wiki/$1"},{"prefix":"wikispecies","local":"","url":"https://species.wikimedia.org/wiki/$1"},{"prefix":"wikispot","url":"http://wikispot.org/?action=gotowikipage&v=$1"},{"prefix":"wikiskripta","url":"http://www.wikiskripta.eu/index.php/$1"},{"prefix":"labsconsole","local":"","url":"https://wikitech.wikimedia.org/wiki/$1"},{"prefix":"wikiti","url":"http://wikiti.denglend.net/index.php?title=$1"},{"prefix":"wikitree","url":"http://wikitree.org/index.php?title=$1"},{"prefix":"wikiversity","local":"","url":"https://en.wikiversity.org/wiki/$1"},{"prefix":"wikivoyage","local":"","url":"https://en.wikivoyage.org/wiki/$1"},{"prefix":"betawikiversity","local":"","url":"https://beta.wikiversity.org/wiki/$1"},{"prefix":"wikiwikiweb","url":"http://c2.com/cgi/wiki?$1"},{"prefix":"wiktionary","local":"","url":"https://en.wiktionary.org/wiki/$1"},{"prefix":"wipipedia","url":"http://wipipedia.org/index.php/$1"},{"prefix":"wlug","url":"http://www.wlug.org.nz/$1"},{"prefix":"wmar","local":"","url":"http://www.wikimedia.org.ar/wiki/$1"},{"prefix":"wmat","url":"https://mitglieder.wikimedia.at/$1"},{"prefix":"wmau","local":"","url":"http://wikimedia.org.au/wiki/$1"},{"prefix":"wmbd","local":"","url":"https://bd.wikimedia.org/wiki/$1"},{"prefix":"wmbe","local":"","url":"https://be.wikimedia.org/wiki/$1"},{"prefix":"wmbr","local":"","url":"https://br.wikimedia.org/wiki/$1"},{"prefix":"wmca","local":"","url":"https://ca.wikimedia.org/wiki/$1"},{"prefix":"wmch","url":"http://www.wikimedia.ch/$1"},{"prefix":"wmcl","url":"http://www.wikimediachile.cl/index.php?title=$1"},{"prefix":"wmcn","local":"","url":"https://cn.wikimedia.org/wiki/$1"},{"prefix":"wmco","local":"","url":"https://co.wikimedia.org/wiki/$1"},{"prefix":"wmcz","url":"http://www.wikimedia.cz/web/$1"},{"prefix":"wmdc","url":"https://wikimediadc.org/wiki/$1"},{"prefix":"securewikidc","url":"https://secure.wikidc.org/$1"},{"prefix":"wmde","url":"https://wikimedia.de/wiki/$1","protorel":""},{"prefix":"wmdk","local":"","url":"https://dk.wikimedia.org/wiki/$1"},{"prefix":"wmee","local":"","url":"https://ee.wikimedia.org/wiki/$1"},{"prefix":"wmec","local":"","url":"https://ec.wikimedia.org/wiki/$1"},{"prefix":"wmes","url":"https://www.wikimedia.es/wiki/$1"},{"prefix":"wmet","local":"","url":"https://ee.wikimedia.org/wiki/$1"},{"prefix":"wmfi","local":"","url":"https://fi.wikimedia.org/wiki/$1"},{"prefix":"wmfr","url":"http://wikimedia.fr/$1"},{"prefix":"wmhk","url":"http://wikimedia.hk/index.php/$1"},{"prefix":"wmhu","url":"http://wikimedia.hu/wiki/$1"},{"prefix":"wmid","url":"http://www.wikimedia.or.id/wiki/$1"},{"prefix":"wmil","local":"","url":"http://www.wikimedia.org.il/$1"},{"prefix":"wmin","url":"http://wiki.wikimedia.in/$1"},{"prefix":"wmit","url":"https://wiki.wikimedia.it/wiki/$1"},{"prefix":"wmke","url":"http://wikimedia.or.ke/$1"},{"prefix":"wmmk","local":"","url":"https://mk.wikimedia.org/wiki/$1"},{"prefix":"wmmx","local":"","url":"https://mx.wikimedia.org/wiki/$1"},{"prefix":"wmnl","local":"","url":"https://nl.wikimedia.org/wiki/$1"},{"prefix":"wmnyc","local":"","url":"https://nyc.wikimedia.org/wiki/$1"},{"prefix":"wmno","local":"","url":"https://no.wikimedia.org/wiki/$1"},{"prefix":"wmpa-us","local":"","url":"https://pa-us.wikimedia.org/wiki/$1"},{"prefix":"wmph","local":"","url":"http://wikimedia.org.ph/wmph/index.php?title=$1"},{"prefix":"wmpl","local":"","url":"https://pl.wikimedia.org/wiki/$1"},{"prefix":"wmpt","local":"","url":"https://pt.wikimedia.org/wiki/$1"},{"prefix":"wmrs","local":"","url":"https://rs.wikimedia.org/wiki/$1"},{"prefix":"wmru","local":"","url":"https://ru.wikimedia.org/wiki/$1"},{"prefix":"wmse","local":"","url":"https://se.wikimedia.org/wiki/$1"},{"prefix":"wmsk","url":"http://wikimedia.sk/$1"},{"prefix":"wmtr","local":"","url":"https://tr.wikimedia.org/wiki/$1"},{"prefix":"wmtw","url":"http://wikimedia.tw/wiki/index.php5/$1"},{"prefix":"wmua","local":"","url":"https://ua.wikimedia.org/wiki/$1"},{"prefix":"wmuk","local":"","url":"https://wikimedia.org.uk/wiki/$1"},{"prefix":"wmve","local":"","url":"https://wikimedia.org.ve/wiki/$1"},{"prefix":"wmza","local":"","url":"http://wikimedia.org.za/wiki/$1"},{"prefix":"wm2005","local":"","url":"https://wikimania2005.wikimedia.org/wiki/$1"},{"prefix":"wm2006","local":"","url":"https://wikimania2006.wikimedia.org/wiki/$1"},{"prefix":"wm2007","local":"","url":"https://wikimania2007.wikimedia.org/wiki/$1"},{"prefix":"wm2008","local":"","url":"https://wikimania2008.wikimedia.org/wiki/$1"},{"prefix":"wm2009","local":"","url":"https://wikimania2009.wikimedia.org/wiki/$1"},{"prefix":"wm2010","local":"","url":"https://wikimania2010.wikimedia.org/wiki/$1"},{"prefix":"wm2011","local":"","url":"https://wikimania2011.wikimedia.org/wiki/$1"},{"prefix":"wm2012","local":"","url":"https://wikimania2012.wikimedia.org/wiki/$1"},{"prefix":"wm2013","local":"","url":"https://wikimania2013.wikimedia.org/wiki/$1"},{"prefix":"wm2014","local":"","url":"https://wikimania2014.wikimedia.org/wiki/$1"},{"prefix":"wm2015","local":"","url":"https://wikimania2015.wikimedia.org/wiki/$1"},{"prefix":"wm2016","local":"","url":"https://wikimania2016.wikimedia.org/wiki/$1"},{"prefix":"wm2017","local":"","url":"https://wikimania2017.wikimedia.org/wiki/$1"},{"prefix":"wm2018","local":"","url":"https://wikimania2018.wikimedia.org/wiki/$1"},{"prefix":"wmania","local":"","url":"https://wikimania.wikimedia.org/wiki/$1"},{"prefix":"wmteam","local":"","url":"https://wikimaniateam.wikimedia.org/wiki/$1"},{"prefix":"wmf","local":"","url":"https://wikimediafoundation.org/wiki/$1"},{"prefix":"wmfblog","local":"","url":"https://blog.wikimedia.org/$1"},{"prefix":"wmdeblog","url":"https://blog.wikimedia.de/$1","protorel":""},{"prefix":"wookieepedia","url":"http://starwars.wikia.com/wiki/$1"},{"prefix":"wowwiki","url":"http://www.wowwiki.com/$1"},{"prefix":"wqy","url":"http://wqy.sourceforge.net/cgi-bin/index.cgi?$1"},{"prefix":"wurmpedia","url":"http://wurmpedia.com/index.php/$1"},{"prefix":"viaf","url":"http://viaf.org/viaf/$1"},{"prefix":"zrhwiki","url":"http://www.zrhwiki.ch/wiki/$1"},{"prefix":"zum","url":"http://wiki.zum.de/$1"},{"prefix":"zwiki","url":"http://www.zwiki.org/$1"},{"prefix":"m","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"meta","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"sep11","local":"","url":"https://sep11.wikipedia.org/wiki/$1"},{"prefix":"d","local":"","url":"https://www.wikidata.org/wiki/$1"},{"prefix":"aa","local":"","language":"Qaf\u00e1r
+        af","url":"https://aa.wikipedia.org/wiki/$1"},{"prefix":"ab","local":"","language":"\u0410\u04a7\u0441\u0448\u04d9\u0430","url":"https://ab.wikipedia.org/wiki/$1"},{"prefix":"ace","local":"","language":"Ac\u00e8h","url":"https://ace.wikipedia.org/wiki/$1"},{"prefix":"ady","local":"","language":"\u0430\u0434\u044b\u0433\u0430\u0431\u0437\u044d","url":"https://ady.wikipedia.org/wiki/$1"},{"prefix":"af","local":"","language":"Afrikaans","url":"https://af.wikipedia.org/wiki/$1"},{"prefix":"ak","local":"","language":"Akan","url":"https://ak.wikipedia.org/wiki/$1"},{"prefix":"als","local":"","language":"Alemannisch","url":"https://als.wikipedia.org/wiki/$1"},{"prefix":"am","local":"","language":"\u12a0\u121b\u122d\u129b","url":"https://am.wikipedia.org/wiki/$1"},{"prefix":"an","local":"","language":"aragon\u00e9s","url":"https://an.wikipedia.org/wiki/$1"},{"prefix":"ang","local":"","language":"\u00c6nglisc","url":"https://ang.wikipedia.org/wiki/$1"},{"prefix":"ar","local":"","language":"\u0627\u0644\u0639\u0631\u0628\u064a\u0629","url":"https://ar.wikipedia.org/wiki/$1"},{"prefix":"arc","local":"","language":"\u0710\u072a\u0721\u071d\u0710","url":"https://arc.wikipedia.org/wiki/$1"},{"prefix":"arz","local":"","language":"\u0645\u0635\u0631\u0649","url":"https://arz.wikipedia.org/wiki/$1"},{"prefix":"as","local":"","language":"\u0985\u09b8\u09ae\u09c0\u09af\u09bc\u09be","url":"https://as.wikipedia.org/wiki/$1"},{"prefix":"ast","local":"","language":"asturianu","url":"https://ast.wikipedia.org/wiki/$1"},{"prefix":"atj","local":"","language":"Atikamekw","url":"https://atj.wikipedia.org/wiki/$1"},{"prefix":"av","local":"","language":"\u0430\u0432\u0430\u0440","url":"https://av.wikipedia.org/wiki/$1"},{"prefix":"ay","local":"","language":"Aymar
+        aru","url":"https://ay.wikipedia.org/wiki/$1"},{"prefix":"az","local":"","language":"az\u0259rbaycanca","url":"https://az.wikipedia.org/wiki/$1"},{"prefix":"azb","local":"","language":"\u062a\u06c6\u0631\u06a9\u062c\u0647","url":"https://azb.wikipedia.org/wiki/$1"},{"prefix":"ba","local":"","language":"\u0431\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430","url":"https://ba.wikipedia.org/wiki/$1"},{"prefix":"bar","local":"","language":"Boarisch","url":"https://bar.wikipedia.org/wiki/$1"},{"prefix":"bat-smg","local":"","language":"\u017eemait\u0117\u0161ka","url":"https://bat-smg.wikipedia.org/wiki/$1"},{"prefix":"bcl","local":"","language":"Bikol
+        Central","url":"https://bcl.wikipedia.org/wiki/$1"},{"prefix":"be","local":"","language":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f","url":"https://be.wikipedia.org/wiki/$1"},{"prefix":"be-x-old","local":"","language":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f
+        (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430)\u200e","url":"https://be-x-old.wikipedia.org/wiki/$1"},{"prefix":"bg","local":"","language":"\u0431\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438","url":"https://bg.wikipedia.org/wiki/$1"},{"prefix":"bh","local":"","language":"\u092d\u094b\u091c\u092a\u0941\u0930\u0940","url":"https://bh.wikipedia.org/wiki/$1"},{"prefix":"bi","local":"","language":"Bislama","url":"https://bi.wikipedia.org/wiki/$1"},{"prefix":"bjn","local":"","language":"Bahasa
+        Banjar","url":"https://bjn.wikipedia.org/wiki/$1"},{"prefix":"bm","local":"","language":"bamanankan","url":"https://bm.wikipedia.org/wiki/$1"},{"prefix":"bn","local":"","language":"\u09ac\u09be\u0982\u09b2\u09be","url":"https://bn.wikipedia.org/wiki/$1"},{"prefix":"bo","local":"","language":"\u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42","url":"https://bo.wikipedia.org/wiki/$1"},{"prefix":"bpy","local":"","language":"\u09ac\u09bf\u09b7\u09cd\u09a3\u09c1\u09aa\u09cd\u09b0\u09bf\u09af\u09bc\u09be
+        \u09ae\u09a3\u09bf\u09aa\u09c1\u09b0\u09c0","url":"https://bpy.wikipedia.org/wiki/$1"},{"prefix":"br","local":"","language":"brezhoneg","url":"https://br.wikipedia.org/wiki/$1"},{"prefix":"bs","local":"","language":"bosanski","url":"https://bs.wikipedia.org/wiki/$1"},{"prefix":"bug","local":"","language":"\u1a05\u1a14
+        \u1a15\u1a18\u1a01\u1a17","url":"https://bug.wikipedia.org/wiki/$1"},{"prefix":"bxr","local":"","language":"\u0431\u0443\u0440\u044f\u0430\u0434","url":"https://bxr.wikipedia.org/wiki/$1"},{"prefix":"ca","local":"","language":"catal\u00e0","url":"https://ca.wikipedia.org/wiki/$1"},{"prefix":"cbk-zam","local":"","language":"Chavacano
+        de Zamboanga","url":"https://cbk-zam.wikipedia.org/wiki/$1"},{"prefix":"cdo","local":"","language":"M\u00ecng-d\u0115\u0324ng-ng\u1e73\u0304","url":"https://cdo.wikipedia.org/wiki/$1"},{"prefix":"ce","local":"","language":"\u043d\u043e\u0445\u0447\u0438\u0439\u043d","url":"https://ce.wikipedia.org/wiki/$1"},{"prefix":"ceb","local":"","language":"Cebuano","url":"https://ceb.wikipedia.org/wiki/$1"},{"prefix":"ch","local":"","language":"Chamoru","url":"https://ch.wikipedia.org/wiki/$1"},{"prefix":"cho","local":"","language":"Choctaw","url":"https://cho.wikipedia.org/wiki/$1"},{"prefix":"chr","local":"","language":"\u13e3\u13b3\u13a9","url":"https://chr.wikipedia.org/wiki/$1"},{"prefix":"chy","local":"","language":"Tsets\u00eahest\u00e2hese","url":"https://chy.wikipedia.org/wiki/$1"},{"prefix":"ckb","local":"","language":"\u06a9\u0648\u0631\u062f\u06cc","url":"https://ckb.wikipedia.org/wiki/$1"},{"prefix":"co","local":"","language":"corsu","url":"https://co.wikipedia.org/wiki/$1"},{"prefix":"cr","local":"","language":"N\u0113hiyaw\u0113win
+        / \u14c0\u1426\u1403\u152d\u140d\u140f\u1423","url":"https://cr.wikipedia.org/wiki/$1"},{"prefix":"crh","local":"","language":"q\u0131r\u0131mtatarca","url":"https://crh.wikipedia.org/wiki/$1"},{"prefix":"cs","local":"","language":"\u010de\u0161tina","url":"https://cs.wikipedia.org/wiki/$1"},{"prefix":"csb","local":"","language":"kasz\u00ebbsczi","url":"https://csb.wikipedia.org/wiki/$1"},{"prefix":"cu","local":"","language":"\u0441\u043b\u043e\u0432\u0463\u043d\u044c\u0441\u043a\u044a
+        / \u2c14\u2c0e\u2c11\u2c02\u2c21\u2c10\u2c20\u2c14\u2c0d\u2c1f","url":"https://cu.wikipedia.org/wiki/$1"},{"prefix":"cv","local":"","language":"\u0427\u04d1\u0432\u0430\u0448\u043b\u0430","url":"https://cv.wikipedia.org/wiki/$1"},{"prefix":"cy","local":"","language":"Cymraeg","url":"https://cy.wikipedia.org/wiki/$1"},{"prefix":"da","local":"","language":"dansk","url":"https://da.wikipedia.org/wiki/$1"},{"prefix":"de","local":"","language":"Deutsch","url":"https://de.wikipedia.org/wiki/$1"},{"prefix":"din","local":"","language":"Thu\u0254\u014bj\u00e4\u014b","url":"https://din.wikipedia.org/wiki/$1"},{"prefix":"diq","local":"","language":"Zazaki","url":"https://diq.wikipedia.org/wiki/$1"},{"prefix":"dsb","local":"","language":"dolnoserbski","url":"https://dsb.wikipedia.org/wiki/$1"},{"prefix":"dty","local":"","language":"\u0921\u094b\u091f\u0947\u0932\u0940","url":"https://dty.wikipedia.org/wiki/$1"},{"prefix":"dv","local":"","language":"\u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0","url":"https://dv.wikipedia.org/wiki/$1"},{"prefix":"dz","local":"","language":"\u0f47\u0f7c\u0f44\u0f0b\u0f41","url":"https://dz.wikipedia.org/wiki/$1"},{"prefix":"ee","local":"","language":"e\u028begbe","url":"https://ee.wikipedia.org/wiki/$1"},{"prefix":"el","local":"","language":"\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac","url":"https://el.wikipedia.org/wiki/$1"},{"prefix":"eml","local":"","language":"emili\u00e0n
+        e rumagn\u00f2l","url":"https://eml.wikipedia.org/wiki/$1"},{"prefix":"en","local":"","language":"English","url":"https://en.wikipedia.org/wiki/$1"},{"prefix":"eo","local":"","language":"Esperanto","url":"https://eo.wikipedia.org/wiki/$1"},{"prefix":"es","local":"","language":"espa\u00f1ol","url":"https://es.wikipedia.org/wiki/$1"},{"prefix":"et","local":"","language":"eesti","url":"https://et.wikipedia.org/wiki/$1"},{"prefix":"eu","local":"","language":"euskara","url":"https://eu.wikipedia.org/wiki/$1"},{"prefix":"ext","local":"","language":"estreme\u00f1u","url":"https://ext.wikipedia.org/wiki/$1"},{"prefix":"fa","local":"","language":"\u0641\u0627\u0631\u0633\u06cc","url":"https://fa.wikipedia.org/wiki/$1"},{"prefix":"ff","local":"","language":"Fulfulde","url":"https://ff.wikipedia.org/wiki/$1"},{"prefix":"fi","local":"","language":"suomi","url":"https://fi.wikipedia.org/wiki/$1"},{"prefix":"fiu-vro","local":"","language":"V\u00f5ro","url":"https://fiu-vro.wikipedia.org/wiki/$1"},{"prefix":"fj","local":"","language":"Na
+        Vosa Vakaviti","url":"https://fj.wikipedia.org/wiki/$1"},{"prefix":"fo","local":"","language":"f\u00f8royskt","url":"https://fo.wikipedia.org/wiki/$1"},{"prefix":"fr","local":"","language":"fran\u00e7ais","localinterwiki":"","url":"https://fr.wikipedia.org/wiki/$1"},{"prefix":"frp","local":"","language":"arpetan","url":"https://frp.wikipedia.org/wiki/$1"},{"prefix":"frr","local":"","language":"Nordfriisk","url":"https://frr.wikipedia.org/wiki/$1"},{"prefix":"fur","local":"","language":"furlan","url":"https://fur.wikipedia.org/wiki/$1"},{"prefix":"fy","local":"","language":"Frysk","url":"https://fy.wikipedia.org/wiki/$1"},{"prefix":"ga","local":"","language":"Gaeilge","url":"https://ga.wikipedia.org/wiki/$1"},{"prefix":"gag","local":"","language":"Gagauz","url":"https://gag.wikipedia.org/wiki/$1"},{"prefix":"gan","local":"","language":"\u8d1b\u8a9e","url":"https://gan.wikipedia.org/wiki/$1"},{"prefix":"gd","local":"","language":"G\u00e0idhlig","url":"https://gd.wikipedia.org/wiki/$1"},{"prefix":"gl","local":"","language":"galego","url":"https://gl.wikipedia.org/wiki/$1"},{"prefix":"glk","local":"","language":"\u06af\u06cc\u0644\u06a9\u06cc","url":"https://glk.wikipedia.org/wiki/$1"},{"prefix":"gn","local":"","language":"Ava\u00f1e''\u1ebd","url":"https://gn.wikipedia.org/wiki/$1"},{"prefix":"gom","local":"","language":"\u0917\u094b\u0902\u092f\u091a\u0940
+        \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni","url":"https://gom.wikipedia.org/wiki/$1"},{"prefix":"got","local":"","language":"\ud800\udf32\ud800\udf3f\ud800\udf44\ud800\udf39\ud800\udf43\ud800\udf3a","url":"https://got.wikipedia.org/wiki/$1"},{"prefix":"gu","local":"","language":"\u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0ac0","url":"https://gu.wikipedia.org/wiki/$1"},{"prefix":"gv","local":"","language":"Gaelg","url":"https://gv.wikipedia.org/wiki/$1"},{"prefix":"ha","local":"","language":"Hausa","url":"https://ha.wikipedia.org/wiki/$1"},{"prefix":"hak","local":"","language":"\u5ba2\u5bb6\u8a9e/Hak-k\u00e2-ng\u00ee","url":"https://hak.wikipedia.org/wiki/$1"},{"prefix":"haw","local":"","language":"Hawai\u02bbi","url":"https://haw.wikipedia.org/wiki/$1"},{"prefix":"he","local":"","language":"\u05e2\u05d1\u05e8\u05d9\u05ea","url":"https://he.wikipedia.org/wiki/$1"},{"prefix":"hi","local":"","language":"\u0939\u093f\u0928\u094d\u0926\u0940","url":"https://hi.wikipedia.org/wiki/$1"},{"prefix":"hif","local":"","language":"Fiji
+        Hindi","url":"https://hif.wikipedia.org/wiki/$1"},{"prefix":"ho","local":"","language":"Hiri
+        Motu","url":"https://ho.wikipedia.org/wiki/$1"},{"prefix":"hr","local":"","language":"hrvatski","url":"https://hr.wikipedia.org/wiki/$1"},{"prefix":"hsb","local":"","language":"hornjoserbsce","url":"https://hsb.wikipedia.org/wiki/$1"},{"prefix":"ht","local":"","language":"Krey\u00f2l
+        ayisyen","url":"https://ht.wikipedia.org/wiki/$1"},{"prefix":"hu","local":"","language":"magyar","url":"https://hu.wikipedia.org/wiki/$1"},{"prefix":"hy","local":"","language":"\u0540\u0561\u0575\u0565\u0580\u0565\u0576","url":"https://hy.wikipedia.org/wiki/$1"},{"prefix":"hz","local":"","language":"Otsiherero","url":"https://hz.wikipedia.org/wiki/$1"},{"prefix":"ia","local":"","language":"interlingua","url":"https://ia.wikipedia.org/wiki/$1"},{"prefix":"id","local":"","language":"Bahasa
+        Indonesia","url":"https://id.wikipedia.org/wiki/$1"},{"prefix":"ie","local":"","language":"Interlingue","url":"https://ie.wikipedia.org/wiki/$1"},{"prefix":"ig","local":"","language":"Igbo","url":"https://ig.wikipedia.org/wiki/$1"},{"prefix":"ii","local":"","language":"\ua187\ua259","url":"https://ii.wikipedia.org/wiki/$1"},{"prefix":"ik","local":"","language":"I\u00f1upiak","url":"https://ik.wikipedia.org/wiki/$1"},{"prefix":"ilo","local":"","language":"Ilokano","url":"https://ilo.wikipedia.org/wiki/$1"},{"prefix":"io","local":"","language":"Ido","url":"https://io.wikipedia.org/wiki/$1"},{"prefix":"is","local":"","language":"\u00edslenska","url":"https://is.wikipedia.org/wiki/$1"},{"prefix":"it","local":"","language":"italiano","url":"https://it.wikipedia.org/wiki/$1"},{"prefix":"iu","local":"","language":"\u1403\u14c4\u1483\u144e\u1450\u1466/inuktitut","url":"https://iu.wikipedia.org/wiki/$1"},{"prefix":"ja","local":"","language":"\u65e5\u672c\u8a9e","url":"https://ja.wikipedia.org/wiki/$1"},{"prefix":"jam","local":"","language":"Patois","url":"https://jam.wikipedia.org/wiki/$1"},{"prefix":"jbo","local":"","language":"la
+        .lojban.","url":"https://jbo.wikipedia.org/wiki/$1"},{"prefix":"jv","local":"","language":"Basa
+        Jawa","url":"https://jv.wikipedia.org/wiki/$1"},{"prefix":"ka","local":"","language":"\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8","url":"https://ka.wikipedia.org/wiki/$1"},{"prefix":"kaa","local":"","language":"Qaraqalpaqsha","url":"https://kaa.wikipedia.org/wiki/$1"},{"prefix":"kab","local":"","language":"Taqbaylit","url":"https://kab.wikipedia.org/wiki/$1"},{"prefix":"kbd","local":"","language":"\u0410\u0434\u044b\u0433\u044d\u0431\u0437\u044d","url":"https://kbd.wikipedia.org/wiki/$1"},{"prefix":"kbp","local":"","language":"Kab\u0269y\u025b","url":"https://kbp.wikipedia.org/wiki/$1"},{"prefix":"kg","local":"","language":"Kongo","url":"https://kg.wikipedia.org/wiki/$1"},{"prefix":"ki","local":"","language":"G\u0129k\u0169y\u0169","url":"https://ki.wikipedia.org/wiki/$1"},{"prefix":"kj","local":"","language":"Kwanyama","url":"https://kj.wikipedia.org/wiki/$1"},{"prefix":"kk","local":"","language":"\u049b\u0430\u0437\u0430\u049b\u0448\u0430","url":"https://kk.wikipedia.org/wiki/$1"},{"prefix":"kl","local":"","language":"kalaallisut","url":"https://kl.wikipedia.org/wiki/$1"},{"prefix":"km","local":"","language":"\u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a","url":"https://km.wikipedia.org/wiki/$1"},{"prefix":"kn","local":"","language":"\u0c95\u0ca8\u0ccd\u0ca8\u0ca1","url":"https://kn.wikipedia.org/wiki/$1"},{"prefix":"ko","local":"","language":"\ud55c\uad6d\uc5b4","url":"https://ko.wikipedia.org/wiki/$1"},{"prefix":"koi","local":"","language":"\u041f\u0435\u0440\u0435\u043c
+        \u041a\u043e\u043c\u0438","url":"https://koi.wikipedia.org/wiki/$1"},{"prefix":"kr","local":"","language":"Kanuri","url":"https://kr.wikipedia.org/wiki/$1"},{"prefix":"krc","local":"","language":"\u043a\u044a\u0430\u0440\u0430\u0447\u0430\u0439-\u043c\u0430\u043b\u043a\u044a\u0430\u0440","url":"https://krc.wikipedia.org/wiki/$1"},{"prefix":"ks","local":"","language":"\u0915\u0949\u0936\u0941\u0930
+        / \u06a9\u0672\u0634\u064f\u0631","url":"https://ks.wikipedia.org/wiki/$1"},{"prefix":"ksh","local":"","language":"Ripoarisch","url":"https://ksh.wikipedia.org/wiki/$1"},{"prefix":"ku","local":"","language":"Kurd\u00ee","url":"https://ku.wikipedia.org/wiki/$1"},{"prefix":"kv","local":"","language":"\u043a\u043e\u043c\u0438","url":"https://kv.wikipedia.org/wiki/$1"},{"prefix":"kw","local":"","language":"kernowek","url":"https://kw.wikipedia.org/wiki/$1"},{"prefix":"ky","local":"","language":"\u041a\u044b\u0440\u0433\u044b\u0437\u0447\u0430","url":"https://ky.wikipedia.org/wiki/$1"},{"prefix":"la","local":"","language":"Latina","url":"https://la.wikipedia.org/wiki/$1"},{"prefix":"lad","local":"","language":"Ladino","url":"https://lad.wikipedia.org/wiki/$1"},{"prefix":"lb","local":"","language":"L\u00ebtzebuergesch","url":"https://lb.wikipedia.org/wiki/$1"},{"prefix":"lbe","local":"","language":"\u043b\u0430\u043a\u043a\u0443","url":"https://lbe.wikipedia.org/wiki/$1"},{"prefix":"lez","local":"","language":"\u043b\u0435\u0437\u0433\u0438","url":"https://lez.wikipedia.org/wiki/$1"},{"prefix":"lg","local":"","language":"Luganda","url":"https://lg.wikipedia.org/wiki/$1"},{"prefix":"li","local":"","language":"Limburgs","url":"https://li.wikipedia.org/wiki/$1"},{"prefix":"lij","local":"","language":"Ligure","url":"https://lij.wikipedia.org/wiki/$1"},{"prefix":"lmo","local":"","language":"lumbaart","url":"https://lmo.wikipedia.org/wiki/$1"},{"prefix":"ln","local":"","language":"ling\u00e1la","url":"https://ln.wikipedia.org/wiki/$1"},{"prefix":"lo","local":"","language":"\u0ea5\u0eb2\u0ea7","url":"https://lo.wikipedia.org/wiki/$1"},{"prefix":"lrc","local":"","language":"\u0644\u06ca\u0631\u06cc
+        \u0634\u0648\u0645\u0627\u0644\u06cc","url":"https://lrc.wikipedia.org/wiki/$1"},{"prefix":"lt","local":"","language":"lietuvi\u0173","url":"https://lt.wikipedia.org/wiki/$1"},{"prefix":"ltg","local":"","language":"latga\u013cu","url":"https://ltg.wikipedia.org/wiki/$1"},{"prefix":"lv","local":"","language":"latvie\u0161u","url":"https://lv.wikipedia.org/wiki/$1"},{"prefix":"mai","local":"","language":"\u092e\u0948\u0925\u093f\u0932\u0940","url":"https://mai.wikipedia.org/wiki/$1"},{"prefix":"map-bms","local":"","language":"Basa
+        Banyumasan","url":"https://map-bms.wikipedia.org/wiki/$1"},{"prefix":"mdf","local":"","language":"\u043c\u043e\u043a\u0448\u0435\u043d\u044c","url":"https://mdf.wikipedia.org/wiki/$1"},{"prefix":"mg","local":"","language":"Malagasy","url":"https://mg.wikipedia.org/wiki/$1"},{"prefix":"mh","local":"","language":"Ebon","url":"https://mh.wikipedia.org/wiki/$1"},{"prefix":"mhr","local":"","language":"\u043e\u043b\u044b\u043a
+        \u043c\u0430\u0440\u0438\u0439","url":"https://mhr.wikipedia.org/wiki/$1"},{"prefix":"mi","local":"","language":"M\u0101ori","url":"https://mi.wikipedia.org/wiki/$1"},{"prefix":"min","local":"","language":"Baso
+        Minangkabau","url":"https://min.wikipedia.org/wiki/$1"},{"prefix":"mk","local":"","language":"\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438","url":"https://mk.wikipedia.org/wiki/$1"},{"prefix":"ml","local":"","language":"\u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02","url":"https://ml.wikipedia.org/wiki/$1"},{"prefix":"mn","local":"","language":"\u043c\u043e\u043d\u0433\u043e\u043b","url":"https://mn.wikipedia.org/wiki/$1"},{"prefix":"mo","local":"","language":"\u043c\u043e\u043b\u0434\u043e\u0432\u0435\u043d\u044f\u0441\u043a\u044d","url":"https://mo.wikipedia.org/wiki/$1"},{"prefix":"mr","local":"","language":"\u092e\u0930\u093e\u0920\u0940","url":"https://mr.wikipedia.org/wiki/$1"},{"prefix":"mrj","local":"","language":"\u043a\u044b\u0440\u044b\u043a
+        \u043c\u0430\u0440\u044b","url":"https://mrj.wikipedia.org/wiki/$1"},{"prefix":"ms","local":"","language":"Bahasa
+        Melayu","url":"https://ms.wikipedia.org/wiki/$1"},{"prefix":"mt","local":"","language":"Malti","url":"https://mt.wikipedia.org/wiki/$1"},{"prefix":"mus","local":"","language":"Mvskoke","url":"https://mus.wikipedia.org/wiki/$1"},{"prefix":"mwl","local":"","language":"Mirand\u00e9s","url":"https://mwl.wikipedia.org/wiki/$1"},{"prefix":"my","local":"","language":"\u1019\u103c\u1014\u103a\u1019\u102c\u1018\u102c\u101e\u102c","url":"https://my.wikipedia.org/wiki/$1"},{"prefix":"myv","local":"","language":"\u044d\u0440\u0437\u044f\u043d\u044c","url":"https://myv.wikipedia.org/wiki/$1"},{"prefix":"mzn","local":"","language":"\u0645\u0627\u0632\u0650\u0631\u0648\u0646\u06cc","url":"https://mzn.wikipedia.org/wiki/$1"},{"prefix":"na","local":"","language":"Dorerin
+        Naoero","url":"https://na.wikipedia.org/wiki/$1"},{"prefix":"nah","local":"","language":"N\u0101huatl","url":"https://nah.wikipedia.org/wiki/$1"},{"prefix":"nap","local":"","language":"Napulitano","url":"https://nap.wikipedia.org/wiki/$1"},{"prefix":"nds","local":"","language":"Plattd\u00fc\u00fctsch","url":"https://nds.wikipedia.org/wiki/$1"},{"prefix":"nds-nl","local":"","language":"Nedersaksies","url":"https://nds-nl.wikipedia.org/wiki/$1"},{"prefix":"ne","local":"","language":"\u0928\u0947\u092a\u093e\u0932\u0940","url":"https://ne.wikipedia.org/wiki/$1"},{"prefix":"new","local":"","language":"\u0928\u0947\u092a\u093e\u0932
+        \u092d\u093e\u0937\u093e","url":"https://new.wikipedia.org/wiki/$1"},{"prefix":"ng","local":"","language":"Oshiwambo","url":"https://ng.wikipedia.org/wiki/$1"},{"prefix":"nl","local":"","language":"Nederlands","url":"https://nl.wikipedia.org/wiki/$1"},{"prefix":"nn","local":"","language":"norsk
+        nynorsk","url":"https://nn.wikipedia.org/wiki/$1"},{"prefix":"no","local":"","language":"norsk","url":"https://no.wikipedia.org/wiki/$1"},{"prefix":"nov","local":"","language":"Novial","url":"https://nov.wikipedia.org/wiki/$1"},{"prefix":"nrm","local":"","language":"Nouormand","url":"https://nrm.wikipedia.org/wiki/$1"},{"prefix":"nso","local":"","language":"Sesotho
+        sa Leboa","url":"https://nso.wikipedia.org/wiki/$1"},{"prefix":"nv","local":"","language":"Din\u00e9
+        bizaad","url":"https://nv.wikipedia.org/wiki/$1"},{"prefix":"ny","local":"","language":"Chi-Chewa","url":"https://ny.wikipedia.org/wiki/$1"},{"prefix":"oc","local":"","language":"occitan","url":"https://oc.wikipedia.org/wiki/$1"},{"prefix":"olo","local":"","language":"Livvinkarjala","url":"https://olo.wikipedia.org/wiki/$1"},{"prefix":"om","local":"","language":"Oromoo","url":"https://om.wikipedia.org/wiki/$1"},{"prefix":"or","local":"","language":"\u0b13\u0b21\u0b3c\u0b3f\u0b06","url":"https://or.wikipedia.org/wiki/$1"},{"prefix":"os","local":"","language":"\u0418\u0440\u043e\u043d","url":"https://os.wikipedia.org/wiki/$1"},{"prefix":"pa","local":"","language":"\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40","url":"https://pa.wikipedia.org/wiki/$1"},{"prefix":"pag","local":"","language":"Pangasinan","url":"https://pag.wikipedia.org/wiki/$1"},{"prefix":"pam","local":"","language":"Kapampangan","url":"https://pam.wikipedia.org/wiki/$1"},{"prefix":"pap","local":"","language":"Papiamentu","url":"https://pap.wikipedia.org/wiki/$1"},{"prefix":"pcd","local":"","language":"Picard","url":"https://pcd.wikipedia.org/wiki/$1"},{"prefix":"pdc","local":"","language":"Deitsch","url":"https://pdc.wikipedia.org/wiki/$1"},{"prefix":"pfl","local":"","language":"P\u00e4lzisch","url":"https://pfl.wikipedia.org/wiki/$1"},{"prefix":"pi","local":"","language":"\u092a\u093e\u0932\u093f","url":"https://pi.wikipedia.org/wiki/$1"},{"prefix":"pih","local":"","language":"Norfuk
+        / Pitkern","url":"https://pih.wikipedia.org/wiki/$1"},{"prefix":"pl","local":"","language":"polski","url":"https://pl.wikipedia.org/wiki/$1"},{"prefix":"pms","local":"","language":"Piemont\u00e8is","url":"https://pms.wikipedia.org/wiki/$1"},{"prefix":"pnt","local":"","language":"\u03a0\u03bf\u03bd\u03c4\u03b9\u03b1\u03ba\u03ac","url":"https://pnt.wikipedia.org/wiki/$1"},{"prefix":"pnb","local":"","language":"\u067e\u0646\u062c\u0627\u0628\u06cc","url":"https://pnb.wikipedia.org/wiki/$1"},{"prefix":"ps","local":"","language":"\u067e\u069a\u062a\u0648","url":"https://ps.wikipedia.org/wiki/$1"},{"prefix":"pt","local":"","language":"portugu\u00eas","url":"https://pt.wikipedia.org/wiki/$1"},{"prefix":"qu","local":"","language":"Runa
+        Simi","url":"https://qu.wikipedia.org/wiki/$1"},{"prefix":"rm","local":"","language":"rumantsch","url":"https://rm.wikipedia.org/wiki/$1"},{"prefix":"rmy","local":"","language":"Romani","url":"https://rmy.wikipedia.org/wiki/$1"},{"prefix":"rn","local":"","language":"Kirundi","url":"https://rn.wikipedia.org/wiki/$1"},{"prefix":"ro","local":"","language":"rom\u00e2n\u0103","url":"https://ro.wikipedia.org/wiki/$1"},{"prefix":"roa-rup","local":"","language":"arm\u00e3neashti","url":"https://roa-rup.wikipedia.org/wiki/$1"},{"prefix":"roa-tara","local":"","language":"tarand\u00edne","url":"https://roa-tara.wikipedia.org/wiki/$1"},{"prefix":"ru","local":"","language":"\u0440\u0443\u0441\u0441\u043a\u0438\u0439","url":"https://ru.wikipedia.org/wiki/$1"},{"prefix":"rue","local":"","language":"\u0440\u0443\u0441\u0438\u043d\u044c\u0441\u043a\u044b\u0439","url":"https://rue.wikipedia.org/wiki/$1"},{"prefix":"rw","local":"","language":"Kinyarwanda","url":"https://rw.wikipedia.org/wiki/$1"},{"prefix":"sa","local":"","language":"\u0938\u0902\u0938\u094d\u0915\u0943\u0924\u092e\u094d","url":"https://sa.wikipedia.org/wiki/$1"},{"prefix":"sah","local":"","language":"\u0441\u0430\u0445\u0430
+        \u0442\u044b\u043b\u0430","url":"https://sah.wikipedia.org/wiki/$1"},{"prefix":"sc","local":"","language":"sardu","url":"https://sc.wikipedia.org/wiki/$1"},{"prefix":"scn","local":"","language":"sicilianu","url":"https://scn.wikipedia.org/wiki/$1"},{"prefix":"sco","local":"","language":"Scots","url":"https://sco.wikipedia.org/wiki/$1"},{"prefix":"sd","local":"","language":"\u0633\u0646\u068c\u064a","url":"https://sd.wikipedia.org/wiki/$1"},{"prefix":"se","local":"","language":"s\u00e1megiella","url":"https://se.wikipedia.org/wiki/$1"},{"prefix":"sg","local":"","language":"S\u00e4ng\u00f6","url":"https://sg.wikipedia.org/wiki/$1"},{"prefix":"sh","local":"","language":"srpskohrvatski
+        / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438","url":"https://sh.wikipedia.org/wiki/$1"},{"prefix":"si","local":"","language":"\u0dc3\u0dd2\u0d82\u0dc4\u0dbd","url":"https://si.wikipedia.org/wiki/$1"},{"prefix":"simple","local":"","language":"Simple
+        English","url":"https://simple.wikipedia.org/wiki/$1"},{"prefix":"sk","local":"","language":"sloven\u010dina","url":"https://sk.wikipedia.org/wiki/$1"},{"prefix":"sl","local":"","language":"sloven\u0161\u010dina","url":"https://sl.wikipedia.org/wiki/$1"},{"prefix":"sm","local":"","language":"Gagana
+        Samoa","url":"https://sm.wikipedia.org/wiki/$1"},{"prefix":"sn","local":"","language":"chiShona","url":"https://sn.wikipedia.org/wiki/$1"},{"prefix":"so","local":"","language":"Soomaaliga","url":"https://so.wikipedia.org/wiki/$1"},{"prefix":"sq","local":"","language":"shqip","url":"https://sq.wikipedia.org/wiki/$1"},{"prefix":"sr","local":"","language":"\u0441\u0440\u043f\u0441\u043a\u0438
+        / srpski","url":"https://sr.wikipedia.org/wiki/$1"},{"prefix":"srn","local":"","language":"Sranantongo","url":"https://srn.wikipedia.org/wiki/$1"},{"prefix":"ss","local":"","language":"SiSwati","url":"https://ss.wikipedia.org/wiki/$1"},{"prefix":"st","local":"","language":"Sesotho","url":"https://st.wikipedia.org/wiki/$1"},{"prefix":"stq","local":"","language":"Seeltersk","url":"https://stq.wikipedia.org/wiki/$1"},{"prefix":"su","local":"","language":"Basa
+        Sunda","url":"https://su.wikipedia.org/wiki/$1"},{"prefix":"sv","local":"","language":"svenska","url":"https://sv.wikipedia.org/wiki/$1"},{"prefix":"sw","local":"","language":"Kiswahili","url":"https://sw.wikipedia.org/wiki/$1"},{"prefix":"szl","local":"","language":"\u015bl\u016fnski","url":"https://szl.wikipedia.org/wiki/$1"},{"prefix":"ta","local":"","language":"\u0ba4\u0bae\u0bbf\u0bb4\u0bcd","url":"https://ta.wikipedia.org/wiki/$1"},{"prefix":"tcy","local":"","language":"\u0ca4\u0cc1\u0cb3\u0cc1","url":"https://tcy.wikipedia.org/wiki/$1"},{"prefix":"te","local":"","language":"\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41","url":"https://te.wikipedia.org/wiki/$1"},{"prefix":"tet","local":"","language":"tetun","url":"https://tet.wikipedia.org/wiki/$1"},{"prefix":"tg","local":"","language":"\u0442\u043e\u04b7\u0438\u043a\u04e3","url":"https://tg.wikipedia.org/wiki/$1"},{"prefix":"th","local":"","language":"\u0e44\u0e17\u0e22","url":"https://th.wikipedia.org/wiki/$1"},{"prefix":"ti","local":"","language":"\u1275\u130d\u122d\u129b","url":"https://ti.wikipedia.org/wiki/$1"},{"prefix":"tk","local":"","language":"T\u00fcrkmen\u00e7e","url":"https://tk.wikipedia.org/wiki/$1"},{"prefix":"tl","local":"","language":"Tagalog","url":"https://tl.wikipedia.org/wiki/$1"},{"prefix":"tn","local":"","language":"Setswana","url":"https://tn.wikipedia.org/wiki/$1"},{"prefix":"to","local":"","language":"lea
+        faka-Tonga","url":"https://to.wikipedia.org/wiki/$1"},{"prefix":"tpi","local":"","language":"Tok
+        Pisin","url":"https://tpi.wikipedia.org/wiki/$1"},{"prefix":"tr","local":"","language":"T\u00fcrk\u00e7e","url":"https://tr.wikipedia.org/wiki/$1"},{"prefix":"ts","local":"","language":"Xitsonga","url":"https://ts.wikipedia.org/wiki/$1"},{"prefix":"tt","local":"","language":"\u0442\u0430\u0442\u0430\u0440\u0447\u0430/tatar\u00e7a","url":"https://tt.wikipedia.org/wiki/$1"},{"prefix":"tum","local":"","language":"chiTumbuka","url":"https://tum.wikipedia.org/wiki/$1"},{"prefix":"tw","local":"","language":"Twi","url":"https://tw.wikipedia.org/wiki/$1"},{"prefix":"ty","local":"","language":"reo
+        tahiti","url":"https://ty.wikipedia.org/wiki/$1"},{"prefix":"tyv","local":"","language":"\u0442\u044b\u0432\u0430
+        \u0434\u044b\u043b","url":"https://tyv.wikipedia.org/wiki/$1"},{"prefix":"udm","local":"","language":"\u0443\u0434\u043c\u0443\u0440\u0442","url":"https://udm.wikipedia.org/wiki/$1"},{"prefix":"ug","local":"","language":"\u0626\u06c7\u064a\u063a\u06c7\u0631\u0686\u06d5
+        / Uyghurche","url":"https://ug.wikipedia.org/wiki/$1"},{"prefix":"uk","local":"","language":"\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430","url":"https://uk.wikipedia.org/wiki/$1"},{"prefix":"ur","local":"","language":"\u0627\u0631\u062f\u0648","url":"https://ur.wikipedia.org/wiki/$1"},{"prefix":"uz","local":"","language":"o\u02bbzbekcha/\u045e\u0437\u0431\u0435\u043a\u0447\u0430","url":"https://uz.wikipedia.org/wiki/$1"},{"prefix":"ve","local":"","language":"Tshivenda","url":"https://ve.wikipedia.org/wiki/$1"},{"prefix":"vec","local":"","language":"v\u00e8neto","url":"https://vec.wikipedia.org/wiki/$1"},{"prefix":"vep","local":"","language":"veps\u00e4n
+        kel\u2019","url":"https://vep.wikipedia.org/wiki/$1"},{"prefix":"vi","local":"","language":"Ti\u1ebfng
+        Vi\u1ec7t","url":"https://vi.wikipedia.org/wiki/$1"},{"prefix":"vls","local":"","language":"West-Vlams","url":"https://vls.wikipedia.org/wiki/$1"},{"prefix":"vo","local":"","language":"Volap\u00fck","url":"https://vo.wikipedia.org/wiki/$1"},{"prefix":"wa","local":"","language":"walon","url":"https://wa.wikipedia.org/wiki/$1"},{"prefix":"war","local":"","language":"Winaray","url":"https://war.wikipedia.org/wiki/$1"},{"prefix":"wo","local":"","language":"Wolof","url":"https://wo.wikipedia.org/wiki/$1"},{"prefix":"wuu","local":"","language":"\u5434\u8bed","url":"https://wuu.wikipedia.org/wiki/$1"},{"prefix":"xal","local":"","language":"\u0445\u0430\u043b\u044c\u043c\u0433","url":"https://xal.wikipedia.org/wiki/$1"},{"prefix":"xh","local":"","language":"isiXhosa","url":"https://xh.wikipedia.org/wiki/$1"},{"prefix":"xmf","local":"","language":"\u10db\u10d0\u10e0\u10d2\u10d0\u10da\u10e3\u10e0\u10d8","url":"https://xmf.wikipedia.org/wiki/$1"},{"prefix":"yi","local":"","language":"\u05d9\u05d9\u05b4\u05d3\u05d9\u05e9","url":"https://yi.wikipedia.org/wiki/$1"},{"prefix":"yo","local":"","language":"Yor\u00f9b\u00e1","url":"https://yo.wikipedia.org/wiki/$1"},{"prefix":"za","local":"","language":"Vahcuengh","url":"https://za.wikipedia.org/wiki/$1"},{"prefix":"zea","local":"","language":"Ze\u00eauws","url":"https://zea.wikipedia.org/wiki/$1"},{"prefix":"zh","local":"","language":"\u4e2d\u6587","url":"https://zh.wikipedia.org/wiki/$1"},{"prefix":"zh-classical","local":"","language":"\u6587\u8a00","url":"https://zh-classical.wikipedia.org/wiki/$1"},{"prefix":"zh-min-nan","local":"","language":"B\u00e2n-l\u00e2m-g\u00fa","url":"https://zh-min-nan.wikipedia.org/wiki/$1"},{"prefix":"zh-yue","local":"","language":"\u7cb5\u8a9e","url":"https://zh-yue.wikipedia.org/wiki/$1"},{"prefix":"zu","local":"","language":"isiZulu","url":"https://zu.wikipedia.org/wiki/$1"},{"prefix":"cz","local":"","url":"https://cs.wikipedia.org/wiki/$1"},{"prefix":"dk","local":"","url":"https://da.wikipedia.org/wiki/$1"},{"prefix":"epo","local":"","url":"https://eo.wikipedia.org/wiki/$1"},{"prefix":"jp","local":"","url":"https://ja.wikipedia.org/wiki/$1"},{"prefix":"minnan","local":"","url":"https://zh-min-nan.wikipedia.org/wiki/$1"},{"prefix":"nb","local":"","language":"norsk
+        bokm\u00e5l","url":"https://no.wikipedia.org/wiki/$1"},{"prefix":"zh-cfr","local":"","url":"https://zh-min-nan.wikipedia.org/wiki/$1"},{"prefix":"zh-cn","local":"","language":"\u4e2d\u6587\uff08\u4e2d\u56fd\u5927\u9646\uff09\u200e","url":"https://zh.wikipedia.org/wiki/$1"},{"prefix":"zh-tw","local":"","language":"\u4e2d\u6587\uff08\u53f0\u7063\uff09\u200e","url":"https://zh.wikipedia.org/wiki/$1"},{"prefix":"nan","local":"","language":"B\u00e2n-l\u00e2m-g\u00fa","url":"https://zh-min-nan.wikipedia.org/wiki/$1"},{"prefix":"vro","local":"","language":"V\u00f5ro","url":"https://fiu-vro.wikipedia.org/wiki/$1"},{"prefix":"cmn","local":"","url":"https://zh.wikipedia.org/wiki/$1"},{"prefix":"lzh","local":"","language":"\u6587\u8a00","url":"https://zh-classical.wikipedia.org/wiki/$1"},{"prefix":"yue","local":"","language":"\u7cb5\u8a9e","url":"https://zh-yue.wikipedia.org/wiki/$1"},{"prefix":"rup","local":"","language":"arm\u00e3neashti","url":"https://roa-rup.wikipedia.org/wiki/$1"},{"prefix":"gsw","local":"","language":"Alemannisch","url":"https://als.wikipedia.org/wiki/$1"},{"prefix":"be-tarask","local":"","language":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f
+        (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430)\u200e","url":"https://be-x-old.wikipedia.org/wiki/$1"},{"prefix":"sgs","local":"","language":"\u017eemait\u0117\u0161ka","url":"https://bat-smg.wikipedia.org/wiki/$1"},{"prefix":"egl","local":"","language":"Emili\u00e0n","url":"https://eml.wikipedia.org/wiki/$1"},{"prefix":"w","local":"","url":"https://en.wikipedia.org/wiki/$1"},{"prefix":"wikt","local":"","url":"https://fr.wiktionary.org/wiki/$1"},{"prefix":"q","local":"","url":"https://fr.wikiquote.org/wiki/$1"},{"prefix":"b","local":"","url":"https://fr.wikibooks.org/wiki/$1"},{"prefix":"n","local":"","url":"https://fr.wikinews.org/wiki/$1"},{"prefix":"s","local":"","url":"https://fr.wikisource.org/wiki/$1"},{"prefix":"chapter","local":"","url":"https://fr.wikimedia.org/wiki/$1"},{"prefix":"v","local":"","url":"https://fr.wikiversity.org/wiki/$1"},{"prefix":"voy","local":"","url":"https://fr.wikivoyage.org/wiki/$1"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 Jun 2017 21:00:00 GMT
+- request:
+    method: get
+    uri: https://fr.wikipedia.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=Argentine
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Sep 2017 19:54:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1286.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://fr.wikipedia.org/wiki/Sp%C3%A9cial:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - DENY
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=61163 t=1505073297017303
+      X-Varnish:
+      - 768666339, 143923792, 50501586
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1055 pass, cp3030 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=10-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu,
+        12 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=10-Sep-2017;Path=/;HttpOnly;secure;Expires=Thu, 12 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.49.79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"42":{"pageid":42,"ns":0,"title":"Argentine","revisions":[{"timestamp":"2017-08-25T21:09:34Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{{Voir
+        homonymes}}\n{{redirect5|Argentina|le genre de poisson|Argentina (genre)}}\n{{Infobox
+        Pays\n | nom_local= Rep\u00fablica Argentina \n | langue= es\n | prononciation=
+        \n | nom_fran\u00e7ais= R\u00e9publique argentine\n | de= de la&nbsp;\n |
+        image_drapeau= Flag of Argentina.svg\n | lien_drapeau= Drapeau de l''Argentine\n
+        | image_blason= Coat_of_arms_of_Argentina.svg\n | lien_blason= Blason de l''Argentine\n
+        | image_carte= Argentina orthographic.svg\n | devise= Dans l\u2019Union et
+        la Libert\u00e9. ({{es}} {{lang|es|En Uni\u00f3n y Libertad}})\n | langues=
+        [[Espagnol]]\n | langues_officielles= [[Espagnol]] \n | capitale= [[Buenos
+        Aires]]\n | coordonn\u00e9es_capitale= {{coord|34|37|S|58|21|W}}\n | lien_villes=
+        Villes d''Argentine\n | titre_plus_grande_ville= Plus grande ville\n | plus_grande_ville=
+        [[Buenos Aires]]\n | type_gouvernement= [[R\u00e9publique]] [[f\u00e9d\u00e9ralisme|f\u00e9d\u00e9rale]]\n
+        | titre_dirigeant= [[Liste des chefs d''\u00c9tat argentins|Pr\u00e9sident
+        de la Nation]]\n | titre_dirigeant2= [[Vice-pr\u00e9sident]]e\n | nom_dirigeant=
+        [[Mauricio Macri]]\n | nom_dirigeant2= [[Gabriela Michetti]]\n | superficie_rang=
+        8\n | superficie_totale={{unit\u00e9|2791810|km|2}}<ref>L\u2019Argentine revendique
+        aussi {{unit\u00e9|1000000|km|2}} en [[Antarctique]], ainsi que les [[\u00eeles
+        Malouines]].</ref>\n | pourcentage_eau= 1,1\n | population_rang= 31\n | population_totale=
+        43 431 886<ref>CIA World Factbook</ref>\n | population_ann\u00e9e= juillet
+        2015\n | densit\u00e9= 15.6\n | type_ind\u00e9pendance= D\u00e9claration d''ind\u00e9pendance\n
+        | pays_ind\u00e9pendance= [[Espagne]]\n | date_ind\u00e9pendance= {{date|9|juillet|1816}}\n
+        | pays frontaliers= {{BRA}}{{clr}}{{BOL}}{{clr}}{{CHI}}{{clr}}{{PAR}}{{clr}}{{URU}}{{clr}}Outre-mer:{{clr}}[[Fichier:Flag
+        of Magallanes, Chile.svg|20px]] [[Territoire chilien de l''Antarctique|Antarctique
+        Chilienne]]{{clr}}[[Fichier:Flag of the British Antarctic Territory.svg|20px]]
+        [[Territoire britannique antarctique|Antarctique Britannique]]\n | gentil\u00e9=
+        Argentin/Argentine\n | IDH= {{augmentation}} 0,811<ref name=\"Human development
+        index\">{{en}} [http://hdrstats.undp.org/fr/countries/data_sheets/cty_ds_ARG.html
+        Human Development Report 2009 - Argentina] - Rapport sur le d\u00e9veloppement
+        humain 2009 [[Organisation des Nations unies|ONU]]</ref>\n | IDH_ann\u00e9e=
+        2013\n | IDH_cat\u00e9gorie= tr\u00e8s \u00e9lev\u00e9\n | IDH_rang= {{45e}}\n
+        | monnaie= [[Peso argentin]]\n | code_monnaie= ARS\n | fuseau_horaire= -3.
+        En \u00e9t\u00e9 UTC-2 (dans une partie du pays seulement)\n | hymne_national=
+        [[Hymne national argentin|Himno Nacional Argentino]]\n | iso3166-1 = ARG,
+        AR\n | domaine_internet= [[.ar]]\n | indicatif_t\u00e9l\u00e9phonique= 54\n
+        | p1 = [[Argentine coloniale]]\n}}\n\nL\u2019''''''Argentine'''''', en forme
+        longue la ''''''R\u00e9publique argentine'''''', en [[espagnol]] ''''{{lang|es|Argentina}}''''
+        et ''''{{lang|es|Rep\u00fablica Argentina}}'''' {{API|[re\u02c8pu\u03b2lika
+        a\u027exen\u02c8tina]}}, est un pays d\u2019[[Am\u00e9rique du Sud]] partageant
+        ses fronti\u00e8res avec le [[Chili]] \u00e0 l\u2019ouest, la [[Bolivie]]
+        au nord-ouest, le [[Paraguay]] au nord, le [[Br\u00e9sil]] et l\u2019[[Uruguay]]
+        au nord-est et \u00e0 l''est, et l\u2019[[oc\u00e9an Atlantique]] \u00e0 l''est
+        et \u00e0 l''extr\u00eame sud.\n\nLe pays proclame son ind\u00e9pendance,
+        vis-\u00e0-vis de l''[[Espagne]], le {{date-|25 mai 1810}}, lors de la [[r\u00e9volution
+        de Mai]], ind\u00e9pendance d\u00e9finitivement acquise le {{date-|9 juillet
+        1816}} \u00e0 [[Congr\u00e8s de Tucum\u00e1n|San Miguel de Tucum\u00e1n]].\n\nSa
+        capitale est [[Buenos Aires]], sa langue nationale est l''[[espagnol rioplatense]]
+        et sa monnaie est le [[peso argentin]].\n\nLa religion nationale est le [[catholicisme]].\nL''Argentine
+        fait partie des pays dits du ''''[[c\u00f4ne Sud|c\u00f4ne sud]]'''' et parmi
+        les pays d''[[Am\u00e9rique latine]], il est celui o\u00f9 la [[Europe|culture
+        europ\u00e9enne]] est la plus affirm\u00e9e. L''Argentine est l''un des pays
+        les plus d\u00e9velopp\u00e9s du continent latino-am\u00e9ricain. Le pays
+        est \u00e9galement la troisi\u00e8me puissance \u00e9conomique d''Am\u00e9rique
+        latine apr\u00e8s le Br\u00e9sil et le [[Mexique]], que ce soit en [[Produit
+        int\u00e9rieur brut|PIB]] nominal ou \u00e0 [[parit\u00e9 de pouvoir d''achat]]
+        (PPA).\n\nLe drapeau argentin est dessin\u00e9 par le g\u00e9n\u00e9ral [[Manuel
+        Belgrano]], les bandes bleues et blanches font r\u00e9f\u00e9rence aux cocardes
+        de la m\u00eame couleur distribu\u00e9es le {{date-|25 mai 1810}} lors du
+        d\u00e9but de la guerre d''ind\u00e9pendance. Le drapeau est rendu officiel,
+        deux semaines apr\u00e8s l''ind\u00e9pendance, le {{date-|25 juillet 1816}},
+        puis, en [[1818]], est ajout\u00e9 le soleil dit ''''Sol de Mayo''''. Jusqu''au
+        {{date-|25 juillet 1985}}, le drapeau avec le soleil, dit ''''drapeau de guerre'''',
+        est exclusif aux institutions officielles, alors que le drapeau sans le soleil
+        est utilis\u00e9 pour les manifestations ou institutions n''ayant pas caract\u00e8re
+        officiel. D\u00e9sormais, le drapeau avec le soleil est utilis\u00e9 partout.\n\n==
+        Origines du nom ==\nLe terme ''''Argentina'''' est attest\u00e9 pour la premi\u00e8re
+        fois sur une carte v\u00e9nitienne de 1536<ref>Origine du nom ''''Argentine''''
+        (espagnol) [http://www.oni.escuelas.edu.ar/olimpi99/libros-digitales/html/argentin.htm
+        El nombre de Argentina]</ref>.\n\nLe nom en fran\u00e7ais ''''Argentine''''
+        est issu de sa d\u00e9signation en espagnol ''''Argentina''''. Il s''agit
+        du m\u00eame mot que l''adjectif fran\u00e7ais ''''argentine'''' signifiant
+        \u00ab en argent, d''argent \u00bb, terme attest\u00e9 depuis le {{s-|XII|e}}
+        et d\u00e9riv\u00e9 du mot ''''argent'''' \u00e0 l''aide du suffixe ''''-in''''<ref>[http://www.cnrtl.fr/etymologie/argentin
+        Site du CNRTL : \u00e9tymologie de l''adjectif ''''argentine'''']</ref>.\n\nCependant,
+        ''''Argentina'''' n''est ni un mot espagnol, ni un mot portugais. En effet
+        dans ces langues, ''''argent'''' se dit respectivement ''''plata'''' et ''''prata'''',
+        ainsi que ses d\u00e9riv\u00e9s ''''en argent'''', ''''plateado, de plata''''
+        et ''''prateado, de prata''''. En fin de compte ''''Argentina'''' remonte
+        \u00e0 l''italien ''''argentina'''' \u00ab d''argent \u00bb, nom probablement
+        donn\u00e9 par les navigateurs v\u00e9nitiens ou g\u00e9nois comme [[Giovani
+        Cabotto|Giovanni Cabotto]] (Jean Cabot). Il \u00e9tait peut-\u00eatre primitivement
+        associ\u00e9 \u00e0 ''''terra'''' \u00ab terre \u00bb ou \u00e0 ''''costa''''
+        \u00ab c\u00f4te \u00bb, devenu ''''l''Argentina'''', car le substantif s''efface
+        souvent au profit de son d\u00e9termin\u00e9 dans cette langue. L''expression
+        [[R\u00edo de la Plata]] est son correspondant espagnol qui d\u00e9signe plus
+        pr\u00e9cis\u00e9ment la rivi\u00e8re, lui-m\u00eame traduction du portugais
+        ''''R\u00edo da Prata'''' .\n\nSa d\u00e9signation exacte pourrait trouver
+        son origine dans les cadeaux en argent faits par les peuples voisins aux explorateurs
+        europ\u00e9ens, notamment [[S\u00e9bastien Cabot]], fils de Jean. Une autre
+        explication pourrait \u00eatre la l\u00e9gende de la [[Sierra de la Plata]],
+        tr\u00e9sor l\u00e9gendaire o\u00f9 le R\u00edo de la Plata \u00e9tait cens\u00e9
+        conduire.\n\n== G\u00e9ographie ==\n[[Fichier:Argentina topo blank.jpg|thumb|150px|Carte
+        topographique de l\u2019Argentine]]\n{{Article d\u00e9taill\u00e9|G\u00e9ographie
+        de l''Argentine}}\n\n=== Donn\u00e9es g\u00e9n\u00e9rales ===\n[[Fichier:SantaCruz-CuevaManos-P2210079b.jpg|left|thumb|150px|Canyon
+        du [[R\u00edo Pinturas]], Santa Cruz.]]\nLa surface totale de l''Argentine
+        est r\u00e9partie de la fa\u00e7on suivante (except\u00e9 l\u2019Antarctique)
+        :\n* Total : {{unit\u00e9|2766891|km|2}}\n* Terre : {{unit\u00e9|2736691|km|2}}\n*
+        Eau : {{unit\u00e9|30200|km|2}}\n\nL''Argentine est longue de {{unit\u00e9|3700|kilom\u00e8tres}}
+        du nord au sud et de {{unit\u00e9|1400|kilom\u00e8tres}} de l''est \u00e0
+        l''ouest. Le territoire peut \u00eatre divis\u00e9 en quatre zones distinctes
+        : les plaines fertiles de la [[pampa]] au centre du pays, le plat pays de
+        la [[Patagonie argentine|Patagonie]] au sud (s''\u00e9tendant sur un gros
+        quart sud du pays (28 %), jusqu''\u00e0 la [[Terre de Feu]]), les plaines
+        s\u00e8ches du [[Gran Chaco]] au nord et enfin la r\u00e9gion tr\u00e8s \u00e9lev\u00e9e
+        de la cordill\u00e8re des Andes \u00e0 l''ouest le long de la fronti\u00e8re
+        avec le [[Chili]] dont le mont [[Aconcagua]] culmine \u00e0 {{unit\u00e9|6960|m\u00e8tres}}.\n\nLe
+        point culminant de l''Argentine - et de l''Am\u00e9rique - est le mont Aconcagua.
+        La d\u00e9pression la plus profonde d''Am\u00e9rique, la ''''Laguna del Carb\u00f3n''''
+        \u00e0 {{Unit\u00e9|105|m\u00e8tres}} sous le [[niveau de la mer]], se trouve
+        aussi en Argentine, dans la [[province de Santa Cruz]]. Le centre g\u00e9ographique
+        du pays est localis\u00e9 dans la [[province de La Pampa]].\n\nLe [[climat]]
+        est typique de fa\u00e7ade orientale des continents, on rencontre un [[climat
+        subtropical humide]] dans le nord et aride/subantarctique dans l''extr\u00eame
+        sud du pays.\n\n=== R\u00e9gions g\u00e9ographiques ===\n[[Fichier:Fitz Roy
+        1b.jpg|thumb|left|150px|Le [[Fitz Roy]], [[Cordill\u00e8re des Andes]].]]\n[[Fichier:Iguacu-004.jpg|thumb|150px|[[Parc
+        national d''Iguaz\u00fa]].]]\n[[Fichier:pampas.jpg|vignette|Paysage typique
+        de la [[pampa]] argentine au niveau de la grande plaine centrale.]]\nLe pays
+        est traditionnellement divis\u00e9 en diff\u00e9rentes r\u00e9gions majeures
+        :\n; Pampas\nLes plaines \u00e0 l''ouest et au sud de [[Buenos Aires]]. Appel\u00e9e
+        la ''''pampa humide'''', cette r\u00e9gion recouvre la plupart des provinces
+        de [[Province de Buenos Aires|Buenos Aires]] et de [[Province de C\u00f3rdoba
+        (Argentine)|C\u00f3rdoba]] ainsi que celles de [[Province de Santa Fe|Santa
+        Fe]] et de [[Province de La Pampa|la Pampa]]. \n; Gran Chaco\nLa r\u00e9gion
+        [[Gran Chaco]] se situe au nord du pays, avec des saisons humides et s\u00e8ches,
+        il permet l''\u00e9levage de [[b\u00e9tail]] et la culture de [[coton]]. Il
+        recouvre les provinces du [[Province du Chaco|Chaco]] et de [[Province de
+        Formosa|Formosa]]. Il comprend \u00e9galement des for\u00eats subtropicales
+        o\u00f9 se d\u00e9veloppent la v\u00e9g\u00e9tation et les animaux.\n; Mesopotamie\nCe
+        territoire se trouve entre le [[Rio Paran\u00e1]] et le [[Rio Uruguay]], partag\u00e9s
+        entre les provinces de [[Province de Corrientes|Corrientes]] et d''[[Province
+        d''Entre R\u00edos|Entre R\u00edos]], o\u00f9 l''on entretient le [[b\u00e9tail]]
+        et les [[Esteros del Iber\u00e1]]. La climat de la [[province de Misiones]]
+        est tropical. Les [[chutes d''Iguaz\u00fa]] s''y trouvent.\n; Patagonie\nLes
+        [[steppe]]s de la [[Patagonie]] dans les provinces de [[Province de Neuqu\u00e9n|Neuqu\u00e9n]],
+        [[Province de R\u00edo Negro|R\u00edo Negro]], [[Province de Chubut|Chubut]]
+        et [[Province de Santa Cruz|Santa Cruz]] sont d''origines [[Tertiaire (g\u00e9ologie)|tertiaires]].
+        Le territoire est semi-aride au nord, froid et aride au sud, mais est constitu\u00e9
+        \u00e0 l''ouest de plusieurs grands lacs et de for\u00eats. La [[Terre de
+        Feu, Antarctique et \u00celes de l''Atlantique Sud]] est froide et humide,
+        mod\u00e9r\u00e9 par l''influence oc\u00e9anique. Enfin, le nord peut \u00eatre
+        r\u00e9f\u00e9r\u00e9 \u00e0 [[Comahue]].\n; Cuyo\nL''ouest de l''Argentine
+        est domin\u00e9 par l''imposante cordill\u00e8re des Andes, \u00e0 l''est
+        se trouve une r\u00e9gion aride appel\u00e9e [[Cuyo (Argentine)|Cuyo]], l''eau
+        descendant des montagnes permet la [[viticulture]] et l''[[agriculture]] gr\u00e2ce
+        \u00e0 son irrigation, bien que le relief y soit accident\u00e9.\n\nLe point
+        le plus haut du monde en dehors de l''Himalaya se retrouve en Argentine, au
+        cerro Aconcagua, de {{unit\u00e9|6959|m\u00e8tres}}. Parmi les plus hautes
+        montagnes des Andes, une importante proportion se retrouve dans le pays. Le
+        point le plus bas des Am\u00e9riques se trouve aussi en Argentine, dans la
+        province de Santa Cruz (Laguna del Carbon).\n\n=== Climat ===\n{{Article d\u00e9taill\u00e9|Climat
+        de l''Argentine}}\nEn consid\u00e9rant la superficie du pays, les diff\u00e9rences
+        d''altitude (de {{unit\u00e9|-100|m}} \u00e0 presque {{unit\u00e9|7000|m}})
+        et la longueur du pays (du {{22e}} [[Parall\u00e8le (g\u00e9ographie)|parall\u00e8le]]
+        sud, correspondant dans l''h\u00e9misph\u00e8re nord \u00e0 la ville de [[La
+        Havane]], jusqu''au {{55e|parall\u00e8le}} sud, correspondant dans l''h\u00e9misph\u00e8re
+        nord \u00e0 [[Copenhague]], Moscou et la baie d''Hudson), une \u00e9norme
+        diversit\u00e9 de climats coexiste dans le pays.\n\nLe Nord est pratiquement
+        tropical, quoique absolument toutes les r\u00e9gions du pays peuvent voir
+        le mercure descendre \u00e0 {{tmp|0|\u00b0C}}.\n\nLe Centre-Nord et l''Ouest
+        connaissent des journ\u00e9es de chaleur insupportable l''\u00e9t\u00e9 :
+        la moyenne atteint {{tmp|36|\u00b0C}} dans certains endroits, avec  des temp\u00e9ratures
+        tr\u00e8s \u00e9lev\u00e9es avoisinant souvent les {{tmp|45|\u00b0C}}.\n\nL''hiver,
+        la partie la plus septentrionale du pays enregistre des moyennes autour de
+        {{tmp|20|\u00b0C}} le jour, et de {{tmp|10|\u00b0C}} la nuit, avec des p\u00e9riodes
+        de {{tmp|30|\u00b0C}} alternant avec des journ\u00e9es assez froides qui peuvent
+        m\u00eame rester en dessous de {{tmp|10|\u00b0C}}, et des nuits proches de
+        {{tmp|0|\u00b0C}}. Les pr\u00e9cipitations varient de {{unit\u00e9|2500|millim\u00e8tres}}
+        dans la jungle de [[Province de Misiones|Misiones]], \u00e0 {{unit\u00e9|1000|mm}}
+        dans le [[Gran Chaco]], et seulement {{unit\u00e9|100|mm}} dans les r\u00e9gions
+        les plus arides de l''Ouest argentin.\n\nLa [[Pampa]] concentre la majorit\u00e9
+        de la population et de la production du pays, gr\u00e2ce au [[climat temp\u00e9r\u00e9]]
+        \u00e0 quatre saisons: les \u00e9t\u00e9s sont assez longs et chauds, avec
+        des journ\u00e9es ayant une temp\u00e9rature moyenne de {{unit\u00e9|30|\u00b0C}}
+        et des nuit agr\u00e9ables \u00e0 {{tmp|17|\u00b0C}}, tandis que les hivers
+        sont doux avec des journ\u00e9es ayant des temp\u00e9ratures moyennes de {{tmp|15|\u00b0C}}
+        et les nuits autour de {{tmp|4|\u00b0C}}. Les [[gel\u00e9e blanche|gel\u00e9es]]
+        sont courantes pendant 3 \u00e0 4 mois, et les temp\u00e9ratures descendent
+        souvent \u00e0 {{tmp|-5|\u00b0C}}, mais rarement moins, quoique les records
+        approchent les {{tmp|-10|\u00b0C}}. La [[neige]], en revanche, est tr\u00e8s
+        rare \u00e9tant donn\u00e9 que l''hiver est la saison la plus s\u00e8che.
+        Les pr\u00e9cipitations vont de {{unit\u00e9|1200|mm}} dans l''est, \u00e0
+        seulement {{unit\u00e9|150|mm}} dans l''Ouest du pays.\n\nLa Patagonie est
+        la r\u00e9gion la plus froide, mais le climat varie \u00e9norm\u00e9ment d''un
+        endroit \u00e0 l''autre : il est extr\u00eamement sec mais assez mod\u00e9r\u00e9
+        sur la c\u00f4te, tr\u00e8s sec et rigoureux au centre, et tr\u00e8s humide
+        et un peu moins rigoureux dans les vall\u00e9es des Andes, o\u00f9 l''air
+        du Pacifique p\u00e9n\u00e8tre dans le continent. Sur la c\u00f4te, il fait
+        rarement moins de {{tmp|-10|\u00b0C}}, et l''\u00e9t\u00e9, il peut faire
+        facilement {{tmp|35|\u00b0C}}. La neige est assez rare, mais la pluie aussi
+        ({{unit\u00e9|250|mm}}).\nSur les plateaux du centre de la Patagonie, les
+        \u00e9t\u00e9s sont ti\u00e8des mais avec des nuits froides (en dessous de
+        {{tmp|10|\u00b0C}}, avec du gel parfois en plein \u00e9t\u00e9) et les hivers
+        sont assez rigoureux, avec des moyennes proches de {{tmp|0|\u00b0C}} dans
+        plusieurs endroits, accompagn\u00e9s de chutes de neige fr\u00e9quentes mais
+        peu abondantes en raison de l''aridit\u00e9 du climat. La temp\u00e9rature
+        descend facilement \u00e0 {{tmp|-20|\u00b0C}}, et les records indiquent des
+        valeurs proches de {{tmp|-35|\u00b0C}} lors d''hivers exceptionnels, o\u00f9
+        certains villages sont isol\u00e9s par la neige pendant des semaines. Les
+        vall\u00e9es (tr\u00e8s basses) \u00e0 l''ouest ont des \u00e9t\u00e9s frais
+        avec des nuits froides, et des hivers avec des moyennes de {{tmp|2|\u00b0C}}
+        (\u00e9quivalent de l''Alsace), descendent rarement en dessous de {{tmp|-15|\u00b0C}},
+        quoique des valeurs de {{tmp|-20|\u00b0C}} sont possibles. La neige peut s''accumuler
+        profond\u00e9ment, car beaucoup de secteurs re\u00e7oivent plus de {{unit\u00e9|1500|mm}}
+        de pluie et neige, et quelques secteurs isol\u00e9s voient jusqu''\u00e0 {{unit\u00e9|4500|mm}}
+        par an.\n\nL''extr\u00eame sud m\u00e9rite une note \u00e0 part, car si les
+        hivers sont semblables \u00e0 ceux de l''ouest de la Patagonie, avec beaucoup
+        de pluie, neige et m\u00e9langes, la particularit\u00e9 du climat est l''absence
+        de l''\u00e9t\u00e9 : au mois le plus chaud, la moyenne du jour atteint seulement
+        {{tmp|14|\u00b0C}}, alors que celle des nuits est de {{tmp|5|\u00b0C}}. Il
+        est tr\u00e8s courant de voir des journ\u00e9es \u00e0 {{tmp|7|\u00b0C}} en
+        plein \u00e9t\u00e9, et des chutes de neige ne sont pas \u00e0 exclure. De
+        plus, pendant les mois d''\u00e9t\u00e9 on peut s''attendre \u00e0 avoir 3
+        ou 4 journ\u00e9es ensoleill\u00e9es par mois, avec une quinzaine de journ\u00e9es
+        de pluie, et une douzaine de journ\u00e9es nuageuses.\n\nDans toute la Patagonie,
+        et surtout dans le sud, on enregistre les plus forts vents au monde: dans
+        certaines villes, la moyenne d\u00e9passe les {{unit\u00e9|30|km/h}} tous
+        les mois, et lors des temp\u00eates, les vitesses de {{unit\u00e9|100|km/h}}
+        \u00e0 {{unit\u00e9|150|km/h}} sont courantes.\n\nLa c\u00f4te Atlantique
+        argentine a des temp\u00e9ratures assez froides m\u00eame l''\u00e9t\u00e9,
+        o\u00f9 l''eau n''atteint les {{tmp|20|\u00b0C}} que quelquefois dans quelques
+        endroits pr\u00e9cis. Les temp\u00e9ratures les plus chaudes et les plus froides
+        du continent ont \u00e9t\u00e9 mesur\u00e9es en Argentine : plus de {{tmp|49|\u00b0C}}
+        l''\u00e9t\u00e9, \u00e0 Rivadavia, et {{tmp|-42|\u00b0C}} l''hiver, au Valle
+        de los Patos, San Juan.\n\n=== Rivi\u00e8res et lacs ===\n[[Fichier:Lago Nahuel
+        Huapi.jpg|thumb|left|150px|Le [[lac Nahuel Huapi]] en [[Patagonie]]]]\nParmi
+        les grands [[fleuve]]s, citons le [[R\u00edo Paraguay|Paraguay]], le [[R\u00edo
+        Bermejo|Bermejo]], le [[R\u00edo Negro (fleuve argentin)|r\u00edo Negro]],
+        le [[R\u00edo Colorado (Argentine)|r\u00edo Colorado]], l''[[Rio Uruguay|Uruguay]],
+        ainsi que le [[Rio Paran\u00e1|Paran\u00e1]] qui est le plus long fleuve d''Argentine.
+        Les fleuves [[Rio Paran\u00e1|Paran\u00e1]] et [[Uruguay]] coulent vers l''[[oc\u00e9an
+        Atlantique]] et se rejoignent pour former le delta du [[r\u00edo de la Plata]].
+        Dans le parc national de [[Province de Misiones|Misiones]], au nord du pays,
+        les mini-chutes d''une selva satur\u00e9e vont se r\u00e9unir pour former
+        le fleuve Panana. Des grands lacs comme des mers se sont form\u00e9s au pied
+        des [[Cordill\u00e8re des Andes|Andes]], dans des sites encore vierges tels
+        le [[lac Nahuel Huapi|Nahuel Huapi]], \u00e0 [[San Carlos de Bariloche]].\n\n===
+        Environnement ===\n{{Article d\u00e9taill\u00e9|Environnement en Argentine}}\n[[Fichier:Fichier-AtmosphericMethaneSouthAm\u00e9rica.jpg|thumb|right|Carte<ref>[https://earthobservatory.nasa.gov/IOTD/view.php?id=5270
+        M\u00e9thane atmosph\u00e9rique] (NASA 22/02/2005) consult\u00e9 le 18/07/2017</ref>
+        des ''''hot-spot'''' d''\u00e9mission de [[m\u00e9thane]] de l''h\u00e9misph\u00e8re
+        sud]].\nLe pays abrite des paysages et \u00e9cosyst\u00e8mes tr\u00e8s vari\u00e9s,
+        en raison notamment d''un important gradient climatique. L''\u00e9cosyst\u00e8me
+        dominant est celui de la [[pampa]], qui abrite une [[biodiversit\u00e9]] originale
+        et souvent [[End\u00e9misme|end\u00e9mique]].\n\nLa [[for\u00eat]] a souvent
+        fortement r\u00e9gress\u00e9 au profit de boisements industriels (monocultures
+        parfois) et de l''[[\u00e9levage bovin]] et d''une agriculture souvent industrielle
+        qui contribue \u00e0 d\u00e9grader les [[Sol (p\u00e9dologie)|sols]]. Le Sud
+        du pays est expos\u00e9 \u00e0 une augmentation des [[Ultraviolet|UV]] solaires
+        ([[Canc\u00e9rog\u00e8ne|canc\u00e9rig\u00e8nes]], [[mutag\u00e8ne]]s), induite
+        par le trou de la couche d''ozone, plus grande au-dessus de l''Antarctique
+        qu''au-dessus de l''[[Arctique]].\n\n==== Faune et flore ====\n[[Fichier:Vicu\u00f1a
+        Vigogne Lago Chungar\u00e0 4570m Chile Luca Galuzzi 2006.jpg|thumb|150px|Troupeau
+        de [[vigogne]]s]]\n{{Article d\u00e9taill\u00e9|Faune de l''Argentine}}\n\nDans
+        les immenses \u00e9tendues de la [[Pampa]] subsiste encore une faune pr\u00e9colombienne
+        repr\u00e9sent\u00e9e en particulier par le [[tatou]], dit \u00e0 neuf bandes
+        : les [[gaucho|ga\u00fachos]] pourchassent ce mammif\u00e8re x\u00e9narthre
+        car ils redoutent ses terriers dans lesquels le b\u00e9tail se casse les pattes.\n\nEn
+        altitude, le [[lama (animal)|lama]] est encore utilis\u00e9 comme [[B\u00eate
+        de somme|animal de portage]].\n\n=== Fronti\u00e8res terrestres ===\n* {{Unit\u00e9|5151|{{Abr\u00e9viation
+        discr\u00e8te|km|kilom\u00e8tre}}}} [[Fronti\u00e8re entre l''Argentine et
+        le Chili|avec le Chili]] : [[Liste de fronti\u00e8res terrestres internationales
+        par longueur|c''est la troisi\u00e8me plus longue fronti\u00e8re terrestre
+        au monde]].\n* {{Unit\u00e9|1880|{{Abr\u00e9viation discr\u00e8te|km|kilom\u00e8tre}}}}
+        [[Fronti\u00e8re entre l''Argentine et le Paraguay|avec le Paraguay]].\n*
+        {{Unit\u00e9|1224|{{Abr\u00e9viation discr\u00e8te|km|kilom\u00e8tre}}}} [[Fronti\u00e8re
+        entre l''Argentine et le Br\u00e9sil|avec le Br\u00e9sil]].\n* {{Unit\u00e9|832|{{Abr\u00e9viation
+        discr\u00e8te|km|kilom\u00e8tre}}}} [[Fronti\u00e8re entre l''Argentine et
+        la Bolivie|avec la Bolivie]].\n* {{Unit\u00e9|579|{{Abr\u00e9viation discr\u00e8te|km|kilom\u00e8tre}}}}
+        [[Fronti\u00e8re entre l''Argentine et l''Uruguay|avec l''Uruguay]].\n\n==
+        Histoire ==\n{{Article d\u00e9taill\u00e9|Histoire de l''Argentine}}\n\n===
+        \u00c9poque pr\u00e9-coloniale ===\nUn grand nombre de tribus indig\u00e8nes
+        peuplait l''Argentine avant la conqu\u00eate espagnole comme les [[Diaguita]]s,
+        [[Pampa (ethnie)|Pampas]], [[Tehuelche|Chonks]], [[Toba (Argentine, peuple)|Qoms]],
+        [[Wichi]] (\"Matacos\"), [[Selknam]] (\"Onas\").\n\n=== Colonisation espagnole
+        ===\nEn [[1516]], l''Espagnol [[Juan D\u00edaz de Sol\u00eds]] d\u00e9couvre
+        le [[Rio de la Plata]]. Le pays est colonis\u00e9 par les [[Espagne|Espagnols]]
+        entre le {{XVIe s}} et le {{XVIIe si\u00e8cle}}.\n\n=== Ind\u00e9pendance===\n[[Fichier:Manuel
+        Belgrano.JPG|150px|thumb|upright|left|Le g\u00e9n\u00e9ral [[Manuel Belgrano]]
+        \u00e0 Londres, 1815.]]\n[[Fichier:Jose de San Martin.jpg|thumb|upright|left|Le
+        g\u00e9n\u00e9ral [[Jos\u00e9 de San Mart\u00edn]] \u00e0 Paris, 1849.]]\n\nDes
+        [[mouvement]]s d''opposition contre la m\u00e9tropole espagnole apparaissent
+        \u00e0 l''aube du {{XIXe si\u00e8cle}} apr\u00e8s avoir repouss\u00e9 sous
+        l''impulsion de [[Jacques de Liniers]], d''origine fran\u00e7aise, en [[1806]]
+        et [[1807]], deux [[Invasions britanniques|exp\u00e9ditions militaires anglaises]],
+        car les Argentins durent se d\u00e9fendre seuls contre un ennemi autrement
+        mieux arm\u00e9 et bien d\u00e9cid\u00e9 \u00e0 les recoloniser. D\u00e8s
+        [[1810]] avec la ''''[[r\u00e9volution de Mai]]'''' ({{date|25|mai|1810}})
+        les Argentins deviennent ind\u00e9pendants de fait. En [[1813]] le gouvernement
+        br\u00fble en place publique les instruments de torture et le {{date|1|mai|1853}}
+        d\u00e9clare l''[[abolition de l''esclavage]] (selon la [[Chronologie de l''abolition
+        de l''esclavage]]). L''ind\u00e9pendance d\u00e9clar\u00e9e le {{date|9|juillet|1816}}
+        (lors du [[congr\u00e8s de Tucum\u00e1n|congr\u00e8s constituant]] tenu dans
+        la ville de [[San Miguel de Tucum\u00e1n]]) n''est que la cons\u00e9quence
+        juridique venant ent\u00e9riner ce qui est d\u00e9j\u00e0 une r\u00e9alit\u00e9.
+        Plusieurs ann\u00e9es de guerre contre l''Empire espagnol permettent aux Argentins
+        de se s\u00e9parer d\u00e9finitivement de l''emprise des Bourbons. Les g\u00e9n\u00e9raux
+        [[Jos\u00e9 de San Mart\u00edn]], [[Manuel Belgrano]] et [[Mart\u00edn Miguel
+        de G\u00fcemes]], entre autres, matent toute vell\u00e9it\u00e9 espagnole
+        de reprendre sa colonie. Au commandement d''une arm\u00e9e d''environ {{unit\u00e9|4000|soldats}},
+        San Martin r\u00e9alise une campagne prodigieuse. Il traverse la [[cordill\u00e8re
+        des Andes]] et, au Chili, il inflige des d\u00e9faites cruciales \u00e0 l''arm\u00e9e
+        espagnole, d''abord \u00e0 la Cuesta de [[Bataille de Chacabuco|Chacabuco]]
+        et puis (avec des troupes chiliennes de [[Bernardo O''Higgins]]) \u00e0 Maipu,
+        pr\u00e8s de [[Santiago|Santiago du Chili]], o\u00f9 les Argentins d\u00e9truisent
+        d\u00e9finitivement l''arm\u00e9e royaliste stationn\u00e9e au [[Chili]].\n\n===
+        La guerre civile et les invasions \u00e9trang\u00e8res ===\n{{Traduction \u00e0
+        revoir}}\n\n[[Fichier:Juan Manuel de Rosas.jpg|thumb|150px|Brigadier G\u00e9n\u00e9ral
+        [[Juan Manuel de Rosas]].]]\nLa guerre contre l''[[Empire espagnol]] s\u2019ach\u00e8ve
+        apr\u00e8s la victoire des ind\u00e9pendantistes sud-am\u00e9ricains \u00e0
+        la [[bataille d''Ayacucho]], en [[1824]]. Cependant, le pays est en situation
+        de guerre civile depuis une d\u00e9cennie. En 1813, avant la d\u00e9claration
+        formelle de l''ind\u00e9pendance de toute l''Argentine, la [[Bande orientale|Province
+        Orientale]] avec [[Jos\u00e9 Gervasio Artigas]] a d\u00e9fendu le [[f\u00e9d\u00e9ralisme]]
+        argentin contre le centralisme de la ville du Buenos Aires, menant \u00e0
+        une guerre civile de cinquante ans entre [[Parti f\u00e9d\u00e9raliste (Argentine)|f\u00e9d\u00e9raux]]
+        et [[Parti unitaire (Argentine)|unitaires]]. Toujours en plein conflit entre
+        f\u00e9d\u00e9raux et unitaires, l''Argentine a eu \u00e0 affronter de diverses
+        guerres : [[Guerre de Cisplatine|L''invasion]] de la [[Bande orientale|Province
+        Orientale]] par l''[[Empire du Br\u00e9sil]], mais \u00e9galement l''occupation
+        de la province de [[Tarija]] par les boliviens en 1826. De plus, peu de temps
+        apr\u00e8s la fin de la guerre entre l''Argentine et le Br\u00e9sil, les [[Royaume-Uni|Anglais]]
+        ont occup\u00e9 (1833) les [[\u00celes Malouines]] que l''Argentine avait
+        h\u00e9rit\u00e9es de l''Espagne  En 1836, l''Argentine devait assumer une
+        [[Guerre de la Conf\u00e9d\u00e9ration|guerre]] contre la [[Conf\u00e9d\u00e9ration
+        p\u00e9ruvio-bolivienne]], et une [[Bataille de la Vuelta de Obligado|guerre
+        contre les Empires anglais et fran\u00e7ais, alli\u00e9s avec le Br\u00e9sil,
+        les paraguayens et les uruguayens]]. Ces luttes internes et les interventions
+        \u00e9trang\u00e8res expliquent la dur\u00e9e de l''h\u00e9g\u00e9monie de
+        [[Juan Manuel de Rosas]] (1833-1853).\nLa [[Constitution de l''Argentine|constitution]]
+        sera proclam\u00e9e en [[1853]], apr\u00e8s la fin de la ''''dictature de
+        [[Juan Manuel de Rosas]]''''.\n{{clr}}\n\n=== Dictatures du {{s-|XX|e}} et
+        p\u00e9ronisme  ===\n[[Fichier:Evita y Per\u00f3n.jpg|thumb|left|150px|[[Juan
+        Per\u00f3n]] et sa femme, [[Eva Per\u00f3n|Eva Duarte de Per\u00f3n]].]]\nLes
+        pr\u00e9sidences se succ\u00e8dent entre [[1930]] et [[1983]], mais sur seize
+        pr\u00e9sidents, onze sont des militaires et plusieurs sont \u00ab pr\u00e9sidents
+        de facto \u00bb (par opposition \u00e0 pr\u00e9sident \u00e9lu). \n \n[[Juan
+        Per\u00f3n|Per\u00f3n]] fait alors son d\u00e9but dans la haute politique
+        : lieutenant-colonel titulaire de quelques secr\u00e9tariats d''\u00c9tat
+        du gouvernement militaire \u00e9tabli en [[juin 1943]], il est \u00e9lu pr\u00e9sident
+        apr\u00e8s la fin de la [[Seconde Guerre mondiale]]. Celle-ci ayant entra\u00een\u00e9
+        l\u2019affaiblissement de l\u2019Occident, l''Argentine devient, vers 1950,
+        la neuvi\u00e8me puissance \u00e9conomique mondiale<ref>[http://pwt.econ.upenn.edu/php_site/pwt62/pwt62_form.php
+        Penn World Tables]</ref>. Apr\u00e8s la guerre, de tr\u00e8s nombreux [[Nazisme|nazis]]
+        fuirent en Argentine.\n\nLe p\u00e9ronisme est un mouvement national-populaire
+        ; il encadre la population argentine (syndicats, femmes, jeunes, ouvriers\u2026)
+        en leur octroyant des droits et un statut. Le partage des richesses est d\u00e9sormais
+        moins d\u00e9s\u00e9quilibr\u00e9 et {{r\u00e9f\u00e9rence n\u00e9cessaire|la
+        classe ouvri\u00e8re argentine, qui ne s''est jamais tourn\u00e9e vers le
+        communisme, s''identifie au mouvement p\u00e9roniste|date=19\u00a0avril\u00a02017}}.
+        Per\u00f3n a donc le soutien de cette derni\u00e8re , en partie gr\u00e2ce
+        \u00e0 la redistribution des richesses nationales. Cependant, l''opposition
+        de la bourgeoisie est pour le moins active ; d\u00e8s le retournement de la
+        conjoncture \u00e9conomique, au d\u00e9but des ann\u00e9es 1950, le dirigeant
+        populiste va \u00eatre amen\u00e9 \u00e0 pratiquer l''autoritarisme pour continuer
+        \u00e0 contr\u00f4ler l''\u00c9tat et le pays. L\u2019\u00c9glise se retourne
+        \u00e9galement contre le gouvernement apr\u00e8s les tentatives de Per\u00f3n
+        de la\u00efciser l\u2019enseignement et ses r\u00e9formes en faveur des droits
+        des femmes. Par ailleurs, sa deuxi\u00e8me femme (Per\u00f3n \u00e9tait veuf
+        depuis [[1938]]) [[Eva Per\u00f3n]] d\u00e9c\u00e9d\u00e9e, rest\u00e9e tr\u00e8s
+        aim\u00e9e des \u00ab descamisados \u00bb (sans chemises) n''est plus l\u00e0
+        pour galvaniser la population. Le soutien d''une majorit\u00e9 de la population
+        au mouvement p\u00e9roniste est n\u00e9anmoins r\u00e9guli\u00e8rement confirm\u00e9
+        par les \u00e9lections et un syst\u00e8me d\u00e9mocratique multipartite continue
+        de fonctionner.\n\nEn 1955, un coup d''\u00c9tat le chasse du pouvoir (l''arm\u00e9e
+        bombardera la place de Mai, tuant de nombreux civils). D\u00e9sormais, l''Argentine
+        entre dans une p\u00e9riode d''instabilit\u00e9 \u00e0 la fois \u00e9conomique
+        et politique. Le puissant mouvement p\u00e9roniste est d\u00e9capit\u00e9
+        mais va rena\u00eetre sous la forme clandestine (sabotage, gr\u00e8ves\u2026).
+        Les \u00e9lites du pays, revenues au pouvoir, cherchent alors une impossible
+        formule de d\u00e9mocratie sans p\u00e9ronisme. Les militaires organisent
+        des \u00e9lections, puis reprennent le pouvoir quelque temps apr\u00e8s, et
+        ce, \u00e0 deux reprises.\n\nEn 1966 a lieu le coup d''\u00c9tat du g\u00e9n\u00e9ral
+        [[Ongania]]. Ce dernier, partisan de la mani\u00e8re forte, va mettre en place
+        un r\u00e9gime bureaucratique et autoritaire. En r\u00e9action \u00e0 la violence,
+        les mouvements sociaux, les syndicats, les \u00e9tudiants, les ouvriers vont
+        se battre contre le r\u00e9gime jusqu''\u00e0 prendre conscience de sa faiblesse.
+        La situation s''aggrave jusqu''\u00e0 l''ann\u00e9e 1969, quand \u00e9clate
+        le ''''[[Cordobazo]]'''' (une explosion de violence spontan\u00e9e \u00e0
+        la ville de Cordoba durant laquelle les ouvriers et les \u00e9tudiants seront
+        les principaux protagonistes). C''est la premi\u00e8re ''''pueblada'''' (il
+        y en aura bien d''autres dans tout le pays) : la population s''attaque aux
+        symboles du pouvoir autoritaire (police\u2026) mais aussi \u00e0 ceux des
+        multinationales \u00e9trang\u00e8res. Le lendemain, le pays est paralys\u00e9
+        par la gr\u00e8ve g\u00e9n\u00e9rale. D\u00e9sormais, m\u00eame la classe
+        moyenne, traditionnellement anti-p\u00e9roniste, s''associe au rejet du pouvoir
+        bureaucratique et autoritaire. Les militaires se retirent alors en bonne et
+        due forme, essayant de ne pas perdre la face. Mais il est trop tard et en
+        1973, la population assiste \u00e0 la fin du r\u00e9gime militaire. Des \u00e9lections
+        d\u00e9mocratiques sont organis\u00e9es, les militaires sont conspu\u00e9s,
+        la gauche r\u00e9volutionnaire voit ses organisations de masses l\u00e9galis\u00e9es
+        et ses militants prisonniers sont tous lib\u00e9r\u00e9s. L''extr\u00eame-gauche
+        gagne des espaces de pouvoir au sein de l''\u00c9tat (Universit\u00e9\u2026).
+        On croit que les militaires ne reviendront pas. Jamais alors le climat politique
+        n''avait \u00e9t\u00e9 aussi propice \u00e0 la gauche en Argentine.\n\nApr\u00e8s
+        le retour du [[Juan Per\u00f3n|g\u00e9n\u00e9ral Peron]] en 1973, qui se solde
+        par le [[massacre d''Ezeiza]] (affrontements entre la gauche et la droite
+        p\u00e9roniste), le pays s''enfonce dans une \u00ab [[guerre sale]] \u00bb,
+        qui commence, dans la [[province de Tucum\u00e1n]], d\u00e8s l''[[op\u00e9ration
+        Ind\u00e9pendance]], qui impliquait la lutte contre la gu\u00e9rilla y compris
+        l''enl\u00e8vement de partisans arm\u00e9s de la \u00ab\u00a0r\u00e9volution\u00a0\u00bb
+        et leur s\u00e9jours dans des [[centre clandestin de d\u00e9tention (Argentine)|centres
+        de d\u00e9tention clandestins]], o\u00f9 ils \u00e9taient tortur\u00e9s. La
+        tr\u00e8s grande majorit\u00e9 n''y a pas surv\u00e9cu. \u00c0 cette occasion,
+        les le\u00e7ons transmises par des fran\u00e7ais sur la [[bataille d''Alger]]
+        sont mises en pratique<ref>[[Marie-Monique Robin]] dans ''''[[Escadrons de
+        la mort, l''\u00e9cole fran\u00e7aise]]''''</ref>.\n\nEn mars 1976, un coup
+        d''\u00c9tat dirig\u00e9 par une junte de militaires ([[Jorge Rafael Videla|Jorge
+        Videla]], etc.) renverse la troisi\u00e8me femme de P\u00e9ron, [[Isabel Mart\u00ednez
+        de Per\u00f3n]], ancienne vice-pr\u00e9sident de son \u00e9poux, et sa veuve
+        depuis 1974. La [[Comisi\u00f3n Nacional sobre la Desaparici\u00f3n de Personas|CONADEP]]
+        -Commission nationale sur la disparition des personnes, fond\u00e9e par le
+        gouvernement d\u00e9mocratique de Ra\u00fal R. [[Ra\u00fal Alfons\u00edn|Alfons\u00edn]],
+        a estim\u00e9 que la r\u00e9pression militaire a fait un peu moins de {{unit\u00e9|10000|victimes}},
+        dans la majorit\u00e9 des \u00ab [[d\u00e9tenus disparus|disparus]] \u00bb.
+        \n\u00c9tant donn\u00e9 que l''appui aux mouvements de gu\u00e9rilla dans
+        tout le continent est soutenu, coordonn\u00e9 et dirig\u00e9 depuis [[Cuba]],
+        Buenos Aires participe avec d''autres pays \u00e0 l\u2019[[op\u00e9ration
+        Condor]] (de coordination contre la subversion), et de nombreux [[Droit d''asile|r\u00e9fugi\u00e9s
+        politiques]] et des \u00ab\u00a0subversives\u00a0\u00bb enfuis de pays voisins
+        sont assassin\u00e9s par le biais des services secrets ou d''escadrons de
+        la mort (la [[Alliance anticommuniste argentine|Triple A]]). Il est \u00e0
+        noter que cette [[Alliance anticommuniste argentine|Triple A]] a \u00e9t\u00e9
+        cr\u00e9\u00e9e en 1974 durant le gouvernement constitutionnel de Madame la
+        veuve Peron et a commenc\u00e9 son travail depuis cette ann\u00e9e. L''ambassade
+        [[\u00c9tats-Unis|am\u00e9ricaine]] est souvent au courant<ref>Le journaliste
+        John Dinges affirme dans son livre-r\u00e9f\u00e9rence sur Condor qu''\u00e0
+        la fois le FBI et la CIA \u00e9taient au courant de l''arrestation de deux
+        diplomates cubains, de 22 et 26 ans, par la [[Secretar\u00eda de Inteligencia|SIDE]]
+        argentine. Tortur\u00e9s dans le centre Orletti, les Cubains ont aussi \u00e9t\u00e9
+        interrog\u00e9s par [[Michael Townley]], ex-agent de la CIA qui travaillait
+        d\u00e9sormais pour la [[Direction nationale du renseignement|DINA]] chilienne.
+        Townley a par la suite \u00e9t\u00e9 condamn\u00e9 pour l''assassinat de l''ex-ministre
+        de [[Salvador Allende]], [[Orlando Letelier]], \u00e0 Washington en septembre
+        1976.</ref>.\n\n{{Article d\u00e9taill\u00e9|Dictature militaire en Argentine
+        (1976-1983)}}\n\n=== Guerre des Malouines et transition d\u00e9mocratique
+        ===\n[[Fichier:Carlos menem.jpg|left|150px|thumb|[[Carlos Menem]], pr\u00e9sident
+        de [[1989]] \u00e0 [[1999]].]]\n[[Fichier:TierraDelFuego1.PNG|thumb|150px|Carte
+        de l''Argentine avec les [[\u00eeles Malouines]] (\u00e0 droite sur l''image)]]\nAfin
+        de relancer sa popularit\u00e9, la junte de Buenos Aires, dirig\u00e9e depuis
+        d\u00e9cembre 1981 par [[Leopoldo Galtieri]], l\u2019un des plus \u00ab durs
+        \u00bb, d\u00e9cide d\u2019envahir les [[\u00eeles Malouines]] en 1982, provoquant
+        ainsi la [[guerre des Malouines]] contre le Royaume-Uni, alors dirig\u00e9
+        par [[Margaret Thatcher]]. En raison de son [[anticommunisme]] visc\u00e9ral
+        et de la mise en place de l\u2019[[op\u00e9ration Charly]] (pendant laquelle
+        les services argentins ont transmis \u00e0 leurs homologues d\u2019Am\u00e9rique
+        centrale les techniques de la guerre sale : [[escadron de la mort|escadrons
+        de la mort]], torture syst\u00e9matique contre la population civile afin de
+        la d\u00e9moraliser, [[vols de la mort]], etc.), Buenos Aires semblait penser
+        pouvoir compter, \u00e0 tort, sur le soutien de [[Ronald Reagan]], nouvellement
+        \u00e9lu.\n\nLa d\u00e9faite lors de la guerre des Malouines pr\u00e9cipite
+        la chute du r\u00e9gime et une lente transition d\u00e9mocratique.\n\n[[Ra\u00fal
+        Alfons\u00edn]] (1983-1989) fut le symbole m\u00eame du retour \u00e0 la d\u00e9mocratie
+        en R\u00e9publique argentine. Dans les premiers jours de son mandat, en 1983,
+        il abroge l\u2019amnistie d\u00e9clar\u00e9e avant que les forces arm\u00e9es
+        ne perdent le pouvoir et demande de poursuivre neuf dirigeants de la junte
+        militaire. Il nomme en m\u00eame temps une commission nationale sur la disparition
+        des personnes et en choisit les membres : dix citoyens de premier plan, connus
+        pour leur r\u00f4le dans la d\u00e9fense des droits de l\u2019Homme. Aux yeux
+        du monde \u00e9clate la cruaut\u00e9 des crimes de la junte militaire argentine
+        : quelque {{unit\u00e9|10000|personnes}} tortur\u00e9es puis ex\u00e9cut\u00e9es
+        clandestinement.\n\nMais si les principaux responsables de violations des
+        droits de l''Homme durant le r\u00e9gime militaire seront jug\u00e9s et condamn\u00e9s,
+        la pression de l''establishment militaire va forcer Alfonsin \u00e0 c\u00e9der
+        aux revendications des militaires. Trois ans plus tard, son gouvernement emp\u00eache
+        le jugement de nombreux autres responsables, en instaurant les lois de pardon
+        ''''Punto Final'''' et ''''Obediencia Debida''''. La premi\u00e8re prescrit
+        les proc\u00e8s \u00e0 venir et la seconde accorde l''amnistie aux officiers
+        subalternes, responsables d''atrocit\u00e9s commises sous les ordres des chefs
+        des forces arm\u00e9es.\nDepuis lors, plusieurs pr\u00e9sidents se sont succ\u00e9d\u00e9
+        : [[Carlos Menem]] (1989-1999), [[Fernando de la R\u00faa]] (1999-2001). Des
+        lois d''amnistie sont vot\u00e9es sous Menem, notamment en raison de la r\u00e9bellion
+        de secteurs d\u2019extr\u00eame droite dans l''arm\u00e9e (les [[Carapintadas]],
+        qui tentent plusieurs coups d\u2019\u00c9tat \u00e0 la fin des ann\u00e9es
+        1980). Un proc\u00e8s durant lequel comparaissent les principaux responsables
+        de la junte, ainsi que des Montoneros, se tient n\u00e9anmoins en 1985 : c''est
+        le Proc\u00e8s des Juntes (''''Juicio a las Juntas'''').\n\nLa d\u00e9cennie
+        Menem est marqu\u00e9e par une [[lib\u00e9ralisation \u00e9conomique|lib\u00e9ralisation
+        de l''\u00e9conomie]], menant \u00e0 la modernisation de la plus grande partie
+        du pays, \u00e0 l''enrichissement d''une part importante de la population,
+        mais aussi \u00e0 l''apparition de groupes contestataires, les ''''piqueteros'''',
+        qui deviendront c\u00e9l\u00e8bres apr\u00e8s la [[Crise \u00e9conomique argentine|crise
+        \u00e9conomique]] de la fin des ann\u00e9es 1990. En effet, de [[1990]] \u00e0
+        [[1998]] se produit le miracle argentin, caract\u00e9ris\u00e9 par un lib\u00e9ralisme
+        radical (alignement du [[Peso argentin|peso]] sur le [[dollar]], [[privatisation]]s,
+        r\u00e9formes \u00e9conomiques et sociales) qui eut pour effet une croissance
+        \u00e9conomique exponentielle, se traduisant par un enrichissement et une
+        modernisation jamais vus dans le pays. Le [[Fonds mon\u00e9taire international|FMI]]
+        aida beaucoup l''Argentine \u00e0 se d\u00e9velopper durant cette p\u00e9riode.
+        La consommation a augment\u00e9 consid\u00e9rablement, et les Argentins ont
+        alors pu acc\u00e9der aux m\u00eames biens mat\u00e9riels que les Europ\u00e9ens
+        ; l''[[Internet]], la [[t\u00e9l\u00e9phonie mobile]], l''[[\u00c9lectrom\u00e9nager|\u00e9lectro-m\u00e9nager]]
+        moderne, etc. Cependant, ce lib\u00e9ralisme ne profita pas \u00e0 toute la
+        population. Les laiss\u00e9s-pour-compte du miracle \u00e9conomique repr\u00e9sentaient
+        une part non n\u00e9gligeable dans l''Argentine des [[ann\u00e9es 1990]] :
+        18 % de ch\u00f4meurs en [[1996]].\n\n=== Crise de 2001 ===\n{{Article d\u00e9taill\u00e9|Crise
+        \u00e9conomique argentine}}\n[[Fichier:Evolution of the Argentine GNP, 1999-2004.png|thumb|150px|[[R\u00e9cession
+        (\u00e9conomie)|R\u00e9cession \u00e9conomique]] puis reprise de la croissance
+        du [[Produit national brut|PNB]]]]\n\n[[Fichier:Monthly inflation in Argentina,
+        2002.png|thumb|150px|left|[[Inflation]] mensuelle de l''Argentine en 2002]]\n[[Fichier:Duhalde23012007.jpg|thumb|150px|[[Eduardo
+        Duhalde]]]]\n\nLe choix de cr\u00e9er dans les ann\u00e9es 1990 une [[caisse
+        d''\u00e9mission]] mon\u00e9taire li\u00e9e strictement au dollar, avait eu
+        pour cons\u00e9quence, lors de la hausse massive de celui-ci \u00e0 la fin
+        des ann\u00e9es 1990, de provoquer un arr\u00eat brusque des exportations
+        argentines. Le Br\u00e9sil avait d\u00e9valu\u00e9 fortement sa monnaie et
+        l''Argentine, son principal partenaire commercial, s''\u00e9tait retrouv\u00e9e
+        \u00e0 sec de devises. Cette situation avait engendr\u00e9 une fuite de capitaux
+        massive pendant les mois d''ao\u00fbt, septembre et octobre. La crise est
+        partiellement jugul\u00e9e par un contr\u00f4le draconien des d\u00e9p\u00f4ts
+        bancaires, appel\u00e9 ''''[[Corralito]]'''', bas\u00e9 sur l''obligation
+        d''effectuer toutes les op\u00e9rations financi\u00e8res \u00e0 travers les
+        banques et la restriction des retraits d''argent en num\u00e9raire. Le gros
+        de la population n''\u00e9tant pas bancaris\u00e9, la perception des r\u00e9mun\u00e9rations
+        et salaires devient un v\u00e9ritable casse-t\u00eate, ce qui provoque une
+        aggravation radicale de la crise en d\u00e9cembre 2001, provoquant un v\u00e9ritable
+        chaos social, et des \u00e9meutes des classes sociales les plus appauvries
+        par la crise. La r\u00e9pression cause 31 morts, le ministre des Finances
+        est relev\u00e9 de ses fonctions, mais cela ne suffit pas et le pr\u00e9sident
+        signifie sa d\u00e9mission en s''enfuyant du palais du Gouvernement en h\u00e9licopt\u00e8re.
+        Le gouvernement, le [[Fonds mon\u00e9taire international|FMI]] et la parit\u00e9
+        entre le [[Peso argentin|peso]] et le [[dollar am\u00e9ricain]] sont les th\u00e8mes
+        les plus critiqu\u00e9s.\n\nEn dix jours, quatre pr\u00e9sidents se succ\u00e8dent
+        (Cama\u00f1o, Rodriguez Saa, Puerta, Duhalde), le gouvernement argentin se
+        d\u00e9clare en \u00e9tat de cessation de paiement, abroge la loi consacrant
+        l''intangibilit\u00e9 des d\u00e9p\u00f4ts bancaires (ce qui provoque l\u2019\u00e9vaporation
+        des d\u00e9p\u00f4ts des classes moyennes qui en avaient mais ne les avaient
+        pas transf\u00e9r\u00e9s) et, donc, par un approfondissement de la crise \u00e9conomique.
+        Le {{date|6|janvier|2002}}, le nouveau gouvernement proc\u00e8de \u00e0 un
+        gel total des avoirs bancaires, appel\u00e9 ''''Corral\u00f3n'''', et une
+        [[d\u00e9valuation]] officielle du [[Peso argentin|peso]] de 28 % par rapport
+        au [[Dollar am\u00e9ricain|dollar]], tandis que dans la rue le dollar se change
+        \u00e0 1,60 [[Peso argentin|peso]] pour atteindre tr\u00e8s vite plus de 3
+        [[Peso argentin|pesos]]<ref>Cf. ''''M\u00e9moire d''un saccage, Argentine,
+        le hold-up du si\u00e8cle'''' - de [[Fernando Ezequiel Solanas|Fernando E.
+        Solanas]] (2004)</ref>.\n\nLe monde entier a \u00e9t\u00e9 surpris par les
+        \u00e9v\u00e9nements de d\u00e9cembre 2001. Les m\u00e9dias ont montr\u00e9
+        un pays caract\u00e9ris\u00e9 par les pillages de magasins et les concerts
+        de casseroles des classes moyennes. Mais ces repr\u00e9sentations sont simplistes
+        et plus que subjectives. Les \u00e9meutes et les mobilisations ne sont pas
+        n\u00e9es \u00e0 la fin de l''ann\u00e9e 2001. D\u00e8s 1989, une vague de
+        saccages de magasins a eu lieu, cons\u00e9quence de l''hyperinflation. En
+        d\u00e9cembre 1993, le pays a connu des r\u00e9voltes, notamment \u00e0 Santiago
+        del Estero. En 1996, les premiers piqueteros \u00e9tablissaient des barrages
+        \u00e0 Cutral-Co, dans la province de Neuquen. Mais les m\u00e9dias n''avaient
+        laiss\u00e9 que tr\u00e8s peu de visibilit\u00e9 \u00e0 ces mouvements.\n\nLes
+        protestations de d\u00e9cembre 2001 doivent \u00eatre analys\u00e9es en tenant
+        compte des changements que le r\u00e9pertoire de l''action collective a connus
+        ces derni\u00e8res ann\u00e9es en Argentine. Comme l''a expliqu\u00e9 Javier
+        Ayuero, \u00ab loin d''\u00eatre l''explosion d''une citoyennet\u00e9 paraissant
+        jusqu''alors repli\u00e9e sur elle-m\u00eame et incapable d''exprimer son
+        m\u00e9contentement, le mois de d\u00e9cembre 2001 repr\u00e9sente plut\u00f4t
+        le point le plus critique d''un processus de mobilisation populaire datant
+        environ d''une dizaine d''ann\u00e9es \u00bb<ref>{{es}} \u00ab Fuegos y barricadas.
+        Retratos de la beligerancia en la Argentina democratica \u00bb, in Nueva Sociadad,
+        \u00ab Argentina, fin del sue\u00f1o \u00bb, Caracas, mai-juin 2002, {{num\u00e9ro|179}},
+        {{p.}}144).</ref>\n\n[[Eduardo Duhalde]] demeure pr\u00e9sident de l''Argentine
+        entre janvier 2002 et mai 2003 o\u00f9 il met fin \u00e0 la parit\u00e9 entre
+        le peso argentin et le dollar am\u00e9ricain et met en place un plan \u00e9conomique
+        productiviste. Il appelle \u00e0 des \u00e9lections pr\u00e9sidentielles anticip\u00e9es
+        en avril 2003 o\u00f9 il soutient le candidat p\u00e9roniste de centre gauche
+        [[N\u00e9stor Kirchner]]. Ce dernier est \u00e9lu par d\u00e9faut \u00e0 la
+        suite du retrait de [[Carlos Menem]] au second tour.\n\n=== Gouvernement Kirchner
+        ===\n[[Fichier:Cristinakirchnermensaje2010.jpg|150px|thumb|left|[[Cristina
+        Fern\u00e1ndez de Kirchner]], pr\u00e9sidente de l''Argentine de [[2007]]
+        \u00e0 [[2015]].]]\n[[Fichier:N\u00e9stor Kirchner y Roberto Lavagna-Buenos
+        Aires-23 de agosto de 2004.jpg|[[N\u00e9stor Kirchner]] et Roberto Lavagna.|thumb|150px]]\n[[N\u00e9stor
+        Kirchner]] exerce la fonction de pr\u00e9sident de la R\u00e9publique argentine
+        de 2003 \u00e0 2007. Il ren\u00e9gocie la dette du pays en 2005 (il refuse
+        le remboursement de trois quarts des 100 milliards de dollars de dette ext\u00e9rieure).
+        Il g\u00e8le les tarifs \u00e9nerg\u00e9tiques et du transport, et taxe tr\u00e8s
+        fortement les importations{{r\u00e9f\u00e9rence n\u00e9cessaire|, il relance
+        l\u2019activit\u00e9 \u00e9conomique (+&nbsp;50 % en cinq ans) soutenue par
+        les d\u00e9penses publiques, et double la masse salariale (de 2003 \u00e0
+        2007)}}. Nestor Kirchner est d\u00e9c\u00e9d\u00e9 en 2010 d''une crise cardiaque.\n\nSon
+        \u00e9pouse, [[Cristina Fern\u00e1ndez de Kirchner]], \u00e9lue au premier
+        tour le 28 octobre 2007 lui succ\u00e8de le {{date|10|d\u00e9cembre|2007}}.
+        En 2008 la pr\u00e9sidente est confront\u00e9e \u00e0 un lourd conflit social
+        l''opposant aux agriculteurs et relatif, notamment, au niveau des taxes sur
+        les exportations de [[soja]]. Les agriculteurs argentins ont engag\u00e9 une
+        gr\u00e8ve d''ampleur de commercialisation des c\u00e9r\u00e9ales<ref>[http://www.lemonde.fr/
+        Le Monde], \u00e9dition du 17 juin 2008, ''''L''interpellation d''agriculteurs
+        relance la fronde des campagnes argentines''''</ref>.\n\nEn 2015, [[Mauricio
+        Macri]] est \u00e9lu pr\u00e9sident.\n\n== Politique et administration ==\n{{Article
+        d\u00e9taill\u00e9|Politique en Argentine}}\n\n=== R\u00e9partition des pouvoirs
+        ===\n[[Fichier:Buenos Aires-Plaza Congreso-Pensador de Rodin.jpg|thumb|left|150px|Place
+        du [[Palais du Congr\u00e8s de la Nation Argentine]]]]\n[[Fichier:Constituci\u00f3n
+        Nacional Argentina 1853 - p\u00e1gina 1.jpeg|thumb|150px|Premi\u00e8re page
+        de la Constitution]]\nL''Argentine a un r\u00e9gime pr\u00e9sidentiel dans
+        une r\u00e9publique f\u00e9d\u00e9rale. La [[Constitution argentine de 1853]],
+        r\u00e9vis\u00e9e en 1860, 1866, 1898, 1957 et 1994 dispose que le mandat
+        pr\u00e9sidentiel est de quatre ans (renouvelable deux fois). Il y a possibilit\u00e9
+        de r\u00e9\u00e9lection, mais il faut laisser passer 4 ans. Le pr\u00e9sident
+        devait \u00eatre de religion catholique jusqu''en 1994 : [[Carlos Menem]],
+        d''origine syrienne et de confession musulmane d\u00fbt se convertir au [[catholicisme]]
+        pour \u00eatre \u00e9lu pr\u00e9sident.\n\n\u00c9lu au suffrage universel,
+        le pr\u00e9sident est \u00e0 la fois \u00e0 la t\u00eate de l''\u00c9tat et
+        \u00e0 la t\u00eate du gouvernement, le pr\u00e9sident actuel est [[Mauricio
+        Macri]].\n\nLa Constitution garantit la s\u00e9paration des pouvoirs entre
+        l''ex\u00e9cutif, le l\u00e9gislatif et le judiciaire. L''ex\u00e9cutif est
+        confi\u00e9 au pr\u00e9sident, le l\u00e9gislatif au Parlement et le judiciaire
+        \u00e0 la Cour supr\u00eame d''Argentine compos\u00e9e de sept membres.\n\nLe
+        Parlement est compos\u00e9 de deux chambres :\n* Le [[S\u00e9nat (Argentine)|S\u00e9nat]]
+        : 72 membres (3 s\u00e9nateurs par provinces) \u00e9lus pour six ans.\n* La
+        [[Chambre des d\u00e9put\u00e9s d''Argentine]] : 257 membres \u00e9lus au
+        suffrage universel, renouvelables par moiti\u00e9 tous les deux ans. Un tiers
+        des candidats doit \u00eatre f\u00e9minin.\n\nLa justice nationale est compos\u00e9e
+        de diff\u00e9rents tribunaux, dont le plus \u00e9lev\u00e9 est la Cour Supr\u00eame.\n\n===
+        Provinces ===\n{{Article d\u00e9taill\u00e9|Provinces de l''Argentine|Villes
+        d''Argentine}}\nConform\u00e9ment \u00e0 la [[Constitution de l''Argentine|constitution
+        de 1853]], r\u00e9vis\u00e9e en 1994, l\u2019Argentine est une [[r\u00e9publique]]
+        [[\u00c9tat f\u00e9d\u00e9ral|f\u00e9d\u00e9rale]] organis\u00e9e en 23 provinces/\u00e9tats
+        (qui sont des \u00c9tats f\u00e9d\u00e9r\u00e9s, dirig\u00e9s par des [[gouverneur]]s
+        \u00e9lus) et une cit\u00e9 autonome \u00e9rig\u00e9e en district f\u00e9d\u00e9ral
+        : [[Buenos Aires|Buenos Aires, capitale f\u00e9d\u00e9rale]] qui a un statut
+        sp\u00e9cial. Les 23 provinces sont les suivantes.\n\n{| class=\"toccolours\"
+        style=\"float: auto; text-align:right; font-size:90%; width:60%; font-family:Verdana,
+        Arial, Helvetica, sans-serif; background:F5F5F5; \"\n|- align=center style=\"background:lavender;
+        font-weight:bold;\" \n ! !! Province !! Capitale !! !! Province !! Capitale
+        \n|- \n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Bandera de
+        la Ciudad de Buenos Aires.svg|30px|border]]|| style=\"background:#f0f0f0;\"
+        align=left colspan=\"2\" |''''''[[Buenos Aires|Ville f\u00e9d\u00e9rale de
+        Buenos Aires]]''''''|| align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag
+        of Mendoza Province, Argentina.svg|30px|border]] || align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de Mendoza|Mendoza]]'''''' || align=left| [[Mendoza (ville)|Mendoza]]
+        \n|-\n!style=\"background:#f0f0f0;\" colspan=\"6\"|\n|-\n| align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Bandera Buenos Aires.svg|30px|border]]|| style=\"background:#f0f0f0;\"
+        align=left |''''''[[Province de Buenos Aires|Province <br />de Buenos Aires]]''''''
+        || align=left | [[La Plata]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Flag of Misiones.svg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de Misiones|Misiones]]'''''' || align=left| [[Posadas (Argentine)|Posadas]]\n|-\n!style=\"background:#f0f0f0;\"
+        colspan=\"6\"|\n|-\n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Stemma
+        catamarca.gif|30px]]|| style=\"background:#f0f0f0;\" align=left |''''''[[Province
+        de Catamarca|Catamarca]]'''''' || align=left| [[San Fernando del Valle de
+        Catamarca|San Fdo. del Valle<br /> de Catamarca]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Flag of Neuquen province in Argentina.gif|30px|border]]|| align=left
+        style=\"background:#f0f0f0;\" |''''''[[Province de Neuqu\u00e9n|Neuqu\u00e9n]]''''''
+        || align=left| [[Neuqu\u00e9n (ville)|Neuqu\u00e9n]]\n|-\n!style=\"background:#f0f0f0;\"
+        colspan=\"6\"|\n|-\n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag
+        of Chaco province in Argentina 2007.jpg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province du Chaco|Chaco]]'''''' || align=left| [[Resistencia]] ||
+        align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag of R\u00edo Negro
+        Province.svg|30px|border]] || align=left style=\"background:#f0f0f0;\" |''''''[[Province
+        de R\u00edo Negro|R\u00edo Negro]]'''''' || align=left| [[Viedma]]\n|-\n!style=\"background:#f0f0f0;\"
+        colspan=\"6\"|\n|-\n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag
+        of chubut province in argentina - bandera de chubut.svg|30px|border]]|| align=left
+        style=\"background:#f0f0f0;\" |''''''[[Province de Chubut|Chubut]]'''''' ||
+        align=left| [[Rawson]] || align=center style=\"background:#f0f0f0;\" | [[Fichier:Bandera
+        de la Provincia de Salta.svg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de Salta|Salta]]'''''' || align=left| [[Salta]]\n|-\n!style=\"background:#f0f0f0;\"
+        colspan=\"6\"|\n|-\n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag
+        of Cordoba Province in Argentina.svg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de C\u00f3rdoba (Argentine)|C\u00f3rdoba]]'''''' || align=left|
+        [[C\u00f3rdoba (Argentine)|C\u00f3rdoba]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:San luis prov arg.png|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de San Luis|San Luis]]'''''' || align=left| [[San Luis (Argentine)|San
+        Luis]]\n|-\n!style=\"background:#f0f0f0;\" colspan=\"6\"|\n|-\n| align=center
+        style=\"background:#f0f0f0;\" | [[Fichier:Flag of Corrientes province in Argentina.gif|30px|border]]||
+        align=left style=\"background:#f0f0f0;\" |''''''[[Province de Corrientes|Corrientes]]''''''
+        || align=left| [[Corrientes (ville)|Corrientes]]|| align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Flag of San Juan province in Argentina.gif|30px|border]]|| align=left
+        style=\"background:#f0f0f0;\" |''''''[[Province de San Juan|San Juan]]''''''
+        || align=left| [[San Juan (Argentine)|San Juan]]\n|-\n!style=\"background:#f0f0f0;\"
+        colspan=\"6\"|\n|- \n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag
+        of Entre R\u00edos.svg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province d''Entre R\u00edos|Entre R\u00edos]]'''''' || align=left|
+        [[Paran\u00e1 (Argentine)|Paran\u00e1]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Flag of Santa Cruz province in Argentina.gif|30px|border]]|| align=left
+        style=\"background:#f0f0f0;\" |''''''[[Province de Santa Cruz|Santa Cruz]]''''''
+        || align=left| [[R\u00edo Gallegos]]\n|-\n!style=\"background:#f0f0f0;\" colspan=\"6\"|\n|-\n|
+        align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag of Formosa.svg|30px|border]]||
+        align=left style=\"background:#f0f0f0;\" |''''''[[Province de Formosa|Formosa]]''''''
+        || align=left| [[Formosa (ville)|Formosa]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Flag of Santa Fe province in Argentina.gif|30px|border]]|| align=left
+        style=\"background:#f0f0f0;\" |''''''[[Province de Santa Fe|Santa Fe]]''''''
+        || align=left| [[Santa Fe (Argentine)|Santa Fe]]\n|-\n!style=\"background:#f0f0f0;\"
+        colspan=\"6\"|\n|-\n| align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag
+        of Jujuy province in Argentina.gif|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de Jujuy|Jujuy]]'''''' || align=left| [[San Salvador de
+        Jujuy|San Salvador<br /> de Jujuy]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Bandera de la Provincia de Santiago del Estero.svg|30px|border]]||
+        align=left style=\"background:#f0f0f0;\" |''''''[[Santiago del Estero (province)|Santiago
+        <br />del Estero]]'''''' || align=left| [[Santiago del Estero (ville)|Santiago
+        <br />del Estero]]\n|-\n!style=\"background:#f0f0f0;\" colspan=\"6\"|\n|-\n|
+        align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag of La Pampa province.png|30px|border]]||
+        align=left style=\"background:#f0f0f0;\" |''''''[[Province de La Pampa|La
+        Pampa]]'''''' || align=left| [[Santa Rosa (Argentine)|Santa Rosa]] || align=center
+        style=\"background:#f0f0f0;\" | [[Fichier:Flag of Tierra del Fuego province
+        in Argentina.svg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Terre de Feu, Antarctique et \u00celes de l''Atlantique Sud]]''''''
+        || align=left| [[Ushua\u00efa]]\n|-\n!style=\"background:#f0f0f0;\" colspan=\"6\"|\n|-\n|
+        align=center style=\"background:#f0f0f0;\" | [[Fichier:Flag of La Rioja province
+        in Argentina.gif|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de La Rioja (Argentine)|La Rioja]]'''''' || align=left|
+        [[La Rioja (Argentine)|La Rioja]] || align=center style=\"background:#f0f0f0;\"
+        | [[Fichier:Bandera tucuman.svg|30px|border]]|| align=left style=\"background:#f0f0f0;\"
+        |''''''[[Province de Tucum\u00e1n|Tucum\u00e1n]]'''''' || align=left| [[San
+        Miguel de Tucum\u00e1n|San Miguel<br /> de Tucum\u00e1n]] \n |}\n\n[[Fichier:Argentina
+        - Map - Provinces with names.png|thumb|150px|D\u00e9coupage de l''Argentine
+        en provinces]]\nLes provinces ont de fait tous les pouvoirs qui n\u2019ont
+        pas \u00e9t\u00e9 d\u00e9l\u00e9gu\u00e9s express\u00e9ment au gouvernement
+        f\u00e9d\u00e9ral. Elles sont charg\u00e9es d\u2019administrer la justice
+        et l\u2019\u00e9ducation primaire. Elles s\u2019organisent comme elles l\u2019entendent
+        en \u00e9lisant leurs pouvoirs ex\u00e9cutif et l\u00e9gislatif. Les provinces
+        peuvent r\u00e9gler entre elles toutes sortes d\u2019accords de type judiciaire,
+        \u00e9conomique ou social. Le pouvoir ex\u00e9cutif national a seulement le
+        pouvoir d\u2019intervenir afin d\u2019assurer la forme r\u00e9publicaine du
+        gouvernement et de repousser les invasions \u00e9trang\u00e8res.\nLa majorit\u00e9
+        des provinces du centre et du nord du pays sont ant\u00e9rieures \u00e0 l\u2019existence
+        de l\u2019Argentine comme \u00c9tat f\u00e9d\u00e9ral, cependant des provinces
+        avec une grande pr\u00e9sence aborig\u00e8ne ou une faible population (comme
+        le sont au nord : [[Province du Chaco|Chaco]], [[Province de Formosa|Formosa]]
+        et [[Province de Misiones|Misiones]] ; et la grande partie sud du pays : [[Province
+        de La Pampa|La Pampa]], [[Province de Neuqu\u00e9n|Neuqu\u00e9n]], [[Province
+        de R\u00edo Negro|Rio Negro]], [[Province de Chubut|Chubut]], [[Province de
+        Santa Cruz|Santa Cruz]], la [[Terre de Feu]], le territoire argentin en [[Antarctique]]
+        et les \u00eeles de l\u2019Atlantique sud) \u00e9taient \u00e0 une \u00e9poque
+        des \u00ab territoires nationaux \u00bb d\u00e9pendant du gouvernement f\u00e9d\u00e9ral.
+        En devenant des provinces, elles acquirent le m\u00eame statut administratif
+        que celles qui existaient d\u00e9j\u00e0.\n\nLes derniers territoires \u00e0
+        changer de statut furent la [[Terre de Feu, Antarctique et \u00celes de l''Atlantique
+        Sud]] qui furent regroup\u00e9s pour devenir une m\u00eame et unique province
+        en [[1991]], en d\u00e9pit du fait que la d\u00e9finition de cette province
+        contient des territoires contest\u00e9s en Antarctique (avec le Chili et le
+        Royaume-Uni) et du fait que l\u2019Argentine a ratifi\u00e9 le trait\u00e9
+        sur l\u2019Antarctique qui a gel\u00e9 les pr\u00e9tentions territoriales,
+        et les \u00eeles de l\u2019Atlantique sud sont reconnues internationalement
+        comme parties du Royaume-Uni (\u00e0 l\u2019exception des \u00eeles Shetland
+        du Sud int\u00e9gr\u00e9es au trait\u00e9 sur l\u2019Antarctique), seul le
+        litige de souverainet\u00e9 concernant le partage de la Terre de Feu ayant
+        \u00e9t\u00e9 r\u00e9solu (par un trait\u00e9 international sign\u00e9 avec
+        le Chili).\n\nUn des anciens ''''territoires nationaux'''', le territoire
+        des Andes, ne parvint jamais \u00e0 se convertir en province. Il fut form\u00e9
+        en 1900 et couvrait alors la totalit\u00e9 de la [[Puna]] du nord-ouest du
+        pays, mais, en raison d''un d\u00e9veloppement et d''une population tr\u00e8s
+        faibles, il fut dissous en [[1943]], les territoires \u00e9tant alors incorpor\u00e9s
+        aux provinces de Jujuy, Salta et Catamarca.\n\n<gallery>\nPerito Moreno Glacier
+        Patagonia Argentina Luca Galuzzi 2005.JPG|Perito Moreno Glacier, [[province
+        de Santa Cruz]], Patagonie argentine\nVi\u00f1edoCafayate.jpg|Cafayate, [[province
+        de Salta]].\n</gallery>\n\n=== Relations internationales ===\n[[Fichier:Flag
+        of Mercosur.svg|150px|thumb|Drapeau du Mercosur]]\n[[Fichier:SACN member states.jpg|thumb|150px|Carte
+        des \u00c9tats membres de l''[[Union des nations sud-am\u00e9ricaines|Union
+        des Nations sud-am\u00e9ricaines]]]]\n\nL''Argentine est membre permanent
+        du [[March\u00e9 commun du Sud|Mercosur]] (communaut\u00e9 \u00e9conomique
+        des pays de l''Am\u00e9rique du Sud) avec le [[Br\u00e9sil]], le [[Paraguay]],
+        l''[[Uruguay]] et le [[Venezuela]]; cinq autres pays y sont associ\u00e9s
+        : la [[Bolivie]], le [[Chili]], le [[P\u00e9rou]], la [[Colombie]] et l''[[\u00c9quateur
+        (pays)|\u00c9quateur]]<ref>{{es}}http://www.mercosur.int/msweb/portal%20intermediario/es/index.htm
+        Portail officiel du Mercosur.</ref>.\n\nL''Argentine fut le seul pays d''Am\u00e9rique
+        du Sud \u00e0 avoir pris part \u00e0 la [[Guerre du Golfe (1990-1991)|premi\u00e8re
+        guerre du Golfe]] en [[1991]], mandat\u00e9e par l''[[Organisation des Nations
+        unies|ONU]]<ref>{{en}} http://www.cnn.com/SPECIALS/2001/gulf.war/facts/gulfwar/
+        R\u00e9sum\u00e9 des faits sur la premi\u00e8re guerre du Golfe, dix ans apr\u00e8s,
+        CNN, 2001.</ref>. Elle fut \u00e9galement le seul pays latin \u00e0 participer
+        \u00e0 l''op\u00e9ration d\u00e9mocratique \u00e0 [[Ha\u00efti]] en [[1994]]-[[1995|95]]<ref>http://www.nato.int/docu/revue/1999/9901-02.htm
+        L\u2019Argentine partenaire sud-atlantique de l\u2019OTAN, fiche de documentation,
+        OTAN, 1999.</ref>. Enfin, elle s''engagea dans la [[force de maintien de la
+        paix des Nations unies]] (''''Casques bleus'''')<ref>http://www.senat.fr/rap/l98-289/l98-2893.html
+        Rapport sur les op\u00e9rations de maintien de la paix par les Casques bleus
+        des Nations unies, S\u00e9nat fran\u00e7ais, 1998.</ref> \u00e0 travers le
+        monde dont les conflits concernant [[Salvador]]-[[Honduras]]-[[Guatemala]]-[[Nicaragua]],
+        [[\u00c9quateur (pays)|\u00c9quateur]]-[[P\u00e9rou]], le [[Sahara occidental]],
+        l\u2019[[Angola]], le [[Kowe\u00eft]], [[Chypre (pays)|Chypre]], la [[Croatie]],
+        le [[Kosovo]], la [[Bosnie-Herz\u00e9govine]] ou le [[Timor oriental]].\n\nEn
+        {{date||janvier|1998}}, en reconnaissance de ses contributions \u00e0 la s\u00e9curit\u00e9
+        internationale, le pr\u00e9sident des [[\u00c9tats-Unis]] [[Bill Clinton]]
+        d\u00e9signa l\u2019Argentine comme l''un des alli\u00e9s majeurs hors-[[Organisation
+        du trait\u00e9 de l''Atlantique nord|OTAN]]<ref>{{en}} http://www.ciponline.org/facts/mnna.htm
+        Les alli\u00e9s majeurs hors-OTAN (''''Major Non-NATO Allies''''), information
+        du Center for International Policy, \u00c9tats-Unis.</ref>. En [[2005]], l''Argentine
+        fut membre temporaire du [[Conseil de s\u00e9curit\u00e9 des Nations unies]]<ref>http://www.un.org/french/sc/searchres_sc_members_french.asp?sc_members=9
+        Page d\u2019information sur les membres du Conseil de s\u00e9curit\u00e9,
+        ONU.</ref>.\n\nEn [[1993]], l''Argentine lan\u00e7a l''initiative des casques
+        blancs des Nations unies sp\u00e9cialis\u00e9s dans l''[[aide humanitaire]]<ref>http://citron-vert.info/spip.php?article595
+        L\u2019Argentine engage des casques blancs dans l\u2019aide humanitaire des
+        Nations unies, citron-vert.info.</ref>.\n\nDepuis [[2004]], les relations
+        habituellement cordiales entre l''Argentine et l''[[Uruguay]] se sont progressivement
+        d\u00e9grad\u00e9es \u00e0 cause de la construction en Uruguay de deux grandes
+        usines de fabrication de cellulose, sur les rives du [[rio Uruguay]] qui marque
+        la fronti\u00e8re entre les deux pays. Ce contentieux est surnomm\u00e9 en
+        France la \u00ab [[guerre du papier]] \u00bb. L''Argentine met en avant les
+        d\u00e9g\u00e2ts \u00e9cologiques que subirait le fleuve. La pol\u00e9mique
+        fut aliment\u00e9e par une escalade de d\u00e9clarations de la part des deux
+        \u00c9tats, l''Argentine portant l''affaire devant la [[Cour internationale
+        de justice|CIJ]] en mai [[2006]], puis l''Uruguay lui embo\u00eetant le pas
+        en novembre 2006. Des blocus routiers en Argentine ont emp\u00each\u00e9 l''approvisionnement
+        en mat\u00e9riaux de construction depuis le [[Chili]], aggravant la situation<ref>http://risal.collectifs.net/spip.php?article2028
+        RISAL : la militarisation de la guerre du papier.</ref>{{,}}<ref>http://www.alternatives.ca/article2820.html
+        La \u00ab guerre du papier \u00bb</ref>. Les relations \u00e9conomiques et
+        sociales entre les deux pays se sont am\u00e9lior\u00e9es en 2007.\n\nDouze
+        pays d''[[Am\u00e9rique du Sud]] ont sign\u00e9 le {{date|8|d\u00e9cembre|2004}}
+        la [[Union des nations sud-am\u00e9ricaines|D\u00e9claration de Cuzco]] visant
+        \u00e0 la r\u00e9union du [[March\u00e9 commun du Sud|Mercosur]], de la [[Communaut\u00e9
+        andine des Nations|Communaut\u00e9 andine]] et du [[Chili]], de la [[Guyana]]
+        et du [[Suriname]] en une seule communaut\u00e9 supranationale, la Communaut\u00e9
+        sud-am\u00e9ricaine des nations (CSN), sur le mod\u00e8le de l''[[Union europ\u00e9enne]].
+        Cela est devenu UNASUR (Union des Nations sud-am\u00e9ricaines) lors du premier
+        sommet \u00e9nerg\u00e9tique sud-am\u00e9ricain organis\u00e9 au Venezuela
+        \u00e0 la mi-avril [[2007]].\n\nOutre une communaut\u00e9 \u00e9conomique,
+        le projet inclut \u00e0 terme :\n* une monnaie commune ;\n* une citoyennet\u00e9
+        et un passeport commun ;\n* un parlement commun.\n\nCe projet a pris naissance
+        dans un contexte d''opposition au [[Zone de libre-\u00e9change des Am\u00e9riques|ZLEA]],
+        \u00ab Initiatives pour les Am\u00e9riques \u00bb, lanc\u00e9 par [[George
+        H. W. Bush|George Bush]] en [[1990]] puis concr\u00e9tis\u00e9 en [[1994]]
+        au [[Sommet des Am\u00e9riques]], et donc dans un contexte d''opposition \u00e0
+        l''ing\u00e9rence nord-am\u00e9ricaine dans les affaires politiques et \u00e9conomiques
+        sud-am\u00e9ricaines.\n\nEn [[2005]], la ville de [[Mar del Plata]] a accueilli
+        le quatri\u00e8me [[sommet des Am\u00e9riques]]<ref>http://www.alternatives.ca/article2185.html
+        Le quatri\u00e8me sommet des Am\u00e9riques, www.alternatives.ca</ref>, marqu\u00e9
+        par de nombreuses protestations anti-US<ref>http://www.alterpresse.org/spip.php?article3515
+        Protestations anti-US au quatri\u00e8me sommet des Am\u00e9riques, www.alterpresse.org</ref>.
+        Si bien que l''ann\u00e9e suivante, elle mit sa priorit\u00e9 dans les initiatives
+        r\u00e9gionales telles que le Mercosur ou la [[Banque du Sud]] apr\u00e8s
+        une d\u00e9cennie de partenariat avec les [[\u00c9tats-Unis]].\n\nEn contentieux
+        avec le [[Royaume-Uni]], l''Argentine r\u00e9clame la souverainet\u00e9 des
+        [[\u00eeles Malouines]]<ref>http://www.droitpublic.net/spip.php?article1262
+        L\u2019argentine r\u00e9clame au Royaume-Uni la souverainet\u00e9 des Malouines,
+        droitpublic.net</ref>, de la [[G\u00e9orgie du Sud]], des [[\u00eeles Sandwich
+        du Sud]]<ref>http://www2.univ-lille2.fr/droit/enseignants/lavenue/coursstev/stev4.html
+        Les espaces non soumis \u00e0 souverainet\u00e9, cours de droit international,
+        universit\u00e9 Lille-2.</ref> et des [[\u00eeles Shetland du Sud]] (ces derni\u00e8res
+        \u00e9galement revendiqu\u00e9es par le [[Chili]] mais les pr\u00e9tentions
+        des trois pays sont gel\u00e9es depuis la signature du trait\u00e9 de l\u2019Antarctique)
+        et d''environ 1 million de kilom\u00e8tres carr\u00e9s du continent [[Antarctique]]<ref>http://www.mfe.org/Default.aspx?SID=569
+        Fiche d\u2019information sur l\u2019Argentine, Maison des Fran\u00e7ais de
+        l\u2019\u00c9tranger, minist\u00e8re fran\u00e7ais des Affaires \u00e9trang\u00e8res
+        et europ\u00e9ennes.</ref>. Un autre sujet de discorde est la fronti\u00e8re
+        avec le [[Chili]], en particulier au sujet du trac\u00e9 de la fronti\u00e8re
+        extr\u00eame sud en [[Terre de Feu]], un trait\u00e9 fut sign\u00e9 en [[1984]]
+        entre les deux pays au [[Vatican]]<ref>{{es}} http://es.wikisource.org/wiki/Tratado_de_Paz_y_Amistad_entre_Argentina_y_Chile_de_1984
+        Trait\u00e9 de paix et d\u2019armistice entre l\u2019Argentine et le Chili,
+        WikiSource.org</ref>.\n\nEnfin, l''Argentine fut l''un des signataires initiaux
+        du [[Trait\u00e9 sur l''Antarctique]]<ref>http://www.tlfq.ulaval.ca/axl/amsudant/R-U-Arctique.htm
+        Signataires du Trait\u00e9 de l\u2019Antarctique, Universit\u00e9 Laval, Qu\u00e9bec,
+        Canada</ref>.\n\n\n\n== Population et soci\u00e9t\u00e9 ==\n=== D\u00e9mographie
+        ===\n{{Article d\u00e9taill\u00e9|D\u00e9mographie de l''Argentine}}\n[[Fichier:Argentina-demography.png|left|thumb|\u00c9volution
+        d\u00e9mographique entre 1961 et 2003 (chiffre de la [[Organisation des Nations
+        unies pour l''alimentation et l''agriculture|FAO]], 2005). Population en milliers
+        d''habitants.]]\n[[Fichier:Buenos Aires D\u00e9cembre 2007 - Avenida 5 de
+        Mayo.jpg|thumb|left|150px|Avenue de [[Buenos Aires]], exemple d''architecture
+        \u00e0 l''europ\u00e9enne illustrant l''influence des immigr\u00e9s europ\u00e9ens
+        sur la ville.]]\n[[Fichier:Multitud_Crespo.jpg|right|thumb|250px|Argentins
+        \u00e0 [[Crespo (Argentine)|Crespo (Entre R\u00edos)]]. La plupart des Argentins
+        sont d''origine europ\u00e9enne due \u00e0 l''immigration.]]\n[[Fichier:The
+        Tolaba Family - Proprietors of Roadside Cafe en route to Cachi - Argentina.jpg|vignette|Famille
+        du nord de l''Argentine]]\n\nL''Argentine compte environ 43 millions d''habitants<ref>{{Lien
+        web|langue = |titre = Argentine : Statistiques|url = http://www.statistiques-mondiales.com/argentine.htm|site
+        = |date = |consult\u00e9 le = 4 d\u00e9cembre 2014}}</ref>. Parmi les multiples
+        groupes ethniques habitant le pays, on en compte trois \u00e0 l''origine de
+        la population actuelle. Tout d''abord, les Am\u00e9rindiens repr\u00e9sentent,
+        ensemble et sans tenir compte des diff\u00e9rences ethnoculturelles \u00e0
+        peu pr\u00e8s 1,49 % de la population totale<ref name=encuesta>{{es}} [http://www.indec.gov.ar/webcenso/ECPI/index_ecpi.asp
+        Encuesta Complementaria de Pueblos Ind\u00edgenas]</ref>{{,}}<ref>{{es}} [http://coleccion.educ.ar/coleccion/CD9/contenidos/sobre/pon3/index.html]''''Estructura
+        gen\u00e9tica de la Argentina, Impacto de contribuciones gen\u00e9ticas -
+        Ministerio de Educaci\u00f3n de Ciencia y Tecnolog\u00eda de la Naci\u00f3n</ref>.
+        Les descendants d''Africains amen\u00e9s comme esclaves pendant les temps
+        de domination espagnole repr\u00e9sentent 0,37 %<ref>http://www.censo2010.indec.gov.ar/cuadrosDefinitivos/Total_pais/P42-Total_pais.xls</ref>{{,}}<ref>http://www.censo2010.indec.gov.ar/cuadrosDefinitivos/Total_pais/P43-Total_pais.xls</ref>.
+        Le groupe le plus large, les [[Europ\u00e9ens]], constituent entre 85 % et
+        97 % de la population<ref name=\"cia\">{{lien web|url=https://www.cia.gov/library/publications/the-world-factbook/fields/2075.html#ar|titre=The
+        World Factbook|p\u00e9riodique=cia.gov|consult\u00e9 le=12 avril 2014}}</ref>{{,}}<ref>http://www.8300.com.ar/wp-content/uploads/2010/12/Informe-Pueblos-Indigenas.pdf</ref>.
+        Le reste des habitants est, pour la plupart, d''origine ''''mestizo''''. Les
+        Europ\u00e9ens, ce qu''on appelle des ''''[[Cr\u00e9oles|criollos]]'''' issus
+        des temps coloniaux ; on compte de m\u00eame des populations issues de l''immigration
+        du {{s-|XIX|e}} qui inclut entre autres, en plus des italiens, des espagnols,
+        des arabes, des allemands, des fran\u00e7ais, des britanniques et des asiatiques
+        . Il faut bien pr\u00e9ciser que lors de l''arriv\u00e9e de ces immigrants,
+        qui pour la plupart \u00e9taient des hommes seuls, un m\u00e9tissage tr\u00e8s
+        important a eu lieu entre les \u00e9trangers et les femmes locales, de souche
+        europ\u00e9en et indig\u00e8ne pour la plupart, ce qui a contribu\u00e9 \u00e0
+        la diversit\u00e9 ethnique.\nSelon les r\u00e9sultats d''une \u00e9tude men\u00e9e
+        en 2010 par le g\u00e9n\u00e9ticien Daniel Corach, 53,7 % de la population
+        a au moins un anc\u00eatre autochtone, presque toujours matrilin\u00e9aire<ref>http://onlinelibrary.wiley.com/doi/10.1111/j.1469-1809.2009.00556.x/full</ref>.\n\nLa
+        population est tr\u00e8s in\u00e9galement r\u00e9partie, puisqu''un tiers
+        de la population (environ 13 millions d''habitants) est concentr\u00e9 dans
+        la capitale et l''agglom\u00e9ration de [[Buenos Aires]], appel\u00e9e aussi
+        {{lang|es|[[Grand Buenos Aires|Gran Buenos Aires]]}}.\n\nOutre la r\u00e9gion
+        de la capitale f\u00e9d\u00e9rale, la population est concentr\u00e9e dans
+        d''autres zones urbaines dont les principales sont les suivantes : [[C\u00f3rdoba
+        (Argentine)|C\u00f3rdoba]] (centre, 1,6 million d''habitants), [[Rosario]]
+        (est, 1,4 million d''habitants), [[Province de Mendoza|Mendoza]] (ouest, 1
+        million d''habitants), [[San Miguel de Tucum\u00e1n]] (nord, pr\u00e8s d''un
+        million d''habitants). Au total, environ 91 % de la population habite dans
+        des agglom\u00e9rations urbaines<ref>{{Lien web|langue = |titre = Argentine:
+        Statitisques|url = http://www.statistiques-mondiales.com/argentine.htm|site
+        = |date = |consult\u00e9 le = 4 d\u00e9cembre 2014}}</ref>.\n\nTraditionnellement,
+        l''Argentine a joui d''un tr\u00e8s haut niveau de vie en comparaison avec
+        d''autres pays de la r\u00e9gion, mais la crise \u00e9conomique des ann\u00e9es
+        [[2001]]-[[2002]] a diminu\u00e9 cette impression. Toutefois, plus de la moiti\u00e9
+        de la population reste consid\u00e9r\u00e9e comme faisant partie de la classe
+        moyenne<ref>{{es}} http://www.grupocaissa.com.ar/noticia-468.html Informations
+        socio-\u00e9conomiques sur la population argentine, Grupo Caissa.</ref>, et
+        depuis la crise, une forte r\u00e9cup\u00e9ration \u00e9conomique a aid\u00e9
+        post\u00e9rieurement \u00e0 r\u00e9duire la pauvret\u00e9 \u00e0 23,4 % de
+        la population. Plus de 5 % de la population vivait dans des conditions pr\u00e9caires,
+        dans des ''''villas miserias'''' ou [[bidonville]]s<ref>{{es}} http://www.bolpress.com/art.php?Cod=2006071905
+        La multiplication des \u201cVillas Miseria\u201d en Argentine, Bolpress.com.</ref>.\n\n===
+        Langues ===\n{{Article d\u00e9taill\u00e9|Langues en Argentine}}\n\nM\u00eame
+        si l''[[espagnol]] est la seule langue officielle au niveau f\u00e9d\u00e9ral,
+        quelques centaines d\u2019indig\u00e8nes parlent encore des [[langues am\u00e9rindiennes]]
+        : le [[quechua]] dans les r\u00e9gions andines du Nord-Ouest et le [[guarani
+        (langue)|guarani]] dans les provinces de [[Province de Misiones|Misiones]]
+        et de [[Province de Corrientes|Corrientes]] (le guarani est coofficiel dans
+        ces provinces). Un dialecte du quechua, le quichua, est de m\u00eame parl\u00e9,
+        notamment dans la province de Santiago del Estero.\n\n\u00c0 noter qu''entre
+        l''[[Espagnol rioplatense|espagnol \u00e0 Buenos Aires]] et celui d''Espagne
+        il y a quelques diff\u00e9rences phon\u00e9tiques, notamment la prononciation
+        du \u00ab ll \u00bb et du \u00ab y \u00bb qui se prononcera comme un \u00ab
+        j \u00bb l\u00e9g\u00e8rement affaibli (entre le \u00ab ch \u00bb et le \u00ab
+        j \u00bb fran\u00e7ais) en Argentine au lieu de \u00ab y \u00bb en Espagne.
+        Les accents sont multiples en Argentine et r\u00e9pondent \u00e0 l''origine
+        des populations r\u00e9gionales. Ainsi, si dans la ville de Buenos Aires l''accent
+        est beaucoup plus pench\u00e9 vers le castillan plus ''''criollo'''', dans
+        la province de Misiones on retrouve un accent plus proche des sons du guarani,
+        et de m\u00eame pour Jujuy avec le quechua, pour donner quelques exemples.
+        Le vocabulaire est de m\u00eame influenc\u00e9 par les langues indig\u00e8nes
+        et africaines qui ont cohabit\u00e9 avec le castillan pendant des si\u00e8cles
+        (des termes comme ''''pucho'''', ''''che'''', ''''quilombo'''', ''''mucama'''',
+        entre autres).\n\nDepuis 2010, les \u00e9tudiants du secondaire peuvent choisir
+        le portugais<ref>{{es}} [http://portal.educ.ar/noticias/educacion-y-sociedad/el-portugues-sera-materia-obli.php
+        El portugu\u00e9s ser\u00e1 materia obligatoria en la secundaria], page visit\u00e9e
+        le 4 novembre 2010.</ref> ou l''anglais en tant que langue \u00e9trang\u00e8re
+        obligatoire.\n[[Fichier:Logo OIF.svg|vignette|L''Argentine est un membre observateur
+        au sein de l''Organisation internationale de la Francophonie.]]\n[[Fichier:Logo
+        AUF.png|vignette|L''Agence universitaire de la Francophonie regroupe 4 \u00e9tablissements
+        en Argentine.]]\nEnfin il est important de noter que l''Argentine est un \u00c9tat
+        observateur au sein de l''Organisation internationale de la Francophonie<ref>http://www.francophonie.org/IMG/pdf/carte_francophonie_2017.pdf</ref>.
+        Une influence notable de cette nature linguistique est la pr\u00e9sence de
+        4 \u00e9tablissements li\u00e9s \u00e0 l''Agence universitaire de la Francophonie
+        en Argentine<ref>https://www.auf.org/bureau/bureau-ameriques/propos/contact/</ref>.La
+        source de cette influence fran\u00e7aise serait li\u00e9e \u00e0 la langue
+        internationale d''usage au moment de la colonisation qui \u00e9tait alors
+        le fran\u00e7ais. De plus suite \u00e0 la conqu\u00eate de 1759 en Nouvelle-France,
+        environ {{nombre|200000|Fran\u00e7ais}} ont immigr\u00e9 en Argentine \u00e0
+        partir des ann\u00e9es 1857 ; m\u00eame si les deux dates (1759 et 1857) semblent
+        \u00e9loign\u00e9es, le ph\u00e9nom\u00e8ne reste le m\u00eame si l''on tient
+        compte de l''apparition r\u00e9elle des besoins en \u00e9migration des suites
+        de l''effondrement de l''empire fran\u00e7ais en Am\u00e9rique. Aujourd''hui,
+        17% des Argentins se r\u00e9clament de descendance fran\u00e7aise<ref>http://www.francophoniedesameriques.com/la-francophonie-dans-les-ameriques/amerique-du-sud/</ref>.\n\n===
+        Religion ===\n{| class=\"wikitable\"\n|-\n! style=\"background:#87cefa; color:black;\"
+        |Religion\n! style=\"background:#87cefa; color:white;\" |Pourcentage\n|- style=\"text-align:center;\"\n|[[Catholicisme]]\n|71
+        %\n|- style=\"text-align:center;\"\n|[[Protestantisme]]\n|15 %\n|- style=\"text-align:center;\"\n|[[Sans
+        religion]]\n|11 %\n|- style=\"text-align:center;\"\n|[[Autres]]\n|3 %\n|-\n|
+        colspan=\"2\" |''''Religion en Argentine:Source [[Pew Research Center]] 2014<ref
+        name=pewreport2014>{{ouvrage|langue=en|titre=Religion in Latin America: Widespread
+        Change in a Historically Catholic Region|date=13 novembre 2014|\u00e9diteur=Pew
+        Research Center|pages=14, 162, 164|url=http://www.pewforum.org/files/2014/11/Religion-in-Latin-America-11-12-PM-full-PDF.pdf|consult\u00e9
+        le=28 juillet 2015|format=PDF}}</ref>. ''''\n|}\n\n[[Fichier:Pope Francis
+        South Korea 2014.png|thumb|Le pape Fran\u00e7ois en 2014.]]\nLa religion principale
+        en Argentine est le christianisme, principalement le [[catholicisme]] (qui
+        est la [[religion d''\u00c9tat]]). La [[Libert\u00e9 de religion|libert\u00e9
+        de culte]] est garantie par l''article 14 de la constitution. Le catholicisme
+        est ultra-dominant, avec des estimations du nombre de catholiques variant
+        de 70 % a \u00a090 % de la population<ref>{{Lien web|langue=en|titre=International
+        Religious Freedom Report|url= http://www.state.gov/j/drl/rls/irf/2006/71446.htm|site=state.gov|date=|consult\u00e9
+        le=}}</ref>. En juillet 2014, une \u00e9tude publi\u00e9e par \u00a0la ''''CIA
+        Factbook'''' r\u00e9pertorie 92% de catholiques dont 18 % de pratiquants<ref>{{Lien
+        web|langue=en|titre=The World Factbook|url= https://www.cia.gov/library/publications/the-world-factbook/geos/ar.html|site=cia.gov|date=|consult\u00e9
+        le=}}</ref>. Le {{date-|13 mars 2013}}, l''Argentine offre au monde le premier
+        pape issu du continent am\u00e9ricain, {{Mgr}} Jorge Mario Bergoglio, couronn\u00e9
+        sous le nom de [[Fran\u00e7ois (pape)|Fran\u00e7ois]]<ref>[http://www.humanite.fr/monde/habemus-papam-et-130-000-tweets-la-minute-517427
+        Habemus Papam et {{unit\u00e9|130000|Tweets}} \u00e0 la minute]</ref>.\n\nLa
+        soci\u00e9t\u00e9, la culture et l''histoire de l''Argentine sont profond\u00e9ment
+        impr\u00e9gn\u00e9es par le catholicisme. L''\u00c9glise tient une place importante
+        dans la soci\u00e9t\u00e9 argentine, allant m\u00eame jusqu''\u00e0 faire
+        partie de son identit\u00e9 nationale. La pr\u00e9sence de l''\u00c9glise
+        catholique en [[Am\u00e9rique latine]] remonte \u00e0 la fin du {{s-|XV|e}},
+        avant m\u00eame la naissance de la nation argentine, au moment ou les [[conquistadors|conquistadors
+        espagnols]] d\u00e9barqu\u00e8rent dans le [[Nouveau Monde]], amenant avec
+        eux leur culture et leur racine chr\u00e9tienne.\n\nIl y a sept universit\u00e9s
+        catholiques en Argentine : [[Universit\u00e9 catholique argentine|l''Universit\u00e9
+        catholique pontificale de Buenos Aires]], l''Universidad Cat\u00f3lica de
+        C\u00f3rdoba, l''[[Universit\u00e9 nationale de La Plata|universit\u00e9 de
+        La Plata]], l''universit\u00e9 de Salta, l''universit\u00e9 de Santa F\u00e9,
+        l''universit\u00e9 de Cuyo, et l''universit\u00e9 de Santiago del Estero.
+        Suivant le mod\u00e8le de l''Empire romain, l''\u00c9glise argentine est divis\u00e9e
+        \u00e0 travers le pays en plusieurs [[dioc\u00e8se]]s et [[archidioc\u00e8se]]s,
+        unit\u00e9s territoriales administratives plac\u00e9es sous l''autorit\u00e9
+        d''un \u00e9v\u00eaque. Si la plupart des villes de tailles moyennes sont
+        des dioc\u00e8ses, les archidioc\u00e8ses interviennent dans les villes ou
+        la population est plus cons\u00e9quente. Ainsi, [[Buenos Aires]], par exemple,
+        est un [[Archidioc\u00e8se de Buenos Aires|archidioc\u00e8se]] \u00a0en raison,
+        non seulement de la taille de sa population, mais \u00e9galement de l''importance
+        historique de la ville, qui fut en 1776 la capitale de la [[Vice-royaut\u00e9
+        du R\u00edo de la Plata|vice-royaut\u00e9 espagnole du Rio de la Plata]].
+        La [[cath\u00e9drale m\u00e9tropolitaine de Buenos Aires]], principale \u00e9glise
+        catholique de Buenos Aires et si\u00e8ge de l\u2019archidioc\u00e8se, abrite
+        le tombeau du c\u00e9l\u00e8bre g\u00e9n\u00e9ral [[Jos\u00e9 de San Mart\u00edn]].\n\nL''Argentine
+        poss\u00e8de la plus importante communaut\u00e9 [[Juda\u00efsme|juive]] d''[[Am\u00e9rique
+        latine]] avec environ {{unit\u00e9|230000|personnes}}.\n\nSelon une importante
+        \u00e9tude du Barometer d''[[Am\u00e9rique latine]], le paysage religieux
+        argentin se r\u00e9partit entre 77 % de catholiques, 7 % de protestants, 4
+        % des autres religions et 13 % de sans religion<ref>{{Lien web|langue=es|titre=Latinobarometro|url=
+        http://liportal.giz.de/fileadmin/user_upload/oeffentlich/Honduras/40_gesellschaft/LAS_RELIGIONES_EN_TIEMPOS_DEL_PAPA_FRANCISCO.pdf|site=
+        clarin.com|date=|consult\u00e9 le=}}</ref> . Le nombre d''ath\u00e9es est
+        tr\u00e8s important pour un pays d''Am\u00e9rique latine, d''autant plus que
+        dans les ann\u00e9es 1960, il n''y avait que rarement d''Argentins sans religion{{r\u00e9f\u00e9rence
+        n\u00e9cessaire}}.\n\n== \u00c9conomie ==\n[[Fichier:Argentine, Billet de
+        10 centavos \u00e9dit\u00e9 en 1884.jpg|thumb|Billet de 10 centavos \u00e9dit\u00e9
+        en 1884, l''\u00e9levage - ancr\u00e9 dans la tradition-repr\u00e9sente toujours
+        une manne financi\u00e8re.]]\n[[Fichier:Buenos Aires-2672f-Banco de la Naci\u00f3n
+        Argentina.jpg|thumb|150px|Banco de la Naci\u00f3n argentine, le Buenos Aires]]\n[[Fichier:Buenos
+        Aires-Puerto Madero-Hilton-River View.jpg|thumb|150px|Le quartier des affaires,
+        \u00e0 [[Buenos Aires]], illustrant de fa\u00e7on exemplaire le fort d\u00e9veloppement
+        de l''Argentine.]]\n[[Fichier:Jun\u00edn Campo 01.jpg|thumb|150px|Culture
+        de soja dans les pampas]]\n\n{{Article d\u00e9taill\u00e9|\u00c9conomie de
+        l''Argentine}}\n\nL''Argentine est un [[pays d\u00e9velopp\u00e9s|pays industrialis\u00e9]]
+        souvent consid\u00e9r\u00e9 comme [[Pays \u00e9mergents|\u00e9mergent]] m\u00eame
+        si certains organismes ne reconnaissent pas cette d\u00e9finition, le pays
+        ayant \u00e9t\u00e9 un des plus riches de la plan\u00e8te jusqu''au d\u00e9but
+        du {{s-|XX|e}} mais \u00e9tant souvent frapp\u00e9 par des crises \u00e9conomiques
+        comme en [[1989]] ou en [[2001]]. L''Argentine fait partie du [[Groupe des
+        vingt|G20]]. Souffrant d''[[inflation]] et de difficult\u00e9s [[Finance|financi\u00e8res]],
+        le pays doit souvent faire appel aux organisations \u00e9conomiques internationales
+        tel que le [[Fonds mon\u00e9taire international|FMI]].\n\nL''Argentine est
+        la deuxi\u00e8me puissance \u00e9conomique d''[[Am\u00e9rique du Sud]] derri\u00e8re
+        le [[Br\u00e9sil]] en termes de PIB nominal. Le pays poss\u00e8de une importante
+        [[richesse]] agricole. Parmi les points forts de son agriculture, le pays
+        \u00e9tait aussi r\u00e9guli\u00e8rement [[Histoire de la culture des c\u00e9r\u00e9ales#L''\u00e9volution
+        des grands producteurs mondiaux sur la d\u00e9cennie 2010|huiti\u00e8me au
+        palmar\u00e8s des producteurs mondiaux de c\u00e9r\u00e9ales au milieu des
+        ann\u00e9es 2010, domin\u00e9 par les Etats-Unis]]. Il a aussi de nombreuses
+        capacit\u00e9s [[industrie]]lles et un certain potentiel minier. Pourtant,
+        l''Argentine conna\u00eet d''importants probl\u00e8mes \u00e9conomiques. Le
+        [[ch\u00f4mage]] et le bas [[niveau de vie]] continuent de marquer le pays,
+        pourtant largement plus d\u00e9velopp\u00e9 que les autres nations du [[tiers
+        monde]].\n\nL''Argentine est le pays le plus d\u00e9velopp\u00e9 du [[Am\u00e9rique
+        latine|continent latino-am\u00e9ricain]] en 2005 selon les donn\u00e9es des
+        Nations unies fournies en 2007<ref name=\"Human development index\"/> et se
+        rapproche des standards europ\u00e9ens de niveau de vie. Cependant, les in\u00e9galit\u00e9s
+        sociales se sont accrues et l''existence de bidonvilles en p\u00e9riph\u00e9rie
+        des grandes villes persiste.\n\nL''Argentine dispose de nombreuses richesses
+        naturelles et d''une main-d''\u0153uvre tr\u00e8s qualifi\u00e9e, d''une agriculture
+        orient\u00e9e vers l''exportation et d''un tissu industriel diversifi\u00e9.\n\nJusque
+        dans les [[ann\u00e9es 1950]], \u00e0 son apog\u00e9e \u00e9conomique, l''Argentine
+        \u00e9tait l''un des pays les plus riches du monde. Son [[PIB par habitant]]
+        le positionnait au douzi\u00e8me rang mondial, juste devant la [[France]]<ref>Voir
+        page 23 in ''''Remaking the Argentine Economy'''', Felipe de la Balze, Council
+        on Foreign Relations, 1995 : \u00ab Wealthiest Countries between 1870-1989
+        (Dollars in 1989 Purchasing power) 1913: 1/ Australia (4845), 2/ \u00c9tats-Unis
+        (4307), 3/ Canada (4004), 4/ Great Britain (3605), 5/ Switzerland (3584),
+        6/Belgium (3415), 7/ Denmark (3311), 8/New Zeland (3119), 9/ Holland (3055),
+        10/ Germany (2819), 11/ Austria (2758), ''''''12/ Argentina (2739)'''''',
+        13/ France (2691) \u00bb -</ref>{{,}}<ref>Voir aussi le document [http://www.nationalbanken.dk/C1256BE9004F6416/side/Monetary_Review_4_Quarter_2001/$file/nb06.htm
+        Argentina''s Crises]</ref>.\n\nMalgr\u00e9 ces atouts, l''Argentine a accumul\u00e9
+        \u00e0 la fin des ann\u00e9es 1980 une lourde dette externe (dette qu''elle
+        ne compte rembourser qu''en partie, \u00ab 10 % \u00bb), l''inflation atteignait
+        100 % par mois et la production avait consid\u00e9rablement chut\u00e9.\n\nPour
+        lutter contre cette crise \u00e9conomique, le gouvernement de [[Carlos Menem|Menem]]
+        a lanc\u00e9 une politique de lib\u00e9ralisation du commerce, de d\u00e9r\u00e9glementation
+        et de privatisation. En [[1991]], le gouvernement d\u00e9cida d''ancrer le
+        [[peso argentin]] au dollar am\u00e9ricain (technique du [[currency board]])
+        et limita par une loi la croissance de la masse mon\u00e9taire \u00e0 la croissance
+        de r\u00e9serves mon\u00e9taires. Ce syst\u00e8me tr\u00e8s particulier du
+        currency board permet l''embellie des ann\u00e9es 1990, mais se r\u00e9v\u00e8le
+        particuli\u00e8rement dangereux face aux mouvements erratiques et violents
+        du march\u00e9 des [[changes flottants]] qui suivent la [[crise \u00e9conomique
+        asiatique]] et la forte remont\u00e9e du dollar qui rende l''\u00e9conomie
+        argentine non comp\u00e9titive par rapport \u00e0 celles de ses voisins. Il
+        sombre lorsque l''\u00e9conomie mondiale entre en r\u00e9cession avec la [[crise
+        de la bulle Internet]] au d\u00e9but des ann\u00e9es 2000.\n\nLa r\u00e9cession,
+        amplifi\u00e9e par les mesures d''\u00e9conomie drastiques exig\u00e9es par
+        le [[Fonds mon\u00e9taire international]] (FMI) en contrepartie de son aide
+        en dollars, est extr\u00eamement violente et entra\u00eene une hausse spectaculaire
+        de la pauvret\u00e9 ainsi que d''importants mouvements sociaux et de rapides
+        changements politiques. L''instabilit\u00e9 politique a plong\u00e9 l''\u00e9conomie
+        argentine dans une crise sans pr\u00e9c\u00e9dents (2002). Le [[Produit int\u00e9rieur
+        brut|PIB]] a chut\u00e9 de 11 % en 2002 avec la fin de la parit\u00e9 1 [[Peso
+        argentin|peso]] = {{Unit\u00e9|1|dollar}}. Cette crise a men\u00e9 plus de
+        50 % de la population sous le seuil de pauvret\u00e9. Des manifestations ont
+        alors \u00e9t\u00e9 organis\u00e9es, suivies de pillages de magasins. Les
+        banques locales incapables de fournir en dollars sont en faillite technique.
+        Le plan argentin de conversion de dette a pour cons\u00e9quence des pertes
+        s\u00e9v\u00e8res pour les cr\u00e9anciers priv\u00e9s. Le pays fait finalement
+        d\u00e9faut sur sa dette. Les cr\u00e9anciers \u00e9trangers comme [[EDF]]
+        sont spoli\u00e9s. Le gouvernement en d\u00e9valuant r\u00e9tablit l''\u00e9quilibre
+        avec le [[r\u00e9al br\u00e9silien]].\n\nLe pays sort de la partie la plus
+        aig\u00fce de la crise d\u00e8s 2003. Les cons\u00e9quences les plus durables
+        sont les difficult\u00e9s r\u00e9currentes des gouvernements \u00e0 financer
+        leurs budgets, le d\u00e9part du pays de certains investisseurs industriels,
+        une nette diminution de la confiance des cr\u00e9anciers priv\u00e9s et de
+        longs contentieux avec des [[fonds vautour]] am\u00e9ricains, contentieux
+        qui se poursuivent jusque dans les ann\u00e9es 2010. De 2003 \u00e0 2007 le
+        PIB repart \u00e0 9 % de croissance annuelle, en produisant une r\u00e9activation
+        \u00e9conomique dans tous les secteurs, une forte r\u00e9duction de la pauvret\u00e9
+        et un retour de la classe moyenne.\n\nLe {{date|1|f\u00e9vrier|2006}}, l''Argentine
+        et le [[Br\u00e9sil]] signent, apr\u00e8s pr\u00e8s de trois ans de n\u00e9gociations,
+        un accord qui doit permettre de prot\u00e9ger les secteurs de production qui
+        pourraient \u00eatre trop durement affect\u00e9s par la comp\u00e9tition du
+        pays voisin. Le ''''M\u00e9canisme d\u2019adaptation comp\u00e9titive''''
+        (MAC) permet de fixer des droits de douane sur le produit \u00ab trop comp\u00e9titif
+        \u00bb du pays voisin pour trois ans, renouvelable une fois.\n\nDepuis [[2003]],
+        l\u2019Argentine semble avoir repris le chemin de la forte croissance \u00e9conomique
+        et de l''augmentation des salaires. Cependant, l''Argentine semble souffrir
+        de la crise am\u00e9ricaine et de la chute du dollar ; en effet, la forte
+        [[inflation]] avec un taux \u00ab officiel \u00bb de 8 \u00e0 9 %, pourrait
+        en r\u00e9alit\u00e9 atteindre 25 % en [[2008]]<ref name=\"Figaro\">[http://www.lefigaro.fr/economie/2008/04/29/04001-20080429ARTFIG00366-l-argentine-menacee-d-hyperinflation.php
+        L''Argentine menac\u00e9e d''hyperinflation] - ''''[[Le Figaro]]'''', 29 avril
+        2008</ref>. Officiellement, le taux de pauvret\u00e9 \u00e9tait de 20,6 %<ref
+        name=indeceph>[http://www.indec.mecon.ar/nuevaweb/cuadros/74/grafpobreza1_ephcontinua.xls
+        INDEC]</ref>, mais si l''on suppute une inflation de 25 %, en [[2008]], le
+        taux de personnes vivant au-dessous du seuil de pauvret\u00e9 a augment\u00e9,
+        passant \u00e0 30,3 %<ref name=\"Figaro\"/>. Ce serait le premier renversement
+        de situation depuis [[2003]]. Cependant, l''INDEC indique un taux de pauvret\u00e9
+        de 15,8 % pour le second semestre [[2008]] ; il faut toutefois noter que l''opposition
+        d\u00e9nonce une manipulation des chiffres. En effet la moiti\u00e9 des Argentins
+        seraient touch\u00e9s par un niveau de vie inf\u00e9rieur \u00e0 celui de
+        la plupart des pays d\u00e9velopp\u00e9s, et pr\u00e8s d''un tiers vivrait
+        sous le seuil de pauvret\u00e9 national.\n\nAu cours du second trimestre 2008,
+        la croissance \u00e9conomique conna\u00eet un certain ralentissement. Au total
+        le [[revenu par t\u00eate|revenu par habitant]] de l\u2019Argentine reste
+        le plus \u00e9lev\u00e9 d\u2019[[Am\u00e9rique latine]], mais sa croissance
+        sur les vingt derni\u00e8res ann\u00e9es est faible et surtout particuli\u00e8rement
+        volatile. Le niveau de vie argentin est comparable \u00e0 celui du [[Mezzogiorno]],
+        en [[Italie|Italie du sud]].\n\n* ''''''Monnaie nationale'''''' : le [[peso
+        argentin]] (<tt>ARS</tt>)\n* ''''''[[PIB par habitant]]'''''' : {{Unit\u00e9|21832|dollars}}
+        ([[2014]], valeur [[Parit\u00e9 de pouvoir d''achat|PPA]])<ref>[http://www.imf.org/external/pubs/ft/weo/2011/01/weodata/weorept.aspx?sy=2011&ey=2016&ssd=1&sort=subject&ds=.&br=1&c=512%2C941%2C914%2C446%2C612%2C666%2C614%2C668%2C311%2C672%2C213%2C946%2C911%2C137%2C193%2C962%2C122%2C674%2C912%2C676%2C313%2C548%2C419%2C556%2C513%2C678%2C316%2C181%2C913%2C682%2C124%2C684%2C339%2C273%2C638%2C921%2C514%2C948%2C218%2C943%2C963%2C686%2C616%2C688%2C223%2C518%2C516%2C728%2C918%2C558%2C748%2C138%2C618%2C196%2C522%2C278%2C622%2C692%2C156%2C694%2C624%2C142%2C626%2C449%2C628%2C564%2C228%2C283%2C924%2C853%2C233%2C288%2C632%2C293%2C636%2C566%2C634%2C964%2C238%2C182%2C662%2C453%2C960%2C968%2C423%2C922%2C935%2C714%2C128%2C862%2C611%2C716%2C321%2C456%2C243%2C722%2C248%2C942%2C469%2C718%2C253%2C724%2C642%2C576%2C643%2C936%2C939%2C961%2C644%2C813%2C819%2C199%2C172%2C184%2C132%2C524%2C646%2C361%2C648%2C362%2C915%2C364%2C134%2C732%2C652%2C366%2C174%2C734%2C328%2C144%2C258%2C146%2C656%2C463%2C654%2C528%2C336%2C923%2C263%2C738%2C268%2C578%2C532%2C537%2C944%2C742%2C176%2C866%2C534%2C369%2C536%2C744%2C429%2C186%2C433%2C925%2C178%2C869%2C436%2C746%2C136%2C926%2C343%2C466%2C158%2C112%2C439%2C111%2C916%2C298%2C664%2C927%2C826%2C846%2C542%2C299%2C967%2C582%2C443%2C474%2C917%2C754%2C544%2C698&s=PPPPC&grp=0&a=&pr1.x=40&pr1.y=10
+        www.imf.org]</ref>\n* ''''''[[Taux de ch\u00f4mage]]'''''' : 7,1 % ([[2014]])<ref>[http://www.visionofhumanity.org/gpi-data/#/2010/UNEM
+        Rankings Results Vision of Humanity]</ref>\n* ''''''Population vivant sous
+        le seuil de pauvret\u00e9'''''': 14 % ([[2013]])<ref name=\"a\">http://srvdocs1.bancociudad.com.ar/Content/Institucional/Informe-semanal-121.pdf</ref>\n*
+        ''''''Taux d''inflation'''''' : 16,6 % ([[2013]])<ref name=\"a\"/>\n* ''''''Principaux
+        clients'''''' : [[Br\u00e9sil]] (17,3 %), [[Chili]] (9,4 %), [[\u00c9tats-Unis]]
+        (8,7 %), [[R\u00e9publique populaire de Chine|Chine]] (7,5 %), [[Espagne]]
+        (4,1 %)\n* ''''''Principaux fournisseurs'''''' : [[Br\u00e9sil]] (34,1 %),
+        [[\u00c9tats-Unis]] (12,6 %), [[R\u00e9publique populaire de Chine|Chine]]
+        (9,1 %), [[Allemagne]] (4,5 %)\n* ''''''Gini'''''' : 0,361 ([[2014]])<ref>[http://hdrstats.undp.org/en/countries/profiles/ARG.html
+        International Human Development Indicat ors - UNDP]</ref>\n\n=== M\u00e9dias
+        ===\nLe groupe Clar\u00edn d\u00e9tient la principale cha\u00eene de t\u00e9l\u00e9vision
+        du pays : [[Canal 13 (Argentine)|Canal 13]], ainsi que le journal argentin
+        qui a le tirage le plus important, le quotidien [[Centrisme|centriste]] ''''[[Clar\u00edn]]''''.
+        Les quotidiens qui suivent, d''apr\u00e8s leur tirage, sont ''''[[La Naci\u00f3n
+        (Argentine)|La Naci\u00f3n]]'''', [[Conservatisme|conservateur]], ''''[[P\u00e1gina/12]]'''',
+        de [[Gauche (politique)|gauche]], ''''[[Tiempo Argentino (Argentine)|Tiempo
+        Argentino]]'''', ''''[[Cr\u00f3nica (Argentine)|Cr\u00f3nica]]'''', ''''[[La
+        Prensa (Argentine)|La Prensa]]'''', et ''''[[Buenos Aires Herald (Argentine)|Buenos
+        Aires Herald]]''''.\n\nLe service t\u00e9l\u00e9phonique a \u00e9t\u00e9 privatis\u00e9
+        en 1990 par le gouvernement de [[Carlos Menem]]<ref>[http://www.secom.gov.ar/municipios/ver.asp?MID=10&tipo=nota&id=121
+        \u00c9volution de la t\u00e9l\u00e9phonie en Argentine]</ref>. Il y a 8,3
+        millions de lignes t\u00e9l\u00e9phoniques install\u00e9es, soit 23 lignes
+        pour 100 habitants. La t\u00e9l\u00e9phonie mobile relie 75 % de la population
+        (28,5 millions de personnes)<ref>[http://www.clarin.com/diario/2006/02/01/elpais/p-01301.htm
+        Clarin.com (01-02-2006)]</ref>. Ce nombre \u00e9lev\u00e9 est d\u00fb en partie
+        au fait que des personnes de faible revenu ont pu durant les derni\u00e8res
+        ann\u00e9es acc\u00e9der \u00e0 des plans de paiement.\n\nIl y a pr\u00e8s
+        de {{unit\u00e9|1500|stations}} de radio, dont 260 sont AM et approximativement
+        {{unit\u00e9|1150}} sont FM.\n\nL''Argentine est le pays d''[[Am\u00e9rique
+        latine]] o\u00f9 l''acc\u00e8s \u00e0 la t\u00e9l\u00e9vision par c\u00e2ble
+        est le plus r\u00e9pandu : selon des donn\u00e9es de [[2001]], la grande majorit\u00e9
+        des foyers poss\u00e8de au moins un t\u00e9l\u00e9viseur et 60 % des personnes
+        \u00e9quip\u00e9es re\u00e7oivent la t\u00e9l\u00e9vision c\u00e2bl\u00e9e<ref>[http://www.zonalatina.com/Zldata51.htm
+        Zona latina]</ref>. Les principales chaines de t\u00e9l\u00e9vision qui transmettent
+        depuis [[Buenos Aires]] sont [[Canal 13 (Argentine)|Canal 13]], [[Telefe]],
+        [[Canal 9 (Argentine)|Canal 9]] et [[Am\u00e9rica TV (Argentine)|Am\u00e9rica
+        TV]].\n\nEn [[2005]], 26,3 % de la population avait acc\u00e8s \u00e0 [[internet]]
+        avec plus de dix millions d''utilisateurs dans le pays<ref>[http://www.universia.com.ar/portada/actualidad/noticia_actualidad.jsp?noticia=17186
+        www.universia.com.ar]</ref>.\n\nEn octobre 2009, le gouvernement [[P\u00e9ronisme|p\u00e9roniste]]
+        argentin promulgue une importante r\u00e9forme du syst\u00e8me m\u00e9diatique,
+        consistant en une limitation de la concentration des licences, du capital
+        et de l\u2019actionnariat afin de permettre \u00e0 des m\u00e9dias aux ressources
+        financi\u00e8res plus modestes de se constituer. Apr\u00e8s une bataille juridique
+        de quatre ans contre le puissant conglom\u00e9rat m\u00e9diatique ''''[[Clar\u00edn]],''''
+        qui contestait la constitutionnalit\u00e9 de la loi, celle-ci est finalement
+        valid\u00e9e par la justice<ref>{{Article|langue=|auteur1=|titre=Argentine
+        : une loi exemplaire sur l''audiovisuel|p\u00e9riodique=Acrimed {{!}} Action
+        Critique M\u00e9dias|date=2013-11-19|issn=|lire en ligne=http://www.acrimed.org/Argentine-une-loi-exemplaire-sur-l-audiovisuel#nb3|consult\u00e9
+        le=|pages=}}</ref>. Sous la pr\u00e9sidence de [[Mauricio Macri]] (\u00e9lu
+        en 2015) l''essentiel de la loi est abrog\u00e9<ref>{{Article|langue=|auteur1=|titre=M\u00e9dias
+        en Argentine : Macri droit dans ses bottes !|p\u00e9riodique=Acrimed|date=2016-16-05|issn=|lire
+        en ligne=http://www.acrimed.org/Medias-en-Argentine-Macri-droit-dans-ses-bottes?recherche=Macri|consult\u00e9
+        le=|pages=}}</ref>.\n\n=== Transports ===\n* ''''''Autocar''''''. Les compagnies
+        de transport, \u00e0 travers tous le pays, disposent d''autocars modernes
+        et confortables. C''est le moyen de transport le plus r\u00e9pandu en Argentine.
+        L''ensemble des compagnies assurent la liaison vers toutes les villes importantes
+        du pays et vers les grandes villes des pays limitrophes.\n* ''''''Chemin de
+        fer''''''. Dans les ann\u00e9es 1950, l''Argentine poss\u00e9dait le meilleur
+        r\u00e9seau de chemin de fer d''Am\u00e9rique latine, mais les choses ont
+        chang\u00e9. Le r\u00e9seau ferroviaire est devenu quasiment inexistant, \u00e0
+        l''exception de quelques lignes touristiques. Il reste int\u00e9ressant de
+        prendre le train pour aller vers les villes du Nord et vers la Bolivie. Ainsi
+        que vers les villes de la Pampa (Mendoza, Cordoba, Mar del Plata, Tucuman)
+        surtout de nuit. Les prix sont \u00e9quivalents \u00e0 ceux pratiqu\u00e9s
+        par les autocars. Au total, il y a {{Unit\u00e9|33744|{{Abr\u00e9viation discr\u00e8te|km|kilom\u00e8tre}}}},
+        dont {{Unit\u00e9|167|{{Abr\u00e9viation discr\u00e8te|km|kilom\u00e8tre}}}}
+        de voies \u00e9lectrifi\u00e9es.\n* ''''''Avion''''''. Les vols int\u00e9rieurs
+        constituent une solution pratique pour visiter l''ensemble du pays. On compte
+        environ 1141<ref>[http://fr.worldstat.info/South_America/Argentina/Transportation]</ref>
+        (2010) a\u00e9roports dans tout le pays. Cependant la plupart sont de petits
+        a\u00e9roports ou bien des a\u00e9rodromes avec des pistes non goudronn\u00e9es.\n\n===
+        Rangs internationaux ===\n{| class=\"wikitable\" border=\"1\"\n|-\n! Organisation\n!
+        Enqu\u00eate\n! Rang\n|-\n| Universit\u00e9s [[Universit\u00e9 Columbia|Columbia]]
+        et [[Universit\u00e9 Yale|Yale]]\n| [[Indice de performance environnementale]]\n|
+        38 sur 149\n|-\n| ''''International Living''''\n| [http://www.il-ireland.com/il/qofl2008/index.php
+        Qualit\u00e9 de vie, 2008]\n| 13 sur 192 en 2008 \n|-\n| ''''International
+        Living''''\n| [http://www1.internationalliving.com/qofl2011/ Qualit\u00e9
+        de vie, 2011]\n| 16 sur 192 en 2011\n|-\n| [[Reporters sans fronti\u00e8res]]\n|
+        [[Reporters sans fronti\u00e8res|Indice de libert\u00e9 de la presse]]\n|
+        68 sur 173\n|-\n| [[Transparency International]]\n| [[Indice de perception
+        de la corruption]]\n| 105 sur 180\n|-\n| [[Programme des Nations unies pour
+        le d\u00e9veloppement|PNUD]]\n| [[Indice de d\u00e9veloppement humain]]\n|
+        38 sur 177\n|}\n\n== Culture ==\n[[Fichier:Cabildo de C\u00f3rdoba, Argentina.jpg|thumb|150px|Le
+        [[cabildo de C\u00f3rdoba]] sur la Plaza San Mart\u00edn - on distingue \u00e0
+        l''arri\u00e8re-plan les tours de la [[Cath\u00e9drale de C\u00f3rdoba|cath\u00e9drale]]
+        toute proche]]\n[[Fichier:Erythrina crista-galli2.jpg|thumb|150px|Fleur de
+        ceibo, la fleur nationale de l\u2019Argentine.]]\n{{Article d\u00e9taill\u00e9|Culture
+        de l''Argentine}}\n\n=== Musique et danse ===\n{{section \u00e0 sourcer|date=d\u00e9cembre
+        2016}}\nL''Argentine poss\u00e8de tout un amalgame de rythmes h\u00e9rit\u00e9s
+        et m\u00e9lang\u00e9s pendant des si\u00e8cles sur l''ensemble de son territoire.
+        Ainsi, les contrastes et la multiplicit\u00e9 caract\u00e9risent l''art musical
+        dans le pays.\n\nParmi les musiques traditionnelles, de tradition rurale,
+        la ''''chacarera'''', la ''''milonga'''', la ''''zamba'''', le ''''gato'''',
+        le ''''cielito'''' sont tr\u00e8s diffus\u00e9s, notamment \u00e0 travers
+        le festival de [[Cosqu\u00edn]], C\u00f3rdoba, la f\u00eate nationales du
+        folklore argentin. Ainsi on compte aussi les rythmes indig\u00e8nes de souche,
+        tels que le fameux [[carnavalito]] du Nord du pays, les musiques mapuches
+        partag\u00e9es avec le Chili (notamment le loncomeo), les sons guaranis\u2026
+        D''autre part, l''influence africaine atteint presque tous les rythmes nationaux,
+        en particulier avec l''utilisation du ''''bombo'''' et la particularit\u00e9
+        rythmique de certaines musiques, comme la ''''chacarera''''. De m\u00eame,
+        un rythme caract\u00e9ristique des afrodescendants est le ''''candombe'''',
+        aussi tr\u00e8s caract\u00e9ristique de l''Uruguay. C''est une musique tr\u00e8s
+        rythm\u00e9e et g\u00e9n\u00e9ralement en forme de ''''comparsa'''', de groupe
+        musical ambulant dans la rue. \u00c0 Buenos Aires et Montevideo, on peut appr\u00e9cier
+        le candombe de fa\u00e7on publique. Le ''''[[Tango (danse)|tango]]'''', internationalement
+        reconnu et d\u00e9clar\u00e9 [[Patrimoine culturel immat\u00e9riel de l''humanit\u00e9]],
+        est peut \u00eatre ce qui caract\u00e9rise l''Argentine \u00e0 l''\u0153il
+        \u00e9tranger, m\u00eame s''il est r\u00e9duit \u00e0 la ville de Buenos Aires
+        et \u00e0 Montevideo. Ses origines remontent aux danses africaines du ''''candombe''''
+        qui a subi un m\u00e9tissage avec la ''''milonga'''', donnant ainsi un rythme
+        tr\u00e8s \u00e9nergique jou\u00e9 de guitare, tambours et fl\u00fbte et dans\u00e9
+        de fa\u00e7on sensuelle par les afrodescendants. Cependant, ce que nous appelons
+        ''''[[Tango (danse)|tango]]'''' aujourd''hui est la modification de ce rythme
+        par les immigrants europ\u00e9ens, qui ont ajout\u00e9 des instruments diff\u00e9rents
+        tel que le bandon\u00e9on et un style et paroles singuliers, diff\u00e9rents
+        de la v\u00e9ritable souche du tango. \nUne f\u00eate nationale tr\u00e8s
+        importante est le [[Carnaval de Gualeguay|Carnaval del Pais]], d\u00e9roul\u00e9
+        \u00e0 Gualeguaych\u00fa, Entre R\u00edos tous les ans. Celle-ci est une occasion
+        pour d\u00e9voiler tout le coloris et la danse au rythme du ''''candombe''''
+        du R\u00edo de la Plata.\n\n=== Litt\u00e9rature ===\nLa [[litt\u00e9rature
+        argentine]], de langue espagnole, a acquis une v\u00e9ritable ind\u00e9pendance
+        vis-\u00e0-vis de l''Espagne durant le {{s-|XIX|e}}, et son repr\u00e9sentant
+        le plus c\u00e9l\u00e8bre, [[Jorge Luis Borges]], jouit d''une reconnaissance
+        internationale<ref>http://www.cosquin.com.ar/</ref>{{,}}<ref>http://www.carnaval.gualeguaychu.info/</ref>.
+        On peut aussi citer [[Julio Cort\u00e1zar]], [[Adolfo Bioy Casares]], [[Victoria
+        Ocampo]], [[Ernesto S\u00e1bato]], [[Roberto Arlt]], [[Manuel Mujica L\u00e1inez]],
+        [[H\u00e9ctor Tiz\u00f3n]], [[Abelardo Castillo]], [[Leopoldo Marechal]],
+        [[Juan Filloy]], [[H\u00e9ctor Bianciotti]], [[Ricardo Piglia]], [[Alberto
+        Laiseca]], [[Tom\u00e1s Eloy Mart\u00ednez]], [[Juan Jos\u00e9 Saer]], [[C\u00e9sar
+        Aira]], [[Ang\u00e9lica Gorodischer]] et [[Osvaldo Soriano]] (parmi les plus
+        connus).\n\n=== Traditions culinaires ===\n{{section \u00e0 sourcer|date=d\u00e9cembre
+        2016}}\nL''Argentine poss\u00e8de une vari\u00e9t\u00e9 de plats culinaires
+        traditionnels h\u00e9rit\u00e9s de la rencontre des grands groupes pr\u00e9sents
+        en Am\u00e9rique latine (Italiens, Espagnols, indig\u00e8nes). Ainsi, un grand
+        nombre de plats typiques sont consomm\u00e9s tout au long du territoire :
+        les [[pizza|pizze]], les [[tagliatelle|tallarines]], les ''''empanadas'''',
+        les ''''humitas'''', les ''''tamales'''', le ''''puchero'''', le ''''arroz
+        con leche'''', la ''''mazamorra'''', entre une infinit\u00e9 d''autres plats.
+        Leur pr\u00e9paration varie selon les traditions de chaque r\u00e9gion, et
+        certaines pr\u00e9parations sont partag\u00e9es avec d''autres pays de la
+        r\u00e9gion (Chili, Uruguay, Paraguay). Cependant, les trois aliments les
+        plus caract\u00e9ristiques, peut-\u00eatre par leur popularit\u00e9 ou par
+        leur succ\u00e8s aupr\u00e8s des touristes sont les suivants :\n\n;Le [[mat\u00e9]]\nLe
+        mat\u00e9 est une infusion traditionnelle consomm\u00e9e en Argentine, issue
+        de la culture des indiens Guaranis. C''est une part tr\u00e8s importante de
+        la culture, et il est fr\u00e9quent de voir des personnes boire le mat\u00e9
+        dans la rue. La plante utilis\u00e9e, la yerba mat\u00e9, parfois appel\u00e9
+        \u00ab th\u00e9 du Paraguay \u00bb, \u00ab th\u00e9 des J\u00e9suites \u00bb
+        ou \u00ab th\u00e9 du Br\u00e9sil \u00bb, est une esp\u00e8ce sud-am\u00e9ricaine
+        dont les feuilles, que l''on torr\u00e9fie et pulv\u00e9rise, fournissent,
+        infus\u00e9es dans l''eau chaude, une boisson stimulante, aux effets semblables
+        \u00e0 ceux du caf\u00e9 ou du th\u00e9.\nCette boisson, consomm\u00e9e chaude
+        et parfois froide, de go\u00fbt fort et amer, est pr\u00e9par\u00e9e avec
+        des feuilles de yerba mat\u00e9. Elle se boit dans une calebasse gr\u00e2ce
+        \u00e0 un tube m\u00e9tallique qui sert aussi de filtre, la ''''bombilla''''.
+        Pour le savourer, les gauchos s''organisent en cercle o\u00f9 le mat\u00e9
+        passe de main en main selon un rituel tr\u00e8s pr\u00e9cis qui invite par
+        exemple les participants \u00e0 faire circuler la calebasse dans le sens anti-horaire
+        afin de faire passer le temps moins vite. Cette boisson traditionnelle symbolise,
+        par ses rites de consommation, la fraternit\u00e9 et l''hospitalit\u00e9 des
+        gauchos.\n\n;L'' [[asado]]\n[[Fichier:Asado de morcillas.jpg|thumb|Asado argentin]]\nEn
+        Argentine le terme ''''asado'''' se r\u00e9f\u00e8re non seulement \u00e0
+        une grillade en tant que telle mais aussi \u00e0 l\u2019acte social, \u00e0
+        la r\u00e9union o\u00f9 l\u2019on mange de la viande (blanche ou rouge) ou
+        des ''''choripanes ''''(sandwiches avec chorizo et sauce ''''criolla'''' ou
+        ''''chimichurri''''). Ces viandes sont cuites et grill\u00e9es horizontalement
+        \u00ab ''''a la parilla'''' \u00bb ou verticalement, \u00ab en croix \u00bb.
+        L\u2019''''asado'''' est presque le \u00ab plat national \u00bb de l\u2019Argentine
+        par son origine tr\u00e8s ancr\u00e9e dans la tradition des gauchos. Il existe
+        m\u00eame des \u00ab ''''asadores'''' \u00bb, personnes sp\u00e9cialis\u00e9es
+        dans l\u2019art de cuisiner un asado.\n\n;Le \u00ab [[dulce de leche]] \u00bb\nLe
+        ''''dulce de leche'''', (\u00ab la confiture de lait \u00bb) est une sp\u00e9cialit\u00e9
+        sucr\u00e9e sans v\u00e9ritable origine puisqu''il existe des recettes similaires
+        dans toutes les parties du monde, mais est extr\u00eamement appr\u00e9ci\u00e9
+        en Argentine et tout au long de l''Am\u00e9rique latine. D''origine coloniale,
+        il s\u2019agit d''un m\u00e9lange de lait et de sucre ({{unit\u00e9|300|g}}
+        \u00e0 {{unit\u00e9|500|g}} par litre de lait) port\u00e9 \u00e0 \u00e9bullition,
+        puis cuit \u00e0 feu tr\u00e8s doux jusqu\u2019\u00e0 \u00e9paississement
+        et obtention d\u2019une couleur caramel. Il est tr\u00e8s utilis\u00e9 dans
+        les p\u00e2tisseries ou tout simplement comme confiture.\n\n;Le [[locro]]\nLe
+        locro (du [[quechua]] ''''ruqru'''') est un rago\u00fbt \u00e0 base de courge,
+        de ma\u00efs et de haricots consomm\u00e9s<ref>http://www.argentinaturistica.com/rnoroestecultura.htm</ref>{{,}}<ref>http://www.sololideres.com/contenidos/2013/01/30/Editorial_338.php</ref>.\n\n===
+        Symboles nationaux ===\n* Le [[drapeau de l''Argentine]], cr\u00e9\u00e9 par
+        le h\u00e9ros national [[Manuel Belgrano]], a inspir\u00e9 plusieurs peuples
+        latino-am\u00e9ricains dans le choix de leur propre drapeau. Il fut en son
+        temps adopt\u00e9 par les [[R\u00e9publique f\u00e9d\u00e9rale d''Am\u00e9rique
+        centrale|Provinces unies d''Am\u00e9rique centrale]], et c''est pour cela
+        que les drapeaux du [[Salvador]], du [[Honduras]], du [[Nicaragua]] et du
+        [[Guatemala]] sont tr\u00e8s semblables au drapeau argentin.\n* La fleur nationale
+        de l''Argentine est le ''''''ceibo'''''', dont le nom scientifique est ''''[[Erythrina
+        crista-galli]]''''. Elle fut d\u00e9clar\u00e9e comme telle le {{date-|23
+        d\u00e9cembre 1942}} par le d\u00e9cret {{unit\u00e9|13847}} du pouvoir ex\u00e9cutif.\n*
+        L\u2019oiseau national est le ''''''hornero'''''' ou ''''[[furnarius|Furnarius
+        rufus]]'''', sympathique oiseau que l''on retrouve dans toutes les villes
+        argentines et qui y construit de curieux nids.\n* La pierre nationale est
+        la [[rhodochrosite]].\n\n=== Les ordres et d\u00e9corations de l''Argentine
+        ===\n* Ordre de Saint-Martin, le Lib\u00e9rateur\n* Ordre de Mai\n\n=== F\u00eates
+        et jours f\u00e9ri\u00e9s ===\n{|class=\"wikitable\"\n|-\n! Date !! {{nobr|Nom
+        fran\u00e7ais}} !! {{nobr|Nom local}} !! Remarques\n|-\n| {{date|1er janvier}}
+        || [[Jour de l''an|Nouvel An]] || ''''A\u00f1o nuevo ||\n|-\n| [[mars (mois)|mars]]
+        ou [[avril]] || [[Semaine sainte]] ([[P\u00e2ques]]) || ''''Semana Santa ||\n|-\n|
+        {{date|24 mars}} || Jour national du Souvenir pour la V\u00e9rit\u00e9 et
+        la Justice || ''''D\u00eda Nacional de la Memoria por la Verdad y la Justicia''''
+        || {{date-|24 mars 1976}}, coup d''\u00e9tat militaire du g\u00e9n\u00e9ral
+        [[Jorge Rafael Videla]]\n|-\n| {{date|2 avril}} || Jour des Malouines || ''''D\u00eda
+        del Veterano de Guerra y de los Ca\u00eddos en la Guerra de las Malvinas''''
+        || {{date-|2 avril 1982}}, comm\u00e9moration de la [[guerre des Malouines]].\n|-\n|
+        {{date|1er mai}} || [[F\u00eate du Travail]] || ''''D\u00eda del Trabajo''''
+        ||\n|-\n| {{date|25 mai}} || F\u00eate de la r\u00e9volution || ''''Primer
+        Gobierno Patrio'''' || {{date-|25 mai 1810}}\n|-\n| {{date|20 juin}} || F\u00eate
+        du drapeau || ''''D\u00eda de la Bandera'''' || {{date-|20 juin 1820}}, anniversaire
+        de la mort du cr\u00e9ateur du drapeau, le g\u00e9n\u00e9ral Manuel Belgrano\n|-\n|
+        {{date|9 juillet}} || F\u00eate de l\u2019ind\u00e9pendance || ''''D\u00eda
+        de la Independencia'''' || {{date-|9 juillet 1816}}\n|-\n| {{date|17 ao\u00fbt}}
+        ||  Mort du g\u00e9n\u00e9ral [[Jos\u00e9 de San Mart\u00edn]] || ''''Muerte
+        del General [[Jos\u00e9 de San Mart\u00edn]]'''' || anniversaire de la mort
+        du [[Jos\u00e9 de San Mart\u00edn]],il est l''un des h\u00e9ros des ind\u00e9pendances
+        sud-am\u00e9ricaines  \n|-\n| {{date|12 octobre}} || [[D\u00e9couverte et
+        exploration de l''Am\u00e9rique]] || ''''D\u00eda de la Raza ||\n|-\n| {{date|8
+        d\u00e9cembre}} || [[Immacul\u00e9e conception]] || ''''D\u00eda de la Inmaculada
+        Concepci\u00f3n ||\n|-\n| {{date|25 d\u00e9cembre}} || [[No\u00ebl]] || ''''Navidad
+        ||\n|}\n\n== Codes ==\nL''Argentine a pour codes :\n* AR, selon la norme [[ISO
+        3166-1]] (liste des codes pays), code alpha-2 ;\n* AR, selon la [[liste des
+        codes pays utilis\u00e9s par l''OTAN]], code alpha-2 ;\n* ARG, selon la norme
+        [[ISO 3166-1]] code alpha-3 (liste des codes pays);\n* ARG, selon la [[liste
+        des codes pays du CIO]] ;\n* ARG, selon la [[liste des codes pays utilis\u00e9s
+        par l''OTAN]], code alpha-3 ;\n* LV, selon la [[liste des pr\u00e9fixes OACI
+        d''immatriculation des a\u00e9ronefs]] ;\n* RA, selon la [[liste des codes
+        internationaux des plaques min\u00e9ralogiques]] ;\n* SA, selon la [[liste
+        des pr\u00e9fixes des codes OACI des a\u00e9roports]].\n\n== Sports ==\nBien
+        que le [[football]] soit le sport le plus populaire en Argentine avec de tr\u00e8s
+        grands joueurs comme [[Alfredo Di St\u00e9fano]], [[Diego Maradona]] ou [[Lionel
+        Messi]] d''autres sports sont largement pratiqu\u00e9s ; le sport national
+        est d''ailleurs le [[pato (sport)|pato]]). Ainsi, l''Argentine s''illustre
+        r\u00e9guli\u00e8rement en [[basket-ball]], en [[\u00c9quipe d''Argentine
+        de rugby \u00e0 XV|rugby \u00e0 XV]], en [[pelote basque]], en [[padel]] ou
+        encore en [[tennis]] avec [[Guillermo Vilas]], [[Gabriela Sabatini]] ou [[Juan
+        Mart\u00edn del Potro]] notamment. Par ailleurs, on peut \u00e9galement citer
+        le [[rink hockey]], le [[hockey sur gazon]], le [[polo]], le [[golf]] ou le
+        [[Comp\u00e9tition automobile|sport automobile]] comme sports appr\u00e9ci\u00e9s
+        en Argentine.\n\n<gallery>\nMessi in Germany and Argentina face off in the
+        final of the World Cup 2014 -2014-07-13 (24).jpg|[[Lionel Messi]] lors de
+        la finale de la Coupe du monde de football de 2014\nDiego Maradona.jpg|[[Diego
+        Maradona]], ancien joueur de football et ancien s\u00e9lectionneur de l''\u00e9quipe
+        d''Argentine\n</gallery>\n\n== Notes et r\u00e9f\u00e9rences ==\n{{R\u00e9f\u00e9rences|colonnes=2}}\n\n==
+        Voir aussi ==\n{{Autres projets\n|commons=Argentina|commons titre=L\u2019Argentine\n|wikisource=Cat\u00e9gorie:Argentine|wikisource
+        titre=L\u2019Argentine\n|wiktionary=Argentine\n|wikiquote=Argentine|wikiquote
+        titre=L\u2019Argentine\n|wikinews=Page:Argentine|wikinews titre=L\u2019Argentine\n}}\n*
+        [[Am\u00e9rique latine]]\n* [[Am\u00e9rique du Sud]]\n* [[Cuisine argentine]]\n*
+        [[Liste de journaux argentins]]\n* [[Tango (danse)|Tango]]\n* {{Lien|langue=es|trad=Ind\u00edgenas
+        de Argentina|fr=Indig\u00e8nes d''Argentine|texte=Indig\u00e8nes d''Argentine}}\n\n===
+        Liens externes ===\n* {{es}} [http://www.argentina.gob.ar Portail officiel
+        du gouvernement argentin]\n* {{fr}} [http://www.argentina.travel/fr Site touristique
+        officiel]\n* {{fr}} [http://www.efran.mrecic.gov.ar/ Site officiel Ambassade
+        Argentine]\n* {{fr}} [http://donnees.banquemondiale.org/pays/argentine Donn\u00e9es
+        de la Banque mondiale]\n\n{{Palette|Pays d''Am\u00e9rique|Union latine|G20}}\n{{Portail|Argentine|Am\u00e9rique}}\n\n[[Cat\u00e9gorie:Argentine|
+        ]]"}],"contentmodel":"wikitext","pagelanguage":"fr","pagelanguagehtmlcode":"fr","pagelanguagedir":"ltr","touched":"2017-09-10T17:43:37Z","lastrevid":140065378,"length":102010,"fullurl":"https://fr.wikipedia.org/wiki/Argentine","editurl":"https://fr.wikipedia.org/w/index.php?title=Argentine&action=edit","canonicalurl":"https://fr.wikipedia.org/wiki/Argentine"}}}}'
+    http_version: 
+  recorded_at: Thu, 22 Jun 2017 21:00:00 GMT
+recorded_with: VCR 3.0.3

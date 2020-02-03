@@ -1,0 +1,657 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=Argentine%20Constitution%7CEn%20uni%C3%B3n%20y%20libertad%7CArgentine%20National%20Anthem
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Sep 2017 20:08:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1204.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=141289 t=1505074121632070
+      X-Varnish:
+      - 414453848, 141441261, 54519235
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1053 pass, cp3030 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=10-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu,
+        12 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=10-Sep-2017;Path=/;HttpOnly;secure;Expires=Thu, 12 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.49.79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"redirects":[{"from":"Argentine Constitution","to":"Constitution
+        of Argentina"}],"pages":{"208357":{"pageid":208357,"ns":0,"title":"Argentine
+        National Anthem","revisions":[{"timestamp":"2017-06-16T22:01:20Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{{Infobox
+        anthem\n|title         = Himno Nacional Argentino\n|english_title = Argentine
+        National Anthem\n|image         = Himno Nacional Argentino.jpg{{!}}border\n|image_size    =
+        305px\n|caption       = The Argentine National Anthem being played for the
+        first time in [[Mariquita S\u00e1nchez]]''s house (painting by [[Pedro Subercaseaux]])\n|prefix        =
+        National\n|country       = {{Flag|Argentina|size=23px}}\n|author        =
+        [[Vicente L\u00f3pez y Planes]]\n|lyrics_date   = 1812\n|composer      = [[Blas
+        Parera]]\n|music_date    = 1813\n|adopted       = 11 May 1813\n|until         =\n|sound         =
+        Himno Nacional Argentino instrumental.ogg\n|sound_title   = \"Argentine National
+        Anthem\" (instrumental)\n}}\nThe original ''''''Argentine National Anthem''''''
+        ({{lang-es|Himno Nacional Argentino}}) was named ''''{{lang|es|Marcha Patri\u00f3tica}}''''
+        (Patriotic March), later renamed ''''{{lang|es|Canci\u00f3n Patri\u00f3tica
+        Nacional}}'''' (National Patriotic Song), and then ''''{{lang|es|Canci\u00f3n
+        Patri\u00f3tica}}'''' (Patriotic Song). It has been called ''''Himno Nacional
+        Argentino'''' since it was published with that name in 1847. Its lyrics were
+        written by the Buenos Aires-born politician [[Vicente L\u00f3pez y Planes]]
+        and the music was composed by the Spanish musician [[Blas Parera]].<ref>{{cite
+        web |url=http://www.casarosada.gov.ar/nuestro-pais/simbolos-nacionales |title=S\u00edmbolos
+        Nacionales |publisher=Presidency of the Argentine Nation |language=Spanish
+        |trans_title=National Symbols |accessdate=21 November 2011 |quote=La necesidad
+        de tener una canci\u00f3n patri\u00f3tica, que surgi\u00f3 con la Revoluci\u00f3n
+        de Mayo y que el Triunvirato supo comprender, se ve plasmada hoy en el Himno
+        Nacional Argentino, con m\u00fasica de Blas Parera, letra de Vicente L\u00f3pez
+        y Planes, y arreglo de Juan P. Esnaola.}}</ref> The work was adopted as the
+        sole official song on May 11, 1813, three years after the [[May Revolution]];
+        May 11 is therefore [[Anthem]] Day in Argentina.\n\nSome first, quite different,
+        anthems were composed from 1810; a version was then introduced in 1813 which
+        was used throughout the nineteenth century. The present, much shorter, anthem
+        comprises only the first and last verses and the chorus of the 1813 Patriotic
+        March, omitting much emotional text about the [[Argentine War of Independence|struggle
+        for independence]] from [[Spain]] (''''with strong arms they tear to pieces
+        the arrogant Iberian lion'''').\n\n==History==\n[[File:Versi\u00f3n francesa
+        del Himno argentino.jpg|thumb|right|160px|French transcription for piano by
+        Luis Messemaeckers, published in 1822. This is the oldest sheet found of the
+        anthem outside Argentina.]]\nThe first anthem was the Patriotic March, published
+        on 15 November 1810 in the ''''{{lang|es|[[Gazeta de Buenos Ayres]]}}''''.
+        It had lyrics by Esteban de Luca and music by Blas Parera. This original anthem
+        made no reference to the [[name of Argentina]] (the country was not formally
+        named \"Rep\u00fablica Argentina\" until 1826, although it was referred to
+        as such) or an independentist will, and talked instead about Spain being conquered
+        by France in the [[Peninsular War]], the absolutist restoration begun by the
+        Council of Regency, and the need to keep the republican freedoms achieved
+        so far in the Americas: \"Spain was victim / of the plotting Gaul / because
+        to the tyrants / she bent her neck / If there treachery / has doomed a thousands
+        cities / let sacred freedom and union reign here / Let the father to the sons
+        / be able to say / enjoy rights / that I did not enjoy\".<ref>{{cite book
+        |title=Seamos libres y lo dem\u00e1s no importa nada |trans_title=Let us be
+        free and nothing else matters |last=Galasso |first=Norberto |authorlink=Norberto
+        Galasso |year=2000 |publisher=Colihue |location=Buenos Aires |language=Spanish
+        |isbn=978-950-581-779-5 |page=103 |quote=''''Espa\u00f1a fue presa / del Galo
+        sutil / porque a los tiranos / rindi\u00f3 la cerbiz. / Si all\u00e1 la perfidia
+        / perdi\u00f3 a pueblos mil / libertad sagrada / y uni\u00f3n reine aqu\u00ed
+        / El padre a sus hijos / pueda ya decir / Gozad de derechos / que no conoc\u00ed.''''}}</ref>\n\nIn
+        mid-1812, the ruling [[First Triumvirate (Argentina)|triumvirate]] ordered
+        the [[Buenos Aires Cabildo]] to commission a national anthem. Cayetano Rodr\u00edguez,
+        a Franciscan friar, wrote a text that was approved on 4 August. The Catalan
+        musician Blas Parera, music director of the local theater, set it to music
+        and performed it for the first time with the orchestra he conducted on 1 November.<ref>{{cite
+        book |title=El Himno Nacional Argentino |trans_title=The Argentine National
+        Anthem |last=Vega |first=Carlos |year=1962 |publisher=Eudeba |location=Buenos
+        Aires |language=Spanish |pages=15\u201318}}</ref>\n\nLess than a year later
+        the [[Asamblea del A\u00f1o XIII|Assembly of Year XIII]] estimated that the
+        song was not effective enough to serve as a national anthem. On 6 March 1813
+        several poets were asked to submit lyrics. The poem by the lawyer Vicente
+        L\u00f3pez y Planes was unanimously considered the best. It was approved as
+        the \"sole national march\" (''''{{lang|es|\u00fanica marcha nacional}}'''')
+        on May 11, 1813. Parera was asked to compose a new musical setting around
+        the same date. He must have finished the piece in a few days. Oral tradition
+        has it that the premiere took place on May 14, 1813 at the home of the aristocrat
+        [[Mariquita S\u00e1nchez|Mariquita S\u00e1nchez de Thompson]], but there is
+        no documentary evidence of that.<ref>Galasso, p. 102.</ref> If this episode
+        is true, then Parera, contrary to certain misconceptions, wrote quickly and
+        under no visible coercion. The published song sheet is dated 14 May 1813.
+        He again conducted the official premiere in the theater on May 28, and was
+        paid 200 [[Argentine peso|pesos]].<ref>Vega, ''''El Himno Nacional Argentino'''',
+        pp. 22\u201327.</ref>\n\n[[File:Partitura del Himno Nacional Argentino hallada
+        en Bolivia.jpg|thumb|left|160px|[[Music sheet]] found in [[Santa Ana de Velasco]],
+        [[Bolivia]], c. 1860.]]\nThe song includes a line that has given rise to controversy:
+        ''''Buenos--Ayres se [o]pone \u00e1 la frente De los pueblos de la \u00ednclita
+        union''''<!--spelling, double hyphen, and accents \u00e1 and union verbatim
+        from original-->. In the manuscript and an early printed song-sheet the word
+        ''''opone'''' is used; a slightly later version of the song-sheet correcting
+        obvious errors such as spelling mistakes was issued with the same date of
+        14 May 1813, but with ''''opone'''' changed to ''''pone''''. The meaning reverses:
+        \"Buenos Aires ''''opposes'''' the front of the people of the union\" to \"Buenos
+        Aires ''''positions itself at'''' the front ...\". The original ''''opone''''  has
+        been interpreted as advancing part of the centralist views in Buenos Aires,
+        but has also been considered a \"tragical misprint\".<ref name=scielo/> In
+        many other lines the anthem goes beyond the [[Argentine War of Independence|Argentine
+        theater]] of the [[Spanish American wars of independence]] and references
+        events in Mexico, Central America, Northern South America, and Upper Peru.<ref>Galasso,
+        pp. 102\u2013103.</ref> The growing ideas of independence are reflected in
+        lines such as \"On the surface of the earth rises a glorious new nation, her
+        head is crowned with laurels, and a Lion lies defeated at her feet\". This
+        portrays not just Spanish absolutism, but Spain itself, as the enemy.<ref>Galasso,
+        p. 103.</ref>\n\nThe composition was then known as ''''{{lang|es|Canci\u00f3n
+        Patri\u00f3tica Nacional}}'''' (National Patriotic Song), and later simply
+        as ''''{{lang|es|Canci\u00f3n Patri\u00f3tica}}'''' (Patriotic Song), but
+        in [[Juan Pedro Esnaola]]''s early arrangement, dated around 1848, it appeared
+        under the title ''''{{lang|es|Himno Nacional Argentino}}'''', and the name
+        has been retained until today.<ref>Vega, ''''El Himno Nacional Argentino'''',
+        pp. 88\u201389.</ref> In the complete version of the Anthem of May (as was
+        christened by L\u00f3pez) it is noted that the political vision portrayed
+        is not only Argentine, but Latin American. The lyrics are ardently pro-independence
+        and anti-Spanish, as the country was at that time fighting for its independence
+        from Spain.<ref>{{cite web |url=http://nationalanthems.me/argentina-himno-nacional-argentino/
+        |title=Argentina |publisher=NationalAnthems.me |accessdate=21 November 2011
+        |quote=The original lyrics of the anthem included harsh attacks on Spain,
+        the former colonial power.}}</ref>\n\nThe song became popular immediately.
+        Within ten years documented performances took place throughout Argentina,
+        and also in Chile, Peru, and Colombia until they had their own anthems.<ref>Vega,
+        ''''El Himno Nacional Argentino'''', pp. 30\u201341.</ref> Different versions
+        emerged, making mass singing difficult; several reforms were then proposed.
+        In 1860 Esnaola was commissioned to create an official version. He took the
+        task to heart, making many changes to the music, including a slower tempo,
+        a fuller texture, alterations to the melody, and enrichment of the harmony.
+        In 1927 a committee produced a historicist version that undid several of Esnaola''s
+        changes, but introduced new problems in the sung line. After a heated public
+        debate fueled by the newspaper ''''{{lang|es|[[La Prensa (Buenos Aires)|La
+        Prensa]]}}'''', this version was rejected and, following the recommendations
+        of a second committee, Esnaola''s arrangement was officially reinstated.<ref>{{cite
+        book |title=O juremos con gloria morir: historia de una \u00e9pica de estado
+        |trans_title=Or swear to die gloriously: history of a state epic |last=Buch
+        |first=Esteban |date=January 1994 |publisher=Editorial Sudamericana |location=Buenos
+        Aires |language=Spanish |isbn=978-950-07-0964-4 |pages=103\u2013114 }}</ref>
+        In 1944 it was confirmed as the official anthem.\n\nThroughout the 19th century
+        the anthem was sung in its entirety. However, once harsh feelings against
+        Spain had dissipated, and the country had become home to many Spanish immigrants,
+        a modification was introduced by a decree of President [[Julio Argentino Roca]]
+        on March 30, 1900:\n\n{{quote|''''\"Without producing alterations in the lyrics
+        of the National Anthem, there are in it verses that perfectly describe the
+        concept that nations universally have regarding their anthems in peaceful
+        times, and that harmonize with the serenity and dignity of thousands of Spanish
+        that share our living, those that can and must be preferred to be sung in
+        official parties, for they respect the traditions and the law in no offense
+        to anyone, the President of the Republic decrees that:''''\n\n''''In official
+        or public parties, as well as in public schools, shall be sung only the first
+        and last verses and the chorus of the National Song sanctioned by the General
+        Assembly on May 11, 1813.\"''''}}\n\nThe words strongly attacking Spain were
+        no longer sung.<ref>Buch, ''''O juremos con gloria morir'''', pp. 87\u201392.</ref>\n\n==Usage==\nPerformance
+        of the anthem is mandatory during all official events, and Argentines in attendance
+        are expected to stand up and sing it. [[Radio in Argentina|Radio]] broadcasters
+        voluntarily perform the anthem at midnight, while [[Television in Argentina|TV
+        channels]] do so before closing down their daily broadcast. On [[Public holidays
+        in Argentina|national holidays]], it is mandatory to perform the anthem at
+        midnight and noon.\n\nThe anthem is ruled in [[Law of Argentina|Argentine
+        law]] by Decree 10302/1944.<ref name=Decree10302>\n{{cite web |url=http://servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=59311
+        |title=Decreto 10302/1944 |publisher=Ministry of Justice and Human Rights
+        |language=Spanish |trans_title=Decree 10302/1944 |accessdate=21 November 2011}}</ref>\n\nThe
+        rock musician [[Charly Garc\u00eda]] broke legal regulations dealing with
+        the reproduction of the song when he included an idiosyncratic [[cover version]]
+        in his 1990 album ''''{{lang|es|Filosof\u00eda barata y zapatos de goma}}'''',
+        stirring much controversy.<ref>Buch, ''''O juremos con gloria morir'''', pp.
+        147\u2013156.</ref> In 1998 various [[Music of Argentina|Argentine artists]]
+        reedited the anthem and other patriotic songs in the joint album ''''{{lang|es|El
+        Grito Sagrado}}''''. Other singers followed on their footsteps recreating
+        the piece in their own ways.\n\nA line from the original anthem was used as
+        the Argentine title of the 1928 film known in English as ''''[[The Charge
+        of the Gauchos]]''''.\n\nThe anthem appears at the beginning of the [[1985
+        in film|1985]] movie ''''[[The Official Story]]'''', [[Academy Awards|Academy
+        Award]] winner.\n===Short instrumental versions===\n{{listen\n | filename    =
+        Himno Nacional Argentino short instrumental.ogg\n | title       = Short instrumental\n
+        | description = Recording by the [[United States Navy]] Band of the abridged
+        version, used at occasions such as soccer games.\n | format      = [[Ogg]]\n}}\nDue
+        to the excessive length of the official version, in international events such
+        as the [[Olympic Games]], professional [[Association football|soccer]] games,
+        and the [[Rugby World Cup]], only the instrumental introduction (which lasts
+        1 minute 6 seconds) is played. Another variation is to play the musical break
+        that leads into the chorus, the chorus itself, and the [[coda (music)|coda]].
+        Although traditional, these arrangements are not recognized by Argentine law.\n\n==Lyrics==\n\n===Original
+        version===\nSeveral slightly different renderings of the original version,
+        ''''{{lang|es|Marcha Patri\u00f3tica}}'''', have been published, some with
+        older spellings modernised and so on.<ref>{{cite web |url=http://www.profesorgentile.com.ar/himnonacional.html|deadurl=yes|archiveurl=https://web.archive.org/web/20131202074704/http://www.profesorgentile.com.ar/himnonacional.html|archivedate=2013-12-02|title=\u00a1O\u00edd
+        Mortales!... |first=Fernando |last=Pereyra |work=Dr. Jorge Horacio Gentile
+        |language=Spanish |trans_title=Hear mortals!... |accessdate=5 November 2014}}
+        A modern rendering of the original version, with some changes to wording and
+        punctuation</ref> The very first version published<ref>[http://colegiodecaligrafos.org.ar/wp-content/uploads/2011/07/primerimpresohimno.jpg
+        Early published version of the Marcha Patri\u00f3tica, with errors], including
+        \"se ''''opone'''' a la frente\" instead of \"se ''''pone'''' a la frente\".</ref>
+        had some errors. In addition to spelling mistakes (\"imbasor\" for \"invasor\"
+        in the printed version, but not the manuscript<ref>Image of manuscript [http://mininterior.gov.ar/archivo/galerias/img_galerias/himno_03.jpg
+        page 1] [http://mininterior.gov.ar/archivo/galerias/img_galerias/himno_04.jpg
+        page 2]</ref>), an error that was particularly unfortunate in light of later
+        conflicts was \"Buenos--Ayres se ''''opone'''' a la frente de los pueblos
+        ...\" in the manuscript instead of \"... se ''''pone'''' ...\"; \"Buenos Aires
+        ''''opposes'''' the front of the peoples\" instead of \"Buenos Aires ''''puts
+        itself at'''' the front of the peoples\".<ref name=scielo>[http://www.scielo.org.ar/scielo.php?pid=S1669-90412006000100015&script=sci_arttext
+        The Patriotic March written by Vicente L\u00f3pez: Depiction of a historical
+        scene of tension]. Analysis of the original Marcha Patri\u00f3tica, in Spanish,
+        with abstract in English.</ref> A \"corrected\" original version bearing the
+        same date of 14 May 1813 (still with some clear errors, such as ''''son\u00f3ro'''',
+        ''''cien'''' for [[Temple (anatomy)|temples]] of the head, and inconsistencies
+        such as both ''''alas'''' and ''''\u00e1las'''') is transcribed below, as
+        printed.<ref>[http://tn.com.ar/sites/default/files/2013/05/11/uploaded/image012.gif
+        Image of the 14 May 1813 sheet with the words of the  Marcha Patri\u00f3tica]</ref><!--Note:
+        references to .jpg and .gif images are facsimiles of original; the version
+        often printed as original is not identical. Some spellings, wording, and archaic
+        accents are different. (qual, \u00e1, indentation, capitals, punctuation,
+        \"una nueva gloriosa Naci\u00f3n\" without \"y\", &c.) I''ve provided images
+        of the manuscript, an early printed version, and a corrected printed version:
+        they are all slightly different (see Talk). I have transcribed the corrected
+        printed version, errors (son\u00f3ro) and all. pol098-->\n{| class=\"wikitable\"\n!width=\"320\"|''''''''''{{lang|es|Marcha
+        Patri\u00f3tica}}'''' (1813)''''''!!width=\"390\"|English translation\n|-
+        valign=\"top\"\n||\n<poem>  O\u00edd, mortales el grito sagrado\nLibertad,
+        libertad, libertad:\nO\u00edd el ruido de rotas cadenas,\nved en trono a la
+        noble igualdad.\nSe levanta en la faz de la tierra\nUna nueva gloriosa naci\u00f3n,\nCoronada
+        su cien de laureles,\nY a sus plantas rendido un Leon.\n            CORO\n      ''''Sean
+        eternos los laureles,''''\n    ''''Que supimos conseguir:''''\n    ''''Coronados
+        de gloria vivamos,''''\n    ''''O juremos con gloria morir.''''\n\n  De los
+        nuevos campeones los rostros\nMarte mismo parece animar;\nLa grandeza se anida
+        en sus pechos:\nA su marcha todo hacen temblar.\nSe conmueven del Inca las
+        tumbas,\nY en sus huesos revive el ardor,\nLo que v\u00e9 renovando a sus
+        hijos\nDe la Patria el antiguo esplendor.\n''''Sean eternos los laureles &c.''''\n  Pero
+        sierras y muros se sienten\nRetumbar con horrible fragor:\nTodo el pa\u00eds
+        se conturba por gritos\nDe venganza, de guerra, y furor.\nEn los fieros tiranos
+        la envidia\nEscupi\u00f3 su pest\u00edfera hiel,\nSu estandarte sangriento
+        levantan\nprovocando a la lid m\u00e1s cruel.\n''''Sean eternos los laureles
+        &c.''''\n  \u00bfNo los veis sobre M\u00e9xico, y Quito\nArrojarse con sa\u00f1a
+        tenaz?\n\u00bfY qu\u00e1l lloran, ba\u00f1ados en sangre\nPotos\u00ed, Cochabamba,
+        y La Paz?\n\u00bfNo los veis sobre el triste Caracas\nLuto, y llanto, y muerte
+        esparcir?\n\u00bfNo los veis devorando qual fieras\nTodo pueblo que logran
+        rendir?\n''''Sean eternos los laureles &c.''''\n  A vosotros se atreve Argentinos,\nEl
+        orgullo del vil invasor.\nVuestros campos y\u00e1 pisa contando\nTantas glorias
+        hollar vencedor.\nMas los bravos, que unidos juraron\nSu feliz libertad sostener,\nA
+        estos tigres sedientos de sangre\nFuertes pechos sabr\u00e1n oponer.\n''''Sean
+        eternos los laureles &c.''''\n  El valiente Argentino \u00e1 las armas\nCorre
+        ardiendo con br\u00edo y valor:\nEl clar\u00edn de la guerra, qual trueno\nEn
+        los campos del Sud reson\u00f3.\n{{sic|Buenos--Ayres|hide=y}}<!--double-hyphen
+        as original--> se opone<ref>Typo; \"pone\" is meant.</ref> \u00e1 la frente\nDe
+        los pueblos de la \u00ednclita union,\nY con brazos robustos desgarran\nAl
+        ib\u00e9rico altivo Leon.\n''''Sean eternos los laureles &c.''''\n  San Jos\u00e9,
+        San Lorenzo, Suipacha,\nAmbas Piedras, Salta, y Tucum\u00e1n,\nLa Colonia
+        y las mismas murallas\nDel tirano en la banda Oriental.\nSon letreros eternos
+        que dicen:\nAqu\u00ed el brazo argentino triunf\u00f3:\nAqu\u00ed el fiero
+        opresor de la Patria\nsu cerviz orgullosa dobl\u00f3.\n''''Sean eternos los
+        laureles &c.''''\n  La victoria al guerrero argentino\ncon sus \u00e1las brillantes
+        cubri\u00f3,\nY azorado \u00e1 su vista el tirano\nCon infamia \u00e1 la fuga
+        se di\u00f3.\nSus banderas, sus armas se rinden \npor trofeos a la libertad,\nY
+        sobre alas de gloria alza el pueblo\nTrono digno a su gran majestad.\n''''Sean
+        eternos los laureles &c.''''\n  Desde un polo hasta el otro resuena\nDe la
+        fama el son\u00f3ro clar\u00edn,\nY de Am\u00e9rica el nombre ense\u00f1ando\nLes
+        repite, mortales, o\u00edd:\nY\u00e1 su trono dign\u00edsimo abrieron\nLas
+        provincias unidas del Sud.\nY los libres del mundo responden\nAl gran pueblo
+        argentino salud.\n''''Sean eternos los laureles &c.''''\n\n  Es copia ''''Dr
+        Bernardo Velez''''  Secretario del Gobierno de Intendencia.\n    ''''Buenos
+        Ayres mayo 14 de 1813. [[:es:Real Imprenta de Ni\u00f1os Exp\u00f3sitos|Imprenta
+        de Ni\u00f1os Exp\u00f3sitos]]''''.</poem>\n||\n<poem>Hear, mortals, the sacred
+        cry:\n\"Freedom, freedom, freedom\"\nHear the sound of broken chains,\nsee
+        noble equality enthroned.\nOn the face of the earth rises \nA glorious new
+        nation. \nHer head is crowned with laurels, \nAnd a Lion lies defeated at
+        her feet.\n            CHORUS\n''''May the laurels be eternal'''',\n''''that
+        we knew how to win''''.\n''''Let us live crowned with glory'''',\n''''or swear
+        to die gloriously''''.\n\nThe faces of the new champions\nseem animated by
+        Mars himself\nGreatness nestles in their breasts:\nas they march everything
+        trembles.\nThe tombs of the dead Inca are shaken up,\nand in their bones the
+        ardour revives\nwhich renews their children\nof the Fatherland the ancient
+        splendour.\n''''May the laurels be eternal etc''''.\nBut hills and walls are
+        heard\nto echo with awful clamour:\nthe whole country is shaken by cries\nof
+        revenge, of war, and fury.\nOn fierce tyrants envy\nspat its pestilential
+        bile;\ntheir bloody standard they raise\nprovoking the most cruel fighting.\n''''May
+        the laurels be eternal etc''''.\nDo you not see them on Mexico and Quito\nthrowing
+        themselves with tenacious cruelty?\nAnd how weep, soaked in blood,\nPotos\u00ed,
+        Cochabamba and La Paz?\nDo you not see them over sad Caracas\nspread mourning,
+        and tears, and death?\nDo you not see them devouring as wild beasts\nall peoples
+        who they defeat?\n''''May the laurels be eternal etc''''.\nIt dares face you,
+        Argentines,\nthe pride of the vile invader.\nYour lands it tramples, boasting\nof
+        many glories as victor.\nBut the brave, who united swore\ntheir happy freedom
+        to sustain,\nthese blood-thirsty tigers\nthey will confront with strong chests.\n''''May
+        the laurels be eternal etc''''.\nThe valiant Argentine to arms\nruns burning
+        with zest and valour,\nthe bugle of war, as thunder,\nin the fields of the
+        South resounded.\nBuenos Aires opposes<ref>Typo in original; \"puts itself
+        at the front\" is meant. See top of this section</ref> the front\nof the people
+        of the illustrious Union,\nand with strong arms they tear to pieces\nthe arrogant
+        Iberian lion.\n''''May the laurels be eternal etc''''.\nSan Jos\u00e9, San
+        Lorenzo, Suipacha,\nboth Piedras, Salta and Tucum\u00e1n,\nLa Colonia and
+        even the walls\nof the tyrant on the Eastern bank\u2020.\nThey are eternal
+        signboards that say:\n\"Here Argentine hands triumphed,\nhere the fierce oppressor
+        of the Fatherland\nhis proud neck bent\".\n''''May the laurels be eternal
+        etc''''.\nVictory enveloped the Argentine warrior\nwith its shining wings,\nand
+        stunned at this sight the tyrant\nwith infamy took to flight.\nHis flags,
+        his arms surrendered\nas trophies to freedom,\nand on wings of glory the people
+        raise\na throne worthy of its great majesty.\n''''May the laurels be eternal
+        etc''''.\nFrom pole to pole resounds\nthe sonorous bugle of fame,\nand showing
+        the name of America\nit repeats \"Mortals, hear!:\nTheir noble throne have
+        now opened\nthe united provinces of the South.\"\nAnd the free people of the
+        world reply:\n\"To the great Argentine people, hail!\"\n''''May the laurels
+        be eternal etc''''.\n</poem>\n\u2020 <small>\"Eastern bank\" of the [[Uruguay
+        River]]</small>.\n|}\n\n===Modern version===\nThe following is the modern
+        version, adopted in 1924, omitting the long anti-Spanish middle section.\n{|
+        class=\"wikitable\"\n!width=\"290\"|''''''Abbreviated modern version (1924)''''''!!width=\"360\"|English
+        translation\n|- valign=\"top\"\n||\nO\u00edd, mortales, el grito sagrado:<br
+        />\n\"\u00a1Libertad! \u00a1Libertad! \u00a1Libertad!\"<br />\nO\u00edd el
+        ruido de rotas cadenas<br />\nved en trono a la noble igualdad<br />\n<br
+        />\nYa su trono dign\u00edsimo abrieron<br />\nlas Provincias Unidas del Sud<br
+        />\ny los libres del mundo responden:<br />\n\"\u00a1Al gran pueblo argentino,
+        salud!\"<br />\n\"\u00a1Al gran pueblo argentino, salud!\"<br />\nY los libres
+        del mundo responden:<br />\n\"\u00a1Al gran pueblo argentino, salud!\"<br
+        />\nY los libres del mundo responden:<br />\n\"\u00a1Al gran pueblo argentino,
+        salud!\"<br />\n<br />\nSean eternos los laureles,<br />\nque supimos conseguir,<br
+        />\nque supimos conseguir.<br />\nCoronados de gloria vivamos<br />\no juremos
+        con gloria morir!<br />\nO juremos con gloria morir!<br />\nO juremos con
+        gloria morir!<br />\n||\nHear, mortals, the sacred cry:<br />\n\"Freedom!
+        Freedom! Freedom!\"<br />\nHear the sound of broken chains<br />\nSee noble
+        equality enthroned.<br />\n<br />\nTheir most worthy throne have now opened<br
+        />\nThe [[United Provinces of the Rio de la Plata|United Provinces of the
+        South]].<br />\nAnd the free people of the world reply:<br />\n\"To the great
+        [[Argentine people]], hail!\"<br />\n\"To the great Argentine people, hail!\"<br
+        />\nAnd the free ones of the world reply:<br />\n\"To the great Argentine
+        people, hail!\"<br />\nAnd the free ones of the world reply:<br />\n\"To the
+        great Argentine people, hail!\"<br />\n<br />\nMay the laurels be eternal<br
+        />\nthat we were able to achieve<br />\nthat we were able to achieve<br />\nLet
+        us live crowned in glory<br />\nor let us swear in glory to die<br />\nOr
+        let us swear in glory to die<br />\nOr let us swear in glory to die.<br />\n|}\n\n==References==\n{{Reflist|30em}}\n\n==External
+        links==\n*[http://nationalanthems.me/argentina-himno-nacional-argentino/ Argentina:
+        ''''Himno Nacional Argentino'''' - Audio of the national anthem of Argentina,
+        with information and lyrics]\n*[http://www.navyband.navy.mil/anthems/ANTHEMS/Argentina%20(long).mp3
+        Argentine National Anthem MP3]\n*[http://www.nationalanthems.info/ar.mp3 Argentine
+        National Anthem MP3]\n*[https://archive.org/download/HimnoNacionalArgentino_100/HimnoNacionalArgentinovocal.mp3
+        Argentine National Anthem (vocal) MP3]\n*[http://www.sitiosargentina.com.ar/mp3/himno_inst.mp3
+        Argentine National Anthem MP3]\n*[https://www.youtube.com/watch?v=VTAf27OkuYE
+        Argentine National Anthem with English subtitles] on [[YouTube]].\n*[https://archive.org/details/himnoargquechua
+        Listen in the Quechua language]\n*[https://www.youtube.com/watch?v=Wjz5ZcHNgbA
+        Argentine National Anthem] Upade Radio broadcast Television Versi\u00f3n.\n*[http://users.atw.hu/szbszig/argentina.mp3
+        Choral]\n\n{{National emblems of Argentina}}\n{{National Anthems of South
+        America}}\n\n[[Category:National symbols of Argentina]]\n[[Category:South
+        American anthems|Argentina]]\n[[Category:Spanish-language songs]]\n[[Category:1810s
+        songs]]\n[[Category:National anthems]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-09-08T06:00:42Z","lastrevid":786039401,"length":25152,"fullurl":"https://en.wikipedia.org/wiki/Argentine_National_Anthem","editurl":"https://en.wikipedia.org/w/index.php?title=Argentine_National_Anthem&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Argentine_National_Anthem"},"29464291":{"pageid":29464291,"ns":0,"title":"En
+        uni\u00f3n y libertad","revisions":[{"timestamp":"2017-08-22T22:50:04Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"''''''''''{{lang|es|En
+        uni\u00f3n y libertad}}'''''''''' ([[Spanish language|Spanish]] for \"in unity
+        and freedom\") is [[Argentina]]''s national motto.<ref>{{cite web |url=http://www.centrosanfrancisco.org.ar/noticias/UNION.pdf
+        |title=En uni\u00f3n y libertad |last=Pezzano |first=Luciano |website=Centro
+        Filat\u00e9lico y Numism\u00e1tico San Francisco |page=1 |language=Spanish
+        |trans_title=In unity and freedom |format=PDF |accessdate=3 January 2014 |quote=El
+        objeto de este estudio es la divisa \"En Uni\u00f3n y Libertad\", aut\u00e9ntico
+        lema nacional&nbsp;...}}</ref><ref>{{cite web |url=http://www.caei.com.ar/sites/default/files/cultura.pdf#page=17
+        |title=La cultura como factor de un poder de estado |last=Fern\u00e1ndez |first=Sebasti\u00e1n
+        Mart\u00edn |website=Centro Argentino de Estudios Internacionales |page=17
+        |language=Spanish |trans_title=Culture as a factor of a state power |format=PDF
+        |accessdate=3 January 2014 |quote=El lema de la Argentina es desde la Asamblea
+        del A\u00f1o XIII \"En Uni\u00f3n y Libertad\".}}</ref> It appeared for the
+        first time on the earliest Argentine gold and silver coins, as established
+        by the [[Assembly of the Year XIII|1813 General Assembly]]<ref>{{cite web|url=http://www.me.gov.ar/efeme/escudonacional/asamblea.html
+        |title=Asamblea General Constituyente. Sesi\u00f3n del 12 de Marzo de 1813
+        |website=Ministerio de Educaci\u00f3n de la Naci\u00f3n |language=Spanish
+        |trans_title=General Constituent Assembly. Session of March 12, 1813 |accessdate=3
+        January 2014 |quote=...&nbsp;por el reverso un Sol que ocupe todo el centro,
+        y alrededor la inscripci\u00f3n siguiente: En Uni\u00f3n y Libertad&nbsp;...
+        |deadurl=yes |archiveurl=https://web.archive.org/web/20140104034616/http://www.me.gov.ar/efeme/escudonacional/asamblea.html
+        |archivedate=4 January 2014 |df= }}</ref> during the [[Argentine War of Independence|War
+        of Independence]] of the [[United Provinces of the R\u00edo de la Plata]]
+        from the [[Spanish Empire]]. It can be seen in all [[Argentine peso|peso]]
+        coins and banknotes currently in circulation.\n\n<gallery class=\"center\">\nFile:Coat
+        of arms of Argentina.svg|[[Coat of arms of Argentina]]. The handshake symbolizes
+        unity and the [[Phrygian cap]], freedom.\n</gallery>\n\n==References==\n{{Reflist}}\n\n{{National
+        emblems of Argentina}}\n\n{{DEFAULTSORT:En union y libertad}}\n[[Category:National
+        symbols of Argentina]]\n[[Category:National mottos]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-08-22T22:50:04Z","lastrevid":796764760,"length":2322,"fullurl":"https://en.wikipedia.org/wiki/En_uni%C3%B3n_y_libertad","editurl":"https://en.wikipedia.org/w/index.php?title=En_uni%C3%B3n_y_libertad&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/En_uni%C3%B3n_y_libertad"},"2627884":{"pageid":2627884,"ns":0,"title":"Constitution
+        of Argentina","revisions":[{"timestamp":"2017-08-19T21:51:55Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{{Politics
+        of Argentina}}\nThe ''''''Constitution of Argentina'''''' is the basic governing
+        document of [[Argentina]], and the primary source of existing [[Law of Argentina|law
+        in Argentina]]. [[Argentine Constitution of 1853|Its first version]] was written
+        in 1853 by a Constitutional Assembly gathered in [[Santa Fe, Argentina|Santa
+        Fe]], and the doctrinal basis was taken in part from the [[United States Constitution]].
+        It was then reformed in 1860, 1866, 1898, 1949, 1957 (which mainly repealed
+        the 1949 reform), and the current version is the [[1994 reform of the Argentine
+        Constitution|reformed text of 1994]].\n\n==History==\n[[Image:JuanBaustistaAlberdi.JPG|thumb|230px|[[Juan
+        Bautista Alberdi]], the legal scholar who drafted the 1853 Constitution.]]
+        \nThe first attempt to divide political power in [[Argentina]] was during
+        the government created after the [[May Revolution]] (Spanish: Revoluci\u00f3n
+        de Mayo): the [[Primera Junta]] could not create new taxes without the ''''Cabildo''''''s
+        authorization.\n\nMany revolutionary leaders, led by [[Mariano Moreno]], wanted
+        to declare independence immediately and to make a constitution in order to
+        build an independent state. In October 1811, the [[Junta Grande]], which succeeded
+        the Primera Junta, enacted the Regulation for the Division of Power, but it
+        was not accepted by the [[First Triumvirate (Argentina)|executive power]].
+        Nevertheless, the [[freedom of press]] and the Decree on Individual Security
+        were accepted by November.\nIn 1813, the [[Asamblea del A\u00f1o XIII|General
+        Constitutional Assembly]] was intended to declare a constitution but it could
+        only declare the freedom for slaves'' sons.\n\nIn [[Argentine Constitution
+        of 1819|1819]] and [[Argentine Constitution of 1826|1826]] were declared two
+        constitutions that eventually failed because of the disagreement between [[Federales
+        (Argentina)|Federals]] and [[Unitarian Party|Centralists]].\nMany other ''''constitutional''''
+        pacts existed between 1820 and 1853 (when the current Argentine Constitution
+        was enacted). The most important of them are: the [[Treaty of Pilar]] (1820),
+        the [[Quadrilateral Treaty|Treaty of the ''''Cuadril\u00e1tero'''']] (1822),
+        the [[Pacto Federal|Federal Pact]] (1831), the Palermo Protocol (1852), and
+        the [[San Nicol\u00e1s Agreement|Treaty of San Nicol\u00e1s]] (1852).\n\nThe
+        [[Pacto Federal|Federal Pact]] urged all the provinces to call a General Federal
+        Congress, however this would have limited [[Juan Manuel de Rosas]]''s power
+        who was the most powerful province governor, so the Congress was never called.\nWhen
+        Rosas was defeated, in 1852, the [[San Nicol\u00e1s Agreement|Treaty of San
+        Nicol\u00e1s]] finally called the Constitutional Congress that, in Santa Fe,
+        on May 1, 1853, sworn to make effective the federal Constitution. Consequently,
+        the [[Buenos Aires Province|Province of Buenos Aires]] left the [[Argentine
+        Confederation]] until 1859.\n\n===Reforms to the 1853 Constitution===\nThe
+        first constitutional amendment to the original 1853 text was performed in
+        1860 after Buenos Aires rejoined the Argentine Confederation. It consisted
+        of several changes to many of the original articles. One of the major changes
+        was the renaming of the state: according to the reform, the country would
+        be officially named ''''Rep\u00fablica Argentina'''' (\"Argentine Republic\")
+        and, for legal purposes, ''''Naci\u00f3n Argentina'''' (\"Argentine Nation\"),
+        replacing the older Argentine Confederation denomination in all articles of
+        the constitution. Another important inclusion was the constitutional recognizing
+        of Buenos Aires'' exclusive rights guaranteed by the Treaty of San Nicol\u00e1s.\n\nThe
+        following reform was done in 1866 and established that exportation and importation
+        taxes would be destined to the National Treasury indefinitely, no longer until
+        1866 as the 1860 reform did.\n\nIn 1898, another minor constitutional amendment
+        was approved. It allowed a more flexible ratio for proportional apportionment
+        in the [[Argentine Chamber of Deputies|Chamber of Deputies]] and set the number
+        of ministries to eight.\n\nDuring [[Juan Domingo Per\u00f3n]]''s government
+        the [[Argentine Constitution of 1949]] was successfully passed, a major revision
+        of the constitution. Its goal was to modernize and adapt the text to the twentieth
+        century''s concepts of democracy, as for example, including a list of ''''social
+        rights'''' including better working conditions for the working class, right
+        to good education, etc. This also was included into the principles stated
+        on the Preamble. Also, it permitted the indefinite reelection of the president.\n\nDuring
+        the military regime known as the ''''[[Revoluci\u00f3n Libertadora]]'''' that
+        had deposed Per\u00f3n''s government in 1955, in 1957 and before the elections
+        that had to be held in 1958, a Constitutional Convention was elected to reform
+        the constitution. This reform does not include 1949''s, implicitly annulling
+        it so the text was based on the 1898 one. The only changes done were to include
+        a summary of Per\u00f3n''s social articles known as ''''article 14 bis''''
+        (existing currently) and to establish the necessity to have a Labour and Social
+        Security Code.\n\nIn 1972, a \"Constitutional Amendment\" done by the military
+        government led by general [[Alejandro A. Lanusse]] reformed the 1957 text.
+        This had to last until 1977 but its application could be extended until 1981
+        if no Constitutional Convention in 1976 decided either to accept it or reject
+        it definitively. This amendment was not fully applied by the democratic government
+        of Per\u00f3n in his third term nor by his wife [[Isabel Per\u00f3n]] acting
+        as President after his death. Some changes were related to the size of Senate
+        and one-term reelection of president and vice-president. Also reduced presidential,
+        senatorial and deputies'' terms all to four years.\n\nThe last (and current)
+        version of the Argentine Constitution was done by [[Carlos Sa\u00fal Menem]]
+        in 1994. It included many of the modifications from the 1972 \"amendment\"
+        as the growth of the Senate size (three per Province), one-term presidential
+        reelection and reduction of its term to four years. It also made [[Buenos
+        Aires|Buenos Aires City]] an [[Autonomous city|autonomous entity]] with its
+        own authorities. Other changes were done to ensure a softer presidentialist
+        regime, the inclusion of a new chapter into the Bill of Rights related to
+        politics, health and environment, and also the adoption of a much faster legislative
+        procedure for creating laws. In addition with the 1994 constitutional reform,
+        the requirement of belonging to the Roman Catholic faith in order to be President
+        or Vice President of the Republic, was also abolished.<ref>{{cite web|title=Argentina
+        1853 (reinst. 1983, rev. 1994)|url=https://www.constituteproject.org/constitution/Argentina_1994?lang=en|website=Constitute|accessdate=2
+        March 2015}}</ref>\n\n==Divisions==\nThe Argentine Constitution has four major
+        division types; Parts, Titles, Divisions and Chapters, though these need not
+        be present all the time. For example, the First Part is divided into Chapters
+        but not into Titles nor Sections. The scheme of the Constitution is the following:\n*Preamble\n*First
+        Part (43 sections)\n**First Chapter ''''Declarations, rights and guarantees''''
+        (35 sections)\n**Second Chapter ''''New rights and guarantees'''' (8 sections)\n*Second
+        Part ''''Authorities of the Nation'''' (86 sections)\n**First Title ''''Federal
+        Government'''' (77 sections)\n***First Division ''''Of the Legislative Power''''
+        (43 sections, 42 + 1 separated)\n****First Chapter ''''Of the Chamber of Deputies''''''(9
+        sections)\n****Second Chapter ''''Of the Senate'''' (9 sections)\n****Third
+        Chapter ''''Common dispositions to both Chambers'''' (12 sections)\n****Fourth
+        Chapter ''''Powers of the Congress'''' (2 sections, of which one is sub-divided
+        32 times)\n****Fifth Chapter ''''Of the formation of Laws'''' (8 sections)\n****Sixth
+        Chapter ''''Of the [[Auditor\u00eda General de la Nacion]] (1 sections)\n****Seventh
+        Chapter ''''Of the Ombudsman'''' (1 sections)\n***Second Division ''''Of the
+        Executive Power'''' (21 sections)\n****First Chapter ''''Of its nature and
+        duration'''' (7 sections)\n****Second Chapter ''''Of the way and time of the
+        election of the President and \n****Third Chapter ''''Powers of the Executive
+        Branch'''' (1 sections sub-divided 20 times)\n****Fourth Chapter ''''Of the
+        ministers'''' (8 sections, of which one is sub-divided 13 times)\n***Third
+        Division ''''Of the Judicial Power'''' (12 sections)\n****First Chapter ''''Of
+        its nature and duration'''' (8 sections)\n****Second Chapter ''''Powers of
+        the Judicial Branch'''' (4 sections)\n***Fourth Section ''''Of the Office
+        of the Public Prosecution'''' (1 sections)\n**Second Title ''''Provincial
+        Governments'''' (9 sections)\n*Transitorial Provisions\n\n==Preamble==\n[[Image:Constituci\u00f3n
+        Nacional Argentina 1853 - p\u00e1gina 1.jpeg|thumb|240px|left|''''\"Nos los
+        Representantes del Pueblo de la Naci\u00f3n Argentina &hellip;\"'''']]\nThe
+        Preamble of the Argentine Constitution states or implies, in short terms,
+        a number of starting points for the conception of the nation, such as a representative
+        government. It acknowledges previous agreements to create a constitution (in
+        order to legitimize the gathering of the Assembly). Finally, it lays the foundations
+        for the policy of support of [[immigration in Argentina|immigration]], by
+        asking \"for the protection of [[God]], source of all reason and justice\"
+        for all people who desire to inhabit Argentina.\n\n==Declarations, rights
+        and guarantees ==\nThe Constitution establishes a Bill of Rights and Guarantees
+        for all individuals, Argentine or foreign; the inviolability of the right
+        of life, liberty, equality, security and property. The second chapter, added
+        in 1994, deals with public ethics, political rights, environmental protection
+        and consumer rights.\n\nCivil rights are recognized to all inhabitants with
+        no distinction of nationality. This is a consequence of the traditional interest
+        of Argentina in the affluence of foreigners and foreign investment. Labor
+        rights are also acknowledged (this is part of the legacy of [[Peronism]],
+        resulting in the 1949 and 1957 reforms). These include limited labor day,
+        just salary, right of organization, social security benefits, etc.\n\nThe
+        constitution declares that no one can be deprived of property, except in case
+        of judicial sentence based on previously enacted legislation, or through expropriation
+        for reasons of public utility, dully qualified by law and previously indemnified.
+        The person, its judicial defense, its domicile and correspondence are inviolable.\n\nWhat
+        the law does not forbid is permitted. Individuals have complete freedom to
+        do or refuse to do anything in private, except if that interferes with public
+        order or morality, or causes damage to third parties.\n\nThe 1994 reform introduces
+        several new legal figures: ''''amparo judicial'''' (an [[injunction]]), ''''habeas
+        corpus'''' and ''''habeas data''''. Injunctions are destined to protect citizens
+        from actual or imminent damage; ''''[[habeas corpus (Argentine law)|habeas
+        corpus]]'''' (known for a long time to Argentine jurisprudence, and related
+        to the [[habeas corpus]] of [[Common Law]]) is to protect the citizen''s physical
+        freedom; and ''''[[habeas data (Argentine law)|habeas data]]'''' is a person''s
+        right to access information about himself or herself, and request its confidentiality,
+        a change or a suppression.\n\nThe Argentine Constitution''s rights are divided
+        in four groups: Civil, patrimonial, politic and social.\n\n===Declarations===\nDeclarations
+        state the basis that hold the nation''s politics and define it as an independent
+        entity, for example, Article 1 states that the government is representative,
+        republican and federal and Article 35 lists the Country''s official names.\n\n===Guarantees===\nThey
+        are institutional methods to protect the exercise of fundamental rights. They
+        are so important that it is possible to say that a right can be held as long
+        as it has a guarantee to protect it.\nMost of Guarantees are in the sections
+        18 and 43, between these are: habeas corpus, the abolition of death penalty
+        and torture.\n\n===Rights===\nThe Argentine Constitution''s rights are divided
+        in four groups: Civil, patrimonial, politic and social.\n\n* ''''''Civil''''''
+        rights are related to the people as individuals. Some examples are: right
+        to live, have honor, have a name, make associations and to express opinions.\n*
+        ''''''Patrimonial'''''' rights protect men in relation to their goods. Some
+        examples are: to own, to sell and to hire and build legal industries.\n* ''''''Politic''''''
+        rights allow people to take part in the government, by themselves or by electing
+        representatives: this category includes the right to choose and be chosen
+        for the government and to make or join a political party.\n* ''''''Social''''''
+        rights are related to people as part of society: these are (among many others)
+        the rights to work, to have fair wages, to know, to learn, to teach.\n\nIn
+        [[Argentina]], Freedom is one of the most important rights. Section 19 says
+        that private actions of men that don''t harm the public order or another man
+        can not be judged by authorities. Moreover, it holds the \"principle of legality\":
+        ''''No inhabitant of the Nation will be forced to do what the law doesn''t
+        order nor forbidden to do what the law doesn''t forbid''''.\nEquality is as
+        important as freedom. Section 16 states that in the country there are no noble
+        titles and \"all its inhabitants are equal before the law\"\n\n==Form of government==\nAccording
+        to the Constitution, Argentina is a representative [[federalism|federal]]
+        [[republic]], divided in [[provinces of Argentina|provinces]], [[municipality|municipalities]],
+        and the Autonomous City of [[Buenos Aires]]. Each province has the right and
+        duty to dictate its own constitution, respecting the same principles as the
+        national constitution.\n\n==Divisions of government powers==\n[[Image:Edificio
+        del Congreso en Buenos Aires 2004.JPG|thumb|250px|Congress building in Buenos
+        Aires, Argentina]]\nThe Constitution mandates a strict separation of government
+        powers, into three branches (Executive, Legislative, and Judicial) and the
+        Public Ministry.\n\n===Executive===\nThe Executive Branch is formed by the
+        [[President of Argentina|President]] (Art. 87). The Vice-president replaces
+        the President in case of illness, absence from the capital, death, resignation,
+        or removal.\n\nThe Vice-President doesn''t belong to the executive branch.
+        Curiously, it belongs to the legislative branch since he is also the president
+        of the senate. (Art. 57)\n\nThe President promulgates the laws sanctioned
+        by Congress, and has veto power over them. The President directs international
+        relations and is the Commander in Chief of the Army. In some cases, the President
+        can issue [[Necessity and Urgency Decree|emergency decrees]].\n\n===Legislative===\nThe
+        Legislative Branch is composed of the Vice-President, a bicameral Congress,
+        the General Auditing Office of the Nation and the Ombudsman. Congress is divided
+        in two Houses: ''''C\u00e1mara de Diputados'''' ([[Argentine Chamber of Deputies|Chamber
+        of Deputies]], the Lower House) and ''''C\u00e1mara de Senadores'''' ([[Argentine
+        Senate|Senate]], the Upper House).\n\nThe Vice-President belongs in the Legislative
+        Branch since he (or she) is also the President of the Senate Chamber.\n\nThe
+        General Auditing Office of the Nation is a technical advisory body of Congress
+        with functional autonomy.\n\nThe Ombudsman is an independent body which works
+        without receiving instructions from any authority. The mission of the Ombudsman
+        is the defense and protection of human rights, civil rights and guarantees,
+        and the control of the Administration.\n\n===Judicial===\nThe Judicial Branch
+        is formed by the Supreme Court, and lower courts throughout the country. The
+        Supreme Justices and all judges hold their offices as long as they are not
+        deposed for misbehavior.\n\n===Public Ministry===\nThe Public Ministry is
+        an independent body with functional autonomy and financial autarchy, with
+        the function of promoting justice for the defense of legality, of the general
+        interests of society, in coordination with the other authorities of the Republic.\n\nIt
+        is composed of an Attorney General of the Nation and an Ombudsman General
+        of the Nation, and such other members as the law may establish.\n\n==See also==\n*[[Argentine
+        Constitution of 1853]]\n* [[Argentine Constitution of 1949]]\n* [[Politics
+        of Argentina]]\n* [[Law of Argentina]]\n* [[Constitution]]\n* [[Constitutional
+        law]]\n* [[Constitutional economics]]\n* [[Constitutionalism]]\n* [[Rule according
+        to higher law]]\n\n==References==\n{{Reflist}}\n{{wikisourcepar|Constitution
+        of Argentina}}\n*{{en icon}} [http://www.biblioteca.jus.gov.ar/argentina-constitution.pdf
+        Official translation to English]\n*{{es icon}} {{cite web |url= http://www1.hcdn.gov.ar/dependencias/dip/congreso/Constitucion%20sola.pdf
+        |archive-url= http://wayback.archive-it.org/all/20090224232449/http://www1.hcdn.gov.ar/dependencias/dip/congreso/Constitucion%20sola.pdf
+        |dead-url= yes |archive-date= 2009-02-24 |title= Complete text }}&nbsp;{{small|(323&nbsp;[[Kibibyte|KiB]])}}
+        from the [[Argentine Chamber of Deputies]] page.\n*{{es icon}} [http://www.cervantesvirtual.com/servlet/SirveObras/12948322049039384109435/p0000001.htm#I_0_
+        Reforms to the original 1853 Constitution]\n\n''''Formaci\u00f3n \u00c9tica
+        y ciudadana, los derechos humanos, la vida en democracia y la sociedad justa''''
+        - Casullo, Funes, Hirschmann, Rasnosky, and Schuster, {{ISBN|950-46-0582-6}}\n\n{{Americas
+        topic|Constitution of|title=Constitutions of American countries}}\n{{Argentina
+        topics}}\n\n[[Category:Constitutions of Argentina| ]]\n[[Category:Argentine
+        law]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-08-19T21:51:55Z","lastrevid":796301393,"length":17412,"fullurl":"https://en.wikipedia.org/wiki/Constitution_of_Argentina","editurl":"https://en.wikipedia.org/w/index.php?title=Constitution_of_Argentina&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Constitution_of_Argentina"}}}}'
+    http_version: 
+  recorded_at: Thu, 22 Jun 2017 21:00:00 GMT
+recorded_with: VCR 3.0.3

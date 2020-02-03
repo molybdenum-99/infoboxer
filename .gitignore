@@ -6,7 +6,6 @@ TODO.txt
 tmp
 examples
 profile/out/*.html
-spec/fixtures/vcr_cassettes
 rubocop
 .yardoc
 *.gem

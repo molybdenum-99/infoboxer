@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=Template:Indomalaya%20tropical%20and%20subtropical%20coniferous%20forests
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Sep 2017 20:08:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '626'
+      Connection:
+      - keep-alive
+      Server:
+      - mw1223.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=64391 t=1505074123134757
+      X-Varnish:
+      - 616011001, 948331362, 57661387
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1052 pass, cp3040 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=10-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu,
+        12 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=10-Sep-2017;Path=/;HttpOnly;secure;Expires=Thu, 12 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.49.79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"4438952":{"pageid":4438952,"ns":10,"title":"Template:Indomalaya
+        tropical and subtropical coniferous forests","revisions":[{"timestamp":"2016-09-12T08:40:53Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{|
+        class=\"wikitable\" style=\"width:70%; margin: 0 auto;\"\n|-\n! colspan=\"2\"
+        style=\"background:lightgreen;\" | {{navbar-header|[[Indomalaya]] [[Tropical
+        and subtropical coniferous forests]]|Indomalaya tropical and subtropical coniferous
+        forests}}\n|-\n| [[Himalayan subtropical pine forests]]\n| [[Bhutan]], [[India]],
+        [[Nepal]], [[Pakistan]]\n|-\n| [[Luzon tropical pine forests]]\n| [[Philippines]]\n|-\n|
+        [[Northeast India-Myanmar pine forests]]\n| [[Myanmar]], [[India]]\n|-\n|
+        [[Sumatran tropical pine forests]]\n| [[Indonesia]]\n|}<noinclude>\n[[Category:Ecozone
+        templates|{{PAGENAME}}]]\n</noinclude>"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-03-26T12:48:44Z","lastrevid":739014761,"length":587,"fullurl":"https://en.wikipedia.org/wiki/Template:Indomalaya_tropical_and_subtropical_coniferous_forests","editurl":"https://en.wikipedia.org/w/index.php?title=Template:Indomalaya_tropical_and_subtropical_coniferous_forests&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/Template:Indomalaya_tropical_and_subtropical_coniferous_forests"}}}}'
+    http_version: 
+  recorded_at: Thu, 22 Jun 2017 21:00:00 GMT
+recorded_with: VCR 3.0.3

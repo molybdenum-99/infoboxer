@@ -1,0 +1,1145 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=List%20of%20kanji%20by%20concept
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 11 Sep 2017 19:55:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1189.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=43644 t=1505159742591886
+      X-Varnish:
+      - 895881485, 499779651, 1063339491
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1065 pass, cp3033 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=11-Sep-2017;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        13 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=11-Sep-2017;Path=/;HttpOnly;secure;Expires=Fri, 13 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.65.105
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"221234":{"pageid":221234,"ns":0,"title":"List
+        of kanji by concept","revisions":[{"timestamp":"2017-03-12T20:43:58Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{{Japanese
+        writing}}\nThis ''''''Kanji index method'''''' groups together [[kanji]] that
+        describe things that deal with the same concept, for example kanji for numbers
+        or kanji for directions.\n\nKanji with multiple meanings may appear more than
+        once.\n\n{{TOC right}}\n\n== Physical properties and attributes ==\n\n===
+        Colours ===\n{{nowrap|[[wikt:\u8272|\u8272]] Colours;}} \n{{nowrap|[[wikt:\u767d|\u767d]]
+        white;}} \n{{nowrap|[[wikt:\u9ed2|\u9ed2]] black;}} \n{{nowrap|[[wikt:\u8d64|\u8d64]]
+        red;}} \n{{nowrap|[[wikt:\u7d05|\u7d05]] crimson;}} \n{{nowrap|[[wikt:\u9752|\u9752]]
+        blue;}} \n{{nowrap|[[wikt:\u9ec4|\u9ec4]] yellow;}} \n{{nowrap|[[wikt:\u7dd1|\u7dd1]]
+        green;}} \n{{nowrap|[[wikt:\u91d1|\u91d1]] gold;}} \n{{nowrap|[[wikt:\u9280|\u9280]]
+        silver;}} \n{{nowrap|[[wikt:\u7d2b|\u7d2b]] violet;}} \n{{nowrap|[[wikt:\u7d3a|\u7d3a]]
+        dark blue;}} \n{{nowrap|[[wikt:\u6731|\u6731]] vermilion;}} \n{{nowrap|[[wikt:\u8910|\u8910]]
+        brown;}} \n{{nowrap|[[wikt:\u85cd|\u85cd]] indigo;}} \n{{nowrap|[[wikt:\u5f69|\u5f69]]
+        brightly coloured;}}\n\n=== Shape, size, pattern, arrangement ===\n{{nowrap|[[wikt:\u5f62|\u5f62]]
+        shape;}} \n{{nowrap|[[wikt:\u4f53|\u4f53]] form;}} \n{{nowrap|[[wikt:\u59ff|\u59ff]]
+        figure;}} \n{{nowrap|[[wikt:\u6a21|\u6a21]] pattern;}} \n{{nowrap|[[wikt:\u67c4|\u67c4]]
+        design, pattern;}} \n{{nowrap|[[wikt:\u5186|\u5186]] circle;}} \n{{nowrap|[[wikt:\u4e38|\u4e38]]
+        circular;}} \n{{nowrap|[[wikt:\u66f2|\u66f2]] curve;}} \n{{nowrap|[[wikt:\u5f27|\u5f27]]
+        arc;}} \n{{nowrap|[[wikt:\u74b0|\u74b0]] ring, surround;}} \n{{nowrap|[[wikt:\u8f2a|\u8f2a]]
+        ring;}} \n{{nowrap|[[wikt:\u51f9|\u51f9]] concave;}} \n{{nowrap|[[wikt:\u51f8|\u51f8]]
+        convex;}} \n{{nowrap|[[wikt:\u89d2|\u89d2]] angle;}} \n{{nowrap|[[wikt:\u659c|\u659c]]
+        diagonal;}} \n{{nowrap|[[wikt:\u7403|\u7403]] sphere;}} \n{{nowrap|[[wikt:\u570f|\u570f]]
+        sphere;}} \n{{nowrap|[[wikt:\u7389|\u7389]] ball;}} \n{{nowrap|[[wikt:\u7dda|\u7dda]]
+        line;}} \n{{nowrap|[[wikt:\u5217|\u5217]] row, line;}} \n{{nowrap|[[wikt:\u4e26|\u4e26]]
+        line up;}} \n{{nowrap|[[wikt:\u5927|\u5927]] large;}} \n{{nowrap|[[wikt:\u5de8|\u5de8]]
+        huge;}} \n{{nowrap|[[wikt:\u5c0f|\u5c0f]] small;}} \n{{nowrap|[[wikt:\u5fae|\u5fae]]
+        minute;}} \n{{nowrap|[[wikt:\u72ed|\u72ed]] narrow;}} \n{{nowrap|[[wikt:\u7aef|\u7aef]]
+        edge or border;}} \n{{nowrap|[[wikt:\u7e01|\u7e01]] edge;}} \n{{nowrap|[[wikt:\u5468|\u5468]]
+        perimeter;}} \n{{nowrap|[[wikt:\u5883|\u5883]] boundary;}} \n{{nowrap|[[wikt:\u67a0|\u67a0]]
+        frame, border;}} \n{{nowrap|[[wikt:\u7aef|\u7aef]] end, tip;}} \n{{nowrap|[[wikt:\u5074|\u5074]]
+        side;}} \n{{nowrap|[[wikt:\u9685|\u9685]] corner;}} \n{{nowrap|[[wikt:\u9ad8|\u9ad8]]
+        tall;}} \n{{nowrap|[[wikt:\u9577|\u9577]] long;}} \n{{nowrap|[[wikt:\u77ed|\u77ed]]
+        short;}} \n{{nowrap|[[wikt:\u5e83|\u5e83]] wide;}} \n{{nowrap|[[wikt:\u5e45|\u5e45]]
+        width;}}\n\n=== Miscellaneous properties ===\n{{nowrap|[[wikt:\u786c|\u786c]]
+        hard;}} \n{{nowrap|[[wikt:\u8edf|\u8edf]] soft;}} \n{{nowrap|[[wikt:\u91cd|\u91cd]]
+        heavy;}} \n{{nowrap|[[wikt:\u8efd|\u8efd]] light (weight);}} \n{{nowrap|[[wikt:\u56fa|\u56fa]]
+        solid, firm;}} \n{{nowrap|[[wikt:\u6db2|\u6db2]] liquid;}} \n{{nowrap|[[wikt:\u5f37|\u5f37]]
+        strong;}} \n{{nowrap|[[wikt:\u5f31|\u5f31]] weak;}} \n{{nowrap|[[wikt:\u539a|\u539a]]
+        thick;}} \n{{nowrap|[[wikt:\u6fc3|\u6fc3]] thick, concentrated;}} \n{{nowrap|[[wikt:\u8584|\u8584]]
+        dilute, thin;}} \n{{nowrap|[[wikt:\u7d30|\u7d30]] slender;}} \n{{nowrap|[[wikt:\u7dfb|\u7dfb]]
+        fine, delicate;}} \n{{nowrap|[[wikt:\u5fae|\u5fae]] delicate;}} \n{{nowrap|[[wikt:\u92ed|\u92ed]]
+        sharp;}} \n{{nowrap|[[wikt:\u592a|\u592a]] fat, thick;}} \n{{nowrap|[[wikt:\u6df1|\u6df1]]
+        deep;}} \n{{nowrap|[[wikt:\u6d45|\u6d45]] shallow;}} \n{{nowrap|[[wikt:\u6691|\u6691]]
+        hot;}} \n{{nowrap|[[wikt:\u71b1|\u71b1]] hot;}} \n{{nowrap|[[wikt:\u6e29|\u6e29]]
+        warm;}} \n{{nowrap|[[wikt:\u6696|\u6696]] warm;}} \n{{nowrap|[[wikt:\u51b7|\u51b7]]
+        cold;}} \n{{nowrap|[[wikt:\u5bd2|\u5bd2]] cold;}} \n{{nowrap|[[wikt:\u5e72|\u5e72]]
+        dry;}} \n{{nowrap|[[wikt:\u4e7e|\u4e7e]] dry;}} \n{{nowrap|[[wikt:\u6e7f|\u6e7f]]
+        damp;}} \n{{nowrap|[[wikt:\u6f64|\u6f64]] moist;}} \n{{nowrap|[[wikt:\u6d44|\u6d44]]
+        clean;}} \n{{nowrap|[[wikt:\u6c5a|\u6c5a]] dirty;}} \n{{nowrap|[[wikt:\u7c98|\u7c98]]
+        sticky;}} \n{{nowrap|[[wikt:\u8276|\u8276]] glossy;}}\n\n== Directions and
+        spatial relationships ==\n{{nowrap|[[wikt:\u5317|\u5317]] north;}} \n{{nowrap|[[wikt:\u5357|\u5357]]
+        south;}} \n{{nowrap|[[wikt:\u6771|\u6771]] east;}} \n{{nowrap|[[wikt:\u897f|\u897f]]
+        west;}} \n{{nowrap|[[wikt:\u5de6|\u5de6]] left;}} \n{{nowrap|[[wikt:\u53f3|\u53f3]]
+        right;}} \n{{nowrap|[[wikt:\u4e0b|\u4e0b]] down;}} \n{{nowrap|[[wikt:\u4e0a|\u4e0a]]
+        up;}} \n{{nowrap|[[wikt:\u524d|\u524d]] front;}} \n{{nowrap|[[wikt:\u5f8c|\u5f8c]]
+        back;}} \n{{nowrap|[[wikt:\u88cf|\u88cf]] rear, back;}} \n{{nowrap|[[wikt:\u5e95|\u5e95]]
+        bottom;}} \n{{nowrap|[[wikt:\u5916|\u5916]] outside;}} \n{{nowrap|[[wikt:\u4e2d|\u4e2d]]
+        inside/middle;}} \n{{nowrap|[[wikt:\u5185|\u5185]] inside;}} \n{{nowrap|[[wikt:\u592e|\u592e]]
+        centre;}} \n{{nowrap|[[wikt:\u5965|\u5965]] interior;}} \n{{nowrap|[[wikt:\u9593|\u9593]]
+        between;}} \n{{nowrap|[[wikt:\u5165|\u5165]] direction in;}} \n{{nowrap|[[wikt:\u51fa|\u51fa]]
+        direction out;}} \n{{nowrap|[[wikt:\u65b9|\u65b9]] direction;}} \n{{nowrap|[[wikt:\u8fd1|\u8fd1]]
+        near;}} \n{{nowrap|[[wikt:\u9060|\u9060]] distant;}} \n{{nowrap|[[wikt:\u5411|\u5411]]
+        toward}}\n\n=== Movement ===\n{{nowrap|[[wikt:\u6765|\u6765]] come;}} \n{{nowrap|[[wikt:\u884c|\u884c]]
+        go;}} \n{{nowrap|[[wikt:\u65c5|\u65c5]] travel;}} \n{{nowrap|[[wikt:\u5f80|\u5f80]]
+        go, depart;}} \n{{nowrap|[[wikt:\u5e30|\u5e30]] return;}} \n{{nowrap|[[wikt:\u53c2|\u53c2]]
+        go (esp. visit);}} \n{{nowrap|[[wikt:\u843d|\u843d]] fall, drop;}} \n{{nowrap|[[wikt:\u8d74|\u8d74]]
+        go to;}} \n{{nowrap|[[wikt:\u8d8a|\u8d8a]] go beyond, exceed;}} \n{{nowrap|[[wikt:\u5012|\u5012]]
+        fall over;}} \n{{nowrap|[[wikt:\u589c|\u589c]] fall down, crash;}} \n{{nowrap|[[wikt:\u63da|\u63da]]
+        raise, elevate}}\n\n== Numbers, counting, sequence==\n{{nowrap|[[wikt:\u6570|\u6570]]
+        number;}} \n{{nowrap|[[wikt:\u96f6|\u96f6]] zero;}} \n{{nowrap|[[wikt:\u4e00|\u4e00]]
+        one;}} \n{{nowrap|[[wikt:\u4e8c|\u4e8c]] two;}} \n{{nowrap|[[wikt:\u4e09|\u4e09]]
+        three;}} \n{{nowrap|[[wikt:\u56db|\u56db]] four;}} \n{{nowrap|[[wikt:\u4e94|\u4e94]]
+        five;}} \n{{nowrap|[[wikt:\u516d|\u516d]] six;}} \n{{nowrap|[[wikt:\u4e03|\u4e03]]
+        seven;}} \n{{nowrap|[[wikt:\u516b|\u516b]] eight;}} \n{{nowrap|[[wikt:\u4e5d|\u4e5d]]
+        nine;}} \n{{nowrap|[[wikt:\u5341|\u5341]] ten;}} \n{{nowrap|[[wikt:\u767e|\u767e]]
+        100;}} \n{{nowrap|[[wikt:\u5343|\u5343]] 1,000;}} \n{{nowrap|[[wikt:\u4e07|\u4e07]]
+        10,000;}} \n{{nowrap|[[wikt:\u5104|\u5104]] 100,000,000;}} \n{{nowrap|[[wikt:\u5146|\u5146]]
+        1,000,000,000,000;}} \n{{nowrap|[[wikt:\u7b2c|\u7b2c]] ordinal marker;}} \n{{nowrap|[[wikt:\u521d|\u521d]]
+        first;}} \n{{nowrap|[[wikt:\u4e59|\u4e59]] second (ordinal);}} \n{{nowrap|[[wikt:\u4e19|\u4e19]]
+        third (ordinal);}} \n{{nowrap|[[wikt:\u6841|\u6841]] digit;}} \n{{nowrap|[[wikt:\u53cc|\u53cc]]
+        pair;}} \n{{nowrap|[[wikt:\u591a|\u591a]] many;}} \n{{nowrap|[[wikt:\u5c11|\u5c11]]
+        few;}} \n{{nowrap|[[wikt:\u534a|\u534a]] half;}} \n{{nowrap|[[wikt:\u4e21|\u4e21]]
+        both;}} \n{{nowrap|[[wikt:\u5404|\u5404]] each;}} \n{{nowrap|[[wikt:\u6bce|\u6bce]]
+        every;}} \n{{nowrap|[[wikt:\u6b21|\u6b21]] next;}} \n{{nowrap|[[wikt:\u7fcc|\u7fcc]]
+        the following;}} \n{{nowrap|[[wikt:\u756a|\u756a]] numerical order;}} \n{{nowrap|[[wikt:\u9806|\u9806]]
+        sequence;}} \n{{nowrap|[[wikt:\u5e8f|\u5e8f]] sequence}}\n\n===Counters===\n{{nowrap|[[wikt:\u500b|\u500b]]
+        general counter;}} \n{{nowrap|[[wikt:\u53f0|\u53f0]] counter for machines
+        and vehicles;}} \n{{nowrap|[[wikt:\u679a|\u679a]] counter for flat things;}}
+        \n{{nowrap|[[wikt:\u672c|\u672c]] counter for cylindrical things;}} \n{{nowrap|[[wikt:\u96bb|\u96bb]]
+        counter for ships;}} \n{{nowrap|[[wikt:\u518a|\u518a]] counter for books;}}
+        \n{{nowrap|[[wikt:\u5339|\u5339]] counter for animals;}} \n{{nowrap|[[wikt:\u758b|\u758b]]
+        counter for small animals or insects;}} \n{{nowrap|[[wikt:\u982d|\u982d]]
+        counter for large animals;}} \n{{nowrap|[[wikt:\u7fbd|\u7fbd]] counter for
+        birds and rabbits;}} \n{{nowrap|[[wikt:\u7b87|\u7b87]] counter for articles;}}
+        \n{{nowrap|[[wikt:\u8db3|\u8db3]] counter for pairs of footwear;}} \n{{nowrap|[[wikt:\u672d|\u672d]]
+        counter for bonds, tickets;}} \n{{nowrap|[[wikt:\u676f|\u676f]] counter for
+        cupfuls;}} \n{{nowrap|[[wikt:\u8ed2|\u8ed2]] counter for houses;}} \n{{nowrap|[[wikt:\u6238|\u6238]]
+        counter for houses;}} \n{{nowrap|[[wikt:\u8f2a|\u8f2a]] counter for wheels
+        and flowers;}} \n{{nowrap|[[wikt:\u7573|\u7573]] counter for tatami mats;}}
+        \n{{nowrap|[[wikt:\u65a4|\u65a4]] counter for loaves of bread;}} \n{{nowrap|[[wikt:\u4e01|\u4e01]]
+        miscellaneous counter}}\n{{nowrap|[[wikt:\u4eba|\u4eba]] counter for people}}\n\n===Handling
+        amounts===\n\n{{nowrap|[[wikt:\u7b97|\u7b97]] calculation;}} \n{{nowrap|[[wikt:\u500d|\u500d]]
+        times, double;}} \n{{nowrap|[[wikt:\u5897|\u5897]] increase, add;}} \n{{nowrap|[[wikt:\u6b96|\u6b96]]
+        increase;}} \n{{nowrap|[[wikt:\u8017|\u8017]] decrease, consume;}} \n{{nowrap|[[wikt:\u6e1b|\u6e1b]]
+        dwindle, decrease;}} \n{{nowrap|[[wikt:\u7e2e|\u7e2e]] shrink, contract;}}
+        \n{{nowrap|[[wikt:\u52a0|\u52a0]] add to;}} \n{{nowrap|[[wikt:\u9664|\u9664]]
+        division;}} \n{{nowrap|[[wikt:\u5206|\u5206]] divide;}} \n{{nowrap|[[wikt:\u5256|\u5256]]
+        split in two}}\n\n===Units===\n\nUnits of length:\n{{nowrap|[[wikt:\u5c3a|\u5c3a]]
+        Japanese foot (around 30 cm);}} \n{{nowrap|[[wikt:\u5bf8|\u5bf8]] 1/10 Japanese
+        foot (around 3 cm);}} \n{{nowrap|[[wikt:\u5398|\u5398]] (around 0.3 mm);}}
+        \n{{nowrap|[[wikt:\u91cc|\u91cc]] league (around 3.9 km)}}\n\nUnits of area:\n{{nowrap|[[wikt:\u576a|\u576a]]
+        two-mat area (around 3.3 m\u00b2);}} \n{{nowrap|[[wikt:\u755d|\u755d]] 30
+        tsubo (around 100 m\u00b2)}}\n\nUnits of volume:\n{{nowrap|[[wikt:\u52fa|\u52fa]]
+        ladle (around 18 ml);}} \n{{nowrap|[[wikt:\u5347|\u5347]] (around 1.8 l);}}
+        \n{{nowrap|[[wikt:\u6597|\u6597]] (around 18 l);}} \n{{nowrap|[[wikt:\u77f3|\u77f3]]
+        (around 180 l)}}\n\nUnits of weight:\n{{nowrap|[[wikt:\u5301|\u5301]] (around
+        3.75 grams);}} \n{{nowrap|[[wikt:\u65a4|\u65a4]] (around 600 g)}}\n\n== Time
+        ==\n{{nowrap|[[wikt:\u65e5|\u65e5]] day;}} \n{{nowrap|[[wikt:\u9031|\u9031]]
+        week;}} \n{{nowrap|[[wikt:\u6708|\u6708]] month;}} \n{{nowrap|[[wikt:\u5e74|\u5e74]]
+        year;}} \n{{nowrap|[[wikt:\u66dc|\u66dc]] day of week;}} \n{{nowrap|[[wikt:\u66a6|\u66a6]]
+        calendar;}} \n{{nowrap|[[wikt:\u671d|\u671d]] morning;}} \n{{nowrap|[[wikt:\u5348|\u5348]]
+        noon;}} \n{{nowrap|[[wikt:\u663c|\u663c]] daytime;}} \n{{nowrap|[[wikt:\u5915|\u5915]]
+        evening;}} \n{{nowrap|[[wikt:\u6669|\u6669]] evening;}} \n{{nowrap|[[wikt:\u5bb5|\u5bb5]]
+        early evening;}} \n{{nowrap|[[wikt:\u591c|\u591c]] night;}} \n{{nowrap|[[wikt:\u6681|\u6681]]
+        sunrise;}} \n{{nowrap|[[wikt:\u65ed|\u65ed]] rising sun;}} \n{{nowrap|[[wikt:\u65e6|\u65e6]]
+        sunrise;}} \n{{nowrap|[[wikt:\u66ae|\u66ae]] sunset;}} \n{{nowrap|[[wikt:\u6642|\u6642]]
+        time, hour;}} \n{{nowrap|[[wikt:\u5206|\u5206]] minute;}} \n{{nowrap|[[wikt:\u79d2|\u79d2]]
+        second;}} \n{{nowrap|[[wikt:\u4eca|\u4eca]] now;}} \n{{nowrap|[[wikt:\u65e9|\u65e9]]
+        early;}} \n{{nowrap|[[wikt:\u9045|\u9045]] late;}} \n{{nowrap|[[wikt:\u524d|\u524d]]
+        before;}} \n{{nowrap|[[wikt:\u5f8c|\u5f8c]] after;}} \n{{nowrap|[[wikt:\u4e45|\u4e45]]
+        long ago;}} \n{{nowrap|[[wikt:\u65e7|\u65e7]] former;}} \n{{nowrap|[[wikt:\u66fd|\u66fd]]
+        formerly;}} \n{{nowrap|[[wikt:\u8fd1|\u8fd1]] recent;}} \n{{nowrap|[[wikt:\u5148|\u5148]]
+        ahead, previous;}} \n{{nowrap|[[wikt:\u9593|\u9593]] interval of time;}} \n{{nowrap|[[wikt:\u671f|\u671f]]
+        time period;}} \n{{nowrap|[[wikt:\u66ab|\u66ab]] a while;}} \n{{nowrap|[[wikt:\u7d00|\u7d00]]
+        era;}} \n{{nowrap|[[wikt:\u6628|\u6628]] previous time;}} \n{{nowrap|[[wikt:\u56de|\u56de]]
+        number of times;}} \n{{nowrap|[[wikt:\u9803|\u9803]] time, about;}} \n{{nowrap|[[wikt:\u969b|\u969b]]
+        moment, occasion;}} \n{{nowrap|[[wikt:\u5ea6|\u5ea6]] number of times;}} \n{{nowrap|[[wikt:\u6614|\u6614]]
+        antiquity;}} \n{{nowrap|[[wikt:\u6c38|\u6c38]] eternity;}} \n{{nowrap|[[wikt:\u65ec|\u65ec]]
+        period of 10 days;}} \n{{nowrap|[[wikt:\u59cb|\u59cb]] begin;}} \n{{nowrap|[[wikt:\u7d42|\u7d42]]
+        end;}} \n{{nowrap|[[wikt:\u53e4|\u53e4]] old;}} \n{{nowrap|[[wikt:\u8001|\u8001]]
+        old;}} \n{{nowrap|[[wikt:\u82e5|\u82e5]] young;}} \n{{nowrap|[[wikt:\u65b0|\u65b0]]
+        new;}}\n\n=== Seasons ===\n\n{{nowrap|[[wikt:\u5b63|\u5b63]] season;}} \n{{nowrap|[[wikt:\u5019|\u5019]]
+        season;}} \n{{nowrap|[[wikt:\u7bc0|\u7bc0]] season, period;}} \n{{nowrap|[[wikt:\u6625|\u6625]]
+        spring;}} \n{{nowrap|[[wikt:\u590f|\u590f]] summer;}} \n{{nowrap|[[wikt:\u79cb|\u79cb]]
+        autumn;}} \n{{nowrap|[[wikt:\u51ac|\u51ac]] winter}}\n\n=== Days of the week
+        ===\n\n{{nowrap|[[wikt:\u66dc|\u66dc]] weekday;}} \n{{nowrap|[[wikt:\u65e5|\u65e5]]
+        Sunday;}} \n{{nowrap|[[wikt:\u6708|\u6708]] Monday;}} \n{{nowrap|[[wikt:\u706b|\u706b]]
+        Tuesday;}} \n{{nowrap|[[wikt:\u6c34|\u6c34]] Wednesday;}} \n{{nowrap|[[wikt:\u6728|\u6728]]
+        Thursday;}} \n{{nowrap|[[wikt:\u91d1|\u91d1]] Friday;}} \n{{nowrap|[[wikt:\u571f|\u571f]]
+        Saturday}}\n\n== Nature ==\n\n===Sky and heavens===\n\n{{nowrap|[[wikt:\u65e5|\u65e5]]
+        sun;}} \n{{nowrap|[[wikt:\u967d|\u967d]] sun or [[Yin and yang|yang principle]];}}
+        \n{{nowrap|[[wikt:\u6708|\u6708]] moon;}} \n{{nowrap|[[wikt:\u661f|\u661f]]
+        star;}} \n{{nowrap|[[wikt:\u5929|\u5929]] sky or heaven;}} \n{{nowrap|[[wikt:\u7a7a|\u7a7a]]
+        sky or void;}} \n{{nowrap|[[wikt:\u6c17|\u6c17]] air;}} \n{{nowrap|[[wikt:\u5b87|\u5b87]]
+        universe;}}\n\n===Natural substances ===\n\n{{nowrap|[[wikt:\u91d1|\u91d1]]
+        metal or gold;}} \n{{nowrap|[[wikt:\u9280|\u9280]] silver;}} \n{{nowrap|[[wikt:\u9285|\u9285]]
+        copper;}} \n{{nowrap|[[wikt:\u925b|\u925b]] lead;}} \n{{nowrap|[[wikt:\u9244|\u9244]]
+        iron;}} \n{{nowrap|[[wikt:\u9291|\u9291]] pig iron;}} \n{{nowrap|[[wikt:\u92fc|\u92fc]]
+        steel;}} \n{{nowrap|[[wikt:\u9271|\u9271]] ore;}} \n{{nowrap|[[wikt:\u6676|\u6676]]
+        crystal;}} \n{{nowrap|[[wikt:\u7389|\u7389]] jewel;}} \n{{nowrap|[[wikt:\u73e0|\u73e0]]
+        pearl or jewel;}} \n{{nowrap|[[wikt:\u6c34|\u6c34]] water;}} \n{{nowrap|[[wikt:\u6c37|\u6c37]]
+        ice;}} \n{{nowrap|[[wikt:\u6c7d|\u6c7d]] steam, vapour;}} \n{{nowrap|[[wikt:\u77f3|\u77f3]]
+        stone;}} \n{{nowrap|[[wikt:\u70ad|\u70ad]] coal;}} \n{{nowrap|[[wikt:\u7070|\u7070]]
+        ash;}} \n{{nowrap|[[wikt:\u571f|\u571f]] earth;}} \n{{nowrap|[[wikt:\u5730|\u5730]]
+        ground or earth;}} \n{{nowrap|[[wikt:\u7802|\u7802]] sand;}} \n{{nowrap|[[wikt:\u6c99|\u6c99]]
+        sand;}} \n{{nowrap|[[wikt:\u6ce5|\u6ce5]] mud;}} \n{{nowrap|[[wikt:\u5869|\u5869]]
+        salt;}} \n{{nowrap|[[wikt:\u4e39|\u4e39]] cinnabar;}} \n{{nowrap|[[wikt:\u786b|\u786b]]
+        sulphur;}} \n{{nowrap|[[wikt:\u9178|\u9178]] acid, oxygen;}} \n{{nowrap|[[wikt:\u7a92|\u7a92]]
+        nitrogen;}} \n{{nowrap|[[wikt:\u6750|\u6750]] timber, material;}} \n{{nowrap|[[wikt:\u6cb9|\u6cb9]]
+        oil;}} \n{{nowrap|[[wikt:\u8102|\u8102]] fat;}}\n\n===Weather and other natural
+        phenomena===\n\n{{nowrap|[[wikt:\u96f2|\u96f2]] cloud;}} \n{{nowrap|[[wikt:\u66c7|\u66c7]]
+        cloud;}} \n{{nowrap|[[wikt:\u96e8|\u96e8]] rain;}} \n{{nowrap|[[wikt:\u8679|\u8679]]
+        rainbow;}} \n{{nowrap|[[wikt:\u98a8|\u98a8]] wind;}} \n{{nowrap|[[wikt:\u96ea|\u96ea]]
+        snow;}} \n{{nowrap|[[wikt:\u5d50|\u5d50]] storm;}} \n{{nowrap|[[wikt:\u5019|\u5019]]
+        climate;}} \n{{nowrap|[[wikt:\u6674|\u6674]] fine weather;}} \n{{nowrap|[[wikt:\u971e|\u971e]]
+        haze or mist;}} \n{{nowrap|[[wikt:\u96f7|\u96f7]] lightning or thunder;}}
+        \n{{nowrap|[[wikt:\u9727|\u9727]] fog or mist;}} \n{{nowrap|[[wikt:\u971c|\u971c]]
+        frost;}} \n{{nowrap|[[wikt:\u9732|\u9732]] dew;}} \n{{nowrap|[[wikt:\u6ce2|\u6ce2]]
+        wave;}} \n{{nowrap|[[wikt:\u6f6e|\u6f6e]] tide;}} \n{{nowrap|[[wikt:\u6e26|\u6e26]]
+        whirlpool;}} \n{{nowrap|[[wikt:\u6d2a|\u6d2a]] flood;}} \n{{nowrap|[[wikt:\u9707|\u9707]]
+        earthquake;}} \n{{nowrap|[[wikt:\u707d|\u707d]] natural disaster;}} \n{{nowrap|[[wikt:\u6697|\u6697]]
+        dark;}} \n{{nowrap|[[wikt:\u95c7|\u95c7]] dark;}} \n{{nowrap|[[wikt:\u51a5|\u51a5]]
+        dark;}} \n{{nowrap|[[wikt:\u5149|\u5149]] light;}} \n{{nowrap|[[wikt:\u660e|\u660e]]
+        light;}} \n{{nowrap|[[wikt:\u9670|\u9670]] [[Yin and yang|yin principle]]
+        or shadow;}} \n{{nowrap|[[wikt:\u5f71|\u5f71]] shadow;}} \n{{nowrap|[[wikt:\u7159|\u7159]]
+        smoke or fumes;}} \n{{nowrap|[[wikt:\u96fb|\u96fb]] electricity;}} \n{{nowrap|[[wikt:\u78c1|\u78c1]]
+        magnet;}} \n{{nowrap|[[wikt:\u706b|\u706b]] fire;}} \n{{nowrap|[[wikt:\u708e|\u708e]]
+        blaze}}\n\n===Landscape and topography===\n\n{{nowrap|[[wikt:\u9678|\u9678]]
+        land;}} \n{{nowrap|[[wikt:\u91ce|\u91ce]] field;}} \n{{nowrap|[[wikt:\u7551|\u7551]]
+        field;}} \n{{nowrap|[[wikt:\u539f|\u539f]] field;}} \n{{nowrap|[[wikt:\u7530|\u7530]]
+        rice paddy;}} \n{{nowrap|[[wikt:\u7267|\u7267]] pasture;}} \n{{nowrap|[[wikt:\u91cc|\u91cc]]
+        countryside;}} \n{{nowrap|[[wikt:\u58cc|\u58cc]] fertile soil;}} \n{{nowrap|[[wikt:\u6f20|\u6f20]]
+        desert;}} \n{{nowrap|[[wikt:\u5c71|\u5c71]] mountain;}} \n{{nowrap|[[wikt:\u5cb3|\u5cb3]]
+        peak or mountain;}} \n{{nowrap|[[wikt:\u5cf0|\u5cf0]] peak;}} \n{{nowrap|[[wikt:\u5ce0|\u5ce0]]
+        mountain pass;}} \n{{nowrap|[[wikt:\u4e18|\u4e18]] hill;}} \n{{nowrap|[[wikt:\u5ca1|\u5ca1]]
+        hill;}} \n{{nowrap|[[wikt:\u961c|\u961c]] hill;}} \n{{nowrap|[[wikt:\u5742|\u5742]]
+        slope;}} \n{{nowrap|[[wikt:\u9e93|\u9e93]] foot of mountain;}} \n{{nowrap|[[wikt:\u5824|\u5824]]
+        embankment;}} \n{{nowrap|[[wikt:\u8c37|\u8c37]] valley;}} \n{{nowrap|[[wikt:\u6eaa|\u6eaa]]
+        mountain stream or valley;}} \n{{nowrap|[[wikt:\u5ce1|\u5ce1]] gorge;}} \n{{nowrap|[[wikt:\u6e13|\u6e13]]
+        ravine;}} \n{{nowrap|[[wikt:\u7a9f|\u7a9f]] cave;}} \n{{nowrap|[[wikt:\u5ca9|\u5ca9]]
+        rock or boulder;}} \n{{nowrap|[[wikt:\u5dcc|\u5dcc]] rock or boulder;}} \n{{nowrap|[[wikt:\u6f20|\u6f20]]
+        desert;}} \n{{nowrap|[[wikt:\u5ddd|\u5ddd]] river;}} \n{{nowrap|[[wikt:\u6cb3|\u6cb3]]
+        river or stream;}} \n{{nowrap|[[wikt:\u6cc9|\u6cc9]] water spring;}} \n{{nowrap|[[wikt:\u6edd|\u6edd]]
+        waterfall;}} \n{{nowrap|[[wikt:\u702c|\u702c]] shallows, rapids;}} \n{{nowrap|[[wikt:\u5800|\u5800]]
+        ditch;}} \n{{nowrap|[[wikt:\u7554|\u7554]] levee;}} \n{{nowrap|[[wikt:\u6ca2|\u6ca2]]
+        swamp;}} \n{{nowrap|[[wikt:\u6cbc|\u6cbc]] marsh;}} \n{{nowrap|[[wikt:\u6d77|\u6d77]]
+        ocean or sea;}} \n{{nowrap|[[wikt:\u6d0b|\u6d0b]] ocean;}} \n{{nowrap|[[wikt:\u6c96|\u6c96]]
+        open sea;}} \n{{nowrap|[[wikt:\u6e56|\u6e56]] lake;}} \n{{nowrap|[[wikt:\u6c60|\u6c60]]
+        pond;}} \n{{nowrap|[[wikt:\u6f5f|\u6f5f]] lagoon;}} \n{{nowrap|[[wikt:\u7901|\u7901]]
+        reef;}} \n{{nowrap|[[wikt:\u6c5f|\u6c5f]] creek or bay;}} \n{{nowrap|[[wikt:\u6e7e|\u6e7e]]
+        bay, gulf;}} \n{{nowrap|[[wikt:\u5cb8|\u5cb8]] shore;}} \n{{nowrap|[[wikt:\u78ef|\u78ef]]
+        seashore;}} \n{{nowrap|[[wikt:\u6d5c|\u6d5c]] beach;}} \n{{nowrap|[[wikt:\u6d66|\u6d66]]
+        bay, beach;}} \n{{nowrap|[[wikt:\u5d16|\u5d16]] cliff;}} \n{{nowrap|[[wikt:\u5d0e|\u5d0e]]
+        promontory or cape;}} \n{{nowrap|[[wikt:\u57fc|\u57fc]] promontory;}} \n{{nowrap|[[wikt:\u5cac|\u5cac]]
+        headland;}} \n{{nowrap|[[wikt:\u5cf6|\u5cf6]] island;}}\n\n=== Animals ===\n\n:''''See
+        also Food and Drink''''\n{{nowrap|[[wikt:\u72ac|\u72ac]] dog;}} \n{{nowrap|[[wikt:\u72d7|\u72d7]]
+        dog;}} \n{{nowrap|[[wikt:\u732b|\u732b]] cat;}} \n{{nowrap|[[wikt:\u9f20|\u9f20]]
+        mouse;}} \n{{nowrap|[[wikt:\u514e|\u514e]] rabbit;}} \n{{nowrap|[[wikt:\u99ac|\u99ac]]
+        horse;}} \n{{nowrap|[[wikt:\u725b|\u725b]] cow;}} \n{{nowrap|[[wikt:\u7f8a|\u7f8a]]
+        sheep;}} \n{{nowrap|[[wikt:\u8c5a|\u8c5a]] pig;}} \n{{nowrap|[[wikt:\u9e7f|\u9e7f]]
+        deer;}} \n{{nowrap|[[wikt:\u7363|\u7363]] beast;}} \n{{nowrap|[[wikt:\u755c|\u755c]]
+        livestock;}} \n{{nowrap|[[wikt:\u8c61|\u8c61]] elephant;}} \n{{nowrap|[[wikt:\u864e|\u864e]]
+        tiger;}} \n{{nowrap|[[wikt:\u718a|\u718a]] bear;}} \n{{nowrap|[[wikt:\u72fc|\u72fc]]
+        wolf;}} \n{{nowrap|[[wikt:\u72d0|\u72d0]] fox;}} \n{{nowrap|[[wikt:\u72f8|\u72f8]]
+        raccoon dog ([[tanuki]]);}} \n{{nowrap|[[wikt:\u733f|\u733f]] monkey;}} \n{{nowrap|[[wikt:\u9f9c|\u9f9c]]/[[wikt:\u4e80|\u4e80]]
+        turtle;}} \n{{nowrap|[[wikt:\u9bc6|\u9bc6]] dolphin;}} \n{{nowrap|[[wikt:\u9be8|\u9be8]]
+        whale;}} \n{{nowrap|[[wikt:\u866b|\u866b]] insect;}} \n{{nowrap|[[wikt:\u6606|\u6606]]
+        insect;}} \n{{nowrap|[[wikt:\u8702|\u8702]] bee;}} \n{{nowrap|[[wikt:\u868a|\u868a]]
+        mosquito;}} \n{{nowrap|[[wikt:\u8695|\u8695]] silkworm;}} \n{{nowrap|[[wikt:\u86cd|\u86cd]]
+        firefly;}} \n{{nowrap|[[wikt:\u86c7|\u86c7]] snake;}} \n{{nowrap|[[wikt:\u9c10|\u9c10]]
+        alligator or crocodile}}\n\n==== Fish ====\n{{nowrap|[[wikt:\u9b5a|\u9b5a]]
+        fish;}} \n{{nowrap|[[wikt:\u8c9d|\u8c9d]] shellfish;}}\n{{nowrap|[[wikt:\u9bc9|\u9bc9]]
+        [[carp]];}} \n{{nowrap|[[wikt:\u9b92|\u9b92]] [[crucian carp]];}} \n{{nowrap|[[wikt:\u9ba0|\u9ba0]]
+        [[minnow]];}} \n{{nowrap|[[wikt:\u9c52|\u9c52]] [[trout]];}} \n{{nowrap|[[wikt:\u9bad|\u9bad]]
+        [[salmon]];}} \n{{nowrap|[[wikt:\u9c78|\u9c78]] [[Dicentrarchus labrax|sea
+        bass]];}} \n{{nowrap|[[wikt:\u9bdb|\u9bdb]] [[sea bream]];}} \n{{nowrap|[[wikt:\u9c0c|\u9c0c]]
+        [[stone loach]];}} \n{{nowrap|[[wikt:\u9c48|\u9c48]] [[cod]];}} \n{{nowrap|[[wikt:\u9c3b|\u9c3b]]
+        [[eel]];}} \n{{nowrap|[[wikt:\u9bca|\u9bca]] [[goby]];}} \n{{nowrap|[[wikt:\u9bd6|\u9bd6]]
+        [[mackerel]];}} \n{{nowrap|[[wikt:\u9c2f|\u9c2f]] [[sardine]];}} \n{{nowrap|[[wikt:\u9bf5|\u9bf5]]
+        [[Trachurus trachurus|scad]] / [[Trachurus trachurus|horse mackerel]];}} \n{{nowrap|[[wikt:\u9c0a|\u9c0a]]
+        [[herring]];}} \n{{nowrap|[[wikt:\u9c0d|\u9c0d]] [[Cottus gobio|bullhead]];}}
+        \n{{nowrap|[[wikt:\u9bf0|\u9bf0]] [[catfish]];}} \n{{nowrap|[[wikt:\u9c08|\u9c08]]/[[wikt:\u9b83|\u9b83]]
+        [[flounder]];}} \n{{nowrap|[[wikt:\u9c24|\u9c24]] [[amberjack]];}} \n{{nowrap|[[wikt:\u9b83|\u9b83]]
+        [[sole (fish)|sole]];}} \n{{nowrap|[[wikt:\u9bab|\u9bab]] [[shark]];}}\n\n====
+        Birds ====\n{{nowrap|[[wikt:\u9ce5|\u9ce5]] bird;}} \n{{nowrap|[[wikt:\u9d8f|\u9d8f]]
+        chicken;}} \n{{nowrap|[[wikt:\u9d28|\u9d28]] duck;}} \n{{nowrap|[[wikt:\u9df9|\u9df9]]
+        hawk;}} \n{{nowrap|[[wikt:\u9db4|\u9db4]] crane;}} \n{{nowrap|[[wikt:\u96c0|\u96c0]]
+        sparrow;}} \n{{nowrap|[[wikt:\u689f|\u689f]] [[owl]];}} \n{{nowrap|[[wikt:\u71d5|\u71d5]]
+        [[swallow]];}} \n{{nowrap|[[wikt:\u70cf|\u70cf]]/[[wikt:\u9d09|\u9d09]] [[crow]];}}\n\n====
+        Animal parts ====\n{{nowrap|[[wikt:\u7fbd|\u7fbd]] feather, wing;}} \n{{nowrap|[[wikt:\u7ffc|\u7ffc]]
+        wing;}} \n{{nowrap|[[wikt:\u6bdb|\u6bdb]] fur;}} \n{{nowrap|[[wikt:\u5c3e|\u5c3e]]
+        tail;}} \n{{nowrap|[[wikt:\u7259|\u7259]] tusk, fang;}} \n{{nowrap|[[wikt:\u89d2|\u89d2]]
+        horn;}} \n{{nowrap|[[wikt:\u722a|\u722a]] claw;}}\n\n=== Plants and trees
+        ===\n\n:''''See also Food and Drink''''\n{{nowrap|[[wikt:\u690d|\u690d]] plant;}}
+        \n{{nowrap|[[wikt:\u6728|\u6728]] tree;}} \n{{nowrap|[[wikt:\u6a39|\u6a39]]
+        tree;}} \n{{nowrap|[[wikt:\u6797|\u6797]] grove;}} \n{{nowrap|[[wikt:\u68ee|\u68ee]]
+        forest;}} \n{{nowrap|[[wikt:\u677e|\u677e]] pine;}} \n{{nowrap|[[wikt:\u6749|\u6749]]
+        cedar;}} \n{{nowrap|[[wikt:\u685c|\u685c]] cherry;}} \n{{nowrap|[[wikt:\u6885|\u6885]]
+        plum;}} \n{{nowrap|[[wikt:\u68a8|\u68a8]] pear;}} \n{{nowrap|[[wikt:\u67ff|\u67ff]]
+        persimmon;}} \n{{nowrap|[[wikt:\u6803|\u6803]] horse chestnut;}} \n{{nowrap|[[wikt:\u85e4|\u85e4]]
+        wisteria;}} \n{{nowrap|[[wikt:\u6851|\u6851]] mulberry;}} \n{{nowrap|[[wikt:\u6843|\u6843]]
+        peach;}} \n{{nowrap|[[wikt:\u67f3|\u67f3]] willow;}} \n{{nowrap|[[wikt:\u6842|\u6842]]
+        cinnamon tree;}} \n{{nowrap|[[wikt:\u8349|\u8349]] grass;}} \n{{nowrap|[[wikt:\u7a32|\u7a32]]
+        rice plant;}} \n{{nowrap|[[wikt:\u9ebb|\u9ebb]] hemp or flax;}} \n{{nowrap|[[wikt:\u7af9|\u7af9]]
+        bamboo;}} \n{{nowrap|[[wikt:\u845b|\u845b]] vine;}} \n{{nowrap|[[wikt:\u8328|\u8328]]
+        brier;}} \n{{nowrap|[[wikt:\u83ca|\u83ca]] chrysanthemum;}} \n{{nowrap|[[wikt:\u683d|\u683d]]
+        cultivation of plants;}} \n{{nowrap|[[wikt:\u85fb|\u85fb]] algae, seaweed;}}
+        \n{{nowrap|[[wikt:\u8338|\u8338]] mushroom;}} \n{{nowrap|[[wikt:\u83cc|\u83cc]]
+        fungi or bacteria;}} \n{{nowrap|[[wikt:\u6839|\u6839]] root;}} \n{{nowrap|[[wikt:\u5e79|\u5e79]]
+        tree trunk;}} \n{{nowrap|[[wikt:\u679d|\u679d]] branch;}} \n{{nowrap|[[wikt:\u8449|\u8449]]
+        leaf;}} \n{{nowrap|[[wikt:\u82b1|\u82b1]] flower;}} \n{{nowrap|[[wikt:\u82bd|\u82bd]]
+        bud;}} \n{{nowrap|[[wikt:\u82d7|\u82d7]] seedling;}} \n{{nowrap|[[wikt:\u830e|\u830e]]
+        stem;}}\n\n== People ==\n\n=== General ===\n\n{{nowrap|[[wikt:\u4eba|\u4eba]]
+        person;}} \n{{nowrap|[[wikt:\u8005|\u8005]] person (usually with qualifier);}}
+        \n{{nowrap|[[wikt:\u6c11|\u6c11]] people;}} \n{{nowrap|[[wikt:\u7537|\u7537]]
+        man;}} \n{{nowrap|[[wikt:\u5973|\u5973]] woman;}} \n{{nowrap|[[wikt:\u96c4|\u96c4]]
+        male;}} \n{{nowrap|[[wikt:\u96cc|\u96cc]] female;}} \n{{nowrap|[[wikt:\u7fc1|\u7fc1]]
+        old man;}} \n{{nowrap|[[wikt:\u5a46|\u5a46]] old woman;}} \n{{nowrap|[[wikt:\u5b22|\u5b22]]
+        young lady;}} \n{{nowrap|[[wikt:\u5b50|\u5b50]] child;}} \n{{nowrap|[[wikt:\u5150|\u5150]]
+        child;}} \n{{nowrap|[[wikt:\u574a|\u574a]] boy, sonny;}} \n{{nowrap|[[wikt:\u90ce|\u90ce]]
+        son, boy;}} \n{{nowrap|[[wikt:\u7ae5|\u7ae5]] juvenile;}} \n{{nowrap|[[wikt:\u5f92|\u5f92]]
+        gang or junior;}} \n{{nowrap|[[wikt:\u79c1|\u79c1]] I;}} \n{{nowrap|[[wikt:\u50d5|\u50d5]]
+        I;}} \n{{nowrap|[[wikt:\u4ffa|\u4ffa]] I;}} \n{{nowrap|[[wikt:\u5f7c|\u5f7c]]
+        he;}} \n{{nowrap|[[wikt:\u541b|\u541b]] you;}} \n{{nowrap|[[wikt:\u81ea|\u81ea]]
+        oneself;}} \n{{nowrap|[[wikt:\u5df1|\u5df1]] oneself;}} \n{{nowrap|[[wikt:\u6211|\u6211]]
+        self, ego;}}\n\n=== Roles and status ===\n\n{{nowrap|[[wikt:\u4e3b|\u4e3b]]
+        master or husband;}} \n{{nowrap|[[wikt:\u592b|\u592b]] husband or man;}} \n{{nowrap|[[wikt:\u59bb|\u59bb]]
+        wife;}} \n{{nowrap|[[wikt:\u5a66|\u5a66]] wife or lady;}} \n{{nowrap|[[wikt:\u738b|\u738b]]
+        king;}} \n{{nowrap|[[wikt:\u7687|\u7687]] emperor or sovereign;}} \n{{nowrap|[[wikt:\u5e1d|\u5e1d]]
+        Mikado or emperor;}} \n{{nowrap|[[wikt:\u59eb|\u59eb]] princess;}} \n{{nowrap|[[wikt:\u5a9b|\u5a9b]]
+        princess;}} \n{{nowrap|[[wikt:\u5983|\u5983]] princess, queen;}} \n{{nowrap|[[wikt:\u540e|\u540e]]
+        empress;}} \n{{nowrap|[[wikt:\u4f2f|\u4f2f]] earl, count;}} \n{{nowrap|[[wikt:\u4faf|\u4faf]]
+        lord, marquis;}} \n{{nowrap|[[wikt:\u7235|\u7235]] noble rank;}} \n{{nowrap|[[wikt:\u58eb|\u58eb]]
+        man or gentleman;}} \n{{nowrap|[[wikt:\u65b9|\u65b9]] honorable person;}}
+        \n{{nowrap|[[wikt:\u6f22|\u6f22]] honorable man or [[Han Chinese|Han]] person;}}
+        \n{{nowrap|[[wikt:\u5f66|\u5f66]] boy, high-status man;}} \n{{nowrap|[[wikt:\u5091|\u5091]]
+        great man;}} \n{{nowrap|[[wikt:\u7d33|\u7d33]] gentleman;}} \n{{nowrap|[[wikt:\u6c0f|\u6c0f]]
+        courtesy title;}} \n{{nowrap|[[wikt:\u9577|\u9577]] leader;}} \n{{nowrap|[[wikt:\u4fc2|\u4fc2]]
+        person in charge;}} \n{{nowrap|[[wikt:\u7763|\u7763]] supervisor;}} \n{{nowrap|[[wikt:\u5e2b|\u5e2b]]
+        expert;}} \n{{nowrap|[[wikt:\u4ef2|\u4ef2]] intermediary;}} \n{{nowrap|[[wikt:\u4f7f|\u4f7f]]
+        messenger;}} \n{{nowrap|[[wikt:\u533b|\u533b]] doctor;}} \n{{nowrap|[[wikt:\u53cb|\u53cb]]
+        friend;}} \n{{nowrap|[[wikt:\u50da|\u50da]] colleague;}} \n{{nowrap|[[wikt:\u8f29|\u8f29]]
+        fellow, comrade;}} \n{{nowrap|[[wikt:\u5ba2|\u5ba2]] guest, customer;}} \n{{nowrap|[[wikt:\u8cd3|\u8cd3]]
+        guest, VIP;}} \n{{nowrap|[[wikt:\u96a3|\u96a3]] neighbour;}} \n{{nowrap|[[wikt:\u5974|\u5974]]
+        servant, fellow;}} \n{{nowrap|[[wikt:\u96b7|\u96b7]] underling;}} \n{{nowrap|[[wikt:\u4ed9|\u4ed9]]
+        hermit;}}\n\n===Family relationships===\n\n{{nowrap|[[wikt:\u5bb6|\u5bb6]]
+        family;}} \n{{nowrap|[[wikt:\u65cf|\u65cf]] family;}} \n{{nowrap|[[wikt:\u540d|\u540d]]
+        name;}} \n{{nowrap|[[wikt:\u7236|\u7236]] father;}} \n{{nowrap|[[wikt:\u6bcd|\u6bcd]]
+        mother;}} \n{{nowrap|[[wikt:\u89aa|\u89aa]] parent;}} \n{{nowrap|[[wikt:\u5ac1|\u5ac1]]
+        wife, bride;}} \n{{nowrap|[[wikt:\u5a18|\u5a18]] daughter;}} \n{{nowrap|[[wikt:\u5f1f|\u5f1f]]
+        younger brother;}} \n{{nowrap|[[wikt:\u59b9|\u59b9]] younger sister;}} \n{{nowrap|[[wikt:\u5144|\u5144]]
+        older brother;}} \n{{nowrap|[[wikt:\u59c9|\u59c9]] older sister;}} \n{{nowrap|[[wikt:\u723a|\u723a]]
+        grandfather;}} \n{{nowrap|[[wikt:\u5a46|\u5a46]] grandmother;}} \n{{nowrap|[[wikt:\u7956|\u7956]]
+        ancestor;}} \n{{nowrap|[[wikt:\u5b6b|\u5b6b]] grandchild;}} \n{{nowrap|[[wikt:\u53d4|\u53d4]]
+        aunt, uncle;}} \n{{nowrap|[[wikt:\u4f2f|\u4f2f]] aunt, uncle;}} \n{{nowrap|[[wikt:\u7525|\u7525]]
+        nephew;}} \n{{nowrap|[[wikt:\u59ea|\u59ea]] niece;}} \n{{nowrap|[[wikt:\u5a7f|\u5a7f]]
+        son-in-law, bridegroom;}} \n{{nowrap|[[wikt:\u6606|\u6606]] descendants;}}
+        \n{{nowrap|[[wikt:\u621a|\u621a]] relatives;}} \n{{nowrap|[[wikt:\u5a5a|\u5a5a]]
+        marry;}} \n{{nowrap|[[wikt:\u59fb|\u59fb]] matrimony;}} \n{{nowrap|[[wikt:\u5ae1|\u5ae1]]
+        legitimate wife/family;}} \n{{nowrap|[[wikt:\u5be1|\u5be1]] widow;}}\n\n===Groups===\n\n{{nowrap|[[wikt:\u56fd|\u56fd]]
+        country;}} \n{{nowrap|[[wikt:\u793e|\u793e]] company;}} \n{{nowrap|[[wikt:\u56e3|\u56e3]]
+        group;}} \n{{nowrap|[[wikt:\u6d3e|\u6d3e]] faction, group;}} \n{{nowrap|[[wikt:\u7d44|\u7d44]]
+        association, assemble;}} \n{{nowrap|[[wikt:\u7fa4|\u7fa4]] flock, crowd}}\n\n==
+        Body ==\n\n=== General ===\n\n{{nowrap|[[wikt:\u8eab|\u8eab]] body;}} \n{{nowrap|[[wikt:\u4f53|\u4f53]]
+        body;}} \n{{nowrap|[[wikt:\u8089|\u8089]] flesh;}} \n{{nowrap|[[wikt:\u8840|\u8840]]
+        blood;}} \n{{nowrap|[[wikt:\u8108|\u8108]] vein;}} \n{{nowrap|[[wikt:\u7b4b|\u7b4b]]
+        muscles;}} \n{{nowrap|[[wikt:\u9aa8|\u9aa8]] bone;}} \n{{nowrap|[[wikt:\u9ac4|\u9ac4]]
+        marrow;}} \n{{nowrap|[[wikt:\u7bc0|\u7bc0]] joint;}} \n{{nowrap|[[wikt:\u76ae|\u76ae]]
+        skin;}} \n{{nowrap|[[wikt:\u819a|\u819a]] skin;}} \n{{nowrap|[[wikt:\u808c|\u808c]]
+        skin;}} \n{{nowrap|[[wikt:\u76ba|\u76ba]] wrinkle;}} \n{{nowrap|[[wikt:\u817a|\u817a]]
+        gland;}}\n\n=== Head and neck ===\n\n{{nowrap|[[wikt:\u982d|\u982d]] head;}}
+        \n{{nowrap|[[wikt:\u8133|\u8133]] brain;}} \n{{nowrap|[[wikt:\u9aea|\u9aea]]
+        hair;}} \n{{nowrap|[[wikt:\u9854|\u9854]] face;}} \n{{nowrap|[[wikt:\u9aed|\u9aed]]
+        beard;}} \n{{nowrap|[[wikt:\u984d|\u984d]] forehead;}} \n{{nowrap|[[wikt:\u8033|\u8033]]
+        ear;}} \n{{nowrap|[[wikt:\u76ee|\u76ee]] eye;}} \n{{nowrap|[[wikt:\u773c|\u773c]]
+        eyeball;}} \n{{nowrap|[[wikt:\u7709|\u7709]] eyebrow;}} \n{{nowrap|[[wikt:\u77b3|\u77b3]]
+        pupil;}} \n{{nowrap|[[wikt:\u9f3b|\u9f3b]] nose;}} \n{{nowrap|[[wikt:\u984e|\u984e]]
+        jaw;}} \n{{nowrap|[[wikt:\u53e3|\u53e3]] mouth;}} \n{{nowrap|[[wikt:\u5507|\u5507]]
+        lips;}} \n{{nowrap|[[wikt:\u6b6f|\u6b6f]] tooth;}} \n{{nowrap|[[wikt:\u820c|\u820c]]
+        tongue;}} \n{{nowrap|[[wikt:\u982c|\u982c]] cheek;}} \n{{nowrap|[[wikt:\u9824|\u9824]]
+        chin;}} \n{{nowrap|[[wikt:\u5589|\u5589]] throat;}} \n{{nowrap|[[wikt:\u54bd|\u54bd]]
+        throat;}} \n{{nowrap|[[wikt:\u9996|\u9996]] neck;}}\n\n===Torso and organs===\n\n{{nowrap|[[wikt:\u80f4|\u80f4]]
+        torso;}} \n{{nowrap|[[wikt:\u80cc|\u80cc]] back;}} \n{{nowrap|[[wikt:\u810a|\u810a]]
+        backbone;}} \n{{nowrap|[[wikt:\u5442|\u5442]] backbone;}} \n{{nowrap|[[wikt:\u690e|\u690e]]
+        backbone;}} \n{{nowrap|[[wikt:\u808b|\u808b]] rib;}} \n{{nowrap|[[wikt:\u80f8|\u80f8]]
+        chest;}} \n{{nowrap|[[wikt:\u8179|\u8179]] stomach;}} \n{{nowrap|[[wikt:\u80c3|\u80c3]]
+        stomach;}} \n{{nowrap|[[wikt:\u81cd|\u81cd]] navel;}} \n{{nowrap|[[wikt:\u8170|\u8170]]
+        waist;}} \n{{nowrap|[[wikt:\u81d3|\u81d3]] entrails;}} \n{{nowrap|[[wikt:\u8178|\u8178]]
+        intestines;}} \n{{nowrap|[[wikt:\u5fc3|\u5fc3]] heart;}} \n{{nowrap|[[wikt:\u80ba|\u80ba]]
+        lung;}} \n{{nowrap|[[wikt:\u809d|\u809d]] liver;}} \n{{nowrap|[[wikt:\u81b5|\u81b5]]
+        pancreas;}} \n{{nowrap|[[wikt:\u814e|\u814e]] kidney;}} \n{{nowrap|[[wikt:\u80c6|\u80c6]]
+        gall bladder;}} \n{{nowrap|[[wikt:\u809b|\u809b]] anus;}} \n{{nowrap|[[wikt:\u81a3|\u81a3]]
+        vagina;}}\n\n===Arms and legs===\n\n{{nowrap|[[wikt:\u80a2|\u80a2]] limb;}}
+        \n{{nowrap|[[wikt:\u8155|\u8155]] arm;}} \n{{nowrap|[[wikt:\u80a9|\u80a9]]
+        shoulder;}} \n{{nowrap|[[wikt:\u8107|\u8107]] armpit;}} \n{{nowrap|[[wikt:\u8098|\u8098]]
+        elbow;}} \n{{nowrap|[[wikt:\u624b|\u624b]] hand;}} \n{{nowrap|[[wikt:\u62f3|\u62f3]]
+        fist;}} \n{{nowrap|[[wikt:\u6307|\u6307]] finger;}} \n{{nowrap|[[wikt:\u722a|\u722a]]
+        nail;}} \n{{nowrap|[[wikt:\u638c|\u638c]] palm;}} \n{{nowrap|[[wikt:\u5c3b|\u5c3b]]
+        buttocks;}} \n{{nowrap|[[wikt:\u80a1|\u80a1]] thighs;}} \n{{nowrap|[[wikt:\u811a|\u811a]]
+        leg;}} \n{{nowrap|[[wikt:\u8db3|\u8db3]] leg, foot;}} \n{{nowrap|[[wikt:\u819d|\u819d]]
+        knee;}} \n{{nowrap|[[wikt:\u8e1d|\u8e1d]] ankle;}} \n{{nowrap|[[wikt:\u8e35|\u8e35]]
+        heel;}}\n\n===Body functions ===\n{{nowrap|[[wikt:\u6c57|\u6c57]] sweat;}}
+        \n{{nowrap|[[wikt:\u6cea|\u6cea]] tear;}} \n{{nowrap|[[wikt:\u6d99|\u6d99]]
+        tear;}} \n{{nowrap|[[wikt:\u553e|\u553e]] saliva;}} \n{{nowrap|[[wikt:\u7cbe|\u7cbe]]
+        sperm;}} \n{{nowrap|[[wikt:\u5c3f|\u5c3f]] urine;}} \n{{nowrap|[[wikt:\u4fbf|\u4fbf]]
+        faeces;}} \n{{nowrap|[[wikt:\u80ce|\u80ce]] foetus;}} \n{{nowrap|[[wikt:\u598a|\u598a]]
+        pregnant;}} \n{{nowrap|[[wikt:\u5a20|\u5a20]] pregnant;}} \n{{nowrap|[[wikt:\u751f|\u751f]]
+        birth;}} \n{{nowrap|[[wikt:\u7523|\u7523]] give birth;}} \n{{nowrap|[[wikt:\u54fa|\u54fa]]
+        suckle;}} \n{{nowrap|[[wikt:\u606f|\u606f]] breath;}} \n{{nowrap|[[wikt:\u5bdd|\u5bdd]]
+        sleep;}} \n{{nowrap|[[wikt:\u7720|\u7720]] sleep;}} \n{{nowrap|[[wikt:\u7761|\u7761]]
+        sleep;}} \n{{nowrap|[[wikt:\u5922|\u5922]] dream}}\n\n===Health, illness,
+        medicine ===\n{{nowrap|[[wikt:\u751f|\u751f]] life;}} \n{{nowrap|[[wikt:\u6b7b|\u6b7b]]
+        death;}} \n{{nowrap|[[wikt:\u5065|\u5065]] healthy;}} \n{{nowrap|[[wikt:\u5eb7|\u5eb7]]
+        healthy;}} \n{{nowrap|[[wikt:\u529b|\u529b]] strength;}} \n{{nowrap|[[wikt:\u75c5|\u75c5]]
+        illness;}} \n{{nowrap|[[wikt:\u75c7|\u75c7]] disease;}} \n{{nowrap|[[wikt:\u75be|\u75be]]
+        disease;}} \n{{nowrap|[[wikt:\u60a3|\u60a3]] sick;}} \n{{nowrap|[[wikt:\u75ab|\u75ab]]
+        epidemic;}} \n{{nowrap|[[wikt:\u9ab8|\u9ab8]] corpse;}} \n{{nowrap|[[wikt:\u75db|\u75db]]
+        pain;}} \n{{nowrap|[[wikt:\u75b2|\u75b2]] tired;}} \n{{nowrap|[[wikt:\u4f11|\u4f11]]
+        rest;}} \n{{nowrap|[[wikt:\u75e9|\u75e9]] weight loss;}} \n{{nowrap|[[wikt:\u760d|\u760d]]
+        ulcer;}} \n{{nowrap|[[wikt:\u75d8|\u75d8]] pox;}} \n{{nowrap|[[wikt:\u75e2|\u75e2]]
+        diarrhoea;}} \n{{nowrap|[[wikt:\u764c|\u764c]] cancer;}} \n{{nowrap|[[wikt:\u50b7|\u50b7]]
+        wound;}} \n{{nowrap|[[wikt:\u75d5|\u75d5]] scar;}} \n{{nowrap|[[wikt:\u533b|\u533b]]
+        medicine, doctor;}} \n{{nowrap|[[wikt:\u7642|\u7642]] heal;}} \n{{nowrap|[[wikt:\u7652|\u7652]]
+        heal;}} \n{{nowrap|[[wikt:\u6cbb|\u6cbb]] cure;}} \n{{nowrap|[[wikt:\u5264|\u5264]]
+        medicine;}} \n{{nowrap|[[wikt:\u9320|\u9320]] pill;}} \n{{nowrap|[[wikt:\u85ac|\u85ac]]
+        drug;}}\n\n===Gestures and sports===\n{{nowrap|[[wikt:\u7acb|\u7acb]] stand
+        up;}} \n{{nowrap|[[wikt:\u8d70|\u8d70]] run;}} \n{{nowrap|[[wikt:\u5ea7|\u5ea7]]
+        sit;}} \n{{nowrap|[[wikt:\u8e0a|\u8e0a]] jump;}} \n{{nowrap|[[wikt:\u6b69|\u6b69]]
+        walk;}} \n{{nowrap|[[wikt:\u6cf3|\u6cf3]] swim;}} \n{{nowrap|[[wikt:\u6b62|\u6b62]]
+        stop}}\n\n== Emotions and senses ==\n\n===Emotions===\n{{nowrap|[[wikt:\u60c5|\u60c5]]
+        emotion;}} \n{{nowrap|[[wikt:\u611f|\u611f]] feeling, emotion;}} \n{{nowrap|[[wikt:\u6c17|\u6c17]]
+        feeling, mood;}} \n{{nowrap|[[wikt:\u611b|\u611b]] love;}} \n{{nowrap|[[wikt:\u604b|\u604b]]
+        love;}} \n{{nowrap|[[wikt:\u6155|\u6155]] adoration;}} \n{{nowrap|[[wikt:\u5d07|\u5d07]]
+        reverence, adoration;}} \n{{nowrap|[[wikt:\u606d|\u606d]] respect;}} \n{{nowrap|[[wikt:\u656c|\u656c]]
+        respect;}} \n{{nowrap|[[wikt:\u6148|\u6148]] affection, benevolence;}} \n{{nowrap|[[wikt:\u618e|\u618e]]
+        hate;}} \n{{nowrap|[[wikt:\u597d|\u597d]] like;}} \n{{nowrap|[[wikt:\u5acc|\u5acc]]
+        dislike;}} \n{{nowrap|[[wikt:\u8511|\u8511]] contempt;}} \n{{nowrap|[[wikt:\u6050|\u6050]]
+        fear or anxiety;}} \n{{nowrap|[[wikt:\u865e|\u865e]] fear or anxiety;}} \n{{nowrap|[[wikt:\u6016|\u6016]]
+        fear or anxiety;}} \n{{nowrap|[[wikt:\u754f|\u754f]] fear or anxiety;}} \n{{nowrap|[[wikt:\u6144|\u6144]]
+        fear;}} \n{{nowrap|[[wikt:\u60e7|\u60e7]] apprehension;}} \n{{nowrap|[[wikt:\u60b2|\u60b2]]
+        sadness;}} \n{{nowrap|[[wikt:\u54c0|\u54c0]] sadness or pity;}} \n{{nowrap|[[wikt:\u6182|\u6182]]
+        sadness, anxiety;}} \n{{nowrap|[[wikt:\u7169|\u7169]] anxiety, annoyance;}}
+        \n{{nowrap|[[wikt:\u6101|\u6101]] melancholy;}} \n{{nowrap|[[wikt:\u9b31|\u9b31]]
+        melancholy;}} \n{{nowrap|[[wikt:\u60dc|\u60dc]] regret;}} \n{{nowrap|[[wikt:\u61be|\u61be]]
+        regret;}} \n{{nowrap|[[wikt:\u6094|\u6094]] remorse;}} \n{{nowrap|[[wikt:\u61d0|\u61d0]]
+        yearning;}} \n{{nowrap|[[wikt:\u61a7|\u61a7]] yearning, adoration;}} \n{{nowrap|[[wikt:\u61ac|\u61ac]]
+        yearning;}} \n{{nowrap|[[wikt:\u621a|\u621a]] grief;}} \n{{nowrap|[[wikt:\u6068|\u6068]]
+        resentment;}} \n{{nowrap|[[wikt:\u6028|\u6028]] resentment;}} \n{{nowrap|[[wikt:\u6168|\u6168]]
+        indignation, resentment;}} \n{{nowrap|[[wikt:\u5bc2|\u5bc2]] loneliness;}}
+        \n{{nowrap|[[wikt:\u697d|\u697d]] fun;}} \n{{nowrap|[[wikt:\u6109|\u6109]]
+        fun;}} \n{{nowrap|[[wikt:\u5a2f|\u5a2f]] fun;}} \n{{nowrap|[[wikt:\u5e78|\u5e78]]
+        happiness;}} \n{{nowrap|[[wikt:\u5b09|\u5b09]] happiness;}} \n{{nowrap|[[wikt:\u559c|\u559c]]
+        joy;}} \n{{nowrap|[[wikt:\u60a6|\u60a6]] joy;}} \n{{nowrap|[[wikt:\u6176|\u6176]]
+        joy;}} \n{{nowrap|[[wikt:\u6b53|\u6b53]] joy;}} \n{{nowrap|[[wikt:\u5feb|\u5feb]]
+        pleasure;}} \n{{nowrap|[[wikt:\u7b11|\u7b11]] laughter;}} \n{{nowrap|[[wikt:\u7591|\u7591]]
+        doubt or suspicion;}} \n{{nowrap|[[wikt:\u8ff7|\u8ff7]] doubt;}} \n{{nowrap|[[wikt:\u8ff7|\u8ff7]]
+        confusion;}} \n{{nowrap|[[wikt:\u7d1b|\u7d1b]] confusion;}} \n{{nowrap|[[wikt:\u60d1|\u60d1]]
+        bewilderment;}} \n{{nowrap|[[wikt:\u614c|\u614c]] disconcertion;}} \n{{nowrap|[[wikt:\u9a5a|\u9a5a]]
+        surprise;}} \n{{nowrap|[[wikt:\u6b32|\u6b32]] desire;}} \n{{nowrap|[[wikt:\u6012|\u6012]]
+        anger;}} \n{{nowrap|[[wikt:\u6fc0|\u6fc0]] violent excitement;}} \n{{nowrap|[[wikt:\u66b4|\u66b4]]
+        violent rage;}} \n{{nowrap|[[wikt:\u61a4|\u61a4]] indignation;}} \n{{nowrap|[[wikt:\u50b2|\u50b2]]
+        pride;}} \n{{nowrap|[[wikt:\u6065|\u6065]] shame;}} \n{{nowrap|[[wikt:\u7f9e|\u7f9e]]
+        shame;}} \n{{nowrap|[[wikt:\u59ac|\u59ac]] envy;}} \n{{nowrap|[[wikt:\u7fa8|\u7fa8]]
+        envy;}} \n{{nowrap|[[wikt:\u5ac9|\u5ac9]] envy;}}\n\n===Senses===\n\n{{nowrap|[[wikt:\u898b|\u898b]]
+        see;}} \n{{nowrap|[[wikt:\u805e|\u805e]] hear;}} \n{{nowrap|[[wikt:\u8074|\u8074]]
+        listen;}} \n{{nowrap|[[wikt:\u97f3|\u97f3]] sound;}} \n{{nowrap|[[wikt:\u9759|\u9759]]
+        quiet;}} \n{{nowrap|[[wikt:\u5473|\u5473]] taste, flavour;}} \n{{nowrap|[[wikt:\u8fa3|\u8fa3]]
+        bitter;}} \n{{nowrap|[[wikt:\u8f9b|\u8f9b]] pungent;}} \n{{nowrap|[[wikt:\u89e6|\u89e6]]
+        touch, feel;}} \n{{nowrap|[[wikt:\u55c5|\u55c5]] smell;}} \n{{nowrap|[[wikt:\u82b3|\u82b3]]
+        fragrant;}} \n{{nowrap|[[wikt:\u5302|\u5302]] fragrant;}} \n{{nowrap|[[wikt:\u9999|\u9999]]
+        pleasant smell;}} \n{{nowrap|[[wikt:\u81ed|\u81ed]] bad smell;}} \n{{nowrap|[[wikt:\u76f2|\u76f2]]
+        blind;}}\n\n===Judgment===\n{{nowrap|[[wikt:\u601d|\u601d]] think;}} \n{{nowrap|[[wikt:\u8003|\u8003]]
+        think;}} \n{{nowrap|[[wikt:\u6b63|\u6b63]] correct;}} \n{{nowrap|[[wikt:\u826f|\u826f]]
+        good;}} \n{{nowrap|[[wikt:\u5584|\u5584]] good;}} \n{{nowrap|[[wikt:\u60aa|\u60aa]]
+        bad;}} \n{{nowrap|[[wikt:\u7406|\u7406]] reason}}\n\n== Food and drink ==\n:''''See
+        also Animals and Plants''''\n{{nowrap|[[wikt:\u98df|\u98df]] eat, meal;}}
+        \n{{nowrap|[[wikt:\u98f2|\u98f2]] drink;}} \n{{nowrap|[[wikt:\u7c73|\u7c73]]
+        rice;}} \n{{nowrap|[[wikt:\u98ef|\u98ef]] cooked rice, meal;}} \n{{nowrap|[[wikt:\u9905|\u9905]]
+        rice cake;}} \n{{nowrap|[[wikt:\u9ea6|\u9ea6]] wheat or barley;}} \n{{nowrap|[[wikt:\u7c92|\u7c92]]
+        grain;}} \n{{nowrap|[[wikt:\u7a40|\u7a40]] cereal;}} \n{{nowrap|[[wikt:\u7a42|\u7a42]]
+        ear of grain;}} \n{{nowrap|[[wikt:\u679c|\u679c]] fruit;}} \n{{nowrap|[[wikt:\u5b9f|\u5b9f]]
+        fruit;}} \n{{nowrap|[[wikt:\u83dc|\u83dc]] vegetable;}} \n{{nowrap|[[wikt:\u8c46|\u8c46]]
+        bean;}} \n{{nowrap|[[wikt:\u9eba|\u9eba]] noodles;}} \n{{nowrap|[[wikt:\u828b|\u828b]]
+        potato;}} \n{{nowrap|[[wikt:\u7c89|\u7c89]] flour;}} \n{{nowrap|[[wikt:\u5375|\u5375]]
+        egg;}} \n{{nowrap|[[wikt:\u7cd6|\u7cd6]] sugar;}} \n{{nowrap|[[wikt:\u8089|\u8089]]
+        meat;}} \n{{nowrap|[[wikt:\u4e73|\u4e73]] milk;}} \n{{nowrap|[[wikt:\u916a|\u916a]]
+        dairy products;}} \n{{nowrap|[[wikt:\u871c|\u871c]] honey;}} \n{{nowrap|[[wikt:\u83d3|\u83d3]]
+        confectionery;}} \n{{nowrap|[[wikt:\u6817|\u6817]] chestnut;}} \n{{nowrap|[[wikt:\u9152|\u9152]]
+        alcoholic drink;}} \n{{nowrap|[[wikt:\u914e|\u914e]] sake;}} \n{{nowrap|[[wikt:\u914c|\u914c]]
+        serve alcohol;}} \n{{nowrap|[[wikt:\u9162|\u9162]] vinegar;}} \n{{nowrap|[[wikt:\u6f2c|\u6f2c]]
+        pickle;}} \n{{nowrap|[[wikt:\u6c41|\u6c41]] juice, soup;}} \n{{nowrap|[[wikt:\u8336|\u8336]]
+        tea;}} \n{{nowrap|[[wikt:\u708a|\u708a]] cook;}} \n{{nowrap|[[wikt:\u713c|\u713c]]
+        bake;}} \n{{nowrap|[[wikt:\u714e|\u714e]] roast, boil;}} \n{{nowrap|[[wikt:\u84b8|\u84b8]]
+        steam;}} \n{{nowrap|[[wikt:\u91b8|\u91b8]] brew;}} \n{{nowrap|[[wikt:\u63da|\u63da]]
+        fry;}} \n{{nowrap|[[wikt:\u4e3c|\u4e3c]] bowl of food;}} \n{{nowrap|[[wikt:\u7bb8|\u7bb8]]
+        chopsticks;}} \n{{nowrap|[[wikt:\u9ba8|\u9ba8]] [[sushi]];}}\n\n== Man-made
+        structures and artefacts ==\n\n=== Towns, cities, buildings, structures, roads
+        ===\n\n{{nowrap|[[wikt:\u6751|\u6751]] village;}} \n{{nowrap|[[wikt:\u753a|\u753a]]
+        town;}} \n{{nowrap|[[wikt:\u5e02|\u5e02]] city;}} \n{{nowrap|[[wikt:\u4eac|\u4eac]]
+        capital city;}} \n{{nowrap|[[wikt:\u90fd|\u90fd]] metropolis;}} \n{{nowrap|[[wikt:\u757f|\u757f]]
+        capital;}} \n{{nowrap|[[wikt:\u8857|\u8857]] street, city district;}} \n{{nowrap|[[wikt:\u5efa|\u5efa]]
+        build;}} \n{{nowrap|[[wikt:\u5bb6|\u5bb6]] house;}} \n{{nowrap|[[wikt:\u5b85|\u5b85]]
+        home;}} \n{{nowrap|[[wikt:\u5c4b|\u5c4b]] roof, house, shop;}} \n{{nowrap|[[wikt:\u5e97|\u5e97]]
+        shop;}} \n{{nowrap|[[wikt:\u8358|\u8358]] villa;}} \n{{nowrap|[[wikt:\u4ead|\u4ead]]
+        pavilion;}} \n{{nowrap|[[wikt:\u5712|\u5712]] garden;}} \n{{nowrap|[[wikt:\u829d|\u829d]]
+        lawn, turf;}} \n{{nowrap|[[wikt:\u5ead|\u5ead]] garden, courtyard;}} \n{{nowrap|[[wikt:\u5ba4|\u5ba4]]
+        room;}} \n{{nowrap|[[wikt:\u623f|\u623f]] room;}} \n{{nowrap|[[wikt:\u5eca|\u5eca]]
+        corridor;}} \n{{nowrap|[[wikt:\u58c1|\u58c1]] wall;}} \n{{nowrap|[[wikt:\u6238|\u6238]]
+        door;}} \n{{nowrap|[[wikt:\u6249|\u6249]] door;}} \n{{nowrap|[[wikt:\u7a93|\u7a93]]
+        window;}} \n{{nowrap|[[wikt:\u68da|\u68da]] shelf;}} \n{{nowrap|[[wikt:\u9580|\u9580]]
+        gate;}} \n{{nowrap|[[wikt:\u57a3|\u57a3]] fence;}} \n{{nowrap|[[wikt:\u5840|\u5840]]
+        wall, fence;}} \n{{nowrap|[[wikt:\u67f5|\u67f5]] fence;}} \n{{nowrap|[[wikt:\u5bee|\u5bee]]
+        dormitory;}} \n{{nowrap|[[wikt:\u8535|\u8535]] storehouse;}} \n{{nowrap|[[wikt:\u5eab|\u5eab]]
+        storage room;}} \n{{nowrap|[[wikt:\u5009|\u5009]] warehouse;}} \n{{nowrap|[[wikt:\u820e|\u820e]]
+        building;}} \n{{nowrap|[[wikt:\u9928|\u9928]] public building;}} \n{{nowrap|[[wikt:\u95a3|\u95a3]]
+        imposing building;}} \n{{nowrap|[[wikt:\u5bae|\u5bae]] palace;}} \n{{nowrap|[[wikt:\u6bbf|\u6bbf]]
+        hall, palace;}} \n{{nowrap|[[wikt:\u5802|\u5802]] hall;}} \n{{nowrap|[[wikt:\u697c|\u697c]]
+        tower;}} \n{{nowrap|[[wikt:\u5854|\u5854]] tower;}} \n{{nowrap|[[wikt:\u57ce|\u57ce]]
+        castle;}} \n{{nowrap|[[wikt:\u5841|\u5841]] base, fort;}} \n{{nowrap|[[wikt:\u7344|\u7344]]
+        prison;}} \n{{nowrap|[[wikt:\u5bbf|\u5bbf]] inn;}} \n{{nowrap|[[wikt:\u99c5|\u99c5]]
+        station;}} \n{{nowrap|[[wikt:\u6e2f|\u6e2f]] harbour;}} \n{{nowrap|[[wikt:\u6d25|\u6d25]]
+        harbour;}} \n{{nowrap|[[wikt:\u6a4b|\u6a4b]] bridge;}} \n{{nowrap|[[wikt:\u7891|\u7891]]
+        monument;}} \n{{nowrap|[[wikt:\u685f|\u685f]] wooden structure;}} \n{{nowrap|[[wikt:\u6841|\u6841]]
+        beam, column;}} \n{{nowrap|[[wikt:\u67f1|\u67f1]] pillar;}} \n{{nowrap|[[wikt:\u68df|\u68df]]
+        ridgepole;}} \n{{nowrap|[[wikt:\u58c7|\u58c7]] podium;}} \n{{nowrap|[[wikt:\u53f0|\u53f0]]
+        pedestal;}} \n{{nowrap|[[wikt:\u4e95|\u4e95]] well;}} \n{{nowrap|[[wikt:\u7089|\u7089]]
+        fireplace, hearth;}} \n{{nowrap|[[wikt:\u9053|\u9053]] path or road;}} \n{{nowrap|[[wikt:\u8def|\u8def]]
+        path or road;}} \n{{nowrap|[[wikt:\u9014|\u9014]] way, route;}} \n{{nowrap|[[wikt:\u5c90|\u5c90]]
+        fork in the road;}} \n{{nowrap|[[wikt:\u8fbb|\u8fbb]] crossroads;}}\n\n===
+        Vehicles and machines ===\n\n{{nowrap|[[wikt:\u8eca|\u8eca]] vehicle, wheel;}}
+        \n{{nowrap|[[wikt:\u8ef8|\u8ef8]] axle;}} \n{{nowrap|[[wikt:\u6a5f|\u6a5f]]
+        machine;}} \n{{nowrap|[[wikt:\u68b0|\u68b0]] contraption;}} \n{{nowrap|[[wikt:\u8239|\u8239]]
+        boat;}} \n{{nowrap|[[wikt:\u8247|\u8247]] boat;}} \n{{nowrap|[[wikt:\u821f|\u821f]]
+        small boat;}} \n{{nowrap|[[wikt:\u8236|\u8236]] oceangoing ship;}} \n{{nowrap|[[wikt:\u8237|\u8237]]
+        side of a ship;}} \n{{nowrap|[[wikt:\u4e57|\u4e57]] ride, board;}} \n{{nowrap|[[wikt:\u642d|\u642d]]
+        board, load;}} \n{{nowrap|[[wikt:\u529b|\u529b]] power}}\n\n=== Clothing and
+        textiles ===\n\n{{nowrap|[[wikt:\u5e03|\u5e03]] cloth;}} \n{{nowrap|[[wikt:\u5dfe|\u5dfe]]
+        cloth, towel;}} \n{{nowrap|[[wikt:\u8863|\u8863]] garment;}} \n{{nowrap|[[wikt:\u670d|\u670d]]
+        clothes;}} \n{{nowrap|[[wikt:\u88c5|\u88c5]] attire;}} \n{{nowrap|[[wikt:\u7d79|\u7d79]]
+        silk;}} \n{{nowrap|[[wikt:\u8896|\u8896]] sleeve;}} \n{{nowrap|[[wikt:\u88fe|\u88fe]]
+        hem, cuff;}} \n{{nowrap|[[wikt:\u895f|\u895f]] collar;}} \n{{nowrap|[[wikt:\u5e2f|\u5e2f]]
+        belt;}} \n{{nowrap|[[wikt:\u9774|\u9774]] shoes;}} \n{{nowrap|[[wikt:\u5c65|\u5c65]]
+        footwear;}} \n{{nowrap|[[wikt:\u5e3d|\u5e3d]] hat;}} \n{{nowrap|[[wikt:\u7740|\u7740]]
+        wear;}} \n{{nowrap|[[wikt:\u7cf8|\u7cf8]] thread;}} \n{{nowrap|[[wikt:\u7e2b|\u7e2b]]
+        sew;}} \n{{nowrap|[[wikt:\u7e54|\u7e54]] weave;}} \n{{nowrap|[[wikt:\u7d21|\u7d21]]
+        spin (yarn);}} \n{{nowrap|[[wikt:\u7dbf|\u7dbf]] cotton;}} \n{{nowrap|[[wikt:\u9326|\u9326]]
+        brocade;}}\n\n=== Miscellaneous manufactured items ===\n\n{{nowrap|[[wikt:\u54c1|\u54c1]]
+        article;}} \n{{nowrap|[[wikt:\u5668|\u5668]] vessel;}} \n{{nowrap|[[wikt:\u9262|\u9262]]
+        bowl;}} \n{{nowrap|[[wikt:\u4e3c|\u4e3c]] bowl;}} \n{{nowrap|[[wikt:\u676f|\u676f]]
+        cup;}} \n{{nowrap|[[wikt:\u934b|\u934b]] pot;}} \n{{nowrap|[[wikt:\u91dc|\u91dc]]
+        kettle;}} \n{{nowrap|[[wikt:\u76bf|\u76bf]] plate, dish;}} \n{{nowrap|[[wikt:\u677f|\u677f]]
+        board, plate;}} \n{{nowrap|[[wikt:\u76e4|\u76e4]] disk, board;}} \n{{nowrap|[[wikt:\u76c6|\u76c6]]
+        basin, tray;}} \n{{nowrap|[[wikt:\u74f6|\u74f6]] bottle, jar;}} \n{{nowrap|[[wikt:\u7f36|\u7f36]]
+        tin can;}} \n{{nowrap|[[wikt:\u7bb8|\u7bb8]] chopsticks;}} \n{{nowrap|[[wikt:\u84cb|\u84cb]]
+        lid;}} \n{{nowrap|[[wikt:\u6813|\u6813]] stopper, plug;}} \n{{nowrap|[[wikt:\u5353|\u5353]]
+        table;}} \n{{nowrap|[[wikt:\u6905|\u6905]] chair;}} \n{{nowrap|[[wikt:\u673a|\u673a]]
+        desk;}} \n{{nowrap|[[wikt:\u5e8a|\u5e8a]] bed;}} \n{{nowrap|[[wikt:\u81b3|\u81b3]]
+        tray, small table;}} \n{{nowrap|[[wikt:\u7bb1|\u7bb1]] box;}} \n{{nowrap|[[wikt:\u706f|\u706f]]
+        lamp;}} \n{{nowrap|[[wikt:\u888b|\u888b]] bag;}} \n{{nowrap|[[wikt:\u4ff5|\u4ff5]]
+        straw sack, bag;}} \n{{nowrap|[[wikt:\u7c60|\u7c60]] basket;}} \n{{nowrap|[[wikt:\u6247|\u6247]]
+        fan;}} \n{{nowrap|[[wikt:\u6795|\u6795]] pillow;}} \n{{nowrap|[[wikt:\u5e55|\u5e55]]
+        curtain;}} \n{{nowrap|[[wikt:\u5e06|\u5e06]] sail;}} \n{{nowrap|[[wikt:\u7573|\u7573]]
+        tatami mat;}} \n{{nowrap|[[wikt:\u5098|\u5098]] umbrella;}} \n{{nowrap|[[wikt:\u78c1|\u78c1]]
+        porcelain;}} \n{{nowrap|[[wikt:\u9676|\u9676]] pottery;}} \n{{nowrap|[[wikt:\u74e6|\u74e6]]
+        tile;}} \n{{nowrap|[[wikt:\u7d19|\u7d19]] paper;}} \n{{nowrap|[[wikt:\u7b8b|\u7b8b]]
+        paper;}} \n{{nowrap|[[wikt:\u9769|\u9769]] leather;}} \n{{nowrap|[[wikt:\u5857|\u5857]]
+        paint;}} \n{{nowrap|[[wikt:\u6f06|\u6f06]] lacquer;}} \n{{nowrap|[[wikt:\u68d2|\u68d2]]
+        rod;}} \n{{nowrap|[[wikt:\u7dad|\u7dad]] fibre;}} \n{{nowrap|[[wikt:\u7db2|\u7db2]]
+        net;}} \n{{nowrap|[[wikt:\u7d22|\u7d22]] cord;}} \n{{nowrap|[[wikt:\u7e04|\u7e04]]
+        rope;}} \n{{nowrap|[[wikt:\u7db1|\u7db1]] rope;}} \n{{nowrap|[[wikt:\u5f26|\u5f26]]
+        string;}} \n{{nowrap|[[wikt:\u91dd|\u91dd]] needle;}} \n{{nowrap|[[wikt:\u938c|\u938c]]
+        sickle;}} \n{{nowrap|[[wikt:\u7ba1|\u7ba1]] pipe;}} \n{{nowrap|[[wikt:\u69fd|\u69fd]]
+        tank;}} \n{{nowrap|[[wikt:\u9396|\u9396]] chain;}} \n{{nowrap|[[wikt:\u4e32|\u4e32]]
+        skewer;}} \n{{nowrap|[[wikt:\u5177|\u5177]] tool;}} \n{{nowrap|[[wikt:\u9375|\u9375]]
+        key;}} \n{{nowrap|[[wikt:\u9320|\u9320]] lock;}} \n{{nowrap|[[wikt:\u9234|\u9234]]
+        bell;}} \n{{nowrap|[[wikt:\u9418|\u9418]] bell;}} \n{{nowrap|[[wikt:\u92f3|\u92f3]]
+        casting;}} \n{{nowrap|[[wikt:\u93e1|\u93e1]] mirror;}} \n{{nowrap|[[wikt:\u68fa|\u68fa]]
+        coffin;}} \n{{nowrap|[[wikt:\u7aaf|\u7aaf]] stove, kiln;}} \n{{nowrap|[[wikt:\u81fc|\u81fc]]
+        millstone, mortar;}} \n{{nowrap|[[wikt:\u9318|\u9318]] spindle, plumb;}} \n{{nowrap|[[wikt:\u67a2|\u67a2]]
+        hinge, pivot;}} \n{{nowrap|[[wikt:\u65a4|\u65a4]] axe;}} \n{{nowrap|[[wikt:\u920e|\u920e]]
+        [[fish hook]];}}\n\n== Human activities ==\n\n=== Money and commerce===\n\n{{nowrap|[[wikt:\u91d1|\u91d1]]
+        money or gold;}} \n{{nowrap|[[wikt:\u92ad|\u92ad]] coin;}} \n{{nowrap|[[wikt:\u672d|\u672d]]
+        banknote;}} \n{{nowrap|[[wikt:\u5186|\u5186]] yen;}} \n{{nowrap|[[wikt:\u5e63|\u5e63]]
+        currency;}} \n{{nowrap|[[wikt:\u8ca1|\u8ca1]] wealth;}} \n{{nowrap|[[wikt:\u5bcc|\u5bcc]]
+        rich;}} \n{{nowrap|[[wikt:\u8cb7|\u8cb7]] buy;}} \n{{nowrap|[[wikt:\u8cfc|\u8cfc]]
+        purchase;}} \n{{nowrap|[[wikt:\u58f2|\u58f2]] sell;}} \n{{nowrap|[[wikt:\u696d|\u696d]]
+        business, industry;}} \n{{nowrap|[[wikt:\u5546|\u5546]] trade;}} \n{{nowrap|[[wikt:\u8cbf|\u8cbf]]
+        trade;}} \n{{nowrap|[[wikt:\u8ca9|\u8ca9]] marketing;}} \n{{nowrap|[[wikt:\u5378|\u5378]]
+        wholesale;}} \n{{nowrap|[[wikt:\u6255|\u6255]] pay;}} \n{{nowrap|[[wikt:\u8c9d|\u8c9d]]
+        cowry ([[Chinese currency#Ancient currencies|ancient Chinese currency]]);}}
+        \n{{nowrap|[[wikt:\u8ca8|\u8ca8]] goods, property;}} \n{{nowrap|[[wikt:\u5b9d|\u5b9d]]
+        treasure, wealth;}} \n{{nowrap|[[wikt:\u7523|\u7523]] product;}} \n{{nowrap|[[wikt:\u5de5|\u5de5]]
+        manufacture;}} \n{{nowrap|[[wikt:\u4fa1|\u4fa1]] price;}} \n{{nowrap|[[wikt:\u5024|\u5024]]
+        price;}} \n{{nowrap|[[wikt:\u9ad8|\u9ad8]] expensive;}} \n{{nowrap|[[wikt:\u5b89|\u5b89]]
+        cheap;}} \n{{nowrap|[[wikt:\u5ec9|\u5ec9]] cheap;}} \n{{nowrap|[[wikt:\u8cc7|\u8cc7]]
+        capital;}} \n{{nowrap|[[wikt:\u8cc3|\u8cc3]] fee or wages;}} \n{{nowrap|[[wikt:\u6599|\u6599]]
+        fee;}} \n{{nowrap|[[wikt:\u8cbb|\u8cbb]] expense;}} \n{{nowrap|[[wikt:\u55b6|\u55b6]]
+        management;}} \n{{nowrap|[[wikt:\u8077|\u8077]] employment;}} \n{{nowrap|[[wikt:\u50cd|\u50cd]]
+        work;}} \n{{nowrap|[[wikt:\u7a3c|\u7a3c]] work, earn;}} \n{{nowrap|[[wikt:\u7d66|\u7d66]]
+        salary;}} \n{{nowrap|[[wikt:\u4ff8|\u4ff8]] salary;}} \n{{nowrap|[[wikt:\u511f|\u511f]]
+        recompense;}} \n{{nowrap|[[wikt:\u50b5|\u50b5]] debt, bond;}} \n{{nowrap|[[wikt:\u8caf|\u8caf]]
+        savings;}} \n{{nowrap|[[wikt:\u7a0e|\u7a0e]] tax;}} \n{{nowrap|[[wikt:\u79df|\u79df]]
+        tax;}} \n{{nowrap|[[wikt:\u8ce6|\u8ce6]] levy, instalment;}} \n{{nowrap|[[wikt:\u8cc4|\u8cc4]]
+        bribe;}} \n{{nowrap|[[wikt:\u8cc2|\u8cc2]] bribe;}} \n{{nowrap|[[wikt:\u8ced|\u8ced]]
+        gamble;}}\n\n=== Culture, arts, music, learning ===\n\n{{nowrap|[[wikt:\u82b8|\u82b8]]
+        art;}} \n{{nowrap|[[wikt:\u7d75|\u7d75]] picture, painting;}} \n{{nowrap|[[wikt:\u753b|\u753b]]
+        picture;}} \n{{nowrap|[[wikt:\u697d|\u697d]] music;}} \n{{nowrap|[[wikt:\u66f2|\u66f2]]
+        musical composition;}} \n{{nowrap|[[wikt:\u6b4c|\u6b4c]] song;}} \n{{nowrap|[[wikt:\u8b21|\u8b21]]
+        song, noh chant;}} \n{{nowrap|[[wikt:\u5504|\u5504]] song;}} \n{{nowrap|[[wikt:\u8ae7|\u8ae7]]
+        harmony;}} \n{{nowrap|[[wikt:\u7434|\u7434]] cithare, harp;}} \n{{nowrap|[[wikt:\u7b1b|\u7b1b]]
+        flute;}} \n{{nowrap|[[wikt:\u9f13|\u9f13]] drum;}} \n{{nowrap|[[wikt:\u62cd|\u62cd]]
+        clap, beat (music);}} \n{{nowrap|[[wikt:\u7bc0|\u7bc0]] tune, melody;}} \n{{nowrap|[[wikt:\u8a69|\u8a69]]
+        poetry;}} \n{{nowrap|[[wikt:\u8a60|\u8a60]] recite poetry;}} \n{{nowrap|[[wikt:\u4ff3|\u4ff3]]
+        haiku;}} \n{{nowrap|[[wikt:\u5287|\u5287]] drama, play;}} \n{{nowrap|[[wikt:\u796d|\u796d]]
+        festival;}} \n{{nowrap|[[wikt:\u6821|\u6821]] school;}} \n{{nowrap|[[wikt:\u5b66|\u5b66]]
+        study, school;}} \n{{nowrap|[[wikt:\u751f|\u751f]] student;}} \n{{nowrap|[[wikt:\u587e|\u587e]]
+        private school;}} \n{{nowrap|[[wikt:\u79d1|\u79d1]] faculty;}} \n{{nowrap|[[wikt:\u6559|\u6559]]
+        teach;}} \n{{nowrap|[[wikt:\u7a76|\u7a76]] study, research;}} \n{{nowrap|[[wikt:\u7814|\u7814]]
+        study, research;}} \n{{nowrap|[[wikt:\u77e5|\u77e5]] know;}} \n{{nowrap|[[wikt:\u5352|\u5352]]
+        graduate;}} \n{{nowrap|[[wikt:\u5112|\u5112]] Confucianism;}}\n\n=== Language,
+        communication ===\n{{nowrap|[[wikt:\u8a9e|\u8a9e]] language;}} \n{{nowrap|[[wikt:\u8a00|\u8a00]]
+        say;}} \n{{nowrap|[[wikt:\u8a71|\u8a71]] speak;}} \n{{nowrap|[[wikt:\u58f0|\u58f0]]
+        voice;}} \n{{nowrap|[[wikt:\u544a|\u544a]] tell;}} \n{{nowrap|[[wikt:\u8ac7|\u8ac7]]
+        discuss;}} \n{{nowrap|[[wikt:\u805e|\u805e]] ask;}} \n{{nowrap|[[wikt:\u554f|\u554f]]
+        question;}} \n{{nowrap|[[wikt:\u7b54|\u7b54]] answer;}} \n{{nowrap|[[wikt:\u541f|\u541f]]
+        recite;}} \n{{nowrap|[[wikt:\u8aad|\u8aad]] read;}} \n{{nowrap|[[wikt:\u66f8|\u66f8]]
+        write;}} \n{{nowrap|[[wikt:\u672c|\u672c]] book;}} \n{{nowrap|[[wikt:\u6587|\u6587]]
+        text;}} \n{{nowrap|[[wikt:\u56f3|\u56f3]] map, diagram;}} \n{{nowrap|[[wikt:\u7b46|\u7b46]]
+        writing, brush;}} \n{{nowrap|[[wikt:\u5b57|\u5b57]] character;}} \n{{nowrap|[[wikt:\u8f9e|\u8f9e]]
+        word;}} \n{{nowrap|[[wikt:\u8a5e|\u8a5e]] words;}} \n{{nowrap|[[wikt:\u53e5|\u53e5]]
+        phrase;}} \n{{nowrap|[[wikt:\u8a18|\u8a18]] written record;}} \n{{nowrap|[[wikt:\u520a|\u520a]]
+        publish;}} \n{{nowrap|[[wikt:\u8a8c|\u8a8c]] document, journal;}} \n{{nowrap|[[wikt:\u8a03|\u8a03]]
+        obituary;}} \n{{nowrap|[[wikt:\u4fe1|\u4fe1]] message;}} \n{{nowrap|[[wikt:\u5831|\u5831]]
+        inform;}} \n{{nowrap|[[wikt:\u8aac|\u8aac]] explain;}} \n{{nowrap|[[wikt:\u984c|\u984c]]
+        topic;}} \n{{nowrap|[[wikt:\u8868|\u8868]] express;}} \n{{nowrap|[[wikt:\u4f1d|\u4f1d]]
+        transmit;}} \n{{nowrap|[[wikt:\u8ad6|\u8ad6]] discourse;}} \n{{nowrap|[[wikt:\u8b1b|\u8b1b]]
+        lecture;}} \n{{nowrap|[[wikt:\u5ba3|\u5ba3]] proclaim}}\n\n=== Religion, supernatural
+        world ===\n\n{{nowrap|[[wikt:\u795e|\u795e]] god;}} \n{{nowrap|[[wikt:\u5b97|\u5b97]]
+        religion, sect;}} \n{{nowrap|[[wikt:\u6559|\u6559]] religion;}} \n{{nowrap|[[wikt:\u8056|\u8056]]
+        sacred;}} \n{{nowrap|[[wikt:\u7948|\u7948]] pray;}} \n{{nowrap|[[wikt:\u4ecf|\u4ecf]]
+        Buddha;}} \n{{nowrap|[[wikt:\u5bfa|\u5bfa]] Buddhist temple;}} \n{{nowrap|[[wikt:\u50e7|\u50e7]]
+        Buddhist priest;}} \n{{nowrap|[[wikt:\u5c3c|\u5c3c]] Buddhist nun;}} \n{{nowrap|[[wikt:\u7985|\u7985]]
+        Zen;}} \n{{nowrap|[[wikt:\u793e|\u793e]] Shinto shrine;}} \n{{nowrap|[[wikt:\u5239|\u5239]]
+        temple;}} \n{{nowrap|[[wikt:\u8a63|\u8a63]] temple visit;}} \n{{nowrap|[[wikt:\u5bae|\u5bae]]
+        shrine;}} \n{{nowrap|[[wikt:\u6d3e|\u6d3e]] sect;}} \n{{nowrap|[[wikt:\u9b42|\u9b42]]
+        soul;}} \n{{nowrap|[[wikt:\u970a|\u970a]] spirit;}} \n{{nowrap|[[wikt:\u9b54|\u9b54]]
+        demon, witch;}} \n{{nowrap|[[wikt:\u9b3c|\u9b3c]] ghost, devil;}} \n{{nowrap|[[wikt:\u5e7b|\u5e7b]]
+        phantom, apparition;}} \n{{nowrap|[[wikt:\u7adc|\u7adc]] dragon;}}\n\n====
+        Chinese-Japanese signs of zodiac ====\n''''The four trines of the Chinese-Japanese
+        horoscope:''''\n<br />\n''''''A.'''''' 01. \u9f20 (\u5b50)  [[Rat (zodiac)|Rat]]
+        - 05. \u9f8d  (\u8fb0)  [[Dragon (zodiac)|Dragon]] - 09. \u7334  (\u7533)  [[Monkey
+        (zodiac)|Monkey]] ; ''''''B.'''''' 02. \u725b  (\u4e11)  [[Ox (zodiac)|Ox]]
+        - 06. \u86c7  (\u5df3)  [[Snake (zodiac)|Snake]] - 10. \u96de / \u9dc4  (\u9149)  [[Rooster
+        (zodiac)|Rooster]]\n<br />\n''''''C.'''''' 03. \u864e  (\u5bc5)  [[Tiger (zodiac)|Tiger]]
+        - 07. \u99ac  (\u5348)  [[Horse (zodiac)|Horse]] - 11. \u72d7  (\u620c)  [[Dog
+        (zodiac)|Dog]] ; ''''''D.'''''' 04. \u5154  (\u536f)  [[Rabbit (zodiac)|Rabbit]]
+        - 08. \u7f8a  (\u672a)  [[Goat (zodiac)|Goat]] - 12. \u8c6c  (\u4ea5) ''''China:''''
+        [[Pig (zodiac)|Pig]] ''''Japan:'''' Boar\n\n''''Note that in Japan the new
+        sign of zodiac starts on January 01, while in China it starts, according to
+        the traditional Chinese lunar calendar, at the new moon that falls between
+        January 21 and February 20, so that persons born in January or February may
+        have two different signs in the two countries.''''\n\n=== War, fighting, weapons
+        ===\n\n{{nowrap|[[wikt:\u6b66|\u6b66]] military;}} \n{{nowrap|[[wikt:\u6226|\u6226]]
+        battle;}} \n{{nowrap|[[wikt:\u95d8|\u95d8]] battle;}} \n{{nowrap|[[wikt:\u6575|\u6575]]
+        enemy;}} \n{{nowrap|[[wikt:\u653b|\u653b]] attack;}} \n{{nowrap|[[wikt:\u65ac|\u65ac]]
+        slash;}} \n{{nowrap|[[wikt:\u4f10|\u4f10]] attack or punish;}} \n{{nowrap|[[wikt:\u6bba|\u6bba]]
+        kill;}} \n{{nowrap|[[wikt:\u6483|\u6483]] attack;}} \n{{nowrap|[[wikt:\u8a0e|\u8a0e]]
+        attack;}} \n{{nowrap|[[wikt:\u6bb4|\u6bb4]] beat, assault;}} \n{{nowrap|[[wikt:\u6483|\u6483]]
+        beat, attack;}} \n{{nowrap|[[wikt:\u5c04|\u5c04]] shoot at;}} \n{{nowrap|[[wikt:\u8972|\u8972]]
+        raid;}} \n{{nowrap|[[wikt:\u5f81|\u5f81]] conquer;}} \n{{nowrap|[[wikt:\u5175|\u5175]]
+        soldier;}} \n{{nowrap|[[wikt:\u5200|\u5200]] sword or [[katana]];}} \n{{nowrap|[[wikt:\u77db|\u77db]]
+        [[halberd]];}} \n{{nowrap|[[wikt:\u6208|\u6208]] spear;}} \n{{nowrap|[[wikt:\u5263|\u5263]]
+        sword;}} \n{{nowrap|[[wikt:\u65ac|\u65ac]] cut with a sword;}} \n{{nowrap|[[wikt:\u76fe|\u76fe]]
+        shield;}} \n{{nowrap|[[wikt:\u7532|\u7532]] armour;}} \n{{nowrap|[[wikt:\u4f8d|\u4f8d]]
+        [[samurai]];}} \n{{nowrap|[[wikt:\u5fcd|\u5fcd]] [[Ninja|ninja or shinobi]];}}
+        \n{{nowrap|[[wikt:\u5075|\u5075]] spy;}} \n{{nowrap|[[wikt:\u5f13|\u5f13]]
+        bow;}} \n{{nowrap|[[wikt:\u77e2|\u77e2]] arrow;}} \n{{nowrap|[[wikt:\u9283|\u9283]]
+        gun;}} \n{{nowrap|[[wikt:\u7832|\u7832]] gun or cannon;}} \n{{nowrap|[[wikt:\u5c06|\u5c06]]
+        commander;}} \n{{nowrap|[[wikt:\u66f9|\u66f9]] sergeant;}} \n{{nowrap|[[wikt:\u5c09|\u5c09]]
+        military officer;}} \n{{nowrap|[[wikt:\u8ecd|\u8ecd]] troops;}} \n{{nowrap|[[wikt:\u968a|\u968a]]
+        corps;}} \n{{nowrap|[[wikt:\u73ed|\u73ed]] squad, corps;}} \n{{nowrap|[[wikt:\u9663|\u9663]]
+        battle formation, camp;}} \n{{nowrap|[[wikt:\u5c6f|\u5c6f]] barracks;}} \n{{nowrap|[[wikt:\u7206|\u7206]]
+        bomb;}} \n{{nowrap|[[wikt:\u5f3e|\u5f3e]] bullet;}} \n{{nowrap|[[wikt:\u8266|\u8266]]
+        warship;}}\n\n== See also ==\n* [[List of kanji by stroke count]]\n* [[List
+        of kanji by school year]]\n* [[List of j\u014dy\u014d kanji]]\n{{Japanese
+        language}}\n{{DEFAULTSORT:Kanji By Concept}}\n[[Category:Kanji|Concept]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-08-25T20:59:43Z","lastrevid":769995346,"length":48973,"fullurl":"https://en.wikipedia.org/wiki/List_of_kanji_by_concept","editurl":"https://en.wikipedia.org/w/index.php?title=List_of_kanji_by_concept&action=edit","canonicalurl":"https://en.wikipedia.org/wiki/List_of_kanji_by_concept"}}}}'
+    http_version: 
+  recorded_at: Mon, 11 Sep 2017 19:55:42 GMT
+- request:
+    method: get
+    uri: https://en.wiktionary.org/w/api.php?action=query&format=json&meta=siteinfo&siprop=namespaces%7Cnamespacealiases%7Cinterwikimap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 11 Sep 2017 19:55:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1224.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wiktionary.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - DENY
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=40648 t=1505159743769014
+      X-Varnish:
+      - 111719720, 891138632, 723659
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1052 pass, cp3041 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wiktionary.org
+      - WMF-Last-Access-Global=11-Sep-2017;Path=/;Domain=.wiktionary.org;HttpOnly;secure;Expires=Fri,
+        13 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=11-Sep-2017;Path=/;HttpOnly;secure;Expires=Fri, 13 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.65.105
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"namespaces":{"-2":{"id":-2,"case":"case-sensitive","canonical":"Media","*":"Media"},"-1":{"id":-1,"case":"first-letter","canonical":"Special","*":"Special"},"0":{"id":0,"case":"case-sensitive","content":"","*":""},"1":{"id":1,"case":"case-sensitive","subpages":"","canonical":"Talk","*":"Talk"},"2":{"id":2,"case":"first-letter","subpages":"","canonical":"User","*":"User"},"3":{"id":3,"case":"first-letter","subpages":"","canonical":"User
+        talk","*":"User talk"},"4":{"id":4,"case":"case-sensitive","subpages":"","canonical":"Project","*":"Wiktionary"},"5":{"id":5,"case":"case-sensitive","subpages":"","canonical":"Project
+        talk","*":"Wiktionary talk"},"6":{"id":6,"case":"case-sensitive","canonical":"File","*":"File"},"7":{"id":7,"case":"case-sensitive","subpages":"","canonical":"File
+        talk","*":"File talk"},"8":{"id":8,"case":"first-letter","subpages":"","canonical":"MediaWiki","*":"MediaWiki"},"9":{"id":9,"case":"first-letter","subpages":"","canonical":"MediaWiki
+        talk","*":"MediaWiki talk"},"10":{"id":10,"case":"case-sensitive","subpages":"","canonical":"Template","*":"Template"},"11":{"id":11,"case":"case-sensitive","subpages":"","canonical":"Template
+        talk","*":"Template talk"},"12":{"id":12,"case":"case-sensitive","subpages":"","canonical":"Help","*":"Help"},"13":{"id":13,"case":"case-sensitive","subpages":"","canonical":"Help
+        talk","*":"Help talk"},"14":{"id":14,"case":"case-sensitive","canonical":"Category","*":"Category"},"15":{"id":15,"case":"case-sensitive","subpages":"","canonical":"Category
+        talk","*":"Category talk"},"90":{"id":90,"case":"case-sensitive","canonical":"Thread","*":"Thread"},"91":{"id":91,"case":"case-sensitive","canonical":"Thread
+        talk","*":"Thread talk"},"92":{"id":92,"case":"case-sensitive","canonical":"Summary","*":"Summary"},"93":{"id":93,"case":"case-sensitive","canonical":"Summary
+        talk","*":"Summary talk"},"100":{"id":100,"case":"case-sensitive","subpages":"","canonical":"Appendix","*":"Appendix"},"101":{"id":101,"case":"case-sensitive","subpages":"","canonical":"Appendix
+        talk","*":"Appendix talk"},"102":{"id":102,"case":"case-sensitive","subpages":"","canonical":"Concordance","*":"Concordance"},"103":{"id":103,"case":"case-sensitive","subpages":"","canonical":"Concordance
+        talk","*":"Concordance talk"},"104":{"id":104,"case":"case-sensitive","subpages":"","canonical":"Index","*":"Index"},"105":{"id":105,"case":"case-sensitive","subpages":"","canonical":"Index
+        talk","*":"Index talk"},"106":{"id":106,"case":"case-sensitive","subpages":"","canonical":"Rhymes","*":"Rhymes"},"107":{"id":107,"case":"case-sensitive","subpages":"","canonical":"Rhymes
+        talk","*":"Rhymes talk"},"108":{"id":108,"case":"case-sensitive","subpages":"","canonical":"Transwiki","*":"Transwiki"},"109":{"id":109,"case":"case-sensitive","subpages":"","canonical":"Transwiki
+        talk","*":"Transwiki talk"},"110":{"id":110,"case":"case-sensitive","subpages":"","canonical":"Wikisaurus","*":"Wikisaurus"},"111":{"id":111,"case":"case-sensitive","subpages":"","canonical":"Wikisaurus
+        talk","*":"Wikisaurus talk"},"114":{"id":114,"case":"case-sensitive","subpages":"","canonical":"Citations","*":"Citations"},"115":{"id":115,"case":"case-sensitive","subpages":"","canonical":"Citations
+        talk","*":"Citations talk"},"116":{"id":116,"case":"case-sensitive","subpages":"","canonical":"Sign
+        gloss","*":"Sign gloss"},"117":{"id":117,"case":"case-sensitive","subpages":"","canonical":"Sign
+        gloss talk","*":"Sign gloss talk"},"118":{"id":118,"case":"case-sensitive","subpages":"","canonical":"Reconstruction","*":"Reconstruction"},"119":{"id":119,"case":"case-sensitive","subpages":"","canonical":"Reconstruction
+        talk","*":"Reconstruction talk"},"828":{"id":828,"case":"case-sensitive","subpages":"","canonical":"Module","*":"Module"},"829":{"id":829,"case":"case-sensitive","subpages":"","canonical":"Module
+        talk","*":"Module talk"},"2300":{"id":2300,"case":"case-sensitive","canonical":"Gadget","*":"Gadget"},"2301":{"id":2301,"case":"case-sensitive","canonical":"Gadget
+        talk","*":"Gadget talk"},"2302":{"id":2302,"case":"case-sensitive","canonical":"Gadget
+        definition","defaultcontentmodel":"GadgetDefinition","*":"Gadget definition"},"2303":{"id":2303,"case":"case-sensitive","canonical":"Gadget
+        definition talk","*":"Gadget definition talk"},"2600":{"id":2600,"case":"first-letter","canonical":"Topic","defaultcontentmodel":"flow-board","*":"Topic"}},"namespacealiases":[{"id":4,"*":"WT"},{"id":6,"*":"Image"},{"id":7,"*":"Image
+        talk"},{"id":10,"*":"T"},{"id":14,"*":"CAT"},{"id":100,"*":"AP"},{"id":110,"*":"WS"},{"id":118,"*":"RC"},{"id":828,"*":"MOD"}],"interwikimap":[{"prefix":"acronym","url":"https://www.acronymfinder.com/$1.html"},{"prefix":"advisory","local":"","url":"https://advisory.wikimedia.org/wiki/$1"},{"prefix":"advogato","url":"http://www.advogato.org/$1"},{"prefix":"aew","url":"https://wiki.arabeyes.org/$1"},{"prefix":"appropedia","url":"http://www.appropedia.org/$1"},{"prefix":"aquariumwiki","url":"http://www.theaquariumwiki.com/$1"},{"prefix":"arborwiki","url":"https://localwiki.org/ann-arbor/$1"},{"prefix":"arxiv","url":"https://arxiv.org/abs/$1"},{"prefix":"atmwiki","url":"http://www.otterstedt.de/wiki/index.php/$1"},{"prefix":"baden","url":"http://www.stadtwiki-baden-baden.de/wiki/$1/"},{"prefix":"battlestarwiki","url":"http://en.battlestarwiki.org/wiki/$1"},{"prefix":"bcnbio","url":"http://historiapolitica.bcn.cl/resenas_parlamentarias/wiki/$1"},{"prefix":"beacha","url":"http://www.beachapedia.org/$1"},{"prefix":"betawiki","url":"https://translatewiki.net/wiki/$1"},{"prefix":"bibcode","url":"http://adsabs.harvard.edu/abs/$1"},{"prefix":"bibliowiki","url":"https://biblio.wiki/wiki/$1"},{"prefix":"bluwiki","url":"http://bluwiki.com/go/$1"},{"prefix":"blw","url":"http://britainloveswikipedia.org/wiki/$1"},{"prefix":"botwiki","url":"http://botwiki.sno.cc/wiki/$1"},{"prefix":"boxrec","url":"http://www.boxrec.com/media/index.php?$1"},{"prefix":"brickwiki","url":"http://www.brickwiki.info/wiki/$1"},{"prefix":"bugzilla","local":"","url":"https://bugzilla.wikimedia.org/show_bug.cgi?id=$1"},{"prefix":"bulba","url":"http://bulbapedia.bulbagarden.net/wiki/$1"},{"prefix":"c","local":"","url":"https://commons.wikimedia.org/wiki/$1"},{"prefix":"c2","url":"http://c2.com/cgi/wiki?$1"},{"prefix":"c2find","url":"http://c2.com/cgi/wiki?FindPage&value=$1"},{"prefix":"cache","url":"https://www.google.com/search?q=cache:$1","protorel":""},{"prefix":"\u0109ej","url":"http://esperanto.blahus.cz/cxej/vikio/index.php/$1"},{"prefix":"cellwiki","url":"http://cell.wikia.com/wiki/$1"},{"prefix":"centralwikia","url":"http://community.wikia.com/wiki/$1"},{"prefix":"chej","url":"http://esperanto.blahus.cz/cxej/vikio/index.php/$1"},{"prefix":"choralwiki","url":"http://www.cpdl.org/wiki/index.php/$1"},{"prefix":"citizendium","url":"http://en.citizendium.org/wiki/$1"},{"prefix":"ckwiss","url":"http://www.ck-wissen.de/ckwiki/index.php?title=$1"},{"prefix":"comixpedia","url":"http://www.comixpedia.org/index.php?title=$1"},{"prefix":"commons","local":"","url":"https://commons.wikimedia.org/wiki/$1"},{"prefix":"communityscheme","url":"http://community.schemewiki.org/?c=s&key=$1"},{"prefix":"communitywiki","url":"http://www.communitywiki.org/$1"},{"prefix":"comune","url":"http://rete.comuni-italiani.it/wiki/$1"},{"prefix":"creativecommons","url":"https://creativecommons.org/licenses/$1","protorel":""},{"prefix":"creativecommonswiki","url":"https://wiki.creativecommons.org/$1"},{"prefix":"cxej","url":"http://esperanto.blahus.cz/cxej/vikio/index.php/$1"},{"prefix":"dcc","url":"http://www.dccwiki.com/$1"},{"prefix":"dcdatabase","url":"http://dc.wikia.com/$1"},{"prefix":"dcma","url":"http://christian-morgenstern.de/dcma/index.php?title=$1"},{"prefix":"delicious","url":"https://www.delicious.com/tag/$1","protorel":""},{"prefix":"devmo","url":"https://developer.mozilla.org/en/docs/$1"},{"prefix":"dictionary","url":"http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=$1"},{"prefix":"dict","url":"http://www.dict.org/bin/Dict?Database=*&Form=Dict1&Strategy=*&Query=$1"},{"prefix":"disinfopedia","url":"http://www.sourcewatch.org/index.php/$1"},{"prefix":"distributedproofreaders","url":"http://www.pgdp.net/wiki/$1"},{"prefix":"distributedproofreadersca","url":"http://www.pgdpcanada.net/wiki/index.php/$1"},{"prefix":"dmoz","url":"http://dmoztools.net/$1"},{"prefix":"dmozs","url":"http://www.dmoz.org/cgi-bin/search?search=$1"},{"prefix":"doi","url":"https://dx.doi.org/$1","protorel":""},{"prefix":"donate","local":"","url":"https://donate.wikimedia.org/wiki/$1"},{"prefix":"doom_wiki","url":"http://doom.wikia.com/wiki/$1"},{"prefix":"download","local":"","url":"https://releases.wikimedia.org/$1"},{"prefix":"dbdump","local":"","url":"https://dumps.wikimedia.org/$1/latest/"},{"prefix":"dpd","url":"http://lema.rae.es/dpd/?key=$1"},{"prefix":"drae","url":"http://dle.rae.es/?w=$1"},{"prefix":"dreamhost","url":"http://wiki.dreamhost.com/index.php/$1"},{"prefix":"drumcorpswiki","url":"http://www.drumcorpswiki.com/index.php/$1"},{"prefix":"dwjwiki","url":"http://www.suberic.net/cgi-bin/dwj/wiki.cgi?$1"},{"prefix":"e\u0109ei","url":"http://www.ikso.net/cgi-bin/wiki.pl?$1"},{"prefix":"ecoreality","url":"http://www.EcoReality.org/wiki/$1"},{"prefix":"ecxei","url":"http://www.ikso.net/cgi-bin/wiki.pl?$1"},{"prefix":"elibre","url":"http://enciclopedia.us.es/index.php/$1"},{"prefix":"emacswiki","url":"http://www.emacswiki.org/cgi-bin/wiki.pl?$1"},{"prefix":"encyc","url":"http://encyc.org/wiki/$1"},{"prefix":"energiewiki","url":"http://www.netzwerk-energieberater.de/wiki/index.php/$1"},{"prefix":"englyphwiki","url":"http://en.glyphwiki.org/wiki/$1"},{"prefix":"enkol","url":"http://enkol.pl/$1"},{"prefix":"eokulturcentro","url":"http://esperanto.toulouse.free.fr/nova/wikini/wakka.php?wiki=$1"},{"prefix":"esolang","url":"http://esolangs.org/wiki/$1"},{"prefix":"etherpad","local":"","url":"https://etherpad.wikimedia.org/$1"},{"prefix":"ethnologue","url":"https://www.ethnologue.com/language/$1","protorel":""},{"prefix":"ethnologuefamily","url":"https://www.ethnologue.com/show_family.asp?subid=$1","protorel":""},{"prefix":"evowiki","url":"http://wiki.cotch.net/index.php/$1"},{"prefix":"exotica","url":"http://www.exotica.org.uk/wiki/$1"},{"prefix":"fanimutationwiki","url":"http://wiki.animutationportal.com/index.php/$1"},{"prefix":"fedora","url":"https://fedoraproject.org/wiki/$1","protorel":""},{"prefix":"finalfantasy","url":"http://finalfantasy.wikia.com/wiki/$1"},{"prefix":"finnix","url":"http://www.finnix.org/$1"},{"prefix":"flickruser","url":"https://www.flickr.com/people/$1","protorel":""},{"prefix":"flickrphoto","url":"https://www.flickr.com/photo.gne?id=$1","protorel":""},{"prefix":"floralwiki","url":"http://www.floralwiki.co.uk/wiki/$1"},{"prefix":"foldoc","url":"http://foldoc.org/$1"},{"prefix":"forthfreak","url":"http://wiki.forthfreak.net/index.cgi?$1"},{"prefix":"foundation","local":"","url":"https://wikimediafoundation.org/wiki/$1"},{"prefix":"foxwiki","url":"http://fox.wikis.com/wc.dll?Wiki~$1"},{"prefix":"freebio","url":"http://freebiology.org/wiki/$1"},{"prefix":"freebsdman","url":"https://www.FreeBSD.org/cgi/man.cgi?apropos=1&query=$1"},{"prefix":"freeculturewiki","url":"http://wiki.freeculture.org/index.php/$1"},{"prefix":"freedomdefined","url":"http://freedomdefined.org/$1"},{"prefix":"freefeel","url":"http://freefeel.org/wiki/$1"},{"prefix":"freekiwiki","url":"http://wiki.freegeek.org/index.php/$1"},{"prefix":"freenode","url":"irc://irc.freenode.net/$1"},{"prefix":"freesoft","url":"https://directory.fsf.org/wiki/$1","protorel":""},{"prefix":"ganfyd","url":"http://ganfyd.org/index.php?title=$1"},{"prefix":"gardenology","url":"http://www.gardenology.org/wiki/$1"},{"prefix":"gausswiki","url":"http://gauss.ffii.org/$1"},{"prefix":"gentoo","url":"https://wiki.gentoo.org/wiki/$1","protorel":""},{"prefix":"genwiki","url":"http://wiki.genealogy.net/index.php/$1"},{"prefix":"gerrit","local":"","url":"https://gerrit.wikimedia.org/r/$1"},{"prefix":"git","local":"","url":"https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/$1;a=log;h=refs/heads/master"},{"prefix":"globalvoices","url":"http://cyber.law.harvard.edu/dyn/globalvoices/wiki/$1"},{"prefix":"glossarwiki","url":"http://glossar.hs-augsburg.de/$1"},{"prefix":"glossarywiki","url":"http://glossary.hs-augsburg.de/$1"},{"prefix":"google","url":"https://www.google.com/search?q=$1","protorel":""},{"prefix":"googledefine","url":"https://www.google.com/search?q=define:$1","protorel":""},{"prefix":"googlegroups","url":"https://groups.google.com/groups?q=$1","protorel":""},{"prefix":"guildwarswiki","url":"http://wiki.guildwars.com/wiki/$1"},{"prefix":"guildwiki","url":"http://guildwars.wikia.com/wiki/$1"},{"prefix":"gutenberg","url":"http://www.gutenberg.org/etext/$1"},{"prefix":"gutenbergwiki","url":"http://www.gutenberg.org/wiki/$1"},{"prefix":"hackerspaces","url":"http://hackerspaces.org/wiki/$1"},{"prefix":"h2wiki","url":"http://halowiki.net/p/$1"},{"prefix":"hammondwiki","url":"http://www.dairiki.org/HammondWiki/index.php3?$1"},{"prefix":"hdl","url":"http://hdl.handle.net/$1"},{"prefix":"heroeswiki","url":"http://heroeswiki.com/$1"},{"prefix":"horizonlabs","local":"","url":"https://horizon.wikimedia.org/$1"},{"prefix":"hrwiki","url":"http://www.hrwiki.org/index.php/$1"},{"prefix":"hrfwiki","url":"http://fanstuff.hrwiki.org/index.php/$1"},{"prefix":"hupwiki","url":"http://wiki.hup.hu/index.php/$1"},{"prefix":"iarchive","url":"https://archive.org/details/$1","protorel":""},{"prefix":"imdbname","url":"http://www.imdb.com/name/nm$1/"},{"prefix":"imdbtitle","url":"http://www.imdb.com/title/tt$1/"},{"prefix":"imdbcompany","url":"http://www.imdb.com/company/co$1/"},{"prefix":"imdbcharacter","url":"http://www.imdb.com/character/ch$1/"},{"prefix":"incubator","local":"","url":"https://incubator.wikimedia.org/wiki/$1"},{"prefix":"infosecpedia","url":"http://infosecpedia.org/wiki/$1"},{"prefix":"infosphere","url":"http://theinfosphere.org/$1"},{"prefix":"irc","url":"irc://irc.freenode.net/$1"},{"prefix":"ircrc","local":"","url":"irc://irc.wikimedia.org/$1"},{"prefix":"rcirc","local":"","url":"irc://irc.wikimedia.org/$1"},{"prefix":"iso639-3","url":"http://www-01.sil.org/iso639-3/documentation.asp?id=$1"},{"prefix":"issn","url":"http://www.worldcat.org/issn/$1"},{"prefix":"iuridictum","url":"http://iuridictum.pecina.cz/w/$1"},{"prefix":"jaglyphwiki","url":"http://glyphwiki.org/wiki/$1"},{"prefix":"javanet","url":"http://wiki.java.net/bin/view/Main/$1"},{"prefix":"javapedia","url":"http://wiki.java.net/bin/view/Javapedia/$1"},{"prefix":"jefo","url":"http://esperanto-jeunes.org/wiki/$1"},{"prefix":"jerseydatabase","url":"http://jerseydatabase.com/wiki.php?id=$1"},{"prefix":"jira","url":"https://jira.toolserver.org/browse/$1"},{"prefix":"jspwiki","url":"http://www.ecyrd.com/JSPWiki/Wiki.jsp?page=$1"},{"prefix":"jstor","url":"http://www.jstor.org/journals/$1"},{"prefix":"kamelo","url":"http://kamelopedia.mormo.org/index.php/$1"},{"prefix":"karlsruhe","url":"http://ka.stadtwiki.net/$1"},{"prefix":"kinowiki","url":"http://kino.skripov.com/index.php/$1"},{"prefix":"kmwiki","url":"https://kmwiki.wikispaces.com/$1","protorel":""},{"prefix":"komicawiki","url":"http://wiki.komica.org/wiki3/?$1"},{"prefix":"kontuwiki","url":"http://kontu.wiki/$1"},{"prefix":"koslarwiki","url":"http://wiki.koslar.de/index.php/$1"},{"prefix":"wikitech","local":"","url":"https://wikitech.wikimedia.org/wiki/$1"},{"prefix":"libreplanet","url":"https://libreplanet.org/wiki/$1","protorel":""},{"prefix":"linguistlist","url":"https://linguistlist.org/forms/langs/LLDescription.cfm?code=$1","protorel":""},{"prefix":"linuxwiki","url":"http://www.linuxwiki.de/$1"},{"prefix":"linuxwikide","url":"http://www.linuxwiki.de/$1"},{"prefix":"liswiki","url":"http://liswiki.org/wiki/$1"},{"prefix":"literateprograms","url":"http://en.literateprograms.org/$1"},{"prefix":"livepedia","url":"http://www.livepedia.gr/index.php?title=$1"},{"prefix":"localwiki","url":"https://localwiki.org/$1"},{"prefix":"lojban","url":"http://mw.lojban.org/papri/$1"},{"prefix":"lostpedia","url":"http://lostpedia.wikia.com/wiki/$1"},{"prefix":"lqwiki","url":"http://wiki.linuxquestions.org/wiki/$1"},{"prefix":"luxo","url":"https://tools.wmflabs.org/guc/?user=$1"},{"prefix":"mail","local":"","url":"https://lists.wikimedia.org/mailman/listinfo/$1"},{"prefix":"mailarchive","local":"","url":"https://lists.wikimedia.org/pipermail/$1"},{"prefix":"mariowiki","url":"http://www.mariowiki.com/$1"},{"prefix":"marveldatabase","url":"http://www.marveldatabase.com/wiki/index.php/$1"},{"prefix":"meatball","url":"http://meatballwiki.org/wiki/$1"},{"prefix":"mw","local":"","url":"https://www.mediawiki.org/wiki/$1"},{"prefix":"mediazilla","local":"","url":"https://bugzilla.wikimedia.org/$1"},{"prefix":"memoryalpha","url":"http://memory-alpha.org/wiki/$1"},{"prefix":"metawiki","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"metawikimedia","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"metawikipedia","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"metawikisearch","url":"http://sunir.org/apps/meta.pl?$1"},{"prefix":"mineralienatlas","url":"http://www.mineralienatlas.de/lexikon/index.php/$1"},{"prefix":"moinmoin","url":"http://moinmo.in/$1"},{"prefix":"monstropedia","url":"http://www.monstropedia.org/?title=$1"},{"prefix":"mosapedia","url":"http://mosapedia.de/wiki/index.php/$1"},{"prefix":"mozcom","url":"http://mozilla.wikia.com/wiki/$1"},{"prefix":"mozillawiki","url":"https://wiki.mozilla.org/$1"},{"prefix":"mozillazinekb","url":"http://kb.mozillazine.org/$1"},{"prefix":"musicbrainz","url":"http://musicbrainz.org/doc/$1"},{"prefix":"mediawikiwiki","local":"","url":"https://www.mediawiki.org/wiki/$1"},{"prefix":"mwod","url":"https://www.merriam-webster.com/dictionary/$1"},{"prefix":"mwot","url":"https://www.merriam-webster.com/thesaurus/$1"},{"prefix":"nkcells","url":"http://www.nkcells.info/index.php?title=$1"},{"prefix":"nara","url":"https://catalog.archives.gov/id/$1"},{"prefix":"nosmoke","url":"http://no-smok.net/nsmk/$1"},{"prefix":"nost","local":"","url":"https://nostalgia.wikipedia.org/wiki/$1"},{"prefix":"nostalgia","local":"","url":"https://nostalgia.wikipedia.org/wiki/$1"},{"prefix":"oeis","url":"https://oeis.org/$1","protorel":""},{"prefix":"oldwikisource","local":"","url":"https://wikisource.org/wiki/$1"},{"prefix":"olpc","url":"http://wiki.laptop.org/go/$1"},{"prefix":"onelook","url":"http://www.onelook.com/?ls=b&w=$1"},{"prefix":"openlibrary","url":"http://openlibrary.org/$1"},{"prefix":"openstreetmap","url":"https://wiki.openstreetmap.org/wiki/$1","protorel":""},{"prefix":"openwetware","url":"http://openwetware.org/wiki/$1"},{"prefix":"openwiki","url":"http://openwiki.com/?$1"},{"prefix":"opera7wiki","url":"http://operawiki.info/$1"},{"prefix":"organicdesign","url":"http://www.organicdesign.co.nz/$1"},{"prefix":"orthodoxwiki","url":"http://orthodoxwiki.org/$1"},{"prefix":"osmwiki","url":"https://wiki.openstreetmap.org/wiki/$1","protorel":""},{"prefix":"otrs","local":"","url":"https://ticket.wikimedia.org/otrs/index.pl?Action=AgentTicketZoom&TicketID=$1"},{"prefix":"otrswiki","local":"","url":"https://otrs-wiki.wikimedia.org/wiki/$1"},{"prefix":"ourmedia","url":"https://www.socialtext.net/ourmedia/index.cgi?$1"},{"prefix":"outreach","local":"","url":"https://outreach.wikimedia.org/wiki/$1"},{"prefix":"outreachwiki","local":"","url":"https://outreach.wikimedia.org/wiki/$1"},{"prefix":"owasp","url":"https://www.owasp.org/index.php/$1"},{"prefix":"panawiki","url":"http://wiki.alairelibre.net/index.php?title=$1"},{"prefix":"patwiki","url":"http://gauss.ffii.org/$1"},{"prefix":"personaltelco","url":"http://www.personaltelco.net/$1"},{"prefix":"petscan","url":"https://petscan.wmflabs.org/?psid=$1"},{"prefix":"phab","local":"","url":"https://phabricator.wikimedia.org/$1"},{"prefix":"phabricator","local":"","url":"https://phabricator.wikimedia.org/$1"},{"prefix":"phwiki","url":"http://www.pocketheaven.com/ph/wiki/index.php?title=$1"},{"prefix":"phpwiki","url":"http://phpwiki.sourceforge.net/phpwiki/index.php?$1"},{"prefix":"planetmath","url":"http://planetmath.org/node/$1"},{"prefix":"pmeg","url":"http://www.bertilow.com/pmeg/$1"},{"prefix":"pmid","url":"https://www.ncbi.nlm.nih.gov/pubmed/$1?dopt=Abstract"},{"prefix":"pokewiki","url":"http://pokewiki.de/$1"},{"prefix":"pok\u00e9wiki","url":"http://pokewiki.de/$1"},{"prefix":"policy","local":"","url":"https://policy.wikimedia.org/$1"},{"prefix":"proofwiki","url":"https://www.proofwiki.org/wiki/$1","protorel":""},{"prefix":"pyrev","local":"","url":"https://www.mediawiki.org/wiki/Special:Code/pywikipedia/$1"},{"prefix":"pythoninfo","url":"https://wiki.python.org/moin/$1","protorel":""},{"prefix":"pythonwiki","url":"http://www.pythonwiki.de/$1"},{"prefix":"pywiki","url":"http://c2.com/cgi/wiki?$1"},{"prefix":"psycle","url":"http://psycle.sourceforge.net/wiki/$1"},{"prefix":"quality","local":"","url":"https://quality.wikimedia.org/wiki/$1"},{"prefix":"quarry","url":"https://quarry.wmflabs.org/$1"},{"prefix":"rev","local":"","url":"https://www.mediawiki.org/wiki/Special:Code/MediaWiki/$1"},{"prefix":"revo","url":"http://purl.org/NET/voko/revo/art/$1.html"},{"prefix":"rfc","url":"https://tools.ietf.org/html/rfc$1","protorel":""},{"prefix":"rheinneckar","url":"http://rhein-neckar-wiki.de/$1"},{"prefix":"robowiki","url":"http://robowiki.net/?$1"},{"prefix":"rodovid","url":"http://en.rodovid.org/wk/$1"},{"prefix":"reuterswiki","url":"http://glossary.reuters.com/index.php/$1"},{"prefix":"rowiki","url":"http://wiki.rennkuckuck.de/index.php/$1"},{"prefix":"rt","local":"","url":"https://rt.wikimedia.org/Ticket/Display.html?id=$1"},{"prefix":"rtfm","url":"ftp://rtfm.mit.edu/pub/faqs/$1"},{"prefix":"s23wiki","url":"http://s23.org/wiki/$1"},{"prefix":"scholar","url":"https://scholar.google.com/scholar?q=$1","protorel":""},{"prefix":"schoolswp","url":"http://schools-wikipedia.org/wiki/$1"},{"prefix":"scores","url":"http://imslp.org/wiki/$1"},{"prefix":"scoutwiki","url":"http://en.scoutwiki.org/$1"},{"prefix":"scramble","url":"http://www.scramble.nl/wiki/index.php?title=$1"},{"prefix":"seapig","url":"http://www.seapig.org/$1"},{"prefix":"seattlewiki","url":"http://seattle.wikia.com/wiki/$1"},{"prefix":"slwiki","url":"http://wiki.secondlife.com/wiki/$1"},{"prefix":"semantic-mw","url":"https://www.semantic-mediawiki.org/wiki/$1","protorel":""},{"prefix":"senseislibrary","url":"http://senseis.xmp.net/?$1"},{"prefix":"sharemap","url":"http://sharemap.org/$1"},{"prefix":"silcode","url":"http://www.sil.org/iso639-3/documentation.asp?id=$1"},{"prefix":"slashdot","url":"https://slashdot.org/article.pl?sid=$1"},{"prefix":"sourceforge","url":"https://sourceforge.net/$1"},{"prefix":"spcom","local":"","url":"https://spcom.wikimedia.org/wiki/$1"},{"prefix":"species","local":"","url":"https://species.wikimedia.org/wiki/$1"},{"prefix":"squeak","url":"http://wiki.squeak.org/squeak/$1"},{"prefix":"stats","local":"","url":"https://stats.wikimedia.org/$1"},{"prefix":"stewardry","url":"https://tools.wmflabs.org/meta/stewardry/?wiki=$1"},{"prefix":"strategy","local":"","url":"https://strategy.wikimedia.org/wiki/$1"},{"prefix":"strategywiki","url":"http://strategywiki.org/wiki/$1"},{"prefix":"sulutil","local":"","url":"https://meta.wikimedia.org/wiki/Special:CentralAuth/$1"},{"prefix":"swtrain","url":"http://train.spottingworld.com/$1"},{"prefix":"svn","local":"","url":"https://svn.wikimedia.org/viewvc/mediawiki/$1?view=log"},{"prefix":"swinbrain","url":"https://swinbrain.ict.swin.edu.au/wiki/$1","protorel":""},{"prefix":"tabwiki","url":"http://www.tabwiki.com/index.php/$1"},{"prefix":"tclerswiki","url":"http://wiki.tcl.tk/$1"},{"prefix":"technorati","url":"http://www.technorati.com/search/$1"},{"prefix":"tenwiki","local":"","url":"https://ten.wikipedia.org/wiki/$1"},{"prefix":"testwiki","local":"","url":"https://test.wikipedia.org/wiki/$1"},{"prefix":"testwikidata","local":"","url":"https://test.wikidata.org/wiki/$1"},{"prefix":"test2wiki","local":"","url":"https://test2.wikipedia.org/wiki/$1"},{"prefix":"tfwiki","url":"http://tfwiki.net/wiki/$1"},{"prefix":"thelemapedia","url":"http://www.thelemapedia.org/index.php/$1"},{"prefix":"theopedia","url":"http://www.theopedia.com/$1"},{"prefix":"thinkwiki","url":"http://www.thinkwiki.org/wiki/$1"},{"prefix":"ticket","local":"","url":"https://ticket.wikimedia.org/otrs/index.pl?Action=AgentTicketZoom&TicketNumber=$1"},{"prefix":"tmbw","url":"http://tmbw.net/wiki/$1"},{"prefix":"tmnet","url":"http://www.technomanifestos.net/?$1"},{"prefix":"tmwiki","url":"http://www.EasyTopicMaps.com/?page=$1"},{"prefix":"toolforge","url":"https://tools.wmflabs.org/$1"},{"prefix":"toollabs","url":"https://tools.wmflabs.org/$1"},{"prefix":"tools","url":"https://toolserver.org/$1","protorel":""},{"prefix":"tswiki","local":"","url":"https://www.mediawiki.org/wiki/Toolserver:$1","protorel":""},{"prefix":"translatewiki","url":"https://translatewiki.net/wiki/$1"},{"prefix":"tviv","url":"http://tviv.org/wiki/$1"},{"prefix":"tvtropes","url":"http://www.tvtropes.org/pmwiki/pmwiki.php/Main/$1"},{"prefix":"twiki","url":"http://twiki.org/cgi-bin/view/$1"},{"prefix":"tyvawiki","url":"http://www.tyvawiki.org/wiki/$1"},{"prefix":"uncyclopedia","url":"http://en.uncyclopedia.co/wiki/$1"},{"prefix":"unihan","url":"http://www.unicode.org/cgi-bin/GetUnihanData.pl?codepoint=$1"},{"prefix":"unreal","url":"http://wiki.beyondunreal.com/wiki/$1"},{"prefix":"urbandict","url":"http://www.urbandictionary.com/define.php?term=$1"},{"prefix":"usej","url":"http://www.tejo.org/usej/$1"},{"prefix":"usemod","url":"http://www.usemod.com/cgi-bin/wiki.pl?$1"},{"prefix":"usability","local":"","url":"https://usability.wikimedia.org/wiki/$1"},{"prefix":"utrs","url":"https://utrs.wmflabs.org/appeal.php?id=$1"},{"prefix":"vikidia","url":"https://fr.vikidia.org/wiki/$1","protorel":""},{"prefix":"vlos","url":"https://tusach.thuvienkhoahoc.com/wiki/$1"},{"prefix":"vkol","url":"http://kol.coldfront.net/thekolwiki/index.php/$1"},{"prefix":"voipinfo","url":"http://www.voip-info.org/wiki/view/$1"},{"prefix":"votewiki","local":"","url":"https://vote.wikimedia.org/wiki/$1"},{"prefix":"werelate","url":"http://www.werelate.org/wiki/$1"},{"prefix":"wg","local":"","url":"https://wg-en.wikipedia.org/wiki/$1"},{"prefix":"wikia","url":"http://www.wikia.com/wiki/c:$1"},{"prefix":"wikiasite","url":"http://www.wikia.com/wiki/c:$1"},{"prefix":"wikiapiary","url":"https://wikiapiary.com/wiki/$1","protorel":""},{"prefix":"wikibooks","local":"","url":"https://en.wikibooks.org/wiki/$1"},{"prefix":"wikichristian","url":"http://www.wikichristian.org/index.php?title=$1"},{"prefix":"wikicities","url":"http://www.wikia.com/wiki/$1"},{"prefix":"wikicity","url":"http://www.wikia.com/wiki/c:$1"},{"prefix":"wikiconference","url":"https://wikiconference.org/wiki/$1"},{"prefix":"wikidata","local":"","url":"https://www.wikidata.org/wiki/$1"},{"prefix":"wikif1","url":"http://www.wikif1.org/$1"},{"prefix":"wikifur","url":"https://en.wikifur.com/wiki/$1","protorel":""},{"prefix":"wikihow","url":"http://www.wikihow.com/$1"},{"prefix":"wikiindex","url":"http://wikiindex.org/$1"},{"prefix":"wikilemon","url":"http://wiki.illemonati.com/$1"},{"prefix":"wikilivres","url":"https://biblio.wiki/wiki/$1"},{"prefix":"wikilivresru","url":"http://wikilivres.ru/$1"},{"prefix":"wikimac-de","url":"http://apfelwiki.de/wiki/Main/$1"},{"prefix":"wikimedia","local":"","url":"https://wikimediafoundation.org/wiki/$1"},{"prefix":"wikinews","local":"","url":"https://en.wikinews.org/wiki/$1"},{"prefix":"wikinfo","url":"http://wikinfo.org/w/index.php/$1"},{"prefix":"wikinvest","url":"http://www.wikinvest.com/$1"},{"prefix":"wikiotics","url":"https://wikiotics.org/$1","protorel":""},{"prefix":"wikipapers","url":"http://wikipapers.referata.com/wiki/$1"},{"prefix":"wikipedia","local":"","url":"https://en.wikipedia.org/wiki/$1"},{"prefix":"wikipediawikipedia","local":"","url":"https://en.wikipedia.org/wiki/Wikipedia:$1"},{"prefix":"wikiquote","local":"","url":"https://en.wikiquote.org/wiki/$1"},{"prefix":"wikisophia","url":"http://wikisophia.org/index.php?title=$1"},{"prefix":"wikisource","local":"","url":"https://en.wikisource.org/wiki/$1"},{"prefix":"wikispecies","local":"","url":"https://species.wikimedia.org/wiki/$1"},{"prefix":"wikispot","url":"http://wikispot.org/?action=gotowikipage&v=$1"},{"prefix":"wikiskripta","url":"http://www.wikiskripta.eu/index.php/$1"},{"prefix":"labsconsole","local":"","url":"https://wikitech.wikimedia.org/wiki/$1"},{"prefix":"wikiti","url":"http://wikiti.denglend.net/index.php?title=$1"},{"prefix":"wikitree","url":"http://wikitree.org/index.php?title=$1"},{"prefix":"wikiversity","local":"","url":"https://en.wikiversity.org/wiki/$1"},{"prefix":"wikivoyage","local":"","url":"https://en.wikivoyage.org/wiki/$1"},{"prefix":"betawikiversity","local":"","url":"https://beta.wikiversity.org/wiki/$1"},{"prefix":"wikiwikiweb","url":"http://c2.com/cgi/wiki?$1"},{"prefix":"wiktionary","local":"","url":"https://en.wiktionary.org/wiki/$1"},{"prefix":"wipipedia","url":"http://wipipedia.org/index.php/$1"},{"prefix":"wlug","url":"http://www.wlug.org.nz/$1"},{"prefix":"wmar","local":"","url":"http://www.wikimedia.org.ar/wiki/$1"},{"prefix":"wmat","url":"https://mitglieder.wikimedia.at/$1"},{"prefix":"wmau","local":"","url":"http://wikimedia.org.au/wiki/$1"},{"prefix":"wmbd","local":"","url":"https://bd.wikimedia.org/wiki/$1"},{"prefix":"wmbe","local":"","url":"https://be.wikimedia.org/wiki/$1"},{"prefix":"wmbr","local":"","url":"https://br.wikimedia.org/wiki/$1"},{"prefix":"wmca","local":"","url":"https://ca.wikimedia.org/wiki/$1"},{"prefix":"wmch","url":"http://www.wikimedia.ch/$1"},{"prefix":"wmcl","url":"http://www.wikimediachile.cl/index.php?title=$1"},{"prefix":"wmcn","local":"","url":"https://cn.wikimedia.org/wiki/$1"},{"prefix":"wmco","local":"","url":"https://co.wikimedia.org/wiki/$1"},{"prefix":"wmcz","url":"http://www.wikimedia.cz/web/$1"},{"prefix":"wmdc","url":"https://wikimediadc.org/wiki/$1"},{"prefix":"securewikidc","url":"https://secure.wikidc.org/$1"},{"prefix":"wmde","url":"https://wikimedia.de/wiki/$1","protorel":""},{"prefix":"wmdk","local":"","url":"https://dk.wikimedia.org/wiki/$1"},{"prefix":"wmee","local":"","url":"https://ee.wikimedia.org/wiki/$1"},{"prefix":"wmec","local":"","url":"https://ec.wikimedia.org/wiki/$1"},{"prefix":"wmes","url":"https://www.wikimedia.es/wiki/$1"},{"prefix":"wmet","local":"","url":"https://ee.wikimedia.org/wiki/$1"},{"prefix":"wmfi","local":"","url":"https://fi.wikimedia.org/wiki/$1"},{"prefix":"wmfr","url":"http://wikimedia.fr/$1"},{"prefix":"wmhk","url":"http://wikimedia.hk/index.php/$1"},{"prefix":"wmhu","url":"http://wikimedia.hu/wiki/$1"},{"prefix":"wmid","url":"http://www.wikimedia.or.id/wiki/$1"},{"prefix":"wmil","local":"","url":"http://www.wikimedia.org.il/$1"},{"prefix":"wmin","url":"http://wiki.wikimedia.in/$1"},{"prefix":"wmit","url":"https://wiki.wikimedia.it/wiki/$1"},{"prefix":"wmke","url":"http://wikimedia.or.ke/$1"},{"prefix":"wmmk","local":"","url":"https://mk.wikimedia.org/wiki/$1"},{"prefix":"wmmx","local":"","url":"https://mx.wikimedia.org/wiki/$1"},{"prefix":"wmnl","local":"","url":"https://nl.wikimedia.org/wiki/$1"},{"prefix":"wmnyc","local":"","url":"https://nyc.wikimedia.org/wiki/$1"},{"prefix":"wmno","local":"","url":"https://no.wikimedia.org/wiki/$1"},{"prefix":"wmpa-us","local":"","url":"https://pa-us.wikimedia.org/wiki/$1"},{"prefix":"wmph","local":"","url":"http://wikimedia.org.ph/wmph/index.php?title=$1"},{"prefix":"wmpl","local":"","url":"https://pl.wikimedia.org/wiki/$1"},{"prefix":"wmpt","local":"","url":"https://pt.wikimedia.org/wiki/$1"},{"prefix":"wmrs","local":"","url":"https://rs.wikimedia.org/wiki/$1"},{"prefix":"wmru","local":"","url":"https://ru.wikimedia.org/wiki/$1"},{"prefix":"wmse","local":"","url":"https://se.wikimedia.org/wiki/$1"},{"prefix":"wmsk","url":"http://wikimedia.sk/$1"},{"prefix":"wmtr","local":"","url":"https://tr.wikimedia.org/wiki/$1"},{"prefix":"wmtw","url":"http://wikimedia.tw/wiki/index.php5/$1"},{"prefix":"wmua","local":"","url":"https://ua.wikimedia.org/wiki/$1"},{"prefix":"wmuk","local":"","url":"https://wikimedia.org.uk/wiki/$1"},{"prefix":"wmve","local":"","url":"https://wikimedia.org.ve/wiki/$1"},{"prefix":"wmza","local":"","url":"http://wikimedia.org.za/wiki/$1"},{"prefix":"wm2005","local":"","url":"https://wikimania2005.wikimedia.org/wiki/$1"},{"prefix":"wm2006","local":"","url":"https://wikimania2006.wikimedia.org/wiki/$1"},{"prefix":"wm2007","local":"","url":"https://wikimania2007.wikimedia.org/wiki/$1"},{"prefix":"wm2008","local":"","url":"https://wikimania2008.wikimedia.org/wiki/$1"},{"prefix":"wm2009","local":"","url":"https://wikimania2009.wikimedia.org/wiki/$1"},{"prefix":"wm2010","local":"","url":"https://wikimania2010.wikimedia.org/wiki/$1"},{"prefix":"wm2011","local":"","url":"https://wikimania2011.wikimedia.org/wiki/$1"},{"prefix":"wm2012","local":"","url":"https://wikimania2012.wikimedia.org/wiki/$1"},{"prefix":"wm2013","local":"","url":"https://wikimania2013.wikimedia.org/wiki/$1"},{"prefix":"wm2014","local":"","url":"https://wikimania2014.wikimedia.org/wiki/$1"},{"prefix":"wm2015","local":"","url":"https://wikimania2015.wikimedia.org/wiki/$1"},{"prefix":"wm2016","local":"","url":"https://wikimania2016.wikimedia.org/wiki/$1"},{"prefix":"wm2017","local":"","url":"https://wikimania2017.wikimedia.org/wiki/$1"},{"prefix":"wm2018","local":"","url":"https://wikimania2018.wikimedia.org/wiki/$1"},{"prefix":"wmania","local":"","url":"https://wikimania.wikimedia.org/wiki/$1"},{"prefix":"wmteam","local":"","url":"https://wikimaniateam.wikimedia.org/wiki/$1"},{"prefix":"wmf","local":"","url":"https://wikimediafoundation.org/wiki/$1"},{"prefix":"wmfblog","local":"","url":"https://blog.wikimedia.org/$1"},{"prefix":"wmdeblog","url":"https://blog.wikimedia.de/$1","protorel":""},{"prefix":"wookieepedia","url":"http://starwars.wikia.com/wiki/$1"},{"prefix":"wowwiki","url":"http://www.wowwiki.com/$1"},{"prefix":"wqy","url":"http://wqy.sourceforge.net/cgi-bin/index.cgi?$1"},{"prefix":"wurmpedia","url":"http://wurmpedia.com/index.php/$1"},{"prefix":"viaf","url":"http://viaf.org/viaf/$1"},{"prefix":"zrhwiki","url":"http://www.zrhwiki.ch/wiki/$1"},{"prefix":"zum","url":"http://wiki.zum.de/$1"},{"prefix":"zwiki","url":"http://www.zwiki.org/$1"},{"prefix":"m","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"meta","local":"","url":"https://meta.wikimedia.org/wiki/$1"},{"prefix":"sep11","local":"","url":"https://sep11.wikipedia.org/wiki/$1"},{"prefix":"d","local":"","url":"https://www.wikidata.org/wiki/$1"},{"prefix":"aa","local":"","language":"Qaf\u00e1r
+        af","url":"https://aa.wiktionary.org/wiki/$1"},{"prefix":"ab","local":"","language":"\u0410\u04a7\u0441\u0448\u04d9\u0430","url":"https://ab.wiktionary.org/wiki/$1"},{"prefix":"ace","local":"","language":"Ac\u00e8h","url":"https://ace.wiktionary.org/wiki/$1"},{"prefix":"ady","local":"","language":"\u0430\u0434\u044b\u0433\u0430\u0431\u0437\u044d","url":"https://ady.wiktionary.org/wiki/$1"},{"prefix":"af","local":"","language":"Afrikaans","url":"https://af.wiktionary.org/wiki/$1"},{"prefix":"ak","local":"","language":"Akan","url":"https://ak.wiktionary.org/wiki/$1"},{"prefix":"als","local":"","language":"Alemannisch","url":"https://als.wiktionary.org/wiki/$1"},{"prefix":"am","local":"","language":"\u12a0\u121b\u122d\u129b","url":"https://am.wiktionary.org/wiki/$1"},{"prefix":"an","local":"","language":"aragon\u00e9s","url":"https://an.wiktionary.org/wiki/$1"},{"prefix":"ang","local":"","language":"\u00c6nglisc","url":"https://ang.wiktionary.org/wiki/$1"},{"prefix":"ar","local":"","language":"\u0627\u0644\u0639\u0631\u0628\u064a\u0629","url":"https://ar.wiktionary.org/wiki/$1"},{"prefix":"arc","local":"","language":"\u0710\u072a\u0721\u071d\u0710","url":"https://arc.wiktionary.org/wiki/$1"},{"prefix":"arz","local":"","language":"\u0645\u0635\u0631\u0649","url":"https://arz.wiktionary.org/wiki/$1"},{"prefix":"as","local":"","language":"\u0985\u09b8\u09ae\u09c0\u09af\u09bc\u09be","url":"https://as.wiktionary.org/wiki/$1"},{"prefix":"ast","local":"","language":"asturianu","url":"https://ast.wiktionary.org/wiki/$1"},{"prefix":"atj","local":"","language":"Atikamekw","url":"https://atj.wiktionary.org/wiki/$1"},{"prefix":"av","local":"","language":"\u0430\u0432\u0430\u0440","url":"https://av.wiktionary.org/wiki/$1"},{"prefix":"ay","local":"","language":"Aymar
+        aru","url":"https://ay.wiktionary.org/wiki/$1"},{"prefix":"az","local":"","language":"az\u0259rbaycanca","url":"https://az.wiktionary.org/wiki/$1"},{"prefix":"azb","local":"","language":"\u062a\u06c6\u0631\u06a9\u062c\u0647","url":"https://azb.wiktionary.org/wiki/$1"},{"prefix":"ba","local":"","language":"\u0431\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430","url":"https://ba.wiktionary.org/wiki/$1"},{"prefix":"bar","local":"","language":"Boarisch","url":"https://bar.wiktionary.org/wiki/$1"},{"prefix":"bat-smg","local":"","language":"\u017eemait\u0117\u0161ka","url":"https://bat-smg.wiktionary.org/wiki/$1"},{"prefix":"bcl","local":"","language":"Bikol
+        Central","url":"https://bcl.wiktionary.org/wiki/$1"},{"prefix":"be","local":"","language":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f","url":"https://be.wiktionary.org/wiki/$1"},{"prefix":"be-x-old","local":"","language":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f
+        (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430)\u200e","url":"https://be-x-old.wiktionary.org/wiki/$1"},{"prefix":"bg","local":"","language":"\u0431\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438","url":"https://bg.wiktionary.org/wiki/$1"},{"prefix":"bh","local":"","language":"\u092d\u094b\u091c\u092a\u0941\u0930\u0940","url":"https://bh.wiktionary.org/wiki/$1"},{"prefix":"bi","local":"","language":"Bislama","url":"https://bi.wiktionary.org/wiki/$1"},{"prefix":"bjn","local":"","language":"Bahasa
+        Banjar","url":"https://bjn.wiktionary.org/wiki/$1"},{"prefix":"bm","local":"","language":"bamanankan","url":"https://bm.wiktionary.org/wiki/$1"},{"prefix":"bn","local":"","language":"\u09ac\u09be\u0982\u09b2\u09be","url":"https://bn.wiktionary.org/wiki/$1"},{"prefix":"bo","local":"","language":"\u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42","url":"https://bo.wiktionary.org/wiki/$1"},{"prefix":"bpy","local":"","language":"\u09ac\u09bf\u09b7\u09cd\u09a3\u09c1\u09aa\u09cd\u09b0\u09bf\u09af\u09bc\u09be
+        \u09ae\u09a3\u09bf\u09aa\u09c1\u09b0\u09c0","url":"https://bpy.wiktionary.org/wiki/$1"},{"prefix":"br","local":"","language":"brezhoneg","url":"https://br.wiktionary.org/wiki/$1"},{"prefix":"bs","local":"","language":"bosanski","url":"https://bs.wiktionary.org/wiki/$1"},{"prefix":"bug","local":"","language":"\u1a05\u1a14
+        \u1a15\u1a18\u1a01\u1a17","url":"https://bug.wiktionary.org/wiki/$1"},{"prefix":"bxr","local":"","language":"\u0431\u0443\u0440\u044f\u0430\u0434","url":"https://bxr.wiktionary.org/wiki/$1"},{"prefix":"ca","local":"","language":"catal\u00e0","url":"https://ca.wiktionary.org/wiki/$1"},{"prefix":"cbk-zam","local":"","language":"Chavacano
+        de Zamboanga","url":"https://cbk-zam.wiktionary.org/wiki/$1"},{"prefix":"cdo","local":"","language":"M\u00ecng-d\u0115\u0324ng-ng\u1e73\u0304","url":"https://cdo.wiktionary.org/wiki/$1"},{"prefix":"ce","local":"","language":"\u043d\u043e\u0445\u0447\u0438\u0439\u043d","url":"https://ce.wiktionary.org/wiki/$1"},{"prefix":"ceb","local":"","language":"Cebuano","url":"https://ceb.wiktionary.org/wiki/$1"},{"prefix":"ch","local":"","language":"Chamoru","url":"https://ch.wiktionary.org/wiki/$1"},{"prefix":"cho","local":"","language":"Choctaw","url":"https://cho.wiktionary.org/wiki/$1"},{"prefix":"chr","local":"","language":"\u13e3\u13b3\u13a9","url":"https://chr.wiktionary.org/wiki/$1"},{"prefix":"chy","local":"","language":"Tsets\u00eahest\u00e2hese","url":"https://chy.wiktionary.org/wiki/$1"},{"prefix":"ckb","local":"","language":"\u06a9\u0648\u0631\u062f\u06cc","url":"https://ckb.wiktionary.org/wiki/$1"},{"prefix":"co","local":"","language":"corsu","url":"https://co.wiktionary.org/wiki/$1"},{"prefix":"cr","local":"","language":"N\u0113hiyaw\u0113win
+        / \u14c0\u1426\u1403\u152d\u140d\u140f\u1423","url":"https://cr.wiktionary.org/wiki/$1"},{"prefix":"crh","local":"","language":"q\u0131r\u0131mtatarca","url":"https://crh.wiktionary.org/wiki/$1"},{"prefix":"cs","local":"","language":"\u010de\u0161tina","url":"https://cs.wiktionary.org/wiki/$1"},{"prefix":"csb","local":"","language":"kasz\u00ebbsczi","url":"https://csb.wiktionary.org/wiki/$1"},{"prefix":"cu","local":"","language":"\u0441\u043b\u043e\u0432\u0463\u043d\u044c\u0441\u043a\u044a
+        / \u2c14\u2c0e\u2c11\u2c02\u2c21\u2c10\u2c20\u2c14\u2c0d\u2c1f","url":"https://cu.wiktionary.org/wiki/$1"},{"prefix":"cv","local":"","language":"\u0427\u04d1\u0432\u0430\u0448\u043b\u0430","url":"https://cv.wiktionary.org/wiki/$1"},{"prefix":"cy","local":"","language":"Cymraeg","url":"https://cy.wiktionary.org/wiki/$1"},{"prefix":"da","local":"","language":"dansk","url":"https://da.wiktionary.org/wiki/$1"},{"prefix":"de","local":"","language":"Deutsch","url":"https://de.wiktionary.org/wiki/$1"},{"prefix":"din","local":"","language":"Thu\u0254\u014bj\u00e4\u014b","url":"https://din.wiktionary.org/wiki/$1"},{"prefix":"diq","local":"","language":"Zazaki","url":"https://diq.wiktionary.org/wiki/$1"},{"prefix":"dsb","local":"","language":"dolnoserbski","url":"https://dsb.wiktionary.org/wiki/$1"},{"prefix":"dty","local":"","language":"\u0921\u094b\u091f\u0947\u0932\u0940","url":"https://dty.wiktionary.org/wiki/$1"},{"prefix":"dv","local":"","language":"\u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0","url":"https://dv.wiktionary.org/wiki/$1"},{"prefix":"dz","local":"","language":"\u0f47\u0f7c\u0f44\u0f0b\u0f41","url":"https://dz.wiktionary.org/wiki/$1"},{"prefix":"ee","local":"","language":"e\u028begbe","url":"https://ee.wiktionary.org/wiki/$1"},{"prefix":"el","local":"","language":"\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac","url":"https://el.wiktionary.org/wiki/$1"},{"prefix":"eml","local":"","language":"emili\u00e0n
+        e rumagn\u00f2l","url":"https://eml.wiktionary.org/wiki/$1"},{"prefix":"en","local":"","language":"English","localinterwiki":"","url":"https://en.wiktionary.org/wiki/$1"},{"prefix":"eo","local":"","language":"Esperanto","url":"https://eo.wiktionary.org/wiki/$1"},{"prefix":"es","local":"","language":"espa\u00f1ol","url":"https://es.wiktionary.org/wiki/$1"},{"prefix":"et","local":"","language":"eesti","url":"https://et.wiktionary.org/wiki/$1"},{"prefix":"eu","local":"","language":"euskara","url":"https://eu.wiktionary.org/wiki/$1"},{"prefix":"ext","local":"","language":"estreme\u00f1u","url":"https://ext.wiktionary.org/wiki/$1"},{"prefix":"fa","local":"","language":"\u0641\u0627\u0631\u0633\u06cc","url":"https://fa.wiktionary.org/wiki/$1"},{"prefix":"ff","local":"","language":"Fulfulde","url":"https://ff.wiktionary.org/wiki/$1"},{"prefix":"fi","local":"","language":"suomi","url":"https://fi.wiktionary.org/wiki/$1"},{"prefix":"fiu-vro","local":"","language":"V\u00f5ro","url":"https://fiu-vro.wiktionary.org/wiki/$1"},{"prefix":"fj","local":"","language":"Na
+        Vosa Vakaviti","url":"https://fj.wiktionary.org/wiki/$1"},{"prefix":"fo","local":"","language":"f\u00f8royskt","url":"https://fo.wiktionary.org/wiki/$1"},{"prefix":"fr","local":"","language":"fran\u00e7ais","url":"https://fr.wiktionary.org/wiki/$1"},{"prefix":"frp","local":"","language":"arpetan","url":"https://frp.wiktionary.org/wiki/$1"},{"prefix":"frr","local":"","language":"Nordfriisk","url":"https://frr.wiktionary.org/wiki/$1"},{"prefix":"fur","local":"","language":"furlan","url":"https://fur.wiktionary.org/wiki/$1"},{"prefix":"fy","local":"","language":"Frysk","url":"https://fy.wiktionary.org/wiki/$1"},{"prefix":"ga","local":"","language":"Gaeilge","url":"https://ga.wiktionary.org/wiki/$1"},{"prefix":"gag","local":"","language":"Gagauz","url":"https://gag.wiktionary.org/wiki/$1"},{"prefix":"gan","local":"","language":"\u8d1b\u8a9e","url":"https://gan.wiktionary.org/wiki/$1"},{"prefix":"gd","local":"","language":"G\u00e0idhlig","url":"https://gd.wiktionary.org/wiki/$1"},{"prefix":"gl","local":"","language":"galego","url":"https://gl.wiktionary.org/wiki/$1"},{"prefix":"glk","local":"","language":"\u06af\u06cc\u0644\u06a9\u06cc","url":"https://glk.wiktionary.org/wiki/$1"},{"prefix":"gn","local":"","language":"Ava\u00f1e''\u1ebd","url":"https://gn.wiktionary.org/wiki/$1"},{"prefix":"gom","local":"","language":"\u0917\u094b\u0902\u092f\u091a\u0940
+        \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni","url":"https://gom.wiktionary.org/wiki/$1"},{"prefix":"got","local":"","language":"\ud800\udf32\ud800\udf3f\ud800\udf44\ud800\udf39\ud800\udf43\ud800\udf3a","url":"https://got.wiktionary.org/wiki/$1"},{"prefix":"gu","local":"","language":"\u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0ac0","url":"https://gu.wiktionary.org/wiki/$1"},{"prefix":"gv","local":"","language":"Gaelg","url":"https://gv.wiktionary.org/wiki/$1"},{"prefix":"ha","local":"","language":"Hausa","url":"https://ha.wiktionary.org/wiki/$1"},{"prefix":"hak","local":"","language":"\u5ba2\u5bb6\u8a9e/Hak-k\u00e2-ng\u00ee","url":"https://hak.wiktionary.org/wiki/$1"},{"prefix":"haw","local":"","language":"Hawai\u02bbi","url":"https://haw.wiktionary.org/wiki/$1"},{"prefix":"he","local":"","language":"\u05e2\u05d1\u05e8\u05d9\u05ea","url":"https://he.wiktionary.org/wiki/$1"},{"prefix":"hi","local":"","language":"\u0939\u093f\u0928\u094d\u0926\u0940","url":"https://hi.wiktionary.org/wiki/$1"},{"prefix":"hif","local":"","language":"Fiji
+        Hindi","url":"https://hif.wiktionary.org/wiki/$1"},{"prefix":"ho","local":"","language":"Hiri
+        Motu","url":"https://ho.wiktionary.org/wiki/$1"},{"prefix":"hr","local":"","language":"hrvatski","url":"https://hr.wiktionary.org/wiki/$1"},{"prefix":"hsb","local":"","language":"hornjoserbsce","url":"https://hsb.wiktionary.org/wiki/$1"},{"prefix":"ht","local":"","language":"Krey\u00f2l
+        ayisyen","url":"https://ht.wiktionary.org/wiki/$1"},{"prefix":"hu","local":"","language":"magyar","url":"https://hu.wiktionary.org/wiki/$1"},{"prefix":"hy","local":"","language":"\u0540\u0561\u0575\u0565\u0580\u0565\u0576","url":"https://hy.wiktionary.org/wiki/$1"},{"prefix":"hz","local":"","language":"Otsiherero","url":"https://hz.wiktionary.org/wiki/$1"},{"prefix":"ia","local":"","language":"interlingua","url":"https://ia.wiktionary.org/wiki/$1"},{"prefix":"id","local":"","language":"Bahasa
+        Indonesia","url":"https://id.wiktionary.org/wiki/$1"},{"prefix":"ie","local":"","language":"Interlingue","url":"https://ie.wiktionary.org/wiki/$1"},{"prefix":"ig","local":"","language":"Igbo","url":"https://ig.wiktionary.org/wiki/$1"},{"prefix":"ii","local":"","language":"\ua187\ua259","url":"https://ii.wiktionary.org/wiki/$1"},{"prefix":"ik","local":"","language":"I\u00f1upiak","url":"https://ik.wiktionary.org/wiki/$1"},{"prefix":"ilo","local":"","language":"Ilokano","url":"https://ilo.wiktionary.org/wiki/$1"},{"prefix":"io","local":"","language":"Ido","url":"https://io.wiktionary.org/wiki/$1"},{"prefix":"is","local":"","language":"\u00edslenska","url":"https://is.wiktionary.org/wiki/$1"},{"prefix":"it","local":"","language":"italiano","url":"https://it.wiktionary.org/wiki/$1"},{"prefix":"iu","local":"","language":"\u1403\u14c4\u1483\u144e\u1450\u1466/inuktitut","url":"https://iu.wiktionary.org/wiki/$1"},{"prefix":"ja","local":"","language":"\u65e5\u672c\u8a9e","url":"https://ja.wiktionary.org/wiki/$1"},{"prefix":"jam","local":"","language":"Patois","url":"https://jam.wiktionary.org/wiki/$1"},{"prefix":"jbo","local":"","language":"la
+        .lojban.","url":"https://jbo.wiktionary.org/wiki/$1"},{"prefix":"jv","local":"","language":"Basa
+        Jawa","url":"https://jv.wiktionary.org/wiki/$1"},{"prefix":"ka","local":"","language":"\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8","url":"https://ka.wiktionary.org/wiki/$1"},{"prefix":"kaa","local":"","language":"Qaraqalpaqsha","url":"https://kaa.wiktionary.org/wiki/$1"},{"prefix":"kab","local":"","language":"Taqbaylit","url":"https://kab.wiktionary.org/wiki/$1"},{"prefix":"kbd","local":"","language":"\u0410\u0434\u044b\u0433\u044d\u0431\u0437\u044d","url":"https://kbd.wiktionary.org/wiki/$1"},{"prefix":"kbp","local":"","language":"Kab\u0269y\u025b","url":"https://kbp.wiktionary.org/wiki/$1"},{"prefix":"kg","local":"","language":"Kongo","url":"https://kg.wiktionary.org/wiki/$1"},{"prefix":"ki","local":"","language":"G\u0129k\u0169y\u0169","url":"https://ki.wiktionary.org/wiki/$1"},{"prefix":"kj","local":"","language":"Kwanyama","url":"https://kj.wiktionary.org/wiki/$1"},{"prefix":"kk","local":"","language":"\u049b\u0430\u0437\u0430\u049b\u0448\u0430","url":"https://kk.wiktionary.org/wiki/$1"},{"prefix":"kl","local":"","language":"kalaallisut","url":"https://kl.wiktionary.org/wiki/$1"},{"prefix":"km","local":"","language":"\u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a","url":"https://km.wiktionary.org/wiki/$1"},{"prefix":"kn","local":"","language":"\u0c95\u0ca8\u0ccd\u0ca8\u0ca1","url":"https://kn.wiktionary.org/wiki/$1"},{"prefix":"ko","local":"","language":"\ud55c\uad6d\uc5b4","url":"https://ko.wiktionary.org/wiki/$1"},{"prefix":"koi","local":"","language":"\u041f\u0435\u0440\u0435\u043c
+        \u041a\u043e\u043c\u0438","url":"https://koi.wiktionary.org/wiki/$1"},{"prefix":"kr","local":"","language":"Kanuri","url":"https://kr.wiktionary.org/wiki/$1"},{"prefix":"krc","local":"","language":"\u043a\u044a\u0430\u0440\u0430\u0447\u0430\u0439-\u043c\u0430\u043b\u043a\u044a\u0430\u0440","url":"https://krc.wiktionary.org/wiki/$1"},{"prefix":"ks","local":"","language":"\u0915\u0949\u0936\u0941\u0930
+        / \u06a9\u0672\u0634\u064f\u0631","url":"https://ks.wiktionary.org/wiki/$1"},{"prefix":"ksh","local":"","language":"Ripoarisch","url":"https://ksh.wiktionary.org/wiki/$1"},{"prefix":"ku","local":"","language":"Kurd\u00ee","url":"https://ku.wiktionary.org/wiki/$1"},{"prefix":"kv","local":"","language":"\u043a\u043e\u043c\u0438","url":"https://kv.wiktionary.org/wiki/$1"},{"prefix":"kw","local":"","language":"kernowek","url":"https://kw.wiktionary.org/wiki/$1"},{"prefix":"ky","local":"","language":"\u041a\u044b\u0440\u0433\u044b\u0437\u0447\u0430","url":"https://ky.wiktionary.org/wiki/$1"},{"prefix":"la","local":"","language":"Latina","url":"https://la.wiktionary.org/wiki/$1"},{"prefix":"lad","local":"","language":"Ladino","url":"https://lad.wiktionary.org/wiki/$1"},{"prefix":"lb","local":"","language":"L\u00ebtzebuergesch","url":"https://lb.wiktionary.org/wiki/$1"},{"prefix":"lbe","local":"","language":"\u043b\u0430\u043a\u043a\u0443","url":"https://lbe.wiktionary.org/wiki/$1"},{"prefix":"lez","local":"","language":"\u043b\u0435\u0437\u0433\u0438","url":"https://lez.wiktionary.org/wiki/$1"},{"prefix":"lg","local":"","language":"Luganda","url":"https://lg.wiktionary.org/wiki/$1"},{"prefix":"li","local":"","language":"Limburgs","url":"https://li.wiktionary.org/wiki/$1"},{"prefix":"lij","local":"","language":"Ligure","url":"https://lij.wiktionary.org/wiki/$1"},{"prefix":"lmo","local":"","language":"lumbaart","url":"https://lmo.wiktionary.org/wiki/$1"},{"prefix":"ln","local":"","language":"ling\u00e1la","url":"https://ln.wiktionary.org/wiki/$1"},{"prefix":"lo","local":"","language":"\u0ea5\u0eb2\u0ea7","url":"https://lo.wiktionary.org/wiki/$1"},{"prefix":"lrc","local":"","language":"\u0644\u06ca\u0631\u06cc
+        \u0634\u0648\u0645\u0627\u0644\u06cc","url":"https://lrc.wiktionary.org/wiki/$1"},{"prefix":"lt","local":"","language":"lietuvi\u0173","url":"https://lt.wiktionary.org/wiki/$1"},{"prefix":"ltg","local":"","language":"latga\u013cu","url":"https://ltg.wiktionary.org/wiki/$1"},{"prefix":"lv","local":"","language":"latvie\u0161u","url":"https://lv.wiktionary.org/wiki/$1"},{"prefix":"mai","local":"","language":"\u092e\u0948\u0925\u093f\u0932\u0940","url":"https://mai.wiktionary.org/wiki/$1"},{"prefix":"map-bms","local":"","language":"Basa
+        Banyumasan","url":"https://map-bms.wiktionary.org/wiki/$1"},{"prefix":"mdf","local":"","language":"\u043c\u043e\u043a\u0448\u0435\u043d\u044c","url":"https://mdf.wiktionary.org/wiki/$1"},{"prefix":"mg","local":"","language":"Malagasy","url":"https://mg.wiktionary.org/wiki/$1"},{"prefix":"mh","local":"","language":"Ebon","url":"https://mh.wiktionary.org/wiki/$1"},{"prefix":"mhr","local":"","language":"\u043e\u043b\u044b\u043a
+        \u043c\u0430\u0440\u0438\u0439","url":"https://mhr.wiktionary.org/wiki/$1"},{"prefix":"mi","local":"","language":"M\u0101ori","url":"https://mi.wiktionary.org/wiki/$1"},{"prefix":"min","local":"","language":"Baso
+        Minangkabau","url":"https://min.wiktionary.org/wiki/$1"},{"prefix":"mk","local":"","language":"\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438","url":"https://mk.wiktionary.org/wiki/$1"},{"prefix":"ml","local":"","language":"\u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02","url":"https://ml.wiktionary.org/wiki/$1"},{"prefix":"mn","local":"","language":"\u043c\u043e\u043d\u0433\u043e\u043b","url":"https://mn.wiktionary.org/wiki/$1"},{"prefix":"mo","local":"","language":"\u043c\u043e\u043b\u0434\u043e\u0432\u0435\u043d\u044f\u0441\u043a\u044d","url":"https://mo.wiktionary.org/wiki/$1"},{"prefix":"mr","local":"","language":"\u092e\u0930\u093e\u0920\u0940","url":"https://mr.wiktionary.org/wiki/$1"},{"prefix":"mrj","local":"","language":"\u043a\u044b\u0440\u044b\u043a
+        \u043c\u0430\u0440\u044b","url":"https://mrj.wiktionary.org/wiki/$1"},{"prefix":"ms","local":"","language":"Bahasa
+        Melayu","url":"https://ms.wiktionary.org/wiki/$1"},{"prefix":"mt","local":"","language":"Malti","url":"https://mt.wiktionary.org/wiki/$1"},{"prefix":"mus","local":"","language":"Mvskoke","url":"https://mus.wiktionary.org/wiki/$1"},{"prefix":"mwl","local":"","language":"Mirand\u00e9s","url":"https://mwl.wiktionary.org/wiki/$1"},{"prefix":"my","local":"","language":"\u1019\u103c\u1014\u103a\u1019\u102c\u1018\u102c\u101e\u102c","url":"https://my.wiktionary.org/wiki/$1"},{"prefix":"myv","local":"","language":"\u044d\u0440\u0437\u044f\u043d\u044c","url":"https://myv.wiktionary.org/wiki/$1"},{"prefix":"mzn","local":"","language":"\u0645\u0627\u0632\u0650\u0631\u0648\u0646\u06cc","url":"https://mzn.wiktionary.org/wiki/$1"},{"prefix":"na","local":"","language":"Dorerin
+        Naoero","url":"https://na.wiktionary.org/wiki/$1"},{"prefix":"nah","local":"","language":"N\u0101huatl","url":"https://nah.wiktionary.org/wiki/$1"},{"prefix":"nap","local":"","language":"Napulitano","url":"https://nap.wiktionary.org/wiki/$1"},{"prefix":"nds","local":"","language":"Plattd\u00fc\u00fctsch","url":"https://nds.wiktionary.org/wiki/$1"},{"prefix":"nds-nl","local":"","language":"Nedersaksies","url":"https://nds-nl.wiktionary.org/wiki/$1"},{"prefix":"ne","local":"","language":"\u0928\u0947\u092a\u093e\u0932\u0940","url":"https://ne.wiktionary.org/wiki/$1"},{"prefix":"new","local":"","language":"\u0928\u0947\u092a\u093e\u0932
+        \u092d\u093e\u0937\u093e","url":"https://new.wiktionary.org/wiki/$1"},{"prefix":"ng","local":"","language":"Oshiwambo","url":"https://ng.wiktionary.org/wiki/$1"},{"prefix":"nl","local":"","language":"Nederlands","url":"https://nl.wiktionary.org/wiki/$1"},{"prefix":"nn","local":"","language":"norsk
+        nynorsk","url":"https://nn.wiktionary.org/wiki/$1"},{"prefix":"no","local":"","language":"norsk","url":"https://no.wiktionary.org/wiki/$1"},{"prefix":"nov","local":"","language":"Novial","url":"https://nov.wiktionary.org/wiki/$1"},{"prefix":"nrm","local":"","language":"Nouormand","url":"https://nrm.wiktionary.org/wiki/$1"},{"prefix":"nso","local":"","language":"Sesotho
+        sa Leboa","url":"https://nso.wiktionary.org/wiki/$1"},{"prefix":"nv","local":"","language":"Din\u00e9
+        bizaad","url":"https://nv.wiktionary.org/wiki/$1"},{"prefix":"ny","local":"","language":"Chi-Chewa","url":"https://ny.wiktionary.org/wiki/$1"},{"prefix":"oc","local":"","language":"occitan","url":"https://oc.wiktionary.org/wiki/$1"},{"prefix":"olo","local":"","language":"Livvinkarjala","url":"https://olo.wiktionary.org/wiki/$1"},{"prefix":"om","local":"","language":"Oromoo","url":"https://om.wiktionary.org/wiki/$1"},{"prefix":"or","local":"","language":"\u0b13\u0b21\u0b3c\u0b3f\u0b06","url":"https://or.wiktionary.org/wiki/$1"},{"prefix":"os","local":"","language":"\u0418\u0440\u043e\u043d","url":"https://os.wiktionary.org/wiki/$1"},{"prefix":"pa","local":"","language":"\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40","url":"https://pa.wiktionary.org/wiki/$1"},{"prefix":"pag","local":"","language":"Pangasinan","url":"https://pag.wiktionary.org/wiki/$1"},{"prefix":"pam","local":"","language":"Kapampangan","url":"https://pam.wiktionary.org/wiki/$1"},{"prefix":"pap","local":"","language":"Papiamentu","url":"https://pap.wiktionary.org/wiki/$1"},{"prefix":"pcd","local":"","language":"Picard","url":"https://pcd.wiktionary.org/wiki/$1"},{"prefix":"pdc","local":"","language":"Deitsch","url":"https://pdc.wiktionary.org/wiki/$1"},{"prefix":"pfl","local":"","language":"P\u00e4lzisch","url":"https://pfl.wiktionary.org/wiki/$1"},{"prefix":"pi","local":"","language":"\u092a\u093e\u0932\u093f","url":"https://pi.wiktionary.org/wiki/$1"},{"prefix":"pih","local":"","language":"Norfuk
+        / Pitkern","url":"https://pih.wiktionary.org/wiki/$1"},{"prefix":"pl","local":"","language":"polski","url":"https://pl.wiktionary.org/wiki/$1"},{"prefix":"pms","local":"","language":"Piemont\u00e8is","url":"https://pms.wiktionary.org/wiki/$1"},{"prefix":"pnt","local":"","language":"\u03a0\u03bf\u03bd\u03c4\u03b9\u03b1\u03ba\u03ac","url":"https://pnt.wiktionary.org/wiki/$1"},{"prefix":"pnb","local":"","language":"\u067e\u0646\u062c\u0627\u0628\u06cc","url":"https://pnb.wiktionary.org/wiki/$1"},{"prefix":"ps","local":"","language":"\u067e\u069a\u062a\u0648","url":"https://ps.wiktionary.org/wiki/$1"},{"prefix":"pt","local":"","language":"portugu\u00eas","url":"https://pt.wiktionary.org/wiki/$1"},{"prefix":"qu","local":"","language":"Runa
+        Simi","url":"https://qu.wiktionary.org/wiki/$1"},{"prefix":"rm","local":"","language":"rumantsch","url":"https://rm.wiktionary.org/wiki/$1"},{"prefix":"rmy","local":"","language":"Romani","url":"https://rmy.wiktionary.org/wiki/$1"},{"prefix":"rn","local":"","language":"Kirundi","url":"https://rn.wiktionary.org/wiki/$1"},{"prefix":"ro","local":"","language":"rom\u00e2n\u0103","url":"https://ro.wiktionary.org/wiki/$1"},{"prefix":"roa-rup","local":"","language":"arm\u00e3neashti","url":"https://roa-rup.wiktionary.org/wiki/$1"},{"prefix":"roa-tara","local":"","language":"tarand\u00edne","url":"https://roa-tara.wiktionary.org/wiki/$1"},{"prefix":"ru","local":"","language":"\u0440\u0443\u0441\u0441\u043a\u0438\u0439","url":"https://ru.wiktionary.org/wiki/$1"},{"prefix":"rue","local":"","language":"\u0440\u0443\u0441\u0438\u043d\u044c\u0441\u043a\u044b\u0439","url":"https://rue.wiktionary.org/wiki/$1"},{"prefix":"rw","local":"","language":"Kinyarwanda","url":"https://rw.wiktionary.org/wiki/$1"},{"prefix":"sa","local":"","language":"\u0938\u0902\u0938\u094d\u0915\u0943\u0924\u092e\u094d","url":"https://sa.wiktionary.org/wiki/$1"},{"prefix":"sah","local":"","language":"\u0441\u0430\u0445\u0430
+        \u0442\u044b\u043b\u0430","url":"https://sah.wiktionary.org/wiki/$1"},{"prefix":"sc","local":"","language":"sardu","url":"https://sc.wiktionary.org/wiki/$1"},{"prefix":"scn","local":"","language":"sicilianu","url":"https://scn.wiktionary.org/wiki/$1"},{"prefix":"sco","local":"","language":"Scots","url":"https://sco.wiktionary.org/wiki/$1"},{"prefix":"sd","local":"","language":"\u0633\u0646\u068c\u064a","url":"https://sd.wiktionary.org/wiki/$1"},{"prefix":"se","local":"","language":"s\u00e1megiella","url":"https://se.wiktionary.org/wiki/$1"},{"prefix":"sg","local":"","language":"S\u00e4ng\u00f6","url":"https://sg.wiktionary.org/wiki/$1"},{"prefix":"sh","local":"","language":"srpskohrvatski
+        / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438","url":"https://sh.wiktionary.org/wiki/$1"},{"prefix":"si","local":"","language":"\u0dc3\u0dd2\u0d82\u0dc4\u0dbd","url":"https://si.wiktionary.org/wiki/$1"},{"prefix":"simple","local":"","language":"Simple
+        English","url":"https://simple.wiktionary.org/wiki/$1"},{"prefix":"sk","local":"","language":"sloven\u010dina","url":"https://sk.wiktionary.org/wiki/$1"},{"prefix":"sl","local":"","language":"sloven\u0161\u010dina","url":"https://sl.wiktionary.org/wiki/$1"},{"prefix":"sm","local":"","language":"Gagana
+        Samoa","url":"https://sm.wiktionary.org/wiki/$1"},{"prefix":"sn","local":"","language":"chiShona","url":"https://sn.wiktionary.org/wiki/$1"},{"prefix":"so","local":"","language":"Soomaaliga","url":"https://so.wiktionary.org/wiki/$1"},{"prefix":"sq","local":"","language":"shqip","url":"https://sq.wiktionary.org/wiki/$1"},{"prefix":"sr","local":"","language":"\u0441\u0440\u043f\u0441\u043a\u0438
+        / srpski","url":"https://sr.wiktionary.org/wiki/$1"},{"prefix":"srn","local":"","language":"Sranantongo","url":"https://srn.wiktionary.org/wiki/$1"},{"prefix":"ss","local":"","language":"SiSwati","url":"https://ss.wiktionary.org/wiki/$1"},{"prefix":"st","local":"","language":"Sesotho","url":"https://st.wiktionary.org/wiki/$1"},{"prefix":"stq","local":"","language":"Seeltersk","url":"https://stq.wiktionary.org/wiki/$1"},{"prefix":"su","local":"","language":"Basa
+        Sunda","url":"https://su.wiktionary.org/wiki/$1"},{"prefix":"sv","local":"","language":"svenska","url":"https://sv.wiktionary.org/wiki/$1"},{"prefix":"sw","local":"","language":"Kiswahili","url":"https://sw.wiktionary.org/wiki/$1"},{"prefix":"szl","local":"","language":"\u015bl\u016fnski","url":"https://szl.wiktionary.org/wiki/$1"},{"prefix":"ta","local":"","language":"\u0ba4\u0bae\u0bbf\u0bb4\u0bcd","url":"https://ta.wiktionary.org/wiki/$1"},{"prefix":"tcy","local":"","language":"\u0ca4\u0cc1\u0cb3\u0cc1","url":"https://tcy.wiktionary.org/wiki/$1"},{"prefix":"te","local":"","language":"\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41","url":"https://te.wiktionary.org/wiki/$1"},{"prefix":"tet","local":"","language":"tetun","url":"https://tet.wiktionary.org/wiki/$1"},{"prefix":"tg","local":"","language":"\u0442\u043e\u04b7\u0438\u043a\u04e3","url":"https://tg.wiktionary.org/wiki/$1"},{"prefix":"th","local":"","language":"\u0e44\u0e17\u0e22","url":"https://th.wiktionary.org/wiki/$1"},{"prefix":"ti","local":"","language":"\u1275\u130d\u122d\u129b","url":"https://ti.wiktionary.org/wiki/$1"},{"prefix":"tk","local":"","language":"T\u00fcrkmen\u00e7e","url":"https://tk.wiktionary.org/wiki/$1"},{"prefix":"tl","local":"","language":"Tagalog","url":"https://tl.wiktionary.org/wiki/$1"},{"prefix":"tn","local":"","language":"Setswana","url":"https://tn.wiktionary.org/wiki/$1"},{"prefix":"to","local":"","language":"lea
+        faka-Tonga","url":"https://to.wiktionary.org/wiki/$1"},{"prefix":"tpi","local":"","language":"Tok
+        Pisin","url":"https://tpi.wiktionary.org/wiki/$1"},{"prefix":"tr","local":"","language":"T\u00fcrk\u00e7e","url":"https://tr.wiktionary.org/wiki/$1"},{"prefix":"ts","local":"","language":"Xitsonga","url":"https://ts.wiktionary.org/wiki/$1"},{"prefix":"tt","local":"","language":"\u0442\u0430\u0442\u0430\u0440\u0447\u0430/tatar\u00e7a","url":"https://tt.wiktionary.org/wiki/$1"},{"prefix":"tum","local":"","language":"chiTumbuka","url":"https://tum.wiktionary.org/wiki/$1"},{"prefix":"tw","local":"","language":"Twi","url":"https://tw.wiktionary.org/wiki/$1"},{"prefix":"ty","local":"","language":"reo
+        tahiti","url":"https://ty.wiktionary.org/wiki/$1"},{"prefix":"tyv","local":"","language":"\u0442\u044b\u0432\u0430
+        \u0434\u044b\u043b","url":"https://tyv.wiktionary.org/wiki/$1"},{"prefix":"udm","local":"","language":"\u0443\u0434\u043c\u0443\u0440\u0442","url":"https://udm.wiktionary.org/wiki/$1"},{"prefix":"ug","local":"","language":"\u0626\u06c7\u064a\u063a\u06c7\u0631\u0686\u06d5
+        / Uyghurche","url":"https://ug.wiktionary.org/wiki/$1"},{"prefix":"uk","local":"","language":"\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430","url":"https://uk.wiktionary.org/wiki/$1"},{"prefix":"ur","local":"","language":"\u0627\u0631\u062f\u0648","url":"https://ur.wiktionary.org/wiki/$1"},{"prefix":"uz","local":"","language":"o\u02bbzbekcha/\u045e\u0437\u0431\u0435\u043a\u0447\u0430","url":"https://uz.wiktionary.org/wiki/$1"},{"prefix":"ve","local":"","language":"Tshivenda","url":"https://ve.wiktionary.org/wiki/$1"},{"prefix":"vec","local":"","language":"v\u00e8neto","url":"https://vec.wiktionary.org/wiki/$1"},{"prefix":"vep","local":"","language":"veps\u00e4n
+        kel\u2019","url":"https://vep.wiktionary.org/wiki/$1"},{"prefix":"vi","local":"","language":"Ti\u1ebfng
+        Vi\u1ec7t","url":"https://vi.wiktionary.org/wiki/$1"},{"prefix":"vls","local":"","language":"West-Vlams","url":"https://vls.wiktionary.org/wiki/$1"},{"prefix":"vo","local":"","language":"Volap\u00fck","url":"https://vo.wiktionary.org/wiki/$1"},{"prefix":"wa","local":"","language":"walon","url":"https://wa.wiktionary.org/wiki/$1"},{"prefix":"war","local":"","language":"Winaray","url":"https://war.wiktionary.org/wiki/$1"},{"prefix":"wo","local":"","language":"Wolof","url":"https://wo.wiktionary.org/wiki/$1"},{"prefix":"wuu","local":"","language":"\u5434\u8bed","url":"https://wuu.wiktionary.org/wiki/$1"},{"prefix":"xal","local":"","language":"\u0445\u0430\u043b\u044c\u043c\u0433","url":"https://xal.wiktionary.org/wiki/$1"},{"prefix":"xh","local":"","language":"isiXhosa","url":"https://xh.wiktionary.org/wiki/$1"},{"prefix":"xmf","local":"","language":"\u10db\u10d0\u10e0\u10d2\u10d0\u10da\u10e3\u10e0\u10d8","url":"https://xmf.wiktionary.org/wiki/$1"},{"prefix":"yi","local":"","language":"\u05d9\u05d9\u05b4\u05d3\u05d9\u05e9","url":"https://yi.wiktionary.org/wiki/$1"},{"prefix":"yo","local":"","language":"Yor\u00f9b\u00e1","url":"https://yo.wiktionary.org/wiki/$1"},{"prefix":"za","local":"","language":"Vahcuengh","url":"https://za.wiktionary.org/wiki/$1"},{"prefix":"zea","local":"","language":"Ze\u00eauws","url":"https://zea.wiktionary.org/wiki/$1"},{"prefix":"zh","local":"","language":"\u4e2d\u6587","url":"https://zh.wiktionary.org/wiki/$1"},{"prefix":"zh-classical","local":"","language":"\u6587\u8a00","url":"https://zh-classical.wiktionary.org/wiki/$1"},{"prefix":"zh-min-nan","local":"","language":"B\u00e2n-l\u00e2m-g\u00fa","url":"https://zh-min-nan.wiktionary.org/wiki/$1"},{"prefix":"zh-yue","local":"","language":"\u7cb5\u8a9e","url":"https://zh-yue.wiktionary.org/wiki/$1"},{"prefix":"zu","local":"","language":"isiZulu","url":"https://zu.wiktionary.org/wiki/$1"},{"prefix":"cz","local":"","url":"https://cs.wiktionary.org/wiki/$1"},{"prefix":"dk","local":"","url":"https://da.wiktionary.org/wiki/$1"},{"prefix":"epo","local":"","url":"https://eo.wiktionary.org/wiki/$1"},{"prefix":"jp","local":"","url":"https://ja.wiktionary.org/wiki/$1"},{"prefix":"minnan","local":"","url":"https://zh-min-nan.wiktionary.org/wiki/$1"},{"prefix":"nb","local":"","language":"norsk
+        bokm\u00e5l","url":"https://no.wiktionary.org/wiki/$1"},{"prefix":"zh-cfr","local":"","url":"https://zh-min-nan.wiktionary.org/wiki/$1"},{"prefix":"zh-cn","local":"","language":"\u4e2d\u6587\uff08\u4e2d\u56fd\u5927\u9646\uff09\u200e","url":"https://zh.wiktionary.org/wiki/$1"},{"prefix":"zh-tw","local":"","language":"\u4e2d\u6587\uff08\u53f0\u7063\uff09\u200e","url":"https://zh.wiktionary.org/wiki/$1"},{"prefix":"nan","local":"","language":"B\u00e2n-l\u00e2m-g\u00fa","url":"https://zh-min-nan.wiktionary.org/wiki/$1"},{"prefix":"vro","local":"","language":"V\u00f5ro","url":"https://fiu-vro.wiktionary.org/wiki/$1"},{"prefix":"cmn","local":"","url":"https://zh.wiktionary.org/wiki/$1"},{"prefix":"lzh","local":"","language":"\u6587\u8a00","url":"https://zh-classical.wiktionary.org/wiki/$1"},{"prefix":"yue","local":"","language":"\u7cb5\u8a9e","url":"https://zh-yue.wiktionary.org/wiki/$1"},{"prefix":"rup","local":"","language":"arm\u00e3neashti","url":"https://roa-rup.wiktionary.org/wiki/$1"},{"prefix":"gsw","local":"","language":"Alemannisch","url":"https://als.wiktionary.org/wiki/$1"},{"prefix":"be-tarask","local":"","language":"\u0431\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f
+        (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430)\u200e","url":"https://be-x-old.wiktionary.org/wiki/$1"},{"prefix":"sgs","local":"","language":"\u017eemait\u0117\u0161ka","url":"https://bat-smg.wiktionary.org/wiki/$1"},{"prefix":"egl","local":"","language":"Emili\u00e0n","url":"https://eml.wiktionary.org/wiki/$1"},{"prefix":"wikt","local":"","localinterwiki":"","url":"https://en.wiktionary.org/wiki/$1"},{"prefix":"w","local":"","url":"https://en.wikipedia.org/wiki/$1"},{"prefix":"q","local":"","url":"https://en.wikiquote.org/wiki/$1"},{"prefix":"b","local":"","url":"https://en.wikibooks.org/wiki/$1"},{"prefix":"n","local":"","url":"https://en.wikinews.org/wiki/$1"},{"prefix":"s","local":"","url":"https://en.wikisource.org/wiki/$1"},{"prefix":"chapter","local":"","url":"https://en.wikimedia.org/wiki/$1"},{"prefix":"v","local":"","url":"https://en.wikiversity.org/wiki/$1"},{"prefix":"voy","local":"","url":"https://en.wikivoyage.org/wiki/$1"}]}}'
+    http_version: 
+  recorded_at: Mon, 11 Sep 2017 19:55:43 GMT
+- request:
+    method: get
+    uri: https://en.wiktionary.org/w/api.php?action=query&format=json&inprop=url&prop=revisions%7Cinfo&redirects=true&rvprop=content%7Ctimestamp&titles=%E8%89%B2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Infoboxer/0.3.0 (https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 11 Sep 2017 19:55:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1288.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.18.2
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://en.wiktionary.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - DENY
+      Content-Disposition:
+      - inline; filename="api-result.json"
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Backend-Timing:
+      - D=46320 t=1505159744395324
+      X-Varnish:
+      - 801810550, 890776144, 1064615096
+      Via:
+      - 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      X-Cache:
+      - cp1053 pass, cp3041 pass, cp3041 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Set-Cookie:
+      - GeoIP=UA:::50.45:30.52:v4; Path=/; secure; Domain=.wiktionary.org
+      - WMF-Last-Access-Global=11-Sep-2017;Path=/;Domain=.wiktionary.org;HttpOnly;secure;Expires=Fri,
+        13 Oct 2017 12:00:00 GMT
+      - WMF-Last-Access=11-Sep-2017;Path=/;HttpOnly;secure;Expires=Fri, 13 Oct 2017
+        12:00:00 GMT
+      X-Analytics:
+      - ns=-1;special=Badtitle;https=1;nocookies=1
+      X-Client-Ip:
+      - 94.179.65.105
+    body:
+      encoding: ASCII-8BIT
+      string: '{"batchcomplete":"","query":{"pages":{"24736":{"pageid":24736,"ns":0,"title":"\u8272","revisions":[{"timestamp":"2017-09-06T01:45:34Z","contentformat":"text/x-wiki","contentmodel":"wikitext","*":"{{character
+        info/new}}\n{{also|\u5df4}}\n==Translingual==\n{{stroke order}}\n{{stroke
+        order|type=animate}}\n\n===Han character===\n{{Han char|rn=139|rad=\u8272|as=00|sn=6|four=27717|canj=NAU|ids=\u2ff1\u2e88\u5df4}}\n\n====Derived
+        glyphs====\n* {{l|mul|Index:Chinese radical/\u8272}}\n* {{l|mul|\u7d76}}\n\n====References====\n*
+        {{Han ref|kx=1014.020|dkj=30602|dj=1473.040|hdz=53071.010|uh=8272|ud=33394|bh=A6E2|bd=42722}}\n\n----\n\n==Chinese==\n{{zh-forms|alt=\ud849\udcb8}}\n\n===Glyph
+        origin===\n{{Han etyl}}\n\n{{Han compound|\u722a|\u5369|ls=ic|t1=claw; hand|t2=kneeling
+        person}} \u2013 complexion.\n\n''''{{w|Shuowen}}'''' interprets this character
+        as an {{Han compound|\u4eba|\u5369|ls=ic|t1=person; human|t2=etiquette|nocap=1}}
+        \u2013 complexion.\n\nCompare {{zh-l|*\u5370}}, {{zh-l|*\u6291}}.\n\n===Pronunciation===\n{{zh-pron\n|m=s\u00e8,sh\u01cei,1nb=literary,2nb=colloquial\n|m_note=s\u00e8
+        - all senses except \u201cdie\u201d; sh\u01cei - \u201cdie; colour\u201d\n|c=sik1\n|h=pfs=set\n|md=s\u00e1ik\n|mn=xm,zz,tw:sek/qz:siak\n|mn-t=s\u00eag4\n|w=4seq\n|mc=y\n|oc=y\n|ma=y\n|cat=n,a\n}}\n\n===Definitions===\n{{zh-hanzi}}\n\n#
+        [[color]]/[[colour]]; [[tint]]; [[hue]]; [[shade]]\n#: {{zh-x|\u984f\u8272|color}}\n#
+        [[look]]; [[expression]]\n# [[kind]]; [[sort]]\n#: {{zh-x|\u8ca8\u8272|goods;
+        stuff; trash; rubbish; quality of goods; specification}}\n# [[feminine]] [[charm]];
+        [[beauty]]\n#: {{zh-x|\u59ff\u8272|good looks (of women)}}\n# [[sexual]];
+        [[lewd]]\n#: {{zh-x|\u8272\u60c5|pornography; sexual desire}}\n# {{lb|zh|colloquial}}
+        [[perverted]]; being a [[pervert]]\n# [[theatrical]] [[role]]\n# [[metallic]]
+        [[content]]\n# [[die]] {{gloss|a cube with numbers or symbols on each side
+        and used in games of chance}}\n\n====Synonyms====\n* {{sense|color}} {{zh-l|\u984f}}\n\n===Compounds===\n{{zh-der|\u7da0\u4e00\u8272:(''''mahjong'''')
+        all green|\u8272\u5f69|\u8272\u5dee|\u8272\u81bd|\u8272\u8abf|\u8272\u5ea6|\u8272\u5149|\u8272\u9b3c|\u8272\u89ba|\u8272\u62c9|\u8272\u72fc|\u8272\u53b2\u5167\u834f|\u8272\u76f2|\u8272\u76f2\u8868|\u8272\u8ff7|\u8272\u8b5c|\u8272\u60c5|\u8272\u5f31|\u8272\u6563|\u8272\u7d20|\u8272\u76f8|\u8272\u85dd|\u8272\u617e|\u8272\u6fa4|\u905c\u8272:[[inferior]]|\u5b57\u4e00\u8272:(''''mahjong'''')
+        all honours|\u4e00\u8272|\u4e03\u8272|\u4e03\u8272\u677f|\u4e09\u539f\u8272|\u4e09\u8272\u7248|\u4e09\u8272\u83eb|\u4e0a\u8272|\u4e1f\u773c\u8272|\u4e73\u767d\u8272|\u4e92\u88dc\u8272|\u4e94\u8272|\u4e94\u8272\u7b46|\u4ea4\u914d\u8272|\u4eae\u8272\u8abf|\u4ee4\u8272|\u4ee5\u8272\u5217|\u4ef6\u8272|\u4f5c\u8272|\u4f7f\u773c\u8272|\u4fdd\u8b77\u8272|\u5026\u8272|\u505a\u773c\u8272|\u5109\u8272|\u5143\u8272|\u5149\u8272|\u516b\u8272\u9ce5|\u51fa\u8272|\u5206\u8272|\u5206\u8272\u93e1|\u524a\u8272|\u524d\u9032\u8272|\u5370\u8272|\u5373\u8272\u5b97|\u539f\u8272|\u53b2\u8272|\u53c9\u8272|\u53e4\u9285\u8272|\u5404\u8272|\u5408\u8272\u978b|\u540c\u985e\u8272|\u540d\u8272|\u541d\u8272|\u5496\u5561\u8272|\u559c\u8272|\u55ae\u8272|\u55ae\u8272\u74f7|\u55d4\u8272|\u570b\u8272|\u571f\u8272|\u571f\u9ec3\u8272|\u57fa\u8272|\u5857\u8272|\u589e\u8272|\u58de\u8272\u8863|\u591c\u8272|\u5929\u8272|\u5929\u85cd\u8272|\u5931\u8272|\u5957\u8272|\u5973\u8272|\u597d\u8272|\u5983\u8272|\u59ff\u8272|\u5bb9\u8272|\u5bd2\u6696\u8272|\u5bd2\u8272|\u5bf6\u85cd\u8272|\u5c0d\u6bd4\u8272|\u5c0f\u8173\u8272|\u5c71\u8272|\u5e03\u8272|\u5e73\u8272|\u5e95\u8272|\u5f62\u8272|\u5f69\u8272|\u5f69\u8272\u7167|\u5f69\u8272\u7247|\u5f69\u8272\u7b46|\u5f8c\u9000\u8272|\u5f97\u8272|\u5fb7\u8272|\u6012\u8272|\u6021\u8272|\u6027\u8272|\u6085\u8272|\u60c5\u8272|\u6109\u8272|\u610f\u8272|\u6127\u8272|\u614d\u8272|\u615a\u8272|\u6182\u8272|\u618a\u8272|\u61fc\u8272|\u6210\u8272|\u6210\u8272\u5291|\u6230\u8272|\u624d\u8272|\u6253\u773c\u8272|\u6258\u8272|\u628a\u8272|\u6298\u8272|\u634e\u8272|\u6389\u8272|\u64f2\u8272|\u65b0\u8272|\u65e6\u8272|\u661f\u8272|\u6625\u8272|\u666f\u8272|\u6696\u8272\u8abf|\u6697\u8272|\u669d\u8272|\u66ae\u8272|\u66c9\u8272|\u66d9\u8272|\u6708\u8272|\u6709\u773c\u8272|\u6709\u8d77\u8272|\u670d\u8272|\u672c\u8272|\u672c\u8272\u9280|\u67d3\u8272|\u67d3\u8272\u9ad4|\u67d4\u8272|\u6817\u8272|\u6843\u8272|\u68d5\u8272|\u68d5\u8272\u7a2e|\u68d7\u7d05\u8272|\u6975\u8272|\u6a59\u8272|\u6b63\u8272|\u6c23\u8272|\u6c92\u773c\u8272|\u6c92\u984f\u8272|\u6ce8\u8272|\u6d41\u884c\u8272|\u6de1\u8272|\u6e05\u4e00\u8272|\u6e1b\u8272|\u6e56\u8272|\u6f01\u8272|\u6f64\u8272|\u6ffe\u8272\u93e1|\u706b\u8272|\u7070\u8272|\u7121\u8272\u754c|\u71c8\u8272|\u7259\u8272|\u7269\u8272|\u7279\u8272|\u7389\u8272|\u7425\u73c0\u8272|\u751f\u8272|\u7537\u8272|\u767d\u8272|\u767d\u8272\u9ad4|\u767e\u8272\u7e23|\u773c\u8272|\u795e\u8272|\u79cb\u8272|\u7a14\u8272|\u7ba1\u8272\u8b5c|\u7c73\u8272|\u7c73\u9ec3\u8272|\u7c89\u8272|\u7d05\u8272|\u7d14\u8272|\u7d20\u8272|\u7d2b\u8272|\u7d55\u8272|\u7da0\u8272|\u7f8e\u8272|\u8001\u4e09\u8272|\u8072\u8272|\u8089\u8272|\u812b\u8272|\u8173\u8272|\u819a\u8272|\u81c9\u8272|\u8272\u53b2|\u8272\u5b50|\u8272\u5f48|\u8272\u5fc3|\u8272\u601d\u6eab|\u8272\u60c5\u72c2|\u8272\u6212|\u8272\u6493|\u8272\u6578\u5152|\u8272\u65e6|\u8272\u667a|\u8272\u6a23|\u8272\u6eab|\u8272\u7136|\u8272\u74b0|\u8272\u754c|\u8272\u76ee|\u8272\u76ee\u4eba|\u8272\u7787\u7787|\u8272\u7b11|\u8272\u7b46|\u8272\u7cfb|\u8272\u8272|\u8272\u8352|\u8272\u8a8d|\u8272\u8eab|\u8272\u8ff7\u8ff7|\u8272\u9577|\u8272\u990a|\u82b1\u8272|\u8336\u8272|\u8336\u8910\u8272|\u83dc\u8272|\u8457\u8272|\u843d\u8272|\u85cd\u8272|\u85d5\u8272|\u871a\u8272|\u871c\u8272|\u8840\u8272|\u884c\u8272|\u8852\u8272|\u88dc\u8272|\u8907\u8272\u5149|\u8910\u8272|\u892a\u8272|\u89c0\u795e\u8272|\u89c0\u8272|\u89c0\u98a8\u8272|\u89d2\u8272|\u8a18\u8272|\u8a2d\u8272|\u8a5e\u8272|\u8a6d\u8272|\u8a98\u60d1\u8272|\u8abf\u773c\u8272|\u8abf\u8272|\u8abf\u8272\u677f|\u8abf\u8272\u76e4|\u8af8\u8272|\u8b66\u6212\u8272|\u8b8a\u8272|\u8b8a\u8272\u7b46|\u8b8a\u8272\u93e1|\u8b8a\u8272\u9f8d|\u8c54\u8272|\u8ca8\u8272|\u8ced\u8272|\u8d64\u8272|\u8d67\u8272|\u8d70\u8272|\u8d77\u8272|\u8db3\u8272|\u8f9f\u8272|\u8fa8\u8272|\u8fad\u8272|\u9000\u8272|\u905e\u773c\u8272|\u907d\u8272|\u9130\u8fd1\u8272|\u914d\u8272|\u9152\u8272|\u91ac\u8272|\u91c7\u8272|\u91d1\u8272|\u91d1\u9ec3\u8272|\u9280\u7070\u8272|\u9280\u767d\u8272|\u9280\u8272|\u9306\u8272|\u9435\u7070\u8272|\u9593\u8272|\u9694\u591c\u8272|\u96d5\u8272|\u96dc\u8272|\u96e3\u8272|\u973d\u8272|\u9762\u8272|\u97f3\u8272|\u984f\u8272|\u984f\u8272\u5152|\u98a8\u8272|\u98e2\u8272|\u9999\u8272|\u99dd\u8272|\u9a55\u8272|\u9ad4\u8272|\u9d5d\u9ec3\u8272|\u9ec3\u8272|\u9ed1\u8272|\u9ed1\u8272\u7d20}}\n\n{{zh-cat|Elementary}}\n\n===See
+        also===\n{{table:colors/zh}}\n\n----\n\n==Japanese==\n{{stroke order|strokes=6}}\n\n===Kanji===\n{{ja-kanji|grade=2|rs=\u827200}}\n\n====Readings====\n{{ja-readings\n|goon=\u3057\u304d\n|kanon=\u3057\u3087\u304f\n<!--|toon=\u3059\u3048-->\n|kun=\u3044\u308d-,
+        \u3044\u308d\u3048\n|nanori=\u3057\u304b, \u3057\u3053\n}}\n\n====Compounds====\n{{der-top|Compounds}}\n*
+        {{ja-r|\u4e09%\u8272%\u540c%\u523b|\u3055\u3093%\u3057\u3087\u304f%\u3069\u3046%\u3053|(''''mahjong'''')
+        same triplets on each suit}}\n* {{ja-r|\u4e09%\u8272%\u540c%\u9806|\u3055\u3093%\u3057\u3087\u304f%\u3069\u3046%\u3058\u3085\u3093|(''''mahjong'''')
+        same sequences on each suit}}\n* {{ja-r|\u5b57%\u4e00%\u8272|\u30c4\u30fc%\u30a4\u30fc%\u30bd\u30fc|(''''mahjong'''')
+        all honours}}\n* {{ja-r|\u7dd1%\u4e00%\u8272|\u30ea\u30e5\u30fc%\u30a4\u30fc%\u30bd\u30fc|(''''mahjong'''')
+        all green}}\n{{der-bottom}}\n\n===Etymology 1===\n{{ja-kanjitab|\u3044\u308d|yomi=k}}\nFrom
+        {{etyl|ojp|ja|sort=\u3044\u308d}}. Originally referred to [[kin]], indicating
+        [[sibling]]s sharing the same mother.<ref name=\"KDJ\">{{R:Kokugo Dai Jiten}}</ref>
+        Later came to indicate feelings of [[familial]] [[love]].<ref name=\"KDJ\">{{R:Kokugo
+        Dai Jiten}}</ref> Apparently this then evolved to refer to [[romantic]] love,
+        and by extension [[sex]], or by alternate extension, [[female]] [[beauty]].
+        Then by further extension, this came to refer to [[beauty]] in general, and
+        then [[colorfulness]], and finally [[color]].\n\n====Pronunciation====\n{{ja-pron|yomi=k|\u3044\u308d|acc=2|acc_ref=DJR,NHK|audio=Ja-iro-colour.ogg}}\n\n====Noun====\n{{ja-noun|\u3044\u308d}}\n\n#
+        [[color]] (US), [[colour]] (UK)\n#: {{ja-usex|\u76ee\u306e''''''\u8272''''''\u304c\u9055\u3046\u732b|\u3081
+        \u306e ''''''\u3044\u308d'''''' \u304c \u3061\u304c\u3046 \u306d\u3053|a cat
+        that has eyes of different ''''''color''''''}}\n# the metaphorical color or
+        [[mood]]\n## one''s [[facial]] [[coloring]] or [[expression]]\n## the [[shape]]
+        of one''s [[face]] or [[appearance]]; more specifically, beautiful [[looks]]
+        or a beautiful [[figure]]\n## [[lively]] [[elegance]], [[enjoyable]] or [[interesting]]
+        [[charm]]\n## apparent [[thoughtfulness]], [[warmheartedness]]\n## the [[feeling]]
+        or [[mood]] of a thing\n## the [[tenor]] or [[timber]] of a [[voice]] or [[sound]]\n##
+        in [[Noh]], a section that is [[chant]]ed at a medium pace; alternately, a
+        [[decorative]] [[poetic]] section\n## in {{m|ja|\u6d44\u7460\u7483|tr=j\u014druri||puppet
+        show narrative}}, a [[lively]] section that is neither strictly [[dialog]]
+        nor [[narration]], but has many elements of dialog\n## when playing the [[koto]],
+        pushing on a string with the fingers of the left hand to change the [[pitch]]
+        of a [[note]], or for [[vibrato]]\n# something related to [[romantic]] or
+        [[sexual]] [[love]], particularly between genders\n## the [[emotion]]s or
+        [[circumstance]]s of [[attraction]] between [[gender]]s\n## [[extramarital]]
+        [[relation]]s, an [[affair]]\n## an [[extramarital]] [[lover]]\n## a [[prostitute]]\n##
+        a [[red-light district]]\n# the [[type]] or [[kind]] of something\n# {{lb|ja|sort=\u3044\u308d|informal|slang}}
+        various specific kinds of [[color]]:\n## {{lb|ja|sort=\u3044\u308d|informal|slang|woman''s
+        word}} [[lipstick]] or [[rouge]]\n## {{lb|ja|sort=\u3044\u308d|informal|slang}}
+        [[soy sauce]]\n## {{lb|ja|sort=\u3044\u308d|informal|slang}} [[paint]]\n\n=====Derived
+        terms=====\n{{der-top|Terms derived from {{l|ja|\u8272|tr=iro|t=color}}}}\n*
+        {{ja-r|\u8272%\u8276|\u3044\u308d%\u3064\u3084|[[color]] and [[luster]]; a
+        person''s [[facial]] [[coloring]]; [[warmth]] of [[feeling]] in [[speech]]
+        or [[attitude]]; [[interest]] or [[fun]] in [[speech]] or [[writing]]}}\n*
+        {{ja-r|\u8272%\u5408\u3044|\u3044\u308d%\u3042\u3044}}, {{ja-r|\u8272\u5408|\u3044\u308d\u3042\u3044|a
+        [[shade]], [[hue]], [[tone]]; [[coloring]]}}\n* {{ja-r|\u8272%\u892a\u305b\u308b|\u3044\u308d%\u3042\u305b\u308b|lose
+        [[color]], [[fade]]; fade, lose [[freshness]], become [[old]] and [[musty]]}}\n*
+        {{ja-r|\u8272%\u7d19|\u3044\u308d%\u304c\u307f|[[colored]] [[paper]]}}\n*
+        {{ja-r|\u8272%\u773c%\u93e1|\u3044\u308d% \u3081%\u304c\u306d|[[colored]]
+        [[glasses]]}}\n* {{ja-r|\u8272%\u7269|\u3044\u308d%\u3082\u306e|a [[colored]]
+        item, particularly [[cloth]] or [[clothing]]; a [[lively]] and [[colorful]]
+        [[variety]] [[act]]}}\n* {{ja-r|\u8272%\u597d\u3044|\u3044\u308d%\u3088\u3044|having
+        a [[beautiful]] [[figure]]; [[favorable]] {{qualifier|as in a [[reply]] or
+        [[attitude]]}}}}\n* {{ja-r|\u8272%\u5206\u3051|\u3044\u308d%\u308f\u3051}},
+        {{ja-r|\u8272%\u5206|\u3044\u308d%\u308f\u3051|to [[color-code]], to [[separate]]
+        by color}}\n{{der-mid}}\n* {{ja-r|\u8d64%\u8272|\u3042\u304b% \u3044\u308d|[[red]]}}\n*
+        {{ja-r|\u9752%\u8272|\u3042\u304a% \u3044\u308d|[[blue]]}}\n* {{ja-r|\u9ec4%\u8272|\u304d%
+        \u3044\u308d|[[yellow]]}}\n* {{ja-r|\u8336%\u8272|\u3061\u3083% \u3044\u308d|[[brown]]}}\n*
+        {{ja-r|\u72d0%\u8272|\u304d\u3064\u306d% \u3044\u308d|[[reddish]]-[[brown]]}}\n*
+        {{ja-r|\u6a59%\u8272|\u3060\u3044\u3060\u3044% \u3044\u308d|[[orange]] {{gloss|colour}}}}\n*
+        {{ja-r|\u30aa\u30ec\u30f3\u30b8\u8272|\u30aa\u30ec\u30f3\u30b8 \u3044\u308d|[[orange]]
+        {{gloss|colour}}}}\n* {{ja-r|\u67ff%\u8272|\u304b\u304d% \u3044\u308d|[[reddish]]-[[orange]]}}\n*
+        {{ja-r|\u7d2b%\u8272|\u3080\u3089\u3055\u304d% \u3044\u308d|[[purple]]}}\n*
+        {{ja-r|\u8584%\u7d2b%\u8272|\u3046\u3059%-\u3080\u3089\u3055\u304d% \u3044\u308d|[[light]]
+        [[purple]], [[lavender]]}}\n* {{ja-r|\u6843%\u8272|\u3082\u3082% \u3044\u308d|[[peach]]
+        [[pink]]}}\n* {{ja-r|\u685c%\u8272|\u3055\u304f\u3089% \u3044\u308d|[[light]]
+        [[pink]]}}\n* {{ja-r|\u6c34%\u8272|\u307f\u305a% \u3044\u308d|[[light]] [[blue]]}}\n*
+        {{ja-r|\u7fa4%\u9752%\u8272|\u3050\u3093%\u3058\u3087\u3046% \u3044\u308d|[[ultramarine]]}}\n*
+        {{ja-r|\u8d64%\u7d2b%\u8272|\u3042\u304b%-\u3080\u3089\u3055\u304d% \u3044\u308d|[[magenta]]}}\n*
+        {{ja-r|\u9752%\u7dd1%\u8272|\u3042\u304a%-\u307f\u3069\u308a% \u3044\u308d|[[cyan]]}}\n*
+        {{ja-r|\u7070%\u8272|\u306f\u3044% \u3044\u308d|[[gray]] (possibly darker
+        than ''''nezumi iro'''')}}\n* {{ja-r|\u9f20%\u8272|\u306d\u305a\u307f% \u3044\u308d|[[gray]]
+        (possibly darker than ''''hai iro'''')}}\n* {{ja-r|\u9d07%\u8272|\u3068\u304d%
+        \u3044\u308d|[[pink]]}}\n* {{ja-r|\u7e39%\u8272|\u306f\u306a\u3060% \u3044\u308d|[[light]]
+        [[indigo]] [[blue]]}}\n* {{ja-r|\u6817%\u8272|\u304f\u308a% \u3044\u308d|[[maroon]]}}\n*
+        {{ja-r|\u7dcb%\u8272|\u3072% \u3044\u308d|[[scarlet]]}}\n* {{ja-r|\u831c%\u8272|\u3042\u304b\u306d%
+        \u3044\u308d|[[madder]] {{gloss|colour}}}}\n* {{ja-r|\u82fa%\u8272|\u3044\u3061\u3054%
+        \u3044\u308d|[[strawberry]] {{gloss|colour}}}}\n* {{ja-r|\u9b31%\u91d1%\u8272|\u3046%\u3053\u3093%
+        \u3044\u308d|[[turmeric]] {{gloss|dye}}}}\n* {{ja-r|\u30b3\u30b3\u30a2\u8272|\u30b3\u30b3\u30a2
+        \u3044\u308d|[[cocoa]] {{gloss|colour}}}}\n* {{ja-r|\u8461%\u8404%\u8272|\u3076%\u3069\u3046%
+        \u3044\u308d|[[grape]] {{gloss|colour}}}}\n* {{ja-r|\u6ab8%\u6aac%\u8272|\u308c%\u3082\u3093%
+        \u3044\u308d|[[lemon]] {{gloss|colour}}}}\n* {{ja-r|\u91d1%\u7cf8\u96c0%\u8272|\u304b\u306a%\u308a\u3042%
+        \u3044\u308d|[[canary]] {{gloss|colour}}}}\n* {{ja-r|\u82a5\u5b50%\u8272|\u304b\u3089\u3057%
+        \u3044\u308d|[[mustard]] {{gloss|colour}}}}\n* {{ja-r|\u7425%\u73c0%\u8272|\u3053%\u306f\u304f%
+        \u3044\u308d|[[amber]]}}\n* {{ja-r|\u8594\u8587%\u8272|\u3070\u3089% \u3044\u308d|[[rose]]
+        {{gloss|colour}}}}\n* {{ja-r|\u5341%\u4eba%\u5341%\u8272|\u3058\u3085\u3046%
+        \u306b\u3093% \u3068% \u3044\u308d|[[to each his own]]}}\n{{der-bottom}}\n{{der-top|Terms
+        derived from {{l|ja|\u8272|tr=iro|t=kind or type}}}}\n* {{ja-r|\u8272%\u8272|\u3044\u308d%\u3044\u308d|[[various]]}}\n*
+        {{ja-r|\u8272\u3093\u306a|\u3044\u308d\u3093\u306a|[[various]]}}\n{{der-bottom}}\n\n=====Related
+        terms=====\n{{rel-top|Terms related to {{l|ja|\u8272|tr=iro|t=color}}}}\n*
+        {{ja-r|\u767d\u3044|\u3057\u308d\u3044|[[white]]}}\n* {{ja-r|\u9ed2\u3044|\u304f\u308d\u3044|[[black]]}}\n*
+        {{ja-r|\u8d64\u3044|\u3042\u304b\u3044|[[red]]}}\n* {{ja-r|\u9752\u3044|\u3042\u304a\u3044|[[blue]]}}\n*
+        {{ja-r|\u9ec4%\u8272\u3044|\u304d%\u3044\u308d\u3044|[[yellow]]}}\n* {{ja-r|\u8336%\u8272\u3044|\u3061\u3083%\u3044\u308d\u3044|[[brown]]}}\n{{rel-bottom}}\n\n====Adjective====\n{{ja-adj|infl=na|\u3044\u308d}}\n\n#
+        {{lb|ja|archaic|sort=\u3044\u308d}} of exceptional [[beauty]] of [[form]]
+        or [[appearance]]\n#* ''''[[w:Utsubo Monogatari|Utsubo Monogatari]]'''', late
+        10th c.:\n#*: {{ja-usex|''''''\u3044\u308d''''''\u306a\u308b\u5a18\u3069\u3082\u3090\u306a\u307f\u3066|''''''\u3044\u308d''''''\u306a\u308b
+        \u3080\u3059\u3081 \u3069\u3082 \u3090\u306a\u307f\u3066|''''''beautiful''''''
+        girls all in a row}}\n# {{lb|ja|archaic|sort=\u3044\u308d}} [[knowledgeable]]
+        about [[lovemaking]], [[sensual]]; [[lascivious]], [[lecherous]]\n#* ''''[[w:Ochikubo
+        Monogatari|Ochikubo Monogatari]]'''', late 10th c.:\n#*: {{ja-usex|\u8d8a\u524d\u5b88''''''\u8272''''''\u306a\u308b\u4eba\u306b\u3066|\u3048\u3061\u305c\u3093\u3082\u308a
+        ''''''\u3044\u308d''''''\u306a\u308b \u3072\u3068 \u306b \u3066|Echizenmori
+        was a man who ''''''liked the girls'''''' / ''''''had quite the libido''''''}}\n#
+        {{lb|ja|archaic|sort=\u3044\u308d}} [[elegant]], [[tasteful]], [[refined]]\n#*
+        ''''[[w:The Tale of Genji|The Tale of Genji]]'''', early 11th c.:\n#*: {{ja-usex|\u76ee\u99b4\u308c\u305a\u3082\u3042\u308b\u4f4f\u307e\u3072\u306e\u69d8\u304b\u306a''''''\u8272''''''\u306a\u308b\u5fa1\u5fc3\u306b\u306f\u3092\u304b\u3057\u304f\u304a\u307c\u3057\u306a\u3055\u308b|\u3081\u306a\u308c\u305a
+        \u3082 \u3042\u308b \u3059\u307e\u3072 \u306e \u3055\u307e \u304b \u306a ''''''\u3044\u308d''''''\u306a\u308b
+        \u304a\u3053\u3053\u308d \u306b \u306f \u3092\u304b\u3057\u304f \u304a\u307c\u3057\u306a\u3055\u308b|\"I
+        haven''t seen it before, but it looks like a house,\" he thought bemusedly
+        in his ''''''refined'''''' mind...}}\n\n====Affix====\n{{ja-pos|affix|\u3044\u308d}}\n\n#
+        [[kin]], [[blood relative]], more specifically family members sharing the
+        same [[mother]]\n\n=====Usage notes=====\nOnly found in compounds.\n\n=====Derived
+        terms=====\n{{der-top|Terms derived from {{l|ja|\u8272|tr=iro|t=kin}}}}\n*
+        {{ja-r|\u3044\u308d\u306f|one''s [[birth mother]]}}\n* {{ja-r|\u3044\u308d\u80cc|\u3044\u308d\u305b|a
+        [[sibling]] from the same [[mother]]}}\n* {{ja-r|\u3044\u308d\u306d|a [[sibling]]
+        from the same [[mother]]}}\n* {{ja-r|\u3044\u308d\u5144|\u3044\u308d\u3048|an
+        [[older]] [[brother]] from the same [[mother]]}}\n* {{ja-r|\u3044\u308d\u3068|a
+        [[younger]] [[sibling]] from the same [[mother]]}}\n* {{ja-r|\u3044\u308d\u3082|a
+        [[younger]] [[sister]] from the same [[mother]]}}\n{{der-bottom}}\n\n===Etymology
+        2===\n{{ja-kanjitab||\u3044\u308d|yomi=k}}\n[[nominalization|Nominalization]]
+        of the {{m|ja|\u9023\u7528\u5f62|tr=ren''y\u014dkei||continuative or stem
+        form}} of verb {{m|ja|\u8272\u3046|tr=irou||to color something}}.\n\nNot used
+        in modern Japanese.\n\n====Pronunciation====\n{{ja-pron|yomi=k|\u3044\u308d\u3048}}\n\n====Noun====\n{{ja-noun|\u3044\u308d\u3048}}\n\n#
+        {{lb|ja|sort=\u3044\u308d\u3048|obsolete}} [[coloring]]/[[colouring]], [[design]]\n\n===Etymology
+        3===\n{{ja-kanjitab|\u3057\u304d|yomi=o}}\nFrom {{etyl|ltc|ja|sort=\u3057\u304d}}
+        {{m|ltc|\u8272|tr=srik}}. Used in [[Buddhist]] contexts as a translation of
+        {{etyl|sa|ja|sort=\u3057\u304d}} {{m|sa|\u0930\u0942\u092a||outward [[appearance]],
+        [[color]], [[form]], [[shape]]}}.\n\nThe [[\u5449\u97f3#Japanese|''''goon'''']]
+        reading, so likely the initial borrowing.<ref name=\"KDJ\"/>\n\n====Pronunciation====\n{{ja-pron|yomi=goon|\u3057\u304d|acc=2|acc_ref=DJR}}\n\n====Noun====\n{{ja-noun|\u3057\u304d}}\n\n#
+        {{lb|ja|sort=\u3057\u304d|Buddhism}} [[material]] [[form]], specifically the
+        organized [[body]] as one of the five constituent [[element]]s or [[skandha]]s\n#:
+        [[\u822c\u82e5\u5fc3\u7d4c#Japanese|Heart Sutra]] ([[w:Heart Sutra|Wikipedia
+        article]])\n#: {{ja-usex|...\u820e%\u5229%\u5b50%\u3000''''''\u8272''''''%\u4e0d%\u7570%\u7a7a%\u3000\u7a7a%\u4e0d%\u7570%''''''\u8272''''''%\u3000''''''\u8272''''''%\u5373%\u662f%\u7a7a%\u3000\u7a7a%\u5373%\u662f%''''''\u8272''''''%\u3000\u53d7%\u60f3%\u884c%\u8b58%\u3000\u4ea6%\u5fa9%\u5982%\u662f...|...^\u3057\u3083%\u308a%\u3057%\u3000''''''\u3057\u304d''''''%
+        \u3075% \u3044% \u304f\u3046%\u3000\u304f\u3046% \u3075% \u3044% ''''''\u3057\u304d''''''%\u3000''''''\u3057\u304d''''''%
+        \u305d\u304f% \u305c% \u304f\u3046%\u3000\u304f\u3046% \u305d\u304f% \u305c%
+        ''''''\u3057\u304d''''''%\u3000\u3058\u3085% \u305d\u3046% \u304e\u3087\u3046%
+        \u3057\u304d%\u3000\u3084\u304f% \u3076% \u306b\u3087% \u305c...|rom=Sharishi,
+        ''''''shiki'''''' fu i k\u016b, k\u016b fu i ''''''shiki'''''', ''''''shiki''''''
+        soku ze k\u016b, k\u016b soku ze ''''''shiki'''''', ju s\u014d gy\u014d shiki,
+        yaku bu nyo ze|Oh Shariputra! ''''''Form'''''' is not different from emptiness;
+        emptiness is not different from ''''''form''''''. ''''''Form'''''' is indeed
+        emptiness; emptiness is indeed ''''''form''''''. Feeling, perception, mental
+        formations, and consciousness are also like this.<ref>{{cite-web|author=|authorlink=|title=Translation
+        of the kanji of the Heart Sutra in Japanese|url=https://www.theartofcalligraphy.com/heart-sutra-in-japanese|archiveurl=|archivedate=|work=The
+        Heart Sutra In Japanese Explained \u2013 Online Kanji Course For Sutra Copying
+        And Self-Study|publisher=|date=|accessdate=August 24, 2017|passage=}}</ref>}}\n<!--hhira:
+        \u3057\u3084\u308a\u3057\u3000\u3057\u304d\u3075\u3044\u304f\u3046\u3000\u304f\u3046\u3075\u3044\u3057\u304d\u3000\u3057\u304d\u305d\u304f\u305c\u304f\u3046\u3000\u304f\u3046\u305d\u304f\u305c\u3057\u304d\u3000\u3058\u3086\u3055\u3046\u304e\u3084\u3046\u3057\u304d\u3000\u3084\u304f\u3076\u306b\u3088\u305c-->\n<!--kyu:
+        \u820e\u5229\u5b50\u3000\u8272\u4e0d\u7570\u7a7a\u3000\u7a7a\u4e0d\u7570\u8272\u3000\u8272\u537d\u662f\u7a7a\u3000\u7a7a\u537d\u662f\u8272\u3000\u53d7\u60f3\u884c\u8b58\u3000\u4ea6\u5fa9\u5982\u662f-->\n#
+        that which is [[visible]] of a thing, specifically [[form]] and [[color]]\n#
+        [[color]] (US), [[colour]] (UK)\n\n=====Usage notes=====\nUsed extensively
+        in compounds.\n\n=====Derived terms=====\n{{der-top}}\n* {{ja-r|\u8272%\u754c|\u3057\u304d%\u304b\u3044|the
+        [[material]] [[world]]}}\n* {{ja-r|\u8272%\u5f69|\u3057\u304d%\u3055\u3044|[[coloring]],
+        [[coloration]], [[hue]], [[tint]]; [[color]], [[mood]], [[influence]], [[leaning]]}}\n*
+        {{ja-r|\u8272%\u7d19|\u3057\u304d%\u3057|a [[square]] piece of [[cardboard]]
+        used for painting or for writing poems}}\n* {{ja-r|\u8272%\u8abf|\u3057\u304d%\u3061\u3087\u3046|the
+        [[coloring]] of a thing; a [[tone]], [[shade]], or [[hue]]}}\n* {{ja-r|\u7e39%\u8272|\u3072\u3087\u3046%\u3057\u304d|[[light]]
+        [[indigo]] [[blue]]}}\n{{der-bottom}}\n\n===Etymology 4===\n{{ja-kanjitab|\u3057\u3087\u304f|yomi=o}}\nFrom
+        {{etyl|ltc|ja|sort=\u3057\u3087\u304f}} {{m|ltc|\u8272|tr=srik|pos=reconstructed
+        by some linguists as {{IPAchar|/\u0283i\u0259k/}}}}.\n\nThe [[\u6f22\u97f3#Japanese|''''kan''on'''']]
+        reading, so likely a later borrowing.<ref name=\"KDJ\"/>\n\n====Pronunciation====\n{{ja-pron|yomi=kanon|\u3057\u3087\u304f}}\n\n====Affix====\n{{ja-pos|affix|\u3057\u3087\u304f}}\n\n#
+        [[color]] (US), [[colour]] (UK)\n\n=====Usage notes=====\nUsed in compounds.\n\n=====Derived
+        terms=====\n{{der-top}}\n* {{ja-r|\u6697%\u8272|\u3042\u3093%\u3057\u3087\u304f|a
+        [[dark]] [[color]]}}\n* {{ja-r|\u5a01%\u5687%\u8272|\u3044%\u304b\u304f%\u3057\u3087\u304f|a
+        [[threatening]] [[color]] or [[pattern]] on an animal}}\n* {{ja-r|\u7570%\u8272|\u3044%\u3057\u3087\u304f|of
+        a [[different]] [[color]]; [[different]] from the [[norm]]}}\n* {{ja-r|\u708e%\u8272|\u3048\u3093%\u3057\u3087\u304f}},
+        {{ja-r|\u7130%\u8272|\u3048\u3093%\u3057\u3087\u304f|[[flame]] [[colour]]}}\n*
+        {{ja-r|\u6028%\u8272|\u3048\u3093%\u3057\u3087\u304f|[[grudging]] [[look]]}}\n*
+        {{ja-r|\u6f14%\u8272|\u3048\u3093%\u3057\u3087\u304f|[[colour]] [[rendering]]}}\n*
+        {{ja-r|\u8276%\u8272|\u3048\u3093%\u3057\u3087\u304f|[[bewitching]] [[looks]];
+        [[beautiful]] [[colour]]}}\n* {{ja-r|\u9ec4%\u8272|\u304a\u3046%\u3057\u3087\u304f}},
+        {{ja-r|\u9ec4\u8272|\u3053\u3046%\u3057\u3087\u304f|[[yellow]]}}\n* {{ja-r|\u7070%\u8272|\u304b\u3044%\u3057\u3087\u304f|[[grey]]}}\n*
+        {{ja-r|\u8910%\u8272|\u304b\u3063%\u3057\u3087\u304f|[[dark]] [[brown]]}}\n*
+        {{ja-r|\u6a44%\u6b16%\u8272|\u304b\u3093%\u3089\u3093%\u3057\u3087\u304f|[[olive]]
+        {{gloss|colour}}}}\n* {{ja-r|\u597d%\u8272|\u3053\u3046%\u3057\u3087\u304f|[[lasciviousness]],
+        [[lechery]]; [[lascivious]], [[lecherous]]}}\n* {{ja-r|\u7d05%\u8272|\u3053\u3046%\u3057\u3087\u304f|[[crimson]]}}\n*
+        {{ja-r|\u884c%\u8272|\u3053\u3046%\u3057\u3087\u304f|the [[state]] of being
+        about to [[depart]]; [[natural]] [[scenery]]}}\n* {{ja-r|\u9ed2%\u8272|\u3053\u304f%\u3057\u3087\u304f|[[black]]}}\n*
+        {{ja-r|\u7d2b%\u8272|\u3057%\u3057\u3087\u304f|[[purple]]}}\n* {{ja-r|\u8d6d%\u8272|\u3057\u3083%\u3057\u3087\u304f|[[reddish]]-[[brown]],
+        [[auburn]]}}\n* {{ja-r|\u9752%\u8272|\u305b\u3044%\u3057\u3087\u304f|[[blue]]}}\n*
+        {{ja-r|\u8d64%\u8272|\u305b\u304d%\u3057\u3087\u304f|[[red]]}}\n* {{ja-r|\u6c34%\u8272|\u3059\u3044%\u3057\u3087\u304f|[[light]]
+        [[blue]]}}\n* {{ja-r|\u905c%\u8272|\u305d\u3093%\u3057\u3087\u304f|[[inferiority]]}}\n*
+        {{ja-r|\u6a59%\u8272|\u3068\u3046%\u3057\u3087\u304f|[[orange]] {{gloss|colour}}}}\n*
+        {{ja-r|\u767d%\u8272|\u306f\u304f%\u3057\u3087\u304f|[[white]]}}\n* {{ja-r|\u660e%\u8272|\u3081\u3044%\u3057\u3087\u304f|a
+        [[bright]] [[color]]}}\n* {{ja-r|\u7dd1%\u8272|\u308a\u3087\u304f%\u3057\u3087\u304f|[[green]]}}\n{{der-bottom}}\n\n====Counter====\n{{ja-pos|counter|\u3057\u3087\u304f}}\n\n#
+        used to count the number of [[color]]s\n#: {{ja-usex|\u4e09''''''\u8272''''''\u5237\u308a|\u3055\u3093''''''\u3057\u3087\u304f''''''
+        \u3059\u308a|three-''''''color'''''' printing}}\n\n===See also===\n{{table:colors/ja}}\n\n===References===\n<references/>\n\n[[Category:Japanese
+        basic words|\u3044\u308d]]\n[[Category:ja:Colors|\u3044\u308d]]\n\n----\n\n==Korean==\n\n===Hanja===\n{{ko-hanja|hangeul=\uc0c9|eumhun=|mr=saek|y=sayk}}\n\n===Noun===\n{{ko-noun|hangeul=\uc0c9}}\n\n#
+        [[color]]\n\n----\n\n==Vietnamese==\n\n===Han character===\n{{vi-hantu|[[s\u1eafc]],
+        [[s\u1eb7c]]|rs=\u827200}}\n\n# [[color]]\n\n[[Category:CJKV radicals]]"}],"contentmodel":"wikitext","pagelanguage":"en","pagelanguagehtmlcode":"en","pagelanguagedir":"ltr","touched":"2017-09-11T18:37:31Z","lastrevid":47452745,"length":18490,"fullurl":"https://en.wiktionary.org/wiki/%E8%89%B2","editurl":"https://en.wiktionary.org/w/index.php?title=%E8%89%B2&action=edit","canonicalurl":"https://en.wiktionary.org/wiki/%E8%89%B2"}}}}'
+    http_version: 
+  recorded_at: Mon, 11 Sep 2017 19:55:44 GMT
+recorded_with: VCR 3.0.3
