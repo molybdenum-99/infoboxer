@@ -1,6 +1,5 @@
 .bundle
 vendor
-Gemfile.lock
 deprecated
 TODO.txt
 tmp
