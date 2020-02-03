@@ -5,6 +5,9 @@ rvm:
   - "2.2"
   - "2.3"
   - "2.4"
+  - "2.5"
+  - "2.6"
+  - "2.7"
   #- jruby-19mode # Due to https://github.com/jruby/jruby/issues/2599
   #- rbx-2        # Mystery, subject to investigations!
 install:
