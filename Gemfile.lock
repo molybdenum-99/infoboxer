@@ -51,12 +51,12 @@ GEM
       hashie
       naught
       nokogiri
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     multipart-post (2.0.0)
     naught (1.1.0)
-    nokogiri (1.8.2)
-      mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.2-java)
+    nokogiri (1.9.1)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.9.1-java)
     parallel (1.19.1)
     parser (2.7.0.2)
       ast (~> 2.4.0)
