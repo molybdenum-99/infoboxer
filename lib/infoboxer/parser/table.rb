@@ -66,9 +66,15 @@ module Infoboxer
         log 'Table caption found'
         @context.skip(/^\s*\|\+\s*/)
 
+        params = if @context.check(/[^|{|\[]+\|([^\|]|$)/)
+                   parse_params(@context.scan_until(/\|/))
+                 else
+                   {}
+                 end
+
         children = inline(/^\s*([|!]|{\|)/)
-        @context.prev! if @context.eol? # compensate next! which will be done in table()
-        table.push_children(TableCaption.new(children.strip))
+        @context.prev! # compensate next! which will be done in table()
+        table.push_children(TableCaption.new(children.strip, params))
       end
 
       def table_cells(table, cell_class = TableCell)

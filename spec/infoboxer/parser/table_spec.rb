@@ -286,6 +286,34 @@ module Infoboxer
         it { is_expected.to be_a(Tree::TableCaption) }
         its(:text) { is_expected.to eq "test me please\n\n" }
       end
+
+      context 'with style params' do
+        let(:source) {
+          %{
+          {|
+          |+ style="color: green;"|test me
+          |}
+        }}
+
+        it { is_expected.to be_a(Tree::TableCaption) }
+        its(:text) { is_expected.to eq 'test me' }
+        its(:params) { are_expected.to eq(style: 'color: green;') }
+      end
+
+      context 'cells after' do
+        let(:source) {
+          %{
+          {|
+          |+ test me
+          !Header
+          |}
+        }}
+
+        it { is_expected.to be_a(Tree::TableCaption) }
+        its(:text) { is_expected.to eq 'test me' }
+
+        specify { expect(table.rows.count).to eq 1 }
+      end
     end
 
     describe 'table-level params' do
@@ -463,6 +491,20 @@ module Infoboxer
       it 'should be cool' do
         expect(subject.rows.map(&:children).map(&:count)).to all(be > 1)
       end
+    end
+
+    describe 'broken table definition (issue #78)' do
+      let(:source) {
+        %[
+          {|
+           |+ ''A'' |
+           ! B
+          |}
+        ]
+      }
+
+      its(:"rows.count") { is_expected.to eq 1 }
+      its(:caption) { is_expected.to be_nil } # empty node, in fact
     end
   end
 end
