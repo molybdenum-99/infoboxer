@@ -1,5 +1,11 @@
 # Infoboxer's change log
 
+## 0.3.3 (2020-02-09)
+
+* Fixed table captions handling (thanks @robfors for reporting)
+
+PS: Funny that this small bugfix release is exactly two years after the previous one :(
+
 ## 0.3.2 (2018-02-09)
 
 * Updated MediaWiktory to finally turn on gzip encoding of responses;
