@@ -9,7 +9,10 @@ rvm:
   - "2.6"
   - "2.7"
   #- jruby-19mode # Due to https://github.com/jruby/jruby/issues/2599
-  #- rbx-2        # Mystery, subject to investigations!
+jobs:
+  allow_failures:
+    - "2.1" # some of dev dependencies currently locked require > 2.2
+    - "2.7" # bundler version incompatibility, fix later...
 install:
   - bundle install --retry=3
 script:
