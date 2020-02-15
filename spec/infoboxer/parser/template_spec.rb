@@ -190,5 +190,23 @@ module Infoboxer
 
       its_map(:name) { are_expected.to eq ['Ship image', 'Ship caption'] }
     end
+
+    describe 'broken template/table mix (issue #81)' do
+      let(:source) {
+        unindent(%[
+          {{
+          |a
+          <!---->
+          }}
+          <!---->
+          {|
+          |-
+          {{}}
+          =B=
+        ])
+      }
+
+      its_block { is_expected.not_to raise_error }
+    end
   end
 end

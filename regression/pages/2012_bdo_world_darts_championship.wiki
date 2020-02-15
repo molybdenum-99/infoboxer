@@ -1,0 +1,941 @@
+{{Use dmy dates|date=December 2014}}
+{{Use British English|date=December 2014}}
+{{Infobox individual darts tournament
+|tournament_name = Lakeside World Darts Championship
+|image =
+|dates = 7–15 January 2012
+|venue = [[Lakeside Leisure Complex|Lakeside Country Club]]
+|location = [[Frimley Green]], [[Surrey]]
+|country = England, United Kingdom
+|organisation = [[British Darts Organisation|BDO]]
+|format = [[Set (darts)|Sets]]<br />Finals: <br /> best of 13 (men's)<br />best of 3 (women's)
+|prize_fund = £329,000
+|winners_share = £100,000 (men's)<br />£10,000 (women's)
+|nine_dart =
+|high_checkout = Men:<br />O'Shea (170) QF<br />Women:<br />Edwards (155) Rd 1
+|winner = Men: {{flagicon|NED}} [[Christian Kist]]<br>Women: {{flagicon|RUS}} [[Anastasia Dobromyslova]]
+|prev = [[2011 BDO World Darts Championship|2011]]
+|next = [[2013 BDO World Darts Championship|2013]]
+}}
+
+The '''2012 Lakeside World Professional Darts Championship''' was the 35th [[BDO World Darts Championship]] organised by the British Darts Organisation, and the 27th staging at the [[Lakeside Leisure Complex|Lakeside Country Club]] at [[Frimley Green]]. It ran from 7–15 January. [[Martin Adams]] was the defending men's champion, having won the title for the third time in the [[2011 BDO World Darts Championship|previous year's final]] against [[Dean Winstanley]].<ref>{{cite web|title=Champion Martin Adams retains BDO darts crown|url=http://news.bbc.co.uk/sport2/hi/other_sports/darts/9352483.stm|publisher=BBC|accessdate=13 January 2012|date=9 January 2011}}</ref> The defending women's champion was [[Trina Gulliver]], who won her ninth title in the 2011 final against [[Rhian Edwards]].<ref>{{cite web|title=Trina Gulliver wins ninth BDO women's Lakeside crown|url=http://news.bbc.co.uk/sport2/hi/other_sports/darts/9350151.stm|publisher=BBC|accessdate=13 January 2012|date=7 January 2011}}</ref>
+
+Neither champion was able to defend their title as Adams lost his quarter-final against [[Tony O'Shea]] and Gulliver her semi-final against [[Anastasia Dobromyslova]].<ref>{{cite web|title=BDO World Championships: Tony O'Shea beats Martin Adams|url=http://news.bbc.co.uk/sport2/hi/darts/16538659.stm|publisher=BBC|accessdate=13 January 2012|date=12 January 2012}}</ref> Dobromyslova then beat [[Deta Hedman]] in the final to win her second world championship title.<ref>{{cite web|title=BDO World Championships: Dobromyslova claims world title|url=http://news.bbc.co.uk/sport2/hi/darts/16554952.stm|publisher=BBC|accessdate=13 January 2012|date=13 January 2012}}</ref> O'Shea was defeated by unseeded qualifier [[Christian Kist]], who was making his début in the tournament, 7–5 in the final.
+It was the first time that neither champion was from [[Great Britain]] ([[Christian Kist]] from the [[Netherlands]] and [[Anastasia Dobromyslova]] from [[Russia]]), despite both losing finalists coming from [[England]] ([[Tony O'Shea]] and [[Deta Hedman]]).
+
+Players from five countries including a record number of eight Dutch players took part in the tournament.
+
+==Format and qualifiers==
+
+===Men's===
+The televised stages featured 32 players. The top 16 players in the [[Darts world rankings|WDF/BDO rankings]] over the 2010/11 season were seeded for the tournament.<ref>{{cite web
+ |url          = http://bdodarts.com/tables.aspx?tid=7
+ |title        = BDO men's rankings
+ |publisher    = [[British Darts Organisation]]
+ |accessdate   = 17 October 2011
+ |archive-url  = https://web.archive.org/web/20120729024050/http://www.bdodarts.com/tables.aspx?tid=7
+ |archive-date = 29 July 2012
+ |url-status     = dead
+ |df           = dmy-all
+}}</ref>
+
+The 32 players who qualified for invitation into the first round proper of the men's singles were:
+
+{|
+|- style="vertical-align: top;"
+|
+:'''Top 16'''
+:# {{flagicon|ENG}} [[Martin Adams]]
+:# {{flagicon|ENG}} [[Scott Waites]]
+:# {{flagicon|ENG}} [[Dean Winstanley]]
+:# {{flagicon|ENG}} [[Robbie Green]]
+:# {{flagicon|ENG}} [[Gary Robson (darts player)|Gary Robson]]
+:# {{flagicon|NED}} [[Jan Dekker]]
+:# {{flagicon|ENG}} [[John Walton (darts player)|John Walton]]
+:# {{flagicon|ENG}} [[Tony O'Shea]]
+:# {{flagicon|SCO}} [[Ross Montgomery]]
+:# {{flagicon|NED}} [[Willy van de Wiel]]
+:# {{flagicon|ENG}} [[Tony West (dart player)|Tony West]]
+:# {{flagicon|ENG}} [[Paul Jennings (darts player)|Paul Jennings]]
+:# {{flagicon|NED}} [[Wesley Harms]]
+:# {{flagicon|NED}} [[Benito van de Pas]]
+:# {{flagicon|ENG}} [[Ted Hankey]]
+:# {{flagicon|NED}} [[Ron Meulenkamp]]
+|
+:'''Other qualifiers'''
+:# {{flagicon|WAL}} [[Martin Phillips (darts player)|Martin Phillips]]
+:# {{flagicon|NED}} [[Joey ten Berge]]
+:# {{flagicon|ENG}} [[Steve Douglas (darts player)|Steve Douglas]]
+:# {{flagicon|ENG}} [[Darryl Fitton]]
+:# {{flagicon|ENG}} [[Scott Mitchell (darts player)|Scott Mitchell]]
+:# {{flagicon|ENG}} [[Garry Thompson (darts player)|Garry Thompson]]
+:# {{flagicon|NED}} [[Fabian Roosenbrand]]
+:# {{flagicon|ENG}} [[Steve West (darts player)|Steve West]]
+:# {{flagicon|ENG}} [[Alan Norris (darts player)|Alan Norris]]
+:# {{flagicon|ENG}} [[Martin Atkins (darts player)|Martin Atkins]]
+:# {{flagicon|ENG}} [[Andy Boulton]]
+:# {{flagicon|ENG}} [[Dave Prins]]
+:# {{flagicon|SCO}} [[Gary Stone]]
+:# {{flagicon|NED}} [[Christian Kist]]
+:# {{flagicon|BEL}} [[Geert De Vos]]
+:# {{flagicon|ENG}} [[Clive Barden]]
+|}
+
+===Women's===
+The televised stages featured 8 players. The top 4 players in the [[Darts world rankings|WDF/BDO rankings]] over the 2010/11 season were seeded for the tournament.<ref>{{cite web
+ |url          = http://bdodarts.com/tables.aspx?tid=8
+ |title        = BDO women's rankings
+ |publisher    = [[British Darts Organisation]]
+ |accessdate   = 17 October 2011
+ |archive-url  = https://web.archive.org/web/20121017123045/http://www.bdodarts.com/tables.aspx?tid=8
+ |archive-date = 17 October 2012
+ |url-status     = dead
+ |df           = dmy-all
+}}</ref>
+
+The eight women qualified for invitation were:
+
+{|
+|- style="vertical-align: top;"
+|
+:'''Top 4'''
+:# {{flagicon|ENG}} [[Deta Hedman]]
+:# {{flagicon|WAL}} [[Julie Gore]]
+:# {{flagicon|ENG}} [[Trina Gulliver]]
+:# {{flagicon|ENG}} [[Lorraine Farlam]]
+|
+:'''Other qualifiers'''
+:# {{flagicon|ENG}} [[Karen Lawman]]
+:# {{flagicon|RUS}} [[Anastasia Dobromyslova]]
+:# {{flagicon|ENG}} [[Lisa Ashton]]
+:# {{flagicon|WAL}} [[Rhian Edwards]]
+|}
+
+== Prize money==
+The prize money was £258,000 for the men's event and £16,000 for the women's event.<ref>{{cite web|title=Information for the media – prize money|url=http://www.lakesideworlddarts.co.uk/media.php#background|publisher=lakesideworlddarts.co.uk|accessdate=8 January 2012}}</ref>
+:Men's Champion: £100,000
+:Runner-Up: £30,000
+:Semi-Finalists (2): £11,000
+:Quarter-Finalists (4): £6,000
+:Last 16 (8): £4,250
+:Last 32 (16): £3,000
+
+:'''Women's Champion''': £10,000<ref>{{cite web|title=Anastasia crowned world champ after comeback against Deta|url=http://www.lakesideworlddarts.co.uk/newsarticle.php?Anastasia-crowned-world-champ-after-comeback-against-Deta-167|publisher=lakesideworlddarts.co.uk|accessdate=14 January 2012|date=13 January 2012|quote=...and the £10,000 first prize.}}</ref>
+:Runner-Up: £2,000
+:Semi-Finalists (2): £1,000
+:Quarter-Finalists (4): £500
+
+There was also a shared [[Nine-dart finish|9 Dart Checkout]] prize of £52,000, along with a High Checkout prize of £3,000 per event.
+
+==Results bracket==
+The draw for the tournament was made on 7 November 2011 live on ESPN.<ref>{{cite web|title=2012 Lakeside Pro Draw|url=http://www.dartswdf.com/2011/11/08/2012-lakeside-world-pro-draw/|publisher=dartswdf.com|accessdate=11 January 2012|date=8 November 2011|archive-url=https://web.archive.org/web/20111111063235/http://www.dartswdf.com/2011/11/08/2012-lakeside-world-pro-draw/|archive-date=11 November 2011|url-status=dead|df=dmy-all}}</ref><ref>{{cite web|title=Martin Adams faces Scott Mitchell in BDO World Championship opener|url=http://news.bbc.co.uk/sport2/hi/darts/15642568.stm|publisher=BBC|accessdate=11 January 2012|date=8 November 2011}}</ref>
+
+===Men's===
+* Match distances in sets are quoted in brackets at the top of each round. All sets are best of five legs, unless there is a final set tie-break. (The final set must be won by two clear legs; if it reaches 5–5, the 11th leg is decisive.)
+The results are:<ref>{{cite web|title=2012 World Championship results|url=http://www.dartsdatabase.co.uk/FixtureList.aspx?EventKey=3814&showAverages=Y|publisher=dartsdatabase.co.uk|accessdate=8 January 2012}}</ref>
+
+{{32TeamBracket
+| RD1={{Nowrap|'''First Round''' (''best of 5 sets'')<br>7–9 January}}
+| RD2={{Nowrap|'''Second round''' (''best of 7'')<br>10–11 January}}
+| RD3={{Nowrap|'''Quarter-Finals''' (''best of 9'')<br>12–13 January}}
+| RD4={{Nowrap|'''Semi-Finals''' (''best of 11'')<br>14 January}}
+| RD5={{Nowrap|'''Final''' (''best of 13'')<br>15 January}}
+| team-width=200
+| RD1-seed01=1
+| RD1-team01={{flagicon|ENG}} '''[[Martin Adams]]''' <small><span style="color:dimgray;">90.12</span></small>
+| RD1-score01='''3'''
+| RD1-seed02=
+| RD1-team02={{flagicon|ENG}} [[Scott Mitchell (darts player)|Scott Mitchell]] <small><span style="color:dimgray;">79.47</span></small>
+| RD1-score02=0
+| RD1-seed03=16
+| RD1-team03={{flagicon|NED}} [[Ron Meulenkamp]] <small><span style="color:dimgray;">82.98</span></small>
+| RD1-score03=0
+| RD1-seed04=
+| RD1-team04={{flagicon|SCO}} '''[[Gary Stone]]''' <small><span style="color:dimgray;">88.68</span></small>
+| RD1-score04='''3'''
+| RD1-seed05=8
+| RD1-team05={{flagicon|ENG}} '''[[Tony O'Shea]]''' <small><span style="color:dimgray;">88.80</span></small>
+| RD1-score05='''3'''
+| RD1-seed06=
+| RD1-team06={{flagicon|ENG}} [[Steve West (darts player)|Steve West]] <small><span style="color:dimgray;">75.63</span></small>
+| RD1-score06=0
+| RD1-seed07=9
+| RD1-team07={{flagicon|SCO}} '''[[Ross Montgomery]]''' <small><span style="color:dimgray;">87.99</span></small>
+| RD1-score07='''3'''
+| RD1-seed08=
+| RD1-team08={{flagicon|NED}} [[Fabian Roosenbrand]] <small><span style="color:dimgray;">80.10</span></small>
+| RD1-score08=1
+| RD1-seed09=4
+| RD1-team09={{flagicon|ENG}} '''[[Robbie Green]]''' <small><span style="color:dimgray;">87.42</span></small>
+| RD1-score09='''3'''
+| RD1-seed10=
+| RD1-team10={{flagicon|ENG}} [[Darryl Fitton]] <small><span style="color:dimgray;">81.60</span></small>
+| RD1-score10=1
+| RD1-seed11=13
+| RD1-team11={{flagicon|NED}} '''[[Wesley Harms]]''' <small><span style="color:dimgray;">82.32</span></small>
+| RD1-score11='''3'''
+| RD1-seed12=
+| RD1-team12={{flagicon|WAL}} [[Martin Phillips (darts player)|Martin Phillips]] <small><span style="color:dimgray;">79.38</span></small>
+| RD1-score12=1
+| RD1-seed13=5
+| RD1-team13={{flagicon|ENG}} [[Gary Robson (darts player)|Gary Robson]] <small><span style="color:dimgray;">75.33</span></small>
+| RD1-score13=0
+| RD1-seed14=
+| RD1-team14={{flagicon|ENG}} '''[[Steve Douglas (darts player)|Steve Douglas]]''' <small><span style="color:dimgray;">83.76</span></small>
+| RD1-score14='''3'''
+| RD1-seed15=12
+| RD1-team15={{flagicon|ENG}} '''[[Paul Jennings (darts player)|Paul Jennings]]''' <small><span style="color:dimgray;">83.94</span></small>
+| RD1-score15='''3'''
+| RD1-seed16=
+| RD1-team16={{flagicon|ENG}} [[Garry Thompson (darts player)|Garry Thompson]] <small><span style="color:dimgray;">84.30</span></small>
+| RD1-score16=1
+| RD1-seed17=2
+| RD1-team17={{flagicon|ENG}} '''[[Scott Waites]]''' <small><span style="color:dimgray;">89.52</span></small>
+| RD1-score17='''3'''
+| RD1-seed18=
+| RD1-team18={{flagicon|ENG}} [[Andy Boulton]] <small><span style="color:dimgray;">88.74</span></small>
+| RD1-score18=1
+| RD1-seed19=15
+| RD1-team19={{flagicon|ENG}} '''[[Ted Hankey]]''' <small><span style="color:dimgray;">88.08</span></small>
+| RD1-score19='''3'''
+| RD1-seed20=
+| RD1-team20={{flagicon|ENG}} [[Clive Barden]] <small><span style="color:dimgray;">79.85</span></small>
+| RD1-score20=2
+| RD1-seed21=7
+| RD1-team21={{flagicon|ENG}} [[John Walton (darts player)|John Walton]] <small><span style="color:dimgray;">86.94</span></small>
+| RD1-score21=1
+| RD1-seed22=
+| RD1-team22={{flagicon|ENG}} '''[[Martin Atkins (darts player)|Martin Atkins]]''' <small><span style="color:dimgray;">87.42</span></small>
+| RD1-score22='''3'''
+| RD1-seed23=10
+| RD1-team23={{flagicon|NED}} '''[[Willy van de Wiel]]''' <small><span style="color:dimgray;">83.01</span></small>
+| RD1-score23='''3'''
+| RD1-seed24=
+| RD1-team24={{flagicon|ENG}} [[Dave Prins]] <small><span style="color:dimgray;">78.24</span></small>
+| RD1-score24=0
+| RD1-seed25=3
+| RD1-team25={{flagicon|ENG}} '''[[Dean Winstanley]]''' <small><span style="color:dimgray;">88.74</span></small>
+| RD1-score25='''3'''
+| RD1-seed26=
+| RD1-team26={{flagicon|NED}} [[Joey ten Berge]] <small><span style="color:dimgray;">86.70</span></small>
+| RD1-score26=1
+| RD1-seed27=14
+| RD1-team27={{flagicon|NED}} [[Benito van de Pas]] <small><span style="color:dimgray;">90.18</span></small>
+| RD1-score27=2
+| RD1-seed28=
+| RD1-team28={{flagicon|ENG}} '''[[Alan Norris (darts player)|Alan Norris]]''' <small><span style="color:dimgray;">91.95</span></small>
+| RD1-score28='''3'''
+| RD1-seed29=6
+| RD1-team29={{flagicon|NED}} [[Jan Dekker]] <small><span style="color:dimgray;">96.33</span></small>
+| RD1-score29=2
+| RD1-seed30=
+| RD1-team30={{flagicon|NED}} '''[[Christian Kist]]''' <small><span style="color:dimgray;">97.77</span></small>
+| RD1-score30='''3'''
+| RD1-seed31=11
+| RD1-team31={{flagicon|ENG}} [[Tony West (dart player)|Tony West]] <small><span style="color:dimgray;">83.94</span></small>
+| RD1-score31=1
+| RD1-seed32=
+| RD1-team32={{flagicon|BEL}} '''[[Geert De Vos]]''' <small><span style="color:dimgray;">84.09</span></small>
+| RD1-score32='''3'''
+| RD2-seed01=1
+| RD2-team01={{flagicon|ENG}} '''[[Martin Adams]]''' <small><span style="color:dimgray;">90.78</span></small>
+| RD2-score01='''4'''
+| RD2-seed02=
+| RD2-team02={{flagicon|SCO}} [[Gary Stone]] <small><span style="color:dimgray;">86.97</span></small>
+| RD2-score02=0
+| RD2-seed03=8
+| RD2-team03={{flagicon|ENG}} '''[[Tony O'Shea]]''' <small><span style="color:dimgray;">90.48</span></small>
+| RD2-score03='''4'''
+| RD2-seed04=9
+| RD2-team04={{flagicon|SCO}} [[Ross Montgomery]] <small><span style="color:dimgray;">87.63</span></small>
+| RD2-score04=1
+| RD2-seed05=4
+| RD2-team05={{flagicon|ENG}} [[Robbie Green]] <small><span style="color:dimgray;">84.99</span></small>
+| RD2-score05=1
+| RD2-seed06=13
+| RD2-team06={{flagicon|NED}} '''[[Wesley Harms]]''' <small><span style="color:dimgray;">90.72</span></small>
+| RD2-score06='''4'''
+| RD2-seed07=
+| RD2-team07={{flagicon|ENG}} [[Steve Douglas (darts player)|Steve Douglas]] <small><span style="color:dimgray;">82.23</span></small>
+| RD2-score07=2
+| RD2-seed08=12
+| RD2-team08={{flagicon|ENG}} '''[[Paul Jennings (darts player)|Paul Jennings]]''' <small><span style="color:dimgray;">82.86</span></small>
+| RD2-score08='''4'''
+| RD2-seed09=2
+| RD2-team09={{flagicon|ENG}} [[Scott Waites]] <small><span style="color:dimgray;">86.73</span></small>
+| RD2-score09=3
+| RD2-seed10=15
+| RD2-team10={{flagicon|ENG}} '''[[Ted Hankey]]''' <small><span style="color:dimgray;">85.14</span></small>
+| RD2-score10='''4'''
+| RD2-seed11=
+| RD2-team11={{flagicon|ENG}} '''[[Martin Atkins (darts player)|Martin Atkins]]''' <small><span style="color:dimgray;">89.73</span></small>
+| RD2-score11='''4'''
+| RD2-seed12=10
+| RD2-team12={{flagicon|NED}} [[Willy van de Wiel]] <small><span style="color:dimgray;">87.02</span></small>
+| RD2-score12=2
+| RD2-seed13=3
+| RD2-team13={{flagicon|ENG}} [[Dean Winstanley]] <small><span style="color:dimgray;">91.92</span></small>
+| RD2-score13=3
+| RD2-seed14=
+| RD2-team14={{flagicon|ENG}} '''[[Alan Norris (darts player)|Alan Norris]]''' <small><span style="color:dimgray;">89.28</span></small>
+| RD2-score14='''4'''
+| RD2-seed15=&nbsp;
+| RD2-team15={{flagicon|NED}} '''[[Christian Kist]]''' <small><span style="color:dimgray;">96.51</span></small>
+| RD2-score15='''4'''
+| RD2-seed16=
+| RD2-team16={{flagicon|BEL}} [[Geert De Vos]] <small><span style="color:dimgray;">87.21</span></small>
+| RD2-score16=2
+| RD3-seed01=1
+| RD3-team01={{flagicon|ENG}} [[Martin Adams]] <small><span style="color:dimgray;">92.49</span></small>
+| RD3-score01=2
+| RD3-seed02=8
+| RD3-team02={{flagicon|ENG}} '''[[Tony O'Shea]]''' <small><span style="color:dimgray;">94.02</span></small>
+| RD3-score02='''5'''
+| RD3-seed03=13
+| RD3-team03={{flagicon|NED}} '''[[Wesley Harms]]''' <small><span style="color:dimgray;">87.39</span></small>
+| RD3-score03='''5'''
+| RD3-seed04=12
+| RD3-team04={{flagicon|ENG}} [[Paul Jennings (darts player)|Paul Jennings]] <small><span style="color:dimgray;">85.86</span></small>
+| RD3-score04=3
+| RD3-seed05=15
+| RD3-team05={{flagicon|ENG}} '''[[Ted Hankey]]''' <small><span style="color:dimgray;">85.08</span></small>
+| RD3-score05= '''5'''
+| RD3-seed06=
+| RD3-team06={{flagicon|ENG}} [[Martin Atkins (darts player)|Martin Atkins]] <small><span style="color:dimgray;">87.00</span></small>
+| RD3-score06= 1
+| RD3-seed07=&nbsp;
+| RD3-team07={{flagicon|ENG}} [[Alan Norris (darts player)|Alan Norris]] <small><span style="color:dimgray;">90.19</span></small>
+| RD3-score07= 1
+| RD3-seed08=
+| RD3-team08={{flagicon|NED}} '''[[Christian Kist]]''' <small><span style="color:dimgray;">93.67</span></small>
+| RD3-score08='''5'''
+| RD4-seed01=8
+| RD4-team01={{flagicon|ENG}} '''[[Tony O'Shea]]''' <small><span style="color:dimgray;">85.35</span></small>
+| RD4-score01='''6'''
+| RD4-seed02=13
+| RD4-team02={{flagicon|NED}} [[Wesley Harms]] <small><span style="color:dimgray;">88.38</span></small>
+| RD4-score02=5
+| RD4-seed03= 15
+| RD4-team03={{flagicon|ENG}} [[Ted Hankey]] <small><span style="color:dimgray;">87.54</span></small>
+| RD4-score03=5
+| RD4-seed04=
+| RD4-team04={{flagicon|NED}} '''[[Christian Kist]]''' <small><span style="color:dimgray;">89.73</span></small>
+| RD4-score04='''6'''
+| RD5-seed01=8
+| RD5-team01={{flagicon|ENG}} [[Tony O'Shea]] <small><span style="color:dimgray;">87.78</span></small>
+| RD5-score01=5
+| RD5-seed02=
+| RD5-team02={{flagicon|NED}} '''[[Christian Kist]]''' <small><span style="color:dimgray;">90.00</span></small>
+| RD5-score02='''7'''
+
+<!---->
+<!--  FINAL -->
+<!---->
+|(''Best of 13 sets'') Sunday 15 January
+|{{flagicon|}}
+|-
+|{{flagicon|}}
+|Highest Checkout:
+|
+|Highest Checkout:
+|{{flagicon|NED}} [[Christian Kist]] wins the 2012 Lakeside [[BDO World Darts Championship|World Darts Championship]]
+<!---->
+<!--  Frame header info -->
+<!---->
+|''Best of 5 sets''
+|''Best of 7 sets''
+|''Best of 9 sets''
+|''Best of 11 sets''
+}}
+
+===Women's===
+* All matches best of three sets, best of five legs.
+The results are:<ref>{{cite web|title=2012 Women's World Championship results|url=http://www.dartsdatabase.co.uk/FixtureList.aspx?EventKey=3822&showAverages=Y|publisher=dartsdatabase.co.uk|accessdate=8 January 2012}}</ref>
+{{8TeamBracket
+| RD1= Quarter-finals<br>7–9 January
+| RD2= Semi-finals<br>12 January
+| RD3= Final<br>13 January
+| team-width=165
+| RD1-seed1=1
+| RD1-team1={{flagicon|ENG}} '''[[Deta Hedman]]''' <small><span style="color:dimgray;">73.20</span></small>
+| RD1-score1='''2'''
+| RD1-seed2=
+| RD1-team2={{flagicon|WAL}} [[Rhian Edwards]] <small><span style="color:dimgray;">73.71</span></small>
+| RD1-score2=1
+| RD1-seed3=4
+| RD1-team3={{flagicon|ENG}} '''[[Lorraine Farlam]]''' <small><span style="color:dimgray;">67.35</span></small>
+| RD1-score3='''2'''
+| RD1-seed4=
+| RD1-team4={{flagicon|ENG}} [[Karen Lawman]] <small><span style="color:dimgray;">67.35</span></small>
+| RD1-score4=1
+| RD1-seed5=2
+| RD1-team5={{flagicon|WAL}} [[Julie Gore]] <small><span style="color:dimgray;">63.39</span></small>
+| RD1-score5=0
+| RD1-seed6=
+| RD1-team6={{nowrap begin}}{{flagicon|RUS}} '''[[Anastasia Dobromyslova]]''' <small><span style="color:dimgray;">73.92</span></small>{{nowrap end}}
+| RD1-score6='''2'''
+| RD1-seed7=3
+| RD1-team7={{flagicon|ENG}} '''[[Trina Gulliver]]''' <small><span style="color:dimgray;">73.80</span></small>
+| RD1-score7='''2'''
+| RD1-seed8=
+| RD1-team8={{flagicon|ENG}} [[Lisa Ashton]] <small><span style="color:dimgray;">71.97</span></small>
+| RD1-score8=0
+| RD2-seed1=1
+| RD2-team1={{flagicon|ENG}} '''[[Deta Hedman]]''' <small><span style="color:dimgray;">79.11</span></small>
+| RD2-score1='''2'''
+| RD2-seed2=4
+| RD2-team2={{flagicon|ENG}} [[Lorraine Farlam]] <small><span style="color:dimgray;">74.61</span></small>
+| RD2-score2=1
+| RD2-seed3=
+| RD2-team3={{nowrap begin}}{{flagicon|RUS}} '''[[Anastasia Dobromyslova]]''' <small><span style=color:dimgray;>69.75</span></small>{{nowrap end}}
+| RD2-score3='''2'''
+| RD2-seed4=3
+| RD2-team4={{flagicon|ENG}} [[Trina Gulliver]] <small><span style="color:dimgray;">72.88</span></small>
+| RD2-score4=0
+| RD3-seed1=1
+| RD3-team1={{flagicon|ENG}} [[Deta Hedman]] <small><span style="color:dimgray;">74.13</span></small>
+| RD3-score1=1
+| RD3-seed2=
+| RD3-team2={{nowrap begin}}{{flagicon|RUS}} '''[[Anastasia Dobromyslova]]''' <small><span style="color:dimgray;">73.95</span></small>{{nowrap end}}
+| RD3-score2='''2'''
+}}
+
+==Statistics==
+{{unreferenced section|date=January 2012}}<!--The main draws doesn't have match reports.-->
+
+===Men===
+{{update|section|date=January 2012}}
+{|class="wikitable sortable" style="font-size: 95%; text-align: right"
+|-
+! Player
+! Played
+! Sets Won
+! Sets Lost
+! Legs Won
+! Legs Lost
+! 100+
+! 140+
+! 180s
+! High Checkout
+! Average
+|-
+|align="left"| {{flagicon|NED}} [[Christian Kist]]
+| 5
+| 25
+| 15
+| 93
+| 67
+| 179
+| 133
+| 33
+| 129
+| 92.45
+|-
+|align="left"| {{flagicon|ENG}} [[Tony O'Shea]]
+| 5
+| 23
+| 15
+| 86
+| 65
+| 217
+| 111
+| 23
+| 170
+| 88.52
+|-
+|align="left"| {{flagicon|NED}} [[Wesley Harms]]
+| 4
+| 17
+| 11
+| 63
+| 50
+| 178
+| 79
+| 11
+| 120
+| 87.46
+|-
+|align="left"| {{flagicon|ENG}} [[Ted Hankey]]
+| 4
+| 17
+| 12
+| 62
+| 54
+| 137
+| 89
+| 23
+| 145
+| 86.47
+|-
+|align="left"| {{flagicon|ENG}} [[Martin Atkins (darts player)|Martin Atkins]]
+| 3
+| 8
+| 8
+| 33
+| 33
+| 76
+| 42
+| 11
+| 136
+| 88.05
+|-
+|align="left"| {{flagicon|ENG}} [[Alan Norris (darts player)|Alan Norris]]
+| 3
+| 8
+| 10
+| 27
+| 40
+| 91
+| 42
+| 22
+| 130
+| 90.33
+|-
+|align="left"| {{flagicon|ENG}} [[Martin Adams]]
+| 3
+| 9
+| 5
+| 31
+| 26
+| 95
+| 40
+| 11
+| 161
+| 91.36
+|-
+|align="left"| {{flagicon|ENG}} [[Paul Jennings (darts player)|Paul Jennings]]
+| 3
+| 10
+| 8
+| 38
+| 37
+| 94
+| 53
+| 9
+| 120
+| 84.38
+|-
+|align="left"| {{flagicon|ENG}} [[Scott Waites]]
+| 2
+| 6
+| 5
+| 25
+| 22
+| 68
+| 26
+| 5
+| 156
+| 87.73
+|-
+|align="left"| {{flagicon|ENG}} [[Dean Winstanley]]
+| 2
+| 6
+| 5
+| 25
+| 22
+| 59
+| 32
+| 12
+| 160
+| 90.68
+|-
+|align="left"| {{flagicon|ENG}} [[Robbie Green]]
+| 2
+| 4
+| 5
+| 16
+| 19
+| 41
+| 18
+| 9
+| 76
+| 86.20
+|-
+|align="left"| {{flagicon|SCO}} [[Ross Montgomery]]
+| 2
+| 4
+| 5
+| 16
+| 21
+| 63
+| 20
+| 7
+| 120
+| 87.79
+|-
+|align="left"| {{flagicon|NED}} [[Willy van de Wiel]]
+| 2
+| 5
+| 4
+| 17
+| 17
+| 45
+| 25
+| 5
+| 101
+| 85.58
+|-
+|align="left"| {{flagicon|BEL}} [[Geert De Vos]]
+| 2
+| 5
+| 5
+| 21
+| 22
+| 44
+| 24
+| 10
+| 121
+| 85.89
+|-
+|align="left"| {{flagicon|ENG}} [[Steve Douglas (darts player)|Steve Douglas]]
+| 2
+| 5
+| 4
+| 20
+| 18
+| 45
+| 23
+| 6
+| 121
+| 82.71
+|-
+|align="left"| {{flagicon|SCO}} [[Gary Stone]]
+| 2
+| 3
+| 4
+| 15
+| 16
+| 36
+| 23
+| 7
+| 120
+| 88.23
+|-
+|align="left"| {{flagicon|ENG}} [[Gary Robson (darts player)|Gary Robson]]
+| 1
+| 0
+| 3
+| 3
+| 9
+| 17
+| 4
+| 1
+| 68
+| 75.33
+|-
+|align="left"| {{flagicon|NED}} [[Jan Dekker]]
+| 1
+| 2
+| 3
+| 10
+| 12
+| 22
+| 15
+| 5
+| 81
+| 96.33
+|-
+|align="left"| {{flagicon|ENG}} [[John Walton (darts player)|John Walton]]
+| 1
+| 1
+| 3
+| 9
+| 9
+| 19
+| 13
+| 3
+| 97
+| 86.94
+|-
+|align="left"| {{flagicon|ENG}} [[Tony West (dart player)|Tony West]]
+| 1
+| 1
+| 3
+| 6
+| 11
+| 22
+| 6
+| 2
+| 80
+| 83.94
+|-
+|align="left"| {{flagicon|NED}} [[Benito van de Pas]]
+| 1
+| 2
+| 3
+| 9
+| 12
+| 26
+| 11
+| 3
+| 119
+| 90.18
+|-
+|align="left"| {{flagicon|NED}} [[Ron Meulenkamp]]
+| 1
+| 0
+| 3
+| 4
+| 9
+| 19
+| 5
+| 1
+| 71
+| 82.98
+|-
+|align="left"| {{flagicon|ENG}} [[Clive Barden]]
+| 1
+| 2
+| 3
+| 8
+| 12
+| 20
+| 11
+| 2
+| 160
+| 79.86
+|-
+|align="left"| {{flagicon|ENG}} [[Andy Boulton]]
+| 1
+| 1
+| 3
+| 6
+| 11
+| 22
+| 11
+| 1
+| 65
+| 88.74
+|-
+|align="left"| {{flagicon|ENG}} [[Darryl Fitton]]
+| 1
+| 1
+| 3
+| 7
+| 10
+| 16
+| 10
+| 7
+| 72
+| 81.60
+|-
+|align="left"| {{flagicon|ENG}} [[Scott Mitchell (darts player)|Scott Mitchell]]
+| 1
+| 0
+| 3
+| 4
+| 9
+| 18
+| 10
+| 0
+| 16
+| 79.48
+|-
+|align="left"| {{flagicon|WAL}} [[Martin Phillips (darts player)|Martin Phillips]]
+| 1
+| 1
+| 3
+| 6
+| 11
+| 27
+| 6
+| 2
+| 65
+| 79.38
+|-
+|align="left"| {{flagicon|ENG}} [[Dave Prins]]
+| 1
+| 0
+| 3
+| 2
+| 9
+| 14
+| 2
+| 1
+| 74
+| 78.24
+|-
+|align="left"| {{flagicon|NED}} [[Fabian Roosenbrand]]
+| 1
+| 1
+| 3
+| 7
+| 9
+| 15
+| 7
+| 2
+| 83
+| 80.10
+|-
+|align="left"| {{flagicon|NED}} [[Joey ten Berge]]
+| 1
+| 1
+| 3
+| 7
+| 11
+| 21
+| 8
+| 4
+| 92
+| 86.70
+|-
+|align="left"| {{flagicon|ENG}} [[Garry Thompson (darts player)|Garry Thompson]]
+| 1
+| 1
+| 3
+| 7
+| 9
+| 18
+| 10
+| 4
+| 118
+| 84.30
+|-
+|align="left"| {{flagicon|ENG}} [[Steve West (darts player)|Steve West]]
+| 1
+| 0
+| 3
+| 2
+| 9
+| 15
+| 4
+| 1
+| 40
+| 75.63
+|-
+{{Fb cs footer|u=13 January 2011|s=Match reports from the [[#Last 64|main draw]]|date=January 2012}}<ref>{{Cite web |url=http://www.bdodarts.com/viewtournament.aspx?tid=238 |title=Men: Match results and reports (www.bdodarts.com) |access-date=8 January 2012 |archive-url=https://web.archive.org/web/20120109020232/http://www.bdodarts.com/viewtournament.aspx?tid=238 |archive-date=9 January 2012 |url-status=dead |df=dmy-all }}</ref>
+{{Reflist|group="n"}}
+
+===Women===
+{|class="wikitable sortable" style="font-size: 95%; text-align: right"
+|-
+! Player
+! Played
+! Sets Won
+! Sets Lost
+! Legs Won
+! Legs Lost
+! 100+
+! 140+
+! 180s
+! High Checkout
+! Average
+|-
+|align="left"| {{flagicon|RUS}} [[Anastasia Dobromyslova]]
+| 3
+| 6
+| 1
+| 20
+| 8
+| 45
+| 13
+| 0
+| 90
+| 72.71
+|-
+|align="left"| {{flagicon|ENG}} [[Deta Hedman]]
+| 3
+| 5
+| 4
+| 19
+| 20
+| 47
+| 12
+| 3
+| 119
+| 75.71
+|-
+|align="left"| {{flagicon|ENG}} [[Lorraine Farlam]]
+| 2
+| 3
+| 3
+| 14
+| 14
+| 37
+| 11
+| 1
+| 125
+| 70.92
+|-
+|align="left"| {{flagicon|ENG}} [[Trina Gulliver]]
+| 2
+| 2
+| 2
+| 8
+| 7
+| 24
+| 2
+| 2
+| 95
+| 72.76
+|-
+|align="left"| {{flagicon|ENG}} [[Karen Lawman]]
+| 1
+| 1
+| 2
+| 6
+| 7
+| 21
+| 7
+| 1
+| 88
+| 67.34
+|-
+|align="left"| {{flagicon|WAL}} [[Rhian Edwards]]
+| 1
+| 1
+| 2
+| 5
+| 6
+| 9
+| 9
+| 0
+| 155
+| 73.70
+|-
+|align="left"| {{flagicon|ENG}} [[Lisa Ashton]]
+| 1
+| 0
+| 2
+| 1
+| 6
+| 4
+| 5
+| 0
+| 16
+| 71.96
+|-
+|align="left"| {{flagicon|WAL}} [[Julie Gore]]
+| 1
+| 0
+| 2
+| 1
+| 6
+| 8
+| 0
+| 0
+| 50
+| 63.39
+|-
+{{Fb cs footer|u=13 January 2011|s=Match reports from the [[#Last 64|main draw]]|date=January 2012}}<ref>{{Cite web |url=http://www.bdodarts.com/viewtournament.aspx?tid=238 |title=Women: Match results and reports (www.bdodarts.com) |access-date=8 January 2012 |archive-url=https://web.archive.org/web/20120109020232/http://www.bdodarts.com/viewtournament.aspx?tid=238 |archive-date=9 January 2012 |url-status=dead |df=dmy-all }}</ref>
+{{Reflist|group="n"}}
+
+==Broadcasting==
+The tournament was broadcast jointly in the UK by the [[BBC]] and [[ESPN (UK)|ESPN]]. The BBC broadcast the afternoon session of the opening weekend, afternoon highlights from 9 to 13 January, the first semi final and the final. ESPN broadcast the evening session of the opening weekend, round two matches, the quarter finals, the second semi final and highlights of the final. The BBC's coverage was presented by [[Colin Murray]] with [[Bobby George]] being the pundit. ESPN's coverage was presented by [[Ray Stubbs]] and [[Nat Coombs]]. Commentary on both channels came from [[David Croft (broadcaster)|David Croft]], [[Tony Green]] and [[Vassos Alexander]].<ref>{{cite web|title=ESPN and BBC collaborate to provide full coverage of Lakeside 2012|url=http://bdodarts.com/1525/03-11-2011/ESPN_and_BBC_collaborate_to_provide__full_coverage_of_Lakeside_2012|work=BDO|date=3 November 2011|access-date=3 November 2011|archive-url=https://web.archive.org/web/20111105233340/http://www.bdodarts.com/1525/03-11-2011/ESPN_and_BBC_collaborate_to_provide__full_coverage_of_Lakeside_2012|archive-date=5 November 2011|url-status=dead|df=dmy-all}}</ref> The tournament was also screened on [[Eurosport]] and [[Eurosport Asia]] in 99 other countries.<ref>{{cite web|title=Global TV Audiences For Lakeside 2012|url=http://bdodarts.com/1581/02-01-2012/Global_TV_Audiences_For_Lakeside_2012|work=BDO|date=2 January 2012|access-date=5 January 2012|archive-url=https://web.archive.org/web/20120110050500/http://www.bdodarts.com/1581/02-01-2012/Global_TV_Audiences_For_Lakeside_2012|archive-date=10 January 2012|url-status=dead|df=dmy-all}}</ref>
+
+==References==
+{{reflist|2}}
+
+==External links==
+* [http://www.lakesideworlddarts.co.uk/ Official site]
+* [https://web.archive.org/web/20120109020232/http://www.bdodarts.com/viewtournament.aspx?tid=238 Results]
+
+{{World Darts Championship}}
+
+[[Category:BDO World Darts Championships]]
+[[Category:2012 in darts|BDO World Darts Championship]]
+[[Category:2012 in English sport|BDO World Darts Championship]]
+[[Category:2012 in British sport|BDO World Darts Championships]]
+[[Category:January 2012 sports events in the United Kingdom|BDO World Darts Championships]]
+[[Category:Sport in Surrey]]
+[[Category:Frimley Green]]

@@ -1,5 +1,14 @@
 # Infoboxer's change log
 
+## Unreleased
+
+* A cluster of bugs found in #81 fixed:
+  * Empty comment (`<!---->`) now processed properly;
+  * Templates that are implicitly inside tables (put on a separate row) now always create
+    an implicit `<TableCell>`
+  * Heading after non-closed table closes the table implicitly instead of being inserted
+    into the last cell.
+
 ## 0.3.3 (2020-02-09)
 
 * Fixed table captions handling (thanks @robfors for reporting)

@@ -129,9 +129,25 @@ module Infoboxer
           |}
         }}
 
-        subject { table.rows.last.children.first }
+        subject { table.rows.last.children.first.children.first }
 
         it { is_expected.to be_a(Tree::Template) }
+      end
+
+      context 'row-level template' do
+        let(:source) {
+          %{
+          {|
+          |one
+          |-
+          {{!}}
+          x
+          |}
+        }}
+
+        subject { table.rows.last.children.last.children }
+
+        it { is_expected.to contain_exactly(Tree::Template, Tree::Paragraph) }
       end
     end
 
@@ -512,6 +528,26 @@ module Infoboxer
 
       its(:"rows.count") { is_expected.to eq 1 }
       its(:caption) { is_expected.not_to be_nil } # we parse too complicated params as caption text... it is OK, table's broken anyways :)
+    end
+
+    describe 'auto-closing of tables (issue #81)' do
+      let(:source) {
+        %[
+          {|
+           |-
+           |Text.
+          ==Heading==
+        ]
+      }
+
+      subject { nodes }
+
+      it {
+        is_expected.to contain_exactly(
+          be_a(Tree::Table),
+          be_a(Tree::Heading).and(have_attributes(text: "Heading\n\n"))
+        )
+      }
     end
   end
 end

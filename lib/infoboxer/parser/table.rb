@@ -51,6 +51,9 @@ module Infoboxer
           table_template(table)
         when nil
           return false
+        when /^(?<level>={2,})\s*(?<text>.+?)\s*\k<level>$/ # heading implicitly closes the table
+          @context.prev!
+          return false
         else
           return table_cell_cont(table)
         end
@@ -102,15 +105,17 @@ module Infoboxer
       def table_template(table)
         contents = paragraph(/^\s*([|!]|{\|)/).to_templates?
 
-        if (row = table.children.last).is_a?(TableRow)
-          if (cell = row.children.last).is_a?(BaseCell)
-            cell.push_children(*contents)
-          else
-            row.push_children(*contents)
-          end
-        else
-          table.push_children(*contents)
-        end
+        # Note: in fact, without full template parsing, we CAN'T know what level to insert it:
+        # Template can be something like <tr><td>Foo</td></tr>
+        # But for consistency, we insert all templates inside the <td>, forcing this <td>
+        # to exist.
+
+        table.push_children(TableRow.new) unless table.children.last.is_a?(TableRow)
+        row = table.children.last
+        row.push_children(TableCell.new) unless row.children.last.is_a?(BaseCell)
+        cell = row.children.last
+
+        cell.push_children(*contents)
       end
 
       # Good news, everyone! Table can be IMPLICITLY closed when it's

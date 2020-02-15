@@ -8,7 +8,7 @@ module Infoboxer
 
       def initialize(text, traits = nil)
         @lines = text
-                 .gsub(/<!--.+?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
+                 .gsub(/<!--.*?-->/m, '') # FIXME: will also kill comments inside <nowiki> tag
                  .split(/[\r\n]/)
         @lineno = -1
         @traits = traits || MediaWiki::Traits.default
