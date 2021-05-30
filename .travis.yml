@@ -1,17 +1,12 @@
 cache: bundler
 language: ruby
 rvm:
-  - "2.1"
-  - "2.2"
-  - "2.3"
-  - "2.4"
-  - "2.5"
   - "2.6"
   - "2.7"
+  - "3.0"
   #- jruby-19mode # Due to https://github.com/jruby/jruby/issues/2599
 jobs:
   allow_failures:
-    - "2.1" # some of dev dependencies currently locked require > 2.2
     - "2.7" # bundler version incompatibility, fix later...
 install:
   - bundle install --retry=3

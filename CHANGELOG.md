@@ -1,6 +1,6 @@
 # Infoboxer's change log
 
-## Unreleased
+## 0.4.0 (2021-05-30)
 
 * A cluster of bugs found in #81 fixed:
   * Empty comment (`<!---->`) now processed properly;
@@ -8,6 +8,10 @@
     an implicit `<TableCell>`
   * Heading after non-closed table closes the table implicitly instead of being inserted
     into the last cell.
+* Drop Ruby < 2.6, and support 3.0 instead.
+
+PS: Yeah, year-and-almost-half is much better than 2 years between releases, I guess.. And let's call
+it non-patch version then.
 
 ## 0.3.3 (2020-02-09)
 
