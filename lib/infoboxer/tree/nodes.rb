@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # List of nodes, which tries to be useful both as array, and as proxy
@@ -48,11 +50,19 @@ module Infoboxer
       # @!method +(other)
       #    Just like Array#+, but returns Nodes
 
-      %i[select reject sort_by flatten compact grep grep_v - +].each do |sym|
+      # NB: Since Ruby 3.0, we need to redefine all Enumerable methods (otherwise they return Array).
+      # TODO: Check those lacking overrides!
+
+      %i[
+        select reject sort_by flatten compact grep grep_v - +
+        take_while drop_while
+      ].each do |sym|
         define_method(sym) do |*args, &block|
           Nodes[*super(*args, &block)]
         end
       end
+
+      alias_method :filter, :select
 
       # Just like Array#first, but returns Nodes, if provided with `n` of elements.
       def first(n = nil)
@@ -94,7 +104,7 @@ module Infoboxer
 
       # Just like Array#group, but returns hash with `{<grouping variable> => Nodes}`
       def group_by
-        super.map { |title, group| [title, Nodes[*group]] }.to_h
+        super.transform_values { |group| Nodes[*group] }
       end
 
       # @!method prev_siblings
@@ -169,6 +179,7 @@ module Infoboxer
       def follow
         links = grep(Linkable)
         return Nodes[] if links.empty?
+
         page = first.lookup_parents(MediaWiki::Page).first or
           fail('Not in a page from real source')
         page.client or fail('MediaWiki client not set')
@@ -179,13 +190,14 @@ module Infoboxer
 
       # @private
       # Internal, used by {Parser}
-      def <<(node)
+      def <<(node) # rubocop:disable Metrics/PerceivedComplexity
         if node.is_a?(Array)
           node.each { |n| self << n }
-        elsif last && last.can_merge?(node)
+        elsif last&.can_merge?(node)
           last.merge!(node)
         else
           return if !node || node.empty?
+
           node = Text.new(node) if node.is_a?(String)
           super
         end

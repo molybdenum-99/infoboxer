@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     module HTMLTagCommons
@@ -11,7 +13,7 @@ module Infoboxer
     # Represents HTML tag, surrounding some contents.
     class HTMLTag < Compound
       def initialize(tag, attrs, children = Nodes.new)
-        super(children, attrs)
+        super(children, **attrs)
         @tag = tag
       end
 
@@ -43,7 +45,7 @@ module Infoboxer
     #
     class HTMLOpeningTag < Node
       def initialize(tag, attrs)
-        super(attrs)
+        super(**attrs)
         @tag = tag
       end
 

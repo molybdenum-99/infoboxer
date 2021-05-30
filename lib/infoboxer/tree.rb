@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   # Infoboxer provides you with tree structure of the Wikipedia page,
   # which you can introspect and navigate with ease. This tree structure

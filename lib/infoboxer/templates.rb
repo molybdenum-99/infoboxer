@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   # This module covers advanced MediaWiki templates usage.
   #

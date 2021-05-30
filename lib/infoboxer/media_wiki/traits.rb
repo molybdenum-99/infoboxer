@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class MediaWiki
     # DSL for defining "traits" for some site.
@@ -57,7 +59,7 @@ module Infoboxer
         # [English Wikipedia traits](https://github.com/molybdenum-99/infoboxer/blob/master/lib/infoboxer/definitions/en.wikipedia.org.rb)
         # for example implementation.
         def for(domain, &block)
-          Traits.domains[domain].tap { |c| c && c.instance_eval(&block) } ||
+          Traits.domains[domain]&.instance_eval(&block) ||
             Class.new(self, &block).domain(domain)
         end
 
@@ -114,6 +116,7 @@ module Infoboxer
 
       def ns_aliases(base)
         return [base] if @site_info.empty?
+
         main = @site_info['namespaces'].values.detect { |n| n['canonical'] == base }
         [base, main['*']] +
           @site_info['namespacealiases']

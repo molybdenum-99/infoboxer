@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'selector'
 
 module Infoboxer
@@ -157,11 +159,10 @@ module Infoboxer
         ]
           .map { |sym| [sym, :"_#{sym}"] }
           .each do |sym, underscored|
-
-          define_method(sym) do |*args, &block|
-            send(underscored, Selector.new(*args, &block))
+            define_method(sym) do |*args, &block|
+              send(underscored, Selector.new(*args, &block))
+            end
           end
-        end
 
         # Checks if node has any parent matching selectors.
         def parent?(*selectors, &block)
@@ -217,7 +218,6 @@ module Infoboxer
           lookup_siblings
           lookup_next_siblings lookup_prev_siblings
         ].map { |sym| [sym, :"_#{sym}"] }.each do |sym, underscored|
-
           define_method(sym) do |*args, &block|
             send(underscored, Selector.new(*args, &block))
           end

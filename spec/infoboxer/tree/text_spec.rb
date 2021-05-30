@@ -188,7 +188,7 @@ module Infoboxer
 
             it {
               is_expected.to eq \
-                "+-------+------+----------+\n"\
+                "+-------------------------+\n"\
                 "|         Caption         |\n"\
                 "+-------+------+----------+\n"\
                 "| first | row  | headings |\n"\

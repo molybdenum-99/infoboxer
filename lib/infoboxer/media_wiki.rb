@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mediawiktory'
 require 'addressable/uri'
 
@@ -25,7 +27,7 @@ module Infoboxer
     # You can set yours as an option to {Infoboxer.wiki} and its shortcuts,
     # or to {#initialize}
     UA = "Infoboxer/#{Infoboxer::VERSION} "\
-      '(https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)'.freeze
+      '(https://github.com/molybdenum-99/infoboxer; zverok.offline@gmail.com)'
 
     class << self
       # User agent getter/setter.

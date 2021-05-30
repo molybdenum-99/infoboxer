@@ -16,15 +16,39 @@ AllCops:
     - 'Gemfile'
     - 'infoboxer.gemspec'
   DisplayCopNames: true
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 2.6
 
 Style/OptionHash:
   Enabled: true
+
+# FIXME
+Lint/MissingSuper:
+  Enabled: false
+
 
 # My personal style
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - 'lib/infoboxer/definitions/en.wikipedia.org.rb'
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Style/AccessorGrouping:
+  Enabled: false
+
 Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ClassEqualityComparison:
+  Enabled: false
+
+Style/CommentAnnotation:
   Enabled: false
 
 Style/EmptyElse:
@@ -36,8 +60,17 @@ Style/CaseEquality:
 Style/FormatString:
   EnforcedStyle: percent
 
+Style/OptionalBooleanParameter:
+  Enabled: false
+
 Style/SignalException:
   EnforcedStyle: semantic
+
+Style/StringConcatenation:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
 
 Style/ParallelAssignment:
   Enabled: false
@@ -59,7 +92,10 @@ Style/PercentLiteralDelimiters:
 Style/TrailingCommaInArguments:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 Style/ModuleFunction:
@@ -75,7 +111,7 @@ Style/Documentation:
 Style/AsciiComments:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
     - 'lib/infoboxer/definitions/en.wikipedia.org.rb'
@@ -94,7 +130,7 @@ Metrics/PerceivedComplexity:
 Style/BlockDelimiters:
   Enabled: false
 
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Exclude:
     - 'spec/**/*'
 

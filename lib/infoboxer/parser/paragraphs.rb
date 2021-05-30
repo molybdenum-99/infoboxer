@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class Parser
     module Paragraphs
@@ -23,7 +25,7 @@ module Infoboxer
           heading(Regexp.last_match[:text], Regexp.last_match[:level])
         when /^\s*{\|/
           table
-        when /^[\*\#:;]./
+        when /^[*\#:;]./
           list(until_pattern)
         when /^-{4,}/
           HR.new

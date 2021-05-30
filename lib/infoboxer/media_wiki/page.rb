@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class MediaWiki
     # A descendant of {Tree::Document Document}, representing page,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Main client module for entire infoboxer functionality. If you're lucky,
 # there's no other classes/modules you need to instantiate or call
 # directly. You just do:
@@ -45,7 +47,7 @@
 #
 module Infoboxer
   # @private
-  WIKIA_API_URL = 'http://%s.wikia.com/api.php'.freeze
+  WIKIA_API_URL = 'http://%s.wikia.com/api.php'
 
   WIKIMEDIA_PROJECTS = {
     wikipedia: 'wikipedia.org',
@@ -69,10 +71,10 @@ module Infoboxer
 
   # Includeable version of {Infoboxer.wiki}
   def wiki(api_url, **options)
-    wikis[api_url] ||= MediaWiki.new(api_url, options)
+    wikis[api_url] ||= MediaWiki.new(api_url, **options)
   end
 
-  class << self
+  class << self # rubocop:disable Lint/EmptyClass -- that's for YARD!
     # @!method wiki(api_url, options = {})
     # Default method for creating MediaWiki API client.
     #
@@ -167,7 +169,7 @@ module Infoboxer
     define_method name do |lang = 'en', **options|
       lang, options = 'en', lang if lang.is_a?(Hash)
 
-      wiki("https://#{lang}.#{domain}/w/api.php", options)
+      wiki("https://#{lang}.#{domain}/w/api.php", **options)
     end
   end
 
@@ -226,7 +228,7 @@ module Infoboxer
   # Includeable version of {Infoboxer.wikia}
   def wikia(*domains)
     options = domains.last.is_a?(Hash) ? domains.pop : {}
-    wiki(WIKIA_API_URL % domains.reverse.join('.'), options)
+    wiki(WIKIA_API_URL % domains.reverse.join('.'), **options)
   end
 
   # Sets user agent string globally. Default user agent is

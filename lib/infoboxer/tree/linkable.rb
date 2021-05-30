@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # Module included into everything, that can be treated as

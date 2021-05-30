@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Navigation
     module Lookup
@@ -8,7 +10,7 @@ module Infoboxer
         def initialize(*arg, &block)
           @arg = [arg, block].flatten.compact.map(&method(:sym_to_class))
           @arg.each do |a|
-            a.reject! { |_k, v| v.nil? } if a.is_a?(Hash)
+            a.compact! if a.is_a?(Hash)
           end
         end
 

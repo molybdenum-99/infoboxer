@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'htmlentities'
 
 module Infoboxer
@@ -152,7 +154,7 @@ module Infoboxer
       end
 
       def show_params(prms = nil)
-        (prms || params).reject { |_, v| v.nil? }.map { |k, v| "#{k}: #{v.inspect}" }.join(', ')
+        (prms || params).compact.map { |k, v| "#{k}: #{v.inspect}" }.join(', ')
       end
 
       def indent(level)

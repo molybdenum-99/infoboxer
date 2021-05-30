@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # Represents gallery of images (contents of `<gallery>` special tag).

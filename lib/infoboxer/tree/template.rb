@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'linkable'
 
 module Infoboxer
@@ -112,7 +114,7 @@ module Infoboxer
       alias_method :variables, :children
 
       def initialize(name, variables = Nodes[])
-        super(variables, extract_params(variables))
+        super(variables, **extract_params(variables))
         @name = name
       end
 

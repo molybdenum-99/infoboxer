@@ -16,8 +16,8 @@ group :development do
   gem 'ruby-prof' unless RUBY_PLATFORM.include?('java')
   gem 'rubygems-tasks'
   gem 'byebug' unless RUBY_PLATFORM.include?('java')
-  gem 'rubocop', '~> 0.52.1'
-  gem 'rubocop-rspec', '~> 1.20'
+  gem 'rubocop', '~> 1.15.0'
+  gem 'rubocop-rspec', '~> 2.3.0'
 end
 
 group :test do

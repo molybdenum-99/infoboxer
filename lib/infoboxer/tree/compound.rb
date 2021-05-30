@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # Base class for all nodes with children.
     class Compound < Node
       def initialize(children = Nodes.new, **params)
-        super(params)
+        super(**params)
         @children = Nodes[*children]
         @children.each { |c| c.parent = self }
       end

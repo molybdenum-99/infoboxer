@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class Parser
     # http://en.wikipedia.org/wiki/Help:Table
@@ -12,7 +14,7 @@ module Infoboxer
 
         prms = table_params
         log "Table params found #{prms}"
-        table = Tree::Table.new(Nodes[], prms)
+        table = Tree::Table.new(Nodes[], **prms)
 
         @context.next!
 
@@ -63,14 +65,14 @@ module Infoboxer
 
       def table_row(table, param_str)
         log 'Table row found'
-        table.push_children(TableRow.new(Nodes[], parse_params(param_str)))
+        table.push_children(TableRow.new(Nodes[], **parse_params(param_str)))
       end
 
       def table_caption(table)
         log 'Table caption found'
         @context.skip(/^\s*\|\+\s*/)
 
-        params = if @context.check(/[^|{|\[]+\|([^\|]|$)/)
+        params = if @context.check(/[^|{\[]+\|([^|]|$)/)
                    parse_params(@context.scan_until(/\|/))
                  else
                    {}
@@ -81,7 +83,7 @@ module Infoboxer
           @context.unscan_matched!
           @context.prev! # compensate next! which will be done in table()
         end
-        table.push_children(TableCaption.new(children.strip, params))
+        table.push_children(TableCaption.new(children.strip, **params))
       end
 
       def table_cells(table, cell_class = TableCell)
@@ -91,13 +93,13 @@ module Infoboxer
 
         @context.skip(/\s*[!|]\s*/)
         guarded_loop do
-          params = if @context.check(/[^|{|\[]+\|([^\|]|$)/)
+          params = if @context.check(/[^|{\[]+\|([^|]|$)/)
                      parse_params(@context.scan_until(/\|/))
                    else
                      {}
                    end
           content = short_inline(/(\|\||!!)/)
-          row.push_children(cell_class.new(content, params))
+          row.push_children(cell_class.new(content, **params))
           break if @context.eol?
         end
       end
@@ -135,6 +137,7 @@ module Infoboxer
         unless container
           # return "table not continued" unless row is empty
           return true if @context.current.empty?
+
           @context.prev!
           return false
         end

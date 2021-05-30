@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # Represents item of ordered or unordered list.
@@ -14,7 +16,7 @@ module Infoboxer
       def merge!(other)
         ochildren = other.children.dup
         children.last.merge!(ochildren.shift) \
-          if children.last && children.last.can_merge?(ochildren.first)
+          if children.last&.can_merge?(ochildren.first)
         push_children(*ochildren)
       end
 
@@ -78,7 +80,7 @@ module Infoboxer
     # Represents ordered list (list with numbers).
     class OrderedList < List
       def make_marker(item)
-        list_text_indent + "#{(item.index + 1)}. "
+        list_text_indent + "#{item.index + 1}. "
       end
     end
 

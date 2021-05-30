@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class Parser
     module Template
@@ -44,6 +46,7 @@ module Infoboxer
           log 'Variable value found'
 
           break if @context.eat_matched?('}}')
+
           @context.eof? and @context.fail!("Unexpected break of template variables: #{res}")
         end
         res

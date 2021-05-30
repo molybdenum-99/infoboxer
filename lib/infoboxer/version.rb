@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   MAJOR = 0
   MINOR = 3

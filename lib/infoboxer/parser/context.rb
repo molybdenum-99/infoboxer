@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'strscan'
 
 module Infoboxer
@@ -19,22 +21,23 @@ module Infoboxer
       attr_reader :next_lines
 
       def colno
-        @scanner && @scanner.pos || 0
+        @scanner&.pos || 0
       end
 
       def matched
-        @matched ||= @scanner && @scanner.matched
+        @matched ||= @scanner&.matched
       end
 
       # check which works only once
       def eat_matched?(str)
         return false unless matched == str
+
         @matched = 'DUMMY'
         true
       end
 
       def rest
-        @rest ||= @scanner && @scanner.rest
+        @rest ||= @scanner&.rest
       end
 
       alias_method :current, :rest
@@ -107,7 +110,7 @@ module Infoboxer
       end
 
       def scan_continued_until(re, leave_pattern = false)
-        res = ''
+        res = +''
 
         loop do
           chunk = _scan_until(re)
@@ -152,6 +155,7 @@ module Infoboxer
 
       def unscan_matched!
         return unless @matched
+
         @scanner.pos -= @matched.size
         @rest = nil
       end
@@ -173,7 +177,7 @@ module Infoboxer
       def shift(amount)
         @lineno += amount
         current = @lines[lineno]
-        @next_lines = @lines[(lineno + 1)..-1]
+        @next_lines = @lines[(lineno + 1)..]
         if current
           @scanner.string = current
           @rest = current

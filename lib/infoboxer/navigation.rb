@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   # Navigation is one of the things Infoboxer is proud about. It tries
   # to be logical, unobtrusive and compact.

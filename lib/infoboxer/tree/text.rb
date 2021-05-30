@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # Represents plain text node.
@@ -14,8 +16,8 @@ module Infoboxer
       attr_accessor :raw_text
 
       def initialize(text, **params)
-        super(params)
-        @raw_text = text
+        super(**params)
+        @raw_text = +text
       end
 
       # See {Node#text}
@@ -37,13 +39,13 @@ module Infoboxer
       # @private
       # Internal, used by {Parser}
       def merge!(other)
-        if other.is_a?(String)
-          @raw_text << other
-        elsif other.is_a?(Text)
-          @raw_text << other.raw_text
-        else
-          fail("Not mergeable into text: #{other.inspect}")
-        end
+        @raw_text <<
+          case other
+          when String then other
+          when Text then other.raw_text
+          else
+            fail("Not mergeable into text: #{other.inspect}")
+          end
       end
 
       # @private

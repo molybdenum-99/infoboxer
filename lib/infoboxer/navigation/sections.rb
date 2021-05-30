@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Navigation
     # `Sections` module provides logical view on document strcture.
@@ -75,7 +77,7 @@ module Infoboxer
           when 1
             @sections.select { |s| names.first === s.heading.text_ }
           else
-            @sections.select { |s| names.first === s.heading.text_ }.sections(*names[1..-1])
+            @sections.select { |s| names.first === s.heading.text_ }.sections(*names[1..])
           end
         end
 
@@ -83,6 +85,7 @@ module Infoboxer
           sections = names.map { |name|
             heading = lookup_children(:Heading, text_: name).first
             next unless heading
+
             body = heading.next_siblings
                           .take_while { |n| !n.is_a?(Tree::Heading) || n.level > heading.level }
 
@@ -104,6 +107,7 @@ module Infoboxer
         def make_sections
           res = Tree::Nodes[]
           return res if headings.empty?
+
           level = headings.first.level
 
           children

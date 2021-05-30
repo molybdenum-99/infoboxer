@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'linkable'
 
 module Infoboxer
@@ -73,6 +75,7 @@ module Infoboxer
 
         return unless children.count == 1 &&
                       children.first.is_a?(Text) && children.first.raw_text.empty?
+
         children.first.raw_text = @topic
       end
     end

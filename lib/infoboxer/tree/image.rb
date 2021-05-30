@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Tree
     # Represents image (or other media file).
@@ -7,7 +9,7 @@ module Infoboxer
     class Image < Node
       def initialize(path, caption: nil, **params)
         @caption = caption
-        super({path: path}.merge(params))
+        super(path: path, **params)
       end
 
       # Image caption. Can have (sometimes many) other nodes inside.

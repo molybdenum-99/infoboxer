@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Navigation
     # See {Shortcuts::Node Shortcuts::Node} for everything!

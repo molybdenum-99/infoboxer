@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class Parser
     module Image
@@ -9,7 +11,7 @@ module Infoboxer
 
         path = @context.scan_until(/\||\]\]/)
         attrs = @context.matched == '|' ? image_attrs : {}
-        Tree::Image.new(path, attrs)
+        Tree::Image.new(path, **attrs)
       end
 
       def image_attrs

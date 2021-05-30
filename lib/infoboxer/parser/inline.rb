@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   class Parser
     module Inline
@@ -16,6 +18,7 @@ module Infoboxer
 
           if @context.eof?
             break unless until_pattern
+
             @context.fail!("#{until_pattern.source} not found, starting from #{start}")
           end
 
@@ -33,7 +36,7 @@ module Infoboxer
         guarded_loop do
           # FIXME: quick and UGLY IS HELL JUST TRYING TO MAKE THE SHIT WORK
           chunk =
-            if @context.inline_eol_sign == /^\]/
+            if @context.inline_eol_sign == /^\]/ # rubocop:disable Style/CaseLikeIf
               @context.scan_until(re.short_inline_until_cache_brackets[until_pattern])
             elsif @context.inline_eol_sign == /^\]\]/
               @context.scan_until(re.short_inline_until_cache_brackets2[until_pattern])
@@ -64,6 +67,7 @@ module Infoboxer
 
           if @context.eof?
             break unless until_pattern
+
             @context.fail!("#{until_pattern.source} not found")
           end
 
@@ -155,7 +159,7 @@ module Infoboxer
 
       def reference(param_str, closed = false)
         children = closed ? Nodes[] : long_inline(%r{</ref>})
-        Ref.new(children, parse_params(param_str))
+        Ref.new(children, **parse_params(param_str))
       end
 
       def math
@@ -179,11 +183,11 @@ module Infoboxer
           attrs = @context.matched == '|' ? gallery_image_attrs : {}
           unless path.empty?
             # FIXME: what if path NOT matches the namespace?
-            images << Tree::Image.new(path.sub(/^#{re.file_namespace.source}/i, ''), attrs)
+            images << Tree::Image.new(path.sub(/^#{re.file_namespace.source}/i, ''), **attrs)
           end
           break if @context.matched == '</gallery>'
         end
-        Gallery.new(images, params)
+        Gallery.new(images, **params)
       end
 
       def gallery_image_attrs

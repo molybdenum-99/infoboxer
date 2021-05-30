@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ostruct'
 require 'logger'
 
@@ -52,7 +54,7 @@ module Infoboxer
     def initialize(context)
       @context = context
       @re = OpenStruct.new(make_regexps)
-      @logger = Logger.new(STDOUT).tap { |l| l.level = Logger::FATAL }
+      @logger = Logger.new($stdout).tap { |l| l.level = Logger::FATAL }
     end
 
     require_relative 'parser/inline'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'terminal-table'
 
 module Infoboxer
@@ -24,13 +26,13 @@ module Infoboxer
       #
       # FIXME: it can easily be several table heading rows
       def heading_row
-        rows.first if rows.first && rows.first.children.all? { |c| c.is_a?(TableHeading) }
+        rows.first if rows.first&.children&.all? { |c| c.is_a?(TableHeading) }
       end
 
       # For now, returns all table rows except {#heading_row}
       def body_rows
-        if rows.first && rows.first.children.all? { |c| c.is_a?(TableHeading) }
-          rows[1..-1]
+        if rows.first&.children&.all? { |c| c.is_a?(TableHeading) }
+          rows[1..]
         else
           rows
         end

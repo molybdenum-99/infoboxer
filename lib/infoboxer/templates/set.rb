@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Infoboxer
   module Templates
     # Base class for defining set of templates, used for some site/domain.

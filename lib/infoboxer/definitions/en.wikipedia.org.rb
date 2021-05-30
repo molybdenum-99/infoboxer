@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable Layout/EmptyLinesAroundArguments
 module Infoboxer
   MediaWiki::Traits.for('en.wikipedia.org') do
