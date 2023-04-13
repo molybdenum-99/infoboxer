@@ -177,7 +177,7 @@ module Infoboxer
 
   WIKIMEDIA_COMMONS.each do |name, domain|
     define_method name do |**options|
-      wiki("https://#{domain}/w/api.php", options)
+      wiki("https://#{domain}/w/api.php", **options)
     end
   end
 
