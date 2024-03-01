@@ -138,14 +138,13 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    yard (0.9.26)
+    yard (0.9.36)
     yard-junk (0.0.9)
       backports (>= 3.18)
       rainbow
       yard
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
